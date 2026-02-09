@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Funeral Cost &amp; Burial Expense Analyzer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Funeral Cost &amp; Burial Expense Analyzer helps families estimate costs, compare options, and explore payment ideas with a calm AI helper. Information only – not financial, legal, tax, or medical advice."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="site-body">
+  <header class="site-header">
+    <div class="brand-block">
+      <div class="brand-accent"></div>
+      <div class="brand-text">
+        <a href="index.html" class="brand-link">
+          <span class="brand-title">Funeral Cost &amp; Burial Expense Analyzer</span>
+        </a>
+      </div>
+    </div>
+    <nav class="site-nav">
+      <a href="#mission" class="nav-link">Mission</a>
+      <a href="#who-we-are" class="nav-link">Who We Are</a>
+      <a href="#calculator" class="nav-link">Calculator</a>
+      <a href="#payment-help" class="nav-link">Payment Help</a>
+      <a href="#ai-helper" class="nav-link">AI Helper</a>
+      <a href="#state-costs" class="nav-link">State Costs</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section id="mission" class="hero">
+      <div class="hero-inner">
+        <div class="condolence-panel">
+          <p>
+            <strong>First, our deepest, heartfelt condolences.</strong>
+            We know this week is overwhelming. That’s why we built this site — to gently help you find fair,
+            reasonable pricing and the right accommodations so you can focus on honoring a life well lived.
+          </p>
+        </div>
+        <h1 class="hero-title">
+          Our mission is simple: clarity, dignity, and calm when you need it most.
+        </h1>
+        <p class="hero-body">
+          In minutes, you’ll see realistic local costs for services, understand what usually drives prices up or down,
+          and explore ideas families often use to keep things respectful without overspending. Everything here is
+          written to be as clear and human as possible, with a calm tone that respects your grief.
+        </p>
+      </div>
+    </section>
+
+    <section id="who-we-are" class="section card">
+      <h2>Who we are</h2>
+      <p>
+        We are a small team of researchers, writers, and technologists who have each walked through the loss of someone
+        we love. We know how confusing it can feel to juggle grief, logistics, and costs at the same time. This site and
+        the AI helper are designed to give you a gentler starting point — a place to read, think, and ask questions
+        without sales pressure.
+      </p>
+      <p>
+        We are <strong>not</strong> funeral directors, lawyers, or financial advisors. We do not sell plans or services.
+        Instead, we focus on explaining common terms, typical cost ranges, and questions you can bring to licensed
+        professionals, funeral homes, and advisors in your area.
+      </p>
+    </section>
+
+    <section id="calculator" class="section card">
+      <h2>Funeral cost &amp; burial expense calculator</h2>
+      <p>
+        Use this simple estimator to get a rough idea of how different choices can add up. This is only an
+        educational tool — it is not a quote, not a contract, and not professional advice. Always confirm real prices
+        directly with funeral homes, cemeteries, and other providers.
+      </p>
+      <div class="calculator-grid">
+        <div class="calculator-field">
+          <label for="calcFuneralHome">Funeral home services (viewing, ceremony, staff, etc.)</label>
+          <input id="calcFuneralHome" type="number" min="0" step="100" placeholder="e.g., 4000" />
+        </div>
+        <div class="calculator-field">
+          <label for="calcCemetery">Cemetery costs (plot, opening/closing, vault, etc.)</label>
+          <input id="calcCemetery" type="number" min="0" step="100" placeholder="e.g., 3000" />
+        </div>
+        <div class="calculator-field">
+          <label for="calcExtras">Other items (flowers, obituary, printed programs, transport, etc.)</label>
+          <input id="calcExtras" type="number" min="0" step="50" placeholder="e.g., 1200" />
+        </div>
+      </div>
+      <button type="button" class="btn-primary calculator-button" id="calcEstimateButton">
+        Estimate total
+      </button>
+      <p id="calcResult" class="small muted" style="margin-top:0.75rem;">
+        Enter rough amounts above and click “Estimate total” to see a simple combined estimate.
+      </p>
+      <p>
+        Every family’s needs are different, but many budgets start with a similar checklist of decisions. Use the
+        checklist below as a thinking guide — it is not a formal quote, but it can help you estimate which choices
+        tend to be higher or lower cost so you can talk with local providers.
+      </p>
+      <ul class="checklist">
+        <li>Type of service (traditional funeral, memorial only, direct cremation, or direct burial).</li>
+        <li>Location and venue (funeral home chapel, house of worship, community hall, graveside-only).</li>
+        <li>Preparation and care of the body (embalming, dressing, basic care, or minimal preparation).</li>
+        <li>Casket or urn choices and whether rental or simple options are acceptable.</li>
+        <li>Burial plot, niche, or scattering location, plus any cemetery fees or opening/closing charges.</li>
+        <li>Transportation for the deceased and for family members if needed.</li>
+        <li>Printing, flowers, music, livestreaming, and other optional extras.</li>
+      </ul>
+      <p class="small muted">
+        The AI helper can walk through this checklist with you step by step, helping you organize your thoughts
+        before you speak with a funeral home or cemetery.
+      </p>
+    </section>
+
+    <section id="payment-help" class="section card">
+      <h2>Payment ideas families often explore</h2>
+      <p>
+        Many families are surprised by how quickly funeral and burial costs add up. The goal of this section is to help
+        you understand common paths people research — not to tell you what to do or whether you qualify for any option.
+      </p>
+      <ul class="checklist">
+        <li>Existing life insurance policies and whether they can be assigned to the funeral home.</li>
+        <li>Payable-on-death bank accounts or small savings earmarked for final expenses.</li>
+        <li>Short-term payment plans with funeral homes or third-party financing companies.</li>
+        <li>Veterans benefits, union benefits, or employer-sponsored assistance where available.</li>
+        <li>State or county assistance for indigent burials or hardship situations.</li>
+        <li>Community support such as faith communities, mutual aid, or fundraising among friends and family.</li>
+      </ul>
+      <p class="small muted">
+        The AI helper can suggest questions to ask about each of these ideas. It cannot tell you what you personally
+        qualify for or whether a specific product is right for you. Those decisions must be made with licensed
+        professionals who understand your situation.
+      </p>
+    </section>
+
+    <section id="state-costs" class="section card">
+      <h2>Researching costs by state</h2>
+      <p>
+        Average funeral and burial expenses vary widely by state and even by county. Some states have strong consumer
+        protection rules, price disclosure requirements, or public guides that outline typical fees.
+      </p>
+      <p>
+        Ask the AI helper to walk you through how to search for state-specific consumer guides, funeral board websites,
+        and local price surveys. It can also help you create a simple script for calling multiple funeral homes so you
+        feel more confident asking for itemized price lists.
+      </p>
+    </section>
+
+    <section id="ai-helper" class="section section-highlight">
+      <h2>Talk with the AI funeral cost helper</h2>
+      <p>
+        When you’re ready, you can open the AI helper for a calm, private conversation about what you’re facing. You
+        can type things like:
+      </p>
+      <ul class="checklist">
+        <li>“We were quoted $9,000 for a funeral. What questions should I ask before agreeing?”</li>
+        <li>“Can you help me think through a simple, respectful service on a limited budget?”</li>
+        <li>“How do people usually compare prices between funeral homes without feeling rude?”</li>
+      </ul>
+      <p class="small muted">
+        The AI cannot give you legal, financial, tax, or medical advice. It cannot tell you what to sign or what you
+        should personally choose. It exists to help you slow down, organize your thoughts, and prepare for conversations
+        with licensed funeral directors, attorneys, and financial professionals.
+      </p>
+      <a href="chat.html" class="btn-primary">Open the AI helper ↗</a>
+    </section>
+
+    <section id="resources" class="section card">
+      <h2>Helpful planning resources to explore</h2>
+      <p>
+        Here are examples of websites families often explore on their own for planning checklists, consumer guides, and
+        educational content. Availability and suitability will vary, and this list is not an endorsement of any provider.
+      </p>
+      <div class="resource-grid">
+        <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored" class="resource-card">
+          <span class="resource-name">Funeral Consumers Alliance</span>
+          <span class="resource-tagline">Consumer education and cost awareness</span>
+        </a>
+        <a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored" class="resource-card">
+          <span class="resource-name">Parting.com</span>
+          <span class="resource-tagline">Compare funeral home prices in some areas</span>
+        </a>
+        <a href="https://everloved.com" target="_blank" rel="noopener noreferrer sponsored" class="resource-card">
+          <span class="resource-name">Ever Loved</span>
+          <span class="resource-tagline">Planning tools and memorial pages</span>
+        </a>
+        <a href="https://www.dignitymemorial.com" target="_blank" rel="noopener noreferrer sponsored" class="resource-card">
+          <span class="resource-name">Dignity Memorial</span>
+          <span class="resource-tagline">National funeral &amp; cremation provider network</span>
+        </a>
+      </div>
+      <p class="small muted">
+        Always review pricing, contracts, and terms carefully, and consider asking a trusted friend, family member, or
+        advisor to look over important documents with you before you sign anything.
+      </p>
+    </section>
+
+    <section id="contact" class="section card">
+      <h2>Contact &amp; feedback</h2>
+      <p>
+        If you’d like to share feedback about this tool or suggest resources we should add, you can reach our small
+        team by email. We cannot answer personal legal, financial, or medical questions, but we do read every note
+        about how to make this experience gentler and more useful for other families.
+      </p>
+      <p class="contact-email">
+        For advertising and partnership inquiries only, email
+        <a href="mailto:advertise@funeralcostanalyzer.com">advertise@funeralcostanalyzer.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-text">
+      Information only · Not financial, legal, tax, medical, or funeral-director advice · Always review decisions with licensed professionals and trusted advisors.
+    </p>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.getElementById("calcEstimateButton");
+      if (!btn) return;
+      const fhInput = document.getElementById("calcFuneralHome");
+      const cemInput = document.getElementById("calcCemetery");
+      const extraInput = document.getElementById("calcExtras");
+      const result = document.getElementById("calcResult");
+
+      btn.addEventListener("click", () => {
+        const fh = parseFloat(fhInput.value || "0") || 0;
+        const cem = parseFloat(cemInput.value || "0") || 0;
+        const extra = parseFloat(extraInput.value || "0") || 0;
+        const total = fh + cem + extra;
+        if (!total) {
+          result.textContent =
+            "Enter some rough amounts above and I’ll show you a simple combined estimate. For real pricing, always confirm directly with providers.";
+        } else {
+          const formatted = total.toLocaleString(undefined, {
+            style: "currency",
+            currency: "USD"
+          });
+          result.textContent =
+            "A very rough combined estimate based on what you entered is " +
+            formatted +
+            ". This is only an educational ballpark figure. Always confirm exact pricing, fees, and terms directly with funeral homes, cemeteries, and other providers before making decisions.";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Funeral Cost Helper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions. Information only – not financial, legal, tax, medical, or funeral-director advice."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="chat-body">
+  <header class="chat-header">
+    <div class="chat-header-main">
+      <span class="chat-title">Funeral Cost &amp; Burial Expense Analyzer – AI Helper</span>
+      <span class="chat-subtitle">A gentle, private space to think through costs, options, and questions.</span>
+    </div>
+    <a href="index.html" class="chat-back-link">← Back to homepage</a>
+  </header>
+
+  <main class="chat-main">
+    <div id="chatWindow" class="chat-window">
+      <div class="message-row assistant">
+        <div class="message-bubble">
+          <p>
+            I’m so sorry you’re going through this. I’m an AI helper that can talk with you about funeral and burial
+            costs, what usually affects the price, and questions you might want to ask funeral homes or other
+            professionals.
+          </p>
+          <p class="message-small">
+            I cannot give financial, legal, tax, medical, or funeral-director advice, and I cannot tell you what to
+            sign or which option you personally should choose. My role is to explain things in plain language and help
+            you feel more prepared for conversations with licensed professionals and trusted advisors.
+          </p>
+          <p>
+            If it would help, I can also point you toward planning and consumer education resources such as the Funeral
+            Consumers Alliance (https://www.funerals.org), Parting.com (https://www.parting.com), Ever Loved
+            (https://everloved.com), or Dignity Memorial (https://www.dignitymemorial.com) so you can explore them on
+            your own time.
+          </p>
+          <p>
+            When you’re ready, tell me a little about what you’re facing — for example, a quote you received, your
+            approximate budget, or the kind of service you’re hoping for — and we can think through it together.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <form id="chatForm" class="chat-form">
+      <textarea
+        id="userInput"
+        class="chat-input"
+        rows="1"
+        placeholder="Type a message… (Shift+Enter for a new line)"
+      ></textarea>
+      <button type="submit" class="btn-primary chat-send">Send</button>
+    </form>
+  </main>
+
+  <footer class="chat-footer">
+    <p class="footer-text small">
+      Information only. Not financial, legal, tax, medical, or funeral-director advice. For decisions about services,
+      contracts, and payments, speak with licensed professionals and trusted advisors.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
