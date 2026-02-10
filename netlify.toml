@@ -215,3 +215,49 @@
   from = "/consumer-rights"
   to = "/consumer-rights-funeral-pricing.html"
   status = 301
+
+# National Funeral Cost Index & Research Assets
+[[redirects]]
+  from = "/cost-index"
+  to = "/national-funeral-cost-index.html"
+  status = 301
+
+[[redirects]]
+  from = "/funeral-cost-index"
+  to = "/national-funeral-cost-index.html"
+  status = 301
+
+[[redirects]]
+  from = "/national-index"
+  to = "/national-funeral-cost-index.html"
+  status = 301
+
+[[redirects]]
+  from = "/index-report"
+  to = "/national-funeral-cost-index.html"
+  status = 301
+
+[[redirects]]
+  from = "/cost-index-pdf"
+  to = "/funeral-cost-index-pdf.html"
+  status = 301
+
+[[redirects]]
+  from = "/printable-checklist"
+  to = "/funeral-planning-checklist-printable.html"
+  status = 301
+
+[[redirects]]
+  from = "/cost-worksheet"
+  to = "/funeral-cost-comparison-worksheet.html"
+  status = 301
+
+[[redirects]]
+  from = "/embed-widget"
+  to = "/funeral-cost-widget.html"
+  status = 301
+
+[[redirects]]
+  from = "/widget"
+  to = "/funeral-cost-widget.html"
+  status = 301
