@@ -1,6 +1,6 @@
 /* ============================================================
    Funeral Cost & Burial Expense Analyzer — Premium Stylesheet
-   Phase 2: Visual polish, authority-level design
+   Warm, compassionate, high-trust design
    ============================================================ */
 
 *,
@@ -10,42 +10,58 @@
 }
 
 :root {
-  /* Primary palette — calm, authoritative navy + warm gold */
-  --navy-900: #0f172a;
-  --navy-800: #1e293b;
-  --navy-700: #334155;
-  --navy-600: #475569;
-  --slate-500: #64748b;
-  --slate-400: #94a3b8;
-  --slate-300: #cbd5e1;
-  --slate-200: #e2e8f0;
-  --slate-100: #f1f5f9;
-  --slate-50: #f8fafc;
+  /* Primary palette — warm browns, beiges, creams */
+  --brown-900: #3b2314;
+  --brown-800: #4a2c17;
+  --brown-700: #5c3a1e;
+  --brown-600: #6d4a2a;
+  --brown-500: #8b5e34;
+  --brown-400: #a67c52;
+  --brown-300: #c4a27a;
+  --brown-200: #dcc5a4;
 
-  /* Warm accents */
-  --gold-600: #ca8a04;
-  --gold-500: #eab308;
-  --gold-400: #facc15;
-  --gold-300: #fde047;
-  --amber-100: #fef3c7;
-  --amber-50: #fffbeb;
+  /* Warm neutrals */
+  --warm-900: #352a21;
+  --warm-800: #483b2f;
+  --warm-700: #5e4d3d;
+  --warm-600: #7a6652;
+  --warm-500: #9a8672;
+  --warm-400: #b5a594;
+  --warm-300: #d1c4b4;
+  --warm-200: #e6ddd2;
+  --warm-150: #efe8df;
+  --warm-100: #f5f0ea;
+  --warm-50: #faf8f5;
+
+  /* Accent — gentle gold / warm amber */
+  --gold-600: #a67c3d;
+  --gold-500: #c49a52;
+  --gold-400: #d4af6a;
+  --gold-300: #e2c88e;
+  --gold-200: #eddcb5;
+  --gold-100: #f7eeda;
+  --gold-50: #fcf8f0;
+
+  /* Soft rose accent for condolence warmth */
+  --rose-100: #faf0ee;
+  --rose-50: #fdf7f6;
 
   /* Semantic */
-  --bg-page: #f8fafc;
+  --bg-page: #faf8f5;
   --bg-card: #ffffff;
-  --bg-hero: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 40%, #fefce8 100%);
-  --bg-header: #ffffff;
-  --text-heading: var(--navy-900);
-  --text-body: var(--navy-700);
-  --text-muted: var(--slate-500);
-  --text-subtle: var(--slate-400);
-  --border-light: var(--slate-200);
-  --border-card: var(--slate-200);
+  --bg-hero: linear-gradient(145deg, #faf8f5 0%, #f5f0ea 35%, #f7eeda 70%, #fcf8f0 100%);
+  --bg-header: linear-gradient(180deg, #fdfcfa 0%, #faf8f5 100%);
+  --text-heading: var(--brown-800);
+  --text-body: var(--warm-700);
+  --text-muted: var(--warm-500);
+  --text-subtle: var(--warm-400);
+  --border-light: var(--warm-200);
+  --border-card: #e8dfd4;
   --accent: var(--gold-600);
-  --accent-light: var(--amber-50);
+  --accent-light: var(--gold-50);
 
   /* Typography */
-  --font-heading: "Merriweather", "Georgia", serif;
+  --font-heading: "Merriweather", "Georgia", "Palatino Linotype", serif;
   --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
 
   /* Spacing scale */
@@ -55,7 +71,7 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
-  --space-3xl: 4rem;
+  --space-3xl: 4.5rem;
 
   /* Border radius */
   --radius-sm: 0.5rem;
@@ -63,11 +79,12 @@
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  /* Shadows — warm-toned, softer */
+  --shadow-sm: 0 1px 3px rgba(74, 44, 23, 0.04), 0 1px 2px rgba(74, 44, 23, 0.03);
+  --shadow-md: 0 4px 12px -2px rgba(74, 44, 23, 0.06), 0 2px 6px -2px rgba(74, 44, 23, 0.04);
+  --shadow-lg: 0 10px 24px -4px rgba(74, 44, 23, 0.07), 0 4px 8px -4px rgba(74, 44, 23, 0.03);
+  --shadow-xl: 0 20px 40px -8px rgba(74, 44, 23, 0.08), 0 8px 16px -6px rgba(74, 44, 23, 0.03);
+  --shadow-warm-glow: 0 2px 16px rgba(166, 124, 61, 0.12);
 
   /* Content width */
   --max-width: 960px;
@@ -89,7 +106,7 @@ body.chat-body {
   min-height: 100vh;
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.75;
   background: var(--bg-page);
   color: var(--text-body);
 }
@@ -97,7 +114,7 @@ body.chat-body {
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   color: var(--text-heading);
-  line-height: 1.3;
+  line-height: 1.35;
   margin: 0 0 var(--space-md);
 }
 
@@ -106,9 +123,9 @@ h2 {
   font-weight: 700;
   letter-spacing: -0.01em;
   padding-bottom: var(--space-sm);
-  border-bottom: 3px solid var(--gold-400);
+  border-bottom: 3px solid var(--gold-300);
   display: inline-block;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 h3 {
@@ -125,7 +142,7 @@ p:last-child {
 }
 
 a {
-  color: var(--accent);
+  color: var(--brown-500);
   transition: color 0.2s ease;
 }
 
@@ -143,7 +160,7 @@ a:hover {
   left: var(--space-md);
   z-index: 100;
   padding: var(--space-sm) var(--space-lg);
-  background: var(--navy-900);
+  background: var(--brown-800);
   color: #fff;
   font-size: 0.875rem;
   font-weight: 600;
@@ -184,10 +201,10 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-xl);
-  height: 72px;
+  height: 76px;
   background: var(--bg-header);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--warm-200);
+  box-shadow: 0 1px 8px rgba(74, 44, 23, 0.04);
 }
 
 .brand-block {
@@ -200,11 +217,11 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
-  box-shadow: 0 2px 8px rgba(202, 138, 4, 0.25);
+  background: linear-gradient(145deg, var(--brown-500), var(--brown-700));
+  box-shadow: 0 2px 10px rgba(92, 58, 30, 0.2);
   flex-shrink: 0;
 }
 
@@ -227,15 +244,16 @@ a:hover {
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: var(--navy-900);
+  color: var(--brown-800);
 }
 
 .brand-tagline {
   font-size: 0.72rem;
   font-weight: 400;
-  color: var(--slate-500);
+  color: var(--warm-500);
   letter-spacing: 0.02em;
-  margin-top: 1px;
+  margin-top: 2px;
+  font-style: italic;
 }
 
 /* Navigation */
@@ -252,15 +270,15 @@ a:hover {
   font-size: 0.84rem;
   font-weight: 500;
   text-decoration: none;
-  color: var(--navy-700);
+  color: var(--warm-700);
   padding: 0.35rem 0.65rem;
   border-radius: var(--radius-sm);
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 .nav-link:hover {
-  background: var(--slate-100);
-  color: var(--navy-900);
+  background: var(--warm-100);
+  color: var(--brown-800);
   text-decoration: none;
 }
 
@@ -280,7 +298,7 @@ a:hover {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--navy-800);
+  background: var(--brown-700);
   border-radius: 2px;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
@@ -302,35 +320,35 @@ a:hover {
 .hero {
   background: var(--bg-hero);
   border-radius: var(--radius-xl);
-  padding: var(--space-2xl) var(--space-xl);
-  border: 1px solid var(--border-card);
+  padding: var(--space-3xl) var(--space-xl);
+  border: 1px solid var(--warm-200);
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle decorative element */
+/* Subtle warm decorative circles */
 .hero::before {
   content: "";
   position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 200px;
-  height: 200px;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(196, 154, 82, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  bottom: -40px;
-  left: -40px;
-  width: 160px;
-  height: 160px;
+  bottom: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(234, 179, 8, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(196, 154, 82, 0.05) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -340,12 +358,13 @@ a:hover {
 }
 
 .condolence-panel {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radius-md);
   padding: var(--space-lg) var(--space-xl);
-  border: 1px solid var(--slate-200);
+  border: 1px solid var(--warm-200);
+  border-left: 4px solid var(--gold-400);
   margin-bottom: var(--space-xl);
   box-shadow: var(--shadow-sm);
 }
@@ -353,28 +372,28 @@ a:hover {
 .condolence-panel p {
   margin: 0;
   font-size: 0.95rem;
-  line-height: 1.75;
-  color: var(--navy-700);
+  line-height: 1.8;
+  color: var(--warm-700);
 }
 
 .condolence-panel strong {
-  color: var(--navy-900);
+  color: var(--brown-800);
 }
 
 .hero-title {
   font-family: var(--font-heading);
   font-size: 2.1rem;
   font-weight: 700;
-  line-height: 1.3;
-  margin: 0 0 var(--space-md);
-  color: var(--navy-900);
+  line-height: 1.35;
+  margin: 0 0 var(--space-lg);
+  color: var(--brown-800);
   letter-spacing: -0.02em;
 }
 
 .hero-body {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--navy-700);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--warm-700);
   max-width: 680px;
 }
 
@@ -383,10 +402,10 @@ a:hover {
 .trust-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   margin-top: var(--space-xl);
   padding-top: var(--space-lg);
-  border-top: 1px solid var(--slate-200);
+  border-top: 1px solid var(--warm-200);
 }
 
 .trust-item {
@@ -395,18 +414,18 @@ a:hover {
   gap: var(--space-sm);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--navy-700);
+  color: var(--warm-700);
 }
 
 .trust-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--amber-50);
-  border: 1px solid rgba(234, 179, 8, 0.2);
+  background: var(--gold-100);
+  border: 1px solid var(--gold-200);
   color: var(--gold-600);
   flex-shrink: 0;
 }
@@ -433,10 +452,10 @@ a:hover {
 }
 
 .section-highlight {
-  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  background: linear-gradient(145deg, var(--gold-50) 0%, var(--warm-100) 50%, var(--rose-50) 100%);
   border-radius: var(--radius-xl);
   padding: var(--space-xl);
-  border: 1px solid #dbeafe;
+  border: 1px solid var(--gold-200);
   box-shadow: var(--shadow-sm);
 }
 
@@ -445,16 +464,16 @@ a:hover {
    ============================================================ */
 
 .commitment-box {
-  margin-top: var(--space-lg);
+  margin-top: var(--space-xl);
   padding: var(--space-lg) var(--space-xl);
-  background: var(--slate-50);
+  background: var(--warm-50);
   border-radius: var(--radius-md);
-  border: 1px solid var(--slate-200);
+  border: 1px solid var(--warm-200);
 }
 
 .commitment-box h3 {
   margin-bottom: var(--space-sm);
-  color: var(--navy-800);
+  color: var(--brown-800);
 }
 
 /* ============================================================
@@ -469,11 +488,11 @@ a:hover {
 
 .checklist li {
   position: relative;
-  padding-left: 1.6rem;
+  padding-left: 1.7rem;
   font-size: 0.95rem;
   color: var(--text-body);
-  margin-top: 0.5rem;
-  line-height: 1.7;
+  margin-top: 0.6rem;
+  line-height: 1.75;
 }
 
 .checklist li::before {
@@ -481,10 +500,10 @@ a:hover {
   position: absolute;
   left: 0.2rem;
   top: 0.65rem;
-  width: 0.45rem;
-  height: 0.45rem;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
-  background: var(--gold-600);
+  background: var(--gold-400);
 }
 
 /* ============================================================
@@ -495,7 +514,7 @@ a:hover {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-md);
-  margin: var(--space-md) 0 var(--space-md);
+  margin: var(--space-lg) 0 var(--space-lg);
 }
 
 .calculator-field label {
@@ -508,9 +527,9 @@ a:hover {
 
 .calculator-field input {
   width: 100%;
-  padding: 0.55rem 0.75rem;
+  padding: 0.65rem 0.85rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--warm-200);
   font-size: 0.95rem;
   font-family: var(--font-body);
   color: var(--text-heading);
@@ -520,8 +539,8 @@ a:hover {
 
 .calculator-field input:focus {
   outline: none;
-  border-color: var(--gold-500);
-  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15);
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(196, 154, 82, 0.15);
 }
 
 .calculator-button {
@@ -539,9 +558,9 @@ a:hover {
 .cost-context-box {
   margin-top: var(--space-xl);
   padding: var(--space-lg) var(--space-xl);
-  background: var(--slate-50);
+  background: var(--warm-50);
   border-radius: var(--radius-md);
-  border: 1px solid var(--slate-200);
+  border: 1px solid var(--warm-200);
 }
 
 .cost-context-box h3 {
@@ -565,21 +584,21 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.65rem 0.85rem;
+  padding: 0.75rem 1rem;
   background: var(--bg-card);
   border-radius: var(--radius-sm);
-  border: 1px solid var(--slate-200);
+  border: 1px solid var(--warm-200);
 }
 
 .cost-range-label {
   font-size: 0.875rem;
-  color: var(--navy-700);
+  color: var(--warm-700);
 }
 
 .cost-range-value {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--navy-900);
+  color: var(--brown-800);
   white-space: nowrap;
 }
 
@@ -591,22 +610,22 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.5rem;
+  padding: 0.7rem 1.6rem;
   border-radius: var(--radius-sm);
   font-size: 0.9rem;
   font-weight: 600;
   font-family: var(--font-body);
   border: none;
   cursor: pointer;
-  background: var(--navy-800);
+  background: linear-gradient(145deg, var(--brown-600), var(--brown-700));
   color: #ffffff;
   text-decoration: none;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
 .btn-primary:hover {
-  background: var(--navy-900);
+  background: linear-gradient(145deg, var(--brown-700), var(--brown-800));
   box-shadow: var(--shadow-lg);
   transform: translateY(-1px);
   color: #ffffff;
@@ -629,7 +648,7 @@ a:hover {
 }
 
 .contact-email a {
-  color: var(--accent);
+  color: var(--brown-500);
   font-weight: 500;
 }
 
@@ -661,7 +680,7 @@ a:hover {
 
 .faq-item[open] {
   box-shadow: var(--shadow-md);
-  border-color: var(--slate-300);
+  border-color: var(--warm-300);
 }
 
 .faq-question {
@@ -669,7 +688,7 @@ a:hover {
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--navy-800);
+  color: var(--brown-800);
   cursor: pointer;
   list-style: none;
   display: flex;
@@ -680,7 +699,7 @@ a:hover {
 }
 
 .faq-question:hover {
-  background: var(--slate-50);
+  background: var(--warm-50);
 }
 
 .faq-question::after {
@@ -688,8 +707,8 @@ a:hover {
   display: inline-block;
   width: 10px;
   height: 10px;
-  border-right: 2px solid var(--slate-400);
-  border-bottom: 2px solid var(--slate-400);
+  border-right: 2px solid var(--warm-400);
+  border-bottom: 2px solid var(--warm-400);
   transform: rotate(45deg);
   flex-shrink: 0;
   transition: transform 0.25s ease;
@@ -708,8 +727,8 @@ a:hover {
   padding: 0 var(--space-lg) var(--space-lg);
   color: var(--text-body);
   font-size: 0.93rem;
-  line-height: 1.75;
-  border-top: 1px solid var(--slate-100);
+  line-height: 1.8;
+  border-top: 1px solid var(--warm-100);
 }
 
 .faq-answer p {
@@ -735,14 +754,14 @@ a:hover {
 
 .glossary-item {
   padding: var(--space-md) var(--space-lg);
-  background: var(--slate-50);
+  background: var(--warm-50);
   border-radius: var(--radius-md);
-  border: 1px solid var(--slate-200);
+  border: 1px solid var(--warm-200);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .glossary-item:hover {
-  border-color: var(--slate-300);
+  border-color: var(--warm-300);
   box-shadow: var(--shadow-sm);
 }
 
@@ -750,13 +769,13 @@ a:hover {
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--navy-800);
+  color: var(--brown-700);
   margin-bottom: var(--space-xs);
 }
 
 .glossary-definition {
   font-size: 0.875rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--text-body);
   margin: var(--space-xs) 0 0;
   padding: 0;
@@ -767,22 +786,22 @@ a:hover {
    ============================================================ */
 
 .tip-box {
-  margin-top: var(--space-lg);
+  margin-top: var(--space-xl);
   padding: var(--space-lg) var(--space-xl);
-  background: var(--amber-50);
+  background: var(--gold-50);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(234, 179, 8, 0.2);
-  border-left: 4px solid var(--gold-500);
+  border: 1px solid var(--gold-200);
+  border-left: 4px solid var(--gold-400);
 }
 
 .tip-box h3 {
-  color: var(--navy-800);
+  color: var(--brown-700);
   margin-bottom: var(--space-xs);
 }
 
 .tip-box p {
   font-size: 0.9rem;
-  color: var(--navy-700);
+  color: var(--warm-700);
 }
 
 /* ============================================================
@@ -805,7 +824,7 @@ a:hover {
 .resource-card {
   display: flex;
   flex-direction: column;
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-lg);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-card);
   background: var(--bg-card);
@@ -815,21 +834,21 @@ a:hover {
 }
 
 .resource-card:hover {
-  border-color: var(--gold-500);
-  box-shadow: var(--shadow-md);
+  border-color: var(--gold-400);
+  box-shadow: var(--shadow-md), var(--shadow-warm-glow);
   transform: translateY(-2px);
 }
 
 .resource-name {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--navy-800);
+  color: var(--brown-700);
 }
 
 .resource-name::after {
   content: " \2197";
   font-size: 0.8rem;
-  color: var(--slate-400);
+  color: var(--warm-400);
   transition: color 0.2s ease;
 }
 
@@ -850,8 +869,8 @@ a:hover {
 .site-footer,
 .chat-footer {
   padding: var(--space-xl) var(--space-xl) var(--space-2xl);
-  border-top: 1px solid var(--border-light);
-  background: var(--slate-50);
+  border-top: 1px solid var(--warm-200);
+  background: var(--warm-50);
   color: var(--text-muted);
   text-align: center;
 }
@@ -864,7 +883,7 @@ a:hover {
 .footer-accent {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, var(--gold-400), var(--gold-600));
+  background: linear-gradient(90deg, var(--gold-300), var(--gold-500));
   border-radius: 2px;
   margin: 0 auto var(--space-lg);
 }
@@ -872,7 +891,7 @@ a:hover {
 .footer-text {
   margin: var(--space-xs) 0;
   font-size: 0.85rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* ============================================================
@@ -887,10 +906,10 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-xl);
-  height: 72px;
+  height: 76px;
   background: var(--bg-header);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--warm-200);
+  box-shadow: 0 1px 8px rgba(74, 44, 23, 0.04);
 }
 
 .chat-header-main {
@@ -902,19 +921,20 @@ a:hover {
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--navy-900);
+  color: var(--brown-800);
 }
 
 .chat-subtitle {
   font-size: 0.8rem;
   color: var(--text-muted);
   margin-top: 2px;
+  font-style: italic;
 }
 
 .chat-back-link {
   font-size: 0.84rem;
   font-weight: 500;
-  color: var(--navy-700);
+  color: var(--warm-600);
   text-decoration: none;
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-sm);
@@ -922,7 +942,7 @@ a:hover {
 }
 
 .chat-back-link:hover {
-  background: var(--slate-100);
+  background: var(--warm-100);
   text-decoration: none;
 }
 
@@ -938,12 +958,12 @@ a:hover {
 .chat-disclaimer {
   margin-bottom: var(--space-md);
   padding: var(--space-md) var(--space-lg);
-  background: var(--amber-50);
+  background: var(--gold-50);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(234, 179, 8, 0.15);
+  border: 1px solid var(--gold-200);
   font-size: 0.85rem;
-  color: var(--navy-700);
-  line-height: 1.6;
+  color: var(--warm-700);
+  line-height: 1.65;
 }
 
 .chat-disclaimer p {
@@ -958,7 +978,7 @@ a:hover {
   padding: var(--space-lg);
   overflow-y: auto;
   max-height: calc(100vh - 210px);
-  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.03);
+  box-shadow: inset 0 2px 4px rgba(74, 44, 23, 0.02);
 }
 
 .message-row {
@@ -979,18 +999,18 @@ a:hover {
   border-radius: var(--radius-lg);
   padding: var(--space-md) var(--space-lg);
   font-size: 0.93rem;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .message-row.assistant .message-bubble {
-  background: var(--slate-50);
-  border: 1px solid var(--slate-200);
+  background: var(--warm-50);
+  border: 1px solid var(--warm-200);
   color: var(--text-body);
 }
 
 .message-row.user .message-bubble {
-  background: var(--navy-800);
-  color: #f1f5f9;
+  background: linear-gradient(145deg, var(--brown-600), var(--brown-700));
+  color: #f5f0ea;
 }
 
 .message-small {
@@ -1009,7 +1029,7 @@ a:hover {
   flex: 1 1 auto;
   resize: none;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--warm-200);
   padding: 0.65rem 0.85rem;
   font-family: var(--font-body);
   font-size: 0.93rem;
@@ -1022,8 +1042,8 @@ a:hover {
 
 .chat-input:focus {
   outline: none;
-  border-color: var(--gold-500);
-  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15);
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(196, 154, 82, 0.15);
 }
 
 .chat-send {
@@ -1033,12 +1053,12 @@ a:hover {
 }
 
 .message-bubble a {
-  color: var(--gold-600);
+  color: var(--brown-500);
   text-decoration: underline;
 }
 
 .message-row.user .message-bubble a {
-  color: var(--gold-300);
+  color: var(--gold-200);
 }
 
 /* ============================================================
@@ -1064,7 +1084,7 @@ a:hover {
     align-items: flex-start;
     gap: 0;
     padding-top: var(--space-sm);
-    border-top: 1px solid var(--slate-200);
+    border-top: 1px solid var(--warm-200);
     margin-top: var(--space-sm);
   }
 
