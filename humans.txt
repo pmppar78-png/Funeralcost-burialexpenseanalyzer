@@ -1,0 +1,20 @@
+/* TEAM */
+
+Site: Funeral Cost & Burial Expense Analyzer
+URL: https://funeralcostanalyzer.com
+Description: Independent educational resource helping families understand funeral costs, compare options, and know their consumer rights.
+Contact: concerns [at] funeralcostanalyzer.com
+
+/* THANKS */
+
+Data Sources: National Funeral Directors Association (NFDA), Funeral Consumers Alliance (FCA), State Funeral Boards, Published General Price Lists
+Fonts: Inter, Merriweather (Google Fonts)
+Hosting: Netlify
+
+/* SITE */
+
+Last Updated: 2026-02-10
+Language: English
+Standards: HTML5, CSS3, Semantic Markup, WCAG 2.1 AA
+Components: Vanilla JavaScript, Netlify Forms
+Software: Built with care for families during difficult times

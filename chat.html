@@ -2,71 +2,551 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Funeral Cost Helper – Private, Calm Guidance</title>
+  <title>AI Funeral Cost Expert – Free, Private Guidance on Costs, Rights &amp; Planning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions. Information only – not financial, legal, tax, medical, or funeral-director advice."
+    content="Talk with an AI funeral cost expert about pricing, consumer rights, veteran benefits, Social Security, cremation vs. burial, and step-by-step planning. Free, private, and compassionate guidance — not financial, legal, or medical advice."
   />
   <meta name="last-modified" content="2026-02-10" />
-  <meta property="og:title" content="AI Funeral Cost Helper" />
-  <meta property="og:description" content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="AI Funeral Cost Expert – Free, Private Guidance" />
+  <meta property="og:description" content="Talk with an AI expert about funeral costs, consumer rights, veteran benefits, and planning. Free, private, and compassionate." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://funeralcostanalyzer.com/chat.html" />
   <meta property="og:site_name" content="Funeral Cost &amp; Burial Expense Analyzer" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="AI Funeral Cost Helper" />
-  <meta name="twitter:description" content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions." />
+  <meta name="twitter:title" content="AI Funeral Cost Expert – Free, Private Guidance" />
+  <meta name="twitter:description" content="Talk with an AI expert about funeral costs, consumer rights, veteran benefits, and planning. Free, private, and compassionate." />
   <link rel="canonical" href="https://funeralcostanalyzer.com/chat.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- JSON-LD: WebPage schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Funeral Cost Expert",
+    "description": "Free, private AI assistant for funeral cost guidance, consumer rights, veteran benefits, Social Security death benefits, cremation vs. burial decisions, and step-by-step funeral planning.",
+    "url": "https://funeralcostanalyzer.com/chat.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Funeral Cost & Burial Expense Analyzer",
+      "url": "https://funeralcostanalyzer.com/"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://funeralcostanalyzer.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Funeral Cost Expert",
+          "item": "https://funeralcostanalyzer.com/chat.html"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage for common chat topics -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What can the AI funeral cost expert help me with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The AI funeral cost expert can help you understand typical funeral and burial costs, compare cremation vs. burial options, learn about consumer rights under the FTC Funeral Rule, explore veteran burial benefits and Social Security death benefits, understand funeral insurance and preneed contracts, and walk through step-by-step funeral planning. It provides educational information, not financial, legal, or medical advice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the AI funeral cost expert free and private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The AI assistant is completely free to use and does not collect personal information. Your conversation is not stored on our servers after the session ends. No account or login is required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the AI provide financial or legal advice?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The AI provides general educational information about funeral costs, options, and consumer rights. It does not provide specific financial, legal, tax, medical, or funeral-director advice. For decisions about contracts, payments, and legal matters, always consult with licensed professionals."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Typing indicator animation */
+    .typing-indicator {
+      padding: 0.75rem 1.25rem;
+    }
+
+    .typing-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      height: 20px;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--warm-400);
+      animation: typingBounce 1.4s ease-in-out infinite;
+    }
+
+    .typing-dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typingBounce {
+      0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+      }
+      30% {
+        transform: translateY(-8px);
+        opacity: 1;
+      }
+    }
+
+    /* Starter question buttons */
+    .starter-questions {
+      margin-bottom: var(--space-md);
+    }
+
+    .starter-questions-heading {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--warm-600);
+      margin: 0 0 var(--space-sm);
+    }
+
+    .starter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .starter-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.85rem;
+      border-radius: 2rem;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--brown-700);
+      background: var(--warm-50);
+      border: 1px solid var(--warm-200);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .starter-btn:hover {
+      background: var(--gold-50);
+      border-color: var(--gold-300);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+      color: var(--brown-800);
+    }
+
+    .starter-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Chat page intro section */
+    .chat-intro {
+      margin-bottom: var(--space-lg);
+    }
+
+    .chat-intro-card {
+      padding: var(--space-lg) var(--space-xl);
+      background: linear-gradient(155deg, var(--gold-50) 0%, var(--warm-50) 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gold-200);
+    }
+
+    .chat-intro-card h1 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--brown-900);
+      margin: 0 0 var(--space-sm);
+      line-height: 1.4;
+    }
+
+    .chat-intro-card p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--warm-700);
+      margin: 0 0 var(--space-sm);
+    }
+
+    .chat-intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .chat-topics-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xs) var(--space-lg);
+      list-style: none;
+      padding: 0;
+      margin: var(--space-sm) 0 0;
+    }
+
+    .chat-topics-list li {
+      font-size: 0.8125rem;
+      color: var(--warm-600);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .chat-topics-list li::before {
+      content: "";
+      position: absolute;
+      left: 0.15rem;
+      top: 0.55rem;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 50%;
+      background: var(--gold-400);
+    }
+
+    /* Breadcrumb navigation */
+    .chat-breadcrumb {
+      font-size: 0.8rem;
+      color: var(--warm-500);
+      margin-bottom: var(--space-md);
+      padding: 0;
+    }
+
+    .chat-breadcrumb a {
+      color: var(--warm-500);
+      text-decoration: none;
+    }
+
+    .chat-breadcrumb a:hover {
+      color: var(--brown-600);
+      text-decoration: underline;
+    }
+
+    .chat-breadcrumb .breadcrumb-separator {
+      margin: 0 0.35rem;
+      color: var(--warm-400);
+    }
+
+    /* Chat page header — match site navigation */
+    .chat-page-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-xl);
+      height: 72px;
+      background: var(--bg-header);
+      border-bottom: 1px solid rgba(228, 217, 204, 0.7);
+      box-shadow: 0 1px 8px rgba(74, 44, 23, 0.03);
+    }
+
+    .chat-page-header .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .chat-page-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .chat-page-nav .nav-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--warm-600);
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .chat-page-nav .nav-link:hover {
+      background: var(--warm-100);
+      color: var(--brown-800);
+    }
+
+    .chat-page-nav .nav-link.active {
+      background: var(--gold-50);
+      color: var(--brown-800);
+      font-weight: 600;
+    }
+
+    /* Chat disclaimer with icon */
+    .chat-disclaimer-enhanced {
+      margin-bottom: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--gold-50);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gold-200);
+      border-left: 3px solid var(--gold-400);
+      font-size: 0.8rem;
+      color: var(--warm-700);
+      line-height: 1.65;
+    }
+
+    .chat-disclaimer-enhanced p {
+      margin: 0;
+    }
+
+    .chat-disclaimer-enhanced strong {
+      color: var(--brown-800);
+    }
+
+    /* Disabled state for send button */
+    .chat-send:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Full footer for chat page */
+    .chat-page-footer {
+      padding: var(--space-xl) var(--space-xl) var(--space-2xl);
+      border-top: 1px solid var(--warm-200);
+      background: linear-gradient(180deg, var(--warm-50) 0%, var(--warm-100) 100%);
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .chat-page-footer .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Mobile header toggle for chat page */
+    .chat-mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-sm);
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .chat-mobile-nav-toggle .hamburger-line {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--brown-700);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .chat-page-header {
+        height: auto;
+        padding: var(--space-md) var(--space-lg);
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+      }
+
+      .chat-mobile-nav-toggle {
+        display: flex;
+      }
+
+      .chat-page-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--warm-200);
+        margin-top: var(--space-sm);
+      }
+
+      .chat-page-nav.nav-open {
+        display: flex;
+      }
+
+      .chat-page-nav .nav-link {
+        width: 100%;
+        padding: 0.55rem 0.65rem;
+        font-size: 0.875rem;
+      }
+
+      .chat-intro-card h1 {
+        font-size: 1.15rem;
+      }
+
+      .chat-topics-list {
+        grid-template-columns: 1fr;
+      }
+
+      .starter-buttons {
+        flex-direction: column;
+      }
+
+      .starter-btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body class="chat-body">
   <a href="#chat-main" class="skip-link">Skip to chat</a>
 
-  <header class="chat-header" role="banner">
-    <div class="chat-header-main">
-      <span class="chat-title">Funeral Cost &amp; Burial Expense Analyzer – AI Helper</span>
-      <span class="chat-subtitle">A gentle, private space to think through costs, options, and questions.</span>
+  <!-- Header matching site navigation structure -->
+  <header class="chat-page-header" role="banner">
+    <div class="brand-block">
+      <div class="brand-accent" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="flameGrad" x1="12" y1="4" x2="12" y2="14" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#ffe8b0" stop-opacity="0.95"/>
+              <stop offset="50%" stop-color="#f0c060" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#d4943a" stop-opacity="0.85"/>
+            </linearGradient>
+            <linearGradient id="candleGrad" x1="12" y1="14" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.85)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0.55)"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="12" cy="10" rx="5" ry="6" fill="rgba(255,224,150,0.12)"/>
+          <path d="M12 3.5C12 3.5 8.5 8.5 8.5 11C8.5 13.2 10.1 14.5 12 14.5C13.9 14.5 15.5 13.2 15.5 11C15.5 8.5 12 3.5 12 3.5Z" fill="url(#flameGrad)"/>
+          <path d="M12 7C12 7 10.2 9.5 10.2 11C10.2 12.1 11 12.8 12 12.8C13 12.8 13.8 12.1 13.8 11C13.8 9.5 12 7 12 7Z" fill="rgba(255,255,255,0.45)"/>
+          <rect x="10.5" y="14.5" width="3" height="7" rx="1" fill="url(#candleGrad)"/>
+          <rect x="9.5" y="20.5" width="5" height="1.5" rx="0.75" fill="rgba(255,255,255,0.5)"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <a href="index.html" class="brand-link">
+          <span class="brand-title">Funeral Cost &amp; Burial Expense Analyzer</span>
+          <span class="brand-tagline">Clarity, dignity, and calm when you need it most</span>
+        </a>
+      </div>
     </div>
-    <a href="index.html" class="chat-back-link" aria-label="Return to homepage">&larr; Back to homepage</a>
+    <button class="chat-mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="chat-nav">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <nav id="chat-nav" class="chat-page-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#calculator" class="nav-link">Calculator</a>
+      <a href="index.html#state-costs" class="nav-link">State Costs</a>
+      <a href="index.html#payment-help" class="nav-link">Payment Help</a>
+      <a href="chat.html" class="nav-link active" aria-current="page">AI Expert</a>
+      <a href="index.html#faq" class="nav-link">FAQ</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
   </header>
 
   <main id="chat-main" class="chat-main" role="main">
-    <div class="chat-disclaimer">
+
+    <!-- Breadcrumb navigation -->
+    <nav class="chat-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-separator" aria-hidden="true">/</span>
+      <span aria-current="page">AI Funeral Cost Expert</span>
+    </nav>
+
+    <!-- Warm introduction explaining what the AI can help with -->
+    <div class="chat-intro">
+      <div class="chat-intro-card">
+        <h1>AI Funeral Cost Expert — Free, Private Guidance</h1>
+        <p>
+          This AI assistant has deep knowledge of funeral and burial costs, consumer rights, benefits programs, and planning options. Ask anything about costs, your rights, or what steps to take — and get clear, compassionate answers at your own pace.
+        </p>
+        <p><strong>Topics this AI can help with:</strong></p>
+        <ul class="chat-topics-list">
+          <li>Average funeral costs by region and state</li>
+          <li>Cremation vs. burial cost comparison</li>
+          <li>FTC Funeral Rule and consumer rights</li>
+          <li>Veteran burial benefits and VA programs</li>
+          <li>Social Security death benefit ($255)</li>
+          <li>Medicaid and state funeral assistance</li>
+          <li>Funeral insurance and preneed contracts</li>
+          <li>Step-by-step funeral planning guidance</li>
+          <li>Questions to ask funeral homes</li>
+          <li>Estate planning and probate basics</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Disclaimer about AI limitations -->
+    <div class="chat-disclaimer-enhanced">
       <p>
-        This AI helper provides general educational information about funeral and burial costs. It does not provide
-        financial, legal, tax, medical, or funeral-director advice. Always verify information with licensed professionals.
+        <strong>Important:</strong> This AI provides general educational information about funeral costs and planning. It does not provide financial, legal, tax, medical, or funeral-director advice. Always verify information and consult with licensed professionals before making decisions about services, contracts, or payments.
       </p>
     </div>
 
-    <div id="chatWindow" class="chat-window" role="log" aria-live="polite" aria-label="Chat messages">
-      <div class="message-row assistant">
-        <div class="message-bubble">
-          <p>
-            I'm so sorry you're going through this. I'm an AI helper that can talk with you about funeral and burial
-            costs, what usually affects the price, and questions you might want to ask funeral homes or other
-            professionals.
-          </p>
-          <p class="message-small">
-            I cannot give financial, legal, tax, medical, or funeral-director advice, and I cannot tell you what to
-            sign or which option you personally should choose. My role is to explain things in plain language and help
-            you feel more prepared for conversations with licensed professionals and trusted advisors.
-          </p>
-          <p>
-            If it would help, I can also point you toward planning and consumer education resources such as the Funeral
-            Consumers Alliance (https://www.funerals.org), Parting.com (https://www.parting.com), Ever Loved
-            (https://everloved.com), or Dignity Memorial (https://www.dignitymemorial.com) so you can explore them on
-            your own time.
-          </p>
-          <p>
-            When you're ready, tell me a little about what you're facing — for example, a quote you received, your
-            approximate budget, or the kind of service you're hoping for — and we can think through it together.
-          </p>
-        </div>
+    <!-- Suggested starter questions -->
+    <div class="starter-questions" id="starter-questions">
+      <p class="starter-questions-heading">Not sure where to start? Try one of these:</p>
+      <div class="starter-buttons">
+        <button class="starter-btn" onclick="handleStarterQuestion('How much does a funeral typically cost, and what are the main things that affect the price?')">
+          How much does a funeral typically cost?
+        </button>
+        <button class="starter-btn" onclick="handleStarterQuestion('Can you explain the difference between cremation and burial, including costs for each?')">
+          Cremation vs. burial — what are the costs?
+        </button>
+        <button class="starter-btn" onclick="handleStarterQuestion('What is the FTC Funeral Rule, and how does it protect me as a consumer?')">
+          What is the FTC Funeral Rule?
+        </button>
+        <button class="starter-btn" onclick="handleStarterQuestion('What veteran burial benefits are available, and how do I apply?')">
+          Veteran burial benefits — what is available?
+        </button>
+        <button class="starter-btn" onclick="handleStarterQuestion('Can you walk me through planning a funeral step by step?')">
+          Walk me through funeral planning step by step
+        </button>
+        <button class="starter-btn" onclick="handleStarterQuestion('We received a funeral quote and it seems high. What questions should I ask the funeral home?')">
+          Our funeral quote seems high — what should I ask?
+        </button>
+        <button class="starter-btn" onclick="handleStarterQuestion('What financial assistance is available to help pay for a funeral? We are on a tight budget.')">
+          What financial help is available for funeral costs?
+        </button>
+        <button class="starter-btn" onclick="handleStarterQuestion('Can you explain funeral insurance and preneed contracts — are they worth it?')">
+          Is funeral insurance or a preneed contract worth it?
+        </button>
       </div>
+    </div>
+
+    <!-- Chat interface -->
+    <div id="chatWindow" class="chat-window" role="log" aria-live="polite" aria-label="Chat messages">
+      <!-- Welcome message and conversation messages are appended here by script.js -->
     </div>
 
     <form id="chatForm" class="chat-form" aria-label="Send a message">
@@ -75,7 +555,7 @@
         id="userInput"
         class="chat-input"
         rows="1"
-        placeholder="Type a message… (Shift+Enter for a new line)"
+        placeholder="Type your question... (Shift+Enter for a new line)"
         aria-describedby="chat-input-hint"
       ></textarea>
       <span id="chat-input-hint" class="sr-only">Press Enter to send, Shift+Enter for a new line</span>
@@ -83,13 +563,51 @@
     </form>
   </main>
 
-  <footer class="chat-footer" role="contentinfo">
-    <p class="footer-text small">
-      Information only. Not financial, legal, tax, medical, or funeral-director advice. For decisions about services,
-      contracts, and payments, speak with licensed professionals and trusted advisors.
-    </p>
+  <!-- Full footer matching the site -->
+  <footer class="chat-page-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-accent" aria-hidden="true"></div>
+      <p class="footer-text">
+        Information only &middot; Not financial, legal, tax, medical, or funeral-director advice &middot; Always review decisions with licensed professionals.
+      </p>
+      <p class="footer-text small">
+        <a href="editorial-standards.html" style="color: var(--warm-400); text-decoration: none;">Editorial Standards &amp; Methodology</a> &middot;
+        <a href="planning-checklist.html" style="color: var(--warm-400); text-decoration: none;">Planning Checklist</a> &middot;
+        <a href="privacy-policy.html" style="color: var(--warm-400); text-decoration: none;">Privacy Policy</a>
+      </p>
+      <p class="footer-text small">
+        &copy; 2026 Funeral Cost &amp; Burial Expense Analyzer. Cost data is based on publicly available consumer surveys and may not reflect current prices in your area.
+      </p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="planning-checklist.html">Planning Checklist</a>
+        <a href="editorial-standards.html">Editorial Standards</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="grief-resources.html">Grief Resources</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Mobile nav toggle for chat page header
+    (function () {
+      var toggle = document.querySelector(".chat-mobile-nav-toggle");
+      var nav = document.getElementById("chat-nav");
+      if (toggle && nav) {
+        toggle.addEventListener("click", function () {
+          var isOpen = nav.classList.toggle("nav-open");
+          toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+        nav.querySelectorAll(".nav-link").forEach(function (link) {
+          link.addEventListener("click", function () {
+            nav.classList.remove("nav-open");
+            toggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  command = "node generate-pages.js"
 
 [functions]
   directory = "netlify/functions"
@@ -14,7 +15,7 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.openai.com"
 
 # ─── Cache static assets aggressively ─────────────────────────────
 
@@ -25,6 +26,11 @@
 
 [[headers]]
   for = "/script.js"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/favicon.svg"
   [headers.values]
     Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
 
@@ -48,7 +54,7 @@
 
 # ─── Redirects ────────────────────────────────────────────────────
 
-# Clean URL aliases (no .html)
+# Clean URL aliases — existing pages
 [[redirects]]
   from = "/green-burial"
   to = "/green-burial-options.html"
@@ -122,4 +128,90 @@
 [[redirects]]
   from = "/privacy"
   to = "/privacy-policy.html"
+  status = 301
+
+# New page aliases
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/medicaid-funeral"
+  to = "/medicaid-funeral-assistance.html"
+  status = 301
+
+[[redirects]]
+  from = "/final-expense-insurance"
+  to = "/final-expense-insurance-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/estate-planning"
+  to = "/estate-planning-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/probate-costs"
+  to = "/probate-process-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/funeral-financing"
+  to = "/funeral-payment-plans.html"
+  status = 301
+
+[[redirects]]
+  from = "/compare-prices"
+  to = "/funeral-price-comparison.html"
+  status = 301
+
+[[redirects]]
+  from = "/average-funeral-cost"
+  to = "/average-funeral-cost-2026.html"
+  status = 301
+
+[[redirects]]
+  from = "/cremation-jewelry"
+  to = "/cremation-jewelry-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/headstone-costs"
+  to = "/headstone-monument-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/funeral-flowers"
+  to = "/funeral-flowers-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/body-donation"
+  to = "/body-donation-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/military-funeral"
+  to = "/military-funeral-honors.html"
+  status = 301
+
+[[redirects]]
+  from = "/pet-cremation"
+  to = "/pet-cremation-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/crowdfunding-funeral"
+  to = "/crowdfunding-funeral-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/funeral-overcharging"
+  to = "/funeral-overcharging-protection.html"
+  status = 301
+
+[[redirects]]
+  from = "/consumer-rights"
+  to = "/consumer-rights-funeral-pricing.html"
   status = 301
