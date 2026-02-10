@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /node_modules/
+Disallow: /.netlify/
+Disallow: /.git/
+
+Sitemap: https://funeralcostanalyzer.com/sitemap.xml
