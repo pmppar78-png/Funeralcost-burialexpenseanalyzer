@@ -2039,3 +2039,447 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   Enhanced Cost Estimator
+   ============================================================ */
+
+.estimator-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.estimator-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brown-700);
+  margin-bottom: 2px;
+}
+
+.estimator-field select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--warm-200);
+  font-size: 0.9375rem;
+  font-family: var(--font-body);
+  color: var(--text-heading);
+  background: var(--bg-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%239a8672' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.25rem;
+}
+
+.estimator-field select:focus {
+  outline: none;
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(196, 154, 82, 0.12);
+}
+
+.estimator-result {
+  margin-top: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gold-200);
+  overflow: hidden;
+}
+
+.estimator-summary {
+  background: linear-gradient(155deg, var(--gold-50) 0%, var(--warm-50) 100%);
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--gold-200);
+}
+
+.estimator-summary-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.estimator-summary-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  margin: 0;
+}
+
+.estimator-total {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--brown-900);
+  letter-spacing: -0.01em;
+}
+
+.estimator-breakdown {
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--bg-card);
+}
+
+.estimator-breakdown h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brown-700);
+  margin: 0 0 var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--warm-200);
+}
+
+.estimator-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--warm-100);
+}
+
+.estimator-line:last-child {
+  border-bottom: none;
+}
+
+.estimator-line-label {
+  font-size: 0.8125rem;
+  color: var(--warm-700);
+}
+
+.estimator-line-range {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--brown-800);
+  white-space: nowrap;
+}
+
+.estimator-actions {
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--warm-50);
+  border-top: 1px solid var(--warm-200);
+}
+
+.estimator-next-steps {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--warm-700);
+  margin: 0;
+}
+
+.estimator-next-steps strong {
+  color: var(--brown-800);
+}
+
+@media (max-width: 768px) {
+  .estimator-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .estimator-summary-header {
+    flex-direction: column;
+  }
+
+  .estimator-breakdown,
+  .estimator-summary,
+  .estimator-actions {
+    padding: var(--space-md) var(--space-lg);
+  }
+}
+
+/* ============================================================
+   Before You Call Section
+   ============================================================ */
+
+.before-you-call {
+  background: linear-gradient(155deg, var(--rose-50) 0%, var(--warm-50) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  border: 1px solid rgba(228, 217, 204, 0.65);
+  border-left: 3px solid var(--gold-400);
+}
+
+.before-you-call-heading {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  margin: 0 0 var(--space-sm);
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
+}
+
+.before-you-call p {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: var(--warm-700);
+}
+
+.before-you-call-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.before-you-call-item {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  padding: var(--space-md);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(228, 217, 204, 0.5);
+}
+
+.before-you-call-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gold-100);
+  border: 1px solid var(--gold-200);
+  color: var(--gold-600);
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.before-you-call-text strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brown-800);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.before-you-call-text span {
+  font-size: 0.8rem;
+  color: var(--warm-600);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .before-you-call {
+    padding: var(--space-lg);
+  }
+
+  .before-you-call-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Editorial Standards / Methodology
+   ============================================================ */
+
+.methodology-card {
+  background: var(--warm-50);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  border: 1px solid var(--warm-200);
+  margin-top: var(--space-lg);
+}
+
+.methodology-card h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  margin: 0 0 var(--space-sm);
+}
+
+.methodology-card p,
+.methodology-card li {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--warm-700);
+}
+
+.editorial-principles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.editorial-principle {
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+}
+
+.editorial-principle h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  margin: 0 0 var(--space-xs);
+}
+
+.editorial-principle p {
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  color: var(--warm-600);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .editorial-principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Community Contact / Share Experience
+   ============================================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.contact-option {
+  padding: var(--space-lg);
+  background: var(--warm-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--warm-200);
+}
+
+.contact-option h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  margin: 0 0 var(--space-xs);
+}
+
+.contact-option p {
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  color: var(--warm-600);
+  margin: 0 0 var(--space-sm);
+}
+
+.contact-option a {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Printable Planning Checklist
+   ============================================================ */
+
+.planning-checklist-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
+  background: linear-gradient(155deg, var(--gold-50) 0%, var(--warm-50) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gold-200);
+  margin-top: var(--space-lg);
+}
+
+.planning-checklist-cta-text {
+  flex: 1;
+}
+
+.planning-checklist-cta-text h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  margin: 0 0 var(--space-xs);
+}
+
+.planning-checklist-cta-text p {
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--warm-600);
+  margin: 0;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: 1px solid var(--warm-300);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--brown-700);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--gold-400);
+  box-shadow: var(--shadow-md);
+  color: var(--brown-800);
+}
+
+@media (max-width: 768px) {
+  .planning-checklist-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-lg);
+  }
+}
+
+/* ============================================================
+   Printable Checklist Page (print styles)
+   ============================================================ */
+
+@media print {
+  .site-header, .site-footer, .site-nav,
+  .mobile-nav-toggle, .skip-link, .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  .main, .guide-main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .card, .guide-article {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  h1, h2, h3 {
+    color: #000;
+    page-break-after: avoid;
+  }
+
+  .checklist li::before {
+    background: #000;
+  }
+}

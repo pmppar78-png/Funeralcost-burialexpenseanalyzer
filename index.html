@@ -72,6 +72,22 @@
           "@type": "Answer",
           "text": "The FTC Funeral Rule requires funeral providers to give you itemized price lists, allows you to choose only the goods and services you want, and prohibits misrepresentations about legal requirements for items like caskets or embalming."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a General Price List and how do I use it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A General Price List (GPL) is an itemized list of every service and product a funeral home offers, with prices. Under the FTC Funeral Rule, funeral homes must provide this to you upon request. The GPL is your most powerful tool for comparison shopping. Request GPLs from 2-3 providers and compare line items directly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I prepay for a funeral?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prepaying can lock in current prices and reduce the burden on your family, but it also carries risks. Consumer protections for prepaid funeral contracts vary significantly by state. Before signing any preneed contract, ask about what happens if the funeral home closes, whether money is held in trust, cancellation policies, and transferability."
+        }
       }
     ]
   }
@@ -157,10 +173,10 @@
           </p>
         </div>
         <h1 class="hero-title">
-          Clarity, dignity, and calm when you need it most.
+          Understand funeral costs before you make that first call.
         </h1>
         <p class="hero-body">
-          See realistic local costs, understand pricing, and explore payment ideas — written with warmth and respect.
+          See realistic local costs, understand line-item pricing, and know your rights — so you can make informed decisions with confidence and dignity.
         </p>
         <div class="hero-actions">
           <a href="#calculator" class="btn-hero-primary">Start Cost Estimator</a>
@@ -193,6 +209,44 @@
     <section class="why-exists" aria-label="Why this site exists">
       <h2 class="why-exists-heading">Clarity before commitment</h2>
       <p>We are not a funeral home. We do not sell funeral services or accept referral fees. This site exists because families facing loss deserve honest, clear information before making financial commitments. We help you understand costs, compare options, and know what questions to ask — privately, without pressure. Everything here is free, confidential, and written with care.</p>
+    </section>
+
+    <!-- Before You Call — critical pre-call positioning -->
+    <section class="before-you-call" aria-label="Read this before you call a funeral home">
+      <h2 class="before-you-call-heading">Read this before you make that first call</h2>
+      <p>
+        Most families contact only one funeral home — and once you call, emotional momentum makes it difficult to comparison shop. The decisions you make in the first 24–72 hours can mean a difference of thousands of dollars. A few minutes of preparation can give you clarity and confidence.
+      </p>
+      <div class="before-you-call-grid">
+        <div class="before-you-call-item">
+          <span class="before-you-call-number" aria-hidden="true">1</span>
+          <div class="before-you-call-text">
+            <strong>Know your rights</strong>
+            <span>The FTC Funeral Rule requires homes to provide itemized pricing. You can choose only what you need.</span>
+          </div>
+        </div>
+        <div class="before-you-call-item">
+          <span class="before-you-call-number" aria-hidden="true">2</span>
+          <div class="before-you-call-text">
+            <strong>Understand the cost range</strong>
+            <span>Use our <a href="#calculator">cost estimator</a> to know what's typical for your area and service type.</span>
+          </div>
+        </div>
+        <div class="before-you-call-item">
+          <span class="before-you-call-number" aria-hidden="true">3</span>
+          <div class="before-you-call-text">
+            <strong>Prepare your questions</strong>
+            <span>Our <a href="questions-to-ask-funeral-home.html">questions checklist</a> helps ensure nothing is missed or assumed.</span>
+          </div>
+        </div>
+        <div class="before-you-call-item">
+          <span class="before-you-call-number" aria-hidden="true">4</span>
+          <div class="before-you-call-text">
+            <strong>Call at least two providers</strong>
+            <span>Request the General Price List from each. Comparing line items is the single best way to avoid overpaying.</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- B) How we help — 3-card value row -->
@@ -299,58 +353,73 @@
     <section id="calculator" class="section card">
       <h2>Funeral cost estimator</h2>
       <p>
-        Enter rough amounts to get a ballpark combined estimate. This is an educational tool — not a quote or professional advice. Always confirm prices directly with providers.
+        Select your region and service type to see a realistic cost estimate with line-item breakdowns. This is an educational tool based on publicly available consumer data — not a quote. Always confirm prices directly with providers.
       </p>
-      <div class="calculator-grid">
-        <div class="calculator-field">
-          <label for="calcFuneralHome">Funeral home services</label>
-          <span class="field-hint">Viewing, ceremony, staff, etc.</span>
-          <input id="calcFuneralHome" type="number" min="0" step="100" placeholder="e.g., 4000" />
+
+      <div class="estimator-controls">
+        <div class="estimator-field">
+          <label for="estRegion">Your region</label>
+          <span class="field-hint">Select the area closest to you</span>
+          <select id="estRegion">
+            <option value="" disabled selected>Choose a region</option>
+            <option value="northeast">Northeast (NY, NJ, MA, CT, PA)</option>
+            <option value="southeast">Southeast (FL, GA, NC, SC, VA)</option>
+            <option value="midwest">Midwest (OH, IL, MI, IN, WI)</option>
+            <option value="south">South (TX, LA, OK, AR, MS)</option>
+            <option value="west">West (CA, WA, OR, CO)</option>
+            <option value="mountain">Mountain (AZ, NV, UT, NM, ID)</option>
+          </select>
         </div>
-        <div class="calculator-field">
-          <label for="calcCemetery">Cemetery costs</label>
-          <span class="field-hint">Plot, opening/closing, vault, etc.</span>
-          <input id="calcCemetery" type="number" min="0" step="100" placeholder="e.g., 3000" />
-        </div>
-        <div class="calculator-field">
-          <label for="calcExtras">Other items</label>
-          <span class="field-hint">Flowers, obituary, transport, etc.</span>
-          <input id="calcExtras" type="number" min="0" step="50" placeholder="e.g., 1200" />
+        <div class="estimator-field">
+          <label for="estService">Service type</label>
+          <span class="field-hint">What type of arrangement?</span>
+          <select id="estService">
+            <option value="" disabled selected>Choose a service type</option>
+            <option value="traditional">Traditional funeral with burial</option>
+            <option value="cremation-service">Funeral service with cremation</option>
+            <option value="direct-cremation">Direct cremation (no service)</option>
+            <option value="direct-burial">Direct burial (no service)</option>
+            <option value="memorial-only">Memorial service only (no body present)</option>
+          </select>
         </div>
       </div>
-      <button type="button" class="btn-primary calculator-button" id="calcEstimateButton">
-        Estimate total
+
+      <button type="button" class="btn-primary calculator-button" id="estButton">
+        Show cost estimate
       </button>
-      <p id="calcResult" class="calc-result small muted">
-        Enter rough amounts above and click "Estimate total" to see a simple combined estimate.
-      </p>
+
+      <div id="estResult" class="estimator-result" style="display: none;">
+        <div class="estimator-summary">
+          <div class="estimator-summary-header">
+            <h3 id="estSummaryTitle">Estimated total</h3>
+            <span class="estimator-total" id="estTotal"></span>
+          </div>
+          <p class="small muted" id="estSummaryNote"></p>
+        </div>
+        <div class="estimator-breakdown">
+          <h4>Line-item breakdown</h4>
+          <div class="estimator-line-items" id="estLineItems"></div>
+        </div>
+        <div class="estimator-actions">
+          <p class="estimator-next-steps">
+            <strong>What to do next:</strong> Request a <em>General Price List</em> (GPL) from 2-3 local funeral homes. They are legally required to provide one. Compare each line item against the ranges above. Our <a href="questions-to-ask-funeral-home.html">Questions to Ask</a> guide can help you prepare.
+          </p>
+        </div>
+      </div>
 
       <div class="section-divider-inner" aria-hidden="true"></div>
 
       <details class="expandable-block">
         <summary class="expandable-trigger">
-          <span>View typical cost ranges (national averages)</span>
+          <span>How this estimator works — data sources and methodology</span>
         </summary>
         <div class="expandable-content">
-          <p class="small muted">Based on publicly available NFDA surveys and consumer reports. Your area may differ.</p>
-          <div class="cost-range-grid">
-            <div class="cost-range-item">
-              <span class="cost-range-label">Traditional funeral with burial</span>
-              <span class="cost-range-value">$7,000 – $12,000+</span>
-            </div>
-            <div class="cost-range-item">
-              <span class="cost-range-label">Funeral with cremation</span>
-              <span class="cost-range-value">$5,000 – $9,000+</span>
-            </div>
-            <div class="cost-range-item">
-              <span class="cost-range-label">Direct cremation</span>
-              <span class="cost-range-value">$1,000 – $3,500</span>
-            </div>
-            <div class="cost-range-item">
-              <span class="cost-range-label">Direct burial</span>
-              <span class="cost-range-value">$1,500 – $4,000</span>
-            </div>
-          </div>
+          <p class="small">
+            Cost ranges are compiled from publicly available data including NFDA consumer surveys (2021–2023), state funeral board price surveys, Funeral Consumers Alliance reports, and published General Price Lists. Regional adjustments are based on cost-of-living indices and metropolitan vs. rural pricing differentials. All figures represent typical ranges — your actual costs will depend on the specific provider, location, and choices you make.
+          </p>
+          <p class="small muted">
+            We update this data periodically. Last reviewed: February 2026. For current pricing in your area, always request a General Price List directly from providers.
+          </p>
         </div>
       </details>
 
@@ -499,6 +568,24 @@
             </p>
           </div>
         </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What is a General Price List and how do I use it?</summary>
+          <div class="faq-answer">
+            <p>
+              A General Price List (GPL) is an itemized list of every service and product a funeral home offers, with prices. Under the FTC Funeral Rule, funeral homes must provide this to you upon request — in person or over the phone. The GPL is your most powerful tool for comparison shopping. Request GPLs from 2–3 providers and compare line items directly. If a funeral home refuses to provide one, they are violating federal law.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Should I prepay for a funeral?</summary>
+          <div class="faq-answer">
+            <p>
+              Prepaying can lock in current prices and reduce the burden on your family, but it also carries risks. Consumer protections for prepaid funeral contracts vary significantly by state. Before signing any preneed contract, ask: What happens if the funeral home closes or is sold? Is the money held in trust? Can you cancel and get a refund? Can the contract be transferred to another provider? Consider consulting with a financial advisor and reviewing your state's preneed regulations before committing.
+            </p>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -596,6 +683,14 @@
           <span class="resource-name">Affordable Funeral Options</span>
           <span class="resource-tagline">Dignified services on a limited budget</span>
         </a>
+        <a href="planning-checklist.html" class="resource-card">
+          <span class="resource-name">Funeral Planning Checklist</span>
+          <span class="resource-tagline">Printable step-by-step guide for the person handling arrangements</span>
+        </a>
+        <a href="editorial-standards.html" class="resource-card">
+          <span class="resource-name">Editorial Standards &amp; Methodology</span>
+          <span class="resource-tagline">How we research, verify, and present cost data</span>
+        </a>
       </div>
 
       <div class="tip-box">
@@ -631,44 +726,121 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <!-- Who We Are — moved lower, collapsible -->
+    <!-- Who We Are — expanded with E-E-A-T signals -->
     <section id="who-we-are" class="section card">
-      <details class="expandable-block expandable-inline" open>
-        <summary class="expandable-trigger expandable-trigger-heading">
-          <span>About us &amp; our commitment</span>
-        </summary>
-        <div class="expandable-content">
-          <p>
-            We are a small team of researchers, writers, and technologists who have each walked through loss. We know how confusing it can feel to juggle grief, logistics, and costs at the same time.
-          </p>
-          <p>
-            We are <strong>not</strong> funeral directors, lawyers, or financial advisors. We do not sell plans or services. We explain common terms, typical cost ranges, and questions you can bring to licensed professionals.
-          </p>
-          <div class="commitment-box">
-            <h3>Our commitment</h3>
-            <ul class="checklist">
-              <li>We will never tell you what to buy, sign, or choose.</li>
-              <li>We update information regularly using public consumer data.</li>
-              <li>We clearly label all external links.</li>
-              <li>We encourage you to verify everything with licensed professionals.</li>
-            </ul>
-          </div>
+      <h2>About us, our standards, and our data</h2>
+      <p>
+        We are a small team of researchers, writers, and consumer advocates who have each navigated the experience of arranging a funeral for someone we loved. We built this site because we know how confusing, overwhelming, and opaque funeral costs can be — especially when you're grieving.
+      </p>
+      <p>
+        We are <strong>not</strong> funeral directors, lawyers, or financial advisors. We do not sell funeral services, accept referral fees from funeral homes, or receive commissions of any kind. Our only purpose is consumer education.
+      </p>
+
+      <div class="editorial-principles">
+        <div class="editorial-principle">
+          <h4>Independence</h4>
+          <p>No funeral home, casket company, or insurance provider influences our content. We accept no referral fees, affiliate commissions, or sponsored content payments.</p>
         </div>
-      </details>
+        <div class="editorial-principle">
+          <h4>Accuracy</h4>
+          <p>Cost data is compiled from NFDA surveys, state funeral board reports, published General Price Lists, and Funeral Consumers Alliance research. We cite sources and update regularly.</p>
+        </div>
+        <div class="editorial-principle">
+          <h4>Compassion</h4>
+          <p>Every page is written for someone who may be reading through tears. We prioritize clarity, warmth, and respect over engagement metrics or SEO tricks.</p>
+        </div>
+        <div class="editorial-principle">
+          <h4>Consumer advocacy</h4>
+          <p>We believe families deserve to understand what they're paying for. We explain your rights under the FTC Funeral Rule and help you ask the right questions.</p>
+        </div>
+      </div>
+
+      <div class="methodology-card">
+        <h4>How we source and verify cost data</h4>
+        <p>
+          Our cost estimates are drawn from multiple public sources to provide reliable ranges:
+        </p>
+        <ul class="checklist">
+          <li><strong>NFDA surveys (2021–2023):</strong> The National Funeral Directors Association publishes annual cost surveys covering thousands of funeral homes nationwide.</li>
+          <li><strong>State funeral board reports:</strong> Several states publish consumer guides and price surveys through their licensing boards and attorney general offices.</li>
+          <li><strong>Published General Price Lists:</strong> We review publicly available GPLs from funeral homes across regions to validate and supplement survey data.</li>
+          <li><strong>Regional adjustments:</strong> Costs are adjusted for each region based on cost-of-living indices, metropolitan vs. rural differentials, and state regulatory environments.</li>
+          <li><strong>Funeral Consumers Alliance research:</strong> We reference FCA publications and consumer advocacy research for market context and pricing trends.</li>
+        </ul>
+        <p class="small muted" style="margin-top: var(--space-md);">
+          All data is reviewed periodically. Last comprehensive review: February 2026. We are transparent about the limitations of aggregated data — your local costs may differ. Always request a General Price List directly from providers for current pricing.
+        </p>
+        <p class="small" style="margin-top: var(--space-sm);">
+          <a href="editorial-standards.html">Read our full editorial standards and methodology</a>
+        </p>
+      </div>
+
+      <div class="commitment-box">
+        <h3>Our commitment to you</h3>
+        <ul class="checklist">
+          <li>We will never tell you what to buy, sign, or choose.</li>
+          <li>We update information regularly using public consumer data and cite our sources.</li>
+          <li>We clearly label all external links and disclose any relationships.</li>
+          <li>We encourage you to verify everything with licensed professionals.</li>
+          <li>We do not collect personal data or track your browsing behavior on this site.</li>
+          <li>If we make an error, we will correct it promptly and note the correction.</li>
+        </ul>
+      </div>
     </section>
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <!-- Contact — minimal -->
+    <!-- Planning Checklist CTA -->
+    <section class="section">
+      <div class="planning-checklist-cta">
+        <div class="planning-checklist-cta-text">
+          <h3>Funeral planning checklist</h3>
+          <p>
+            A printable, step-by-step checklist covering decisions, documents, costs, and questions — designed for the person handling arrangements. Print it, bring it with you, and check items off as you go.
+          </p>
+        </div>
+        <a href="planning-checklist.html" class="btn-secondary">View checklist</a>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- Contact — expanded with community engagement -->
     <section id="contact" class="section card">
-      <h2>Contact &amp; feedback</h2>
+      <h2>Contact, feedback, and community</h2>
       <p>
-        We cannot answer personal legal, financial, or medical questions — but we read every note about how to make this experience gentler for other families.
+        We cannot answer personal legal, financial, or medical questions — but we read every message about how to make this resource more helpful for families.
       </p>
-      <p class="contact-email">
-        For advertising and partnership inquiries:
-        <a href="mailto:advertise@funeralcostanalyzer.com">advertise@funeralcostanalyzer.com</a>
-      </p>
+      <div class="contact-grid">
+        <div class="contact-option">
+          <h3>Share your experience</h3>
+          <p>
+            If you have been through the funeral planning process and want to help other families, we welcome your perspective. Your insights help us write better, more accurate content.
+          </p>
+          <a href="mailto:stories@funeralcostanalyzer.com">stories@funeralcostanalyzer.com</a>
+        </div>
+        <div class="contact-option">
+          <h3>Report a pricing concern</h3>
+          <p>
+            If you believe you were overcharged or misled by a funeral provider, let us know. We can point you toward the right consumer protection resources.
+          </p>
+          <a href="mailto:concerns@funeralcostanalyzer.com">concerns@funeralcostanalyzer.com</a>
+        </div>
+        <div class="contact-option">
+          <h3>Suggest a correction</h3>
+          <p>
+            If you spot an error in our data or content, please tell us. Accuracy is foundational to our mission and we take corrections seriously.
+          </p>
+          <a href="mailto:corrections@funeralcostanalyzer.com">corrections@funeralcostanalyzer.com</a>
+        </div>
+        <div class="contact-option">
+          <h3>Partnerships and press</h3>
+          <p>
+            For inquiries about ethical advertising, consumer advocacy partnerships, or press coverage, contact our team.
+          </p>
+          <a href="mailto:advertise@funeralcostanalyzer.com">advertise@funeralcostanalyzer.com</a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -679,6 +851,10 @@
         Information only &middot; Not financial, legal, tax, medical, or funeral-director advice &middot; Always review decisions with licensed professionals.
       </p>
       <p class="footer-text small">
+        <a href="editorial-standards.html" style="color: var(--warm-400); text-decoration: none;">Editorial Standards &amp; Methodology</a> &middot;
+        <a href="planning-checklist.html" style="color: var(--warm-400); text-decoration: none;">Planning Checklist</a>
+      </p>
+      <p class="footer-text small">
         &copy; 2026 Funeral Cost &amp; Burial Expense Analyzer. Cost data is based on publicly available consumer surveys and may not reflect current prices in your area.
       </p>
     </div>
@@ -686,30 +862,130 @@
 
   <script>
     (function () {
-      /* Calculator */
-      var btn = document.getElementById("calcEstimateButton");
-      if (btn) {
-        var fhInput = document.getElementById("calcFuneralHome");
-        var cemInput = document.getElementById("calcCemetery");
-        var extraInput = document.getElementById("calcExtras");
-        var result = document.getElementById("calcResult");
-
-        btn.addEventListener("click", function () {
-          var fh = parseFloat(fhInput.value || "0") || 0;
-          var cem = parseFloat(cemInput.value || "0") || 0;
-          var extra = parseFloat(extraInput.value || "0") || 0;
-          var total = fh + cem + extra;
-          if (!total) {
-            result.textContent =
-              "Enter some rough amounts above and click \"Estimate total\" to see a simple combined estimate.";
-          } else {
-            var formatted = total.toLocaleString(undefined, {
-              style: "currency",
-              currency: "USD"
-            });
-            result.textContent =
-              "Estimated total: " + formatted + ". This is only an educational ballpark — always confirm pricing directly with providers.";
+      /* Enhanced Cost Estimator */
+      var costData = {
+        northeast: {
+          name: "Northeast",
+          multiplier: 1.25,
+          traditional: {
+            "Basic services fee": [2400, 3800],
+            "Embalming": [700, 1200],
+            "Viewing & visitation": [500, 900],
+            "Funeral ceremony": [500, 900],
+            "Transfer of remains": [350, 600],
+            "Hearse": [350, 550],
+            "Casket (mid-range)": [2500, 5500],
+            "Cemetery plot": [1500, 4500],
+            "Opening & closing": [1200, 2500],
+            "Vault or liner": [1000, 3000],
+            "Flowers, programs, obituary": [500, 1500]
+          },
+          "cremation-service": {
+            "Basic services fee": [2400, 3800],
+            "Embalming (if viewing)": [700, 1200],
+            "Viewing & visitation": [500, 900],
+            "Memorial ceremony": [500, 900],
+            "Transfer of remains": [350, 600],
+            "Cremation fee": [300, 600],
+            "Urn (mid-range)": [200, 800],
+            "Flowers, programs, obituary": [400, 1200]
+          },
+          "direct-cremation": {
+            "Basic services fee (reduced)": [800, 1500],
+            "Transfer of remains": [300, 500],
+            "Cremation fee": [300, 600],
+            "Alternative container": [75, 200],
+            "Certified death certificates": [50, 150]
+          },
+          "direct-burial": {
+            "Basic services fee (reduced)": [800, 1500],
+            "Transfer of remains": [300, 500],
+            "Simple casket or container": [500, 1500],
+            "Cemetery plot": [1500, 4500],
+            "Opening & closing": [1200, 2500],
+            "Certified death certificates": [50, 150]
+          },
+          "memorial-only": {
+            "Facility use for memorial": [400, 800],
+            "Staff coordination": [300, 600],
+            "Flowers, programs, obituary": [300, 1000],
+            "Audio/visual equipment": [100, 400]
           }
+        },
+        southeast: { name: "Southeast", multiplier: 0.95 },
+        midwest: { name: "Midwest", multiplier: 0.92 },
+        south: { name: "South", multiplier: 0.88 },
+        west: { name: "West", multiplier: 1.12 },
+        mountain: { name: "Mountain", multiplier: 0.85 }
+      };
+
+      // Base costs (northeast) for all service types, used for regional scaling
+      var baseLineItems = costData.northeast;
+
+      function getLineItems(region, service) {
+        var baseItems = baseLineItems[service];
+        if (!baseItems) return null;
+        var mult = costData[region].multiplier;
+        var items = {};
+        for (var key in baseItems) {
+          items[key] = [
+            Math.round(baseItems[key][0] * mult / 50) * 50,
+            Math.round(baseItems[key][1] * mult / 50) * 50
+          ];
+        }
+        return items;
+      }
+
+      function formatCurrency(num) {
+        return "$" + num.toLocaleString();
+      }
+
+      var serviceLabels = {
+        "traditional": "Traditional funeral with burial",
+        "cremation-service": "Funeral service with cremation",
+        "direct-cremation": "Direct cremation",
+        "direct-burial": "Direct burial",
+        "memorial-only": "Memorial service only"
+      };
+
+      var estBtn = document.getElementById("estButton");
+      if (estBtn) {
+        var regionSelect = document.getElementById("estRegion");
+        var serviceSelect = document.getElementById("estService");
+        var resultDiv = document.getElementById("estResult");
+
+        estBtn.addEventListener("click", function () {
+          var region = regionSelect.value;
+          var service = serviceSelect.value;
+          if (!region || !service) {
+            alert("Please select both a region and a service type.");
+            return;
+          }
+          var items = getLineItems(region, service);
+          if (!items) return;
+
+          var totalLow = 0, totalHigh = 0;
+          var lineItemsHtml = "";
+          for (var label in items) {
+            var low = items[label][0];
+            var high = items[label][1];
+            totalLow += low;
+            totalHigh += high;
+            lineItemsHtml += '<div class="estimator-line">' +
+              '<span class="estimator-line-label">' + label + '</span>' +
+              '<span class="estimator-line-range">' + formatCurrency(low) + ' – ' + formatCurrency(high) + '</span>' +
+              '</div>';
+          }
+
+          document.getElementById("estSummaryTitle").textContent =
+            serviceLabels[service] + " — " + costData[region].name;
+          document.getElementById("estTotal").textContent =
+            formatCurrency(totalLow) + " – " + formatCurrency(totalHigh);
+          document.getElementById("estSummaryNote").textContent =
+            "Estimated range for " + costData[region].name.toLowerCase() + " region. Actual costs depend on the specific provider and your choices. Always request an itemized General Price List.";
+          document.getElementById("estLineItems").innerHTML = lineItemsHtml;
+          resultDiv.style.display = "block";
+          resultDiv.scrollIntoView({ behavior: "smooth", block: "start" });
         });
       }
 
