@@ -29,11 +29,6 @@
     Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
 
 [[headers]]
-  for = "/ai-chat.js"
-  [headers.values]
-    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
-
-[[headers]]
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml; charset=utf-8"
@@ -92,4 +87,39 @@
 [[redirects]]
   from = "/payment-help"
   to = "/funeral-payment-assistance.html"
+  status = 301
+
+[[redirects]]
+  from = "/funeral-insurance"
+  to = "/funeral-insurance-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/home-funeral"
+  to = "/home-funeral-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/obituary-guide"
+  to = "/obituary-writing-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/write-obituary"
+  to = "/obituary-writing-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/grief"
+  to = "/grief-resources.html"
+  status = 301
+
+[[redirects]]
+  from = "/grief-support"
+  to = "/grief-resources.html"
+  status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy-policy.html"
   status = 301
