@@ -207,6 +207,7 @@ function header() {
       <div class="nav-dropdown">
         <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Guides <span class="dropdown-arrow" aria-hidden="true"></span></button>
         <div class="nav-dropdown-menu" role="menu">
+          <a href="national-funeral-cost-index.html" class="nav-dropdown-link" role="menuitem">National Cost Index</a>
           <a href="funeral-costs-by-state.html" class="nav-dropdown-link" role="menuitem">Costs by State</a>
           <a href="cremation-vs-burial-cost.html" class="nav-dropdown-link" role="menuitem">Cremation vs. Burial</a>
           <a href="funeral-cost-breakdown.html" class="nav-dropdown-link" role="menuitem">Cost Breakdown</a>
@@ -215,7 +216,6 @@ function header() {
           <a href="ftc-funeral-rule-guide.html" class="nav-dropdown-link" role="menuitem">FTC Funeral Rule</a>
           <a href="funeral-insurance-guide.html" class="nav-dropdown-link" role="menuitem">Funeral Insurance</a>
           <a href="green-burial-options.html" class="nav-dropdown-link" role="menuitem">Green Burial</a>
-          <a href="grief-resources.html" class="nav-dropdown-link" role="menuitem">Grief Resources</a>
           <a href="planning-checklist.html" class="nav-dropdown-link" role="menuitem">Planning Checklist</a>
         </div>
       </div>
@@ -258,6 +258,7 @@ function resources(type) {
 
 function relatedGuides(exclude) {
   const guides = [
+    {h:'national-funeral-cost-index.html',t:'2026 National Funeral Cost Index'},
     {h:'funeral-costs-by-state.html',t:'Funeral Costs by State'},
     {h:'cremation-vs-burial-cost.html',t:'Cremation vs. Burial'},
     {h:'funeral-cost-breakdown.html',t:'Funeral Cost Breakdown'},
@@ -372,6 +373,8 @@ ${header()}
       ${relatedGuides(fn)}
       ${ctaBanner()}
 
+      <div class="callout callout-info"><strong>Compare All 50 States</strong> See how ${s.name} funeral costs compare to the national average and all other states in our <a href="national-funeral-cost-index.html">2026 National Funeral Cost Index</a> — the most comprehensive funeral pricing data available.</div>
+
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only and does not constitute financial, legal, or professional advice. Always consult licensed professionals before making funeral arrangements.</p></div>
     </article>
   </main>
@@ -453,7 +456,7 @@ ${header()}
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
-      <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li></ul></div>
+      <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
       ${relatedGuides(fn)}
       ${ctaBanner()}
@@ -536,7 +539,7 @@ ${header()}
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
-      <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="burial-costs-${s.slug}.html">${s.name} Burial Costs</a></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial</a></li></ul></div>
+      <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="burial-costs-${s.slug}.html">${s.name} Burial Costs</a></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
       ${relatedGuides(fn)}
       ${ctaBanner()}
@@ -613,7 +616,7 @@ ${header()}
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
-      <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${s.name} Cremation Costs</a></li><li><a href="headstone-monument-costs.html">Headstone Costs</a></li></ul></div>
+      <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${s.name} Cremation Costs</a></li><li><a href="headstone-monument-costs.html">Headstone Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
       ${relatedGuides(fn)}
       ${ctaBanner()}
@@ -773,18 +776,21 @@ console.log(`  Topical pages: ${count.topical}`);
 // ── Generate Sitemap ────────────────────────────────────────────
 const existingPages = [
   'index.html', 'chat.html', 'contact.html',
+  'national-funeral-cost-index.html',
   'funeral-costs-by-state.html', 'cremation-vs-burial-cost.html', 'direct-cremation-cost.html',
   'funeral-cost-breakdown.html', 'funeral-payment-assistance.html', 'questions-to-ask-funeral-home.html',
   'what-funeral-homes-dont-tell-you.html', 'social-security-death-benefit.html', 'veteran-burial-benefits.html',
   'cheap-funeral-options.html', 'green-burial-options.html', 'prepaid-funeral-plans.html',
   'ftc-funeral-rule-guide.html', 'funeral-insurance-guide.html', 'home-funeral-guide.html',
   'obituary-writing-guide.html', 'grief-resources.html', 'planning-checklist.html',
-  'editorial-standards.html', 'privacy-policy.html'
+  'editorial-standards.html', 'privacy-policy.html',
+  'funeral-cost-index-pdf.html', 'funeral-planning-checklist-printable.html',
+  'funeral-cost-comparison-worksheet.html', 'funeral-cost-widget.html'
 ];
 
 const sitemapEntries = [];
 existingPages.forEach(p => {
-  const pri = p === 'index.html' ? '1.0' : p.includes('privacy') || p.includes('editorial') ? '0.5' : '0.8';
+  const pri = p === 'index.html' ? '1.0' : p === 'national-funeral-cost-index.html' ? '0.9' : p.includes('privacy') || p.includes('editorial') ? '0.5' : '0.8';
   sitemapEntries.push(`  <url><loc>${BASE}/${p}</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>${pri}</priority></url>`);
 });
 allPages.forEach(p => {
