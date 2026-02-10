@@ -21,10 +21,18 @@ exports.handler = async (event) => {
   }
 
   const messages = Array.isArray(body.messages) ? body.messages : [];
+
+  if (messages.length === 0) {
+    return {
+      statusCode: 400,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reply: "No messages were provided. Please type a message and try again." })
+    };
+  }
+
   const apiKey = process.env.OPENAI_API_KEY;
 
   if (!apiKey) {
-    // Still respond gracefully, but make it clear this is a config issue
     return {
       statusCode: 200,
       headers: { "Content-Type": "application/json" },
@@ -36,9 +44,14 @@ exports.handler = async (event) => {
     };
   }
 
+  const sanitizedMessages = messages.map((msg) => ({
+    role: typeof msg.role === "string" ? msg.role : "user",
+    content: typeof msg.content === "string" ? msg.content.slice(0, 4000) : ""
+  }));
+
   const postData = JSON.stringify({
     model: "gpt-4.1-mini",
-    messages,
+    messages: sanitizedMessages,
     temperature: 0.9,
     max_tokens: 600
   });
@@ -66,6 +79,16 @@ exports.handler = async (event) => {
         status: 500,
         data: JSON.stringify({
           error: { message: error.message || "Network error" }
+        })
+      });
+    });
+
+    req.setTimeout(15000, () => {
+      req.destroy();
+      resolve({
+        status: 504,
+        data: JSON.stringify({
+          error: { message: "The request to the AI service timed out." }
         })
       });
     });
