@@ -2452,7 +2452,13 @@ a:hover {
 
 @media print {
   .site-header, .site-footer, .site-nav,
-  .mobile-nav-toggle, .skip-link, .no-print {
+  .mobile-nav-toggle, .skip-link, .no-print,
+  .chat-form, .chat-disclaimer, .chat-header,
+  .chat-footer, .nav-dropdown, .hero-actions,
+  .ai-cta-layout, .btn-primary, .btn-secondary,
+  .btn-hero-primary, .btn-hero-secondary,
+  .btn-quick-start, .quick-start, .estimator-controls,
+  .calculator-button, .guide-internal-links {
     display: none !important;
   }
 
@@ -2481,6 +2487,37 @@ a:hover {
 
   .checklist li::before {
     background: #000;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: "";
+  }
+
+  .guide-article a[href]::after {
+    content: "";
+  }
+
+  details {
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  details[open] summary {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0.5em;
+  }
+
+  .section-divider,
+  .section-divider-inner {
+    display: none !important;
   }
 }
 
