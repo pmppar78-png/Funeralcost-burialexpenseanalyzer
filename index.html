@@ -122,11 +122,25 @@
     </button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
       <a href="#calculator" class="nav-link">Calculator</a>
+      <a href="#state-costs" class="nav-link">State Costs</a>
       <a href="#payment-help" class="nav-link">Payment Help</a>
       <a href="#ai-helper" class="nav-link">AI Helper</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="#glossary" class="nav-link">Glossary</a>
-      <a href="#resources" class="nav-link">Resources</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Guides <span class="dropdown-arrow" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="funeral-costs-by-state.html" class="nav-dropdown-link" role="menuitem">Funeral Costs by State</a>
+          <a href="cremation-vs-burial-cost.html" class="nav-dropdown-link" role="menuitem">Cremation vs. Burial</a>
+          <a href="direct-cremation-cost.html" class="nav-dropdown-link" role="menuitem">Direct Cremation</a>
+          <a href="funeral-cost-breakdown.html" class="nav-dropdown-link" role="menuitem">Cost Breakdown</a>
+          <a href="funeral-payment-assistance.html" class="nav-dropdown-link" role="menuitem">Payment Assistance</a>
+          <a href="questions-to-ask-funeral-home.html" class="nav-dropdown-link" role="menuitem">Questions to Ask</a>
+          <a href="what-funeral-homes-dont-tell-you.html" class="nav-dropdown-link" role="menuitem">What They Don't Tell You</a>
+          <a href="social-security-death-benefit.html" class="nav-dropdown-link" role="menuitem">Social Security Benefit</a>
+          <a href="veteran-burial-benefits.html" class="nav-dropdown-link" role="menuitem">Veteran Burial Benefits</a>
+          <a href="cheap-funeral-options.html" class="nav-dropdown-link" role="menuitem">Affordable Options</a>
+        </div>
+      </div>
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
   </header>
@@ -175,43 +189,113 @@
       </div>
     </section>
 
-    <!-- Quick Actions — immediately visible, zero scrolling needed -->
-    <section class="quick-actions" aria-label="Quick actions">
-      <p class="quick-actions-label">Where would you like to start?</p>
-      <div class="quick-actions-grid">
-        <a href="#calculator" class="quick-action-card">
-          <span class="quick-action-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg>
+    <!-- A) Why this exists — purpose clarity -->
+    <section class="why-exists" aria-label="Why this site exists">
+      <h2 class="why-exists-heading">Clarity before commitment</h2>
+      <p>We are not a funeral home. We do not sell funeral services or accept referral fees. This site exists because families facing loss deserve honest, clear information before making financial commitments. We help you understand costs, compare options, and know what questions to ask — privately, without pressure. Everything here is free, confidential, and written with care.</p>
+    </section>
+
+    <!-- B) How we help — 3-card value row -->
+    <section class="how-we-help" aria-label="How we help">
+      <div class="help-cards-grid">
+        <div class="help-card">
+          <span class="help-card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </span>
-          <span class="quick-action-text">
-            <span class="quick-action-title">Estimate Costs</span>
-            <span class="quick-action-desc">Get a rough cost estimate</span>
+          <h3 class="help-card-title">Understand real costs</h3>
+          <p class="help-card-desc">See typical price ranges for funerals, cremation, and burial. Learn what drives the total so nothing catches you off guard.</p>
+        </div>
+        <div class="help-card">
+          <span class="help-card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
           </span>
-        </a>
-        <a href="#payment-help" class="quick-action-card">
-          <span class="quick-action-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <h3 class="help-card-title">Compare options</h3>
+          <p class="help-card-desc">Traditional burial, cremation, direct cremation, or simple services — understand each path so you can choose with confidence.</p>
+        </div>
+        <div class="help-card">
+          <span class="help-card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
           </span>
-          <span class="quick-action-text">
-            <span class="quick-action-title">Payment Ideas</span>
-            <span class="quick-action-desc">Explore funding options</span>
-          </span>
-        </a>
-        <a href="chat.html" class="quick-action-card quick-action-highlight">
-          <span class="quick-action-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </span>
-          <span class="quick-action-text">
-            <span class="quick-action-title">Talk to AI Helper</span>
-            <span class="quick-action-desc">Private, calm guidance</span>
-          </span>
-        </a>
+          <h3 class="help-card-title">Know what to ask</h3>
+          <p class="help-card-desc">Get a checklist of questions for funeral homes to avoid hidden fees and ensure you only pay for what you need.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- C) In 60 Seconds — quick-start for grieving users -->
+    <section class="quick-start" aria-label="Get started in 60 seconds">
+      <h2 class="quick-start-heading">Get oriented in 60 seconds</h2>
+      <p class="quick-start-sub">Pick the step that fits where you are right now.</p>
+      <div class="quick-start-grid">
+        <div class="quick-start-step">
+          <span class="quick-start-number" aria-hidden="true">1</span>
+          <div class="quick-start-text">
+            <strong>Check costs in your state</strong>
+            <span>See what families typically pay near you.</span>
+          </div>
+          <a href="#state-costs" class="btn-quick-start">State Costs</a>
+        </div>
+        <div class="quick-start-step">
+          <span class="quick-start-number" aria-hidden="true">2</span>
+          <div class="quick-start-text">
+            <strong>Use the calculator</strong>
+            <span>Get a ballpark estimate in seconds.</span>
+          </div>
+          <a href="#calculator" class="btn-quick-start">Calculator</a>
+        </div>
+        <div class="quick-start-step">
+          <span class="quick-start-number" aria-hidden="true">3</span>
+          <div class="quick-start-text">
+            <strong>Explore payment help</strong>
+            <span>Discover funding options available to you.</span>
+          </div>
+          <a href="#payment-help" class="btn-quick-start">Payment Help</a>
+        </div>
       </div>
     </section>
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <!-- Calculator — compact, focused -->
+    <!-- State Costs — anchor target for quick-start -->
+    <section id="state-costs" class="section card">
+      <h2>Funeral costs by state</h2>
+      <p>
+        Funeral costs vary significantly depending on where you live. The national median for a traditional funeral with burial is around $7,848 (NFDA, 2023), but prices can be 30–50% higher in major metro areas and lower in rural regions.
+      </p>
+      <div class="state-costs-preview">
+        <div class="cost-range-grid">
+          <div class="cost-range-item">
+            <span class="cost-range-label">Northeast (NY, NJ, MA)</span>
+            <span class="cost-range-value">$8,500 – $14,000+</span>
+          </div>
+          <div class="cost-range-item">
+            <span class="cost-range-label">Southeast (FL, GA, NC)</span>
+            <span class="cost-range-value">$6,500 – $10,000</span>
+          </div>
+          <div class="cost-range-item">
+            <span class="cost-range-label">Midwest (OH, IL, MI)</span>
+            <span class="cost-range-value">$6,000 – $9,500</span>
+          </div>
+          <div class="cost-range-item">
+            <span class="cost-range-label">West (CA, WA, CO)</span>
+            <span class="cost-range-value">$7,500 – $12,000+</span>
+          </div>
+          <div class="cost-range-item">
+            <span class="cost-range-label">South (TX, LA, OK)</span>
+            <span class="cost-range-value">$6,000 – $9,000</span>
+          </div>
+          <div class="cost-range-item">
+            <span class="cost-range-label">Mountain (AZ, NV, UT)</span>
+            <span class="cost-range-value">$5,500 – $9,500</span>
+          </div>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top: var(--space-md);">
+        These are general regional ranges. For detailed state-by-state data, see our <a href="funeral-costs-by-state.html">complete state cost guide</a>.
+      </p>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
     <section id="calculator" class="section card">
       <h2>Funeral cost estimator</h2>
       <p>
@@ -467,7 +551,52 @@
 
     <!-- State Costs + Resources — combined, shorter -->
     <section id="resources" class="section card">
-      <h2>Research &amp; resources</h2>
+      <h2>Guides &amp; resources</h2>
+
+      <p>In-depth guides written to help you navigate funeral planning with clarity and confidence.</p>
+
+      <div class="resource-grid" style="margin-bottom: var(--space-lg);">
+        <a href="funeral-costs-by-state.html" class="resource-card">
+          <span class="resource-name">Funeral Costs by State</span>
+          <span class="resource-tagline">State-by-state pricing data and regional comparisons</span>
+        </a>
+        <a href="cremation-vs-burial-cost.html" class="resource-card">
+          <span class="resource-name">Cremation vs. Burial Cost</span>
+          <span class="resource-tagline">Compare costs, process, and considerations</span>
+        </a>
+        <a href="direct-cremation-cost.html" class="resource-card">
+          <span class="resource-name">Direct Cremation Cost</span>
+          <span class="resource-tagline">The most affordable option — what to expect</span>
+        </a>
+        <a href="funeral-cost-breakdown.html" class="resource-card">
+          <span class="resource-name">Funeral Cost Breakdown</span>
+          <span class="resource-tagline">Line-item look at every fee and charge</span>
+        </a>
+        <a href="funeral-payment-assistance.html" class="resource-card">
+          <span class="resource-name">Funeral Payment Assistance</span>
+          <span class="resource-tagline">Programs and resources to help cover costs</span>
+        </a>
+        <a href="questions-to-ask-funeral-home.html" class="resource-card">
+          <span class="resource-name">Questions to Ask a Funeral Home</span>
+          <span class="resource-tagline">Essential checklist before you commit</span>
+        </a>
+        <a href="what-funeral-homes-dont-tell-you.html" class="resource-card">
+          <span class="resource-name">What Funeral Homes Don't Tell You</span>
+          <span class="resource-tagline">Hidden costs and consumer rights</span>
+        </a>
+        <a href="social-security-death-benefit.html" class="resource-card">
+          <span class="resource-name">Social Security Death Benefit</span>
+          <span class="resource-tagline">How to claim the $255 lump-sum payment</span>
+        </a>
+        <a href="veteran-burial-benefits.html" class="resource-card">
+          <span class="resource-name">Veteran Burial Benefits</span>
+          <span class="resource-tagline">VA benefits, national cemeteries, and allowances</span>
+        </a>
+        <a href="cheap-funeral-options.html" class="resource-card">
+          <span class="resource-name">Affordable Funeral Options</span>
+          <span class="resource-tagline">Dignified services on a limited budget</span>
+        </a>
+      </div>
 
       <div class="tip-box">
         <h3>Research tip</h3>
@@ -476,6 +605,7 @@
         </p>
       </div>
 
+      <h3 style="margin-top: var(--space-xl);">External resources</h3>
       <div class="resource-grid">
         <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored" class="resource-card">
           <span class="resource-name">Funeral Consumers Alliance</span>
@@ -609,6 +739,24 @@
             e.preventDefault();
             target.scrollIntoView({ behavior: "smooth", block: "start" });
           }
+        });
+      });
+
+      /* Navigation dropdown (Guides) */
+      var dropdownToggles = document.querySelectorAll(".nav-dropdown-toggle");
+      dropdownToggles.forEach(function (toggle) {
+        toggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var parent = this.closest(".nav-dropdown");
+          var isOpen = parent.classList.toggle("dropdown-open");
+          this.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", function () {
+        document.querySelectorAll(".nav-dropdown.dropdown-open").forEach(function (d) {
+          d.classList.remove("dropdown-open");
+          d.querySelector(".nav-dropdown-toggle").setAttribute("aria-expanded", "false");
         });
       });
     })();
