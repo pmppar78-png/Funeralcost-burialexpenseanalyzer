@@ -2483,3 +2483,165 @@ a:hover {
     background: #000;
   }
 }
+
+/* ============================================================
+   Article Meta — Review Date & Authority Signals
+   ============================================================ */
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-lg);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--warm-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--warm-200);
+  font-size: 0.8rem;
+  color: var(--warm-600);
+}
+
+.article-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.article-meta-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+}
+
+.article-meta-label {
+  font-weight: 600;
+  color: var(--warm-700);
+}
+
+.article-meta-value {
+  color: var(--warm-600);
+}
+
+/* ============================================================
+   Table of Contents
+   ============================================================ */
+
+.toc {
+  margin: var(--space-lg) 0 var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
+  background: linear-gradient(155deg, var(--gold-50) 0%, var(--warm-50) 100%);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gold-200);
+}
+
+.toc-heading {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  margin: 0 0 var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--gold-200);
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: var(--space-xl);
+}
+
+.toc-list li {
+  margin-bottom: var(--space-xs);
+  break-inside: avoid;
+}
+
+.toc-list a {
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--brown-600);
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+.toc-list a:hover {
+  color: var(--gold-600);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .toc-list {
+    columns: 1;
+  }
+}
+
+/* ============================================================
+   Authority Trust Bar (for guide pages)
+   ============================================================ */
+
+.authority-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md) var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  margin-top: var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--warm-200);
+  font-size: 0.78rem;
+  color: var(--warm-600);
+}
+
+.authority-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.authority-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.55;
+}
+
+.authority-text strong {
+  font-weight: 600;
+  color: var(--warm-700);
+}
+
+@media (max-width: 640px) {
+  .authority-bar {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
+
+/* ============================================================
+   Footer Links Grid
+   ============================================================ */
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm) var(--space-lg);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--warm-200);
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--warm-500);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold-600);
+  text-decoration: underline;
+}

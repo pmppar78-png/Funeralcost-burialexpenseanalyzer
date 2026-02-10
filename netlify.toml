@@ -3,3 +3,93 @@
 
 [functions]
   directory = "netlify/functions"
+
+# ─── Security & Performance Headers ───────────────────────────────
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'"
+
+# ─── Cache static assets aggressively ─────────────────────────────
+
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/script.js"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/ai-chat.js"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ─── HTML pages — cache briefly, revalidate ───────────────────────
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+# ─── Redirects ────────────────────────────────────────────────────
+
+# Clean URL aliases (no .html)
+[[redirects]]
+  from = "/green-burial"
+  to = "/green-burial-options.html"
+  status = 301
+
+[[redirects]]
+  from = "/prepaid-plans"
+  to = "/prepaid-funeral-plans.html"
+  status = 301
+
+[[redirects]]
+  from = "/ftc-funeral-rule"
+  to = "/ftc-funeral-rule-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/funeral-rule"
+  to = "/ftc-funeral-rule-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/affordable-funerals"
+  to = "/cheap-funeral-options.html"
+  status = 301
+
+[[redirects]]
+  from = "/state-costs"
+  to = "/funeral-costs-by-state.html"
+  status = 301
+
+[[redirects]]
+  from = "/checklist"
+  to = "/planning-checklist.html"
+  status = 301
+
+[[redirects]]
+  from = "/payment-help"
+  to = "/funeral-payment-assistance.html"
+  status = 301
