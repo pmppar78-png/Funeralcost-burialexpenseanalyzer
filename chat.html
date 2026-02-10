@@ -8,19 +8,27 @@
     name="description"
     content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions. Information only – not financial, legal, tax, medical, or funeral-director advice."
   />
+  <meta name="last-modified" content="2026-02-10" />
+  <meta property="og:title" content="AI Funeral Cost Helper" />
+  <meta property="og:description" content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="AI Funeral Cost Helper" />
+  <meta name="twitter:description" content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions." />
+  <link rel="canonical" href="https://funeralcostanalyzer.com/chat.html" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="chat-body">
-  <header class="chat-header">
+  <header class="chat-header" role="banner">
     <div class="chat-header-main">
       <span class="chat-title">Funeral Cost &amp; Burial Expense Analyzer – AI Helper</span>
       <span class="chat-subtitle">A gentle, private space to think through costs, options, and questions.</span>
     </div>
-    <a href="index.html" class="chat-back-link">← Back to homepage</a>
+    <a href="index.html" class="chat-back-link" aria-label="Return to homepage">← Back to homepage</a>
   </header>
 
-  <main class="chat-main">
-    <div id="chatWindow" class="chat-window">
+  <main class="chat-main" role="main">
+    <div id="chatWindow" class="chat-window" role="log" aria-live="polite" aria-label="Chat messages">
       <div class="message-row assistant">
         <div class="message-bubble">
           <p>
@@ -47,18 +55,19 @@
       </div>
     </div>
 
-    <form id="chatForm" class="chat-form">
+    <form id="chatForm" class="chat-form" aria-label="Send a message">
+      <label for="userInput" class="sr-only">Type your message</label>
       <textarea
         id="userInput"
         class="chat-input"
         rows="1"
         placeholder="Type a message… (Shift+Enter for a new line)"
       ></textarea>
-      <button type="submit" class="btn-primary chat-send">Send</button>
+      <button type="submit" class="btn-primary chat-send" aria-label="Send message">Send</button>
     </form>
   </main>
 
-  <footer class="chat-footer">
+  <footer class="chat-footer" role="contentinfo">
     <p class="footer-text small">
       Information only. Not financial, legal, tax, medical, or funeral-director advice. For decisions about services,
       contracts, and payments, speak with licensed professionals and trusted advisors.
