@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Funeral Cost Helper</title>
+  <title>AI Funeral Cost Helper – Private, Calm Guidance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
@@ -12,6 +12,8 @@
   <meta property="og:title" content="AI Funeral Cost Helper" />
   <meta property="og:description" content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://funeralcostanalyzer.com/chat.html" />
+  <meta property="og:site_name" content="Funeral Cost &amp; Burial Expense Analyzer" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="AI Funeral Cost Helper" />
   <meta name="twitter:description" content="Talk with a calm AI helper about funeral costs, burial expenses, and planning questions." />
@@ -19,20 +21,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="chat-body">
+  <a href="#chat-main" class="skip-link">Skip to chat</a>
+
   <header class="chat-header" role="banner">
     <div class="chat-header-main">
       <span class="chat-title">Funeral Cost &amp; Burial Expense Analyzer – AI Helper</span>
       <span class="chat-subtitle">A gentle, private space to think through costs, options, and questions.</span>
     </div>
-    <a href="index.html" class="chat-back-link" aria-label="Return to homepage">← Back to homepage</a>
+    <a href="index.html" class="chat-back-link" aria-label="Return to homepage">&larr; Back to homepage</a>
   </header>
 
-  <main class="chat-main" role="main">
+  <main id="chat-main" class="chat-main" role="main">
+    <div class="chat-disclaimer">
+      <p>
+        This AI helper provides general educational information about funeral and burial costs. It does not provide
+        financial, legal, tax, medical, or funeral-director advice. Always verify information with licensed professionals.
+      </p>
+    </div>
+
     <div id="chatWindow" class="chat-window" role="log" aria-live="polite" aria-label="Chat messages">
       <div class="message-row assistant">
         <div class="message-bubble">
           <p>
-            I’m so sorry you’re going through this. I’m an AI helper that can talk with you about funeral and burial
+            I'm so sorry you're going through this. I'm an AI helper that can talk with you about funeral and burial
             costs, what usually affects the price, and questions you might want to ask funeral homes or other
             professionals.
           </p>
@@ -48,8 +59,8 @@
             your own time.
           </p>
           <p>
-            When you’re ready, tell me a little about what you’re facing — for example, a quote you received, your
-            approximate budget, or the kind of service you’re hoping for — and we can think through it together.
+            When you're ready, tell me a little about what you're facing — for example, a quote you received, your
+            approximate budget, or the kind of service you're hoping for — and we can think through it together.
           </p>
         </div>
       </div>
@@ -62,8 +73,10 @@
         class="chat-input"
         rows="1"
         placeholder="Type a message… (Shift+Enter for a new line)"
+        aria-describedby="chat-input-hint"
       ></textarea>
-      <button type="submit" class="btn-primary chat-send" aria-label="Send message">Send</button>
+      <span id="chat-input-hint" class="sr-only">Press Enter to send, Shift+Enter for a new line</span>
+      <button type="submit" class="btn-primary chat-send" id="chatSendBtn" aria-label="Send message">Send</button>
     </form>
   </main>
 
