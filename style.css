@@ -1,6 +1,6 @@
 /* ============================================================
    Funeral Cost & Burial Expense Analyzer — Premium Stylesheet
-   Warm, compassionate, high-trust design
+   Warm, compassionate, high-trust design for grieving users
    ============================================================ */
 
 *,
@@ -64,7 +64,7 @@
   --font-heading: "Merriweather", "Georgia", "Palatino Linotype", serif;
   --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
 
-  /* Spacing scale */
+  /* Spacing scale — generous for calm reading */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -79,7 +79,7 @@
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
 
-  /* Shadows — warm-toned, softer */
+  /* Shadows — warm-toned, gentle */
   --shadow-sm: 0 1px 3px rgba(74, 44, 23, 0.04), 0 1px 2px rgba(74, 44, 23, 0.03);
   --shadow-md: 0 4px 12px -2px rgba(74, 44, 23, 0.06), 0 2px 6px -2px rgba(74, 44, 23, 0.04);
   --shadow-lg: 0 10px 24px -4px rgba(74, 44, 23, 0.07), 0 4px 8px -4px rgba(74, 44, 23, 0.03);
@@ -87,7 +87,7 @@
   --shadow-warm-glow: 0 2px 16px rgba(166, 124, 61, 0.12);
 
   /* Content width */
-  --max-width: 960px;
+  --max-width: 860px;
 }
 
 /* ============================================================
@@ -105,7 +105,7 @@ body.chat-body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   line-height: 1.75;
   background: var(--bg-page);
   color: var(--text-body);
@@ -119,17 +119,17 @@ h1, h2, h3, h4 {
 }
 
 h2 {
-  font-size: 1.65rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
-  padding-bottom: var(--space-sm);
-  border-bottom: 3px solid var(--gold-300);
+  letter-spacing: -0.015em;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold-300);
   display: inline-block;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
 }
 
 h3 {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
 }
 
@@ -151,7 +151,7 @@ a:hover {
 }
 
 /* ============================================================
-   Skip Link — invisible until focused
+   Skip Link
    ============================================================ */
 
 .skip-link {
@@ -190,7 +190,8 @@ a:hover {
 }
 
 /* ============================================================
-   Header
+   Header — clean, authoritative, left-aligned brand
+   Hamburger on the LEFT for trust/authority pattern
    ============================================================ */
 
 .site-header {
@@ -201,27 +202,27 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-xl);
-  height: 76px;
+  height: 72px;
   background: var(--bg-header);
   border-bottom: 1px solid var(--warm-200);
-  box-shadow: 0 1px 8px rgba(74, 44, 23, 0.04);
+  box-shadow: 0 1px 6px rgba(74, 44, 23, 0.03);
 }
 
 .brand-block {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: 0.75rem;
 }
 
 .brand-accent {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-md);
   background: linear-gradient(145deg, var(--brown-500), var(--brown-700));
-  box-shadow: 0 2px 10px rgba(92, 58, 30, 0.2);
+  box-shadow: 0 2px 8px rgba(92, 58, 30, 0.18);
   flex-shrink: 0;
 }
 
@@ -241,18 +242,18 @@ a:hover {
 
 .brand-title {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--brown-800);
 }
 
 .brand-tagline {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 400;
   color: var(--warm-500);
-  letter-spacing: 0.02em;
-  margin-top: 2px;
+  letter-spacing: 0.03em;
+  margin-top: 1px;
   font-style: italic;
 }
 
@@ -261,19 +262,20 @@ a:hover {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.15rem;
+  gap: 0.1rem;
   align-items: center;
   justify-content: flex-end;
 }
 
 .nav-link {
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 500;
   text-decoration: none;
-  color: var(--warm-700);
-  padding: 0.35rem 0.65rem;
+  color: var(--warm-600);
+  padding: 0.3rem 0.6rem;
   border-radius: var(--radius-sm);
   transition: background 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.01em;
 }
 
 .nav-link:hover {
@@ -282,7 +284,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* Mobile nav toggle */
+/* Mobile nav toggle — positioned to the LEFT of the brand on mobile */
 
 .mobile-nav-toggle {
   display: none;
@@ -292,11 +294,12 @@ a:hover {
   padding: var(--space-sm);
   flex-direction: column;
   gap: 5px;
+  order: -1;
 }
 
 .hamburger-line {
   display: block;
-  width: 22px;
+  width: 20px;
   height: 2px;
   background: var(--brown-700);
   border-radius: 2px;
@@ -314,20 +317,37 @@ a:hover {
 }
 
 /* ============================================================
-   Hero Section
+   Section Dividers — soft, warm, minimal
+   ============================================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--warm-200) 25%, var(--warm-200) 75%, transparent 100%);
+  margin: var(--space-2xl) 0;
+  border: none;
+}
+
+.section-divider-inner {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--warm-150) 30%, var(--warm-150) 70%, transparent 100%);
+  margin: var(--space-xl) 0;
+  border: none;
+}
+
+/* ============================================================
+   Hero Section — concise, calming
    ============================================================ */
 
 .hero {
   background: var(--bg-hero);
   border-radius: var(--radius-xl);
-  padding: var(--space-3xl) var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   border: 1px solid var(--warm-200);
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle warm decorative circles */
 .hero::before {
   content: "";
   position: absolute;
@@ -336,7 +356,7 @@ a:hover {
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(196, 154, 82, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(196, 154, 82, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -348,7 +368,7 @@ a:hover {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(196, 154, 82, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(196, 154, 82, 0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -358,21 +378,21 @@ a:hover {
 }
 
 .condolence-panel {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radius-md);
-  padding: var(--space-lg) var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
   border: 1px solid var(--warm-200);
-  border-left: 4px solid var(--gold-400);
+  border-left: 3px solid var(--gold-400);
   margin-bottom: var(--space-xl);
   box-shadow: var(--shadow-sm);
 }
 
 .condolence-panel p {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 0.9375rem;
+  line-height: 1.75;
   color: var(--warm-700);
 }
 
@@ -382,19 +402,19 @@ a:hover {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 2.1rem;
+  font-size: 1.85rem;
   font-weight: 700;
   line-height: 1.35;
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 var(--space-md);
   color: var(--brown-800);
   letter-spacing: -0.02em;
 }
 
 .hero-body {
-  font-size: 1.02rem;
-  line-height: 1.85;
-  color: var(--warm-700);
-  max-width: 680px;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--warm-600);
+  max-width: 620px;
 }
 
 /* Trust Bar */
@@ -403,7 +423,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-lg);
-  margin-top: var(--space-xl);
+  margin-top: var(--space-lg);
   padding-top: var(--space-lg);
   border-top: 1px solid var(--warm-200);
 }
@@ -412,17 +432,17 @@ a:hover {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--warm-700);
+  color: var(--warm-600);
 }
 
 .trust-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--gold-100);
   border: 1px solid var(--gold-200);
@@ -431,17 +451,108 @@ a:hover {
 }
 
 /* ============================================================
+   Quick Actions — the "What do I do first?" bar
+   ============================================================ */
+
+.quick-actions {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.quick-actions-label {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  margin: 0 0 var(--space-lg);
+  letter-spacing: -0.01em;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.quick-action-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--text-body);
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.quick-action-card:hover {
+  border-color: var(--gold-400);
+  box-shadow: var(--shadow-md), var(--shadow-warm-glow);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.quick-action-highlight {
+  border-color: var(--gold-300);
+  background: linear-gradient(145deg, var(--gold-50) 0%, #ffffff 100%);
+}
+
+.quick-action-highlight:hover {
+  border-color: var(--gold-500);
+}
+
+.quick-action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--warm-100);
+  color: var(--brown-600);
+  flex-shrink: 0;
+}
+
+.quick-action-highlight .quick-action-icon {
+  background: linear-gradient(145deg, var(--gold-100), var(--gold-50));
+  color: var(--gold-600);
+}
+
+.quick-action-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.quick-action-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brown-800);
+  line-height: 1.3;
+}
+
+.quick-action-desc {
+  font-size: 0.78rem;
+  color: var(--warm-500);
+  margin-top: 2px;
+}
+
+/* ============================================================
    Section Cards
    ============================================================ */
 
 .section {
-  margin-top: var(--space-2xl);
+  margin-top: 0;
 }
 
 .card {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
-  padding: var(--space-xl) var(--space-xl) var(--space-xl);
+  padding: var(--space-xl) var(--space-xl);
   border: 1px solid var(--border-card);
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.3s ease;
@@ -457,6 +568,80 @@ a:hover {
   padding: var(--space-xl);
   border: 1px solid var(--gold-200);
   box-shadow: var(--shadow-sm);
+}
+
+/* ============================================================
+   Expandable / Collapsible Blocks
+   ============================================================ */
+
+.expandable-block {
+  margin-top: var(--space-md);
+}
+
+.expandable-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: 0.75rem var(--space-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brown-700);
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
+}
+
+.expandable-trigger:hover {
+  background: var(--warm-50);
+}
+
+.expandable-trigger::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--warm-400);
+  border-bottom: 2px solid var(--warm-400);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.expandable-block[open] > .expandable-trigger::after {
+  transform: rotate(-135deg);
+}
+
+.expandable-trigger::-webkit-details-marker {
+  display: none;
+}
+
+.expandable-content {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+
+/* Expandable used as section heading */
+.expandable-inline {
+  margin-top: 0;
+}
+
+.expandable-trigger-heading {
+  padding: 0 0 var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.015em;
+  border-bottom: 2px solid var(--gold-300);
+}
+
+.expandable-trigger-heading:hover {
+  background: transparent;
+}
+
+.expandable-inline > .expandable-content {
+  padding: var(--space-lg) 0 0;
 }
 
 /* ============================================================
@@ -488,22 +673,27 @@ a:hover {
 
 .checklist li {
   position: relative;
-  padding-left: 1.7rem;
-  font-size: 0.95rem;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
   color: var(--text-body);
-  margin-top: 0.6rem;
-  line-height: 1.75;
+  margin-top: 0.5rem;
+  line-height: 1.7;
 }
 
 .checklist li::before {
   content: "";
   position: absolute;
-  left: 0.2rem;
-  top: 0.65rem;
-  width: 0.5rem;
-  height: 0.5rem;
+  left: 0.15rem;
+  top: 0.6rem;
+  width: 0.45rem;
+  height: 0.45rem;
   border-radius: 50%;
   background: var(--gold-400);
+}
+
+.checklist-compact li {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
 }
 
 /* ============================================================
@@ -520,17 +710,24 @@ a:hover {
 .calculator-field label {
   display: block;
   font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--brown-700);
+  margin-bottom: 2px;
+}
+
+.field-hint {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--warm-500);
   margin-bottom: var(--space-xs);
 }
 
 .calculator-field input {
   width: 100%;
-  padding: 0.65rem 0.85rem;
+  padding: 0.6rem 0.75rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--warm-200);
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   font-family: var(--font-body);
   color: var(--text-heading);
   background: var(--bg-card);
@@ -540,11 +737,15 @@ a:hover {
 .calculator-field input:focus {
   outline: none;
   border-color: var(--gold-400);
-  box-shadow: 0 0 0 3px rgba(196, 154, 82, 0.15);
+  box-shadow: 0 0 0 3px rgba(196, 154, 82, 0.12);
 }
 
 .calculator-button {
   margin-top: var(--space-sm);
+}
+
+.calc-result {
+  margin-top: 0.75rem;
 }
 
 @media (min-width: 640px) {
@@ -553,19 +754,7 @@ a:hover {
   }
 }
 
-/* Cost Context Box */
-
-.cost-context-box {
-  margin-top: var(--space-xl);
-  padding: var(--space-lg) var(--space-xl);
-  background: var(--warm-50);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--warm-200);
-}
-
-.cost-context-box h3 {
-  margin-bottom: var(--space-xs);
-}
+/* Cost Range Grid */
 
 .cost-range-grid {
   display: grid;
@@ -584,35 +773,98 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 0.65rem 0.85rem;
   background: var(--bg-card);
   border-radius: var(--radius-sm);
   border: 1px solid var(--warm-200);
 }
 
 .cost-range-label {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--warm-700);
 }
 
 .cost-range-value {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--brown-800);
   white-space: nowrap;
 }
 
 /* ============================================================
-   Buttons
+   Payment Options Grid — scannable cards
+   ============================================================ */
+
+.payment-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.payment-option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--warm-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--warm-200);
+  transition: border-color 0.2s ease;
+}
+
+.payment-option:hover {
+  border-color: var(--warm-300);
+}
+
+.payment-option strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brown-700);
+}
+
+.payment-option span {
+  font-size: 0.8rem;
+  color: var(--warm-600);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   AI CTA Layout
+   ============================================================ */
+
+.ai-cta-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xl);
+}
+
+.ai-cta-text {
+  flex: 1;
+}
+
+.ai-cta-text h2 {
+  margin-bottom: var(--space-md);
+}
+
+.ai-cta-action {
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-xl);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Buttons — consistent, dignified
    ============================================================ */
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.7rem 1.6rem;
+  padding: 0.65rem 1.5rem;
   border-radius: var(--radius-sm);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 600;
   font-family: var(--font-body);
   border: none;
@@ -622,6 +874,7 @@ a:hover {
   text-decoration: none;
   box-shadow: var(--shadow-md), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary:hover {
@@ -635,12 +888,17 @@ a:hover {
   transform: translateY(0);
 }
 
+.btn-large {
+  padding: 0.8rem 2rem;
+  font-size: 0.9375rem;
+}
+
 /* ============================================================
    Text Helpers
    ============================================================ */
 
 .small {
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
 }
 
 .muted {
@@ -684,9 +942,9 @@ a:hover {
 }
 
 .faq-question {
-  padding: var(--space-md) var(--space-lg);
+  padding: 0.75rem var(--space-lg);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--brown-800);
   cursor: pointer;
@@ -705,8 +963,8 @@ a:hover {
 .faq-question::after {
   content: "";
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-right: 2px solid var(--warm-400);
   border-bottom: 2px solid var(--warm-400);
   transform: rotate(45deg);
@@ -718,7 +976,6 @@ a:hover {
   transform: rotate(-135deg);
 }
 
-/* Remove default marker */
 .faq-question::-webkit-details-marker {
   display: none;
 }
@@ -726,13 +983,13 @@ a:hover {
 .faq-answer {
   padding: 0 var(--space-lg) var(--space-lg);
   color: var(--text-body);
-  font-size: 0.93rem;
-  line-height: 1.8;
+  font-size: 0.875rem;
+  line-height: 1.75;
   border-top: 1px solid var(--warm-100);
 }
 
 .faq-answer p {
-  margin-top: var(--space-md);
+  margin-top: var(--space-sm);
 }
 
 /* ============================================================
@@ -742,7 +999,7 @@ a:hover {
 .glossary-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   margin-top: var(--space-lg);
 }
 
@@ -757,27 +1014,26 @@ a:hover {
   background: var(--warm-50);
   border-radius: var(--radius-md);
   border: 1px solid var(--warm-200);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .glossary-item:hover {
   border-color: var(--warm-300);
-  box-shadow: var(--shadow-sm);
 }
 
 .glossary-term {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--brown-700);
-  margin-bottom: var(--space-xs);
+  margin-bottom: 2px;
 }
 
 .glossary-definition {
-  font-size: 0.875rem;
-  line-height: 1.75;
+  font-size: 0.8125rem;
+  line-height: 1.65;
   color: var(--text-body);
-  margin: var(--space-xs) 0 0;
+  margin: 2px 0 0;
   padding: 0;
 }
 
@@ -786,21 +1042,22 @@ a:hover {
    ============================================================ */
 
 .tip-box {
-  margin-top: var(--space-xl);
-  padding: var(--space-lg) var(--space-xl);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
   background: var(--gold-50);
   border-radius: var(--radius-md);
   border: 1px solid var(--gold-200);
-  border-left: 4px solid var(--gold-400);
+  border-left: 3px solid var(--gold-400);
 }
 
 .tip-box h3 {
   color: var(--brown-700);
   margin-bottom: var(--space-xs);
+  font-size: 0.9rem;
 }
 
 .tip-box p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--warm-700);
 }
 
@@ -811,8 +1068,8 @@ a:hover {
 .resource-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
 }
 
 @media (min-width: 640px) {
@@ -824,7 +1081,7 @@ a:hover {
 .resource-card {
   display: flex;
   flex-direction: column;
-  padding: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-card);
   background: var(--bg-card);
@@ -836,18 +1093,18 @@ a:hover {
 .resource-card:hover {
   border-color: var(--gold-400);
   box-shadow: var(--shadow-md), var(--shadow-warm-glow);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .resource-name {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--brown-700);
 }
 
 .resource-name::after {
   content: " \2197";
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--warm-400);
   transition: color 0.2s ease;
 }
@@ -857,9 +1114,9 @@ a:hover {
 }
 
 .resource-tagline {
-  font-size: 0.835rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  margin-top: var(--space-xs);
+  margin-top: 2px;
 }
 
 /* ============================================================
@@ -881,8 +1138,8 @@ a:hover {
 }
 
 .footer-accent {
-  width: 48px;
-  height: 3px;
+  width: 40px;
+  height: 2px;
   background: linear-gradient(90deg, var(--gold-300), var(--gold-500));
   border-radius: 2px;
   margin: 0 auto var(--space-lg);
@@ -890,8 +1147,8 @@ a:hover {
 
 .footer-text {
   margin: var(--space-xs) 0;
-  font-size: 0.85rem;
-  line-height: 1.65;
+  font-size: 0.8rem;
+  line-height: 1.6;
 }
 
 /* ============================================================
@@ -906,10 +1163,10 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-xl);
-  height: 76px;
+  height: 72px;
   background: var(--bg-header);
   border-bottom: 1px solid var(--warm-200);
-  box-shadow: 0 1px 8px rgba(74, 44, 23, 0.04);
+  box-shadow: 0 1px 6px rgba(74, 44, 23, 0.03);
 }
 
 .chat-header-main {
@@ -919,20 +1176,20 @@ a:hover {
 
 .chat-title {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--brown-800);
 }
 
 .chat-subtitle {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  margin-top: 2px;
+  margin-top: 1px;
   font-style: italic;
 }
 
 .chat-back-link {
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--warm-600);
   text-decoration: none;
@@ -961,9 +1218,9 @@ a:hover {
   background: var(--gold-50);
   border-radius: var(--radius-md);
   border: 1px solid var(--gold-200);
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
   color: var(--warm-700);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .chat-disclaimer p {
@@ -998,7 +1255,7 @@ a:hover {
   max-width: 85%;
   border-radius: var(--radius-lg);
   padding: var(--space-md) var(--space-lg);
-  font-size: 0.93rem;
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 
@@ -1014,7 +1271,7 @@ a:hover {
 }
 
 .message-small {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
@@ -1030,9 +1287,9 @@ a:hover {
   resize: none;
   border-radius: var(--radius-md);
   border: 1px solid var(--warm-200);
-  padding: 0.65rem 0.85rem;
+  padding: 0.6rem 0.75rem;
   font-family: var(--font-body);
-  font-size: 0.93rem;
+  font-size: 0.875rem;
   background: #ffffff;
   color: var(--text-heading);
   min-height: 44px;
@@ -1043,13 +1300,13 @@ a:hover {
 .chat-input:focus {
   outline: none;
   border-color: var(--gold-400);
-  box-shadow: 0 0 0 3px rgba(196, 154, 82, 0.15);
+  box-shadow: 0 0 0 3px rgba(196, 154, 82, 0.12);
 }
 
 .chat-send {
-  padding-inline: 1.4rem;
+  padding-inline: 1.3rem;
   height: 44px;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
 }
 
 .message-bubble a {
@@ -1094,13 +1351,13 @@ a:hover {
 
   .nav-link {
     width: 100%;
-    padding: 0.6rem 0.65rem;
-    font-size: 0.9rem;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.875rem;
     border-radius: var(--radius-sm);
   }
 
   .hero-title {
-    font-size: 1.55rem;
+    font-size: 1.4rem;
   }
 
   .hero {
@@ -1122,6 +1379,35 @@ a:hover {
   .trust-bar {
     flex-direction: column;
     gap: var(--space-sm);
+  }
+
+  /* Quick actions: stack on mobile */
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .quick-action-card {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  /* Payment options: single column on mobile */
+  .payment-options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* AI CTA: stack on mobile */
+  .ai-cta-layout {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .ai-cta-action {
+    padding-top: 0;
+  }
+
+  .section-divider {
+    margin: var(--space-xl) 0;
   }
 
   .chat-header {
