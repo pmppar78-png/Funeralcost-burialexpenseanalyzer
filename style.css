@@ -2682,3 +2682,566 @@ a:hover {
   color: var(--gold-600);
   text-decoration: underline;
 }
+
+/* ============================================================
+   State / Metro / Topic Pages — Cost Tables
+   ============================================================ */
+
+.cost-table-wrap {
+  overflow-x: auto;
+  margin: var(--space-lg) 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+}
+
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  background: var(--bg-card);
+}
+
+.cost-table caption {
+  padding: var(--space-md);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-heading);
+  text-align: left;
+  background: var(--warm-100);
+  border-bottom: 1px solid var(--border-card);
+}
+
+.cost-table th,
+.cost-table td {
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  border-bottom: 1px solid var(--warm-150);
+}
+
+.cost-table th {
+  font-weight: 600;
+  color: var(--brown-700);
+  background: var(--warm-50);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.cost-table td {
+  color: var(--text-body);
+}
+
+.cost-table tbody tr:hover {
+  background: var(--gold-50);
+}
+
+.cost-table .cost-value {
+  font-weight: 600;
+  color: var(--brown-700);
+  white-space: nowrap;
+}
+
+.cost-table .cost-low {
+  color: #4a7c59;
+}
+
+.cost-table .cost-high {
+  color: #a65c3d;
+}
+
+/* ============================================================
+   State Hub — Map & Grid Layout
+   ============================================================ */
+
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0;
+}
+
+.state-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.state-card:hover {
+  border-color: var(--gold-400);
+  box-shadow: var(--shadow-md);
+}
+
+.state-card .state-name {
+  font-weight: 600;
+  color: var(--brown-700);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-xs);
+}
+
+.state-card .state-cost {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   City / Metro Cards
+   ============================================================ */
+
+.metro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.metro-card {
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.metro-card:hover {
+  border-color: var(--gold-400);
+  box-shadow: var(--shadow-md);
+}
+
+.metro-card h3 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--brown-700);
+  margin: 0 0 var(--space-xs);
+}
+
+.metro-card .metro-cost {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   Resource / Affiliate Suggestions
+   ============================================================ */
+
+.resource-suggestions {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: var(--gold-50);
+  border: 1px solid var(--gold-200);
+  border-radius: var(--radius-md);
+}
+
+.resource-suggestions h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--brown-700);
+  margin: 0 0 var(--space-md);
+}
+
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-sm);
+}
+
+.resource-list li {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gold-100);
+}
+
+.resource-list li a {
+  font-weight: 500;
+  color: var(--brown-600);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.resource-list li a:hover {
+  color: var(--gold-600);
+  text-decoration: underline;
+}
+
+.resource-list li .resource-desc {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   Stat Highlight Boxes
+   ============================================================ */
+
+.stat-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.stat-box {
+  text-align: center;
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+}
+
+.stat-box .stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brown-700);
+  margin-bottom: var(--space-xs);
+}
+
+.stat-box .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   Related Guides Sidebar
+   ============================================================ */
+
+.related-guides {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: var(--warm-50);
+  border: 1px solid var(--warm-200);
+  border-radius: var(--radius-md);
+}
+
+.related-guides h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--brown-700);
+  margin: 0 0 var(--space-md);
+}
+
+.related-guides ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-guides li {
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--warm-150);
+}
+
+.related-guides li:last-child {
+  border-bottom: none;
+}
+
+.related-guides a {
+  color: var(--brown-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.related-guides a:hover {
+  color: var(--gold-600);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   CTA Banner (AI Helper, Contact, etc.)
+   ============================================================ */
+
+.cta-banner {
+  margin: var(--space-xl) 0;
+  padding: var(--space-xl);
+  background: var(--bg-hero);
+  border: 1px solid var(--gold-200);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.cta-banner h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--brown-700);
+  margin: 0 0 var(--space-sm);
+}
+
+.cta-banner p {
+  font-size: 0.875rem;
+  color: var(--text-body);
+  margin: 0 0 var(--space-md);
+}
+
+/* ============================================================
+   Topic Cluster Navigation
+   ============================================================ */
+
+.topic-nav {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--warm-50);
+  border-left: 3px solid var(--gold-400);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.topic-nav h4 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--brown-700);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 var(--space-sm);
+}
+
+.topic-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+}
+
+.topic-nav a {
+  font-size: 0.8125rem;
+  color: var(--brown-600);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.topic-nav a:hover {
+  color: var(--gold-600);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Chat Page Enhancements
+   ============================================================ */
+
+.chat-intro {
+  max-width: var(--max-width);
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-md);
+}
+
+.chat-intro h1 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--text-heading);
+  margin: 0 0 var(--space-sm);
+}
+
+.chat-intro p {
+  font-size: 0.875rem;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+.starter-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0;
+}
+
+.starter-btn {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--warm-200);
+  border-radius: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--brown-600);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.starter-btn:hover {
+  background: var(--gold-50);
+  border-color: var(--gold-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.typing-indicator {
+  display: inline-flex;
+  gap: 4px;
+  padding: 8px 4px;
+}
+
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background: var(--warm-400);
+  border-radius: 50%;
+  animation: typing-bounce 1.4s infinite both;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.7);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   Contact Form
+   ============================================================ */
+
+.contact-form {
+  max-width: 600px;
+  margin: var(--space-lg) 0;
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--brown-700);
+  margin-bottom: var(--space-xs);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--warm-300);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-body);
+  background: var(--bg-card);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px var(--gold-100);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ============================================================
+   Consumer Protection / Warning Callouts
+   ============================================================ */
+
+.callout {
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  margin: var(--space-lg) 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.callout-info {
+  background: var(--gold-50);
+  border-left: 4px solid var(--gold-400);
+  color: var(--warm-700);
+}
+
+.callout-warning {
+  background: #fef7ed;
+  border-left: 4px solid #e5a54b;
+  color: #6b4a1f;
+}
+
+.callout-tip {
+  background: #f0f7f0;
+  border-left: 4px solid #5a9e6f;
+  color: #2d5a3a;
+}
+
+.callout strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+/* ============================================================
+   Comparison Layout
+   ============================================================ */
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.comparison-card {
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+}
+
+.comparison-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--brown-700);
+  margin: 0 0 var(--space-sm);
+}
+
+.comparison-card .price-range {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brown-700);
+  margin-bottom: var(--space-sm);
+}
+
+.comparison-card ul {
+  margin: 0;
+  padding-left: var(--space-lg);
+}
+
+.comparison-card li {
+  font-size: 0.8125rem;
+  color: var(--text-body);
+  margin-bottom: var(--space-xs);
+}
+
+@media (max-width: 640px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
