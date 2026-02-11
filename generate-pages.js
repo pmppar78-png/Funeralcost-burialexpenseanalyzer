@@ -134,7 +134,7 @@ const topical = [
 
 // ── Helpers ──────────────────────────────────────────────────────
 const $ = n => '$' + n.toLocaleString('en-US');
-const esc = s => s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const esc = s => s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
 const BASE = 'https://funeralcostanalyzer.com';
 
@@ -230,6 +230,7 @@ function footer() {
     <div class="footer-inner">
       <div class="footer-accent" aria-hidden="true"></div>
       <p class="footer-text">Information only &middot; Not financial, legal, tax, medical, or funeral-director advice &middot; Always review decisions with licensed professionals.</p>
+      <p class="footer-text small">Some links on this site are affiliate links. We may earn a commission if you make a purchase — at no extra cost to you. This never affects our content or recommendations.</p>
       <p class="footer-text small">&copy; 2026 Funeral Cost &amp; Burial Expense Analyzer. Cost data is based on publicly available consumer surveys and may not reflect current prices in your area.</p>
       <div class="footer-links">
         <a href="planning-checklist.html">Planning Checklist</a>
