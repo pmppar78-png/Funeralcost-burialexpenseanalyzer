@@ -52,6 +52,23 @@
   [headers.values]
     Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
 
+# ─── Domain-level redirects (one-hop, no chains) ─────────────────
+# Canonical host: https://funeralcostanalyzer.com (non-www, HTTPS, no trailing slash except root)
+
+# www → non-www (HTTPS is forced by Netlify automatically)
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/*"
+  to = "https://funeralcostanalyzer.com/:splat"
+  status = 301
+  force = true
+
+# Netlify subdomain → canonical domain
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/*"
+  to = "https://funeralcostanalyzer.com/:splat"
+  status = 301
+  force = true
+
 # ─── Redirects ────────────────────────────────────────────────────
 
 # Clean URL aliases — existing pages

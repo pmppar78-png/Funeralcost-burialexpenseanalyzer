@@ -792,7 +792,9 @@ const existingPages = [
 const sitemapEntries = [];
 existingPages.forEach(p => {
   const pri = p === 'index.html' ? '1.0' : p === 'national-funeral-cost-index.html' ? '0.9' : p.includes('privacy') || p.includes('editorial') ? '0.5' : '0.8';
-  sitemapEntries.push(`  <url><loc>${BASE}/${p}</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>${pri}</priority></url>`);
+  // Homepage canonical is BASE/ not BASE/index.html
+  const loc = p === 'index.html' ? `${BASE}/` : `${BASE}/${p}`;
+  sitemapEntries.push(`  <url><loc>${loc}</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>${pri}</priority></url>`);
 });
 allPages.forEach(p => {
   const pri = p.startsWith('funeral-costs-') && !p.includes('uninsured') ? '0.7' : '0.6';
