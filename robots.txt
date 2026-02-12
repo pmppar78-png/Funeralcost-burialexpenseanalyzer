@@ -1,36 +1,6 @@
 User-agent: *
 Allow: /
 
-# Core pages
-Allow: /index.html
-Allow: /contact.html
-Allow: /chat.html
-Allow: /404.html
-
-# Guide pages
-Allow: /funeral-costs-by-state.html
-Allow: /cremation-vs-burial-cost.html
-Allow: /direct-cremation-cost.html
-Allow: /funeral-cost-breakdown.html
-Allow: /funeral-payment-assistance.html
-Allow: /questions-to-ask-funeral-home.html
-Allow: /what-funeral-homes-dont-tell-you.html
-Allow: /social-security-death-benefit.html
-Allow: /veteran-burial-benefits.html
-Allow: /cheap-funeral-options.html
-Allow: /green-burial-options.html
-Allow: /prepaid-funeral-plans.html
-Allow: /ftc-funeral-rule-guide.html
-Allow: /funeral-insurance-guide.html
-Allow: /home-funeral-guide.html
-Allow: /obituary-writing-guide.html
-Allow: /grief-resources.html
-
-# Resource pages
-Allow: /planning-checklist.html
-Allow: /editorial-standards.html
-Allow: /privacy-policy.html
-
 # Disallow non-public directories
 Disallow: /node_modules/
 Disallow: /.netlify/
