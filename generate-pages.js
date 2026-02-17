@@ -138,6 +138,31 @@ const esc = s => s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&lt;/g,
 
 const BASE = 'https://funeralcostanalyzer.com';
 
+// Region groupings for neighboring-state cross-links
+const regionMap = {
+  'South': ['Alabama','Arkansas','Florida','Georgia','Kentucky','Louisiana','Mississippi','North Carolina','Oklahoma','South Carolina','Tennessee','Texas','Virginia','West Virginia'],
+  'Northeast': ['Connecticut','Delaware','Maine','Maryland','Massachusetts','New Hampshire','New Jersey','New York','Pennsylvania','Rhode Island','Vermont'],
+  'Midwest': ['Illinois','Indiana','Iowa','Kansas','Michigan','Minnesota','Missouri','Nebraska','North Dakota','Ohio','South Dakota','Wisconsin'],
+  'West': ['Alaska','California','Hawaii','Oregon','Washington'],
+  'Mountain': ['Arizona','Colorado','Idaho','Montana','Nevada','New Mexico','Utah','Wyoming']
+};
+
+function getNeighborStates(s) {
+  const region = regionMap[s.region] || [];
+  return region.filter(n => n !== s.name).slice(0, 5).map(n => states.find(x => x.name === n)).filter(Boolean);
+}
+
+function neighborLinks(s, pageType) {
+  const neighbors = getNeighborStates(s);
+  if (!neighbors.length) return '';
+  const prefix = pageType === 'cremation' ? 'cremation-costs' : pageType === 'burial' ? 'burial-costs' : 'funeral-costs';
+  const label = pageType === 'cremation' ? 'Cremation' : pageType === 'burial' ? 'Burial' : 'Funeral';
+  return `<div class="related-guides"><h3>${label} Costs in Nearby States</h3><ul>${neighbors.map(n => {
+    const cost = pageType === 'cremation' ? $(n.dc) : pageType === 'burial' ? $(n.b) : $(n.f);
+    return `<li><a href="${prefix}-${n.slug}.html">${n.name}</a> — from ${cost}</li>`;
+  }).join('')}</ul></div>`;
+}
+
 function head(title, desc, filename, breadcrumbName, faqItems) {
   const faqSchema = faqItems && faqItems.length ? `
   <script type="application/ld+json">
@@ -261,6 +286,8 @@ function relatedGuides(exclude) {
   const guides = [
     {h:'national-funeral-cost-index.html',t:'2026 National Funeral Cost Index'},
     {h:'funeral-costs-by-state.html',t:'Funeral Costs by State'},
+    {h:'cremation-costs-by-state.html',t:'Cremation Costs by State'},
+    {h:'burial-costs-by-state.html',t:'Burial Costs by State'},
     {h:'cremation-vs-burial-cost.html',t:'Cremation vs. Burial'},
     {h:'funeral-cost-breakdown.html',t:'Funeral Cost Breakdown'},
     {h:'ftc-funeral-rule-guide.html',t:'FTC Funeral Rule Guide'},
@@ -271,7 +298,7 @@ function relatedGuides(exclude) {
     {h:'planning-checklist.html',t:'Planning Checklist'},
     {h:'grief-resources.html',t:'Grief Resources'}
   ].filter(g => g.h !== exclude);
-  return `<div class="related-guides"><h3>Related Guides</h3><ul>${guides.slice(0,8).map(g=>`<li><a href="${g.h}">${g.t}</a></li>`).join('')}</ul></div>`;
+  return `<div class="related-guides"><h3>Related Guides</h3><ul>${guides.slice(0,10).map(g=>`<li><a href="${g.h}">${g.t}</a></li>`).join('')}</ul></div>`;
 }
 
 function ctaBanner() {
@@ -352,6 +379,13 @@ ${header()}
         <div class="comparison-card"><h3>Traditional Burial</h3><div class="price-range">${$(Math.round(s.f*0.75))} – ${$(Math.round(s.f*1.3))}</div><ul><li>Traditional service from ${$(s.f)}</li><li>Cemetery plot from ${$(s.b)}</li><li>Vault or liner typically required</li><li>Permanent memorial location</li><li>Casket from ${$(Math.round(s.f*0.12))}</li></ul></div>
       </div>
 
+      <h2 id="detailed-guides">Detailed ${s.name} Cost Guides</h2>
+      <p>For deeper analysis on specific disposition types in ${s.name}, see our dedicated guides:</p>
+      <div class="comparison-grid">
+        <div class="comparison-card"><h3><a href="cremation-costs-${s.slug}.html">Cremation Costs in ${s.name}</a></h3><p>Complete guide to cremation pricing in ${s.name} including direct cremation from ${$(s.dc)}, cremation with service from ${$(s.c)}, urn options, scattering regulations, and memorial alternatives. The cremation rate in ${s.name} is ${s.cr}.</p><p><a href="cremation-costs-${s.slug}.html"><strong>Read the full ${s.name} cremation guide</strong></a></p></div>
+        <div class="comparison-card"><h3><a href="burial-costs-${s.slug}.html">Burial Costs in ${s.name}</a></h3><p>Detailed breakdown of burial expenses in ${s.name} including cemetery plots from ${$(s.b)}, caskets, vaults, headstones, and opening/closing fees. Total burial costs in ${s.name} range from ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}.</p><p><a href="burial-costs-${s.slug}.html"><strong>Read the full ${s.name} burial guide</strong></a></p></div>
+      </div>
+
       <h2 id="consumer-rights">Your Consumer Rights in ${s.name}</h2>
       <div class="callout callout-info"><strong>Know Your Rights Under the FTC Funeral Rule</strong> Every funeral home in ${s.name} must comply with the Federal Trade Commission's Funeral Rule, which protects consumers nationwide. You have the right to: receive an itemized General Price List before making any decisions; choose only the services and products you want; purchase a casket or urn from a third party without penalty; decline embalming unless required by state law for specific circumstances; and receive a written estimate before services are performed.</div>
       <p>If you believe a funeral home in ${s.name} has violated these rights, you can file a complaint with the FTC at <a href="https://www.ftc.gov" target="_blank" rel="noopener noreferrer">ftc.gov</a> or contact the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a> for guidance. Your state attorney general's office can also assist with consumer protection complaints.</p>
@@ -372,6 +406,7 @@ ${header()}
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(fn)}
+      ${neighborLinks(s, 'funeral')}
       ${ctaBanner()}
 
       <div class="callout callout-info"><strong>Compare All 50 States</strong> See how ${s.name} funeral costs compare to the national average and all other states in our <a href="national-funeral-cost-index.html">2026 National Funeral Cost Index</a> — the most comprehensive funeral pricing data available.</div>
@@ -394,12 +429,41 @@ function genMetro(m) {
   const mb = Math.round(s.b * m.mp);
   const title = `Funeral Costs in ${m.city} (2026) — Average Prices &amp; Options`;
   const desc = `Average funeral costs in ${m.city}, ${m.st}: traditional funeral ${$(mf)}, cremation ${$(mc)}, direct cremation ${$(mdc)}. Compare local prices and know your rights.`;
+
+  // Find nearby cities in the same state for comparison
+  const stateMetros = metros.filter(x => x.ss === m.ss && x.slug !== m.slug);
+  const nearbyComparison = stateMetros.length > 0 ? stateMetros.slice(0, 3) : [];
+
   const faq = [
-    {q:`How much does a funeral cost in ${m.city}?`,a:`The average traditional funeral in ${m.city} costs approximately ${$(mf)}, which is ${m.mp > 1.1 ? 'higher than' : 'close to'} the ${m.st} state average of ${$(s.f)}. Direct cremation starts around ${$(mdc)}.`},
-    {q:`Is cremation or burial more common in ${m.city}?`,a:`In the ${m.city} area, the cremation rate follows ${m.st}'s overall rate of ${s.cr}. Cremation remains the more affordable option, with direct cremation costing ${$(mdc)} compared to traditional burial at ${$(mf)}.`},
-    {q:`How do ${m.city} funeral costs compare to the national average?`,a:`${m.city} funeral costs are ${mf > 7848 ? 'above' : 'below'} the national average of $7,848 for a traditional funeral. The ${m.city} metro area's cost of living ${m.mp > 1.15 ? 'significantly' : 'somewhat'} influences local funeral pricing.`},
-    {q:`Where can I compare funeral home prices in ${m.city}?`,a:`Under the FTC Funeral Rule, every funeral home in ${m.city} must provide a General Price List. Call 2-3 providers to request their GPL. You can also visit Parting.com or the Funeral Consumers Alliance for price comparison resources.`}
+    {q:`How much does a funeral cost in ${m.city}?`,a:`The average traditional funeral in ${m.city} costs approximately ${$(mf)}, which is ${m.mp > 1.1 ? 'higher than' : 'close to'} the ${m.st} state average of ${$(s.f)}. Direct cremation starts around ${$(mdc)}. Cemetery plots average ${$(mb)}. Total costs including burial or cremation typically range from ${$(mdc)} for the simplest option to ${$(Math.round(mf*1.3 + mb))} for a full traditional burial.`},
+    {q:`Is cremation or burial more common in ${m.city}?`,a:`In the ${m.city} area, the cremation rate follows ${m.st}'s overall rate of ${s.cr}. Cremation remains the more affordable option, with direct cremation costing ${$(mdc)} compared to traditional burial at ${$(mf)} plus cemetery fees of ${$(mb)}. Many ${m.city} families choose cremation to reduce costs while still holding a meaningful memorial service.`},
+    {q:`How do ${m.city} funeral costs compare to the national average?`,a:`${m.city} funeral costs are ${mf > 7848 ? 'above' : 'below'} the national average of $7,848 for a traditional funeral. The ${m.city} metro area's cost of living ${m.mp > 1.15 ? 'significantly' : 'somewhat'} influences local funeral pricing. ${mf > 9000 ? 'Families in ' + m.city + ' may save by comparing providers carefully or considering direct cremation.' : 'While costs are manageable, comparing at least 2-3 providers can still save hundreds.'}`},
+    {q:`Where can I compare funeral home prices in ${m.city}?`,a:`Under the FTC Funeral Rule, every funeral home in ${m.city} must provide a General Price List. Call 2-3 providers to request their GPL. You can also visit Parting.com or the Funeral Consumers Alliance for price comparison resources.`},
+    {q:`What is direct cremation in ${m.city} and how much does it cost?`,a:`Direct cremation in ${m.city} costs approximately ${$(mdc)} and is the most affordable option. It includes transportation to the crematory and return of ashes without a viewing or ceremony. Families can hold a separate memorial service at a later date, often at a fraction of the cost of a traditional funeral.`},
+    {q:`Are there affordable funeral options in ${m.city}?`,a:`Yes. Direct cremation from ${$(mdc)} is the most affordable. You can also consider direct burial (no service), memorial-only services, or home funerals where permitted. Third-party caskets save 50-70% versus funeral home prices. Veteran benefits, Medicaid, and crowdfunding may also help offset costs.`}
   ];
+
+  const nearbyCityRows = nearbyComparison.map(nc => {
+    const ncf = Math.round(s.f * nc.mp);
+    const ncdc = Math.round(s.dc * nc.mp);
+    return `<tr><td><a href="funeral-costs-${nc.slug}.html">${nc.city}</a></td><td>${$(ncf)}</td><td>${$(ncdc)}</td></tr>`;
+  }).join('\n            ');
+
+  const nearbyCitySection = nearbyComparison.length > 0 ? `
+      <h2>Compare: ${m.city} vs. Other ${m.st} Cities</h2>
+      <p>Funeral costs can vary significantly even within ${m.st}. Here is how ${m.city} compares to other metro areas in the state:</p>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>Funeral Cost Comparison in ${m.st} (2026)</caption>
+          <thead><tr><th>City</th><th>Traditional Funeral</th><th>Direct Cremation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>${m.city}</strong></td><td><strong>${$(mf)}</strong></td><td><strong>${$(mdc)}</strong></td></tr>
+            ${nearbyCityRows}
+            <tr><td><a href="funeral-costs-${s.slug}.html">${m.st} Average</a></td><td>${$(s.f)}</td><td>${$(s.dc)}</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>${mf > s.f ? `At ${$(mf)}, ${m.city} runs about ${Math.round((m.mp-1)*100)}% above the ${m.st} state average of ${$(s.f)}. This premium reflects ${m.city}'s higher cost of living, real estate, and provider overhead.` : `${m.city}'s funeral costs are close to or below the ${m.st} state average of ${$(s.f)}, making it a relatively affordable area for funeral services.`} Regardless of location, comparing at least 2-3 providers before committing can save families $1,000 or more.</p>` : '';
 
   const content = `${head(title, desc, fn, `Funeral Costs in ${m.city}`, faq)}
 ${header()}
@@ -424,7 +488,8 @@ ${header()}
         <div class="stat-box"><span class="stat-number">${$(mb)}</span><span class="stat-label">Avg. Burial Plot</span></div>
       </div>
 
-      <h2>Cost Breakdown for ${m.city}</h2>
+      <h2>Complete Cost Breakdown for ${m.city}</h2>
+      <p>The following table breaks down average funeral costs in the ${m.city} metropolitan area compared to ${m.st} state averages. These figures reflect the local cost-of-living multiplier of approximately ${m.mp}x applied to statewide pricing data from the NFDA and consumer surveys.</p>
       <div class="cost-table-wrap">
         <table class="cost-table">
           <caption>${m.city} Funeral Cost Averages (2026)</caption>
@@ -434,11 +499,24 @@ ${header()}
             <tr><td>Funeral with cremation</td><td class="cost-value">${$(mc)}</td><td>${$(s.c)}</td></tr>
             <tr><td>Direct cremation</td><td class="cost-value">${$(mdc)}</td><td>${$(s.dc)}</td></tr>
             <tr><td>Cemetery plot</td><td class="cost-value">${$(mb)}</td><td>${$(s.b)}</td></tr>
+            <tr><td>Embalming</td><td class="cost-value">${$(Math.round(mf*0.1))}</td><td>${$(Math.round(s.f*0.1))}</td></tr>
+            <tr><td>Casket</td><td class="cost-value">${$(Math.round(mf*0.3))}</td><td>${$(Math.round(s.f*0.3))}</td></tr>
+            <tr><td>Burial vault / liner</td><td class="cost-value">${$(Math.round(mb*0.4))}</td><td>${$(Math.round(s.b*0.4))}</td></tr>
+            <tr><td>Headstone / marker</td><td class="cost-value">$1,500 – $3,000</td><td>$1,000 – $3,000</td></tr>
           </tbody>
         </table>
       </div>
 
-      <p>These estimates reflect the ${m.city} metro area premium of approximately ${Math.round((m.mp-1)*100)}% above the ${m.st} state average. Actual prices will vary by provider. The most effective way to find the best price is to request General Price Lists from 2 to 3 funeral homes in the ${m.city} area and compare them line by line.</p>
+      <h2>Understanding ${m.city} Funeral Pricing</h2>
+      <p>Funeral costs in ${m.city} carry a metro premium of approximately ${Math.round((m.mp-1)*100)}% above the ${m.st} state average. This is driven by higher real estate costs for funeral home facilities, higher labor costs, and greater demand for services in a dense metropolitan area. However, the competitive market in ${m.city} also means you have more providers to choose from, which gives you leverage when comparing prices.</p>
+      <p>The most effective way to find the best price is to request General Price Lists from 2 to 3 funeral homes in the ${m.city} area and compare them line by line. Under the FTC Funeral Rule, every provider must give you this list upon request — no appointment needed, no commitment required.</p>
+      ${nearbyCitySection}
+
+      <h2>Cremation vs. Burial in ${m.city}</h2>
+      <div class="comparison-grid">
+        <div class="comparison-card"><h3>Cremation in ${m.city}</h3><div class="price-range">${$(mdc)} – ${$(mc)}</div><ul><li>Direct cremation from ${$(mdc)}</li><li>Cremation with service from ${$(mc)}</li><li>No cemetery plot needed</li><li>Memorial service can be held anywhere</li></ul><p><a href="cremation-costs-${s.slug}.html">${m.st} cremation guide</a></p></div>
+        <div class="comparison-card"><h3>Burial in ${m.city}</h3><div class="price-range">${$(Math.round(mf*0.75))} – ${$(Math.round(mf*1.3))}</div><ul><li>Traditional service from ${$(mf)}</li><li>Cemetery plot from ${$(mb)}</li><li>Vault or liner typically required</li><li>Permanent memorial location</li></ul><p><a href="burial-costs-${s.slug}.html">${m.st} burial guide</a></p></div>
+      </div>
 
       <h2>Your Rights in ${m.city}</h2>
       <div class="callout callout-info"><strong>FTC Funeral Rule Protection</strong> Every funeral home in ${m.city} must provide an itemized General Price List, let you choose only the services you want, and accept caskets purchased elsewhere. You are never required to buy a package. <a href="ftc-funeral-rule-guide.html">Read the full FTC Funeral Rule guide</a>.</div>
@@ -447,9 +525,10 @@ ${header()}
       <ul>
         <li>Compare prices from at least 3 funeral providers in the ${m.city} area</li>
         <li>Consider direct cremation at ${$(mdc)} as the most affordable option</li>
-        <li>Shop for caskets from independent retailers or online</li>
-        <li>Ask about veteran benefits, Medicaid assistance, or payment plans</li>
+        <li>Shop for caskets from independent retailers or online — savings of 50-70% are common</li>
+        <li>Ask about veteran benefits, Medicaid assistance, or payment plans. <a href="funeral-payment-assistance.html">See all assistance options</a></li>
         <li>Consider a memorial service at a church, park, or home instead of the funeral home</li>
+        <li>Review our <a href="cheap-funeral-options.html">affordable funeral options guide</a> for more strategies</li>
       </ul>
 
       ${resources('general')}
@@ -457,7 +536,7 @@ ${header()}
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
-      <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
+      <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li><li><a href="cremation-costs-by-state.html">All State Cremation Costs</a></li><li><a href="burial-costs-by-state.html">All State Burial Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
       ${relatedGuides(fn)}
       ${ctaBanner()}
@@ -484,7 +563,7 @@ ${header()}
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
       <nav class="guide-breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a> &rsaquo; <a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">Cremation Costs</span>
+        <a href="index.html">Home</a> &rsaquo; <a href="cremation-costs-by-state.html">Cremation Costs by State</a> &rsaquo; <a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">Cremation Costs</span>
       </nav>
 
       <h1>Cremation Costs in ${s.name} (2026)</h1>
@@ -540,8 +619,9 @@ ${header()}
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
-      <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="burial-costs-${s.slug}.html">${s.name} Burial Costs</a></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
+      <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="burial-costs-${s.slug}.html">${s.name} Burial Costs</a></li><li><a href="cremation-costs-by-state.html">All State Cremation Costs</a></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
+      ${neighborLinks(s, 'cremation')}
       ${relatedGuides(fn)}
       ${ctaBanner()}
     </article>
@@ -566,7 +646,7 @@ ${header()}
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
       <nav class="guide-breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a> &rsaquo; <a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">Burial Costs</span>
+        <a href="index.html">Home</a> &rsaquo; <a href="burial-costs-by-state.html">Burial Costs by State</a> &rsaquo; <a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">Burial Costs</span>
       </nav>
 
       <h1>Burial Costs in ${s.name} (2026)</h1>
@@ -617,8 +697,9 @@ ${header()}
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
-      <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${s.name} Cremation Costs</a></li><li><a href="headstone-monument-costs.html">Headstone Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
+      <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${s.name} Cremation Costs</a></li><li><a href="burial-costs-by-state.html">All State Burial Costs</a></li><li><a href="headstone-monument-costs.html">Headstone Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
+      ${neighborLinks(s, 'burial')}
       ${relatedGuides(fn)}
       ${ctaBanner()}
     </article>
@@ -713,6 +794,9 @@ ${header()}
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(p.fn)}
+
+      <div class="related-guides"><h3>Find Costs in Your State</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="burial-costs-by-state.html">Burial Costs by State</a></li><li><a href="funeral-costs-california.html">California Funeral Costs</a></li><li><a href="funeral-costs-texas.html">Texas Funeral Costs</a></li><li><a href="funeral-costs-florida.html">Florida Funeral Costs</a></li><li><a href="funeral-costs-new-york.html">New York Funeral Costs</a></li></ul></div>
+
       ${ctaBanner()}
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> This guide is for general educational purposes only and does not constitute financial, legal, tax, medical, or professional advice. Always consult licensed professionals before making decisions. Cost data is based on publicly available surveys and may not reflect current prices in your area.</p></div>
@@ -720,6 +804,153 @@ ${header()}
   </main>
 ${footer()}`;
   return { fn: p.fn, content };
+}
+
+// ── Hub Pages: Cremation & Burial by State ──────────────────────
+function genCremationHub() {
+  const fn = 'cremation-costs-by-state.html';
+  const title = 'Cremation Costs by State (2026) — Compare All 50 States';
+  const desc = 'Compare cremation costs across all 50 US states. See average direct cremation and cremation with service prices, cremation rates, and state-by-state pricing data for 2026.';
+  const faq = [
+    {q:'What is the average cremation cost in the US?',a:'The national average for a funeral with cremation is approximately $6,971, while direct cremation — without a viewing or service — averages $1,000 to $3,500 depending on location and provider.'},
+    {q:'Which states have the cheapest cremation?',a:'States in the South and Mountain regions tend to have the lowest cremation costs. Mississippi, Oklahoma, Arkansas, and New Mexico typically offer direct cremation for under $1,500.'},
+    {q:'Which states have the highest cremation rates?',a:'Western states lead in cremation rates. Oregon (78%), Washington (76%), Maine (75%), Hawaii (70%), and Montana (72%) have among the highest cremation rates in the country.'},
+    {q:'Is direct cremation the cheapest funeral option?',a:'Yes, direct cremation is generally the most affordable disposition option in every state. It includes only the essential services: transportation, the cremation itself, and return of remains to the family.'}
+  ];
+
+  const regionGroups = {};
+  states.forEach(s => {
+    if (!regionGroups[s.region]) regionGroups[s.region] = [];
+    regionGroups[s.region].push(s);
+  });
+
+  const stateRows = states
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(s => `<tr><td><a href="cremation-costs-${s.slug}.html">${s.name}</a></td><td class="cost-value">${$(s.dc)}</td><td>${$(s.c)}</td><td>${s.cr}</td></tr>`)
+    .join('\n            ');
+
+  const stateGrid = states
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(s => `<a href="cremation-costs-${s.slug}.html" class="state-card"><span class="state-name">${s.name}</span><span class="state-cost">From ${$(s.dc)}</span></a>`)
+    .join('');
+
+  const content = `${head(title, desc, fn, 'Cremation Costs by State', faq)}
+${header()}
+  <main id="main-content" class="guide-main" role="main">
+    <article class="guide-article">
+      <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; <span aria-current="page">Cremation Costs by State</span>
+      </nav>
+
+      <h1>Cremation Costs by State: 2026 Price Comparison</h1>
+      <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">February 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, State Boards</span></span>
+      </div>
+
+      <p class="guide-intro">Cremation has become the most popular disposition choice in the United States, with the national cremation rate exceeding 60%. Costs vary significantly by state — direct cremation can range from under $1,000 in some Southern states to over $3,000 in the Northeast. This guide compares cremation costs across all 50 states to help you understand what to expect in your area.</p>
+
+      <h2 id="all-states">Browse All 50 States</h2>
+      <p>Click any state below for a detailed cremation cost guide including types, pricing breakdowns, regulations, and consumer rights.</p>
+      <div class="state-grid">${stateGrid}</div>
+
+      <h2 id="state-table">State-by-State Cremation Cost Table</h2>
+      <p>The table below shows average cremation costs for all 50 states, including direct cremation (the most affordable option), cremation with a full funeral service, and the state's cremation rate. Click any state for detailed pricing.</p>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>Cremation Costs by State (2026)</caption>
+          <thead><tr><th>State</th><th>Direct Cremation</th><th>Cremation w/ Service</th><th>Cremation Rate</th></tr></thead>
+          <tbody>
+            ${stateRows}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="about">Understanding Cremation Costs</h2>
+      <p>Cremation costs are driven by the same factors that affect all funeral pricing: cost of living, local competition, state regulations, and the specific services chosen. Direct cremation — where the body is cremated without a viewing or ceremony — is always the most affordable option. Adding a memorial service, urn upgrade, or scattering service will increase the total cost.</p>
+      <p>Regardless of which state you are in, the <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a> protects your right to choose only the services you want and to receive itemized pricing from any provider. You are never required to purchase a casket for cremation — a simple alternative container is sufficient.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
+
+      ${relatedGuides(fn)}
+      ${ctaBanner()}
+
+      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
+    </article>
+  </main>
+${footer()}`;
+  return { fn, content };
+}
+
+function genBurialHub() {
+  const fn = 'burial-costs-by-state.html';
+  const title = 'Burial Costs by State (2026) — Cemetery, Plot &amp; Service Prices';
+  const desc = 'Compare burial costs across all 50 US states. See average funeral service, cemetery plot, casket, and total burial costs with state-by-state pricing data for 2026.';
+  const faq = [
+    {q:'What is the average burial cost in the US?',a:'A traditional funeral with burial costs approximately $7,848 nationally. Adding cemetery fees (plot, vault, opening/closing, headstone) brings the total to $10,000–$15,000 in most areas.'},
+    {q:'Which states have the cheapest burial costs?',a:'Southern states tend to have the lowest burial costs. Mississippi, Oklahoma, Arkansas, and Alabama typically see traditional burials under $7,000 including basic cemetery fees.'},
+    {q:'Is a burial vault required?',a:'Burial vaults are required by most cemeteries (as a matter of cemetery policy) to prevent ground settling, though they are rarely required by state law. Grave liners are a less expensive alternative. Always ask the cemetery about their specific requirements.'},
+    {q:'What is the cheapest way to be buried?',a:'Direct burial (without a viewing or ceremony) is the most affordable burial option. Green burial, which skips embalming and uses a biodegradable container, is another cost-effective choice. Both can save thousands compared to a traditional funeral with burial.'}
+  ];
+
+  const stateRows = states
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(s => `<tr><td><a href="burial-costs-${s.slug}.html">${s.name}</a></td><td class="cost-value">${$(s.f)}</td><td>${$(s.b)}</td><td>${$(Math.round(s.f + s.b + s.b*0.9))}</td></tr>`)
+    .join('\n            ');
+
+  const stateGrid = states
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(s => `<a href="burial-costs-${s.slug}.html" class="state-card"><span class="state-name">${s.name}</span><span class="state-cost">From ${$(s.b)}</span></a>`)
+    .join('');
+
+  const content = `${head(title, desc, fn, 'Burial Costs by State', faq)}
+${header()}
+  <main id="main-content" class="guide-main" role="main">
+    <article class="guide-article">
+      <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; <span aria-current="page">Burial Costs by State</span>
+      </nav>
+
+      <h1>Burial Costs by State: 2026 Price Comparison</h1>
+      <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">February 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, State Boards</span></span>
+      </div>
+
+      <p class="guide-intro">Traditional burial remains a deeply meaningful choice for many American families. However, the total cost — including the funeral service, cemetery plot, casket, vault, headstone, and associated fees — can vary by thousands of dollars between states. This guide compares burial costs across all 50 states to help you plan with realistic expectations and make informed decisions.</p>
+
+      <h2 id="all-states">Browse All 50 States</h2>
+      <p>Click any state below for a detailed burial cost guide including cemetery fees, casket options, and ways to save.</p>
+      <div class="state-grid">${stateGrid}</div>
+
+      <h2 id="state-table">State-by-State Burial Cost Table</h2>
+      <p>The table below shows average burial costs for all 50 states, including the funeral service, cemetery plot, and estimated total (including vault, headstone, and opening/closing fees). Click any state for detailed pricing.</p>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>Burial Costs by State (2026)</caption>
+          <thead><tr><th>State</th><th>Funeral Service</th><th>Cemetery Plot</th><th>Est. Total</th></tr></thead>
+          <tbody>
+            ${stateRows}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="about">Understanding Burial Costs</h2>
+      <p>Burial costs include more line items than most families expect. Beyond the funeral home's service fee, you will likely encounter charges for the cemetery plot, a burial vault or grave liner, opening and closing the grave, a headstone or marker, and perpetual care fees. These cemetery charges alone can add $3,000 to $8,000 to the funeral home bill.</p>
+      <p>The most effective way to manage burial costs is to get itemized pricing from both the funeral home and the cemetery before committing. Under the <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a>, funeral homes must provide a General Price List on request. Cemeteries are not covered by the FTC rule but most will provide their price sheet upon request. Comparing prices between 2-3 providers can save families significant money.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
+
+      ${relatedGuides(fn)}
+      ${ctaBanner()}
+
+      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
+    </article>
+  </main>
+${footer()}`;
+  return { fn, content };
 }
 
 // ── Generate All Pages ──────────────────────────────────────────
@@ -774,6 +1005,15 @@ topical.forEach(p => {
 });
 console.log(`  Topical pages: ${count.topical}`);
 
+// Hub pages (cremation-by-state, burial-by-state)
+const cremHub = genCremationHub();
+fs.writeFileSync(path.join(OUT, cremHub.fn), cremHub.content);
+allPages.push(cremHub.fn);
+const burialHub = genBurialHub();
+fs.writeFileSync(path.join(OUT, burialHub.fn), burialHub.content);
+allPages.push(burialHub.fn);
+console.log('  Hub pages: 2 (cremation-costs-by-state, burial-costs-by-state)');
+
 // ── Generate Sitemap ────────────────────────────────────────────
 const existingPages = [
   'index.html', 'chat.html', 'contact.html',
@@ -797,7 +1037,10 @@ existingPages.forEach(p => {
   sitemapEntries.push(`  <url><loc>${loc}</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>${pri}</priority></url>`);
 });
 allPages.forEach(p => {
-  const pri = p.startsWith('funeral-costs-') && !p.includes('uninsured') ? '0.7' : '0.6';
+  let pri = '0.6';
+  if (p === 'cremation-costs-by-state.html' || p === 'burial-costs-by-state.html') pri = '0.9';
+  else if (p.startsWith('funeral-costs-') && !p.includes('uninsured')) pri = '0.7';
+  else if (p.startsWith('cremation-costs-') || p.startsWith('burial-costs-')) pri = '0.7';
   sitemapEntries.push(`  <url><loc>${BASE}/${p}</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>${pri}</priority></url>`);
 });
 
