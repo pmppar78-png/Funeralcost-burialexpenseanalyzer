@@ -8,7 +8,7 @@
     name="description"
     content="Funeral Cost &amp; Burial Expense Analyzer helps families estimate costs, compare options, and explore payment ideas with a calm AI helper. Information only – not financial, legal, tax, or medical advice."
   />
-  <meta name="last-modified" content="2026-02-10" />
+  <meta name="last-modified" content="2026-03-01" />
   <meta property="og:title" content="Funeral Cost &amp; Burial Expense Analyzer" />
   <meta property="og:description" content="Estimate funeral and burial costs, compare options, and explore payment ideas with a calm AI helper." />
   <meta property="og:type" content="website" />
@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -852,7 +855,7 @@
           <li><strong>Funeral Consumers Alliance research:</strong> We reference FCA publications and consumer advocacy research for market context and pricing trends.</li>
         </ul>
         <p class="small muted" style="margin-top: var(--space-md);">
-          All data is reviewed periodically. Last comprehensive review: February 2026. We are transparent about the limitations of aggregated data — your local costs may differ. Always request a General Price List directly from providers for current pricing.
+          All data is reviewed periodically. Last comprehensive review: March 2026. We are transparent about the limitations of aggregated data — your local costs may differ. Always request a General Price List directly from providers for current pricing.
         </p>
         <p class="small" style="margin-top: var(--space-sm);">
           <a href="editorial-standards.html">Read our full editorial standards and methodology</a>
@@ -939,6 +942,22 @@
   </form>
   <p class="email-privacy">No spam. Unsubscribe anytime. We respect your privacy.</p>
 </div>
+
+      <section class="lead-gen-section" id="price-help">
+        <h2>Get Personalized Funeral Cost Guidance</h2>
+        <p>Enter your ZIP code and situation, and we will send you a free, customized pricing summary for your area.</p>
+        <form name="quick-price-help" method="POST" data-netlify="true" class="lead-form lead-form-compact">
+          <input type="hidden" name="form-name" value="quick-price-help" />
+          <div class="form-row">
+            <div class="form-group"><label for="qph-zip">ZIP Code</label><input type="text" id="qph-zip" name="zip" required placeholder="ZIP" pattern="[0-9]{5}" maxlength="5" /></div>
+            <div class="form-group"><label for="qph-need">Need</label><select id="qph-need" name="need" required><option value="">Select</option><option value="compare-prices">Compare prices</option><option value="cremation">Cremation info</option><option value="burial">Burial info</option><option value="payment">Payment help</option><option value="insurance">Insurance</option><option value="pre-plan">Pre-planning</option></select></div>
+            <div class="form-group"><label for="qph-email">Email</label><input type="email" id="qph-email" name="email" required placeholder="you@example.com" /></div>
+          </div>
+          <div class="form-group form-checkbox"><input type="checkbox" id="qph-privacy" name="privacy-consent" required /><label for="qph-privacy">I agree to the <a href="privacy-policy.html">privacy policy</a></label></div>
+          <button type="submit" class="btn-primary">Get Free Guidance</button>
+        </form>
+        <p class="form-note">Free service. We may earn a referral fee from partners — at no cost to you. <a href="editorial-standards.html">Our standards</a></p>
+      </section>
 
   </main>
 
@@ -1194,5 +1213,35 @@
       });
     })();
   </script>
+<script>
+(function(){
+  if(typeof gtag!=='function')return;
+  // Track affiliate link clicks (rel="sponsored")
+  document.querySelectorAll('a[rel*="sponsored"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',page_path:location.pathname});
+    });
+  });
+  // Track CTA clicks
+  document.querySelectorAll('.btn-primary,.cta-banner a,.btn-hero').forEach(function(a){
+    a.addEventListener('click',function(){
+      gtag('event','cta_click',{link_url:this.href||'',link_text:this.textContent.trim().substring(0,50),page_path:location.pathname});
+    });
+  });
+  // Track outbound link clicks
+  document.querySelectorAll('a[target="_blank"]').forEach(function(a){
+    if(a.getAttribute('rel')&&a.getAttribute('rel').indexOf('sponsored')>-1)return;
+    a.addEventListener('click',function(){
+      gtag('event','outbound_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),page_path:location.pathname});
+    });
+  });
+  // Track Netlify form submissions
+  document.querySelectorAll('form[data-netlify="true"]').forEach(function(f){
+    f.addEventListener('submit',function(){
+      gtag('event','form_submit',{form_name:this.getAttribute('name')||'unknown',page_path:location.pathname});
+    });
+  });
+})();
+</script>
 </body>
 </html>

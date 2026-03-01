@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -675,9 +678,9 @@
       </div>
 
       <div class="author-bio">
-        <h3>About the Editorial Team</h3>
-        <p><strong>Funeral Cost Analyzer Editorial Team</strong> — Our content is researched and reviewed by professionals with backgrounds in consumer advocacy, insurance analysis, and end-of-life planning. We consult publicly available data from the National Funeral Directors Association (NFDA), the Funeral Consumers Alliance (FCA), the Federal Trade Commission (FTC), and state regulatory agencies. Our editorial standards require factual accuracy, transparency about affiliate relationships, and prioritization of consumer interests over commercial considerations.</p>
-        <p>Have questions or corrections? <a href="contact.html">Contact our editorial team</a>.</p>
+        <h3>Editorial Disclosure</h3>
+        <p>This content is maintained by the Funeral Cost Analyzer editorial team. Cost data is compiled from publicly available sources including NFDA consumer surveys, Funeral Consumers Alliance research, FTC guidelines, and state regulatory filings. We are an independent consumer education resource — not funeral directors, attorneys, or financial advisors. For our full methodology and editorial standards, see our <a href="editorial-standards.html">Editorial Standards &amp; Methodology</a> page.</p>
+        <p>Found an error or have feedback? <a href="contact.html">Contact us</a>.</p>
       </div>
 
     </article>
@@ -699,6 +702,36 @@
 
   <script>
 (function(){var n=document.querySelector(".mobile-nav-toggle"),s=document.getElementById("site-nav");if(n&&s){n.addEventListener("click",function(){var o=s.classList.toggle("nav-open");n.setAttribute("aria-expanded",o?"true":"false")});s.querySelectorAll(".nav-link").forEach(function(l){l.addEventListener("click",function(){s.classList.remove("nav-open");n.setAttribute("aria-expanded","false")})})}var d=document.querySelectorAll(".nav-dropdown-toggle");d.forEach(function(t){t.addEventListener("click",function(e){e.stopPropagation();var p=this.closest(".nav-dropdown");var o=p.classList.toggle("dropdown-open");this.setAttribute("aria-expanded",o?"true":"false")})});document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.dropdown-open").forEach(function(x){x.classList.remove("dropdown-open");x.querySelector(".nav-dropdown-toggle").setAttribute("aria-expanded","false")})})})();
+</script>
+<script>
+(function(){
+  if(typeof gtag!=='function')return;
+  // Track affiliate link clicks (rel="sponsored")
+  document.querySelectorAll('a[rel*="sponsored"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',page_path:location.pathname});
+    });
+  });
+  // Track CTA clicks
+  document.querySelectorAll('.btn-primary,.cta-banner a,.btn-hero').forEach(function(a){
+    a.addEventListener('click',function(){
+      gtag('event','cta_click',{link_url:this.href||'',link_text:this.textContent.trim().substring(0,50),page_path:location.pathname});
+    });
+  });
+  // Track outbound link clicks
+  document.querySelectorAll('a[target="_blank"]').forEach(function(a){
+    if(a.getAttribute('rel')&&a.getAttribute('rel').indexOf('sponsored')>-1)return;
+    a.addEventListener('click',function(){
+      gtag('event','outbound_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),page_path:location.pathname});
+    });
+  });
+  // Track Netlify form submissions
+  document.querySelectorAll('form[data-netlify="true"]').forEach(function(f){
+    f.addEventListener('submit',function(){
+      gtag('event','form_submit',{form_name:this.getAttribute('name')||'unknown',page_path:location.pathname});
+    });
+  });
+})();
 </script>
 </body>
 </html>
