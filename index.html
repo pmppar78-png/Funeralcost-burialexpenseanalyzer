@@ -411,6 +411,29 @@
             <option value="memorial-only">Memorial service only (no body present)</option>
           </select>
         </div>
+        <div class="estimator-field">
+          <label for="estCasket">Casket preference</label>
+          <span class="field-hint">Affects total significantly</span>
+          <select id="estCasket">
+            <option value="" disabled selected>Choose casket type</option>
+            <option value="budget">Budget / simple ($800 – $1,500)</option>
+            <option value="mid">Mid-range ($2,000 – $4,000)</option>
+            <option value="premium">Premium ($5,000 – $10,000+)</option>
+            <option value="rental">Rental casket ($500 – $1,000)</option>
+            <option value="none">No casket (cremation container)</option>
+          </select>
+        </div>
+        <div class="estimator-field">
+          <label for="estExtras">Additional services</label>
+          <span class="field-hint">Select all that apply</span>
+          <div class="checkbox-group" id="estExtras">
+            <label class="checkbox-label"><input type="checkbox" value="flowers" /> Flowers &amp; arrangements ($300–$800)</label>
+            <label class="checkbox-label"><input type="checkbox" value="obituary" /> Obituary / death notice ($200–$600)</label>
+            <label class="checkbox-label"><input type="checkbox" value="headstone" /> Headstone / marker ($1,000–$3,000)</label>
+            <label class="checkbox-label"><input type="checkbox" value="transport" /> Long-distance transport ($1,000–$3,000)</label>
+            <label class="checkbox-label"><input type="checkbox" value="reception" /> Reception / gathering ($500–$2,000)</label>
+          </div>
+        </div>
       </div>
 
       <button type="button" class="btn-primary calculator-button" id="estButton">
@@ -433,6 +456,10 @@
           <p class="estimator-next-steps">
             <strong>What to do next:</strong> Request a <em>General Price List</em> (GPL) from 2-3 local funeral homes. They are legally required to provide one. Compare each line item against the ranges above. Our <a href="questions-to-ask-funeral-home.html">Questions to Ask</a> guide can help you prepare.
           </p>
+        </div>
+        <div class="estimator-save" style="margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--border-light); text-align: center;">
+          <p class="small muted">Keep this estimate for reference when comparing funeral home prices.</p>
+          <button type="button" class="btn-primary" onclick="window.print()" style="font-size: 0.875rem;">Print This Estimate</button>
         </div>
       </div>
 
@@ -1019,7 +1046,24 @@
       if (estBtn) {
         var regionSelect = document.getElementById("estRegion");
         var serviceSelect = document.getElementById("estService");
+        var casketSelect = document.getElementById("estCasket");
         var resultDiv = document.getElementById("estResult");
+
+        var casketCosts = {
+          "budget":  { label: "Casket — Budget / simple",       low: 800,  high: 1500 },
+          "mid":     { label: "Casket — Mid-range",             low: 2000, high: 4000 },
+          "premium": { label: "Casket — Premium",               low: 5000, high: 10000 },
+          "rental":  { label: "Casket — Rental",                low: 500,  high: 1000 },
+          "none":    { label: "Cremation container (no casket)", low: 50,   high: 200 }
+        };
+
+        var extrasCosts = {
+          "flowers":   { label: "Flowers & arrangements",  low: 300,  high: 800 },
+          "obituary":  { label: "Obituary / death notice", low: 200,  high: 600 },
+          "headstone": { label: "Headstone / marker",      low: 1000, high: 3000 },
+          "transport": { label: "Long-distance transport",  low: 1000, high: 3000 },
+          "reception": { label: "Reception / gathering",   low: 500,  high: 2000 }
+        };
 
         estBtn.addEventListener("click", function () {
           var region = regionSelect.value;
@@ -1042,6 +1086,40 @@
               '<span class="estimator-line-label">' + label + '</span>' +
               '<span class="estimator-line-range">' + formatCurrency(low) + ' – ' + formatCurrency(high) + '</span>' +
               '</div>';
+          }
+
+          /* Casket preference */
+          var casketVal = casketSelect.value;
+          if (casketVal && casketCosts[casketVal]) {
+            var cc = casketCosts[casketVal];
+            var mult = costData[region].multiplier;
+            var cLow = Math.round(cc.low * mult / 50) * 50;
+            var cHigh = Math.round(cc.high * mult / 50) * 50;
+            totalLow += cLow;
+            totalHigh += cHigh;
+            lineItemsHtml += '<div class="estimator-line">' +
+              '<span class="estimator-line-label">' + cc.label + '</span>' +
+              '<span class="estimator-line-range">' + formatCurrency(cLow) + ' – ' + formatCurrency(cHigh) + '</span>' +
+              '</div>';
+          }
+
+          /* Additional services (extras) */
+          var extrasGroup = document.getElementById("estExtras");
+          var checkedExtras = extrasGroup.querySelectorAll('input[type="checkbox"]:checked');
+          for (var i = 0; i < checkedExtras.length; i++) {
+            var val = checkedExtras[i].value;
+            if (extrasCosts[val]) {
+              var ec = extrasCosts[val];
+              var eMult = costData[region].multiplier;
+              var eLow = Math.round(ec.low * eMult / 50) * 50;
+              var eHigh = Math.round(ec.high * eMult / 50) * 50;
+              totalLow += eLow;
+              totalHigh += eHigh;
+              lineItemsHtml += '<div class="estimator-line">' +
+                '<span class="estimator-line-label">' + ec.label + '</span>' +
+                '<span class="estimator-line-range">' + formatCurrency(eLow) + ' – ' + formatCurrency(eHigh) + '</span>' +
+                '</div>';
+            }
           }
 
           document.getElementById("estSummaryTitle").textContent =

@@ -4142,3 +4142,27 @@ a:hover {
     page-break-after: avoid;
   }
 }
+
+/* Calculator checkbox group */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.875rem;
+  color: var(--text-body);
+  cursor: pointer;
+  padding: var(--space-xs) 0;
+}
+.checkbox-label input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: var(--brown-500);
+  cursor: pointer;
+  flex-shrink: 0;
+}
