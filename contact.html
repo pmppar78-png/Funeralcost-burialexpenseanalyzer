@@ -8,7 +8,7 @@
     name="description"
     content="Contact the Funeral Cost &amp; Burial Expense Analyzer team. Share feedback, report errors, ask questions, or suggest improvements to help families navigate funeral costs."
   />
-  <meta name="last-modified" content="2026-02-10" />
+  <meta name="last-modified" content="2026-03-01" />
   <meta property="og:title" content="Contact Us — Funeral Cost &amp; Burial Expense Analyzer" />
   <meta property="og:description" content="Contact the Funeral Cost &amp; Burial Expense Analyzer team. Share feedback, report errors, ask questions, or suggest improvements." />
   <meta property="og:type" content="website" />
@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -325,6 +328,57 @@
 
       <div class="contact-form-section">
 
+      <section class="lead-gen-section">
+        <h2>Get Local Funeral Price Help</h2>
+        <p>Need help comparing funeral costs in your area? Fill out this brief form and we will provide personalized resources and pricing guidance. This service is free.</p>
+        <div class="callout callout-info"><strong>Transparency note:</strong> We may connect you with vetted funeral service partners and could earn a referral fee. This does not affect the price you pay. We never share your information without your consent.</div>
+        <form name="price-help" method="POST" data-netlify="true" class="lead-form">
+          <input type="hidden" name="form-name" value="price-help" />
+          <div class="form-group">
+            <label for="ph-name">Your Name</label>
+            <input type="text" id="ph-name" name="name" required placeholder="Full name" />
+          </div>
+          <div class="form-group">
+            <label for="ph-email">Email Address</label>
+            <input type="email" id="ph-email" name="email" required placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="ph-zip">ZIP Code</label>
+            <input type="text" id="ph-zip" name="zip" required placeholder="e.g. 90210" pattern="[0-9]{5}" maxlength="5" />
+          </div>
+          <div class="form-group">
+            <label for="ph-need">What do you need help with?</label>
+            <select id="ph-need" name="need" required>
+              <option value="">Select one</option>
+              <option value="compare-prices">Comparing funeral home prices</option>
+              <option value="cremation-options">Understanding cremation options</option>
+              <option value="burial-options">Understanding burial options</option>
+              <option value="payment-help">Finding payment assistance</option>
+              <option value="insurance">Funeral or burial insurance</option>
+              <option value="pre-planning">Pre-planning for the future</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ph-timeline">Timeline</label>
+            <select id="ph-timeline" name="timeline">
+              <option value="">Select one</option>
+              <option value="immediate">Immediate need (within days)</option>
+              <option value="soon">Within the next few weeks</option>
+              <option value="planning">Planning ahead (no rush)</option>
+            </select>
+          </div>
+          <div class="form-group form-checkbox">
+            <input type="checkbox" id="ph-privacy" name="privacy-consent" required />
+            <label for="ph-privacy">I agree to the <a href="privacy-policy.html" target="_blank">privacy policy</a>. I understand this is a free informational service.</label>
+          </div>
+          <button type="submit" class="btn-primary">Get Free Price Guidance</button>
+        </form>
+        <p class="form-note">We respect your privacy. Your information is used only to provide pricing guidance and will never be sold to telemarketers or spammers.</p>
+      </section>
+
+      <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--warm-200);" />
+
         <!-- Contact form -->
         <div id="contact-form-container">
           <div class="contact-form-intro">
@@ -518,6 +572,36 @@
       });
     });
   }
+})();
+</script>
+<script>
+(function(){
+  if(typeof gtag!=='function')return;
+  // Track affiliate link clicks (rel="sponsored")
+  document.querySelectorAll('a[rel*="sponsored"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',page_path:location.pathname});
+    });
+  });
+  // Track CTA clicks
+  document.querySelectorAll('.btn-primary,.cta-banner a,.btn-hero').forEach(function(a){
+    a.addEventListener('click',function(){
+      gtag('event','cta_click',{link_url:this.href||'',link_text:this.textContent.trim().substring(0,50),page_path:location.pathname});
+    });
+  });
+  // Track outbound link clicks
+  document.querySelectorAll('a[target="_blank"]').forEach(function(a){
+    if(a.getAttribute('rel')&&a.getAttribute('rel').indexOf('sponsored')>-1)return;
+    a.addEventListener('click',function(){
+      gtag('event','outbound_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),page_path:location.pathname});
+    });
+  });
+  // Track Netlify form submissions
+  document.querySelectorAll('form[data-netlify="true"]').forEach(function(f){
+    f.addEventListener('submit',function(){
+      gtag('event','form_submit',{form_name:this.getAttribute('name')||'unknown',page_path:location.pathname});
+    });
+  });
 })();
 </script>
 </body>

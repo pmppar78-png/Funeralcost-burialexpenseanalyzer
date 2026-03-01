@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"Funeral Cost & Burial Expense Analyzer","url":"https://funeralcostanalyzer.com/","description":"Helps families estimate funeral and burial costs, compare options, and explore payment ideas with a calm AI helper."}
   </script>
@@ -457,6 +460,36 @@
 
     document.getElementById("calc-results").style.display = "block";
     document.getElementById("calc-results").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+})();
+</script>
+<script>
+(function(){
+  if(typeof gtag!=='function')return;
+  // Track affiliate link clicks (rel="sponsored")
+  document.querySelectorAll('a[rel*="sponsored"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',page_path:location.pathname});
+    });
+  });
+  // Track CTA clicks
+  document.querySelectorAll('.btn-primary,.cta-banner a,.btn-hero').forEach(function(a){
+    a.addEventListener('click',function(){
+      gtag('event','cta_click',{link_url:this.href||'',link_text:this.textContent.trim().substring(0,50),page_path:location.pathname});
+    });
+  });
+  // Track outbound link clicks
+  document.querySelectorAll('a[target="_blank"]').forEach(function(a){
+    if(a.getAttribute('rel')&&a.getAttribute('rel').indexOf('sponsored')>-1)return;
+    a.addEventListener('click',function(){
+      gtag('event','outbound_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),page_path:location.pathname});
+    });
+  });
+  // Track Netlify form submissions
+  document.querySelectorAll('form[data-netlify="true"]').forEach(function(f){
+    f.addEventListener('submit',function(){
+      gtag('event','form_submit',{form_name:this.getAttribute('name')||'unknown',page_path:location.pathname});
+    });
   });
 })();
 </script>
