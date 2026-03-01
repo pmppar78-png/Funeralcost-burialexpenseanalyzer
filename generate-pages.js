@@ -268,6 +268,9 @@ function footer() {
         <a href="contact.html">Contact</a>
         <a href="sitemap.xml">Sitemap</a>
       </div>
+      <div class="footer-sources">
+        <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-revised-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
+      </div>
     </div>
   </footer>
   <script>
@@ -309,28 +312,35 @@ function footer() {
 
 function resources(type) {
   const all = {
-    general: `<div class="resource-suggestions"><h3>Resources That May Help</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Independent consumer advocacy for funeral rights</span></li><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored">Parting.com</a><span class="resource-desc">Compare funeral home prices in your area</span></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Compare final expense and burial insurance options</span></li><li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">Government programs and financial help for funeral costs</span></li></ul></div>`,
-    cremation: `<div class="resource-suggestions"><h3>Cremation Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Compare cremation providers and prices</span></li><li><a href="cremation-jewelry-guide.html">Cremation Jewelry Guide</a><span class="resource-desc">Memorial keepsakes and remembrance options</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs</a><span class="resource-desc">Side-by-side cost comparison</span></li></ul></div>`,
-    burial: `<div class="resource-suggestions"><h3>Burial Resources</h3><ul class="resource-list"><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored">Parting.com</a><span class="resource-desc">Compare burial costs from local providers</span></li><li><a href="headstone-monument-costs.html">Headstone &amp; Monument Guide</a><span class="resource-desc">Costs, types, and buying tips</span></li><li><a href="green-burial-options.html">Green Burial Options</a><span class="resource-desc">Eco-friendly and natural alternatives</span></li></ul></div>`
+    general: `<div class="resource-suggestions"><h3>Resources That May Help</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Independent consumer advocacy for funeral rights</span></li><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored">Parting.com</a><span class="resource-desc">Compare funeral home prices in your area</span></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Compare final expense and burial insurance options</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a><span class="resource-desc">Side-by-side comparison of top burial insurance providers</span></li><li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">Government programs and financial help for funeral costs</span></li><li><a href="funeral-insurance-comparison.html">Insurance Plan Comparison</a><span class="resource-desc">Compare coverage, premiums, and payout speed across providers</span></li></ul></div>`,
+    cremation: `<div class="resource-suggestions"><h3>Cremation Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Compare cremation providers and prices</span></li><li><a href="cremation-jewelry-guide.html">Cremation Jewelry Guide</a><span class="resource-desc">Memorial keepsakes and remembrance options</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs</a><span class="resource-desc">Side-by-side cost comparison</span></li><li><a href="best-cremation-urns.html">Best Cremation Urns</a><span class="resource-desc">Top-rated urns compared by style and price</span></li><li><a href="final-expense-insurance-guide.html">Final Expense Insurance</a><span class="resource-desc">Coverage options to help pay for cremation costs</span></li></ul></div>`,
+    burial: `<div class="resource-suggestions"><h3>Burial Resources</h3><ul class="resource-list"><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored">Parting.com</a><span class="resource-desc">Compare burial costs from local providers</span></li><li><a href="headstone-monument-costs.html">Headstone &amp; Monument Guide</a><span class="resource-desc">Costs, types, and buying tips</span></li><li><a href="green-burial-options.html">Green Burial Options</a><span class="resource-desc">Eco-friendly and natural alternatives</span></li><li><a href="best-online-casket-retailers.html">Best Online Casket Retailers</a><span class="resource-desc">Save 50-70% buying caskets online</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance</a><span class="resource-desc">Compare plans to cover burial expenses</span></li></ul></div>`
   };
   return all[type] || all.general;
 }
 
 function relatedGuides(exclude) {
   const guides = [
+    {h:'best-burial-insurance.html',t:'Best Burial Insurance Companies (2026)'},
+    {h:'funeral-insurance-comparison.html',t:'Funeral Insurance Comparison'},
+    {h:'funeral-price-comparison.html',t:'How to Compare Funeral Prices'},
+    {h:'funeral-insurance-guide.html',t:'Funeral Insurance Guide'},
+    {h:'final-expense-insurance-guide.html',t:'Final Expense Insurance Guide'},
+    {h:'average-funeral-cost-2026.html',t:'Average Funeral Cost in 2026'},
+    {h:'prepaid-funeral-plans-comparison.html',t:'Prepaid Funeral Plans Compared'},
     {h:'national-funeral-cost-index.html',t:'2026 National Funeral Cost Index'},
     {h:'funeral-costs-by-state.html',t:'Funeral Costs by State'},
-    {h:'cremation-costs-by-state.html',t:'Cremation Costs by State'},
-    {h:'burial-costs-by-state.html',t:'Burial Costs by State'},
-    {h:'cremation-vs-burial-cost.html',t:'Cremation vs. Burial'},
+    {h:'cremation-vs-burial-cost.html',t:'Cremation vs. Burial Costs'},
     {h:'funeral-cost-breakdown.html',t:'Funeral Cost Breakdown'},
-    {h:'ftc-funeral-rule-guide.html',t:'FTC Funeral Rule Guide'},
-    {h:'funeral-payment-assistance.html',t:'Payment Assistance'},
-    {h:'funeral-insurance-guide.html',t:'Funeral Insurance Guide'},
-    {h:'veteran-burial-benefits.html',t:'Veteran Burial Benefits'},
+    {h:'funeral-payment-assistance.html',t:'Payment Assistance Programs'},
+    {h:'what-to-do-when-someone-dies.html',t:'What to Do When Someone Dies'},
+    {h:'how-to-pay-for-a-funeral-with-no-money.html',t:'How to Pay for a Funeral With No Money'},
     {h:'cheap-funeral-options.html',t:'Affordable Funeral Options'},
+    {h:'ftc-funeral-rule-guide.html',t:'FTC Funeral Rule Guide'},
+    {h:'veteran-burial-benefits.html',t:'Veteran Burial Benefits'},
     {h:'planning-checklist.html',t:'Planning Checklist'},
-    {h:'grief-resources.html',t:'Grief Resources'}
+    {h:'cremation-costs-by-state.html',t:'Cremation Costs by State'},
+    {h:'burial-costs-by-state.html',t:'Burial Costs by State'}
   ].filter(g => g.h !== exclude);
   return `<div class="related-guides"><h3>Related Guides</h3><ul>${guides.slice(0,10).map(g=>`<li><a href="${g.h}">${g.t}</a></li>`).join('')}</ul></div>`;
 }
@@ -451,9 +461,11 @@ ${header()}
         <li><strong>Social Security death benefit</strong> — A one-time $255 payment for eligible surviving spouses or children. <a href="social-security-death-benefit.html">Learn more</a></li>
         <li><strong>Veteran burial benefits</strong> — If the deceased served in the military, burial allowances, free cemetery plots, and headstones may be available. <a href="veteran-burial-benefits.html">Veteran benefits guide</a></li>
         <li><strong>State assistance programs</strong> — ${s.name} may offer funeral assistance through Medicaid or county indigent burial programs. <a href="medicaid-funeral-assistance.html">Medicaid funeral assistance</a></li>
+        <li><strong>Burial insurance</strong> — Final expense policies can cover funeral costs from $5,000 to $25,000. <a href="best-burial-insurance.html">Compare the best burial insurance companies</a></li>
         <li><strong>Crowdfunding</strong> — Platforms like GoFundMe are increasingly used to cover funeral costs. <a href="crowdfunding-funeral-costs.html">Crowdfunding guide</a></li>
         <li><strong>Payment plans</strong> — Some funeral homes offer financing or installment plans. <a href="funeral-payment-plans.html">Payment plan options</a></li>
       </ul>
+      <p>For a complete overview of all financial assistance options, see our <a href="how-to-pay-for-a-funeral-with-no-money.html">guide to paying for a funeral with no money</a>.</p>
 
       ${resources('general')}
 
@@ -1095,7 +1107,9 @@ const existingPages = [
   'best-burial-insurance.html', 'casket-buying-guide.html',
   'urn-buying-guide.html', 'funeral-insurance-comparison.html',
   'prepaid-funeral-plans-comparison.html', 'cremation-vs-burial-calculator.html',
-  'funeral-costs-by-religion.html', 'state-funeral-regulations.html'
+  'funeral-costs-by-religion.html', 'state-funeral-regulations.html',
+  'what-to-do-when-someone-dies.html', 'how-to-pay-for-a-funeral-with-no-money.html',
+  'funeral-costs-rising-2026.html'
 ];
 
 const sitemapEntries = [];
