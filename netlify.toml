@@ -5,6 +5,15 @@
 [functions]
   directory = "netlify/functions"
 
+# ─── Edge Functions ──────────────────────────────────────────────
+# Redirect extensionless URLs to .html to prevent Google "Alternate page
+# with proper canonical tag" issues caused by Netlify serving pages at
+# both /page and /page.html
+
+[[edge_functions]]
+  function = "canonical-redirect"
+  path = "/*"
+
 # ─── Security & Performance Headers ───────────────────────────────
 
 [[headers]]
@@ -45,12 +54,13 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
-# ─── HTML pages — cache briefly, revalidate ───────────────────────
+# ─── HTML pages — cache briefly, revalidate; confirm indexability ─
 
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    X-Robots-Tag = "index, follow"
 
 # ─── Domain-level redirects (one-hop, no chains) ─────────────────
 # Canonical host: https://funeralcostanalyzer.com (non-www, HTTPS, no trailing slash except root)
