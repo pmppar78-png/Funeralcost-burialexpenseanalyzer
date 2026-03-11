@@ -288,3 +288,69 @@
   from = "/widget"
   to = "/funeral-cost-widget.html"
   status = 301
+
+# New page aliases — Terms, Disclaimer, Insurance, Religious guides
+[[redirects]]
+  from = "/terms"
+  to = "/terms-of-service.html"
+  status = 301
+
+[[redirects]]
+  from = "/terms-of-service"
+  to = "/terms-of-service.html"
+  status = 301
+
+[[redirects]]
+  from = "/disclaimer"
+  to = "/disclaimer.html"
+  status = 301
+
+[[redirects]]
+  from = "/burial-insurance-seniors"
+  to = "/burial-insurance-seniors.html"
+  status = 301
+
+[[redirects]]
+  from = "/cremation-insurance"
+  to = "/cremation-insurance-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/financing-options"
+  to = "/funeral-financing-options.html"
+  status = 301
+
+[[redirects]]
+  from = "/end-of-life-planning"
+  to = "/end-of-life-planning-checklist.html"
+  status = 301
+
+[[redirects]]
+  from = "/catholic-funeral"
+  to = "/catholic-funeral-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/jewish-funeral"
+  to = "/jewish-funeral-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/muslim-funeral"
+  to = "/muslim-funeral-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/hindu-funeral"
+  to = "/hindu-funeral-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/buddhist-funeral"
+  to = "/buddhist-funeral-costs.html"
+  status = 301
+
+[[redirects]]
+  from = "/mormon-funeral"
+  to = "/mormon-funeral-costs.html"
+  status = 301
