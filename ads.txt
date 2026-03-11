@@ -1,0 +1,7 @@
+# ads.txt — Authorized Digital Sellers for funeralcostanalyzer.com
+# Reference: https://iabtechlab.com/ads-txt/
+#
+# Replace PUBLISHER_ID below with your Google AdSense publisher ID
+# (format: pub-XXXXXXXXXXXXXXXX) after AdSense approval.
+
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
