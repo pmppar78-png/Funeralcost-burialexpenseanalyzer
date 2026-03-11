@@ -188,9 +188,11 @@ function head(title, desc, filename, breadcrumbName, faqItems) {
   <meta property="og:type" content="article" />
   <meta property="og:url" content="${BASE}/${filename}" />
   <meta property="og:site_name" content="Funeral Cost &amp; Burial Expense Analyzer" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${esc(desc)}" />
+  <meta property="og:image" content="${BASE}/og-default.svg" />
+  <meta name="twitter:image" content="${BASE}/og-default.svg" />
   <link rel="canonical" href="${BASE}/${filename}" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -264,6 +266,8 @@ function footer() {
         <a href="planning-checklist.html">Planning Checklist</a>
         <a href="editorial-standards.html">Editorial Standards</a>
         <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="disclaimer.html">Disclaimer</a>
         <a href="grief-resources.html">Grief Resources</a>
         <a href="contact.html">Contact</a>
         <a href="sitemap.xml">Sitemap</a>
@@ -313,7 +317,7 @@ function footer() {
 function resources(type) {
   const all = {
     general: `<div class="resource-suggestions"><h3>Resources That May Help</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Independent consumer advocacy for funeral rights</span></li><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored">Parting.com</a><span class="resource-desc">Compare funeral home prices in your area</span></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Compare final expense and burial insurance options</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a><span class="resource-desc">Side-by-side comparison of top burial insurance providers</span></li><li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">Government programs and financial help for funeral costs</span></li><li><a href="funeral-insurance-comparison.html">Insurance Plan Comparison</a><span class="resource-desc">Compare coverage, premiums, and payout speed across providers</span></li></ul></div>`,
-    cremation: `<div class="resource-suggestions"><h3>Cremation Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Compare cremation providers and prices</span></li><li><a href="cremation-jewelry-guide.html">Cremation Jewelry Guide</a><span class="resource-desc">Memorial keepsakes and remembrance options</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs</a><span class="resource-desc">Side-by-side cost comparison</span></li><li><a href="best-cremation-urns.html">Best Cremation Urns</a><span class="resource-desc">Top-rated urns compared by style and price</span></li><li><a href="final-expense-insurance-guide.html">Final Expense Insurance</a><span class="resource-desc">Coverage options to help pay for cremation costs</span></li></ul></div>`,
+    cremation: `<div class="resource-suggestions"><h3>Cremation Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Compare cremation providers and prices</span></li><li><a href="cremation-jewelry-guide.html">Cremation Jewelry Guide</a><span class="resource-desc">Memorial keepsakes and remembrance options</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs</a><span class="resource-desc">Side-by-side cost comparison</span></li><li><a href="urn-buying-guide.html">Urn Buying Guide</a><span class="resource-desc">Types, prices, and how to choose the right urn</span></li><li><a href="pet-cremation-costs.html">Pet Cremation Costs</a><span class="resource-desc">Options and prices for pet cremation and memorials</span></li><li><a href="final-expense-insurance-guide.html">Final Expense Insurance</a><span class="resource-desc">Coverage options to help pay for cremation costs</span></li></ul></div>`,
     burial: `<div class="resource-suggestions"><h3>Burial Resources</h3><ul class="resource-list"><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored">Parting.com</a><span class="resource-desc">Compare burial costs from local providers</span></li><li><a href="headstone-monument-costs.html">Headstone &amp; Monument Guide</a><span class="resource-desc">Costs, types, and buying tips</span></li><li><a href="green-burial-options.html">Green Burial Options</a><span class="resource-desc">Eco-friendly and natural alternatives</span></li><li><a href="best-online-casket-retailers.html">Best Online Casket Retailers</a><span class="resource-desc">Save 50-70% buying caskets online</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance</a><span class="resource-desc">Compare plans to cover burial expenses</span></li></ul></div>`
   };
   return all[type] || all.general;
@@ -340,9 +344,18 @@ function relatedGuides(exclude) {
     {h:'veteran-burial-benefits.html',t:'Veteran Burial Benefits'},
     {h:'planning-checklist.html',t:'Planning Checklist'},
     {h:'cremation-costs-by-state.html',t:'Cremation Costs by State'},
-    {h:'burial-costs-by-state.html',t:'Burial Costs by State'}
+    {h:'burial-costs-by-state.html',t:'Burial Costs by State'},
+    {h:'funeral-costs-rising-2026.html',t:'Why Funeral Costs Are Rising in 2026'},
+    {h:'funeral-costs-uninsured.html',t:'Funeral Costs When Uninsured'},
+    {h:'funeral-planning-for-parents.html',t:'Planning a Funeral for Aging Parents'},
+    {h:'infant-child-funeral-costs.html',t:'Infant &amp; Child Funeral Costs'},
+    {h:'military-funeral-honors.html',t:'Military Funeral Honors Guide'},
+    {h:'funeral-costs-by-religion.html',t:'Funeral Costs by Religion'},
+    {h:'burial-insurance-seniors.html',t:'Burial Insurance for Seniors'},
+    {h:'cremation-insurance-guide.html',t:'Cremation Insurance Guide'},
+    {h:'funeral-financing-options.html',t:'Funeral Financing Options'}
   ].filter(g => g.h !== exclude);
-  return `<div class="related-guides"><h3>Related Guides</h3><ul>${guides.slice(0,10).map(g=>`<li><a href="${g.h}">${g.t}</a></li>`).join('')}</ul></div>`;
+  return `<div class="related-guides"><h3>Related Guides</h3><ul>${guides.slice(0,12).map(g=>`<li><a href="${g.h}">${g.t}</a></li>`).join('')}</ul></div>`;
 }
 
 function ctaBanner() {
@@ -603,7 +616,7 @@ ${header()}
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
-      <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li><li><a href="cremation-costs-by-state.html">All State Cremation Costs</a></li><li><a href="burial-costs-by-state.html">All State Burial Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
+      <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li><li><a href="cremation-costs-${m.slug}.html">${m.city} Cremation Costs</a></li><li><a href="burial-costs-${m.slug}.html">${m.city} Burial Costs</a></li><li><a href="cremation-costs-by-state.html">All State Cremation Costs</a></li><li><a href="burial-costs-by-state.html">All State Burial Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
       ${relatedGuides(fn)}
       ${ctaBanner()}
@@ -693,6 +706,8 @@ ${header()}
 
       <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="burial-costs-${s.slug}.html">${s.name} Burial Costs</a></li><li><a href="cremation-costs-by-state.html">All State Cremation Costs</a></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
+      ${(function(){const cityLinks=metros.filter(x=>x.ss===s.slug).map(x=>'<li><a href="cremation-costs-'+x.slug+'.html">Cremation Costs in '+x.city+'</a></li>').join('');return cityLinks?'<div class="related-guides"><h3>Cremation Costs in '+s.name+' Cities</h3><ul>'+cityLinks+'</ul></div>':'';})()}
+
       ${neighborLinks(s, 'cremation')}
       ${relatedGuides(fn)}
       ${ctaBanner()}
@@ -774,6 +789,8 @@ ${header()}
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       <div class="topic-nav"><h4>More for ${s.name}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${s.name} Cremation Costs</a></li><li><a href="burial-costs-by-state.html">All State Burial Costs</a></li><li><a href="headstone-monument-costs.html">Headstone Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
+
+      ${(function(){const cityLinks=metros.filter(x=>x.ss===s.slug).map(x=>'<li><a href="burial-costs-'+x.slug+'.html">Burial Costs in '+x.city+'</a></li>').join('');return cityLinks?'<div class="related-guides"><h3>Burial Costs in '+s.name+' Cities</h3><ul>'+cityLinks+'</ul></div>':'';})()}
 
       ${neighborLinks(s, 'burial')}
       ${relatedGuides(fn)}
@@ -1029,9 +1046,536 @@ ${footer()}`;
   return { fn, content };
 }
 
+// ── Cremation Metro Pages ───────────────────────────────────────
+function genCremationMetro(m) {
+  const s = states.find(x => x.slug === m.ss);
+  if (!s) return null;
+  const fn = `cremation-costs-${m.slug}.html`;
+  const mdc = Math.round(s.dc * m.mp);
+  const mc = Math.round(s.c * m.mp);
+  const title = `Cremation Costs in ${m.city} (2026) — Prices, Types &amp; Options`;
+  const desc = `Cremation costs in ${m.city}, ${m.st}: direct cremation from ${$(mdc)}, cremation with service from ${$(mc)}. Compare local cremation prices, types, and regulations.`;
+  const crRate = parseInt(s.cr);
+  const savingsVsBurial = $(Math.round(s.f * m.mp) - mdc);
+
+  const stateMetros = metros.filter(x => x.ss === m.ss && x.slug !== m.slug);
+  const nearbyComparison = stateMetros.slice(0, 3);
+
+  const faq = [
+    {q:`How much does cremation cost in ${m.city}?`,a:`Cremation costs in ${m.city} range from ${$(mdc)} for direct cremation to ${$(mc)} for a full funeral service followed by cremation. These costs are ${m.mp > 1.1 ? 'higher than' : 'close to'} the ${m.st} state average of ${$(s.dc)} for direct cremation. Additional expenses may include urns ($50-$3,000), memorial services ($500-$2,000), and scattering fees ($200-$600).`},
+    {q:`What types of cremation are available in ${m.city}?`,a:`${m.city} families can choose from: direct cremation (${$(mdc)}) — the most affordable option with no viewing or ceremony; cremation with memorial service — a ceremony held after cremation; and traditional cremation (${$(mc)}) — a full funeral service before cremation. Each can be customized to fit your family's needs and budget.`},
+    {q:`Is cremation cheaper than burial in ${m.city}?`,a:`Yes. Direct cremation in ${m.city} at ${$(mdc)} saves families approximately ${savingsVsBurial} compared to a traditional funeral with burial. Even cremation with a full service (${$(mc)}) costs less than traditional burial when you factor in cemetery plot, vault, and headstone expenses.`},
+    {q:`Where can I compare cremation prices in ${m.city}?`,a:`Under the FTC Funeral Rule, every cremation provider in ${m.city} must provide a General Price List upon request. Call 2-3 providers in the ${m.city} area to compare. You can also check Parting.com or the Funeral Consumers Alliance for local price comparisons. Direct cremation providers often offer the lowest rates.`},
+    {q:`Can I scatter ashes in ${m.city}?`,a:`Scattering laws in the ${m.city} area follow ${m.st} state regulations. Generally, you may scatter ashes on private property with owner permission, at sea (3+ nautical miles offshore per EPA regulations), and in some designated areas. Check local ordinances in ${m.city} for specific rules. Alternatives include columbarium niches, burial of ashes, and memorial keepsakes.`}
+  ];
+
+  const nearbyCityRows = nearbyComparison.map(nc => {
+    const ncdc = Math.round(s.dc * nc.mp);
+    const ncc = Math.round(s.c * nc.mp);
+    return `<tr><td><a href="cremation-costs-${nc.slug}.html">${nc.city}</a></td><td>${$(ncdc)}</td><td>${$(ncc)}</td></tr>`;
+  }).join('\n            ');
+
+  const nearbyCitySection = nearbyComparison.length > 0 ? `
+      <h2>Compare: ${m.city} vs. Other ${m.st} Cities</h2>
+      <p>Cremation costs vary across ${m.st}'s metro areas. Here is how ${m.city} compares:</p>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>Cremation Cost Comparison in ${m.st} (2026)</caption>
+          <thead><tr><th>City</th><th>Direct Cremation</th><th>Cremation w/ Service</th></tr></thead>
+          <tbody>
+            <tr><td><strong>${m.city}</strong></td><td><strong>${$(mdc)}</strong></td><td><strong>${$(mc)}</strong></td></tr>
+            ${nearbyCityRows}
+            <tr><td><a href="cremation-costs-${s.slug}.html">${m.st} Average</a></td><td>${$(s.dc)}</td><td>${$(s.c)}</td></tr>
+          </tbody>
+        </table>
+      </div>` : '';
+
+  const content = `${head(title, desc, fn, `Cremation Costs in ${m.city}`, faq)}
+${header()}
+  <main id="main-content" class="guide-main" role="main">
+    <article class="guide-article">
+      <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; <a href="cremation-costs-by-state.html">Cremation Costs by State</a> &rsaquo; <a href="cremation-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">${m.city}</span>
+      </nav>
+
+      <h1>Cremation Costs in ${m.city}, ${m.st} (2026)</h1>
+      <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">State:</span> <span class="article-meta-value"><a href="cremation-costs-${s.slug}.html">${m.st}</a></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
+      </div>
+
+      <p class="guide-intro">If you are considering cremation in the ${m.city} area, this guide provides current pricing to help you plan. Cremation costs in ${m.city} tend to be ${m.mp > 1.15 ? 'higher than' : 'close to'} the ${m.st} state average due to the local cost of living. With a statewide cremation rate of ${s.cr}, ${crRate > 55 ? 'cremation is the most popular choice' : 'cremation is increasingly popular'} among ${m.city} families.</p>
+
+      <div class="stat-highlights">
+        <div class="stat-box"><span class="stat-number">${$(mdc)}</span><span class="stat-label">Direct Cremation</span></div>
+        <div class="stat-box"><span class="stat-number">${$(mc)}</span><span class="stat-label">Cremation w/ Service</span></div>
+        <div class="stat-box"><span class="stat-number">${s.cr}</span><span class="stat-label">Cremation Rate</span></div>
+      </div>
+
+      <h2>Types of Cremation in ${m.city}</h2>
+      <div class="comparison-grid">
+        <div class="comparison-card"><h3>Direct Cremation</h3><div class="price-range">${$(mdc)}</div><ul><li>Most affordable cremation option in ${m.city}</li><li>No viewing or ceremony before cremation</li><li>Body transferred directly to crematory</li><li>Remains returned to family</li><li>Memorial service can be held later at any location</li></ul></div>
+        <div class="comparison-card"><h3>Cremation with Service</h3><div class="price-range">${$(mc)}</div><ul><li>Traditional funeral service before cremation</li><li>Viewing or visitation possible</li><li>Ceremony at funeral home, church, or venue</li><li>Typically includes basic urn</li><li>Full memorial experience for family and friends</li></ul></div>
+      </div>
+
+      <h2>Cremation Cost Breakdown for ${m.city}</h2>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>${m.city} Cremation Costs (2026)</caption>
+          <thead><tr><th>Item</th><th>${m.city} Avg.</th><th>${m.st} Avg.</th></tr></thead>
+          <tbody>
+            <tr><td>Direct cremation</td><td class="cost-value">${$(mdc)}</td><td>${$(s.dc)}</td></tr>
+            <tr><td>Cremation with service</td><td class="cost-value">${$(mc)}</td><td>${$(s.c)}</td></tr>
+            <tr><td>Basic urn</td><td class="cost-value">$50 – $300</td><td>$50 – $300</td></tr>
+            <tr><td>Memorial service</td><td class="cost-value">$500 – $2,500</td><td>$500 – $2,000</td></tr>
+            <tr><td>Cremation jewelry</td><td class="cost-value">$50 – $500</td><td>$50 – $500</td></tr>
+            <tr><td>Scattering service</td><td class="cost-value">$200 – $800</td><td>$200 – $600</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      ${nearbyCitySection}
+
+      <h2>How to Save on Cremation in ${m.city}</h2>
+      <ul>
+        <li>Compare prices from at least 3 cremation providers in the ${m.city} area — prices can vary by $1,000 or more</li>
+        <li>Consider direct cremation at ${$(mdc)} for the most affordable option</li>
+        <li>Purchase urns independently rather than through the cremation provider — savings of 50-80% are common</li>
+        <li>Hold a memorial service at a private venue, park, or home instead of a funeral home</li>
+        <li>Ask about veteran benefits or <a href="medicaid-funeral-assistance.html">Medicaid funeral assistance</a> if applicable</li>
+        <li>Review our <a href="cheap-funeral-options.html">affordable funeral options guide</a> for more strategies</li>
+      </ul>
+
+      <div class="callout callout-tip"><strong>Cost-Saving Tip:</strong> You do not need to purchase an urn from the cremation provider. The <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a> protects your right to use any urn or container, including ones purchased independently. <a href="urn-buying-guide.html">See our urn buying guide</a>.</div>
+
+      ${resources('cremation')}
+
+      <h2>Frequently Asked Questions</h2>
+      ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
+
+      <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${m.slug}.html">${m.city} Funeral Costs</a></li><li><a href="burial-costs-${m.slug}.html">${m.city} Burial Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li></ul></div>
+
+      ${relatedGuides(fn)}
+      ${ctaBanner()}
+
+      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
+    </article>
+  </main>
+${footer()}`;
+  return { fn, content };
+}
+
+// ── Burial Metro Pages ──────────────────────────────────────────
+function genBurialMetro(m) {
+  const s = states.find(x => x.slug === m.ss);
+  if (!s) return null;
+  const fn = `burial-costs-${m.slug}.html`;
+  const mf = Math.round(s.f * m.mp);
+  const mb = Math.round(s.b * m.mp);
+  const title = `Burial Costs in ${m.city} (2026) — Cemetery, Plot &amp; Service Prices`;
+  const desc = `Burial costs in ${m.city}, ${m.st}: funeral service from ${$(mf)}, cemetery plot from ${$(mb)}. Compare local burial options, cemetery costs, and ways to save.`;
+  const totalBurial = $(Math.round(mf + mb + mb * 0.9));
+  const totalBurialHigh = $(Math.round(mf * 1.3 + mb * 2 + mb * 0.9));
+
+  const stateMetros = metros.filter(x => x.ss === m.ss && x.slug !== m.slug);
+  const nearbyComparison = stateMetros.slice(0, 3);
+
+  const faq = [
+    {q:`How much does burial cost in ${m.city}?`,a:`A traditional burial in ${m.city} costs approximately ${$(mf)} for the funeral service plus ${$(mb)} for a cemetery plot. Including vault (${$(Math.round(mb * 0.4))}), opening/closing fees (${$(Math.round(mb * 0.5))}), casket (${$(Math.round(mf * 0.3))}), and headstone ($1,500-$3,000), the total ranges from ${totalBurial} to ${totalBurialHigh}.`},
+    {q:`Is a burial vault required in ${m.city}?`,a:`Burial vaults are required by most cemeteries in the ${m.city} area as a matter of cemetery policy to prevent ground settling. They are rarely required by ${m.st} state law. A grave liner — a less expensive alternative — may meet the cemetery's requirements. Always ask your specific cemetery about their vault policy and whether cheaper alternatives are accepted.`},
+    {q:`What are the cheapest burial options in ${m.city}?`,a:`The most affordable burial options in ${m.city} include: direct burial (no viewing or ceremony), which can save thousands on embalming and facility fees; green burial using a biodegradable container and no embalming; and purchasing a casket from an independent retailer to save 50-70%. Municipal and religious cemeteries in ${m.city} often have lower plot costs than private cemeteries.`},
+    {q:`How do ${m.city} burial costs compare to ${m.st}?`,a:`Burial costs in ${m.city} are ${m.mp > 1.1 ? 'approximately ' + Math.round((m.mp-1)*100) + '% above' : 'close to'} the ${m.st} state average. At ${$(mf)} for a funeral service (vs. ${$(s.f)} statewide) and ${$(mb)} for a cemetery plot (vs. ${$(s.b)}), the ${m.city} metro premium reflects higher real estate and operating costs.`}
+  ];
+
+  const nearbyCityRows = nearbyComparison.map(nc => {
+    const ncf = Math.round(s.f * nc.mp);
+    const ncb = Math.round(s.b * nc.mp);
+    return `<tr><td><a href="burial-costs-${nc.slug}.html">${nc.city}</a></td><td>${$(ncf)}</td><td>${$(ncb)}</td></tr>`;
+  }).join('\n            ');
+
+  const nearbyCitySection = nearbyComparison.length > 0 ? `
+      <h2>Compare: ${m.city} vs. Other ${m.st} Cities</h2>
+      <p>Burial costs vary within ${m.st}. Here is how ${m.city} compares:</p>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>Burial Cost Comparison in ${m.st} (2026)</caption>
+          <thead><tr><th>City</th><th>Funeral Service</th><th>Cemetery Plot</th></tr></thead>
+          <tbody>
+            <tr><td><strong>${m.city}</strong></td><td><strong>${$(mf)}</strong></td><td><strong>${$(mb)}</strong></td></tr>
+            ${nearbyCityRows}
+            <tr><td><a href="burial-costs-${s.slug}.html">${m.st} Average</a></td><td>${$(s.f)}</td><td>${$(s.b)}</td></tr>
+          </tbody>
+        </table>
+      </div>` : '';
+
+  const content = `${head(title, desc, fn, `Burial Costs in ${m.city}`, faq)}
+${header()}
+  <main id="main-content" class="guide-main" role="main">
+    <article class="guide-article">
+      <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; <a href="burial-costs-by-state.html">Burial Costs by State</a> &rsaquo; <a href="burial-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">${m.city}</span>
+      </nav>
+
+      <h1>Burial Costs in ${m.city}, ${m.st} (2026)</h1>
+      <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">State:</span> <span class="article-meta-value"><a href="burial-costs-${s.slug}.html">${m.st}</a></span></span>
+      </div>
+
+      <p class="guide-intro">Understanding the full cost of burial in ${m.city} — from funeral service fees to cemetery charges — helps families plan with confidence. Burial costs in the ${m.city} metropolitan area tend to be ${m.mp > 1.15 ? 'higher than' : 'close to'} the ${m.st} state average. This guide breaks down what you can expect to pay and how to make informed decisions.</p>
+
+      <div class="stat-highlights">
+        <div class="stat-box"><span class="stat-number">${$(mf)}</span><span class="stat-label">Avg. Funeral Service</span></div>
+        <div class="stat-box"><span class="stat-number">${$(mb)}</span><span class="stat-label">Avg. Cemetery Plot</span></div>
+        <div class="stat-box"><span class="stat-number">${$(Math.round(mf * 0.3))}</span><span class="stat-label">Avg. Casket</span></div>
+      </div>
+
+      <h2>Complete Burial Cost Breakdown for ${m.city}</h2>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>${m.city} Burial Costs (2026)</caption>
+          <thead><tr><th>Item</th><th>${m.city} Avg.</th><th>${m.st} Avg.</th></tr></thead>
+          <tbody>
+            <tr><td>Funeral service</td><td class="cost-value">${$(mf)}</td><td>${$(s.f)}</td></tr>
+            <tr><td>Cemetery plot</td><td class="cost-value">${$(mb)}</td><td>${$(s.b)}</td></tr>
+            <tr><td>Casket</td><td class="cost-value">${$(Math.round(mf * 0.3))}</td><td>${$(Math.round(s.f * 0.3))}</td></tr>
+            <tr><td>Burial vault / liner</td><td class="cost-value">${$(Math.round(mb * 0.4))}</td><td>${$(Math.round(s.b * 0.4))}</td></tr>
+            <tr><td>Opening &amp; closing grave</td><td class="cost-value">${$(Math.round(mb * 0.5))}</td><td>${$(Math.round(s.b * 0.5))}</td></tr>
+            <tr><td>Headstone / marker</td><td class="cost-value">$1,500 – $3,500</td><td>$1,000 – $3,000</td></tr>
+            <tr><td>Embalming</td><td class="cost-value">${$(Math.round(mf * 0.1))}</td><td>${$(Math.round(s.f * 0.1))}</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The total cost of burial in ${m.city}, including all cemetery fees, typically ranges from <strong>${totalBurial}</strong> to <strong>${totalBurialHigh}</strong> depending on the services and products chosen.</p>
+
+      <h2>Burial Options in ${m.city}</h2>
+      <ul>
+        <li><strong>Traditional burial</strong> — Full funeral service with viewing, casket, and cemetery burial. The most traditional option with the highest cost.</li>
+        <li><strong>Direct burial</strong> — Body is buried shortly after death without embalming, viewing, or ceremony. Saves significantly on facility and preparation costs.</li>
+        <li><strong>Green burial</strong> — No embalming, biodegradable container, and a natural setting. Check for availability in the ${m.city} area. <a href="green-burial-options.html">Learn about green burial</a></li>
+        <li><strong>Mausoleum entombment</strong> — Above-ground placement. Typically more expensive than ground burial but eliminates vault requirements.</li>
+      </ul>
+
+      ${nearbyCitySection}
+
+      <h2>Ways to Reduce Burial Costs in ${m.city}</h2>
+      <ul>
+        <li>Compare prices from at least 3 funeral homes and cemeteries in the ${m.city} area</li>
+        <li>Purchase caskets from independent retailers or online — savings of 50-70% are common. <a href="casket-buying-guide.html">See our casket buying guide</a></li>
+        <li>Consider municipal or religious cemeteries, which often charge less than private ones</li>
+        <li>Ask about grave liner options, which cost less than full burial vaults</li>
+        <li>Explore <a href="best-burial-insurance.html">burial insurance</a> or <a href="funeral-payment-assistance.html">payment assistance programs</a></li>
+        <li>Consider direct burial to eliminate embalming and facility costs</li>
+      </ul>
+
+      <div class="callout callout-tip"><strong>Save on Caskets:</strong> Under the <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a>, funeral homes must accept caskets purchased from third-party retailers without charging handling fees. <a href="best-online-casket-retailers.html">Compare online casket retailers</a> to save significantly.</div>
+
+      ${resources('burial')}
+
+      <h2>Frequently Asked Questions</h2>
+      ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
+
+      <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${m.slug}.html">${m.city} Funeral Costs</a></li><li><a href="cremation-costs-${m.slug}.html">${m.city} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li></ul></div>
+
+      ${relatedGuides(fn)}
+      ${ctaBanner()}
+
+      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
+    </article>
+  </main>
+${footer()}`;
+  return { fn, content };
+}
+
+// ── Insurance / High-CPC Pages ──────────────────────────────────
+const insurancePages = [
+  {
+    fn:'burial-insurance-seniors.html',
+    t:'Burial Insurance for Seniors (2026) — Coverage for Ages 50–85',
+    st:'Burial Insurance for Seniors',
+    d:'Compare burial insurance plans for seniors ages 50 to 85. Learn about guaranteed issue, simplified issue, and whole life policies with costs, coverage amounts, and honest analysis.',
+    sections:[
+      {h:'Age-Based Coverage Options',content:`<p>Burial insurance — also called final expense insurance — is designed specifically for seniors who want to ensure their funeral costs are covered. These policies typically offer $5,000 to $25,000 in coverage with simplified underwriting that makes approval easier for older adults.</p><div class="comparison-grid"><div class="comparison-card"><h3>Ages 50–65</h3><div class="price-range">$30 – $80/month</div><ul><li>Widest range of policy options</li><li>Best rates available</li><li>Most carriers offer instant approval</li><li>Coverage from $5,000 to $25,000</li><li>No medical exam required</li></ul></div><div class="comparison-card"><h3>Ages 66–75</h3><div class="price-range">$60 – $150/month</div><ul><li>Simplified issue policies widely available</li><li>Some health questions required</li><li>Coverage from $5,000 to $20,000</li><li>Premiums locked — never increase</li><li>Many carriers still offer same-day approval</li></ul></div><div class="comparison-card"><h3>Ages 76–85</h3><div class="price-range">$100 – $250/month</div><ul><li>Guaranteed issue policies available (no health questions)</li><li>2-year waiting period on some policies</li><li>Coverage typically $5,000 to $15,000</li><li>Higher premiums reflect age risk</li><li>Valuable for those with health conditions</li></ul></div></div>`},
+      {h:'Guaranteed Issue vs. Simplified Issue',content:`<p>Understanding the difference between these two policy types is crucial for choosing the right burial insurance:</p><div class="cost-table-wrap"><table class="cost-table"><caption>Burial Insurance Policy Types Compared</caption><thead><tr><th>Feature</th><th>Simplified Issue</th><th>Guaranteed Issue</th></tr></thead><tbody><tr><td>Health questions</td><td>Yes (5-12 questions)</td><td>No</td></tr><tr><td>Medical exam</td><td>No</td><td>No</td></tr><tr><td>Approval speed</td><td>Same day to 1 week</td><td>Immediate</td></tr><tr><td>Waiting period</td><td>None (immediate full coverage)</td><td>2-3 years (graded benefit)</td></tr><tr><td>Monthly cost (age 65, $10K)</td><td>$50 – $80</td><td>$80 – $120</td></tr><tr><td>Best for</td><td>Seniors in fair to good health</td><td>Seniors with serious health conditions</td></tr></tbody></table></div><div class="callout callout-tip"><strong>Important:</strong> If you can qualify for a simplified issue policy, it is almost always the better choice due to immediate full coverage and lower premiums. Guaranteed issue should be reserved for those who cannot pass health screening questions.</div>`},
+      {h:'How Much Coverage Do You Need?',content:`<p>The right coverage amount depends on your expected funeral costs and any additional expenses you want covered:</p><ul><li><strong>$5,000 – $7,500</strong> — Covers direct cremation or a modest burial in most states</li><li><strong>$10,000 – $15,000</strong> — Covers a traditional funeral with burial in most markets</li><li><strong>$15,000 – $25,000</strong> — Covers a traditional funeral plus cemetery costs, headstone, and remaining medical bills</li></ul><p>Use our <a href="funeral-costs-by-state.html">state cost guide</a> to estimate funeral costs in your area, then add a buffer for inflation and unexpected expenses. The average traditional funeral costs $7,848 nationally, but varies significantly by location.</p>`}
+    ],
+    faq:[
+      {q:'What is burial insurance for seniors?',a:'Burial insurance (final expense insurance) is a small whole life insurance policy designed to cover funeral and end-of-life costs. Policies range from $5,000 to $25,000 and are specifically marketed to seniors ages 50-85. Unlike term life insurance, burial insurance never expires and premiums never increase.'},
+      {q:'Can you get burial insurance at age 80?',a:'Yes. Many insurance carriers offer burial insurance to adults up to age 85. At age 80, you can typically get $5,000-$15,000 in coverage. Guaranteed issue policies require no health questions, though they may include a 2-3 year waiting period before the full death benefit is available.'},
+      {q:'How much does burial insurance cost per month?',a:'Monthly premiums depend on age, health, and coverage amount. A healthy 60-year-old might pay $40-$60/month for $10,000 in coverage. A 75-year-old might pay $80-$130 for the same amount. Guaranteed issue policies cost 30-50% more than simplified issue due to the additional risk the insurer assumes.'},
+      {q:'Is burial insurance worth it for seniors?',a:'Burial insurance can be worth it if you want to ensure your family is not burdened with funeral costs. The average funeral costs $7,848-$10,000+. Without insurance or savings dedicated to this purpose, families may struggle with unexpected expenses during an already difficult time. However, if you have sufficient savings or existing life insurance, a separate burial policy may not be necessary.'},
+      {q:'What happens to burial insurance money not used for the funeral?',a:'Burial insurance pays a lump sum to your named beneficiary. There is no requirement to use the money specifically for funeral costs — your beneficiary can use the funds for any purpose including outstanding medical bills, debts, or living expenses.'}
+    ]
+  },
+  {
+    fn:'cremation-insurance-guide.html',
+    t:'Cremation Insurance (2026) — What It Covers, Costs &amp; Best Plans',
+    st:'Cremation Insurance Guide',
+    d:'Learn about cremation insurance — what it covers, how much it costs, and the best plans for 2026. Compare policies designed to cover cremation expenses.',
+    sections:[
+      {h:'What Is Cremation Insurance?',content:`<p>Cremation insurance is a type of final expense insurance specifically designed to cover the cost of cremation services. While any life insurance policy can technically pay for cremation, cremation-specific plans are tailored for smaller coverage amounts that match typical cremation costs of $1,000 to $7,000.</p><div class="stat-highlights"><div class="stat-box"><span class="stat-number">$1,000 – $3,500</span><span class="stat-label">Direct Cremation</span></div><div class="stat-box"><span class="stat-number">$4,000 – $7,000</span><span class="stat-label">Cremation w/ Service</span></div><div class="stat-box"><span class="stat-number">$15 – $60/mo</span><span class="stat-label">Typical Premium</span></div></div>`},
+      {h:'Cremation Insurance vs. Prepaid Cremation Plans',content:`<p>Families often confuse cremation insurance with prepaid cremation plans. Here is how they differ:</p><div class="cost-table-wrap"><table class="cost-table"><caption>Cremation Insurance vs. Prepaid Plans</caption><thead><tr><th>Feature</th><th>Cremation Insurance</th><th>Prepaid Cremation Plan</th></tr></thead><tbody><tr><td>What it is</td><td>Life insurance policy</td><td>Contract with a specific provider</td></tr><tr><td>Payment</td><td>Monthly premiums</td><td>Lump sum or installments to provider</td></tr><tr><td>Flexibility</td><td>Beneficiary chooses any provider</td><td>Locked to one provider</td></tr><tr><td>Portability</td><td>Works anywhere in the US</td><td>May not transfer if you move</td></tr><tr><td>If provider closes</td><td>Not affected — insurance is separate</td><td>Funds may be at risk</td></tr><tr><td>Excess funds</td><td>Go to beneficiary</td><td>May not be refundable</td></tr></tbody></table></div><div class="callout callout-info"><strong>Recommendation:</strong> Cremation insurance generally offers more flexibility and security than prepaid plans. Your beneficiary can choose any provider and keep any excess funds. Prepaid plans can be risky if the provider goes out of business or you relocate. See our <a href="prepaid-funeral-plans-comparison.html">prepaid plans comparison</a> for more details.</div>`},
+      {h:'How Much Cremation Insurance Do You Need?',content:`<p>The right coverage amount depends on the type of cremation you prefer and your location:</p><ul><li><strong>$3,000 – $5,000</strong> — Covers direct cremation in most states with some margin for incidental costs</li><li><strong>$5,000 – $10,000</strong> — Covers cremation with a memorial service, urn, and other expenses</li><li><strong>$10,000 – $15,000</strong> — Covers a full cremation funeral plus memorial, travel, or other final expenses</li></ul><p>Check our <a href="cremation-costs-by-state.html">cremation costs by state</a> guide to see average cremation prices in your area and determine the right coverage level.</p>`}
+    ],
+    faq:[
+      {q:'What does cremation insurance cover?',a:'Cremation insurance pays a cash benefit to your beneficiary upon your death. While intended for cremation costs, the funds can be used for any purpose including the cremation itself, a memorial service, an urn, scattering arrangements, outstanding bills, or family expenses. The policy does not restrict how the money is spent.'},
+      {q:'How much does cremation insurance cost?',a:'Cremation insurance typically costs $15-$60 per month depending on age, health, and coverage amount. A 60-year-old in good health might pay $20-$35/month for $5,000-$7,000 in coverage. Premiums are locked and never increase. No medical exam is required for most policies.'},
+      {q:'Is cremation insurance the same as burial insurance?',a:'Cremation insurance and burial insurance are both types of final expense insurance. The only difference is marketing — cremation insurance is typically sold at lower coverage amounts ($3,000-$10,000) matching cremation costs, while burial insurance covers the full range up to $25,000. The actual policies work the same way.'},
+      {q:'Can I get cremation insurance with no health questions?',a:'Yes. Guaranteed issue cremation insurance policies are available with no health questions for ages 50-85. However, these policies typically include a 2-3 year waiting period before the full benefit is payable. If you can answer health questions favorably, simplified issue policies offer immediate coverage at lower rates.'},
+      {q:'At what age should I buy cremation insurance?',a:'The younger you purchase cremation insurance, the lower your locked-in premium will be. A 55-year-old will pay significantly less per month than a 75-year-old for the same coverage. However, cremation insurance is available and worthwhile at any age up to 85. The key factor is whether the total premiums you will pay are reasonable compared to the coverage amount.'}
+    ]
+  },
+  {
+    fn:'funeral-financing-options.html',
+    t:'Funeral Financing Options (2026) — Loans, Payment Plans &amp; Assistance',
+    st:'Funeral Financing Options',
+    d:'Explore all funeral financing options including loans, payment plans, insurance assignments, government programs, and crowdfunding. Find the right way to cover funeral costs.',
+    sections:[
+      {h:'Overview of Funeral Financing',content:`<p>When funeral costs exceed your immediate resources, several financing options can help bridge the gap. Understanding all available options — from insurance assignments to government programs — ensures you find the most appropriate solution for your situation.</p><div class="stat-highlights"><div class="stat-box"><span class="stat-number">$7,848</span><span class="stat-label">Avg. Funeral Cost</span></div><div class="stat-box"><span class="stat-number">$1,000–$3,500</span><span class="stat-label">Direct Cremation</span></div><div class="stat-box"><span class="stat-number">60%+</span><span class="stat-label">Families Without Funeral Savings</span></div></div>`},
+      {h:'Financing Options Compared',content:`<div class="cost-table-wrap"><table class="cost-table"><caption>Funeral Financing Options Comparison</caption><thead><tr><th>Option</th><th>Speed</th><th>Cost</th><th>Best For</th></tr></thead><tbody><tr><td>Life insurance assignment</td><td>3-10 days</td><td>No interest</td><td>Families with existing life insurance</td></tr><tr><td>Funeral home payment plan</td><td>Immediate</td><td>0-18% APR</td><td>Families needing time to pay</td></tr><tr><td>Personal loan</td><td>1-7 days</td><td>6-36% APR</td><td>Those with good credit</td></tr><tr><td>Credit card</td><td>Immediate</td><td>15-29% APR</td><td>Smaller expenses or 0% intro APR</td></tr><tr><td>Crowdfunding</td><td>1-3 days</td><td>Platform fees 3-5%</td><td>Community-supported families</td></tr><tr><td>Government assistance</td><td>2-8 weeks</td><td>Free</td><td>Qualifying low-income families</td></tr><tr><td>Burial insurance payout</td><td>1-4 weeks</td><td>Already paid via premiums</td><td>Those with existing policies</td></tr></tbody></table></div>`},
+      {h:'Government Assistance Programs',content:`<p>Several government programs can help with funeral costs:</p><ul><li><strong>Social Security death benefit</strong> — $255 one-time payment for eligible survivors. <a href="social-security-death-benefit.html">Learn how to apply</a></li><li><strong>Veteran burial benefits</strong> — Up to $2,000+ in burial allowances, free cemetery plots at national cemeteries, and headstones/markers. <a href="veteran-burial-benefits.html">See eligibility requirements</a></li><li><strong>Medicaid funeral assistance</strong> — Most states offer $1,000-$5,000 toward funeral costs for Medicaid recipients. <a href="medicaid-funeral-assistance.html">Check your state's program</a></li><li><strong>FEMA funeral assistance</strong> — Available when death is related to a federally declared disaster</li><li><strong>County indigent burial programs</strong> — Most counties provide basic burial or cremation for those who cannot afford it</li></ul>`}
+    ],
+    faq:[
+      {q:'Can you make payments on a funeral?',a:'Yes. Many funeral homes offer payment plans ranging from 12 to 60 months. Some charge no interest while others charge 10-18% APR. Always ask about payment options before signing any agreement, and get the terms in writing. Not all funeral homes offer financing, so call ahead if this is important to your planning.'},
+      {q:'What happens if you cannot afford a funeral?',a:'If you cannot afford a funeral, several options exist: county indigent burial programs provide basic disposition at no cost; Medicaid may cover funeral expenses for eligible recipients; veteran benefits cover burial costs for qualifying veterans; crowdfunding platforms like GoFundMe can rally community support; and choosing direct cremation ($1,000-$3,500) is the most affordable option. See our complete guide to paying for a funeral with no money.'},
+      {q:'Are funeral loans a good idea?',a:'Funeral loans can help when immediate funds are unavailable, but they come with interest charges that increase the total cost. Before borrowing, explore alternatives: insurance assignment, government programs, crowdfunding, payment plans from the funeral home, or reducing costs through simpler service options. If you do borrow, compare rates from multiple lenders and choose the shortest repayment term you can afford.'},
+      {q:'Can life insurance pay for a funeral directly?',a:'Yes, through a process called insurance assignment. You can assign your life insurance policy to a funeral home, which receives payment directly from the insurer. This allows the funeral to proceed before the full claim is processed. Most funeral homes accept insurance assignments, though they may require partial upfront payment. The process typically takes 3-10 business days.'},
+      {q:'How much does the government pay for funerals?',a:'Government funeral assistance varies: Social Security provides a $255 death benefit; VA burial allowances range from $300 to $2,000+ depending on circumstances; Medicaid burial allowances range from $1,000 to $5,000 by state; and FEMA provides up to $9,000 for disaster-related deaths. These programs have specific eligibility requirements — see our payment assistance guide for details.'}
+    ]
+  },
+  {
+    fn:'end-of-life-planning-checklist.html',
+    t:'End-of-Life Planning Checklist (2026) — Complete Step-by-Step Guide',
+    st:'End-of-Life Planning Checklist',
+    d:'Comprehensive end-of-life planning checklist covering legal documents, financial planning, funeral wishes, medical directives, and digital assets. Plan with confidence.',
+    sections:[
+      {h:'Why End-of-Life Planning Matters',content:`<p>End-of-life planning goes beyond funeral arrangements. A complete plan ensures your wishes are documented, your family is prepared, and your legal and financial affairs are in order. Families who plan ahead report less stress, lower costs, and greater peace of mind during an already difficult time.</p><div class="callout callout-info"><strong>Did You Know?</strong> Only 34% of American adults have a will, and fewer than 30% have an advance healthcare directive. Completing these documents while you are healthy protects your family from costly legal proceedings and emotionally difficult decisions.</div>`},
+      {h:'Legal Documents Checklist',content:`<ul><li><strong>Last will and testament</strong> — Names an executor, distributes assets, and can designate guardians for minor children. Cost: $300-$1,000 with an attorney, or $50-$200 using an online service. <a href="estate-planning-costs.html">See estate planning costs</a></li><li><strong>Advance healthcare directive / living will</strong> — Documents your wishes for medical treatment if you become incapacitated. Covers life support, resuscitation, feeding tubes, and pain management preferences.</li><li><strong>Durable power of attorney</strong> — Designates someone to make financial decisions on your behalf if you become unable to do so.</li><li><strong>Healthcare proxy / medical power of attorney</strong> — Designates someone to make medical decisions on your behalf.</li><li><strong>Beneficiary designations</strong> — Review and update beneficiaries on life insurance, retirement accounts, bank accounts, and investment accounts. These override your will.</li><li><strong>Trust (if applicable)</strong> — Helps avoid probate, provides for minor children, or manages assets for specific purposes. <a href="probate-process-costs.html">Learn about probate costs</a></li></ul>`},
+      {h:'Financial Planning Checklist',content:`<ul><li><strong>Funeral funding</strong> — Ensure funeral costs are covered through savings, <a href="best-burial-insurance.html">burial insurance</a>, or a dedicated fund. The average funeral costs $7,848.</li><li><strong>Account inventory</strong> — List all bank accounts, investment accounts, retirement accounts, and insurance policies with account numbers and contact information.</li><li><strong>Debt inventory</strong> — Document all outstanding debts including mortgages, car loans, credit cards, and personal loans.</li><li><strong>Insurance review</strong> — Confirm life insurance coverage is adequate and beneficiaries are current. <a href="life-insurance-funeral-costs.html">Using life insurance for funeral costs</a></li><li><strong>Digital assets</strong> — List online accounts, passwords, cryptocurrency wallets, and subscription services. Designate a digital executor if possible.</li><li><strong>Safe deposit box</strong> — Ensure someone has access and knows the location of your important documents.</li></ul>`},
+      {h:'Funeral Wishes Documentation',content:`<ul><li><strong>Disposition preference</strong> — Cremation, burial, green burial, body donation, or other. <a href="cremation-vs-burial-cost.html">Compare options</a></li><li><strong>Service preferences</strong> — Traditional funeral, memorial service, celebration of life, or no service.</li><li><strong>Specific requests</strong> — Music, readings, dress code, flowers vs. donations, open vs. closed casket.</li><li><strong>Location preferences</strong> — Specific funeral home, church, cemetery, or scattering location.</li><li><strong>Budget guidance</strong> — How much should be spent, and what matters most to you.</li><li><strong>Contact list</strong> — Who should be notified, and any specific wishes about the obituary.</li></ul><p>Document all preferences in writing and share copies with your family and estate executor. Our <a href="planning-checklist.html">funeral planning checklist</a> provides a detailed breakdown of funeral-specific decisions.</p>`}
+    ],
+    faq:[
+      {q:'What should be included in an end-of-life plan?',a:'A complete end-of-life plan includes: legal documents (will, advance directive, power of attorney), financial organization (account inventories, insurance review, debt documentation), funeral wishes (disposition type, service preferences, budget), and practical preparations (digital asset access, safe deposit box information, contact lists). The goal is to ensure your family has clear guidance and access to everything they need.'},
+      {q:'How much does end-of-life planning cost?',a:'Basic end-of-life planning can be done for under $500. A will costs $300-$1,000 through an attorney or $50-$200 online. Advance directives are often free through state forms. Power of attorney costs $100-$500. Burial insurance premiums depend on age and coverage. A trust, if needed, costs $1,000-$3,000. The cost of NOT planning — probate, family disputes, unexpected funeral bills — is significantly higher.'},
+      {q:'When should you start end-of-life planning?',a:'The best time to start end-of-life planning is now, regardless of your age or health. All adults over 18 should have basic documents (will, advance directive, power of attorney). These should be reviewed every 3-5 years or after major life events like marriage, divorce, birth of children, or significant health changes. Planning while healthy ensures you are making clear-headed decisions and gives you time to compare options.'},
+      {q:'What is the difference between a living will and an advance directive?',a:'The terms are often used interchangeably, though technically an advance directive is the broader document that may include both a living will (your treatment preferences) and a healthcare proxy designation (who makes decisions for you). Some states use different terminology. The important thing is to document both your treatment wishes AND designate a trusted decision-maker.'},
+      {q:'How do I talk to my family about end-of-life planning?',a:'Start with practical topics rather than emotional ones. Frame the conversation around protecting the family: "I want to make sure you are not burdened with difficult decisions." Share your written plan and explain your reasoning. Be specific about your wishes. Encourage family members to create their own plans. Many families find it helpful to discuss planning during routine conversations rather than waiting for a health crisis.'}
+    ]
+  }
+];
+
+function genInsurancePage(p) {
+  const faqSchema = p.faq && p.faq.length ? p.faq : [];
+
+  const content = `${head(p.t, p.d, p.fn, p.st, faqSchema)}
+${header()}
+  <main id="main-content" class="guide-main" role="main">
+    <article class="guide-article">
+      <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; <span aria-current="page">${p.st}</span>
+      </nav>
+
+      <h1>${p.st}: What You Need to Know in 2026</h1>
+      <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, Insurance Industry Data, Government Sources</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html" style="color:var(--brown-500);">Our Standards</a></span></span>
+      </div>
+
+      <p class="guide-intro">${p.d} This guide provides clear, honest, and independent information to help you make the best decision for your family.</p>
+
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-heading">In This Guide</p>
+        <ul class="toc-list">
+          ${p.sections.map((s, i) => `<li><a href="#section-${i}">${s.h}</a></li>`).join('\n          ')}
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </nav>
+
+      ${p.sections.map((s, i) => `<h2 id="section-${i}">${s.h}</h2>\n      ${s.content}`).join('\n\n      ')}
+
+      ${resources('general')}
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      ${p.faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
+
+      ${relatedGuides(p.fn)}
+
+      <div class="related-guides"><h3>Related Insurance &amp; Financial Guides</h3><ul><li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a></li><li><a href="funeral-insurance-comparison.html">Funeral Insurance Comparison</a></li><li><a href="final-expense-insurance-guide.html">Final Expense Insurance Guide</a></li><li><a href="life-insurance-funeral-costs.html">Using Life Insurance for Funeral Costs</a></li><li><a href="prepaid-funeral-plans-comparison.html">Prepaid Funeral Plans Compared</a></li><li><a href="funeral-payment-plans.html">Funeral Payment Plans</a></li><li><a href="funeral-payment-assistance.html">Payment Assistance Programs</a></li></ul></div>
+
+      ${ctaBanner()}
+
+      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> This guide is for educational purposes only and does not constitute financial, legal, insurance, or professional advice. Insurance products and availability vary by state. Always consult licensed insurance professionals before purchasing any policy. We may receive compensation from partners, but this never influences our recommendations.</p></div>
+    </article>
+  </main>
+${footer()}`;
+  return { fn: p.fn, content };
+}
+
+// ── Religious Funeral Guide Pages ───────────────────────────────
+const religiousPages = [
+  {
+    fn:'catholic-funeral-costs.html',
+    t:'Catholic Funeral Costs (2026) — Traditions, Services &amp; Pricing',
+    st:'Catholic Funeral Costs',
+    d:'Understand Catholic funeral costs including the vigil, funeral Mass, committal service, and burial requirements. Average costs range from $7,000 to $15,000.',
+    tradition:'Catholic',
+    details:{
+      overview:'Catholic funerals follow a three-part structure: the vigil (wake), the funeral Mass, and the committal (burial). The Catholic Church has historically required burial over cremation, though since 1963 cremation has been permitted as long as ashes are interred in a sacred place — scattering of ashes is not allowed.',
+      requirements:'<li>Burial is preferred, but cremation is allowed since 1963</li><li>Ashes must be interred in a cemetery, mausoleum, or columbarium — not scattered or kept at home</li><li>A funeral Mass is standard, typically celebrated by a parish priest</li><li>Open-casket viewing during the vigil is traditional but not required</li><li>The funeral typically takes place within 2-5 days of death</li>',
+      costs:'<tr><td>Vigil / Wake service</td><td>$500 – $2,000</td></tr><tr><td>Funeral Mass (church offering)</td><td>$200 – $500</td></tr><tr><td>Funeral home services</td><td>$5,000 – $10,000</td></tr><tr><td>Casket</td><td>$1,000 – $5,000</td></tr><tr><td>Cemetery plot (Catholic cemetery)</td><td>$1,500 – $6,000</td></tr><tr><td>Burial vault</td><td>$800 – $4,000</td></tr><tr><td>Headstone / marker</td><td>$1,000 – $3,000</td></tr><tr><td>Flowers and music</td><td>$300 – $1,000</td></tr>',
+      savingTips:'Catholic parishes often have relationships with local funeral homes that may offer parishioner discounts. Many Catholic cemeteries offer lower plot costs than private cemeteries. The church offering for the funeral Mass is typically a suggested donation, not a fixed fee. Catholic Charities and the St. Vincent de Paul Society may provide financial assistance for funeral costs in some dioceses.'
+    }
+  },
+  {
+    fn:'jewish-funeral-costs.html',
+    t:'Jewish Funeral Costs (2026) — Traditions, Services &amp; Pricing',
+    st:'Jewish Funeral Costs',
+    d:'Understand Jewish funeral costs including chevra kadisha preparation, simple casket requirements, shiva customs, and burial practices. Costs range from $5,000 to $12,000.',
+    tradition:'Jewish',
+    details:{
+      overview:'Jewish funerals emphasize simplicity, dignity, and equality in death. Tradition calls for prompt burial (ideally within 24 hours), a simple wooden casket, no embalming, and no public viewing of the body. The chevra kadisha (burial society) performs the ritual washing and preparation. After burial, the shiva period of mourning begins.',
+      requirements:'<li>Burial should occur as soon as possible, ideally within 24 hours (not on Shabbat or major holidays)</li><li>Traditional requirement for a simple, all-wood casket with no metal hardware</li><li>Embalming and public viewing are traditionally not permitted</li><li>Cremation is prohibited in Orthodox Judaism, but accepted by some Reform and Conservative congregations</li><li>Tachrichim (simple white burial shrouds) are traditional</li><li>The body should not be left alone before burial (shomer tradition)</li>',
+      costs:'<tr><td>Chevra kadisha preparation</td><td>$0 – $500 (often donated)</td></tr><tr><td>Simple wood casket</td><td>$500 – $2,000</td></tr><tr><td>Funeral home services</td><td>$3,000 – $7,000</td></tr><tr><td>Jewish cemetery plot</td><td>$2,000 – $8,000</td></tr><tr><td>Rabbi / officiant</td><td>$300 – $800</td></tr><tr><td>Burial (opening/closing)</td><td>$800 – $2,000</td></tr><tr><td>Headstone / unveiling</td><td>$1,000 – $4,000</td></tr><tr><td>Shiva expenses</td><td>$200 – $1,000</td></tr>',
+      savingTips:'Jewish funerals are often less expensive than the national average because tradition requires simplicity — no elaborate casket, no embalming, no cosmetic preparation. Many synagogues have a chevra kadisha that provides preparation services at no or low cost. Jewish free burial societies exist in many communities for families with limited means. The simple casket requirement eliminates one of the largest funeral expenses.'
+    }
+  },
+  {
+    fn:'muslim-funeral-costs.html',
+    t:'Muslim Funeral Costs (2026) — Islamic Traditions, Services &amp; Pricing',
+    st:'Muslim Funeral Costs',
+    d:'Understand Muslim funeral costs including ghusl washing, kafan shroud, Salat al-Janazah prayer, and Islamic burial requirements. Costs range from $3,000 to $8,000.',
+    tradition:'Muslim',
+    details:{
+      overview:'Islamic funeral traditions emphasize simplicity, speed, and respect for the deceased. Burial should occur as soon as possible, ideally within 24 hours. The body is ritually washed (ghusl), wrapped in a white shroud (kafan), and buried facing Mecca. Cremation is not permitted in Islam. The funeral prayer (Salat al-Janazah) is performed by the community.',
+      requirements:'<li>Burial should take place as soon as possible after death</li><li>The body is ritually washed (ghusl) by same-gender family members or community volunteers</li><li>White cotton shroud (kafan) is used instead of a casket where permitted by local law</li><li>Cremation is not allowed in Islam</li><li>Embalming is generally not permitted unless required by law</li><li>The body is buried facing Mecca (Qibla direction)</li><li>No elaborate casket or vault required by tradition (though local law may require a container)</li>',
+      costs:'<tr><td>Ghusl preparation</td><td>$0 – $300 (often community service)</td></tr><tr><td>Kafan (shroud)</td><td>$50 – $200</td></tr><tr><td>Simple casket (where required by law)</td><td>$500 – $1,500</td></tr><tr><td>Funeral home / mosque services</td><td>$1,500 – $4,000</td></tr><tr><td>Islamic cemetery plot</td><td>$1,000 – $5,000</td></tr><tr><td>Imam / officiant</td><td>$0 – $500 (often donated)</td></tr><tr><td>Burial (opening/closing)</td><td>$800 – $2,000</td></tr><tr><td>Headstone / marker</td><td>$500 – $2,000</td></tr>',
+      savingTips:'Muslim funerals are typically among the least expensive because tradition requires simplicity — no embalming, no elaborate casket, and no extensive cosmetic preparation. Many mosques provide ghusl and kafan services at no cost. Islamic burial societies and community organizations often assist with funeral expenses. The Muslim community tradition of quickly rallying support for bereaved families helps cover costs through collective contributions (sadaqah).'
+    }
+  },
+  {
+    fn:'hindu-funeral-costs.html',
+    t:'Hindu Funeral &amp; Cremation Costs (2026) — Traditions &amp; Pricing',
+    st:'Hindu Funeral & Cremation Costs',
+    d:'Understand Hindu funeral and cremation costs including the Antyesti ceremony, cremation rituals, and memorial traditions. Costs range from $3,000 to $10,000.',
+    tradition:'Hindu',
+    details:{
+      overview:'Hindu funeral traditions center on cremation (Antyesti), which is considered essential for releasing the soul (atman) from the body. The ceremony typically includes ritual washing, dressing the body in white, a funeral pyre or modern cremation, and the scattering of ashes in a sacred body of water. A period of mourning follows, concluding with a memorial ceremony on the 13th day.',
+      requirements:'<li>Cremation is required (except for young children and saints, who may be buried)</li><li>Cremation should ideally occur within 24 hours of death</li><li>The eldest son or closest male relative traditionally lights the funeral pyre or initiates cremation</li><li>The body is bathed, dressed in white (or red for married women), and adorned with garlands</li><li>Ashes should be scattered in a sacred river or body of water</li><li>A 13-day mourning period is observed</li>',
+      costs:'<tr><td>Body preparation and ritual washing</td><td>$200 – $500</td></tr><tr><td>Cremation service</td><td>$1,500 – $5,000</td></tr><tr><td>Flowers and garlands</td><td>$200 – $800</td></tr><tr><td>Pandit / priest services</td><td>$200 – $1,000</td></tr><tr><td>Funeral home facility</td><td>$1,000 – $3,000</td></tr><tr><td>Ash scattering service</td><td>$200 – $1,500</td></tr><tr><td>13th day memorial ceremony</td><td>$500 – $2,000</td></tr><tr><td>Urn (if needed temporarily)</td><td>$50 – $500</td></tr>',
+      savingTips:'Hindu cremation costs are often lower than traditional Western funerals because no casket or cemetery plot is typically needed. Hindu temples and community organizations often provide priest services at minimal cost or by donation. Families can reduce costs by choosing direct cremation and holding the ritual ceremony separately. Community support during the mourning period often includes donated food and services.'
+    }
+  },
+  {
+    fn:'buddhist-funeral-costs.html',
+    t:'Buddhist Funeral Costs (2026) — Traditions, Services &amp; Pricing',
+    st:'Buddhist Funeral Costs',
+    d:'Understand Buddhist funeral costs including meditation services, chanting ceremonies, cremation traditions, and memorial practices. Costs range from $3,000 to $12,000.',
+    tradition:'Buddhist',
+    details:{
+      overview:'Buddhist funerals vary significantly by tradition (Theravada, Mahayana, Tibetan, Zen) and cultural background. Most Buddhist traditions accept both cremation and burial, though cremation is more common, following the tradition that the Buddha himself was cremated. Ceremonies typically include chanting, meditation, and offerings. Simplicity and mindfulness are emphasized.',
+      requirements:'<li>Both cremation and burial are accepted; cremation is more traditional</li><li>Ceremonies typically include chanting of sutras and meditation</li><li>A monk or nun typically leads the funeral service</li><li>The body may be displayed for viewing before cremation or burial</li><li>A memorial altar with a photo, candles, incense, and flowers is traditional</li><li>Memorial services may be held at intervals (7 days, 49 days, 100 days)</li>',
+      costs:'<tr><td>Monk / temple services</td><td>$200 – $1,000 (often by donation)</td></tr><tr><td>Cremation or burial service</td><td>$1,500 – $6,000</td></tr><tr><td>Funeral home facility</td><td>$1,000 – $3,000</td></tr><tr><td>Casket or container</td><td>$500 – $3,000</td></tr><tr><td>Memorial altar setup</td><td>$100 – $500</td></tr><tr><td>Flowers, incense, offerings</td><td>$200 – $800</td></tr><tr><td>Memorial ceremonies (49 days)</td><td>$500 – $2,000</td></tr><tr><td>Urn or columbarium niche</td><td>$100 – $3,000</td></tr>',
+      savingTips:'Buddhist funerals can be relatively affordable when held at a temple rather than a funeral home. Many temples offer funeral services by donation rather than fixed fees. The emphasis on simplicity in many Buddhist traditions naturally reduces costs. Community support through the sangha (Buddhist community) often includes donated food and volunteer services during the mourning period.'
+    }
+  },
+  {
+    fn:'mormon-funeral-costs.html',
+    t:'LDS / Mormon Funeral Costs (2026) — Traditions, Services &amp; Pricing',
+    st:'LDS / Mormon Funeral Costs',
+    d:'Understand LDS (Mormon) funeral costs including temple clothing, meetinghouse services, and burial traditions. Costs range from $6,000 to $14,000.',
+    tradition:'LDS / Mormon',
+    details:{
+      overview:'The Church of Jesus Christ of Latter-day Saints (LDS/Mormon) has specific funeral traditions including dressing the deceased in temple clothing (for endowed members), holding the funeral service at a meetinghouse, and dedicating the grave. Burial is generally preferred over cremation, though cremation is not prohibited. The Church allows funeral services to be held in meetinghouses at no cost.',
+      requirements:'<li>Burial is preferred, though cremation is now accepted by Church leadership</li><li>Endowed members are dressed in temple clothing by authorized individuals</li><li>Funeral services are typically held at the local meetinghouse</li><li>A priesthood holder dedicates the grave at the cemetery</li><li>The bishop presides over the funeral service</li><li>Services emphasize the plan of salvation and the hope of resurrection</li>',
+      costs:'<tr><td>Meetinghouse use</td><td>$0 (provided by the Church)</td></tr><tr><td>Funeral home services</td><td>$4,000 – $8,000</td></tr><tr><td>Temple clothing</td><td>$50 – $200</td></tr><tr><td>Casket</td><td>$1,000 – $5,000</td></tr><tr><td>Cemetery plot</td><td>$1,000 – $5,000</td></tr><tr><td>Burial vault</td><td>$800 – $4,000</td></tr><tr><td>Headstone / marker</td><td>$1,000 – $3,000</td></tr><tr><td>Flowers and programs</td><td>$200 – $800</td></tr>',
+      savingTips:'LDS funerals benefit from the Church providing meetinghouse facilities at no charge, which eliminates one of the significant costs of traditional funerals. Ward members often provide food for the post-funeral luncheon. The Church\'s welfare program and fast offering fund may assist families in financial need. Bishop\'s storehouse resources may also be available to support bereaved families.'
+    }
+  }
+];
+
+function genReligiousPage(p) {
+  const faq = [
+    {q:`How much does a ${p.tradition} funeral cost?`,a:`A ${p.tradition} funeral typically costs between the range shown in the cost breakdown above, depending on location, provider, and specific service choices. ${p.details.savingTips.split('.')[0]}.`},
+    {q:`Does the ${p.tradition} tradition require burial or cremation?`,a:`${p.details.overview.split('.').slice(0, 2).join('.')}. See the detailed requirements section above for specific guidelines.`},
+    {q:`How can I save on a ${p.tradition} funeral?`,a:`${p.details.savingTips}`},
+    {q:`Are there financial assistance programs for ${p.tradition} funerals?`,a:`Many ${p.tradition} communities and religious organizations offer assistance for funeral costs. Contact your local house of worship for community-specific resources. Additionally, government programs like Social Security death benefits ($255), veteran burial benefits, and Medicaid funeral assistance are available regardless of religious tradition. See our payment assistance guide for details.`},
+    {q:`What makes a ${p.tradition} funeral different from a secular funeral?`,a:`${p.details.overview}`}
+  ];
+
+  const content = `${head(p.t, p.d, p.fn, p.st, faq)}
+${header()}
+  <main id="main-content" class="guide-main" role="main">
+    <article class="guide-article">
+      <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; <a href="funeral-costs-by-religion.html">Funeral Costs by Religion</a> &rsaquo; <span aria-current="page">${p.tradition}</span>
+      </nav>
+
+      <h1>${p.tradition} Funeral Costs: Traditions and Pricing in 2026</h1>
+      <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, Religious Organizations, Consumer Surveys</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html" style="color:var(--brown-500);">Our Standards</a></span></span>
+      </div>
+
+      <p class="guide-intro">${p.details.overview}</p>
+
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-heading">In This Guide</p>
+        <ul class="toc-list">
+          <li><a href="#requirements">${p.tradition} Funeral Requirements</a></li>
+          <li><a href="#costs">Cost Breakdown</a></li>
+          <li><a href="#saving">Ways to Save</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </nav>
+
+      <h2 id="requirements">${p.tradition} Funeral Requirements and Traditions</h2>
+      <p>Understanding ${p.tradition} funeral traditions helps families honor their loved ones while making informed decisions about services and costs. Here are the key requirements and customs:</p>
+      <ul>
+        ${p.details.requirements}
+      </ul>
+
+      <h2 id="costs">${p.tradition} Funeral Cost Breakdown</h2>
+      <p>The following table shows typical costs for a ${p.tradition} funeral. Actual costs vary significantly by location, provider, and specific service choices.</p>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>${p.tradition} Funeral Cost Estimates (2026)</caption>
+          <thead><tr><th>Item</th><th>Typical Cost Range</th></tr></thead>
+          <tbody>
+            ${p.details.costs}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="saving">Ways to Save on a ${p.tradition} Funeral</h2>
+      <p>${p.details.savingTips}</p>
+      <p>For additional cost-saving strategies, see our guides to <a href="cheap-funeral-options.html">affordable funeral options</a> and <a href="funeral-payment-assistance.html">payment assistance programs</a>. Comparing prices from multiple providers using their <a href="ftc-funeral-rule-guide.html">FTC-required General Price Lists</a> can also save families significant money.</p>
+
+      <div class="callout callout-info"><strong>Know Your Rights:</strong> Regardless of religious tradition, the <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a> protects your right to receive itemized pricing, choose only the services you want, and use caskets or urns purchased from third parties. These federal protections apply at every funeral home in the United States.</div>
+
+      ${resources('general')}
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
+
+      <div class="related-guides"><h3>Funeral Costs by Religion</h3><ul><li><a href="funeral-costs-by-religion.html">Complete Guide: Funeral Costs by Religion</a></li><li><a href="catholic-funeral-costs.html">Catholic Funeral Costs</a></li><li><a href="jewish-funeral-costs.html">Jewish Funeral Costs</a></li><li><a href="muslim-funeral-costs.html">Muslim Funeral Costs</a></li><li><a href="hindu-funeral-costs.html">Hindu Funeral &amp; Cremation Costs</a></li><li><a href="buddhist-funeral-costs.html">Buddhist Funeral Costs</a></li><li><a href="mormon-funeral-costs.html">LDS / Mormon Funeral Costs</a></li></ul></div>
+
+      ${relatedGuides(p.fn)}
+      ${ctaBanner()}
+
+      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> This guide is for educational purposes only. Religious practices and requirements vary by community, congregation, and individual interpretation. Always consult with your religious leader or community for guidance specific to your tradition. Cost data is based on publicly available surveys and may not reflect current prices in your area.</p></div>
+    </article>
+  </main>
+${footer()}`;
+  return { fn: p.fn, content };
+}
+
 // ── Generate All Pages ──────────────────────────────────────────
 console.log('Generating pages...');
-let count = { state: 0, metro: 0, cremation: 0, burial: 0, topical: 0 };
+let count = { state: 0, metro: 0, cremation: 0, burial: 0, topical: 0, cremMetro: 0, burialMetro: 0, insurance: 0, religious: 0 };
 const allPages = [];
 
 // State pages
@@ -1090,6 +1634,46 @@ fs.writeFileSync(path.join(OUT, burialHub.fn), burialHub.content);
 allPages.push(burialHub.fn);
 console.log('  Hub pages: 2 (cremation-costs-by-state, burial-costs-by-state)');
 
+// Cremation metro pages
+metros.forEach(m => {
+  const page = genCremationMetro(m);
+  if (page) {
+    fs.writeFileSync(path.join(OUT, page.fn), page.content);
+    allPages.push(page.fn);
+    count.cremMetro++;
+  }
+});
+console.log(`  Cremation metro pages: ${count.cremMetro}`);
+
+// Burial metro pages
+metros.forEach(m => {
+  const page = genBurialMetro(m);
+  if (page) {
+    fs.writeFileSync(path.join(OUT, page.fn), page.content);
+    allPages.push(page.fn);
+    count.burialMetro++;
+  }
+});
+console.log(`  Burial metro pages: ${count.burialMetro}`);
+
+// Insurance / High-CPC pages
+insurancePages.forEach(p => {
+  const page = genInsurancePage(p);
+  fs.writeFileSync(path.join(OUT, page.fn), page.content);
+  allPages.push(page.fn);
+  count.insurance++;
+});
+console.log(`  Insurance pages: ${count.insurance}`);
+
+// Religious funeral guide pages
+religiousPages.forEach(p => {
+  const page = genReligiousPage(p);
+  fs.writeFileSync(path.join(OUT, page.fn), page.content);
+  allPages.push(page.fn);
+  count.religious++;
+});
+console.log(`  Religious funeral pages: ${count.religious}`);
+
 // ── Generate Sitemap ────────────────────────────────────────────
 const existingPages = [
   'index.html', 'chat.html', 'contact.html',
@@ -1100,7 +1684,7 @@ const existingPages = [
   'cheap-funeral-options.html', 'green-burial-options.html', 'prepaid-funeral-plans.html',
   'ftc-funeral-rule-guide.html', 'funeral-insurance-guide.html', 'home-funeral-guide.html',
   'obituary-writing-guide.html', 'grief-resources.html', 'planning-checklist.html',
-  'editorial-standards.html', 'privacy-policy.html',
+  'editorial-standards.html', 'privacy-policy.html', 'terms-of-service.html', 'disclaimer.html',
   'funeral-cost-index-pdf.html', 'funeral-planning-checklist-printable.html',
   'funeral-cost-comparison-worksheet.html', 'funeral-cost-widget.html',
   'best-online-casket-retailers.html', 'best-cremation-urns.html',
@@ -1134,12 +1718,16 @@ ${sitemapEntries.join('\n')}
 `;
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
 
-const total = count.state + count.metro + count.cremation + count.burial + count.topical;
+const total = count.state + count.metro + count.cremation + count.burial + count.topical + count.cremMetro + count.burialMetro + count.insurance + count.religious;
 console.log(`\n=== Page Generation Complete ===`);
 console.log(`State pages: ${count.state}`);
 console.log(`Metro pages: ${count.metro}`);
-console.log(`Cremation pages: ${count.cremation}`);
-console.log(`Burial pages: ${count.burial}`);
+console.log(`Cremation state pages: ${count.cremation}`);
+console.log(`Burial state pages: ${count.burial}`);
+console.log(`Cremation metro pages: ${count.cremMetro}`);
+console.log(`Burial metro pages: ${count.burialMetro}`);
 console.log(`Topical pages: ${count.topical}`);
+console.log(`Insurance/financial pages: ${count.insurance}`);
+console.log(`Religious funeral pages: ${count.religious}`);
 console.log(`Total new pages: ${total}`);
 console.log(`Sitemap updated with ${existingPages.length + allPages.length} total pages`);
