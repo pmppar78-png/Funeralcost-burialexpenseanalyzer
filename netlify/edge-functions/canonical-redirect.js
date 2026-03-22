@@ -1,26 +1,35 @@
 /**
  * Netlify Edge Function: Canonical URL Enforcement
  *
- * Fixes "Alternate page with proper canonical tag" issues in Google Search Console.
+ * Prevents "Page with redirect" issues in Google Search Console.
  *
- * Root cause: Netlify's Pretty URL feature serves page.html at both /page.html
- * and /page (without extension). Google discovers both variants, treats /page as
- * an "alternate" of /page.html, and refuses to index either properly.
+ * Instead of 301-redirecting extensionless URLs (which Google flags as
+ * "Page with redirect"), this function lets Netlify serve the content
+ * at extensionless paths but adds X-Robots-Tag: noindex and a canonical
+ * Link header pointing to the .html version. This tells Google to index
+ * only the .html URL without creating any redirects.
  *
- * This edge function 301-redirects extensionless URLs to their .html canonical
- * versions and normalizes trailing slashes, ensuring Google sees one URL per page.
+ * Also redirects /index.html → / since the homepage canonical is /.
  */
 export default async (request, context) => {
   const url = new URL(request.url);
   const path = url.pathname;
 
-  // Only redirect GET/HEAD — never redirect form submissions or API calls
+  // Only handle GET/HEAD — never interfere with form submissions or API calls
   if (request.method !== "GET" && request.method !== "HEAD") {
     return context.next();
   }
 
-  // Skip: root path and index.html (homepage canonical is /)
-  if (path === "/" || path === "/index.html") {
+  // Redirect /index.html → / (homepage canonical is /)
+  if (path === "/index.html") {
+    return Response.redirect(
+      new URL("/" + url.search, url.origin).toString(),
+      301
+    );
+  }
+
+  // Root path — serve normally
+  if (path === "/") {
     return context.next();
   }
 
@@ -40,31 +49,29 @@ export default async (request, context) => {
     return context.next();
   }
 
-  // Extensionless path detected — this is the duplicate URL Google is flagging.
-  // Pass through to Netlify's pipeline first to check if a vanity redirect handles it.
+  // Extensionless path — pass through to Netlify's pipeline
   const response = await context.next();
 
-  // If Netlify returned a redirect (vanity alias like /green-burial → /green-burial-options.html),
-  // or a 404/error, let that response pass through unchanged.
+  // If Netlify returned a redirect (vanity alias) or error, pass through unchanged
   if (response.status !== 200) {
     return response;
   }
 
   // Netlify served content at the extensionless URL via Pretty URL (200).
-  // Redirect to the canonical .html version with 301 (permanent).
+  // Instead of redirecting (which causes "Page with redirect" in GSC),
+  // serve the content but signal to Google not to index this version.
   const cleanPath = path.replace(/\/+$/, "");
-  const canonicalUrl = new URL(
-    cleanPath + ".html" + url.search,
-    url.origin
-  ).toString();
+  const canonicalUrl = `https://funeralcostanalyzer.com${cleanPath}.html`;
 
-  return new Response(null, {
-    status: 301,
-    headers: {
-      Location: canonicalUrl,
-      "Cache-Control": "public, max-age=31536000, immutable",
-      "X-Redirect-Reason": "canonical-url-enforcement",
-    },
+  const headers = new Headers(response.headers);
+  // Tell search engines: don't index this extensionless URL
+  headers.set("X-Robots-Tag", "noindex");
+  // Reinforce canonical signal via HTTP Link header
+  headers.set("Link", `<${canonicalUrl}>; rel="canonical"`);
+
+  return new Response(response.body, {
+    status: 200,
+    headers,
   });
 };
 
@@ -76,6 +83,7 @@ export const config = {
     "/script.js",
     "/robots.txt",
     "/sitemap.xml",
+    "/ads.txt",
     "/humans.txt",
     "/.netlify/*",
   ],
