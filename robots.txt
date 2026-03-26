@@ -5,6 +5,7 @@ Allow: /
 Disallow: /node_modules/
 Disallow: /.netlify/
 Disallow: /.git/
+Disallow: /404.html
 
 # Sitemaps
 Sitemap: https://funeralcostanalyzer.com/sitemap.xml
