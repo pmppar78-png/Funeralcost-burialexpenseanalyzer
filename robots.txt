@@ -1,11 +1,17 @@
 User-agent: *
 Allow: /
 
-# Disallow non-public directories
+# Disallow non-public directories and files
 Disallow: /node_modules/
 Disallow: /.netlify/
 Disallow: /.git/
 Disallow: /404.html
+Disallow: /generate-pages.js
+
+# Allow crawling of all content pages, stylesheets, and scripts
+Allow: /style.css
+Allow: /script.js
+Allow: /*.html$
 
 # Sitemaps
 Sitemap: https://funeralcostanalyzer.com/sitemap.xml

@@ -136,6 +136,10 @@ const topical = [
 const $ = n => '$' + n.toLocaleString('en-US');
 const esc = s => s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
+// Dynamic lastmod: use today's date so each deploy signals freshness to crawlers
+const TODAY = new Date().toISOString().slice(0, 10);
+const REVIEW_MONTH = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
 const BASE = 'https://funeralcostanalyzer.com';
 
 // Region groupings for neighboring-state cross-links
@@ -186,7 +190,7 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
   <title>${title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="${esc(desc)}" />
-  <meta name="last-modified" content="2026-03-20" />
+  <meta name="last-modified" content="${TODAY}" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${esc(desc)}" />
   <meta property="og:type" content="article" />
@@ -207,7 +211,7 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"${esc(title)}","description":"${esc(desc)}","datePublished":"2026-01-15","dateModified":"2026-03-20","author":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"publisher":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"mainEntityOfPage":{"@type":"WebPage","@id":"${BASE}/${filename}"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"${esc(title)}","description":"${esc(desc)}","datePublished":"2026-01-15","dateModified":"${TODAY}","author":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"publisher":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"mainEntityOfPage":{"@type":"WebPage","@id":"${BASE}/${filename}"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":${breadcrumbItems}}
@@ -242,9 +246,14 @@ function header() {
         <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Guides <span class="dropdown-arrow" aria-hidden="true"></span></button>
         <div class="nav-dropdown-menu" role="menu">
           <a href="national-funeral-cost-index.html" class="nav-dropdown-link" role="menuitem">National Cost Index</a>
-          <a href="funeral-costs-by-state.html" class="nav-dropdown-link" role="menuitem">Costs by State</a>
+          <a href="funeral-costs-by-state.html" class="nav-dropdown-link" role="menuitem">Funeral Costs by State</a>
+          <a href="cremation-costs-by-state.html" class="nav-dropdown-link" role="menuitem">Cremation Costs by State</a>
+          <a href="burial-costs-by-state.html" class="nav-dropdown-link" role="menuitem">Burial Costs by State</a>
           <a href="cremation-vs-burial-cost.html" class="nav-dropdown-link" role="menuitem">Cremation vs. Burial</a>
+          <a href="average-funeral-cost-2026.html" class="nav-dropdown-link" role="menuitem">Average Cost 2026</a>
+          <a href="direct-cremation-cost.html" class="nav-dropdown-link" role="menuitem">Direct Cremation Cost</a>
           <a href="funeral-cost-breakdown.html" class="nav-dropdown-link" role="menuitem">Cost Breakdown</a>
+          <a href="cheap-funeral-options.html" class="nav-dropdown-link" role="menuitem">Affordable Funeral Options</a>
           <a href="funeral-payment-assistance.html" class="nav-dropdown-link" role="menuitem">Payment Assistance</a>
           <a href="veteran-burial-benefits.html" class="nav-dropdown-link" role="menuitem">Veteran Benefits</a>
           <a href="ftc-funeral-rule-guide.html" class="nav-dropdown-link" role="menuitem">FTC Funeral Rule</a>
@@ -268,7 +277,18 @@ function footer() {
       <p class="footer-text small">&copy; 2026 Funeral Cost &amp; Burial Expense Analyzer. Cost data is based on publicly available consumer surveys and may not reflect current prices in your area.</p>
       <div class="footer-links">
         <a href="about.html">About</a>
+        <a href="funeral-costs-by-state.html">Funeral Costs by State</a>
+        <a href="cremation-costs-by-state.html">Cremation Costs by State</a>
+        <a href="burial-costs-by-state.html">Burial Costs by State</a>
+        <a href="average-funeral-cost-2026.html">Average Funeral Cost 2026</a>
+        <a href="direct-cremation-cost.html">Direct Cremation Cost</a>
+        <a href="cheap-funeral-options.html">Affordable Funeral Options</a>
+        <a href="cremation-vs-burial-cost.html">Cremation vs. Burial</a>
+        <a href="how-to-pay-for-a-funeral-with-no-money.html">Pay for a Funeral With No Money</a>
+        <a href="national-funeral-cost-index.html">National Cost Index</a>
         <a href="planning-checklist.html">Planning Checklist</a>
+        <a href="funeral-insurance-guide.html">Funeral Insurance</a>
+        <a href="veteran-burial-benefits.html">Veteran Benefits</a>
         <a href="editorial-standards.html">Editorial Standards</a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-of-service.html">Terms of Service</a>
@@ -452,7 +472,7 @@ ${header()}
       <h1>Funeral Costs in ${s.name}: What Families Pay in 2026</h1>
 
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, ${s.name} Funeral Board</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">${s.region}</span></span>
       </div>
@@ -638,7 +658,7 @@ ${header()}
 
       <h1>Funeral Costs in ${m.city}, ${m.st} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">State:</span> <span class="article-meta-value"><a href="funeral-costs-${s.slug}.html">${m.st}</a></span></span>
       </div>
 
@@ -750,7 +770,7 @@ ${header()}
 
       <h1>Cremation Costs in ${s.name} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
       </div>
 
@@ -852,7 +872,7 @@ ${header()}
 
       <h1>Burial Costs in ${s.name} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">${s.region}</span></span>
       </div>
 
@@ -944,7 +964,7 @@ ${header()}
 
       <h1>${p.st}: What Families Need to Know in 2026</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, Government Sources</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html" style="color:var(--brown-500);">Our Standards</a></span></span>
       </div>
@@ -1063,7 +1083,7 @@ ${header()}
 
       <h1>Cremation Costs by State: 2026 Price Comparison</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, State Boards</span></span>
       </div>
 
@@ -1133,7 +1153,7 @@ ${header()}
 
       <h1>Burial Costs by State: 2026 Price Comparison</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, State Boards</span></span>
       </div>
 
@@ -1226,7 +1246,7 @@ ${header()}
 
       <h1>Cremation Costs in ${m.city}, ${m.st} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">State:</span> <span class="article-meta-value"><a href="cremation-costs-${s.slug}.html">${m.st}</a></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
       </div>
@@ -1345,7 +1365,7 @@ ${header()}
 
       <h1>Burial Costs in ${m.city}, ${m.st} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">State:</span> <span class="article-meta-value"><a href="burial-costs-${s.slug}.html">${m.st}</a></span></span>
       </div>
 
@@ -1505,7 +1525,7 @@ ${header()}
 
       <h1>${p.st}: What You Need to Know in 2026</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, Insurance Industry Data, Government Sources</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html" style="color:var(--brown-500);">Our Standards</a></span></span>
       </div>
@@ -1641,7 +1661,7 @@ ${header()}
 
       <h1>${p.tradition} Funeral Costs: Traditions and Pricing in 2026</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">March 2026</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, Religious Organizations, Consumer Surveys</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html" style="color:var(--brown-500);">Our Standards</a></span></span>
       </div>
@@ -1822,21 +1842,41 @@ const existingPages = [
   'funeral-costs-rising-2026.html'
 ];
 
+// Priority tiers: differentiate money pages from support pages
+function sitemapPriority(p) {
+  if (p === 'index.html') return '1.0';
+  // Tier 1: hub/index pages + top money pages
+  if (p === 'national-funeral-cost-index.html' || p === 'funeral-costs-by-state.html') return '1.0';
+  if (p === 'cremation-costs-by-state.html' || p === 'burial-costs-by-state.html') return '0.9';
+  if (p === 'average-funeral-cost-2026.html' || p === 'cremation-vs-burial-cost.html') return '0.9';
+  if (p === 'direct-cremation-cost.html' || p === 'funeral-cost-breakdown.html') return '0.9';
+  if (p === 'cheap-funeral-options.html' || p === 'how-to-pay-for-a-funeral-with-no-money.html') return '0.9';
+  // Tier 2: state pages (high-value location intent)
+  if (p.startsWith('funeral-costs-') && !p.includes('uninsured') && !p.includes('-by-') && !p.includes('rising')) return '0.8';
+  if (p.startsWith('cremation-costs-') && !p.includes('-by-')) return '0.8';
+  if (p.startsWith('burial-costs-') && !p.includes('-by-')) return '0.8';
+  // Tier 3: guides & money pages
+  if (p.includes('insurance') || p.includes('payment') || p.includes('financing')) return '0.7';
+  if (p === 'funeral-costs-rising-2026.html' || p === 'what-to-do-when-someone-dies.html') return '0.7';
+  if (p === 'funeral-price-comparison.html' || p === 'funeral-payment-assistance.html') return '0.7';
+  if (p === 'veteran-burial-benefits.html' || p === 'social-security-death-benefit.html') return '0.7';
+  if (p === 'questions-to-ask-funeral-home.html' || p === 'what-funeral-homes-dont-tell-you.html') return '0.7';
+  // Tier 4: support/legal pages
+  if (p.includes('privacy') || p.includes('editorial') || p.includes('terms-of') || p.includes('disclaimer')) return '0.3';
+  if (p === 'chat.html' || p === 'contact.html' || p === 'about.html') return '0.4';
+  // Default for topical/religious/other guides
+  return '0.6';
+}
+
 const sitemapEntries = [];
 existingPages.forEach(p => {
-  const pri = p === 'index.html' ? '1.0' : p === 'national-funeral-cost-index.html' ? '0.9' : p.includes('privacy') || p.includes('editorial') ? '0.5' : '0.8';
-  // Homepage canonical is BASE/ not BASE/index.html
+  const pri = sitemapPriority(p);
   const loc = p === 'index.html' ? `${BASE}/` : `${BASE}/${p}`;
-  sitemapEntries.push(`  <url><loc>${loc}</loc><lastmod>2026-03-20</lastmod><changefreq>weekly</changefreq><priority>${pri}</priority></url>`);
+  sitemapEntries.push(`  <url><loc>${loc}</loc><lastmod>${TODAY}</lastmod><changefreq>weekly</changefreq><priority>${pri}</priority></url>`);
 });
 allPages.forEach(p => {
-  let pri = '0.7';
-  if (p === 'cremation-costs-by-state.html' || p === 'burial-costs-by-state.html') pri = '0.9';
-  else if (p === 'average-funeral-cost-2026.html' || p === 'funeral-costs-rising-2026.html') pri = '0.9';
-  else if (p.startsWith('funeral-costs-') && !p.includes('uninsured') && !p.includes('-by-')) pri = '0.8';
-  else if (p.startsWith('cremation-costs-') || p.startsWith('burial-costs-')) pri = '0.8';
-  else if (p.includes('insurance') || p.includes('payment') || p.includes('financing')) pri = '0.8';
-  sitemapEntries.push(`  <url><loc>${BASE}/${p}</loc><lastmod>2026-03-20</lastmod><changefreq>weekly</changefreq><priority>${pri}</priority></url>`);
+  const pri = sitemapPriority(p);
+  sitemapEntries.push(`  <url><loc>${BASE}/${p}</loc><lastmod>${TODAY}</lastmod><changefreq>weekly</changefreq><priority>${pri}</priority></url>`);
 });
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
