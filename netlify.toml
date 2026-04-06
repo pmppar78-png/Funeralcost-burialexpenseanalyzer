@@ -157,12 +157,6 @@
   to = "/privacy-policy.html"
   status = 301
 
-# New page aliases
-[[redirects]]
-  from = "/contact"
-  to = "/contact.html"
-  status = 301
-
 [[redirects]]
   from = "/medicaid-funeral"
   to = "/medicaid-funeral-assistance.html"
@@ -289,25 +283,10 @@
   to = "/funeral-cost-widget.html"
   status = 301
 
-# New page aliases — Terms, Disclaimer, Insurance, Religious guides
+# New page aliases — Vanity redirects, Religious guides
 [[redirects]]
   from = "/terms"
   to = "/terms-of-service.html"
-  status = 301
-
-[[redirects]]
-  from = "/terms-of-service"
-  to = "/terms-of-service.html"
-  status = 301
-
-[[redirects]]
-  from = "/disclaimer"
-  to = "/disclaimer.html"
-  status = 301
-
-[[redirects]]
-  from = "/burial-insurance-seniors"
-  to = "/burial-insurance-seniors.html"
   status = 301
 
 [[redirects]]
