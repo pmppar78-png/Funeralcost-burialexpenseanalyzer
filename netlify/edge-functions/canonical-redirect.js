@@ -1,13 +1,14 @@
 /**
  * Netlify Edge Function: Canonical URL Enforcement
  *
- * Prevents "Page with redirect" issues in Google Search Console.
- *
- * Instead of 301-redirecting extensionless URLs (which Google flags as
- * "Page with redirect"), this function lets Netlify serve the content
- * at extensionless paths but adds X-Robots-Tag: noindex and a canonical
- * Link header pointing to the .html version. This tells Google to index
- * only the .html URL without creating any redirects.
+ * Fixes Google Search Console indexing issues:
+ * - "Excluded by noindex tag" — caused by serving extensionless URLs with
+ *   X-Robots-Tag: noindex. Google associated the noindex with the page itself.
+ * - "Page with redirect" — extensionless URLs now 301 to .html versions.
+ *   GSC will report "Page with redirect" for the extensionless URL (expected/
+ *   informational), but the .html target returns 200 and gets indexed properly.
+ * - "Crawled – currently not indexed" — resolved by removing the noindex signals
+ *   and ensuring .html pages are the single canonical, indexable version.
  *
  * Also redirects /index.html → / since the homepage canonical is /.
  */
@@ -28,9 +29,19 @@ export default async (request, context) => {
     );
   }
 
-  // Root path — serve normally
+  // Root path — serve normally with explicit index signals
   if (path === "/") {
-    return context.next();
+    const response = await context.next();
+    const headers = new Headers(response.headers);
+    headers.set("X-Robots-Tag", "index, follow");
+    headers.set(
+      "Link",
+      '<https://funeralcostanalyzer.com/>; rel="canonical"'
+    );
+    return new Response(response.body, {
+      status: response.status,
+      headers,
+    });
   }
 
   // Check if path already has a file extension
@@ -46,33 +57,29 @@ export default async (request, context) => {
         301
       );
     }
+    // .html pages: reinforce canonical and indexability via HTTP headers
+    if (path.endsWith(".html")) {
+      const response = await context.next();
+      const headers = new Headers(response.headers);
+      const canonicalUrl = `https://funeralcostanalyzer.com${path}`;
+      headers.set("X-Robots-Tag", "index, follow");
+      headers.set("Link", `<${canonicalUrl}>; rel="canonical"`);
+      return new Response(response.body, {
+        status: response.status,
+        headers,
+      });
+    }
     return context.next();
   }
 
-  // Extensionless path — pass through to Netlify's pipeline
-  const response = await context.next();
-
-  // If Netlify returned a redirect (vanity alias) or error, pass through unchanged
-  if (response.status !== 200) {
-    return response;
-  }
-
-  // Netlify served content at the extensionless URL via Pretty URL (200).
-  // Instead of redirecting (which causes "Page with redirect" in GSC),
-  // serve the content but signal to Google not to index this version.
+  // Extensionless path — 301 redirect to .html version.
+  // This is the correct approach: Google will index the .html target (200),
+  // and the extensionless URL simply shows as "Page with redirect" in GSC
+  // (informational, not an error). This avoids the previous noindex approach
+  // which caused "Excluded by noindex tag" errors.
   const cleanPath = path.replace(/\/+$/, "");
-  const canonicalUrl = `https://funeralcostanalyzer.com${cleanPath}.html`;
-
-  const headers = new Headers(response.headers);
-  // Tell search engines: don't index this extensionless URL
-  headers.set("X-Robots-Tag", "noindex");
-  // Reinforce canonical signal via HTTP Link header
-  headers.set("Link", `<${canonicalUrl}>; rel="canonical"`);
-
-  return new Response(response.body, {
-    status: 200,
-    headers,
-  });
+  const targetUrl = `${url.origin}${cleanPath}.html${url.search}`;
+  return Response.redirect(targetUrl, 301);
 };
 
 export const config = {
@@ -85,6 +92,7 @@ export const config = {
     "/sitemap.xml",
     "/ads.txt",
     "/humans.txt",
+    "/og-default.svg",
     "/.netlify/*",
   ],
 };

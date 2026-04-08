@@ -57,6 +57,12 @@
 # ─── HTML pages — cache briefly, revalidate; confirm indexability ─
 
 [[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    X-Robots-Tag = "index, follow"
+
+[[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
