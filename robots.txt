@@ -11,7 +11,7 @@ Disallow: /generate-pages.js
 # Allow crawling of all content pages, stylesheets, and scripts
 Allow: /style.css
 Allow: /script.js
-Allow: /*.html$
+Allow: /*.html
 
 # Sitemaps
 Sitemap: https://funeralcostanalyzer.com/sitemap.xml

@@ -58,9 +58,14 @@ export default async (request, context) => {
       );
     }
     // .html pages: reinforce canonical and indexability via HTTP headers
-    if (path.endsWith(".html")) {
+    // Skip 404.html — it must stay noindex (meta tag says noindex, follow)
+    if (path.endsWith(".html") && path !== "/404.html") {
       const response = await context.next();
       const headers = new Headers(response.headers);
+      // If the origin returned 404 (file doesn't exist), don't add index signals
+      if (response.status >= 400) {
+        return response;
+      }
       const canonicalUrl = `https://funeralcostanalyzer.com${path}`;
       headers.set("X-Robots-Tag", "index, follow");
       headers.set("Link", `<${canonicalUrl}>; rel="canonical"`);
