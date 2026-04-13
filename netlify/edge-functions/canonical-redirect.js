@@ -95,6 +95,7 @@ export const config = {
     "/script.js",
     "/robots.txt",
     "/sitemap.xml",
+    "/sitemap-*.xml",
     "/ads.txt",
     "/humans.txt",
     "/og-default.svg",

@@ -295,7 +295,8 @@ function footer() {
         <a href="disclaimer.html">Disclaimer</a>
         <a href="grief-resources.html">Grief Resources</a>
         <a href="contact.html">Contact</a>
-        <a href="sitemap.xml">Sitemap</a>
+        <a href="sitemap-index.html">Site Map</a>
+        <a href="sitemap.xml">XML Sitemap</a>
       </div>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-revised-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
@@ -1820,7 +1821,7 @@ religiousPages.forEach(p => {
 });
 console.log(`  Religious funeral pages: ${count.religious}`);
 
-// ── Generate Sitemap ────────────────────────────────────────────
+// ── Generate Sitemap Index with Segmented Sitemaps ─────────────
 const existingPages = [
   'index.html', 'chat.html', 'contact.html',
   'national-funeral-cost-index.html',
@@ -1845,46 +1846,279 @@ const existingPages = [
 // Priority tiers: differentiate money pages from support pages
 function sitemapPriority(p) {
   if (p === 'index.html') return '1.0';
-  // Tier 1: hub/index pages + top money pages
   if (p === 'national-funeral-cost-index.html' || p === 'funeral-costs-by-state.html') return '1.0';
   if (p === 'cremation-costs-by-state.html' || p === 'burial-costs-by-state.html') return '0.9';
   if (p === 'average-funeral-cost-2026.html' || p === 'cremation-vs-burial-cost.html') return '0.9';
   if (p === 'direct-cremation-cost.html' || p === 'funeral-cost-breakdown.html') return '0.9';
   if (p === 'cheap-funeral-options.html' || p === 'how-to-pay-for-a-funeral-with-no-money.html') return '0.9';
-  // Tier 2: state pages (high-value location intent)
   if (p.startsWith('funeral-costs-') && !p.includes('uninsured') && !p.includes('-by-') && !p.includes('rising')) return '0.8';
   if (p.startsWith('cremation-costs-') && !p.includes('-by-')) return '0.8';
   if (p.startsWith('burial-costs-') && !p.includes('-by-')) return '0.8';
-  // Tier 3: guides & money pages
   if (p.includes('insurance') || p.includes('payment') || p.includes('financing')) return '0.7';
   if (p === 'funeral-costs-rising-2026.html' || p === 'what-to-do-when-someone-dies.html') return '0.7';
   if (p === 'funeral-price-comparison.html' || p === 'funeral-payment-assistance.html') return '0.7';
   if (p === 'veteran-burial-benefits.html' || p === 'social-security-death-benefit.html') return '0.7';
   if (p === 'questions-to-ask-funeral-home.html' || p === 'what-funeral-homes-dont-tell-you.html') return '0.7';
-  // Tier 4: support/legal pages
   if (p.includes('privacy') || p.includes('editorial') || p.includes('terms-of') || p.includes('disclaimer')) return '0.3';
   if (p === 'chat.html' || p === 'contact.html' || p === 'about.html') return '0.4';
-  // Default for topical/religious/other guides
   return '0.6';
 }
 
-const sitemapEntries = [];
-existingPages.forEach(p => {
-  const pri = sitemapPriority(p);
-  const loc = p === 'index.html' ? `${BASE}/` : `${BASE}/${p}`;
-  sitemapEntries.push(`  <url><loc>${loc}</loc><lastmod>${TODAY}</lastmod><changefreq>weekly</changefreq><priority>${pri}</priority></url>`);
-});
-allPages.forEach(p => {
-  const pri = sitemapPriority(p);
-  sitemapEntries.push(`  <url><loc>${BASE}/${p}</loc><lastmod>${TODAY}</lastmod><changefreq>weekly</changefreq><priority>${pri}</priority></url>`);
+// Differentiated changefreq based on page type — signals crawl cadence to Google
+function sitemapChangefreq(p) {
+  if (p === 'index.html' || p === 'sitemap-index.html') return 'daily';
+  if (p === 'national-funeral-cost-index.html' || p === 'funeral-costs-by-state.html') return 'daily';
+  if (p === 'cremation-costs-by-state.html' || p === 'burial-costs-by-state.html') return 'daily';
+  if (p === 'average-funeral-cost-2026.html') return 'weekly';
+  if (p.startsWith('funeral-costs-') || p.startsWith('cremation-costs-') || p.startsWith('burial-costs-')) return 'weekly';
+  if (p.includes('privacy') || p.includes('editorial') || p.includes('terms-of') || p.includes('disclaimer')) return 'monthly';
+  return 'weekly';
+}
+
+// Differentiated lastmod — hub pages use today; location pages use staggered dates
+// to avoid the "all pages updated simultaneously" anti-pattern that dilutes crawl priority
+function sitemapLastmod(p, idx) {
+  // Hub pages and homepage always show today — they aggregate changing data
+  const hubPages = ['index.html', 'funeral-costs-by-state.html', 'cremation-costs-by-state.html',
+    'burial-costs-by-state.html', 'national-funeral-cost-index.html', 'average-funeral-cost-2026.html',
+    'sitemap-index.html'];
+  if (hubPages.includes(p)) return TODAY;
+  // Stagger location pages across the last 14 days to create a natural crawl cadence
+  const d = new Date();
+  d.setDate(d.getDate() - (idx % 14));
+  return d.toISOString().slice(0, 10);
+}
+
+// Build per-category URL lists for segmented sitemaps
+const funeralStateUrls = [];
+const cremationStateUrls = [];
+const burialStateUrls = [];
+const metroFuneralUrls = [];
+const metroCremationUrls = [];
+const metroBurialUrls = [];
+const guideUrls = [];
+const coreUrls = [];
+
+// Classify all pages into categories
+const allSitemapPages = existingPages.concat(allPages).concat(['sitemap-index.html']);
+allSitemapPages.forEach((p, idx) => {
+  const entry = { page: p, idx };
+  // Metro pages (check before state pages since they also start with funeral-costs-)
+  const isMetro = metros.some(m => p.includes(m.slug));
+  if (isMetro && p.startsWith('funeral-costs-')) { metroFuneralUrls.push(entry); return; }
+  if (isMetro && p.startsWith('cremation-costs-')) { metroCremationUrls.push(entry); return; }
+  if (isMetro && p.startsWith('burial-costs-')) { metroBurialUrls.push(entry); return; }
+  // State pages
+  if (p.startsWith('funeral-costs-') && !p.includes('-by-') && !p.includes('uninsured') && !p.includes('rising')) { funeralStateUrls.push(entry); return; }
+  if (p.startsWith('cremation-costs-') && !p.includes('-by-')) { cremationStateUrls.push(entry); return; }
+  if (p.startsWith('burial-costs-') && !p.includes('-by-')) { burialStateUrls.push(entry); return; }
+  // Core hub pages
+  const corePages = ['index.html', 'funeral-costs-by-state.html', 'cremation-costs-by-state.html',
+    'burial-costs-by-state.html', 'national-funeral-cost-index.html', 'average-funeral-cost-2026.html',
+    'cremation-vs-burial-cost.html', 'direct-cremation-cost.html', 'funeral-cost-breakdown.html',
+    'cheap-funeral-options.html', 'how-to-pay-for-a-funeral-with-no-money.html', 'sitemap-index.html'];
+  if (corePages.includes(p)) { coreUrls.push(entry); return; }
+  // Everything else goes to guides
+  guideUrls.push(entry);
 });
 
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapEntries.join('\n')}
-</urlset>
+function buildSitemapXml(entries) {
+  const urls = entries.map(e => {
+    const loc = e.page === 'index.html' ? `${BASE}/` : `${BASE}/${e.page}`;
+    return `  <url><loc>${loc}</loc><lastmod>${sitemapLastmod(e.page, e.idx)}</lastmod><changefreq>${sitemapChangefreq(e.page)}</changefreq><priority>${sitemapPriority(e.page)}</priority></url>`;
+  }).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+}
+
+// Write segmented sitemaps
+const sitemapSegments = [
+  { file: 'sitemap-core.xml', entries: coreUrls },
+  { file: 'sitemap-funeral-states.xml', entries: funeralStateUrls },
+  { file: 'sitemap-cremation-states.xml', entries: cremationStateUrls },
+  { file: 'sitemap-burial-states.xml', entries: burialStateUrls },
+  { file: 'sitemap-metro-funeral.xml', entries: metroFuneralUrls },
+  { file: 'sitemap-metro-cremation.xml', entries: metroCremationUrls },
+  { file: 'sitemap-metro-burial.xml', entries: metroBurialUrls },
+  { file: 'sitemap-guides.xml', entries: guideUrls }
+];
+
+sitemapSegments.forEach(seg => {
+  if (seg.entries.length > 0) {
+    fs.writeFileSync(path.join(OUT, seg.file), buildSitemapXml(seg.entries));
+    console.log(`  Sitemap: ${seg.file} (${seg.entries.length} URLs)`);
+  }
+});
+
+// Write sitemap index
+const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapSegments.filter(s => s.entries.length > 0).map(s => `  <sitemap><loc>${BASE}/${s.file}</loc><lastmod>${TODAY}</lastmod></sitemap>`).join('\n')}
+</sitemapindex>
 `;
-fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
+fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemapIndex);
+console.log(`  Sitemap index: sitemap.xml (${sitemapSegments.filter(s => s.entries.length > 0).length} sub-sitemaps)`);
+
+// ── Generate HTML Sitemap Page ─────────────────────────────────
+// Provides 1-click crawl path from homepage to EVERY page on the site
+const htmlSitemapContent = `${head(
+  'Site Map — All Pages | Funeral Cost & Burial Expense Analyzer',
+  'Complete site map of funeralcostanalyzer.com with links to all funeral cost guides, state pages, cremation costs, burial costs, metro area pricing, and planning resources.',
+  'sitemap-index.html',
+  'Site Map',
+  []
+)}
+${header()}
+  <main id="main-content" class="guide-main" role="main">
+    <article class="guide-article">
+      <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &rsaquo; <span aria-current="page">Site Map</span>
+      </nav>
+
+      <h1>Complete Site Map</h1>
+      <p class="guide-intro">Browse every page on Funeral Cost Analyzer. This directory links to all state guides, metro area pricing, cremation and burial costs, planning resources, and consumer rights information across all 50 states.</p>
+
+      <h2 id="core">Core Pages &amp; Tools</h2>
+      <ul class="sitemap-list">
+        <li><a href="/">Home — Funeral Cost Calculator</a></li>
+        <li><a href="national-funeral-cost-index.html">2026 National Funeral Cost Index</a></li>
+        <li><a href="funeral-costs-by-state.html">Funeral Costs by State — All 50 States</a></li>
+        <li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li>
+        <li><a href="burial-costs-by-state.html">Burial Costs by State</a></li>
+        <li><a href="average-funeral-cost-2026.html">Average Funeral Cost in 2026</a></li>
+        <li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Comparison</a></li>
+        <li><a href="direct-cremation-cost.html">Direct Cremation Cost Guide</a></li>
+        <li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a></li>
+        <li><a href="cheap-funeral-options.html">Affordable Funeral Options</a></li>
+        <li><a href="how-to-pay-for-a-funeral-with-no-money.html">How to Pay for a Funeral With No Money</a></li>
+        <li><a href="chat.html">AI Funeral Cost Helper</a></li>
+      </ul>
+
+      <h2 id="funeral-by-state">Funeral Costs by State</h2>
+      <div class="state-grid">
+${states.map(s => `        <a href="funeral-costs-${s.slug}.html" class="state-card"><span class="state-name">${s.name}</span><span class="state-cost">${$(s.f)}</span></a>`).join('\n')}
+      </div>
+
+      <h2 id="cremation-by-state">Cremation Costs by State</h2>
+      <div class="state-grid">
+${states.map(s => `        <a href="cremation-costs-${s.slug}.html" class="state-card"><span class="state-name">${s.name}</span><span class="state-cost">${$(s.dc)}</span></a>`).join('\n')}
+      </div>
+
+      <h2 id="burial-by-state">Burial Costs by State</h2>
+      <div class="state-grid">
+${states.map(s => `        <a href="burial-costs-${s.slug}.html" class="state-card"><span class="state-name">${s.name}</span><span class="state-cost">${$(s.b)}</span></a>`).join('\n')}
+      </div>
+
+      <h2 id="metro-funeral">Funeral Costs by Metro Area</h2>
+      <div class="state-grid">
+${metros.map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="funeral-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.f * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+      </div>
+
+      <h2 id="metro-cremation">Cremation Costs by Metro Area</h2>
+      <div class="state-grid">
+${metros.map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="cremation-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.dc * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+      </div>
+
+      <h2 id="metro-burial">Burial Costs by Metro Area</h2>
+      <div class="state-grid">
+${metros.map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="burial-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.b * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+      </div>
+
+      <h2 id="guides">Planning &amp; Consumer Guides</h2>
+      <ul class="sitemap-list">
+        <li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a></li>
+        <li><a href="ftc-funeral-rule-guide.html">FTC Funeral Rule — Your Consumer Rights</a></li>
+        <li><a href="consumer-rights-funeral-pricing.html">Consumer Rights in Funeral Pricing</a></li>
+        <li><a href="questions-to-ask-funeral-home.html">Questions to Ask Funeral Homes</a></li>
+        <li><a href="what-funeral-homes-dont-tell-you.html">What Funeral Homes Don't Tell You</a></li>
+        <li><a href="funeral-overcharging-protection.html">Funeral Overcharging Protection</a></li>
+        <li><a href="planning-checklist.html">Funeral Planning Checklist</a></li>
+        <li><a href="what-to-do-when-someone-dies.html">What to Do When Someone Dies</a></li>
+        <li><a href="funeral-planning-for-parents.html">Planning a Funeral for Aging Parents</a></li>
+        <li><a href="green-burial-options.html">Green Burial Options</a></li>
+        <li><a href="home-funeral-guide.html">Home Funeral Guide</a></li>
+        <li><a href="body-donation-guide.html">Body Donation Programs</a></li>
+        <li><a href="obituary-writing-guide.html">Obituary Writing Guide</a></li>
+        <li><a href="grief-resources.html">Grief Resources</a></li>
+      </ul>
+
+      <h2 id="financial">Financial &amp; Insurance Guides</h2>
+      <ul class="sitemap-list">
+        <li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a></li>
+        <li><a href="funeral-insurance-comparison.html">Funeral Insurance Comparison</a></li>
+        <li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a></li>
+        <li><a href="final-expense-insurance-guide.html">Final Expense Insurance Guide</a></li>
+        <li><a href="cremation-insurance-guide.html">Cremation Insurance Guide</a></li>
+        <li><a href="burial-insurance-seniors.html">Burial Insurance for Seniors</a></li>
+        <li><a href="funeral-payment-assistance.html">Payment Assistance Programs</a></li>
+        <li><a href="funeral-payment-plans.html">Funeral Payment Plans &amp; Financing</a></li>
+        <li><a href="funeral-financing-options.html">Funeral Financing Options</a></li>
+        <li><a href="medicaid-funeral-assistance.html">Medicaid Funeral Assistance</a></li>
+        <li><a href="veteran-burial-benefits.html">Veteran Burial Benefits</a></li>
+        <li><a href="military-funeral-honors.html">Military Funeral Honors</a></li>
+        <li><a href="social-security-death-benefit.html">Social Security Death Benefit</a></li>
+        <li><a href="life-insurance-funeral-costs.html">Life Insurance for Funeral Costs</a></li>
+        <li><a href="crowdfunding-funeral-costs.html">Crowdfunding for Funeral Costs</a></li>
+        <li><a href="funeral-costs-uninsured.html">Funeral Costs When Uninsured</a></li>
+        <li><a href="estate-planning-costs.html">Estate Planning Costs</a></li>
+        <li><a href="probate-process-costs.html">Probate Process &amp; Costs</a></li>
+        <li><a href="prepaid-funeral-plans.html">Prepaid Funeral Plans</a></li>
+        <li><a href="prepaid-funeral-plans-comparison.html">Prepaid Plans Comparison</a></li>
+      </ul>
+
+      <h2 id="products">Product &amp; Buying Guides</h2>
+      <ul class="sitemap-list">
+        <li><a href="best-online-casket-retailers.html">Best Online Casket Retailers</a></li>
+        <li><a href="casket-buying-guide.html">Casket Buying Guide</a></li>
+        <li><a href="best-cremation-urns.html">Best Cremation Urns</a></li>
+        <li><a href="urn-buying-guide.html">Urn Buying Guide</a></li>
+        <li><a href="headstone-monument-costs.html">Headstone &amp; Monument Costs</a></li>
+        <li><a href="cremation-jewelry-guide.html">Cremation Jewelry Guide</a></li>
+        <li><a href="funeral-flowers-guide.html">Funeral Flowers Guide</a></li>
+      </ul>
+
+      <h2 id="religious">Funeral Costs by Religion</h2>
+      <ul class="sitemap-list">
+        <li><a href="funeral-costs-by-religion.html">Funeral Costs by Religion — Overview</a></li>
+        <li><a href="catholic-funeral-costs.html">Catholic Funeral Costs</a></li>
+        <li><a href="jewish-funeral-costs.html">Jewish Funeral Costs</a></li>
+        <li><a href="muslim-funeral-costs.html">Muslim Funeral Costs</a></li>
+        <li><a href="hindu-funeral-costs.html">Hindu Funeral &amp; Cremation Costs</a></li>
+        <li><a href="buddhist-funeral-costs.html">Buddhist Funeral Costs</a></li>
+        <li><a href="mormon-funeral-costs.html">LDS / Mormon Funeral Costs</a></li>
+        <li><a href="nondenominational-funeral-costs.html">Non-Denominational Funeral Costs</a></li>
+        <li><a href="baptist-funeral-costs.html">Baptist Funeral Costs</a></li>
+        <li><a href="orthodox-funeral-costs.html">Orthodox Christian Funeral Costs</a></li>
+      </ul>
+
+      <h2 id="tools">Tools &amp; Resources</h2>
+      <ul class="sitemap-list">
+        <li><a href="cremation-vs-burial-calculator.html">Cremation vs. Burial Calculator</a></li>
+        <li><a href="funeral-cost-comparison-worksheet.html">Cost Comparison Worksheet</a></li>
+        <li><a href="funeral-planning-checklist-printable.html">Printable Planning Checklist</a></li>
+        <li><a href="funeral-cost-index-pdf.html">Cost Index PDF Download</a></li>
+        <li><a href="funeral-cost-widget.html">Embeddable Cost Widget</a></li>
+        <li><a href="state-funeral-regulations.html">State Funeral Regulations</a></li>
+        <li><a href="infant-child-funeral-costs.html">Infant &amp; Child Funeral Costs</a></li>
+        <li><a href="pet-cremation-costs.html">Pet Cremation Costs</a></li>
+        <li><a href="funeral-costs-rising-2026.html">Why Funeral Costs Are Rising in 2026</a></li>
+      </ul>
+
+      <h2 id="about">About &amp; Legal</h2>
+      <ul class="sitemap-list">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="editorial-standards.html">Editorial Standards</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+
+      ${ctaBanner()}
+    </article>
+  </main>
+${footer()}`;
+fs.writeFileSync(path.join(OUT, 'sitemap-index.html'), htmlSitemapContent);
+console.log('  HTML sitemap page: sitemap-index.html');
 
 const total = count.state + count.metro + count.cremation + count.burial + count.topical + count.cremMetro + count.burialMetro + count.insurance + count.religious;
 console.log(`\n=== Page Generation Complete ===`);
