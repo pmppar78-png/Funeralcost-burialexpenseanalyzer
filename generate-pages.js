@@ -136,9 +136,13 @@ const topical = [
 const $ = n => '$' + n.toLocaleString('en-US');
 const esc = s => s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
-// Dynamic lastmod: use today's date so each deploy signals freshness to crawlers
-const TODAY = new Date().toISOString().slice(0, 10);
-const REVIEW_MONTH = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+// Stable content-update date. Bump this ONLY when real content changes ship —
+// rotating lastmod/dateModified on every deploy is an anti-pattern that tells
+// Google the freshness signals are synthetic, which suppresses crawling and
+// indexing. Keep this tied to the real last substantive content update.
+const LASTMOD = '2026-04-13';
+const TODAY = LASTMOD;
+const REVIEW_MONTH = new Date(LASTMOD + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 const BASE = 'https://funeralcostanalyzer.com';
 
@@ -190,7 +194,7 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
   <title>${title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="${esc(desc)}" />
-  <meta name="last-modified" content="${TODAY}" />
+  <meta name="last-modified" content="${LASTMOD}" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${esc(desc)}" />
   <meta property="og:type" content="article" />
@@ -207,11 +211,8 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"${esc(title)}","description":"${esc(desc)}","datePublished":"2026-01-15","dateModified":"${TODAY}","author":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"publisher":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"mainEntityOfPage":{"@type":"WebPage","@id":"${BASE}/${filename}"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"${esc(title)}","description":"${esc(desc)}","datePublished":"2026-01-15","dateModified":"${LASTMOD}","author":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"publisher":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"mainEntityOfPage":{"@type":"WebPage","@id":"${BASE}/${filename}"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":${breadcrumbItems}}
@@ -1875,18 +1876,13 @@ function sitemapChangefreq(p) {
   return 'weekly';
 }
 
-// Differentiated lastmod — hub pages use today; location pages use staggered dates
-// to avoid the "all pages updated simultaneously" anti-pattern that dilutes crawl priority
+// Stable, honest lastmod — a single site-wide content-update date.
+// Google treats rotating per-deploy lastmod values as synthetic freshness and
+// suppresses crawling/indexing for sitemaps that exhibit this pattern. The
+// LASTMOD constant is the single source of truth and is bumped only when
+// substantive content changes ship.
 function sitemapLastmod(p, idx) {
-  // Hub pages and homepage always show today — they aggregate changing data
-  const hubPages = ['index.html', 'funeral-costs-by-state.html', 'cremation-costs-by-state.html',
-    'burial-costs-by-state.html', 'national-funeral-cost-index.html', 'average-funeral-cost-2026.html',
-    'sitemap-index.html'];
-  if (hubPages.includes(p)) return TODAY;
-  // Stagger location pages across the last 14 days to create a natural crawl cadence
-  const d = new Date();
-  d.setDate(d.getDate() - (idx % 14));
-  return d.toISOString().slice(0, 10);
+  return LASTMOD;
 }
 
 // Build per-category URL lists for segmented sitemaps
@@ -1952,7 +1948,7 @@ sitemapSegments.forEach(seg => {
 // Write sitemap index
 const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapSegments.filter(s => s.entries.length > 0).map(s => `  <sitemap><loc>${BASE}/${s.file}</loc><lastmod>${TODAY}</lastmod></sitemap>`).join('\n')}
+${sitemapSegments.filter(s => s.entries.length > 0).map(s => `  <sitemap><loc>${BASE}/${s.file}</loc><lastmod>${LASTMOD}</lastmod></sitemap>`).join('\n')}
 </sitemapindex>
 `;
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemapIndex);
