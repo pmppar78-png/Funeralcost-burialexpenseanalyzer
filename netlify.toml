@@ -5,15 +5,6 @@
 [functions]
   directory = "netlify/functions"
 
-# ─── Edge Functions ──────────────────────────────────────────────
-# Redirect extensionless URLs to .html to prevent Google "Alternate page
-# with proper canonical tag" issues caused by Netlify serving pages at
-# both /page and /page.html
-
-[[edge_functions]]
-  function = "canonical-redirect"
-  path = "/*"
-
 # ─── Security & Performance Headers ───────────────────────────────
 
 [[headers]]
