@@ -414,3 +414,22 @@
   to = "/mormon-funeral-costs.html"
   status = 301
   force = true
+
+# Author / E-E-A-T
+[[redirects]]
+  from = "/author"
+  to = "/author-paul-paradis.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/author/paul-paradis"
+  to = "/author-paul-paradis.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/paul-paradis"
+  to = "/author-paul-paradis.html"
+  status = 301
+  force = true
