@@ -140,9 +140,22 @@ const esc = s => s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&lt;/g,
 // rotating lastmod/dateModified on every deploy is an anti-pattern that tells
 // Google the freshness signals are synthetic, which suppresses crawling and
 // indexing. Keep this tied to the real last substantive content update.
-const LASTMOD = '2026-04-13';
+const LASTMOD = '2026-04-23';
 const TODAY = LASTMOD;
 const REVIEW_MONTH = new Date(LASTMOD + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+// Deterministic variant picker — uses state/metro identifiers plus an optional
+// salt string so neighboring pages land on different variants for different
+// paragraphs. Same inputs always produce the same output (no per-deploy drift).
+function hashStr(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+function pickVariant(keyParts, arr, salt) {
+  const key = (Array.isArray(keyParts) ? keyParts.join('|') : String(keyParts)) + '|' + (salt || '');
+  return arr[hashStr(key) % arr.length];
+}
 
 const BASE = 'https://funeralcostanalyzer.com';
 
@@ -634,16 +647,136 @@ function genState(s) {
   };
   const regionSaveHint = regionSaveHints[s.region] || regionSaveHints['Midwest'];
 
-  const faq = [
-    {q:`How much does a funeral cost in ${s.name}?`,a:`The average traditional funeral in ${s.name} costs approximately ${$(s.f)}, which is ${priceComp} the national average of $7,848. Cremation with service averages ${$(s.c)}, while direct cremation starts around ${$(s.dc)}. Cemetery plot and burial fees add approximately ${$(s.b)}. Prices vary by city and provider within ${s.name} — requesting General Price Lists from multiple funeral homes is the most reliable way to compare.`},
-    {q:`Is cremation cheaper than burial in ${s.name}?`,a:`Yes. In ${s.name}, direct cremation (${$(s.dc)}) can save families ${$(s.f - s.dc)} or more compared to a traditional funeral with burial (${$(s.f)} plus cemetery costs). The cremation rate in ${s.name} is currently ${s.cr}, ${parseInt(s.cr)>55?'above':'near'} the national average of approximately 60%. ${rc.regNote}`},
-    {q:`What are my consumer rights at ${s.name} funeral homes?`,a:`The FTC Funeral Rule protects all consumers in ${s.name}. Every funeral home must provide an itemized General Price List upon request, allow you to select only the services you want (no forced packages), accept caskets purchased elsewhere without additional fees, and refrain from misrepresenting legal requirements. ${s.name} may also have state-specific consumer protections — contact your state funeral regulatory board for details.`},
-    {q:`How can I save on funeral costs in ${s.name}?`,a:`Start by comparing General Price Lists from at least 2–3 providers in your ${s.cities[0]} area. ${regionSaveHint} Direct cremation at ${$(s.dc)} is the lowest-cost option across every region. Checking eligibility for veteran burial benefits, Medicaid funeral assistance, and Social Security survivor benefits should also be on every ${s.name} family's list.`},
-    {q:`Does ${s.name} require embalming?`,a:`${s.name} does not legally require embalming in most circumstances. Embalming is a choice, not a legal requirement, though some funeral homes may require it as a matter of policy for open-casket viewings. Refrigeration is typically available as an alternative. ${rc.embalmNote} Under the FTC Funeral Rule, providers cannot claim embalming is legally required without citing specific legal authority.`},
-    {q:`How do funeral costs in ${s.name} compare to other states?`,a:`Funeral costs in ${s.name} are ${rc.priceCtx}. At ${$(s.f)} for a traditional funeral, ${s.name} ranks ${priceComp} the national median of $7,848. The ${s.region} region generally sees ${s.region === 'Northeast' || s.region === 'West' ? 'higher' : 'moderate to lower'} costs compared to other parts of the country. See our state-by-state comparison for detailed pricing across all 50 states.`},
-    {q:`What is the cheapest funeral option in ${s.name}?`,a:`The cheapest funeral option in ${s.name} is direct cremation at approximately ${$(s.dc)}. This includes only transportation, cremation, and return of ashes — no viewing, ceremony, or embalming. Families can hold a memorial service separately at any location. Direct burial (no viewing or ceremony) is the next most affordable at approximately ${$(Math.round(s.f*0.6))}. For more options, see our affordable funeral guide.`},
-    {q:`How can I find affordable funeral homes in ${s.name}?`,a:`To find affordable funeral homes in ${s.name}: request General Price Lists from at least 3 providers and compare line items; check with the Funeral Consumers Alliance for local recommendations; consider direct cremation providers which often offer the lowest rates; ask about simple or basic service packages; and look into nonprofit or cooperative funeral homes in your area of ${s.name}.`}
-  ];
+  const faq = (function(){
+    const key = [s.slug, s.abbr, s.region];
+    const natAvgStr = '$7,848';
+    const q1Variants = [
+      {
+        q: `How much does a funeral cost in ${s.name}?`,
+        a: `Traditional funerals in ${s.name} average around ${$(s.f)}, which lands ${priceComp} the national figure of ${natAvgStr}. Cremation with a service comes in near ${$(s.c)}, and direct cremation can start as low as ${$(s.dc)} in ${s.name}. Expect to budget roughly ${$(s.b)} on top of that for a cemetery plot if you choose burial. The only reliable way to pin down your number is to pull General Price Lists from two or three ${s.cities[0]}-area providers and compare line by line.`
+      },
+      {
+        q: `What does a typical ${s.name} funeral cost in 2026?`,
+        a: `Most ${s.name} families paying for a full traditional service see the bill settle around ${$(s.f)} — ${priceComp} the ${natAvgStr} national benchmark. Cremation with ceremony runs closer to ${$(s.c)}, while a stripped-down direct cremation in ${s.name} can land near ${$(s.dc)}. Cemetery plot fees in ${s.name} add about ${$(s.b)}. Actual prices shift a lot depending on which ${s.name} provider you call first, which is why comparing is non-negotiable.`
+      },
+      {
+        q: `What is the average price of a funeral in ${s.name} right now?`,
+        a: `Current averages in ${s.name} come in at ${$(s.f)} for a traditional funeral, ${$(s.c)} for cremation with a service, and from ${$(s.dc)} for direct cremation — with the traditional figure sitting ${priceComp} the ${natAvgStr} US median. Cemetery and burial fees add roughly ${$(s.b)} when applicable. Because ${s.name} pricing is not standardized, the same service can swing several thousand dollars between neighboring funeral homes, so always ask for the itemized GPL.`
+      }
+    ];
+    const cremSave = s.f - s.dc;
+    const cremCompare = parseInt(s.cr) > 55 ? 'above' : 'near';
+    const q2Variants = [
+      {
+        q: `Is cremation cheaper than burial in ${s.name}?`,
+        a: `Yes — significantly. In ${s.name}, direct cremation at ${$(s.dc)} saves families roughly ${$(cremSave)} compared with the ${$(s.f)} traditional funeral plus cemetery costs. The ${s.name} cremation rate currently sits at ${s.cr}, ${cremCompare} the national average of about 60%. ${rc.regNote}`
+      },
+      {
+        q: `Does cremation save money compared with burial in ${s.name}?`,
+        a: `It does. A direct cremation in ${s.name} runs about ${$(s.dc)}, whereas a traditional funeral with burial averages ${$(s.f)} before adding the plot — so the gap can easily exceed ${$(cremSave)}. ${s.name}'s cremation rate of ${s.cr} sits ${cremCompare} the roughly 60% national figure. ${rc.regNote}`
+      },
+      {
+        q: `How much cheaper is cremation than burial in ${s.name}?`,
+        a: `Direct cremation in ${s.name} starts around ${$(s.dc)}; a traditional funeral with burial averages ${$(s.f)}, not counting the cemetery plot or vault. That is a difference of at least ${$(cremSave)} for most families. With ${s.name}'s cremation rate at ${s.cr} (${cremCompare} the national rate of about 60%), cremation providers in the state are competitive. ${rc.regNote}`
+      }
+    ];
+    const q3Variants = [
+      {
+        q: `What are my consumer rights at ${s.name} funeral homes?`,
+        a: `The federal FTC Funeral Rule protects every consumer in ${s.name}. Funeral homes must hand you an itemized General Price List on request, let you pick and choose services (packages cannot be forced on you), accept a casket or urn purchased elsewhere with no handling fee, and never misrepresent legal requirements. ${s.name} may layer additional state protections on top through its funeral regulatory board.`
+      },
+      {
+        q: `What rights do ${s.name} families have when arranging a funeral?`,
+        a: `Under the FTC Funeral Rule, every ${s.name} funeral home is required to give you an itemized price list, allow you to decline any service you do not want, accept caskets or urns brought in from outside providers without surcharges, and avoid false claims about what the law requires. Check with the ${s.name} funeral regulatory board for any additional state-level protections that apply locally.`
+      },
+      {
+        q: `What does the FTC Funeral Rule mean for me in ${s.name}?`,
+        a: `In ${s.name}, the Funeral Rule gives you five practical rights: itemized pricing on demand, no obligation to buy bundled packages, the right to supply your own casket or urn without extra fees, protection from false legal claims about mandatory services, and a written estimate before work begins. ${s.name} state consumer-protection laws and the state funeral board can add further rights.`
+      }
+    ];
+    const q4Variants = [
+      {
+        q: `How can I save on funeral costs in ${s.name}?`,
+        a: `Start by lining up General Price Lists from two or three ${s.cities[0]}-area providers before you commit to anything. ${regionSaveHint} Direct cremation at ${$(s.dc)} remains the lowest-cost disposition in every ${s.name} market. Layer in veteran burial benefits, Medicaid funeral assistance, and the Social Security survivor payment where you qualify.`
+      },
+      {
+        q: `What is the best way to reduce funeral expenses in ${s.name}?`,
+        a: `The biggest lever is comparison shopping — two or three GPLs from different ${s.name} providers, compared line by line, consistently saves families $1,000 or more. ${regionSaveHint} At ${$(s.dc)}, direct cremation is the cheapest disposition option available in ${s.name}. Always check whether you qualify for veteran burial benefits, Medicaid funeral help, or the Social Security one-time death payment.`
+      },
+      {
+        q: `How do I keep funeral costs down in ${s.name}?`,
+        a: `Three moves cut the most: compare at least three ${s.name} General Price Lists side by side before choosing a provider, strip packages down to only the services you actually want, and choose direct cremation (${$(s.dc)}) if cost is the priority. ${regionSaveHint} Then confirm eligibility for veteran, Medicaid, and Social Security survivor benefits.`
+      }
+    ];
+    const q5Variants = [
+      {
+        q: `Does ${s.name} require embalming?`,
+        a: `${s.name} law does not require embalming in most situations. It is generally a choice, not a legal obligation — though a funeral home may insist on it as an internal policy for certain open-casket viewings. Refrigeration is almost always a valid substitute. ${rc.embalmNote} Under the FTC Funeral Rule, no provider may claim embalming is legally required without pointing to a specific statute.`
+      },
+      {
+        q: `Is embalming legally required in ${s.name}?`,
+        a: `No — embalming is rarely required by ${s.name} law. Most cases allow refrigeration as an alternative, and the decision is yours. Some ${s.name} funeral homes have internal rules for open-casket viewings, but that is provider policy rather than state law. ${rc.embalmNote} The Funeral Rule specifically prohibits providers from falsely claiming embalming is legally mandated.`
+      },
+      {
+        q: `Do I have to embalm a loved one in ${s.name}?`,
+        a: `Almost never. ${s.name} does not legally require embalming in typical circumstances; it is an option you can decline. Refrigeration works in its place for nearly all ${s.name} funeral timelines. ${rc.embalmNote} If a funeral home tells you embalming is legally required, ask them to cite the statute — the FTC Funeral Rule forbids that claim unless it is factually true.`
+      }
+    ];
+    const regionCmp = s.region === 'Northeast' || s.region === 'West' ? 'higher' : 'moderate to lower';
+    const q6Variants = [
+      {
+        q: `How do funeral costs in ${s.name} compare to other states?`,
+        a: `${s.name} funerals are ${rc.priceCtx}. The state's traditional-funeral average of ${$(s.f)} sits ${priceComp} the ${natAvgStr} national median, and the ${s.region} region overall trends toward ${regionCmp} pricing than the rest of the country.`
+      },
+      {
+        q: `Is ${s.name} cheaper or more expensive than the US average for funerals?`,
+        a: `${s.name} lands ${priceComp} the US median of ${natAvgStr} for a traditional funeral, with the state average at ${$(s.f)}. Costs here are ${rc.priceCtx} and the ${s.region} region trends ${regionCmp} than the country overall. Our state-by-state comparison covers all 50 states.`
+      },
+      {
+        q: `Where does ${s.name} rank nationally for funeral costs?`,
+        a: `${s.name}'s ${$(s.f)} average for a traditional funeral puts it ${priceComp} the ${natAvgStr} national median. Pricing in ${s.name} is ${rc.priceCtx}, and the ${s.region} region as a whole tends to price ${regionCmp} than other parts of the US.`
+      }
+    ];
+    const directBurialCost = $(Math.round(s.f*0.6));
+    const q7Variants = [
+      {
+        q: `What is the cheapest funeral option in ${s.name}?`,
+        a: `Direct cremation is the lowest-cost option in ${s.name}, starting at roughly ${$(s.dc)}. It covers transport, cremation, and return of the ashes — nothing else. Families then hold a memorial on their own schedule, often at a church, park, or home. Direct burial comes next at around ${directBurialCost} and still avoids viewing, ceremony, and embalming.`
+      },
+      {
+        q: `What is the least expensive way to handle a funeral in ${s.name}?`,
+        a: `In ${s.name}, direct cremation at about ${$(s.dc)} is the most affordable path — just transport, cremation, and the return of the remains. A memorial service can happen later, anywhere you choose. If burial is preferred, direct burial (no viewing or ceremony) runs near ${directBurialCost} and is the cheapest burial option.`
+      },
+      {
+        q: `Which funeral option costs the least in ${s.name}?`,
+        a: `Direct cremation carries the lowest price tag in ${s.name}, from roughly ${$(s.dc)}. You skip the viewing, ceremony, and embalming — transport, cremation, and return of the ashes are all that are included. Direct burial is the next step up at about ${directBurialCost} and is still considerably cheaper than a traditional service.`
+      }
+    ];
+    const q8Variants = [
+      {
+        q: `How can I find affordable funeral homes in ${s.name}?`,
+        a: `Ask three or more ${s.name} providers for their General Price Lists and compare line by line; call the local Funeral Consumers Alliance chapter for vetted recommendations; look specifically for direct cremation specialists, which often undercut full-service providers; request the simplest or "basic services only" package; and check for nonprofit and cooperative funeral homes in your part of ${s.name}.`
+      },
+      {
+        q: `Where do I look for low-cost funeral providers in ${s.name}?`,
+        a: `Start with GPL requests from at least three ${s.name} funeral homes — that alone exposes the outliers. Reach out to the Funeral Consumers Alliance for ${s.name} for member-run lists, shortlist dedicated direct cremation providers, ask every funeral home about their simplest no-frills package, and see if a nonprofit or cooperative provider serves your area of ${s.name}.`
+      },
+      {
+        q: `What is the best way to find a cheap funeral home in ${s.name}?`,
+        a: `Three steps: pull General Price Lists from multiple ${s.name} providers and compare the itemized charges; check with the Funeral Consumers Alliance ${s.name} chapter for nonprofit and consumer-friendly providers; and prioritize direct-cremation specialists or cooperative funeral homes where you can get the simplest service tier.`
+      }
+    ];
+    return [
+      pickVariant(key, q1Variants, 'q1'),
+      pickVariant(key, q2Variants, 'q2'),
+      pickVariant(key, q3Variants, 'q3'),
+      pickVariant(key, q4Variants, 'q4'),
+      pickVariant(key, q5Variants, 'q5'),
+      pickVariant(key, q6Variants, 'q6'),
+      pickVariant(key, q7Variants, 'q7'),
+      pickVariant(key, q8Variants, 'q8')
+    ];
+  })();
 
   const cityLinks = s.cities.map(c => {
     const m = metros.find(x => x.city === c);
@@ -673,9 +806,13 @@ ${header()}
           `Funeral costs in ${s.name} run from about ${$(s.dc)} for direct cremation up to ${$(Math.round(s.f*1.3))} for a full traditional service with burial. The range is wide because funeral pricing in ${s.name} is not standardized — what you pay depends heavily on which provider you call first.`,
           `Most ${s.name} families learn funeral prices the hardest possible way: one quote, one signature, one surprise line item. This guide walks through what the full picture actually looks like in ${s.name} — the average ${$(s.f)} traditional service, the ${$(s.dc)} direct cremation floor, and the fees that tend to appear in between.`,
           `Whether you are arranging a service now or planning ahead for later, knowing current ${s.name} funeral costs puts you in a stronger position. The state's cremation rate of ${s.cr} and ${rc.priceCtx.split(',')[0]} pricing both shape what's realistic here. Below: the real numbers and the savings strategies that actually work in ${s.name}.`,
-          `Nothing about ${s.name} funeral pricing is fixed. The same traditional service quoted at ${$(s.f)} from one provider can run ${$(Math.round(s.f*0.75))} or ${$(Math.round(s.f*1.3))} at the next — that variation is the single most important thing to understand before you commit. This guide lays out typical ${s.name} costs and where the gaps tend to show up.`
+          `Nothing about ${s.name} funeral pricing is fixed. The same traditional service quoted at ${$(s.f)} from one provider can run ${$(Math.round(s.f*0.75))} or ${$(Math.round(s.f*1.3))} at the next — that variation is the single most important thing to understand before you commit. This guide lays out typical ${s.name} costs and where the gaps tend to show up.`,
+          `The honest picture of ${s.name} funeral costs in 2026: a traditional service averages ${$(s.f)}, cremation with ceremony sits near ${$(s.c)}, and direct cremation can come in around ${$(s.dc)}. But averages hide the variance — in ${s.name} the same service can swing several thousand dollars between providers in the same city. This guide walks through what families here actually pay and where the pricing gaps show up.`,
+          `Arranging a funeral in ${s.name} is not one decision but dozens, and each one carries a price tag that is almost always negotiable. From the service fee to the casket, from the cemetery plot to the headstone, every line item in ${s.name} has a range — and knowing that range is the difference between a ${$(Math.round(s.f*0.8))} bill and a ${$(Math.round(s.f*1.25))} one. Here is what current pricing looks like across ${s.name}.`,
+          `A ${s.name} funeral is rarely a single bill. It is a funeral home invoice, a cemetery invoice (if burial), and a handful of third-party charges — and the way those numbers add up in ${s.name} can surprise families who only saw the headline quote. This guide pulls the pieces apart: the ${$(s.f)} traditional service average, the ${$(s.dc)} direct cremation option, and what the gap between them actually buys in ${s.name}.`,
+          `Funeral pricing in ${s.name} follows patterns that are very different from other parts of the country. Cremation adoption sits at ${s.cr}, real estate and cost-of-living factors push the ${$(s.f)} traditional-funeral average ${priceComp} the ${pctDiff > 0 ? `$${natAvg.toLocaleString()}` : 'US'} median, and regional traditions shape which services families typically expect. Here is how the current numbers shake out in ${s.name}.`
         ];
-        return openings[(s.abbr.charCodeAt(0) + s.abbr.charCodeAt(1)) % openings.length];
+        return pickVariant([s.slug, s.abbr, s.region], openings, 'intro');
       })()}</p>
 
       <div class="stat-highlights">
@@ -705,11 +842,28 @@ ${header()}
       </div>
 
       <h2 id="cost-factors">What Drives Funeral Costs in ${s.name}</h2>
-      <p>Funeral costs in ${s.name} are influenced by several factors. The ${s.region} region of the United States tends to have ${s.f > 8000 ? 'higher' : s.f > 7000 ? 'moderate' : 'lower'}-than-average funeral costs compared to the national median of $7,848. Within ${s.name}, you will find significant price differences between urban and rural areas, with metropolitan areas generally costing 10% to 30% more than small towns.</p>
-      <p>The cost of living in ${s.name}, local competition among funeral providers, state regulations, cultural traditions, and real estate prices all play a role in determining what families pay. The cremation rate of ${s.cr} in ${s.name} also affects the market — areas with higher cremation rates often see more competitive pricing for cremation services.</p>
+      ${(function(){
+        const costLevel = s.f > 8000 ? 'higher' : s.f > 7000 ? 'moderate' : 'lower';
+        const key = [s.slug, s.abbr, s.region];
+        const openers = [
+          `<p>Funeral costs in ${s.name} are influenced by several factors. The ${s.region} region of the United States tends to have ${costLevel}-than-average funeral costs compared to the national median of $7,848. Within ${s.name}, you will find significant price differences between urban and rural areas, with metropolitan areas generally costing 10% to 30% more than small towns.</p><p>The cost of living in ${s.name}, local competition among funeral providers, state regulations, cultural traditions, and real estate prices all play a role in determining what families pay. The cremation rate of ${s.cr} in ${s.name} also affects the market — areas with higher cremation rates often see more competitive pricing for cremation services.</p>`,
+          `<p>Several forces shape funeral pricing in ${s.name}. Regionally, the ${s.region} trends toward ${costLevel}-than-average costs relative to the $7,848 US median, and within ${s.name} that gap widens between a dense metro like ${s.cities[0]} and the smaller towns — city prices routinely sit 10-30% higher. Real-estate overhead on funeral home facilities, local labor costs, and the state's regulatory environment all feed into the final bill.</p><p>${s.name}'s ${s.cr} cremation rate also matters: where more families choose cremation, direct cremation providers get competitive on price. In lower-cremation ${s.name} areas the direct cremation market is thinner, so shopping around pays off more.</p>`,
+          `<p>What you pay for a funeral in ${s.name} depends on a cluster of local factors rather than any single number. Cost of living in ${s.name}, how many funeral homes compete in your area, whether ${s.name} state regulations require specific steps, and local real estate prices for funeral home facilities all feed into quotes. ${s.region} pricing is generally ${costLevel} than the US median of $7,848, and metro-versus-rural pricing in ${s.name} routinely differs by 10-30%.</p><p>The state's ${s.cr} cremation rate shapes pricing too. Where cremation adoption is high, direct cremation providers tend to post competitive flat rates. Where it is lower, you may need to call further to find the best direct cremation price in ${s.name}.</p>`
+        ];
+        return pickVariant(key, openers, 'drives');
+      })()}
 
       <h2 id="hidden-fees">Hidden Funeral Fees in ${s.name} — What to Watch For</h2>
-      <p>Many ${s.name} families are surprised by charges that appear after the initial quote. Here are the most common hidden funeral fees to watch for:</p>
+      ${(function(){
+        const key = [s.slug, s.abbr, s.region];
+        const leads = [
+          `<p>Many ${s.name} families are surprised by charges that appear after the initial quote. Here are the most common hidden funeral fees to watch for:</p>`,
+          `<p>The ${s.name} funeral invoice almost never matches the initial quote. These are the surcharges, add-ons, and fine-print line items that most often drive the bill up:</p>`,
+          `<p>Quoted prices in ${s.name} rarely include every charge. Before you sign anything, know which line items tend to show up late in the process:</p>`,
+          `<p>Most of the pricing surprises in ${s.name} come from a predictable list of add-ons. Look for these specifically when reviewing any funeral home quote:</p>`
+        ];
+        return pickVariant(key, leads, 'hidden');
+      })()}
       <ul>
         <li><strong>Casket handling fee</strong> — Some funeral homes add a surcharge for caskets purchased elsewhere, despite this being illegal under the FTC Funeral Rule</li>
         <li><strong>Mandatory embalming</strong> — Funeral homes may claim embalming is required. In ${s.name}, it is almost never legally required. <a href="consumer-rights-funeral-pricing.html">Know your rights</a></li>
@@ -777,7 +931,16 @@ ${header()}
       ${resources('general')}
 
       <h2 id="what-to-do">What to Do When Planning a Funeral in ${s.name}</h2>
-      <p>If you are currently arranging a funeral in ${s.name}, here is a step-by-step approach that can save you time, stress, and money:</p>
+      ${(function(){
+        const key = [s.slug, s.abbr, s.region];
+        const intros = [
+          `<p>If you are currently arranging a funeral in ${s.name}, here is a step-by-step approach that can save you time, stress, and money:</p>`,
+          `<p>When an immediate ${s.name} funeral arrangement lands on you, the order of operations matters. This sequence tends to save both money and emotional bandwidth:</p>`,
+          `<p>Families arranging a funeral in ${s.name} for the first time often move faster than they need to. The following sequence slows things down just enough to compare options without adding undue delay:</p>`,
+          `<p>For anyone planning a funeral in ${s.name} now or soon, these steps — in roughly this order — prevent the most common expensive mistakes:</p>`
+        ];
+        return pickVariant(key, intros, 'whattodo');
+      })()}
       <ol>
         <li><strong>Take a breath.</strong> Unless there are legal or medical time constraints, you typically have 24–72 hours before decisions must be finalized.</li>
         <li><strong>Request General Price Lists</strong> from at least 2–3 funeral homes in your area of ${s.name}. They are legally required to provide them. <a href="questions-to-ask-funeral-home.html">Questions to ask funeral homes</a></li>
@@ -819,14 +982,50 @@ function genMetro(m) {
   const stateMetros = metros.filter(x => x.ss === m.ss && x.slug !== m.slug);
   const nearbyComparison = stateMetros.length > 0 ? stateMetros.slice(0, 3) : [];
 
-  const faq = [
-    {q:`How much does a funeral cost in ${m.city}?`,a:`The average traditional funeral in ${m.city} costs approximately ${$(mf)}, which is ${m.mp > 1.1 ? 'higher than' : 'close to'} the ${m.st} state average of ${$(s.f)}. Direct cremation starts around ${$(mdc)}. Cemetery plots average ${$(mb)}. Total costs including burial or cremation typically range from ${$(mdc)} for the simplest option to ${$(Math.round(mf*1.3 + mb))} for a full traditional burial.`},
-    {q:`Is cremation or burial more common in ${m.city}?`,a:`In the ${m.city} area, the cremation rate follows ${m.st}'s overall rate of ${s.cr}. Cremation remains the more affordable option, with direct cremation costing ${$(mdc)} compared to traditional burial at ${$(mf)} plus cemetery fees of ${$(mb)}. Many ${m.city} families choose cremation to reduce costs while still holding a meaningful memorial service.`},
-    {q:`How do ${m.city} funeral costs compare to the national average?`,a:`${m.city} funeral costs are ${mf > 7848 ? 'above' : 'below'} the national average of $7,848 for a traditional funeral. The ${m.city} metro area's cost of living ${m.mp > 1.15 ? 'significantly' : 'somewhat'} influences local funeral pricing. ${mf > 9000 ? 'Families in ' + m.city + ' may save by comparing providers carefully or considering direct cremation.' : 'While costs are manageable, comparing at least 2-3 providers can still save hundreds.'}`},
-    {q:`Where can I compare funeral home prices in ${m.city}?`,a:`Under the FTC Funeral Rule, every funeral home in ${m.city} must provide a General Price List. Call 2-3 providers to request their GPL. You can also visit Parting.com or the Funeral Consumers Alliance for price comparison resources.`},
-    {q:`What is direct cremation in ${m.city} and how much does it cost?`,a:`Direct cremation in ${m.city} costs approximately ${$(mdc)} and is the most affordable option. It includes transportation to the crematory and return of ashes without a viewing or ceremony. Families can hold a separate memorial service at a later date, often at a fraction of the cost of a traditional funeral.`},
-    {q:`Are there affordable funeral options in ${m.city}?`,a:`Yes. Direct cremation from ${$(mdc)} is the most affordable. You can also consider direct burial (no service), memorial-only services, or home funerals where permitted. Third-party caskets save 50-70% versus funeral home prices. Veteran benefits, Medicaid, and crowdfunding may also help offset costs.`}
-  ];
+  const faq = (function(){
+    const key = [m.slug, m.ss, s.region, 'metro'];
+    const priceCtx = m.mp > 1.1 ? 'higher than' : 'close to';
+    const stateAbovePct = Math.round((m.mp-1)*100);
+    const q1 = [
+      {q:`How much does a funeral cost in ${m.city}?`,a:`The average traditional funeral in ${m.city} costs approximately ${$(mf)}, which is ${priceCtx} the ${m.st} state average of ${$(s.f)}. Direct cremation starts around ${$(mdc)}. Cemetery plots average ${$(mb)}. Total costs including burial or cremation typically range from ${$(mdc)} for the simplest option to ${$(Math.round(mf*1.3 + mb))} for a full traditional burial.`},
+      {q:`What is the typical funeral price in ${m.city}?`,a:`Traditional funerals in ${m.city} average about ${$(mf)}, running ${priceCtx} the ${m.st} state figure of ${$(s.f)}. Direct cremation starts near ${$(mdc)} and cemetery plots average ${$(mb)}. Your final total will land somewhere between ${$(mdc)} (direct cremation, simplest option) and ${$(Math.round(mf*1.3 + mb))} (full traditional burial with all trimmings).`},
+      {q:`What are funeral costs in the ${m.city} area?`,a:`${m.city} funeral pricing centers on a ${$(mf)} traditional-funeral average — ${priceCtx} the ${m.st} statewide ${$(s.f)}. Direct cremation in ${m.city} starts around ${$(mdc)}, and a cemetery plot runs about ${$(mb)} on average. Expect totals from ${$(mdc)} at the low end to ${$(Math.round(mf*1.3 + mb))} for a full burial with all line items included.`}
+    ];
+    const q2 = [
+      {q:`Is cremation or burial more common in ${m.city}?`,a:`In the ${m.city} area, the cremation rate follows ${m.st}'s overall rate of ${s.cr}. Cremation remains the more affordable option, with direct cremation costing ${$(mdc)} compared to traditional burial at ${$(mf)} plus cemetery fees of ${$(mb)}. Many ${m.city} families choose cremation to reduce costs while still holding a meaningful memorial service.`},
+      {q:`Do more ${m.city} families choose cremation or burial?`,a:`${m.city} generally tracks ${m.st}'s ${s.cr} cremation rate. The cost gap is big: direct cremation around ${$(mdc)} versus ${$(mf)} for a traditional funeral plus another ${$(mb)} for the cemetery plot. That math is why most ${m.city} families weighing cremation end up choosing it — a separate memorial service still lets the family gather meaningfully.`},
+      {q:`What is ${m.city}'s cremation-versus-burial split?`,a:`${m.city} largely follows ${m.st}'s ${s.cr} cremation rate. The economics are stark — direct cremation near ${$(mdc)} against a traditional funeral at ${$(mf)} plus ${$(mb)} for the plot — so cost is the primary driver locally. A memorial service after cremation is the most common hybrid choice in the ${m.city} metro.`}
+    ];
+    const natAvg = 7848;
+    const q3 = [
+      {q:`How do ${m.city} funeral costs compare to the national average?`,a:`${m.city} funeral costs are ${mf > natAvg ? 'above' : 'below'} the national average of $${natAvg.toLocaleString()} for a traditional funeral. The ${m.city} metro area's cost of living ${m.mp > 1.15 ? 'significantly' : 'somewhat'} influences local funeral pricing. ${mf > 9000 ? 'Families in ' + m.city + ' may save by comparing providers carefully or considering direct cremation.' : 'While costs are manageable, comparing at least 2-3 providers can still save hundreds.'}`},
+      {q:`Is ${m.city} more or less expensive than the US average for funerals?`,a:`${m.city} sits ${mf > natAvg ? 'above' : 'below'} the national $${natAvg.toLocaleString()} average for a traditional funeral — the cost of living in ${m.city} is ${m.mp > 1.15 ? 'a significant' : 'a modest'} factor. ${mf > 9000 ? 'Comparing providers in ' + m.city + ' aggressively, or choosing direct cremation, is the reliable way to push costs down.' : 'Even at this price point, comparing two or three ' + m.city + ' providers can save several hundred dollars.'}`},
+      {q:`Where does ${m.city} rank nationally for funeral pricing?`,a:`${m.city} pricing lands ${mf > natAvg ? 'above' : 'below'} the US $${natAvg.toLocaleString()} average for a traditional funeral. ${m.city}'s cost of living plays ${m.mp > 1.15 ? 'a substantial' : 'a moderate'} role. ${mf > 9000 ? 'Because of the higher baseline, shopping carefully across ' + m.city + ' providers and weighing direct cremation matters more here than in lower-cost markets.' : 'The baseline is manageable, but pulling GPLs from 2-3 ' + m.city + ' providers can still save hundreds.'}`}
+    ];
+    const q4 = [
+      {q:`Where can I compare funeral home prices in ${m.city}?`,a:`Under the FTC Funeral Rule, every funeral home in ${m.city} must provide a General Price List. Call 2-3 providers to request their GPL. You can also visit Parting.com or the Funeral Consumers Alliance for price comparison resources.`},
+      {q:`How do I compare funeral quotes in ${m.city}?`,a:`The FTC Funeral Rule requires every ${m.city} funeral home to give you an itemized General Price List on request — no appointment, no commitment. Call two or three ${m.city} providers and ask for their GPL over the phone or by email. For extra perspective, Parting.com aggregates ${m.city}-area quotes and the Funeral Consumers Alliance offers independent resources.`},
+      {q:`What is the best way to compare ${m.city} funeral homes?`,a:`Start with GPL requests — the federal Funeral Rule gives you the right to an itemized price list from any ${m.city} funeral home, on demand. Call or email two or three providers. Parting.com provides aggregated ${m.city} price data, and the Funeral Consumers Alliance publishes independent comparison tools.`}
+    ];
+    const q5 = [
+      {q:`What is direct cremation in ${m.city} and how much does it cost?`,a:`Direct cremation in ${m.city} costs approximately ${$(mdc)} and is the most affordable option. It includes transportation to the crematory and return of ashes without a viewing or ceremony. Families can hold a separate memorial service at a later date, often at a fraction of the cost of a traditional funeral.`},
+      {q:`How much is direct cremation in ${m.city}?`,a:`Direct cremation in ${m.city} runs about ${$(mdc)} and is the lowest-cost disposition available. The service covers transport to the crematory and return of the ashes — no viewing, no ceremony. A memorial service can be held separately on the family's timeline, usually at much lower cost than a traditional funeral at the funeral home.`},
+      {q:`What does direct cremation include in ${m.city}?`,a:`Direct cremation in ${m.city} is the simplest, most affordable option at about ${$(mdc)}. It is exactly three things: transport to the crematory, cremation itself, and return of the ashes. Everything else — viewing, ceremony, embalming — is skipped. Many ${m.city} families hold a memorial afterward at a church, home, park, or any venue of their choice.`}
+    ];
+    const q6 = [
+      {q:`Are there affordable funeral options in ${m.city}?`,a:`Yes. Direct cremation from ${$(mdc)} is the most affordable. You can also consider direct burial (no service), memorial-only services, or home funerals where permitted. Third-party caskets save 50-70% versus funeral home prices. Veteran benefits, Medicaid, and crowdfunding may also help offset costs.`},
+      {q:`What are the cheapest funeral choices in ${m.city}?`,a:`${m.city} has several affordable paths. Direct cremation at ${$(mdc)} is the cheapest disposition. Direct burial (no viewing or ceremony) is the cheapest burial. Memorial-only services at a venue you choose sidestep funeral-home facility fees. Independently purchased caskets save 50-70%. And veteran benefits, Medicaid assistance, and crowdfunding can close remaining gaps.`},
+      {q:`How can ${m.city} families find low-cost funeral options?`,a:`The cheapest path in ${m.city} is direct cremation at ${$(mdc)}. Direct burial, memorial services held outside the funeral home, and third-party caskets (50-70% cheaper than funeral home pricing) are other standard cost-cutters. Veteran benefits, Medicaid funeral aid, and crowdfunding platforms can offset whatever remains.`}
+    ];
+    return [
+      pickVariant(key, q1, 'mq1'),
+      pickVariant(key, q2, 'mq2'),
+      pickVariant(key, q3, 'mq3'),
+      pickVariant(key, q4, 'mq4'),
+      pickVariant(key, q5, 'mq5'),
+      pickVariant(key, q6, 'mq6')
+    ];
+  })();
 
   const nearbyCityRows = nearbyComparison.map(nc => {
     const ncf = Math.round(s.f * nc.mp);
@@ -870,9 +1069,14 @@ ${header()}
           `If you are arranging a funeral in the ${m.city} metropolitan area, this guide provides realistic cost estimates to help you plan. Funeral costs in ${m.city} tend to be ${m.mp > 1.15 ? 'higher than' : 'close to'} the ${m.st} state average due to the area's cost of living.`,
           `Funeral pricing in ${m.city} lands ${m.mp > 1.15 ? 'noticeably above' : 'roughly in line with'} the rest of ${m.st}, with traditional services averaging around ${$(mf)} and direct cremation starting near ${$(mdc)}. The gap between providers in a single metro is often wider than the gap between cities — which is why comparison shopping matters most here.`,
           `${m.city} families typically face two price tiers: the full-service traditional funeral at around ${$(mf)} and the stripped-down direct cremation at ${$(mdc)}. Most of what drives the difference — viewing, embalming, facility use, casket choice — is optional under the FTC Funeral Rule, even when quotes make it look bundled.`,
-          `Knowing real ${m.city} funeral costs before you walk into a provider changes the conversation. This guide lays out what families here actually pay in 2026, how ${m.city} prices compare to the rest of ${m.st}, and which line items have the most room to move.`
+          `Knowing real ${m.city} funeral costs before you walk into a provider changes the conversation. This guide lays out what families here actually pay in 2026, how ${m.city} prices compare to the rest of ${m.st}, and which line items have the most room to move.`,
+          `Planning a funeral in ${m.city} means working with ${m.st}-level averages adjusted for local real estate, labor, and facility costs. The result is a traditional funeral running around ${$(mf)} and direct cremation near ${$(mdc)} — numbers that shift meaningfully from one ${m.city} provider to the next.`,
+          `A funeral in ${m.city} sits inside a wide price band: the low end of direct cremation starts near ${$(mdc)}, while a full traditional funeral with burial reaches past ${$(Math.round(mf*1.3 + mb))} once the plot, vault, and marker are added. Where your arrangement lands depends mostly on which services you decline, not which you add.`,
+          `Most ${m.city} families do not realize how much of a funeral bill is optional until they request an itemized General Price List. Local traditional funerals average ${$(mf)} and cremations average ${$(mc)}, but the spread between the cheapest and most expensive ${m.city} providers for the same service is often $2,000–$4,000.`,
+          `Local market conditions shape ${m.city} funeral pricing more than most families expect. A ${m.st} average of ${$(s.f)} for a traditional funeral becomes about ${$(mf)} once ${m.city}'s real-estate and operating costs flow through. Understanding that multiplier makes comparison shopping here more productive, not less.`,
+          `This ${m.city} cost guide walks through the 2026 numbers the way a funeral director's own General Price List would: service by service, optional where possible, with the local multiplier applied honestly. Expect to see a traditional funeral average of ${$(mf)}, direct cremation at ${$(mdc)}, and a cemetery plot around ${$(mb)}.`
         ];
-        return openings[m.slug.charCodeAt(0) % openings.length];
+        return pickVariant([m.slug, m.ss, s.region, 'metro-intro'], openings, 'mintro');
       })()}</p>
 
       <div class="stat-highlights">
@@ -964,15 +1168,53 @@ function genCremation(s) {
   const crContext = crRate > 70 ? 'one of the highest cremation rates in the nation' : crRate > 55 ? 'above the national average' : crRate > 45 ? 'near the national average' : 'below the national average, though cremation rates have been rising steadily';
   const savingsVsBurial = $(s.f - s.dc);
 
-  const faq = [
-    {q:`How much does cremation cost in ${s.name}?`,a:`Cremation costs in ${s.name} range from ${$(s.dc)} for direct cremation to ${$(s.c)} for a full funeral service followed by cremation. Additional costs may include urns ($50-$3,000), memorial services ($500-$2,000), and scattering or inurnment fees ($200-$600). The total depends on the level of service you choose.`},
-    {q:`What types of cremation are available in ${s.name}?`,a:`Families in ${s.name} can choose from three main types: direct cremation (${$(s.dc)}) — the most affordable option with no viewing or ceremony; cremation with memorial service (ceremony held after cremation, often more flexible on timing); and traditional cremation (${$(s.c)}) — a full funeral service before cremation. Each option can be customized to fit your family's needs and budget.`},
-    {q:`What are ${s.name}'s cremation regulations?`,a:`${s.name} follows standard cremation regulations requiring a mandatory waiting period (typically 24-48 hours) before cremation. Written authorization from the legal next of kin is required, and some counties require a permit from the medical examiner. Pacemakers and certain implants must be removed beforehand. Under the FTC Funeral Rule, you are not required to purchase a casket for cremation — an alternative container is sufficient.`},
-    {q:`Can I scatter ashes in ${s.name}?`,a:`Scattering laws in ${s.name} vary by location. Generally, you may scatter ashes on private property with owner permission, at sea (3+ nautical miles offshore per EPA regulations), and in some designated public areas. National parks may require a permit. Always check local ordinances and be respectful of the environment and others. Some ${s.name} families also choose columbarium niches, burial of ashes, or memorial keepsakes as alternatives to scattering.`},
-    {q:`Why is cremation ${crRate > 55 ? 'so popular' : 'growing'} in ${s.name}?`,a:`${s.name} has ${crContext}, with a cremation rate of ${s.cr}. Factors driving cremation adoption include lower cost compared to traditional burial (saving ${savingsVsBurial} or more), greater flexibility for memorial services, environmental considerations, and changing cultural preferences. The national cremation rate has exceeded 60% and continues to rise annually.`},
-    {q:`How long does cremation take in ${s.name}?`,a:`In ${s.name}, the cremation process itself takes 2 to 3 hours. However, there is typically a mandatory 24 to 48 hour waiting period before cremation can proceed. After cremation, ashes are usually ready for pickup or delivery within 3 to 7 business days. Direct cremation (${$(s.dc)}) has the shortest total timeline since no viewing or ceremony is involved.`},
-    {q:`Can I hold a funeral service before cremation in ${s.name}?`,a:`Yes. A traditional funeral service followed by cremation costs approximately ${$(s.c)} in ${s.name}. This includes visitation, a ceremony, and then cremation instead of burial. You can also hold a memorial service after cremation, which offers more flexibility on timing and location and typically costs less.`}
-  ];
+  const faq = (function(){
+    const key = [s.slug, s.abbr, s.region, 'crem'];
+    const q1 = [
+      {q:`How much does cremation cost in ${s.name}?`,a:`Cremation costs in ${s.name} range from ${$(s.dc)} for direct cremation to ${$(s.c)} for a full funeral service followed by cremation. Additional costs may include urns ($50-$3,000), memorial services ($500-$2,000), and scattering or inurnment fees ($200-$600). The total depends on the level of service you choose.`},
+      {q:`What is the typical price of cremation in ${s.name}?`,a:`${s.name} cremation pricing lives in two tiers: direct cremation — transport, cremation, and return of ashes — starting around ${$(s.dc)}, and full-service cremation with a ceremony landing near ${$(s.c)}. Urns ($50-$3,000), memorial venues ($500-$2,000), and scattering or inurnment fees ($200-$600) are separate line items most providers will quote on request.`},
+      {q:`What does cremation cost in ${s.name} in 2026?`,a:`Cremation in ${s.name} runs from roughly ${$(s.dc)} for the simplest direct option up to about ${$(s.c)} when paired with a viewing or ceremony. Urns, memorial services, and interment of ashes are priced separately — typically $50-$3,000 for an urn, $500-$2,000 for a memorial, and $200-$600 for scattering or inurnment. Your final number depends on which tier you pick.`}
+    ];
+    const q2 = [
+      {q:`What types of cremation are available in ${s.name}?`,a:`Families in ${s.name} can choose from three main types: direct cremation (${$(s.dc)}) — the most affordable option with no viewing or ceremony; cremation with memorial service (ceremony held after cremation, often more flexible on timing); and traditional cremation (${$(s.c)}) — a full funeral service before cremation. Each option can be customized to fit your family's needs and budget.`},
+      {q:`Which cremation options exist in ${s.name}?`,a:`${s.name} providers typically offer three tiers. Direct cremation at ${$(s.dc)} is the simplest — no service, no viewing, body cremated and ashes returned. Cremation with a later memorial keeps the ceremony but shifts it to a venue of your choice, offering timing flexibility. Traditional cremation at ${$(s.c)} is a full funeral home service followed by cremation. Each can be adjusted to match family preferences and budget.`},
+      {q:`What kinds of cremation services can I choose in ${s.name}?`,a:`Three paths are standard in ${s.name}: (1) direct cremation — ${$(s.dc)}, just the cremation itself, no service; (2) cremation with memorial — cremation first, ceremony later at a location of your choice, priced in between; (3) cremation with full funeral — ${$(s.c)}, ceremony and viewing before cremation. Any of the three can be tailored to the family's specific wishes.`}
+    ];
+    const q3 = [
+      {q:`What are ${s.name}'s cremation regulations?`,a:`${s.name} follows standard cremation regulations requiring a mandatory waiting period (typically 24-48 hours) before cremation. Written authorization from the legal next of kin is required, and some counties require a permit from the medical examiner. Pacemakers and certain implants must be removed beforehand. Under the FTC Funeral Rule, you are not required to purchase a casket for cremation — an alternative container is sufficient.`},
+      {q:`What legal requirements apply to cremation in ${s.name}?`,a:`A 24-48 hour waiting period applies before cremation in ${s.name}, along with written authorization from the legal next of kin. Some ${s.name} counties require a medical examiner's permit before release. Pacemakers, implanted defibrillators, and certain other implants are removed beforehand. And under the federal Funeral Rule, you do not need to buy a full casket — an alternative cremation container is sufficient.`},
+      {q:`Does ${s.name} have specific rules for cremation?`,a:`Yes. ${s.name} requires written authorization from the legal next of kin, a standard 24-48 hour waiting period, and in some counties a permit from the medical examiner before cremation can proceed. Pacemakers and certain implants must be removed first. The FTC Funeral Rule (federal) separately guarantees you do not need a casket for cremation — a basic cremation container suffices.`}
+    ];
+    const q4 = [
+      {q:`Can I scatter ashes in ${s.name}?`,a:`Scattering laws in ${s.name} vary by location. Generally, you may scatter ashes on private property with owner permission, at sea (3+ nautical miles offshore per EPA regulations), and in some designated public areas. National parks may require a permit. Always check local ordinances and be respectful of the environment and others. Some ${s.name} families also choose columbarium niches, burial of ashes, or memorial keepsakes as alternatives to scattering.`},
+      {q:`Where are ashes allowed to be scattered in ${s.name}?`,a:`${s.name} scattering rules depend on the specific location. Private land is generally fine with the owner's permission; at sea requires being at least 3 nautical miles offshore per EPA rules; many state and national parks need a permit (and in some cases prohibit it entirely). Check the local ordinance before choosing a spot. Families in ${s.name} also often opt for columbarium niches, burial of the urn, or keepsake jewelry in place of scattering.`},
+      {q:`Is ash scattering legal in ${s.name}?`,a:`In most cases yes, but the specifics depend on where. In ${s.name} you can generally scatter on private land (with owner permission) or at sea beyond 3 nautical miles under EPA rules. National park scattering often requires a free permit. Check ${s.name} local ordinances and any park-specific rules before proceeding. Some families prefer columbarium niches, urn burial, or memorial jewelry to avoid the permitting question entirely.`}
+    ];
+    const q5 = [
+      {q:`Why is cremation ${crRate > 55 ? 'so popular' : 'growing'} in ${s.name}?`,a:`${s.name} has ${crContext}, with a cremation rate of ${s.cr}. Factors driving cremation adoption include lower cost compared to traditional burial (saving ${savingsVsBurial} or more), greater flexibility for memorial services, environmental considerations, and changing cultural preferences. The national cremation rate has exceeded 60% and continues to rise annually.`},
+      {q:`Why do so many ${s.name} families choose cremation?`,a:`${s.name} sits with ${crContext} at ${s.cr}. The drivers are familiar: cremation costs far less than traditional burial (the direct-cremation-to-traditional-funeral gap is about ${savingsVsBurial} in ${s.name}), families can schedule memorials on their own timeline, environmental concerns weigh on more people, and cultural norms around burial have shifted nationally past 60% cremation.`},
+      {q:`What is driving ${s.name}'s cremation rate?`,a:`${s.name}'s ${s.cr} cremation rate reflects ${crContext}. The cost delta alone explains a lot — families save roughly ${savingsVsBurial} by choosing direct cremation over a traditional funeral in ${s.name}. Add in the greater flexibility for memorial service timing, the environmental considerations, and the broad cultural shift (US cremation rate is now over 60% and still climbing), and the trend is easy to see.`}
+    ];
+    const q6 = [
+      {q:`How long does cremation take in ${s.name}?`,a:`In ${s.name}, the cremation process itself takes 2 to 3 hours. However, there is typically a mandatory 24 to 48 hour waiting period before cremation can proceed. After cremation, ashes are usually ready for pickup or delivery within 3 to 7 business days. Direct cremation (${$(s.dc)}) has the shortest total timeline since no viewing or ceremony is involved.`},
+      {q:`What is the timeline for cremation in ${s.name}?`,a:`The cremation itself runs 2-3 hours in ${s.name}. Factor in the mandatory 24-48 hour waiting period before cremation, then 3-7 business days for the crematory to process paperwork and prepare the ashes for pickup or delivery. A direct cremation (${$(s.dc)}) is the fastest end-to-end because no ceremony sits between death and cremation.`},
+      {q:`How quickly can cremation be completed in ${s.name}?`,a:`From start to ashes, most cremations in ${s.name} take 4 to 10 days. The cremation itself is 2-3 hours, but the mandatory 24-48 hour pre-cremation waiting period and the 3-7 business day processing window dominate the timeline. Direct cremation at ${$(s.dc)} moves fastest since there is no viewing or service to schedule beforehand.`}
+    ];
+    const q7 = [
+      {q:`Can I hold a funeral service before cremation in ${s.name}?`,a:`Yes. A traditional funeral service followed by cremation costs approximately ${$(s.c)} in ${s.name}. This includes visitation, a ceremony, and then cremation instead of burial. You can also hold a memorial service after cremation, which offers more flexibility on timing and location and typically costs less.`},
+      {q:`Is it possible to have a ceremony before cremation in ${s.name}?`,a:`Yes. ${s.name} funeral homes regularly arrange visitation and a ceremony before cremation takes place — the full-service option typically runs around ${$(s.c)}. If the ceremony timing is flexible, a memorial service after cremation (at any venue, anytime) is another option and usually costs less than the full traditional route.`},
+      {q:`Do I have to skip the service if I choose cremation in ${s.name}?`,a:`Not at all. ${s.name} providers offer cremation with a full service — visitation, ceremony, and then cremation instead of burial — for about ${$(s.c)}. Memorial services after cremation are also common, letting families choose any venue or date. Only direct cremation at ${$(s.dc)} omits the service entirely.`}
+    ];
+    return [
+      pickVariant(key, q1, 'cq1'),
+      pickVariant(key, q2, 'cq2'),
+      pickVariant(key, q3, 'cq3'),
+      pickVariant(key, q4, 'cq4'),
+      pickVariant(key, q5, 'cq5'),
+      pickVariant(key, q6, 'cq6'),
+      pickVariant(key, q7, 'cq7')
+    ];
+  })();
 
   const content = `${head(title, desc, fn, `Cremation Costs in ${s.name}`, faq, {name:'Cremation Costs by State',url:'cremation-costs-by-state.html'})}
 ${header()}
@@ -994,9 +1236,12 @@ ${header()}
           `With a cremation rate of ${s.cr}, ${parseInt(s.cr) > 55 ? 'cremation is the most popular disposition choice' : 'cremation is increasingly chosen by families'} in ${s.name}. Whether you are considering direct cremation as the most affordable option or a full funeral service followed by cremation, this guide explains what to expect and what you will pay in ${s.name}.`,
           `Cremation pricing in ${s.name} is simpler than traditional burial but can still vary by thousands of dollars between providers. Direct cremation starts around ${$(s.dc)} while cremation with a full service averages ${$(s.c)}. This guide walks through what's included at each price point and how ${s.name}'s ${s.cr} cremation rate shapes local options.`,
           `Families choosing cremation in ${s.name} save an average of ${$(s.f - s.dc)} compared to traditional burial. The state's cremation rate — currently ${s.cr} — reflects a steady national shift toward simpler, lower-cost services. Here's the real pricing in ${s.name}, plus what to watch for when comparing providers.`,
-          `If you're weighing cremation in ${s.name}, the first honest question is: direct cremation or cremation with a service? The gap between them — roughly ${$(s.c - s.dc)} in ${s.name} — is where most of the decision lives. This guide breaks down both options with current pricing and the regulations that apply in ${s.name}.`
+          `If you're weighing cremation in ${s.name}, the first honest question is: direct cremation or cremation with a service? The gap between them — roughly ${$(s.c - s.dc)} in ${s.name} — is where most of the decision lives. This guide breaks down both options with current pricing and the regulations that apply in ${s.name}.`,
+          `Cremation in ${s.name} is no longer the quiet alternative it was a generation ago. At a ${s.cr} adoption rate, it has moved into the mainstream — and with direct cremation running about ${$(s.dc)} versus ${$(s.f)} for a full traditional funeral, the economic case is clear. This guide covers what ${s.name} families actually pay, what the regulations require, and where the real decisions live.`,
+          `Three numbers drive the cremation conversation in ${s.name}: ${$(s.dc)} for direct cremation, ${$(s.c)} for cremation with a full service, and ${s.cr} for the state's current cremation rate. Everything else — urns, memorial venues, scattering, inurnment — is a smaller add-on to those base figures. This guide walks through how each of those numbers is built, and where families can usually save.`,
+          `${s.name}'s cremation market has matured enough in 2026 that the pricing is mostly predictable. Direct cremation lands near ${$(s.dc)}, cremation with a ceremony near ${$(s.c)}, and the ${s.cr} cremation rate means most providers compete seriously on price. Here is what the numbers look like now, what regulations apply, and what to ask every ${s.name} provider before you commit.`
         ];
-        return openings[s.abbr.charCodeAt(1) % openings.length];
+        return pickVariant([s.slug, s.abbr, s.region, 'crem'], openings, 'intro');
       })()}</p>
 
       <div class="stat-highlights">
@@ -1084,14 +1329,47 @@ function genBurial(s) {
   };
   const bHint = burialRegionHints[s.region] || burialRegionHints['Midwest'];
 
-  const faq = [
-    {q:`How much does burial cost in ${s.name}?`,a:`A traditional burial in ${s.name} costs approximately ${$(s.f)} for the funeral service plus ${$(s.b)} for a cemetery plot. When you add a burial vault (${$(Math.round(s.b * 0.4))}), opening and closing fees (${$(Math.round(s.b * 0.5))}), casket (${$(Math.round(s.f * 0.3))}), and headstone ($1,000-$3,000), the total typically ranges from ${totalBurial} to ${totalBurialHigh}.`},
-    {q:`Is a burial vault required in ${s.name}?`,a:`Burial vaults are required by most cemeteries in ${s.name} as a matter of cemetery policy (to prevent ground settling), though they are rarely mandated by state law. A grave liner — a less expensive alternative to a full vault — may also meet the cemetery's requirements. Always ask the specific cemetery about their policies and whether cheaper alternatives are accepted. Vault costs in ${s.name} typically range from $800 to $10,000.`},
-    {q:`What are the cheapest burial options in ${s.name}?`,a:`The most affordable burial options in ${s.name} include: direct burial (no viewing or ceremony, body buried shortly after death) which eliminates embalming and facility costs; green or natural burial using a biodegradable container and no embalming, available at select ${s.name} cemeteries; and purchasing a casket from an independent retailer rather than the funeral home, which can save 50-70% on casket costs alone. See our affordable funeral options guide for more strategies.`},
-    {q:`How do I compare cemetery costs in ${s.name}?`,a:`Cemetery costs in ${s.name} vary significantly even within the same city. Request a complete itemized price sheet from each cemetery — plot cost, opening-and-closing fees, vault policies, perpetual care, and any residency or denominational restrictions. Unlike funeral homes, cemeteries are not bound by the FTC Funeral Rule, so you have to ask proactively. In particular, ${bHint}`},
-    {q:`What is the total cost of burial in ${s.name} including everything?`,a:`The total cost of burial in ${s.name} including funeral service (${$(s.f)}), cemetery plot (${$(s.b)}), casket (${$(Math.round(s.f*0.3))}), vault (${$(Math.round(s.b*0.4))}), opening/closing (${$(Math.round(s.b*0.5))}), and headstone ($1,000–$3,000) typically ranges from ${totalBurial} to ${totalBurialHigh}. These figures vary by provider and the specific choices made. Comparing at least 2–3 funeral homes and cemeteries separately can save significant money.`},
-    {q:`Is green burial available in ${s.name}?`,a:`Green burial options are available in some areas of ${s.name}. Green burial uses biodegradable containers, no embalming, and often costs less than traditional burial. Not all cemeteries in ${s.name} offer green burial sections, so you may need to research options in your area. Some families also consider hybrid approaches, such as traditional caskets with no embalming. See our green burial guide for more details.`}
-  ];
+  const faq = (function(){
+    const key = [s.slug, s.abbr, s.region, 'burial'];
+    const q1 = [
+      {q:`How much does burial cost in ${s.name}?`,a:`A traditional burial in ${s.name} costs approximately ${$(s.f)} for the funeral service plus ${$(s.b)} for a cemetery plot. When you add a burial vault (${$(Math.round(s.b * 0.4))}), opening and closing fees (${$(Math.round(s.b * 0.5))}), casket (${$(Math.round(s.f * 0.3))}), and headstone ($1,000-$3,000), the total typically ranges from ${totalBurial} to ${totalBurialHigh}.`},
+      {q:`What is the full price of burial in ${s.name}?`,a:`A full burial in ${s.name} comes in at about ${$(s.f)} for the funeral service, ${$(s.b)} for the cemetery plot, ${$(Math.round(s.f * 0.3))} for a casket, ${$(Math.round(s.b * 0.4))} for a vault, ${$(Math.round(s.b * 0.5))} for opening and closing, and $1,000-$3,000 for a headstone. Totals generally land between ${totalBurial} and ${totalBurialHigh} depending on choices.`},
+      {q:`What do ${s.name} families spend on burial?`,a:`Typical ${s.name} burials total between ${totalBurial} and ${totalBurialHigh}. The funeral service runs about ${$(s.f)}, the cemetery plot ${$(s.b)}, the casket around ${$(Math.round(s.f * 0.3))}, the vault ${$(Math.round(s.b * 0.4))}, opening-and-closing ${$(Math.round(s.b * 0.5))}, and a headstone $1,000-$3,000. Every line has room to move if you compare providers.`}
+    ];
+    const q2 = [
+      {q:`Is a burial vault required in ${s.name}?`,a:`Burial vaults are required by most cemeteries in ${s.name} as a matter of cemetery policy (to prevent ground settling), though they are rarely mandated by state law. A grave liner — a less expensive alternative to a full vault — may also meet the cemetery's requirements. Always ask the specific cemetery about their policies and whether cheaper alternatives are accepted. Vault costs in ${s.name} typically range from $800 to $10,000.`},
+      {q:`Do I need a vault for burial in ${s.name}?`,a:`${s.name} state law rarely mandates a burial vault, but most individual cemeteries require one as a matter of policy to prevent the grave from settling. Grave liners (cheaper than full vaults) often satisfy the same requirement — ask the specific cemetery what they accept. Vault prices in ${s.name} range from $800 to $10,000 depending on material and brand.`},
+      {q:`Are burial vaults mandatory in ${s.name}?`,a:`Not by state law, but almost always by cemetery policy in ${s.name}. Cemeteries require a vault or a less expensive grave liner to keep the ground stable over time. A liner is usually an acceptable substitute — always ask the specific ${s.name} cemetery for their written policy. Vault pricing spans $800 to $10,000 in the state.`}
+    ];
+    const q3 = [
+      {q:`What are the cheapest burial options in ${s.name}?`,a:`The most affordable burial options in ${s.name} include: direct burial (no viewing or ceremony, body buried shortly after death) which eliminates embalming and facility costs; green or natural burial using a biodegradable container and no embalming, available at select ${s.name} cemeteries; and purchasing a casket from an independent retailer rather than the funeral home, which can save 50-70% on casket costs alone. See our affordable funeral options guide for more strategies.`},
+      {q:`How can I reduce burial costs in ${s.name}?`,a:`Three options cut ${s.name} burial costs the most: choose direct burial (interment without viewing, ceremony, or embalming); go with green or natural burial at a ${s.name} cemetery that offers it (biodegradable container, no embalming, often a smaller plot fee); and buy the casket from an independent or online retailer rather than the funeral home — casket savings alone can run 50-70%.`},
+      {q:`What is the most affordable way to bury someone in ${s.name}?`,a:`Direct burial is the lowest-cost path in ${s.name} — it skips viewing, ceremony, and embalming. Green or natural burial is the next rung up, available at a growing number of ${s.name} cemeteries with biodegradable containers and no embalming. And independently purchased caskets — legal under the FTC Funeral Rule — save 50-70% versus funeral home markups.`}
+    ];
+    const q4 = [
+      {q:`How do I compare cemetery costs in ${s.name}?`,a:`Cemetery costs in ${s.name} vary significantly even within the same city. Request a complete itemized price sheet from each cemetery — plot cost, opening-and-closing fees, vault policies, perpetual care, and any residency or denominational restrictions. Unlike funeral homes, cemeteries are not bound by the FTC Funeral Rule, so you have to ask proactively. In particular, ${bHint}`},
+      {q:`What is the best way to shop cemeteries in ${s.name}?`,a:`Ask each ${s.name} cemetery for a full itemized price sheet covering the plot, opening-and-closing fees, vault or liner requirements, perpetual-care charge, and any residency or denominational rules. Cemeteries are not covered by the FTC Funeral Rule, so they will only provide these details when asked directly. Notably, ${bHint}`},
+      {q:`How do cemetery prices differ across ${s.name}?`,a:`${s.name} cemetery pricing varies widely — two cemeteries in the same city can differ by thousands on plot price alone. Always request an itemized sheet covering plot, opening-and-closing, vault policy, perpetual care, and any residency or membership restrictions. Cemeteries are outside the FTC Funeral Rule's reach, so transparency is on you to pursue. A useful tip: ${bHint}`}
+    ];
+    const q5 = [
+      {q:`What is the total cost of burial in ${s.name} including everything?`,a:`The total cost of burial in ${s.name} including funeral service (${$(s.f)}), cemetery plot (${$(s.b)}), casket (${$(Math.round(s.f*0.3))}), vault (${$(Math.round(s.b*0.4))}), opening/closing (${$(Math.round(s.b*0.5))}), and headstone ($1,000–$3,000) typically ranges from ${totalBurial} to ${totalBurialHigh}. These figures vary by provider and the specific choices made. Comparing at least 2–3 funeral homes and cemeteries separately can save significant money.`},
+      {q:`Once I add every line item, what does burial actually cost in ${s.name}?`,a:`A complete burial in ${s.name} — funeral service (${$(s.f)}) + plot (${$(s.b)}) + casket (${$(Math.round(s.f*0.3))}) + vault (${$(Math.round(s.b*0.4))}) + opening-and-closing (${$(Math.round(s.b*0.5))}) + headstone ($1,000-$3,000) — totals ${totalBurial} to ${totalBurialHigh} in practice. Comparing two or three funeral homes and two or three cemeteries independently is the single most reliable way to bring that number down.`},
+      {q:`What is an all-in burial estimate for ${s.name}?`,a:`Adding every line item, burial in ${s.name} usually totals ${totalBurial} to ${totalBurialHigh}: funeral service about ${$(s.f)}, plot about ${$(s.b)}, casket about ${$(Math.round(s.f*0.3))}, vault about ${$(Math.round(s.b*0.4))}, opening-and-closing about ${$(Math.round(s.b*0.5))}, and headstone $1,000-$3,000. Shopping funeral homes and cemeteries as separate bills is what bends the total number down.`}
+    ];
+    const q6 = [
+      {q:`Is green burial available in ${s.name}?`,a:`Green burial options are available in some areas of ${s.name}. Green burial uses biodegradable containers, no embalming, and often costs less than traditional burial. Not all cemeteries in ${s.name} offer green burial sections, so you may need to research options in your area. Some families also consider hybrid approaches, such as traditional caskets with no embalming. See our green burial guide for more details.`},
+      {q:`Can I choose a natural or green burial in ${s.name}?`,a:`Yes — though availability varies by region. A growing number of ${s.name} cemeteries now offer green burial sections (biodegradable container, no embalming, no vault), and the total cost is usually below a traditional burial. If a dedicated green burial ground is not nearby, some families in ${s.name} use a hybrid approach (traditional plot without embalming). Our green burial guide covers the details.`},
+      {q:`Does ${s.name} have green burial cemeteries?`,a:`There are green burial options in parts of ${s.name}, though coverage is not statewide. Green burial removes embalming and the vault requirement and uses a biodegradable container, typically coming in below a traditional burial cost. Some ${s.name} cemeteries have hybrid sections rather than fully dedicated grounds. Check our green burial guide and call local ${s.name} cemeteries to confirm what they currently offer.`}
+    ];
+    return [
+      pickVariant(key, q1, 'bq1'),
+      pickVariant(key, q2, 'bq2'),
+      pickVariant(key, q3, 'bq3'),
+      pickVariant(key, q4, 'bq4'),
+      pickVariant(key, q5, 'bq5'),
+      pickVariant(key, q6, 'bq6')
+    ];
+  })();
 
   const content = `${head(title, desc, fn, `Burial Costs in ${s.name}`, faq, {name:'Burial Costs by State',url:'burial-costs-by-state.html'})}
 ${header()}
@@ -1114,9 +1392,12 @@ ${header()}
           `If you are arranging a burial in ${s.name}, the costs can add up faster than most families expect. Between the funeral home bill and the separate cemetery invoice, total burial expenses in ${s.name} typically range from ${$(Math.round(s.f + s.b + s.b*0.9))} to well over ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}. This guide lays out what drives each line item and where families have room to save.`,
           `Burial costs in ${s.name} are shaped by three separate bills: the funeral home's service fee (around ${$(s.f)}), the cemetery's plot and interment charges (starting near ${$(s.b)}), and the headstone or marker (typically $1,000–$3,000). Each is negotiable in its own way. This guide walks through each one so you know what you're actually paying for.`,
           `Planning a burial in ${s.name} is more involved than most people realize — there's the funeral home, the cemetery, the casket, the vault, the headstone, and the paperwork, and each comes with its own price list. We've broken down current ${s.name} costs so you can compare providers honestly and avoid the charges that often get bundled quietly into a package.`,
-          `Whether ${s.name} burial is a family tradition or simply the right choice for your loved one, knowing the real numbers before you walk into a funeral home matters. Average totals in ${s.name} run from ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}, but careful comparison — especially on caskets and cemetery choice — can cut thousands off that bill.`
+          `Whether ${s.name} burial is a family tradition or simply the right choice for your loved one, knowing the real numbers before you walk into a funeral home matters. Average totals in ${s.name} run from ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}, but careful comparison — especially on caskets and cemetery choice — can cut thousands off that bill.`,
+          `Burial in ${s.name} is almost never a single transaction. You pay the funeral home, you pay the cemetery, you pay the monument company, and frequently you pay a handful of administrative fees on top. Across those bills, ${s.name} families typically see totals from ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))} — with the ceiling often set by the casket and the cemetery choice rather than the ceremony itself.`,
+          `${s.name} burial costs can surprise families because the funeral home estimate is never the complete bill. Cemetery fees, vault or liner requirements, headstones, opening-and-closing charges, and documentation costs land on separate invoices. This guide puts them all in one place for ${s.name} and flags which line items most often carry room to negotiate.`,
+          `For ${s.name} families choosing burial in 2026, the honest pricing conversation starts with three numbers: the ${$(s.f)} funeral service average, the ${$(s.b)} cemetery plot average, and the $1,000-$3,000 headstone range. Add vault, opening-and-closing, and casket and the complete picture runs ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}. Here is how those numbers get built — and where they can bend lower.`
         ];
-        return openings[s.abbr.charCodeAt(0) % openings.length];
+        return pickVariant([s.slug, s.abbr, s.region, 'burial'], openings, 'intro');
       })()}</p>
 
       <div class="stat-highlights">
@@ -1499,9 +1780,13 @@ ${header()}
           `If you are considering cremation in the ${m.city} area, this guide provides current pricing to help you plan. Cremation costs in ${m.city} tend to be ${m.mp > 1.15 ? 'higher than' : 'close to'} the ${m.st} state average due to the local cost of living.`,
           `${m.city} cremation prices split sharply by service level: ${$(mdc)} for direct cremation at the low end, ${$(mc)} for a full service at the high end, with about ${savingsVsBurial} separating cremation from traditional burial. ${m.st}'s statewide cremation rate of ${s.cr} reflects how common this choice has become.`,
           `Families looking at cremation in ${m.city} typically want to know two things: how much it actually costs, and what that price includes. Direct cremation in ${m.city} averages ${$(mdc)} and covers transportation, the cremation itself, and return of remains — no ceremony, no viewing, no embalming. A full service before cremation runs closer to ${$(mc)}.`,
-          `Cremation has become the default choice in much of ${m.st} — the state cremation rate now sits at ${s.cr}. In ${m.city} specifically, direct cremation from ${$(mdc)} is the floor, while a cremation service with viewing and ceremony runs about ${$(mc)}. This guide walks through both tiers and the regulations that apply to ${m.city} families.`
+          `Cremation has become the default choice in much of ${m.st} — the state cremation rate now sits at ${s.cr}. In ${m.city} specifically, direct cremation from ${$(mdc)} is the floor, while a cremation service with viewing and ceremony runs about ${$(mc)}. This guide walks through both tiers and the regulations that apply to ${m.city} families.`,
+          `Cremation pricing in ${m.city} follows a pattern visible across ${m.st}: a wide and growing gap between the simplest option (direct cremation near ${$(mdc)}) and the full-service alternative (near ${$(mc)}). Because ${s.cr} of ${m.st} families already choose cremation, the market here is competitive enough that the two tiers are usually well-defined on any provider's General Price List.`,
+          `The honest question most ${m.city} families arrive with is not whether to choose cremation but which version of it. Direct cremation at ${$(mdc)} is the cheapest path; cremation with a funeral service at ${$(mc)} is closer to a traditional experience. The roughly ${savingsVsBurial} gap between cremation and traditional burial is what has made ${m.st}'s ${s.cr} cremation rate what it is today.`,
+          `${m.city}-area cremation costs in 2026 reflect both the national trend toward simpler dispositions and ${m.st}'s cost-of-living profile. Direct cremation lands near ${$(mdc)}, cremation with service near ${$(mc)}, and the price that appears on your contract depends heavily on which optional service items you decline. This guide walks through each line item.`,
+          `Choosing cremation in ${m.city} can mean spending ${$(mdc)} — or ${$(mc)} — on essentially the same disposition, with the difference accounted for almost entirely by optional service features. Understanding that distinction is how families save the most money. ${m.st}'s ${s.cr} cremation rate means you'll find plenty of local providers competing on both ends of that range.`
         ];
-        return openings[m.slug.charCodeAt(1) % openings.length];
+        return pickVariant([m.slug, m.ss, s.region, 'crem-metro'], openings, 'cmintro');
       })()}</p>
 
       <div class="stat-highlights">
@@ -1630,9 +1915,13 @@ ${header()}
           `Understanding the full cost of burial in ${m.city} — from funeral service fees to cemetery charges — helps families plan with confidence. Burial costs in the ${m.city} metropolitan area tend to be ${m.mp > 1.15 ? 'higher than' : 'close to'} the ${m.st} state average.`,
           `Burial in ${m.city} involves two separate bills that rarely get discussed together: the funeral home's service fee (around ${$(mf)}) and the cemetery's plot plus interment charges (starting near ${$(mb)}). Together with casket, vault, and headstone, families here typically spend between ${totalBurial} and ${totalBurialHigh}.`,
           `${m.city} cemetery prices and funeral home prices move somewhat independently — it is not unusual to find a reasonable cemetery plot paired with an expensive funeral home, or the reverse. This guide lays out both sides so you can see exactly where ${m.city} burial costs come from and where there is room to negotiate.`,
-          `If you are planning a burial in ${m.city}, the total runs well beyond the headline ${$(mf)} funeral service quote. Cemetery plot (${$(mb)}), vault, opening and closing fees, casket, and headstone all stack on top. Totals in ${m.city} typically reach ${totalBurial} to ${totalBurialHigh} depending on choices.`
+          `If you are planning a burial in ${m.city}, the total runs well beyond the headline ${$(mf)} funeral service quote. Cemetery plot (${$(mb)}), vault, opening and closing fees, casket, and headstone all stack on top. Totals in ${m.city} typically reach ${totalBurial} to ${totalBurialHigh} depending on choices.`,
+          `Most ${m.city} families underestimate burial costs because the funeral home quote is only one of several bills. Cemetery invoices, monument company invoices, and administrative fees are separate. Across all of them, ${m.city} burial totals generally land between ${totalBurial} and ${totalBurialHigh}, with casket and cemetery choice driving most of the variation.`,
+          `${m.city}'s burial market reflects the ${m.st} cost-of-living multiplier layered on national averages. A full traditional burial here — funeral service, cemetery plot, vault, casket, headstone — commonly runs ${totalBurial} to ${totalBurialHigh}. The funeral home portion (${$(mf)}) and cemetery portion (${$(mb)} for the plot alone) are the two largest line items.`,
+          `Families arranging a burial in ${m.city} in 2026 are often surprised by how much of the total sits outside the funeral home contract. Cemetery charges, vault requirements, and headstone pricing are negotiated separately, on separate schedules. ${m.city} totals typically fall between ${totalBurial} and ${totalBurialHigh} depending on the choices made across each of those conversations.`,
+          `Burial costs in ${m.city} are a sum, not a single number. Add the funeral home service (~${$(mf)}), the cemetery (plot near ${$(mb)} plus opening-and-closing), the casket, the vault, and the headstone. The realistic range in ${m.city} runs ${totalBurial} to ${totalBurialHigh}, and most of the difference between the two ends lives in casket and cemetery choice.`
         ];
-        return openings[(m.slug.charCodeAt(0) + m.slug.length) % openings.length];
+        return pickVariant([m.slug, m.ss, s.region, 'burial-metro'], openings, 'bmintro');
       })()}</p>
 
       <div class="stat-highlights">
