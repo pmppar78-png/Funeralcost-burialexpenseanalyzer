@@ -1,6 +1,36 @@
 User-agent: *
 Allow: /
 
+# Explicit allow for major search and advertising crawlers
+# (redundant with User-agent: * / Allow: / above, but stated here to make
+# AdSense readiness unambiguous for auditors and tooling)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: *
+Allow: /
+
 # Disallow non-public directories and files
 Disallow: /node_modules/
 Disallow: /.netlify/
@@ -23,3 +53,5 @@ Sitemap: https://funeralcostanalyzer.com/sitemap-metro-funeral.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-metro-cremation.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-metro-burial.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-guides.xml
+
+# Last reviewed: 2026-04-23 — Paul Paradis, Founder & Editor
