@@ -2,19 +2,22 @@
 
 Site: Funeral Cost & Burial Expense Analyzer
 URL: https://funeralcostanalyzer.com
-Description: Independent, one-person educational resource helping families understand funeral costs, compare options, and know their consumer rights. Not a funeral home, not a lead-generation service.
+Description: Independent, one-person educational resource helping families understand funeral costs, compare options, and know their consumer rights. Informational only — not a funeral home, not a lead-generation service, and not a source of financial, legal, tax, medical, or funeral-director advice.
 Founder & Editor: Paul Paradis
+Role: Sole author, researcher, and editor. Reviews every page personally before publication and on a rolling schedule thereafter.
 Location: Boston, Massachusetts, USA
-Contact: contact [at] funeralcostanalyzer.com
+Correspondence: contact [at] funeralcostanalyzer.com
+Editorial Contact: contact [at] funeralcostanalyzer.com (corrections, source questions, accessibility issues)
 
 /* THANKS */
 
-Data Sources: National Funeral Directors Association (NFDA), Funeral Consumers Alliance (FCA), Federal Trade Commission (FTC) Funeral Rule, State Funeral Boards, Published General Price Lists
+Data Sources: National Funeral Directors Association (NFDA), Funeral Consumers Alliance (FCA), Federal Trade Commission (FTC) Funeral Rule (16 CFR Part 453), State Funeral Boards, VA National Cemetery Administration, Published General Price Lists
 Fonts: Inter, Merriweather (Google Fonts)
 Hosting: Netlify
 
 /* SITE */
 
+Editorial Stance: Informational only. All cost figures are estimates derived from publicly available consumer surveys and may not reflect current prices in your area. Always verify each line item against a provider's written General Price List before signing anything.
 Last Updated: 2026-04-23
 Language: English
 Standards: HTML5, CSS3, Semantic Markup, WCAG 2.1 AA
