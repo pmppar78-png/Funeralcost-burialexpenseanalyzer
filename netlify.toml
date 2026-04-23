@@ -71,6 +71,16 @@
   [headers.values]
     X-Robots-Tag = "noindex, follow"
 
+# ─── Block public access to build-time artifacts ─────────────────
+# The build command runs node generate-pages.js, and publish = "." includes
+# the generator in the deploy. Serve a 404 for the file itself.
+
+[[redirects]]
+  from = "/generate-pages.js"
+  to = "/404.html"
+  status = 404
+  force = true
+
 # ─── Domain-level redirects (one-hop, no chains) ─────────────────
 # Canonical host: https://funeralcostanalyzer.com (non-www, HTTPS, no trailing slash except root)
 
