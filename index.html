@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Free funeral cost calculator with 2026 data for all 50 states. Compare cremation vs burial prices, estimate funeral home costs in your area, see direct cremation from $1,000, and get a full cost breakdown. NFDA-sourced data."
+    content="Free 2026 funeral cost calculator for all 50 states. Compare cremation vs burial prices and see a full line-item breakdown — direct cremation from $1,000."
   />
   <meta name="last-modified" content="2026-04-13" />
   <meta property="og:title" content="Funeral Cost Calculator (2026) — Compare Cremation, Burial &amp; Service Prices" />
@@ -1122,40 +1122,40 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <!-- Contact — expanded with community engagement -->
+    <!-- Contact — honest, hands-free positioning -->
     <section id="contact" class="section card">
-      <h2>Contact, feedback, and community</h2>
+      <h2>Contact</h2>
       <p>
-        We cannot answer personal legal, financial, or medical questions — but we read every message about how to make this resource more helpful for families.
+        This is an independent, one-person educational resource based in Boston, MA. It is not a funeral home, a funeral director service, or a lead-generation business. For personal legal, financial, or medical questions, please consult a licensed professional. For the reasons below, email is the right channel and typical response time is 5–10 business days.
       </p>
       <div class="contact-grid">
         <div class="contact-option">
-          <h3>Share your experience</h3>
+          <h3>Site issues</h3>
           <p>
-            If you have been through the funeral planning process and want to help other families, we welcome your perspective. Your insights help us write better, more accurate content.
+            Broken links, display problems, or technical errors on this site.
           </p>
-          <a href="mailto:stories@funeralcostanalyzer.com">stories@funeralcostanalyzer.com</a>
+          <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>
         </div>
         <div class="contact-option">
-          <h3>Report a pricing concern</h3>
+          <h3>Content corrections</h3>
           <p>
-            If you believe you were overcharged or misled by a funeral provider, let us know. We can point you toward the right consumer protection resources.
-          </p>
-          <a href="mailto:concerns@funeralcostanalyzer.com">concerns@funeralcostanalyzer.com</a>
-        </div>
-        <div class="contact-option">
-          <h3>Suggest a correction</h3>
-          <p>
-            If you spot an error in our data or content, please tell us. Accuracy is foundational to our mission and we take corrections seriously.
+            Spotted a factual error or outdated figure? Corrections are taken seriously and reviewed promptly.
           </p>
           <a href="mailto:corrections@funeralcostanalyzer.com">corrections@funeralcostanalyzer.com</a>
         </div>
         <div class="contact-option">
-          <h3>Partnerships and press</h3>
+          <h3>Advertising inquiries</h3>
           <p>
-            For inquiries about ethical advertising, consumer advocacy partnerships, or press coverage, contact our team.
+            For ethical advertising partnerships that respect the sensitivity of this topic.
           </p>
           <a href="mailto:advertise@funeralcostanalyzer.com">advertise@funeralcostanalyzer.com</a>
+        </div>
+        <div class="contact-option">
+          <h3>Business opportunities</h3>
+          <p>
+            Partnership, licensing, or press inquiries.
+          </p>
+          <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>
         </div>
       </div>
     </section>
@@ -1236,11 +1236,15 @@
 
   <script>
     (function () {
-      /* Enhanced Cost Estimator */
+      /* Enhanced Cost Estimator
+         Note: the line-item ranges below are calibrated to Northeast pricing
+         (the higher end of the national range). Each region's multiplier is
+         applied relative to this Northeast baseline, so Northeast = 1.0 and
+         other regions scale down accordingly. */
       var costData = {
         northeast: {
           name: "Northeast",
-          multiplier: 1.25,
+          multiplier: 1.0,
           traditional: {
             "Basic services fee": [2400, 3800],
             "Embalming": [700, 1200],
@@ -1286,11 +1290,13 @@
             "Audio/visual equipment": [100, 400]
           }
         },
-        southeast: { name: "Southeast", multiplier: 0.95 },
-        midwest: { name: "Midwest", multiplier: 0.92 },
-        south: { name: "South", multiplier: 0.88 },
-        west: { name: "West", multiplier: 1.12 },
-        mountain: { name: "Mountain", multiplier: 0.85 }
+        /* Multipliers are scaled relative to the Northeast baseline (1.0).
+           These reflect typical regional cost spreads vs. the Northeast high. */
+        southeast: { name: "Southeast", multiplier: 0.76 },
+        midwest:   { name: "Midwest",   multiplier: 0.74 },
+        south:     { name: "South",     multiplier: 0.70 },
+        west:      { name: "West",      multiplier: 0.90 },
+        mountain:  { name: "Mountain",  multiplier: 0.68 }
       };
 
       // Base costs (northeast) for all service types, used for regional scaling

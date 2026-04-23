@@ -171,6 +171,183 @@ function neighborLinks(s, pageType) {
   }).join('')}</ul></div>`;
 }
 
+// ── Region-specific content helpers ─────────────────────────────
+// These return a UNIQUE block of prose per page based on region + state slug.
+// Different regions get materially different advice and references so that
+// pages do not read as pure location-substitution templates. Within a region,
+// per-state rotation varies sentence structure so neighboring states also diverge.
+
+function regionalBurialNote(s) {
+  const hash = (s.abbr.charCodeAt(0) + s.abbr.charCodeAt(1) + s.name.length) % 3;
+  const byRegion = {
+    'South': [
+      `In much of ${s.name}, family and church cemeteries still operate alongside commercial ones, and many congregations keep section pricing below market. If you have a church or family plot in ${s.name}, the savings over a private cemetery can exceed ${$(Math.round(s.b * 0.4))}. Above-ground entombment is also more common in parts of the Gulf South for high-water-table reasons — worth asking about if you are in a low-lying area.`,
+      `${s.name} cemeteries in the rural South often price opening-and-closing fees well below what metro funeral homes quote — sometimes under $600 compared to $1,500+ near ${s.cities[0]}. Family burial plots, church-owned cemeteries, and county veterans' sections (free for eligible veterans) are all worth checking before you accept a private cemetery's package. Above-ground entombment also appears in the coastal parts of the region.`,
+      `Families in ${s.name} often assume the funeral home handles everything, but the cemetery bill is separate and usually smaller at church, fraternal, or municipal sites than at commercial memorial parks. Because ${s.name} is in the ${s.region} and summers run long, scheduling flexibility is rarely an issue — families can genuinely take 48-72 hours to compare prices without risking a conflict with cemetery availability.`
+    ],
+    'Northeast': [
+      `Winter burials in ${s.name} can be delayed or carry a frozen-ground surcharge — some cemeteries charge an additional $500-$1,500 from December through March, or offer winter vault storage until spring interment. If the death occurs between late November and early March, ask every ${s.name} cemetery on your shortlist about winter handling fees specifically; they are rarely volunteered up front.`,
+      `${s.name} has one of the highest densities of cemeteries in the country, which means you usually have both nonprofit and commercial options within a short drive of ${s.cities[0]}. Nonprofit, municipal, and denominational cemeteries in ${s.name} routinely undercut commercial memorial parks by ${$(Math.round(s.b * 0.3))}-${$(Math.round(s.b * 0.6))} on the plot line. Get quotes from at least one of each type.`,
+      `Northeastern burial costs in ${s.name} are pushed up by real estate — cemetery land in densely populated counties is expensive, and that shows up in plot prices. But older municipal and religious cemeteries in ${s.name} were often established on land donated or endowed long ago, and their pricing can still reflect that. A 15-minute longer drive to one of these can cut ${$(Math.round(s.b * 0.4))} or more off your cemetery bill.`
+    ],
+    'Midwest': [
+      `${s.name} has a strong tradition of township, county, and fraternal cemeteries, many of which price plots well below commercial memorial parks. These are often listed only on a county or township website rather than on Google, so a call to the ${s.cities[0]} area clerk's office can surface options that do not show up in a standard search. Direct burial is also widely accepted culturally in ${s.name}, unlike some regions where viewing is expected.`,
+      `Rural ${s.name} counties still maintain pioneer-era cemeteries with active sections and prices that reflect community upkeep rather than corporate returns. Opening-and-closing fees at a ${s.name} township cemetery typically run $400-$900, compared to $1,500-$2,500 at a metro private cemetery. If a rural cemetery is acceptable to your family, the savings compound fast.`,
+      `Midwestern funeral pricing in ${s.name} is generally transparent — independent family-owned funeral homes still dominate here more than in the coasts, and they tend to be more willing to itemize and negotiate. A GPL walkthrough on the phone with two or three ${s.name} providers is usually enough to see where the price points sit and identify the package markups.`
+    ],
+    'West': [
+      `Green burial is easier to find in ${s.name} than in much of the country — certified conservation burial grounds and hybrid cemetery sections have expanded noticeably along the West Coast. A green burial in ${s.name} typically costs ${$(Math.round(s.f * 0.5))}-${$(Math.round(s.f * 0.7))} total, without the vault, embalming, or traditional casket costs. Ask specifically about "hybrid" or "natural" sections — many ${s.name} cemeteries have them but do not advertise them prominently.`,
+      `Scattering at sea, on private land, and in certain federal wilderness areas is more practical in ${s.name} than in the inland US, and families in ${s.cities[0]} increasingly choose cremation with a natural scattering over traditional burial. When burial is still the choice, ${s.name} green burial grounds and Jewish and LDS cemeteries tend to offer the most competitive plot pricing.`,
+      `${s.name} cremation rates run far above the national average, and the consequence is a more competitive market for the remaining burial services — the ${s.name} funeral homes that still do a lot of burials often price aggressively to win that share. Do not assume that burial pricing in ${s.name} moves in lockstep with cost of living; shop it as if you were in a buyer's market.`
+    ],
+    'Mountain': [
+      `${s.name} is geographically large and thinly populated outside of ${s.cities[0]}, which means rural counties often have only one or two cemetery options. That local scarcity makes up-front price confirmation especially important — you do not want to discover on the day of a service that the only accessible cemetery is ${$(Math.round(s.b * 0.5))} above your estimate. County clerk offices in ${s.name} typically keep current plot fee schedules on file.`,
+      `Home and family burial is legal in parts of ${s.name} with some restrictions, and at least one county-level alternative (green burial ground, conservation cemetery, or family plot) exists within driving distance of ${s.cities[0]}. Because ${s.name} has relatively progressive disposition laws, families here have meaningfully more flexibility than in the Northeast or older Midwest.`,
+      `${s.name} winters can delay burial at higher elevations — some cemeteries in the mountain counties close ground operations from November through April and hold remains in a vault until spring. When getting quotes in ${s.name}, ask whether the season matters for your specific cemetery; in-ground interment windows vary dramatically within the state.`
+    ]
+  };
+  const arr = byRegion[s.region] || byRegion['Midwest'];
+  return arr[hash % arr.length];
+}
+
+function regionalCremationNote(s) {
+  const hash = (s.abbr.charCodeAt(1) + s.name.length) % 3;
+  const byRegion = {
+    'South': [
+      `Cremation rates in ${s.name} (${s.cr}) trail the national average, partly reflecting long-standing church traditions around burial in the South. That said, the state's cremation rate has risen nearly every year of the last decade, and direct cremation providers are now widely available near ${s.cities[0]}. If your family's faith permits cremation, the cost gap versus traditional burial in ${s.name} is meaningful — usually ${$(s.f - s.dc)} or more.`,
+      `${s.name}'s ${s.cr} cremation rate masks real variation between urban and rural counties. Around ${s.cities[0]}, where independent cremation societies compete directly with full-service funeral homes, direct cremation routinely runs at the low end of the ${$(Math.round(s.dc*0.7))}-${$(Math.round(s.dc*1.4))} range. Rural ${s.name} counties with a single funeral provider often sit at the high end or above.`,
+      `Southern families in ${s.name} sometimes choose cremation but still want a traditional viewing and service — a perfectly valid option that costs around ${$(s.c)} in ${s.name} rather than the ${$(s.dc)} direct cremation minimum. If the decision to cremate is settled but a visitation matters to your family, price the full cremation-with-service option separately, as many ${s.name} funeral homes quote the two paths very differently.`
+    ],
+    'Northeast': [
+      `${s.name}'s cremation rate of ${s.cr} is middle-of-the-pack nationally but has been climbing fast, especially in the ${s.cities[0]} area. The Catholic Church permits cremation (since 1963) as long as ashes are interred rather than scattered — worth knowing if tradition is a factor for your family. ${s.name} also has a growing number of columbaria attached to churches, which can keep the total under ${$(Math.round(s.c * 0.8))}.`,
+      `Northeastern crematoria handling heavy volume — particularly around ${s.cities[0]} — can process direct cremations in 3-5 business days, but the wait at boutique providers can stretch to 2 weeks. If timing matters, ask each ${s.name} provider for their current turnaround before choosing on price alone. The ${$(s.dc)} direct cremation floor in ${s.name} sometimes reflects capacity pressure, not cost of service.`,
+      `In ${s.name}, where winter complicates traditional burial, cremation has a practical scheduling advantage most families underestimate: ashes can be interred or scattered any time of year, which means the service does not have to be planned around frozen-ground delays. This alone pushes some Northeastern families toward cremation, even before considering the ${$(s.f - s.dc)} cost difference versus traditional burial in ${s.name}.`
+    ],
+    'Midwest': [
+      `Cremation adoption in ${s.name} has crossed ${s.cr} and continues to rise, driven largely by cost — direct cremation at ${$(s.dc)} saves Midwestern families roughly ${$(s.f - s.dc)} compared to traditional burial. Independent cremation societies and direct cremation providers are now common in and around ${s.cities[0]}, and their pricing typically undercuts full-service funeral homes offering the same outcome.`,
+      `Most ${s.name} crematories are operated by funeral homes rather than standalone facilities, which means direct cremation in ${s.name} usually goes through a funeral home intake even when no service is attached. This does not materially change the ${$(s.dc)} price point in ${s.name}, but it means the intake paperwork and authorization timelines mirror those of a full-service arrangement.`,
+      `${s.name}'s cremation rate (${s.cr}) reflects a shift that has been especially pronounced in Midwestern metro areas while remaining slower in rural counties. If you are comparing direct cremation providers in ${s.name}, the price spread between a ${s.cities[0]}-area provider and a small-town provider is typically smaller for cremation than for burial — another reason cremation has gained share here.`
+    ],
+    'West': [
+      `${s.name}'s ${s.cr} cremation rate is among the highest in the nation, which means the local market is mature and competitive. Direct cremation providers in and around ${s.cities[0]} advertise transparent, flat-rate pricing and can often complete the process in under a week. The ${$(s.dc)} price point in ${s.name} reflects real market competition, not a rack rate — there is rarely much room to negotiate lower.`,
+      `Scattering options in ${s.name} are unusually rich: private land (with permission), Pacific scattering services, national forests with permits, and several state parks that allow scattering by application. This flexibility is one reason ${s.name} families so often choose cremation over burial. Dedicated scattering services in ${s.name} typically run $200-$800 depending on location and witnessing arrangements.`,
+      `Because ${s.cr} of ${s.name} families already choose cremation, most ${s.name} funeral homes are well-practiced at the full spectrum — direct cremation (${$(s.dc)}), cremation with memorial (${$(s.c)}), and cremation-plus-traditional-viewing. That competitive maturity usually shows up as cleaner itemization on the GPL than you will see in regions where cremation is still a minority choice.`
+    ],
+    'Mountain': [
+      `${s.name}'s cremation rate of ${s.cr} tracks with the Mountain West average, and low population density means fewer crematory facilities serving a large geographic area. Direct cremation in ${s.name} can involve a longer transport leg than families expect, and some providers fold that into the ${$(s.dc)} base price while others charge mileage. Ask specifically about transportation when comparing.`,
+      `Scattering ashes on public land in ${s.name} — especially in national forests and BLM land — is legal in most cases with a free permit. Combined with the ${s.cr} state cremation rate, this makes cremation a natural choice for many ${s.name} families who want an outdoor memorial. Dedicated scattering services run $200-$800 in ${s.name}; a DIY scatter with a permit is free.`,
+      `In rural ${s.name}, the nearest crematory may be 100+ miles from the funeral home handling arrangements. This does not necessarily raise the ${$(s.dc)} direct cremation price, but it does extend turnaround — 7-14 business days is normal in parts of ${s.name}, compared to 3-5 in ${s.cities[0]}. If timing matters for a memorial, confirm turnaround with the provider.`
+    ]
+  };
+  const arr = byRegion[s.region] || byRegion['Mountain'];
+  return arr[hash % arr.length];
+}
+
+function regionalFuneralNote(s) {
+  const hash = (s.abbr.charCodeAt(0) + s.slug.length) % 3;
+  const byRegion = {
+    'South': [
+      `Homegoing services, repast meals, and strong church involvement remain part of ${s.name} funeral culture, and many congregations will cover or reduce the service-venue portion of the cost for members. When pricing a traditional funeral in ${s.name}, ask explicitly whether the quote assumes the service at the funeral home versus at a church — the latter often drops the facility fee by $500-$1,500.`,
+      `${s.name}'s funeral pricing is shaped heavily by whether independent or corporate funeral homes dominate your county. In parts of ${s.name}, corporate consolidation has pushed pricing up; in other parts, family-owned funeral homes still anchor the market. The NFDA lists ownership status in its directory, and it is worth checking when you are comparing providers in ${s.name}.`,
+      `Because ${s.name} is in the South and summer heat matters, embalming timelines come up earlier in the arrangement conversation than in cooler regions. Embalming is still not legally required in ${s.name} in most circumstances — refrigeration is an alternative. If you are asked to agree to embalming quickly, that is a signal to slow down and ask whether it is a legal requirement or a provider preference.`
+    ],
+    'Northeast': [
+      `${s.name} has one of the highest funeral-home densities in the country, which usually helps consumers — more providers means more pricing competition. However, ownership consolidation by Service Corporation International (SCI) and similar groups has concentrated some of the ${s.cities[0]} market under a handful of brands. Ask each ${s.name} provider whether they are independently owned; independent operators in ${s.name} often undercut branded ones by 10-25%.`,
+      `Winter timing affects Northeastern funerals more than most families expect — cemetery interment can be delayed in ${s.name} between December and March, which sometimes shifts the cost structure toward cremation with later interment or memorial. If a ${s.name} death occurs in winter, ask every provider about frozen-ground handling on the very first call; answers vary more than you would guess.`,
+      `${s.name}'s Catholic, Jewish, Greek Orthodox, and Protestant communities each have distinct funeral customs, and ${s.name} funeral homes generally know these well. If faith tradition matters, asking for a provider that regularly serves your community is usually more useful than asking for "the cheapest" — specialized providers in ${s.name} are often well-priced within their niche because they do volume.`
+    ],
+    'Midwest': [
+      `Independent, family-owned funeral homes still anchor ${s.name}'s market more than in the coasts, and they generally price closer to the NFDA national averages than corporate-chain locations. Asking a ${s.name} provider whether they are independently owned or part of a national group is a quick way to predict where their GPL will sit. The spread between independent and chain in ${s.name} is often ${$(Math.round(s.f * 0.15))} or more.`,
+      `Midwestern funeral customs in ${s.name} tend to be direct and practical — viewings are common but not always lengthy, memorial luncheons are often hosted at the church or a family's home rather than the funeral home, and cremation followed by a graveside or memorial service is increasingly standard. This practicality tends to keep average ${s.name} funeral costs (${$(s.f)}) close to the national median.`,
+      `Rural ${s.name} counties often have just one or two funeral homes within a reasonable distance, which limits comparison shopping but also means those providers rely heavily on community reputation. Independent ${s.name} providers with decades in the same town are generally straightforward on pricing in a way that more transient markets are not. Still, always request the GPL in writing.`
+    ],
+    'West': [
+      `${s.name}'s high cremation rate has reshaped its funeral home market — full-service traditional funerals are less than half of all arrangements here, so providers who still do many traditional services in ${s.name} tend to either cater to a specific community or compete aggressively on price. Ask for their breakdown of cremation versus burial volume when comparing; it predicts pricing posture.`,
+      `Alternative dispositions — green burial, aquamation where legal, direct cremation, body donation — are more mainstream in ${s.name} than in most of the country. If cost is the primary driver for your family, ${s.name}'s flexibility means you have options below the ${$(s.f)} traditional funeral price point that simply do not exist in the same way elsewhere. Our <a href="green-burial-options.html">green burial</a> and <a href="direct-cremation-cost.html">direct cremation</a> guides both apply cleanly in ${s.name}.`,
+      `Western funeral pricing in ${s.name} is pulled up by real estate and labor costs in the ${s.cities[0]} area, but drops noticeably in smaller markets. The ${$(s.f)} statewide average hides a real spread — you can find full-service providers in smaller ${s.name} cities at ${$(Math.round(s.f * 0.8))} and ${s.cities[0]}-area providers at ${$(Math.round(s.f * 1.2))}+ for comparable services. Distance to provider is often worth driving for a meaningful family event.`
+    ],
+    'Mountain': [
+      `Mountain-state funeral pricing in ${s.name} (avg ${$(s.f)}) is usually moderate, but the ${s.cities[0]} area can run noticeably higher than rural parts of the state. Fuel and transportation appear on GPLs in ${s.name} more often than in denser regions — if the funeral home is more than 30 miles from the residence or cemetery, mileage charges can add $100-$400 to the final bill.`,
+      `${s.name} has some of the more progressive disposition laws in the country, including accommodations for home funerals and family-led arrangements in several counties. If your family wants a less commercialized approach to a ${s.name} funeral, it is legally easier here than in much of the Northeast — though you still need to comply with death certificate, transportation, and disposition paperwork. Our <a href="home-funeral-guide.html">home funeral guide</a> covers the steps.`,
+      `Sparse population in much of ${s.name} means fewer funeral homes per capita, which can narrow choice but also keeps many providers focused on community reputation. The ${s.cities[0]} metro has the most provider density; outside of it, getting a GPL from 2-3 providers may require driving across county lines. It is still worth the effort — price variation in ${s.name} is wider than the statewide ${$(s.f)} average suggests.`
+    ]
+  };
+  const arr = byRegion[s.region] || byRegion['Mountain'];
+  return arr[hash % arr.length];
+}
+
+// Region-specific, non-location-swap bullets for the "How to Reduce Costs" sections.
+// Returns an array of <li> strings that mix universal advice with regional hooks.
+function regionalBurialSavingsBullets(s) {
+  const region = s.region;
+  const universalByHash = [
+    `<li><strong>Compare cemetery prices directly:</strong> Cemeteries are not covered by the FTC Funeral Rule but most in ${s.name} will share a price sheet on request. Ask for plot, vault, opening-and-closing, and perpetual care line-by-line.</li>`,
+    `<li><strong>Request itemized pricing from every provider:</strong> Funeral homes in ${s.name} must provide a General Price List. Cemeteries are not required to, but most in the ${s.name} area will share one if you ask specifically for the itemized price sheet rather than a "package."</li>`,
+    `<li><strong>Price the cemetery and funeral home separately:</strong> These are two different bills in ${s.name}. Bundled quotes obscure where the markup sits — and the markup sits in a different place depending on the provider.</li>`
+  ];
+  const bulletsByRegion = {
+    'South': [
+      `<li><strong>Check church and family cemeteries:</strong> Active church and family-owned cemeteries are still common in rural ${s.name} and routinely price plots 30-50% below commercial memorial parks. Call congregations in the area where burial will occur, not only the closest to the funeral home.</li>`,
+      `<li><strong>County veterans' sections:</strong> Many ${s.name} counties maintain dedicated veterans' sections separate from national cemeteries. These are often free for eligible veterans and spouses and can be faster to schedule than VA national cemeteries.</li>`,
+      `<li><strong>Above-ground entombment where appropriate:</strong> In low-lying parts of ${s.name} (notably coastal areas), mausoleum entombment is the local norm and can actually be less expensive than a plot-plus-vault combination in the same cemetery. Ask both ways.</li>`
+    ],
+    'Northeast': [
+      `<li><strong>Confirm winter pricing up front:</strong> ${s.name} cemeteries frequently add frozen-ground charges from December through March, or require winter vault storage until spring interment. Ask for the winter-specific line item before signing.</li>`,
+      `<li><strong>Denominational and municipal cemeteries:</strong> ${s.name} has one of the highest densities of nonprofit cemeteries in the country. Catholic, Jewish, Orthodox, and municipal cemeteries often undercut private memorial parks by $1,000-$3,000 on the plot line alone.</li>`,
+      `<li><strong>Shop outside the immediate metro:</strong> A 20-30 minute drive from ${s.cities[0]} into a lower-cost county can reduce plot prices substantially without changing the family's ability to visit. Real estate drives Northeast cemetery pricing more than anywhere else.</li>`
+    ],
+    'Midwest': [
+      `<li><strong>Call the township or county clerk:</strong> ${s.name} has many township, county, and fraternal cemeteries that simply do not appear in Google results. The clerk's office in the county where burial will occur can usually point you to current plot fee schedules for public cemeteries.</li>`,
+      `<li><strong>Work with independent funeral homes:</strong> ${s.name} still has a strong independent, family-owned funeral home market, and these providers generally price closer to the NFDA national averages than corporate-chain locations. Ask every provider whether they are independently owned.</li>`,
+      `<li><strong>Direct burial is widely accepted:</strong> Cultural openness to direct burial (no viewing, no ceremony, immediate interment) is stronger in ${s.name} than on the coasts. Choosing direct burial removes embalming, facility use, and visitation fees and can cut total costs by $2,000-$4,000.</li>`
+    ],
+    'West': [
+      `<li><strong>Look for hybrid or natural burial sections:</strong> Several ${s.name} cemeteries have added green or natural burial sections without advertising them prominently. These sections skip the vault and embalming requirements and often price plots 30-50% below the traditional sections of the same cemetery.</li>`,
+      `<li><strong>Consider certified conservation burial grounds:</strong> ${s.name} is one of the more active states for true conservation burial. These grounds protect land in perpetuity and price simply, typically ${$(Math.round(s.f * 0.4))}-${$(Math.round(s.f * 0.7))} all-in versus ${$(Math.round(s.f + s.b + s.b * 0.9))}+ for traditional burial in ${s.name}.</li>`,
+      `<li><strong>Use the competitive cremation market as leverage:</strong> With ${s.cr} of ${s.name} families choosing cremation, burial-focused providers often have pricing flexibility they do not advertise. Mentioning direct cremation as an alternative in the quote conversation sometimes surfaces better burial pricing.</li>`
+    ],
+    'Mountain': [
+      `<li><strong>Confirm seasonal burial windows:</strong> At higher elevations in ${s.name}, cemeteries may pause ground operations from November through April and hold remains in a vault until spring. Vault storage fees vary widely; ask for them specifically in the quote.</li>`,
+      `<li><strong>County clerk for rural cemeteries:</strong> Sparse population in much of ${s.name} means rural cemetery fee schedules often live only with the county clerk. A call to the county where burial will occur can surface options 40-60% below ${s.cities[0]}-area private cemeteries.</li>`,
+      `<li><strong>Family or home burial where allowed:</strong> ${s.name} has some of the more permissive family and home-burial laws in the country. Where this is an option, it can eliminate cemetery fees entirely while still meeting ${s.name} legal requirements — our home funeral guide walks through the paperwork.</li>`
+    ]
+  };
+  const universalIdx = (s.abbr.charCodeAt(0) + s.name.length) % universalByHash.length;
+  const regionArr = bulletsByRegion[region] || bulletsByRegion['Midwest'];
+  return [
+    universalByHash[universalIdx],
+    ...regionArr,
+    `<li><strong>Buy caskets independently:</strong> Save 50–70% by purchasing from an online retailer. <a href="casket-buying-guide.html">Casket buying guide</a> | <a href="best-online-casket-retailers.html">Best online casket retailers</a></li>`,
+    `<li><strong>Ask about grave liners:</strong> A liner costs significantly less than a full vault and may meet the cemetery's requirements.</li>`,
+    `<li><strong>Consider direct burial or green burial:</strong> Skipping viewing, ceremony, and embalming can save thousands. <a href="green-burial-options.html">Green burial options</a></li>`,
+    `<li><strong>Check headstone prices independently:</strong> Funeral homes and cemeteries mark up headstones. <a href="headstone-monument-costs.html">Headstone cost guide</a></li>`
+  ].join('');
+}
+
+function regionalCremationSavingsBullets(s) {
+  const region = s.region;
+  const regionBullet = {
+    'South': `<li><strong>Check cremation societies:</strong> Nonprofit cremation societies operate in several ${s.name} metros and often undercut full-service funeral homes by $300-$900 on direct cremation while meeting all ${s.name} regulatory requirements.</li>`,
+    'Northeast': `<li><strong>Ask about current turnaround:</strong> Crematory capacity around ${s.cities[0]} can stretch turnaround to 10-14 days during peak periods. If timing matters for a memorial, confirm the specific return-of-ashes window in writing before choosing on price.</li>`,
+    'Midwest': `<li><strong>Price direct cremation as standalone:</strong> ${s.name} funeral homes often bundle direct cremation into broader packages. Ask for the pure direct cremation price — transport, cremation, return of ashes only — to see the true floor.</li>`,
+    'West': `<li><strong>Choose a flat-rate direct cremation provider:</strong> ${s.name} has a mature, competitive direct cremation market. Flat-rate providers in and around ${s.cities[0]} publish transparent pricing and rarely leave much room to negotiate lower; pick on turnaround and reputation rather than haggling.</li>`,
+    'Mountain': `<li><strong>Account for transport distance:</strong> In rural ${s.name}, the nearest crematory may be 100+ miles from the funeral home. Some providers absorb this in the ${$(s.dc)} base price; others charge mileage. Ask directly when getting quotes.</li>`
+  }[region] || '';
+  const faithBullet = region === 'Northeast'
+    ? `<li><strong>Interment of ashes at a church columbarium:</strong> Many ${s.name} parishes and congregations now operate columbaria attached to the church, offering niche inurnment for a fraction of traditional cemetery costs while meeting Catholic and other faith requirements for interment of ashes.</li>`
+    : region === 'West'
+      ? `<li><strong>Look into outdoor scattering options:</strong> Private land (with permission), Pacific scattering services, national forests with a free permit, and several ${s.name} state parks allow ash scattering. DIY scattering with the required permits is effectively free; guided services run $200-$800.</li>`
+      : `<li><strong>Scattering locations worth researching locally:</strong> Private land (with permission), certain national forests with a permit, and inland waterway scattering are typically options in ${s.name}. Check local ordinances before choosing a specific location.</li>`;
+  return [
+    `<li><strong>Compare at least 3 cremation providers in ${s.name}:</strong> Request written General Price Lists. Differences between providers in the same market commonly exceed $500-$1,200 for identical direct cremation services.</li>`,
+    regionBullet,
+    faithBullet,
+    `<li><strong>Buy urns independently:</strong> Save 50-80% versus funeral home urn pricing. The FTC Funeral Rule protects your right to use any urn or container. <a href="urn-buying-guide.html">Urn buying guide</a></li>`,
+    `<li><strong>Hold a memorial separately:</strong> A memorial at a church, park, or home costs a fraction of a funeral home ceremony and can be scheduled whenever the family is ready.</li>`,
+    `<li><strong>Check assistance programs:</strong> <a href="veteran-burial-benefits.html">Veteran benefits</a>, <a href="medicaid-funeral-assistance.html">Medicaid assistance</a>, and <a href="funeral-payment-assistance.html">other programs</a> may cover part or all of cremation costs.</li>`
+  ].filter(Boolean).join('');
+}
+
 function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb) {
   const faqSchema = faqItems && faqItems.length ? `
   <script type="application/ld+json">
@@ -448,11 +625,20 @@ function genState(s) {
   const pctDiff = Math.abs(Math.round((diff / natAvg) * 100));
   const priceComp = diff > 500 ? `${pctDiff}% above` : diff < -500 ? `${pctDiff}% below` : 'near';
 
+  const regionSaveHints = {
+    'South': `Check with local churches and fraternal organizations — in ${s.name}, congregation-owned cemeteries and family sections are often priced well below commercial memorial parks. Veteran burial benefits apply at any national cemetery and some state veterans' cemeteries in ${s.name}.`,
+    'Northeast': `Request frozen-ground pricing separately if the death is between December and March — ${s.name} cemeteries often charge extra in winter. Municipal, Catholic, and Jewish cemeteries in ${s.name} generally price below private memorial parks by $1,000 or more.`,
+    'Midwest': `Township and county cemeteries in ${s.name} rarely appear in online searches but are often half the price of private cemeteries — call the clerk's office in the county where burial will occur. Independent, family-owned funeral homes still dominate ${s.name} and tend to price more transparently than chain providers.`,
+    'West': `${s.name} has a mature green burial and direct cremation market; providers are accustomed to non-traditional arrangements and often price transparently. Conservation burial grounds and hybrid cemetery sections in ${s.name} typically cost 30-50% less than traditional plots in the same cemetery.`,
+    'Mountain': `${s.name}'s low population density means fewer providers, so calling the county clerk for rural cemetery options — and comparing fuel and transport line items closely — matters more than in dense metros. Home and family burial is legal in parts of ${s.name} with permits and can eliminate cemetery fees entirely.`
+  };
+  const regionSaveHint = regionSaveHints[s.region] || regionSaveHints['Midwest'];
+
   const faq = [
     {q:`How much does a funeral cost in ${s.name}?`,a:`The average traditional funeral in ${s.name} costs approximately ${$(s.f)}, which is ${priceComp} the national average of $7,848. Cremation with service averages ${$(s.c)}, while direct cremation starts around ${$(s.dc)}. Cemetery plot and burial fees add approximately ${$(s.b)}. Prices vary by city and provider within ${s.name} — requesting General Price Lists from multiple funeral homes is the most reliable way to compare.`},
     {q:`Is cremation cheaper than burial in ${s.name}?`,a:`Yes. In ${s.name}, direct cremation (${$(s.dc)}) can save families ${$(s.f - s.dc)} or more compared to a traditional funeral with burial (${$(s.f)} plus cemetery costs). The cremation rate in ${s.name} is currently ${s.cr}, ${parseInt(s.cr)>55?'above':'near'} the national average of approximately 60%. ${rc.regNote}`},
     {q:`What are my consumer rights at ${s.name} funeral homes?`,a:`The FTC Funeral Rule protects all consumers in ${s.name}. Every funeral home must provide an itemized General Price List upon request, allow you to select only the services you want (no forced packages), accept caskets purchased elsewhere without additional fees, and refrain from misrepresenting legal requirements. ${s.name} may also have state-specific consumer protections — contact your state funeral regulatory board for details.`},
-    {q:`How can I save on funeral costs in ${s.name}?`,a:`The most effective way to reduce funeral costs in ${s.name} is to compare General Price Lists from at least 2-3 providers in your area. Additional strategies: consider direct cremation at ${$(s.dc)} for the most affordable option, purchase caskets online or from independent retailers (savings of 50-70% are common), check eligibility for veteran burial benefits or Medicaid funeral assistance, and ask funeral homes about basic or simple service packages.`},
+    {q:`How can I save on funeral costs in ${s.name}?`,a:`Start by comparing General Price Lists from at least 2–3 providers in your ${s.cities[0]} area. ${regionSaveHint} Direct cremation at ${$(s.dc)} is the lowest-cost option across every region. Checking eligibility for veteran burial benefits, Medicaid funeral assistance, and Social Security survivor benefits should also be on every ${s.name} family's list.`},
     {q:`Does ${s.name} require embalming?`,a:`${s.name} does not legally require embalming in most circumstances. Embalming is a choice, not a legal requirement, though some funeral homes may require it as a matter of policy for open-casket viewings. Refrigeration is typically available as an alternative. ${rc.embalmNote} Under the FTC Funeral Rule, providers cannot claim embalming is legally required without citing specific legal authority.`},
     {q:`How do funeral costs in ${s.name} compare to other states?`,a:`Funeral costs in ${s.name} are ${rc.priceCtx}. At ${$(s.f)} for a traditional funeral, ${s.name} ranks ${priceComp} the national median of $7,848. The ${s.region} region generally sees ${s.region === 'Northeast' || s.region === 'West' ? 'higher' : 'moderate to lower'} costs compared to other parts of the country. See our state-by-state comparison for detailed pricing across all 50 states.`},
     {q:`What is the cheapest funeral option in ${s.name}?`,a:`The cheapest funeral option in ${s.name} is direct cremation at approximately ${$(s.dc)}. This includes only transportation, cremation, and return of ashes — no viewing, ceremony, or embalming. Families can hold a memorial service separately at any location. Direct burial (no viewing or ceremony) is the next most affordable at approximately ${$(Math.round(s.f*0.6))}. For more options, see our affordable funeral guide.`},
@@ -572,6 +758,9 @@ ${header()}
       <h2 id="consumer-rights">Your Consumer Rights in ${s.name}</h2>
       <div class="callout callout-info"><strong>Know Your Rights Under the FTC Funeral Rule</strong> Every funeral home in ${s.name} must comply with the Federal Trade Commission's Funeral Rule, which protects consumers nationwide. You have the right to: receive an itemized General Price List before making any decisions; choose only the services and products you want; purchase a casket or urn from a third party without penalty; decline embalming unless required by state law for specific circumstances; and receive a written estimate before services are performed.</div>
       <p>If you believe a funeral home in ${s.name} has violated these rights, you can file a complaint with the FTC at <a href="https://www.ftc.gov" target="_blank" rel="nofollow noopener">ftc.gov</a> or contact the <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a> for guidance. Your state attorney general's office can also assist with consumer protection complaints.</p>
+
+      <h2 id="regional-context">What's Specific to ${s.name} (${s.region})</h2>
+      <p>${regionalFuneralNote(s)}</p>
 
       <h2 id="payment-help">Payment Assistance in ${s.name}</h2>
       <p>If funeral costs in ${s.name} feel overwhelming, there are several assistance options to explore:</p>
@@ -726,6 +915,9 @@ ${header()}
       <h2>Your Rights in ${m.city}</h2>
       <div class="callout callout-info"><strong>FTC Funeral Rule Protection</strong> Every funeral home in ${m.city} must provide an itemized General Price List, let you choose only the services you want, and accept caskets purchased elsewhere. You are never required to buy a package. <a href="ftc-funeral-rule-guide.html">Read the full FTC Funeral Rule guide</a>.</div>
 
+      <h2>Regional Context: Funeral Pricing in the ${s.region}</h2>
+      <p>${regionalFuneralNote(s)}</p>
+
       <h2>Ways to Reduce Costs in ${m.city}</h2>
       <ul>
         <li>Compare prices from at least 3 funeral providers in the ${m.city} area</li>
@@ -850,13 +1042,12 @@ ${header()}
       <h2>How to Save on Cremation in ${s.name}</h2>
       <p>Cremation costs in ${s.name} can be reduced with these strategies:</p>
       <ul>
-        <li><strong>Compare providers:</strong> Call 2–3 cremation providers in ${s.name} and request their General Price Lists. <a href="funeral-price-comparison.html">How to compare funeral prices</a></li>
-        <li><strong>Choose direct cremation:</strong> At ${$(s.dc)}, it saves ${savingsVsBurial} compared to traditional burial. <a href="direct-cremation-cost.html">Direct cremation guide</a></li>
-        <li><strong>Buy urns independently:</strong> Save 50–80% on urns by purchasing from a third-party retailer. <a href="urn-buying-guide.html">Urn buying guide</a></li>
-        <li><strong>Hold a memorial separately:</strong> A memorial at a church, park, or home costs a fraction of a funeral home ceremony.</li>
-        <li><strong>Check assistance programs:</strong> <a href="veteran-burial-benefits.html">Veteran benefits</a>, <a href="medicaid-funeral-assistance.html">Medicaid</a>, and <a href="funeral-payment-assistance.html">other assistance programs</a> may help cover costs.</li>
+        ${regionalCremationSavingsBullets(s)}
       </ul>
       <p>For more ways to reduce costs, see our <a href="cheap-funeral-options.html">affordable funeral options guide</a> or learn <a href="how-to-pay-for-a-funeral-with-no-money.html">how to pay for a funeral with no money</a>.</p>
+
+      <h2>Regional Context for Cremation in ${s.name}</h2>
+      <p>${regionalCremationNote(s)}</p>
 
       ${resources('cremation')}
 
@@ -884,11 +1075,20 @@ function genBurial(s) {
   const title = `${s.name} Burial Costs 2026: Plots from ${$(s.b)}`;
   const desc = `Burial costs in ${s.name} (2026): funeral service ${$(s.f)}, cemetery plot from ${$(s.b)}, total ${totalBurial}–${totalBurialHigh}. Hidden fees, casket savings, cheapest options.`;
 
+  const burialRegionHints = {
+    'South': `church- and family-owned cemeteries in the ${s.region} routinely underprice commercial memorial parks, and above-ground entombment is worth asking about in low-lying parts of ${s.name}.`,
+    'Northeast': `${s.name} has many nonprofit, municipal, and denominational cemeteries that undercut private memorial parks, and winter pricing can add a separate line item between December and March.`,
+    'Midwest': `township, county, and fraternal cemeteries in ${s.name} are often only listed through the county clerk and frequently price plots well below commercial memorial parks.`,
+    'West': `green and hybrid burial sections in ${s.name} cemeteries often sit 30-50% below traditional plots, and conservation burial grounds are more established here than in most regions.`,
+    'Mountain': `rural ${s.name} cemeteries served by county clerks often price far below ${s.cities[0]}-area private cemeteries, and seasonal ground-closing windows at elevation can affect the interment timeline.`
+  };
+  const bHint = burialRegionHints[s.region] || burialRegionHints['Midwest'];
+
   const faq = [
     {q:`How much does burial cost in ${s.name}?`,a:`A traditional burial in ${s.name} costs approximately ${$(s.f)} for the funeral service plus ${$(s.b)} for a cemetery plot. When you add a burial vault (${$(Math.round(s.b * 0.4))}), opening and closing fees (${$(Math.round(s.b * 0.5))}), casket (${$(Math.round(s.f * 0.3))}), and headstone ($1,000-$3,000), the total typically ranges from ${totalBurial} to ${totalBurialHigh}.`},
     {q:`Is a burial vault required in ${s.name}?`,a:`Burial vaults are required by most cemeteries in ${s.name} as a matter of cemetery policy (to prevent ground settling), though they are rarely mandated by state law. A grave liner — a less expensive alternative to a full vault — may also meet the cemetery's requirements. Always ask the specific cemetery about their policies and whether cheaper alternatives are accepted. Vault costs in ${s.name} typically range from $800 to $10,000.`},
     {q:`What are the cheapest burial options in ${s.name}?`,a:`The most affordable burial options in ${s.name} include: direct burial (no viewing or ceremony, body buried shortly after death) which eliminates embalming and facility costs; green or natural burial using a biodegradable container and no embalming, available at select ${s.name} cemeteries; and purchasing a casket from an independent retailer rather than the funeral home, which can save 50-70% on casket costs alone. See our affordable funeral options guide for more strategies.`},
-    {q:`How do I compare cemetery costs in ${s.name}?`,a:`Cemetery costs in ${s.name} vary significantly even within the same city. Request a complete price list from each cemetery including plot cost, opening and closing fees, vault requirements, perpetual care fees, and any restrictions. Unlike funeral homes, cemeteries are not covered by the FTC Funeral Rule, so you will need to ask proactively for pricing details. Municipal and religious cemeteries often cost less than private cemeteries.`},
+    {q:`How do I compare cemetery costs in ${s.name}?`,a:`Cemetery costs in ${s.name} vary significantly even within the same city. Request a complete itemized price sheet from each cemetery — plot cost, opening-and-closing fees, vault policies, perpetual care, and any residency or denominational restrictions. Unlike funeral homes, cemeteries are not bound by the FTC Funeral Rule, so you have to ask proactively. In particular, ${bHint}`},
     {q:`What is the total cost of burial in ${s.name} including everything?`,a:`The total cost of burial in ${s.name} including funeral service (${$(s.f)}), cemetery plot (${$(s.b)}), casket (${$(Math.round(s.f*0.3))}), vault (${$(Math.round(s.b*0.4))}), opening/closing (${$(Math.round(s.b*0.5))}), and headstone ($1,000–$3,000) typically ranges from ${totalBurial} to ${totalBurialHigh}. These figures vary by provider and the specific choices made. Comparing at least 2–3 funeral homes and cemeteries separately can save significant money.`},
     {q:`Is green burial available in ${s.name}?`,a:`Green burial options are available in some areas of ${s.name}. Green burial uses biodegradable containers, no embalming, and often costs less than traditional burial. Not all cemeteries in ${s.name} offer green burial sections, so you may need to research options in your area. Some families also consider hybrid approaches, such as traditional caskets with no embalming. See our green burial guide for more details.`}
   ];
@@ -957,14 +1157,12 @@ ${header()}
       <h2>How to Reduce Burial Costs in ${s.name}</h2>
       <p>Burial costs in ${s.name} can be managed with smart planning:</p>
       <ul>
-        <li><strong>Compare cemetery prices:</strong> Municipal and religious cemeteries in ${s.name} often cost less than private cemeteries. Request complete price lists from multiple cemeteries.</li>
-        <li><strong>Buy caskets independently:</strong> Save 50–70% by purchasing from an online retailer. <a href="casket-buying-guide.html">Casket buying guide</a> | <a href="best-online-casket-retailers.html">Best online casket retailers</a></li>
-        <li><strong>Ask about grave liners:</strong> A liner costs significantly less than a full vault and may meet the cemetery's requirements.</li>
-        <li><strong>Consider direct burial:</strong> Skipping the viewing and ceremony can save thousands on embalming and facility fees.</li>
-        <li><strong>Explore green burial:</strong> No embalming, simpler containers, and often lower costs. <a href="green-burial-options.html">Green burial options</a></li>
-        <li><strong>Check headstone prices independently:</strong> Funeral homes and cemeteries mark up headstones. <a href="headstone-monument-costs.html">Headstone cost guide</a></li>
+        ${regionalBurialSavingsBullets(s)}
       </ul>
       <p>For comprehensive cost-saving strategies, see our <a href="cheap-funeral-options.html">affordable funeral options guide</a> or <a href="funeral-payment-assistance.html">payment assistance programs</a>.</p>
+
+      <h2>Regional Context for Burial in ${s.name}</h2>
+      <p>${regionalBurialNote(s)}</p>
 
       ${resources('burial')}
 
@@ -1338,13 +1536,11 @@ ${header()}
 
       <h2>How to Save on Cremation in ${m.city}</h2>
       <ul>
-        <li>Compare prices from at least 3 cremation providers in the ${m.city} area — prices can vary by $1,000 or more</li>
-        <li>Consider direct cremation at ${$(mdc)} for the most affordable option</li>
-        <li>Purchase urns independently rather than through the cremation provider — savings of 50-80% are common</li>
-        <li>Hold a memorial service at a private venue, park, or home instead of a funeral home</li>
-        <li>Ask about veteran benefits or <a href="medicaid-funeral-assistance.html">Medicaid funeral assistance</a> if applicable</li>
-        <li>Review our <a href="cheap-funeral-options.html">affordable funeral options guide</a> for more strategies</li>
+        ${regionalCremationSavingsBullets(s)}
       </ul>
+
+      <h2>Regional Context: Cremation in ${m.city} and the ${s.region}</h2>
+      <p>${regionalCremationNote(s)}</p>
 
       <div class="callout callout-tip"><strong>Cost-Saving Tip:</strong> You do not need to purchase an urn from the cremation provider. The <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a> protects your right to use any urn or container, including ones purchased independently. <a href="urn-buying-guide.html">See our urn buying guide</a>.</div>
 
@@ -1383,7 +1579,13 @@ function genBurialMetro(m) {
   const faq = [
     {q:`How much does burial cost in ${m.city}?`,a:`A traditional burial in ${m.city} costs approximately ${$(mf)} for the funeral service plus ${$(mb)} for a cemetery plot. Including vault (${$(Math.round(mb * 0.4))}), opening/closing fees (${$(Math.round(mb * 0.5))}), casket (${$(Math.round(mf * 0.3))}), and headstone ($1,500-$3,000), the total ranges from ${totalBurial} to ${totalBurialHigh}.`},
     {q:`Is a burial vault required in ${m.city}?`,a:`Burial vaults are required by most cemeteries in the ${m.city} area as a matter of cemetery policy to prevent ground settling. They are rarely required by ${m.st} state law. A grave liner — a less expensive alternative — may meet the cemetery's requirements. Always ask your specific cemetery about their vault policy and whether cheaper alternatives are accepted.`},
-    {q:`What are the cheapest burial options in ${m.city}?`,a:`The most affordable burial options in ${m.city} include: direct burial (no viewing or ceremony), which can save thousands on embalming and facility fees; green burial using a biodegradable container and no embalming; and purchasing a casket from an independent retailer to save 50-70%. Municipal and religious cemeteries in ${m.city} often have lower plot costs than private cemeteries.`},
+    {q:`What are the cheapest burial options in ${m.city}?`,a:`The most affordable burial options in ${m.city} include: direct burial (no viewing or ceremony), which can save thousands on embalming and facility fees; green burial using a biodegradable container and no embalming; and purchasing a casket from an independent retailer to save 50-70%. In the ${s.region}, ${({
+  'South': `church and family cemeteries in the ${m.city} area are often priced well below commercial memorial parks`,
+  'Northeast': `denominational and municipal cemeteries in the ${m.city} area typically undercut private memorial parks by $1,000 or more`,
+  'Midwest': `township and county cemeteries in the ${m.city} area frequently price plots below commercial memorial parks — call the county clerk`,
+  'West': `hybrid or natural burial sections in ${m.city}-area cemeteries often price 30-50% below traditional plots`,
+  'Mountain': `rural cemeteries outside the ${m.city} metro often price far below ${m.city}-area private cemeteries — check with the county clerk`
+})[s.region] || `nonprofit and municipal cemeteries in the ${m.city} area tend to have lower plot costs than private ones`}.`},
     {q:`How do ${m.city} burial costs compare to ${m.st}?`,a:`Burial costs in ${m.city} are ${m.mp > 1.1 ? 'approximately ' + Math.round((m.mp-1)*100) + '% above' : 'close to'} the ${m.st} state average. At ${$(mf)} for a funeral service (vs. ${$(s.f)} statewide) and ${$(mb)} for a cemetery plot (vs. ${$(s.b)}), the ${m.city} metro premium reflects higher real estate and operating costs.`}
   ];
 
@@ -1470,13 +1672,11 @@ ${header()}
 
       <h2>Ways to Reduce Burial Costs in ${m.city}</h2>
       <ul>
-        <li>Compare prices from at least 3 funeral homes and cemeteries in the ${m.city} area</li>
-        <li>Purchase caskets from independent retailers or online — savings of 50-70% are common. <a href="casket-buying-guide.html">See our casket buying guide</a></li>
-        <li>Consider municipal or religious cemeteries, which often charge less than private ones</li>
-        <li>Ask about grave liner options, which cost less than full burial vaults</li>
-        <li>Explore <a href="best-burial-insurance.html">burial insurance</a> or <a href="funeral-payment-assistance.html">payment assistance programs</a></li>
-        <li>Consider direct burial to eliminate embalming and facility costs</li>
+        ${regionalBurialSavingsBullets(s)}
       </ul>
+
+      <h2>Regional Context: Burial in ${m.city} and the ${s.region}</h2>
+      <p>${regionalBurialNote(s)}</p>
 
       <div class="callout callout-tip"><strong>Save on Caskets:</strong> Under the <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a>, funeral homes must accept caskets purchased from third-party retailers without charging handling fees. <a href="best-online-casket-retailers.html">Compare online casket retailers</a> to save significantly.</div>
 
