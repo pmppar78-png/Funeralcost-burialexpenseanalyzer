@@ -4528,3 +4528,247 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
+
+/* Homepage utility classes — extracted from inline styles */
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mt-075 { margin-top: 0.75rem; }
+
+.index-feature-box {
+  margin-top: var(--space-lg);
+  background: var(--gold-50);
+  border: 2px solid var(--gold-400);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+}
+.index-feature-box-title {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  color: var(--brown-700);
+  font-weight: 700;
+}
+.index-feature-box-desc {
+  margin: 0 0 var(--space-md);
+  font-size: 0.875rem;
+  color: var(--warm-600);
+  line-height: 1.5;
+}
+.btn-primary.btn-sm { font-size: 0.875rem; }
+
+.estimator-result--hidden { display: none; }
+.estimator-save-block {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+}
+.resource-grid--spaced { margin-bottom: var(--space-lg); }
+.cost-table-wrap--spaced { margin: var(--space-lg) 0; }
+.comparison-grid--spaced { margin: var(--space-lg) 0; }
+.center-note { margin-top: var(--space-md); text-align: center; }
+.nav-dropdown-link--featured {
+  font-weight: 600;
+  color: var(--brown-700);
+}
+.footer-link-muted {
+  color: var(--warm-400);
+  text-decoration: none;
+}
+.honeypot-field { display: none; }
+
+/* ===========================================================
+   Funeral Cost Widget page — warm palette rebrand
+   =========================================================== */
+.meta-link { color: var(--brown-500); }
+
+.widget-preview-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+/* Live preview widget — full */
+.fcw-widget {
+  width: 100%;
+  font-family: var(--font-body);
+  border: 1px solid var(--warm-200);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--warm-50);
+  box-shadow: 0 1px 3px rgba(92, 58, 30, 0.10);
+  color: var(--brown-800);
+  line-height: 1.5;
+}
+.fcw-widget--full { max-width: 300px; }
+.fcw-widget--compact {
+  max-width: 260px;
+  border-radius: 8px;
+}
+
+.fcw-widget__header {
+  background: var(--brown-700);
+  color: var(--gold-50);
+  padding: 14px 16px;
+  text-align: center;
+}
+.fcw-widget__header--compact {
+  padding: 10px 14px;
+}
+
+.fcw-widget__title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.fcw-widget__title--compact {
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.fcw-widget__body {
+  padding: 16px;
+  background: #ffffff;
+}
+.fcw-widget__body--compact {
+  padding: 12px 14px;
+}
+
+.fcw-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.fcw-row--compact { padding: 6px 0; }
+.fcw-row--bordered { border-bottom: 1px solid var(--warm-200); }
+
+.fcw-row__label {
+  font-size: 13px;
+  color: var(--warm-600);
+}
+.fcw-row__label--compact { font-size: 12px; }
+
+.fcw-row__value {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brown-800);
+}
+.fcw-row__value--compact { font-size: 13px; }
+
+.fcw-widget__cta-wrap {
+  padding: 0 16px 12px;
+  background: #ffffff;
+}
+.fcw-widget__cta {
+  display: block;
+  text-align: center;
+  background: var(--gold-600);
+  color: #ffffff;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+.fcw-widget__cta:hover { background: var(--brown-600); }
+
+.fcw-widget__footer {
+  background: var(--gold-50);
+  padding: 10px 16px;
+  text-align: center;
+  border-top: 1px solid var(--warm-200);
+}
+.fcw-widget__footer--compact { padding: 8px 14px; }
+
+.fcw-widget__attribution {
+  font-size: 11px;
+  color: var(--warm-600);
+}
+.fcw-widget__attribution--compact { font-size: 10px; }
+
+.fcw-widget__attribution-link {
+  color: var(--gold-600);
+  text-decoration: none;
+}
+.fcw-widget__attribution-link:hover { text-decoration: underline; }
+
+/* Embed code textareas */
+.embed-code-wrap { position: relative; }
+.embed-code-textarea {
+  width: 100%;
+  min-height: 240px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 16px;
+  border: 1px solid var(--warm-200);
+  border-radius: 8px;
+  background: var(--warm-50);
+  color: var(--brown-800);
+  resize: vertical;
+  white-space: pre;
+  overflow-x: auto;
+}
+.embed-code-textarea--tall { min-height: 320px; }
+.embed-copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--gold-600);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.embed-copy-btn:hover { background: var(--brown-600); }
+
+/* FAQ callouts on widget page */
+.callout-heading { margin-top: 0; }
+.callout-para { margin-bottom: 0; }
+
+/* Widget page bottom CTA banner — warm replacement for slate gradient */
+.widget-cta-banner {
+  background: linear-gradient(135deg, var(--brown-700) 0%, var(--brown-800) 100%);
+  color: var(--warm-50);
+  border: none;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2.5rem;
+}
+.widget-cta-banner__heading {
+  margin-top: 0;
+  color: var(--gold-100);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}
+.widget-cta-banner__body {
+  color: var(--gold-200);
+  margin-bottom: 1.25rem;
+}
+.widget-cta-banner__button {
+  display: inline-block;
+  background: var(--gold-500);
+  color: var(--brown-900);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+.widget-cta-banner__button:hover {
+  background: var(--gold-400);
+  color: var(--brown-900);
+}

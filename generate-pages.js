@@ -105,7 +105,7 @@ const metros = [
   {city:"Virginia Beach",slug:"virginia-beach",st:"Virginia",ss:"virginia",mp:1.05},
   {city:"Colorado Springs",slug:"colorado-springs",st:"Colorado",ss:"colorado",mp:1.05},
   {city:"Mesa",slug:"mesa-az",st:"Arizona",ss:"arizona",mp:1.05},
-  {city:"Washington DC",slug:"washington-dc",st:"Virginia",ss:"virginia",mp:1.3},
+  {city:"Washington DC",slug:"washington-dc",st:"District of Columbia",ss:"virginia",mp:1.35,dc:true},
   {city:"El Paso",slug:"el-paso",st:"Texas",ss:"texas",mp:0.95}
 ];
 
@@ -212,7 +212,7 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"${esc(title)}","description":"${esc(desc)}","datePublished":"2026-01-15","dateModified":"${LASTMOD}","author":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"publisher":{"@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"${BASE}/"},"mainEntityOfPage":{"@type":"WebPage","@id":"${BASE}/${filename}"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"${esc(title)}","description":"${esc(desc)}","datePublished":"2026-01-15","dateModified":"${LASTMOD}","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"${BASE}/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"${BASE}/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"${BASE}/${filename}"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":${breadcrumbItems}}
@@ -344,9 +344,10 @@ function footer() {
 function resources(type) {
   const costCluster = `<div class="resource-suggestions"><h3>Compare Funeral Costs</h3><ul class="resource-list"><li><a href="average-funeral-cost-2026.html">Average Funeral Cost in 2026</a><span class="resource-desc">National cost breakdown with real prices</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Comparison</a><span class="resource-desc">Side-by-side price comparison to help you decide</span></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a><span class="resource-desc">Every line item explained — know what you're paying for</span></li><li><a href="cheap-funeral-options.html">Cheapest Funeral Options</a><span class="resource-desc">Affordable alternatives that can save thousands</span></li><li><a href="direct-cremation-cost.html">Direct Cremation — Most Affordable Option</a><span class="resource-desc">From $1,000 — the lowest-cost disposition choice</span></li><li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a><span class="resource-desc">Step-by-step guide to getting the best price</span></li></ul></div>`;
   const all = {
-    general: `<div class="resource-suggestions"><h3>Resources That May Help</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Independent consumer advocacy for funeral rights</span></li><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored">Parting.com</a><span class="resource-desc">Compare funeral home prices in your area</span></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Compare final expense and burial insurance options</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a><span class="resource-desc">Side-by-side comparison of top burial insurance providers</span></li><li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">Government programs and financial help for funeral costs</span></li><li><a href="funeral-insurance-comparison.html">Insurance Plan Comparison</a><span class="resource-desc">Compare coverage, premiums, and payout speed across providers</span></li></ul></div>` + costCluster,
-    cremation: `<div class="resource-suggestions"><h3>Cremation Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a><span class="resource-desc">Compare cremation providers and prices</span></li><li><a href="cremation-jewelry-guide.html">Cremation Jewelry Guide</a><span class="resource-desc">Memorial keepsakes and remembrance options</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs</a><span class="resource-desc">Side-by-side cost comparison</span></li><li><a href="urn-buying-guide.html">Urn Buying Guide</a><span class="resource-desc">Types, prices, and how to choose the right urn</span></li><li><a href="pet-cremation-costs.html">Pet Cremation Costs</a><span class="resource-desc">Options and prices for pet cremation and memorials</span></li><li><a href="final-expense-insurance-guide.html">Final Expense Insurance</a><span class="resource-desc">Coverage options to help pay for cremation costs</span></li></ul></div>` + costCluster,
-    burial: `<div class="resource-suggestions"><h3>Burial Resources</h3><ul class="resource-list"><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer sponsored">Parting.com</a><span class="resource-desc">Compare burial costs from local providers</span></li><li><a href="headstone-monument-costs.html">Headstone &amp; Monument Guide</a><span class="resource-desc">Costs, types, and buying tips</span></li><li><a href="green-burial-options.html">Green Burial Options</a><span class="resource-desc">Eco-friendly and natural alternatives</span></li><li><a href="best-online-casket-retailers.html">Best Online Casket Retailers</a><span class="resource-desc">Save 50-70% buying caskets online</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance</a><span class="resource-desc">Compare plans to cover burial expenses</span></li></ul></div>` + costCluster
+    general: `<div class="resource-suggestions"><h3>Educational Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a><span class="resource-desc">Independent nonprofit consumer advocacy for funeral rights</span></li><li><a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-revised-rule" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a><span class="resource-desc">The federal rule protecting funeral consumers</span></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Compare final expense and burial insurance options</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a><span class="resource-desc">Side-by-side comparison of top burial insurance providers</span></li><li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">Government programs and financial help for funeral costs</span></li><li><a href="funeral-insurance-comparison.html">Insurance Plan Comparison</a><span class="resource-desc">Compare coverage, premiums, and payout speed across providers</span></li></ul></div>` + costCluster,
+    cremation: `<div class="resource-suggestions"><h3>Cremation Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a><span class="resource-desc">Nonprofit advocacy — compare cremation providers</span></li><li><a href="cremation-jewelry-guide.html">Cremation Jewelry Guide</a><span class="resource-desc">Memorial keepsakes and remembrance options</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs</a><span class="resource-desc">Side-by-side cost comparison</span></li><li><a href="urn-buying-guide.html">Urn Buying Guide</a><span class="resource-desc">Types, prices, and how to choose the right urn</span></li><li><a href="pet-cremation-costs.html">Pet Cremation Costs</a><span class="resource-desc">Options and prices for pet cremation and memorials</span></li><li><a href="final-expense-insurance-guide.html">Final Expense Insurance</a><span class="resource-desc">Coverage options to help pay for cremation costs</span></li></ul></div>` + costCluster,
+    burial: `<div class="resource-suggestions"><h3>Burial Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a><span class="resource-desc">Nonprofit consumer advocacy for funeral pricing</span></li><li><a href="headstone-monument-costs.html">Headstone &amp; Monument Guide</a><span class="resource-desc">Costs, types, and buying tips</span></li><li><a href="green-burial-options.html">Green Burial Options</a><span class="resource-desc">Eco-friendly and natural alternatives</span></li><li><a href="best-online-casket-retailers.html">Best Online Casket Retailers</a><span class="resource-desc">Save 50-70% buying caskets online</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance</a><span class="resource-desc">Compare plans to cover burial expenses</span></li></ul></div>` + costCluster,
+    sensitive: `<div class="resource-suggestions"><h3>Trusted Support Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a><span class="resource-desc">Independent nonprofit — consumer rights and local affiliates</span></li><li><a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-revised-rule" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a><span class="resource-desc">Federal protections for funeral consumers</span></li><li><a href="ftc-funeral-rule-guide.html">Your Consumer Rights Guide</a><span class="resource-desc">Plain-English walkthrough of the FTC Funeral Rule</span></li><li><a href="funeral-payment-assistance.html">Financial Assistance Programs</a><span class="resource-desc">Government and nonprofit programs that may help</span></li><li><a href="grief-resources.html">Grief Support Resources</a><span class="resource-desc">Curated grief support organizations and hotlines</span></li></ul></div>`
   };
   return all[type] || all.general;
 }
@@ -432,7 +433,7 @@ function ctaBanner() {
 // ── State Pages ─────────────────────────────────────────────────
 function genState(s) {
   const fn = `funeral-costs-${s.slug}.html`;
-  const title = `Funeral Cost in ${s.name} (2026) — ${$(s.dc)} to ${$(s.f)} | Full Price Breakdown`;
+  const title = `${s.name} Funeral Cost 2026: ${$(s.dc)}–${$(s.f)} | Real Prices`;
   const desc = `How much does a funeral cost in ${s.name} in 2026? Real prices: traditional burial ${$(s.f)}, cremation ${$(s.c)}, direct cremation from ${$(s.dc)}. See the full ${s.name} cost breakdown, hidden fees to avoid, and proven ways to save thousands.`;
   const regionCtx = {
     'South': {priceCtx:'below the national average, reflecting the lower cost of living in the region', regNote:'Many Southern families have strong traditions around homegoing services and church-based funerals, which can affect service choices and costs.', embalmNote:'Some Southern funeral homes may emphasize traditional open-casket services, but embalming remains optional by law in most cases.'},
@@ -474,8 +475,9 @@ ${header()}
       <h1>Funeral Costs in ${s.name}: What Families Pay in 2026</h1>
 
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, ${s.name} Funeral Board</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, ${s.name} Funeral Board</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">${s.region}</span></span>
       </div>
 
@@ -560,7 +562,7 @@ ${header()}
 
       <h2 id="consumer-rights">Your Consumer Rights in ${s.name}</h2>
       <div class="callout callout-info"><strong>Know Your Rights Under the FTC Funeral Rule</strong> Every funeral home in ${s.name} must comply with the Federal Trade Commission's Funeral Rule, which protects consumers nationwide. You have the right to: receive an itemized General Price List before making any decisions; choose only the services and products you want; purchase a casket or urn from a third party without penalty; decline embalming unless required by state law for specific circumstances; and receive a written estimate before services are performed.</div>
-      <p>If you believe a funeral home in ${s.name} has violated these rights, you can file a complaint with the FTC at <a href="https://www.ftc.gov" target="_blank" rel="noopener noreferrer">ftc.gov</a> or contact the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a> for guidance. Your state attorney general's office can also assist with consumer protection complaints.</p>
+      <p>If you believe a funeral home in ${s.name} has violated these rights, you can file a complaint with the FTC at <a href="https://www.ftc.gov" target="_blank" rel="nofollow noopener">ftc.gov</a> or contact the <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a> for guidance. Your state attorney general's office can also assist with consumer protection complaints.</p>
 
       <h2 id="payment-help">Payment Assistance in ${s.name}</h2>
       <p>If funeral costs in ${s.name} feel overwhelming, there are several assistance options to explore:</p>
@@ -612,8 +614,8 @@ function genMetro(m) {
   const mc = Math.round(s.c * m.mp);
   const mdc = Math.round(s.dc * m.mp);
   const mb = Math.round(s.b * m.mp);
-  const title = `Funeral Costs in ${m.city} (2026) — Real Prices ${$(mdc)} to ${$(mf)} | Save Money`;
-  const desc = `What does a funeral cost in ${m.city}, ${m.st} in 2026? Traditional funeral ${$(mf)}, cremation ${$(mc)}, direct cremation from ${$(mdc)}. Compare ${m.city} funeral home prices and learn how to save thousands on funeral costs.`;
+  const title = `${m.city} Funeral Cost 2026: ${$(mdc)}–${$(mf)} | ${m.dc ? 'DC' : m.st} Prices`;
+  const desc = `What does a funeral cost in ${m.city}${m.dc ? '' : ', ' + m.st} in 2026? Traditional funeral ${$(mf)}, cremation ${$(mc)}, direct cremation from ${$(mdc)}. Compare ${m.city} funeral home prices and learn how to save thousands on funeral costs.`;
 
   // Find nearby cities in the same state for comparison
   const stateMetros = metros.filter(x => x.ss === m.ss && x.slug !== m.slug);
@@ -650,18 +652,19 @@ function genMetro(m) {
       </div>
       <p>${mf > s.f ? `At ${$(mf)}, ${m.city} runs about ${Math.round((m.mp-1)*100)}% above the ${m.st} state average of ${$(s.f)}. This premium reflects ${m.city}'s higher cost of living, real estate, and provider overhead.` : `${m.city}'s funeral costs are close to or below the ${m.st} state average of ${$(s.f)}, making it a relatively affordable area for funeral services.`} Regardless of location, comparing at least 2-3 providers before committing can save families $1,000 or more.</p>` : '';
 
-  const content = `${head(title, desc, fn, `Funeral Costs in ${m.city}`, faq, {name:`${s.name} Funeral Costs`,url:`funeral-costs-${s.slug}.html`})}
+  const content = `${head(title, desc, fn, `Funeral Costs in ${m.city}`, faq, m.dc ? {name:'Funeral Costs by State',url:'funeral-costs-by-state.html'} : {name:`${s.name} Funeral Costs`,url:`funeral-costs-${s.slug}.html`})}
 ${header()}
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
       <nav class="guide-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> &rsaquo; <a href="funeral-costs-by-state.html">Costs by State</a> &rsaquo; <a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">${m.city}</span>
+        <a href="/">Home</a> &rsaquo; <a href="funeral-costs-by-state.html">Costs by State</a> &rsaquo; ${m.dc ? '' : `<a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; `}<span aria-current="page">${m.city}</span>
       </nav>
 
-      <h1>Funeral Costs in ${m.city}, ${m.st} (2026)</h1>
+      <h1>Funeral Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">State:</span> <span class="article-meta-value"><a href="funeral-costs-${s.slug}.html">${m.st}</a></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="funeral-costs-${s.slug}.html">${m.st}</a>`}</span></span>
       </div>
 
       <p class="guide-intro">If you are arranging a funeral in the ${m.city} metropolitan area, this guide provides realistic cost estimates to help you plan. Funeral costs in ${m.city} tend to be ${m.mp > 1.15 ? 'higher than' : 'close to'} the ${m.st} state average due to the area's cost of living. Understanding typical prices empowers you to make confident, informed decisions for your family.</p>
@@ -746,7 +749,7 @@ ${footer()}`;
 // ── Cremation State Pages ───────────────────────────────────────
 function genCremation(s) {
   const fn = `cremation-costs-${s.slug}.html`;
-  const title = `Cremation Cost in ${s.name} (2026) — From ${$(s.dc)} | Save vs. Burial`;
+  const title = `${s.name} Cremation Cost 2026: From ${$(s.dc)} | Save vs. Burial`;
   const desc = `Cremation costs in ${s.name}: direct cremation from ${$(s.dc)}, cremation with service ${$(s.c)}. Save up to ${$(s.f - s.dc)} vs. traditional burial. Compare ${s.name} cremation providers, types, and prices.`;
   const crRate = parseInt(s.cr);
   const crContext = crRate > 70 ? 'one of the highest cremation rates in the nation' : crRate > 55 ? 'above the national average' : crRate > 45 ? 'near the national average' : 'below the national average, though cremation rates have been rising steadily';
@@ -772,11 +775,20 @@ ${header()}
 
       <h1>Cremation Costs in ${s.name} (2026)</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
       </div>
 
-      <p class="guide-intro">With a cremation rate of ${s.cr}, ${parseInt(s.cr) > 55 ? 'cremation is the most popular disposition choice' : 'cremation is increasingly chosen by families'} in ${s.name}. Whether you are considering direct cremation as the most affordable option or a full funeral service followed by cremation, this guide explains what to expect and what you will pay in ${s.name}.</p>
+      <p class="guide-intro">${(function(){
+        const openings = [
+          `With a cremation rate of ${s.cr}, ${parseInt(s.cr) > 55 ? 'cremation is the most popular disposition choice' : 'cremation is increasingly chosen by families'} in ${s.name}. Whether you are considering direct cremation as the most affordable option or a full funeral service followed by cremation, this guide explains what to expect and what you will pay in ${s.name}.`,
+          `Cremation pricing in ${s.name} is simpler than traditional burial but can still vary by thousands of dollars between providers. Direct cremation starts around ${$(s.dc)} while cremation with a full service averages ${$(s.c)}. This guide walks through what's included at each price point and how ${s.name}'s ${s.cr} cremation rate shapes local options.`,
+          `Families choosing cremation in ${s.name} save an average of ${$(s.f - s.dc)} compared to traditional burial. The state's cremation rate — currently ${s.cr} — reflects a steady national shift toward simpler, lower-cost services. Here's the real pricing in ${s.name}, plus what to watch for when comparing providers.`,
+          `If you're weighing cremation in ${s.name}, the first honest question is: direct cremation or cremation with a service? The gap between them — roughly ${$(s.c - s.dc)} in ${s.name} — is where most of the decision lives. This guide breaks down both options with current pricing and the regulations that apply in ${s.name}.`
+        ];
+        return openings[s.abbr.charCodeAt(1) % openings.length];
+      })()}</p>
 
       <div class="stat-highlights">
         <div class="stat-box"><span class="stat-number">${$(s.dc)}</span><span class="stat-label">Direct Cremation</span></div>
@@ -852,7 +864,7 @@ function genBurial(s) {
   const fn = `burial-costs-${s.slug}.html`;
   const totalBurial = $(Math.round(s.f + s.b + s.b * 0.9));
   const totalBurialHigh = $(Math.round(s.f * 1.3 + s.b * 2 + s.b * 0.9));
-  const title = `Burial Cost in ${s.name} (2026) — Plots from ${$(s.b)}, Total ${totalBurial}+ | Save`;
+  const title = `${s.name} Burial Cost 2026: Plots from ${$(s.b)} | Save Thousands`;
   const desc = `How much does burial cost in ${s.name} in 2026? Funeral service ${$(s.f)}, cemetery plot from ${$(s.b)}, total burial cost ${totalBurial}–${totalBurialHigh}. See hidden fees, casket savings, and cheapest burial options.`;
 
   const faq = [
@@ -874,11 +886,21 @@ ${header()}
 
       <h1>Burial Costs in ${s.name} (2026)</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">${s.region}</span></span>
       </div>
 
-      <p class="guide-intro">Traditional burial remains a meaningful choice for many ${s.name} families. Understanding the full cost picture — from funeral service fees to cemetery charges, caskets, vaults, and headstones — helps you plan with confidence. This guide breaks down what you can expect to pay for burial in ${s.name} and how to make informed decisions.</p>
+      <p class="guide-intro">${(function(){
+        const openings = [
+          `Traditional burial remains a meaningful choice for many ${s.name} families. Understanding the full cost picture — from funeral service fees to cemetery charges, caskets, vaults, and headstones — helps you plan with confidence. This guide breaks down what you can expect to pay for burial in ${s.name} and how to make informed decisions.`,
+          `If you are arranging a burial in ${s.name}, the costs can add up faster than most families expect. Between the funeral home bill and the separate cemetery invoice, total burial expenses in ${s.name} typically range from ${$(Math.round(s.f + s.b + s.b*0.9))} to well over ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}. This guide lays out what drives each line item and where families have room to save.`,
+          `Burial costs in ${s.name} are shaped by three separate bills: the funeral home's service fee (around ${$(s.f)}), the cemetery's plot and interment charges (starting near ${$(s.b)}), and the headstone or marker (typically $1,000–$3,000). Each is negotiable in its own way. This guide walks through each one so you know what you're actually paying for.`,
+          `Planning a burial in ${s.name} is more involved than most people realize — there's the funeral home, the cemetery, the casket, the vault, the headstone, and the paperwork, and each comes with its own price list. We've broken down current ${s.name} costs so you can compare providers honestly and avoid the charges that often get bundled quietly into a package.`,
+          `Whether ${s.name} burial is a family tradition or simply the right choice for your loved one, knowing the real numbers before you walk into a funeral home matters. Average totals in ${s.name} run from ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}, but careful comparison — especially on caskets and cemetery choice — can cut thousands off that bill.`
+        ];
+        return openings[s.abbr.charCodeAt(0) % openings.length];
+      })()}</p>
 
       <div class="stat-highlights">
         <div class="stat-box"><span class="stat-number">${$(s.f)}</span><span class="stat-label">Avg. Funeral Service</span></div>
@@ -966,9 +988,10 @@ ${header()}
 
       <h1>${p.st}: What Families Need to Know in 2026</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, Government Sources</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html" style="color:var(--brown-500);">Our Standards</a></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, Government Sources</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
       </div>
 
       <p class="guide-intro">${p.d} This guide is designed to give you clear, honest, and compassionate information so you can navigate these decisions with confidence. Take your time reading — there is no rush, and every family's path is different.</p>
@@ -1015,7 +1038,7 @@ ${header()}
         <li><strong>Third-party merchandise</strong> — Funeral homes must accept caskets and urns purchased elsewhere without penalty</li>
         <li><strong>Truth in representation</strong> — Providers cannot make false claims about legal requirements for services like embalming</li>
       </ul>
-      <p>If you believe your rights have been violated, contact the <a href="https://www.ftc.gov" target="_blank" rel="noopener noreferrer">Federal Trade Commission</a>, your state attorney general, or the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer sponsored">Funeral Consumers Alliance</a>.</p>
+      <p>If you believe your rights have been violated, contact the <a href="https://www.ftc.gov" target="_blank" rel="nofollow noopener">Federal Trade Commission</a>, your state attorney general, or the <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a>.</p>
 
       <h2 id="steps">Practical Steps You Can Take</h2>
       <ol>
@@ -1029,7 +1052,7 @@ ${header()}
         <li><strong>Document decisions</strong> — Write down your wishes and share them with family members and your estate planner</li>
       </ol>
 
-      ${resources('general')}
+      ${resources(['military-funeral-honors.html','infant-child-funeral-costs.html','funeral-costs-uninsured.html','funeral-planning-for-parents.html','body-donation-guide.html','medicaid-funeral-assistance.html','funeral-overcharging-protection.html','consumer-rights-funeral-pricing.html'].includes(p.fn) ? 'sensitive' : 'general')}
 
       <h2 id="faq">Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
@@ -1085,8 +1108,9 @@ ${header()}
 
       <h1>Cremation Costs by State: 2026 Price Comparison</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, State Boards</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, State Boards</span></span>
       </div>
 
       <p class="guide-intro">Cremation has become the most popular disposition choice in the United States, with the national cremation rate exceeding 60%. Costs vary significantly by state — direct cremation can range from under $1,000 in some Southern states to over $3,000 in the Northeast. This guide compares cremation costs across all 50 states to help you understand what to expect in your area.</p>
@@ -1155,8 +1179,9 @@ ${header()}
 
       <h1>Burial Costs by State: 2026 Price Comparison</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, FCA, State Boards</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, State Boards</span></span>
       </div>
 
       <p class="guide-intro">Traditional burial remains a deeply meaningful choice for many American families. However, the total cost — including the funeral service, cemetery plot, casket, vault, headstone, and associated fees — can vary by thousands of dollars between states. This guide compares burial costs across all 50 states to help you plan with realistic expectations and make informed decisions.</p>
@@ -1203,8 +1228,8 @@ function genCremationMetro(m) {
   const mc = Math.round(s.c * m.mp);
   const crRate = parseInt(s.cr);
   const savingsVsBurial = $(Math.round(s.f * m.mp) - mdc);
-  const title = `Cremation Cost in ${m.city} (2026) — From ${$(mdc)} | Save vs. Burial`;
-  const desc = `Cremation in ${m.city}, ${m.st} in 2026: direct cremation from ${$(mdc)}, with service ${$(mc)}. Save up to ${savingsVsBurial} vs. traditional burial. Compare ${m.city} cremation providers and prices.`;
+  const title = `${m.city} Cremation Cost 2026: From ${$(mdc)} | Save vs. Burial`;
+  const desc = `Cremation in ${m.city}${m.dc ? '' : ', ' + m.st} in 2026: direct cremation from ${$(mdc)}, with service ${$(mc)}. Save up to ${savingsVsBurial} vs. traditional burial. Compare ${m.city} cremation providers and prices.`;
 
   const stateMetros = metros.filter(x => x.ss === m.ss && x.slug !== m.slug);
   const nearbyComparison = stateMetros.slice(0, 3);
@@ -1246,10 +1271,11 @@ ${header()}
         <a href="/">Home</a> &rsaquo; <a href="cremation-costs-by-state.html">Cremation Costs by State</a> &rsaquo; <a href="cremation-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">${m.city}</span>
       </nav>
 
-      <h1>Cremation Costs in ${m.city}, ${m.st} (2026)</h1>
+      <h1>Cremation Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">State:</span> <span class="article-meta-value"><a href="cremation-costs-${s.slug}.html">${m.st}</a></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="cremation-costs-${s.slug}.html">${m.st}</a>`}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
       </div>
 
@@ -1323,8 +1349,8 @@ function genBurialMetro(m) {
   const mb = Math.round(s.b * m.mp);
   const totalBurial = $(Math.round(mf + mb + mb * 0.9));
   const totalBurialHigh = $(Math.round(mf * 1.3 + mb * 2 + mb * 0.9));
-  const title = `Burial Cost in ${m.city} (2026) — Total ${totalBurial}+ | Cemetery &amp; Service Prices`;
-  const desc = `Burial cost in ${m.city}, ${m.st} in 2026: funeral service ${$(mf)}, cemetery plot from ${$(mb)}, total ${totalBurial}–${totalBurialHigh}. Compare ${m.city} cemeteries and funeral homes. See how to save.`;
+  const title = `${m.city} Burial Cost 2026: Total ${totalBurial}+ | Cemetery Prices`;
+  const desc = `Burial cost in ${m.city}${m.dc ? '' : ', ' + m.st} in 2026: funeral service ${$(mf)}, cemetery plot from ${$(mb)}, total ${totalBurial}–${totalBurialHigh}. Compare ${m.city} cemeteries and funeral homes. See how to save.`;
 
   const stateMetros = metros.filter(x => x.ss === m.ss && x.slug !== m.slug);
   const nearbyComparison = stateMetros.slice(0, 3);
@@ -1365,10 +1391,11 @@ ${header()}
         <a href="/">Home</a> &rsaquo; <a href="burial-costs-by-state.html">Burial Costs by State</a> &rsaquo; <a href="burial-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">${m.city}</span>
       </nav>
 
-      <h1>Burial Costs in ${m.city}, ${m.st} (2026)</h1>
+      <h1>Burial Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">State:</span> <span class="article-meta-value"><a href="burial-costs-${s.slug}.html">${m.st}</a></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="burial-costs-${s.slug}.html">${m.st}</a>`}</span></span>
       </div>
 
       <p class="guide-intro">Understanding the full cost of burial in ${m.city} — from funeral service fees to cemetery charges — helps families plan with confidence. Burial costs in the ${m.city} metropolitan area tend to be ${m.mp > 1.15 ? 'higher than' : 'close to'} the ${m.st} state average. This guide breaks down what you can expect to pay and how to make informed decisions.</p>
@@ -1527,9 +1554,10 @@ ${header()}
 
       <h1>${p.st}: What You Need to Know in 2026</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, Insurance Industry Data, Government Sources</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html" style="color:var(--brown-500);">Our Standards</a></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, Insurance Industry Data, Government Sources</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
       </div>
 
       <p class="guide-intro">${p.d} This guide provides clear, honest, and independent information to help you make the best decision for your family.</p>
@@ -1663,9 +1691,10 @@ ${header()}
 
       <h1>${p.tradition} Funeral Costs: Traditions and Pricing in 2026</h1>
       <div class="article-meta">
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Reviewed:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value">NFDA, Religious Organizations, Consumer Surveys</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html" style="color:var(--brown-500);">Our Standards</a></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, Religious Organizations, Consumer Surveys</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
       </div>
 
       <p class="guide-intro">${p.details.overview}</p>
@@ -1704,7 +1733,7 @@ ${header()}
 
       <div class="callout callout-info"><strong>Know Your Rights:</strong> Regardless of religious tradition, the <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a> protects your right to receive itemized pricing, choose only the services you want, and use caskets or urns purchased from third parties. These federal protections apply at every funeral home in the United States.</div>
 
-      ${resources('general')}
+      ${resources('sensitive')}
 
       <h2 id="faq">Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
