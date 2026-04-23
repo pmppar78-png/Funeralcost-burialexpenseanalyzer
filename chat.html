@@ -487,22 +487,22 @@
     <!-- Warm introduction explaining what the AI can help with -->
     <div class="chat-intro">
       <div class="chat-intro-card">
-        <h1>AI Funeral Cost Expert — Free, Private Guidance</h1>
+        <h1>AI Funeral Cost Helper — Free, Private, Compassionate Guidance</h1>
         <p>
-          This AI assistant has deep knowledge of funeral and burial costs, consumer rights, benefits programs, and planning options. Ask anything about costs, your rights, or what steps to take — and get clear, compassionate answers at your own pace.
+          This AI assistant has broad knowledge of funeral and burial costs, consumer rights, benefits programs, and planning options. Ask anything about costs, your rights, or what to do next — and get clear, unhurried answers in plain language. It is educational information, not professional advice.
         </p>
         <p><strong>Topics this AI can help with:</strong></p>
         <ul class="chat-topics-list">
+          <li>What to do in the first hours after a loss</li>
           <li>Average funeral costs by region and state</li>
           <li>Cremation vs. burial cost comparison</li>
           <li>FTC Funeral Rule and consumer rights</li>
+          <li>Spotting overcharging and sales pressure</li>
           <li>Veteran burial benefits and VA programs</li>
           <li>Social Security death benefit ($255)</li>
           <li>Medicaid and state funeral assistance</li>
           <li>Funeral insurance and preneed contracts</li>
-          <li>Step-by-step funeral planning guidance</li>
-          <li>Questions to ask funeral homes</li>
-          <li>Estate planning and probate basics</li>
+          <li>Questions to ask a funeral home</li>
         </ul>
       </div>
     </div>
@@ -510,7 +510,7 @@
     <!-- Disclaimer about AI limitations -->
     <div class="chat-disclaimer-enhanced">
       <p>
-        <strong>Important:</strong> This AI provides general educational information about funeral costs and planning. It does not provide financial, legal, tax, medical, or funeral-director advice. Always verify information and consult with licensed professionals before making decisions about services, contracts, or payments.
+        <strong>Please read:</strong> This AI is an educational assistant, not a licensed professional. It provides general information about funeral costs, consumer rights, and planning — not financial, legal, tax, medical, or funeral-director advice. It can be wrong. Always verify important details and review contracts, insurance, benefits, and pricing with licensed professionals before signing or paying. In an emergency, call 911. For mental-health crisis, call or text 988.
       </p>
     </div>
 
@@ -518,29 +518,35 @@
     <div class="starter-questions" id="starter-questions">
       <p class="starter-questions-heading">Not sure where to start? Try one of these:</p>
       <div class="starter-buttons">
+        <button class="starter-btn" onclick="handleStarterQuestion('My parent just passed away and I do not know what to do first. Can you gently walk me through the very first steps?')">
+          My parent just passed — what do I do first?
+        </button>
         <button class="starter-btn" onclick="handleStarterQuestion('How much does a funeral typically cost, and what are the main things that affect the price?')">
           How much does a funeral typically cost?
         </button>
-        <button class="starter-btn" onclick="handleStarterQuestion('Can you explain the difference between cremation and burial, including costs for each?')">
-          Cremation vs. burial — what are the costs?
+        <button class="starter-btn" onclick="handleStarterQuestion('Can you explain the real cost difference between cremation and burial, including what drives the price for each?')">
+          Cremation vs. burial — what are the real costs?
         </button>
-        <button class="starter-btn" onclick="handleStarterQuestion('What is the FTC Funeral Rule, and how does it protect me as a consumer?')">
-          What is the FTC Funeral Rule?
+        <button class="starter-btn" onclick="handleStarterQuestion('What is the FTC Funeral Rule, and what specific rights does it give me when I talk to a funeral home?')">
+          What rights do I have under the FTC Funeral Rule?
         </button>
-        <button class="starter-btn" onclick="handleStarterQuestion('What veteran burial benefits are available, and how do I apply?')">
-          Veteran burial benefits — what is available?
+        <button class="starter-btn" onclick="handleStarterQuestion('A funeral home quoted us a price that feels too high and they are pressuring us to sign today. What are the red flags and what should I do?')">
+          The quote feels high and they want me to sign now
         </button>
-        <button class="starter-btn" onclick="handleStarterQuestion('Can you walk me through planning a funeral step by step?')">
-          Walk me through funeral planning step by step
+        <button class="starter-btn" onclick="handleStarterQuestion('I cannot afford a funeral right now. What assistance programs, benefits, or low-cost options should I know about?')">
+          I can't afford a funeral — what help exists?
         </button>
-        <button class="starter-btn" onclick="handleStarterQuestion('We received a funeral quote and it seems high. What questions should I ask the funeral home?')">
-          Our funeral quote seems high — what should I ask?
+        <button class="starter-btn" onclick="handleStarterQuestion('What veteran burial benefits are available through the VA, and how do I apply for them?')">
+          Veteran burial benefits — what's available?
         </button>
-        <button class="starter-btn" onclick="handleStarterQuestion('What financial assistance is available to help pay for a funeral? We are on a tight budget.')">
-          What financial help is available for funeral costs?
+        <button class="starter-btn" onclick="handleStarterQuestion('How do I claim the $255 Social Security death benefit for a surviving spouse or child?')">
+          How do I claim the Social Security death benefit?
         </button>
-        <button class="starter-btn" onclick="handleStarterQuestion('Can you explain funeral insurance and preneed contracts — are they worth it?')">
-          Is funeral insurance or a preneed contract worth it?
+        <button class="starter-btn" onclick="handleStarterQuestion('Can you walk me through planning a simple, respectful funeral step by step at my own pace?')">
+          Walk me through funeral planning, step by step
+        </button>
+        <button class="starter-btn" onclick="handleStarterQuestion('Is funeral insurance or a preneed contract worth it, and what questions should I ask before signing one?')">
+          Is funeral insurance or a preneed plan worth it?
         </button>
       </div>
     </div>
