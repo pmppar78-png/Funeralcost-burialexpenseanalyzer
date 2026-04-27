@@ -140,7 +140,7 @@ const esc = s => s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&lt;/g,
 // rotating lastmod/dateModified on every deploy is an anti-pattern that tells
 // Google the freshness signals are synthetic, which suppresses crawling and
 // indexing. Keep this tied to the real last substantive content update.
-const LASTMOD = '2026-04-23';
+const LASTMOD = '2026-04-27';
 const TODAY = LASTMOD;
 const REVIEW_MONTH = new Date(LASTMOD + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
@@ -2383,7 +2383,7 @@ const existingPages = [
   'cheap-funeral-options.html', 'green-burial-options.html', 'prepaid-funeral-plans.html',
   'ftc-funeral-rule-guide.html', 'funeral-insurance-guide.html', 'home-funeral-guide.html',
   'obituary-writing-guide.html', 'grief-resources.html', 'planning-checklist.html',
-  'about.html', 'editorial-standards.html', 'privacy-policy.html', 'terms-of-service.html', 'disclaimer.html',
+  'about.html', 'author-paul-paradis.html', 'editorial-standards.html', 'privacy-policy.html', 'terms-of-service.html', 'disclaimer.html',
   'funeral-cost-index-pdf.html', 'funeral-planning-checklist-printable.html',
   'funeral-cost-comparison-worksheet.html', 'funeral-cost-widget.html',
   'best-online-casket-retailers.html', 'best-cremation-urns.html',
