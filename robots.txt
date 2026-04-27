@@ -54,4 +54,4 @@ Sitemap: https://funeralcostanalyzer.com/sitemap-metro-cremation.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-metro-burial.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-guides.xml
 
-# Last reviewed: 2026-04-23 — Paul Paradis, Founder & Editor
+# Last reviewed: 2026-04-27 — Paul Paradis, Founder & Editor
