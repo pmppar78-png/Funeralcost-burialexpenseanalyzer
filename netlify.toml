@@ -98,6 +98,13 @@
   status = 301
   force = true
 
+# /index.html → / (collapse the duplicate URL variant Search Console flagged)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # ─── Redirects ────────────────────────────────────────────────────
 
 # Clean URL aliases — existing pages
