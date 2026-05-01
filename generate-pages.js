@@ -625,6 +625,89 @@ function linkList(items) {
     .join('');
 }
 
+const targetedAuthorityLinks = {
+  burial: [
+    {h:'burial-costs-albuquerque.html',t:'Albuquerque burial costs'},
+    {h:'burial-costs-atlanta.html',t:'Atlanta burial costs'},
+    {h:'burial-costs-baltimore.html',t:'Baltimore burial costs'},
+    {h:'burial-costs-boston.html',t:'Boston burial costs'},
+    {h:'burial-costs-chicago.html',t:'Chicago burial costs'},
+    {h:'burial-costs-el-paso.html',t:'El Paso burial costs'},
+    {h:'burial-costs-indianapolis.html',t:'Indianapolis burial costs'},
+    {h:'burial-costs-kansas-city.html',t:'Kansas City burial costs'},
+    {h:'burial-costs-las-vegas.html',t:'Las Vegas burial costs'},
+    {h:'burial-costs-louisville.html',t:'Louisville burial costs'},
+    {h:'burial-costs-milwaukee.html',t:'Milwaukee burial costs'},
+    {h:'burial-costs-minneapolis.html',t:'Minneapolis burial costs'},
+    {h:'burial-costs-mississippi.html',t:'Mississippi burial costs'},
+    {h:'burial-costs-new-jersey.html',t:'New Jersey burial costs'},
+    {h:'burial-costs-new-orleans.html',t:'New Orleans burial costs'},
+    {h:'burial-costs-new-york-city.html',t:'New York City burial costs'},
+    {h:'burial-costs-north-dakota.html',t:'North Dakota burial costs'},
+    {h:'burial-costs-omaha.html',t:'Omaha burial costs'},
+    {h:'burial-costs-portland-or.html',t:'Portland burial costs'},
+    {h:'burial-costs-rhode-island.html',t:'Rhode Island burial costs'},
+    {h:'burial-costs-seattle.html',t:'Seattle burial costs'},
+    {h:'burial-costs-south-carolina.html',t:'South Carolina burial costs'},
+    {h:'burial-costs-south-dakota.html',t:'South Dakota burial costs'},
+    {h:'burial-costs-utah.html',t:'Utah burial costs'},
+    {h:'burial-costs-vermont.html',t:'Vermont burial costs'},
+    {h:'burial-costs-west-virginia.html',t:'West Virginia burial costs'},
+    {h:'burial-costs-wyoming.html',t:'Wyoming burial costs'},
+    {h:'burial-costs-charlotte.html',t:'Charlotte burial costs'},
+    {h:'burial-costs-colorado-springs.html',t:'Colorado Springs burial costs'}
+  ],
+  cremation: [
+    {h:'cremation-costs-albuquerque.html',t:'Albuquerque cremation costs'},
+    {h:'cremation-costs-atlanta.html',t:'Atlanta cremation costs'},
+    {h:'cremation-costs-baltimore.html',t:'Baltimore cremation costs'},
+    {h:'cremation-costs-boston.html',t:'Boston cremation costs'},
+    {h:'cremation-costs-chicago.html',t:'Chicago cremation costs'},
+    {h:'cremation-costs-el-paso.html',t:'El Paso cremation costs'},
+    {h:'cremation-costs-indianapolis.html',t:'Indianapolis cremation costs'},
+    {h:'cremation-costs-kansas-city.html',t:'Kansas City cremation costs'},
+    {h:'cremation-costs-las-vegas.html',t:'Las Vegas cremation costs'},
+    {h:'cremation-costs-louisville.html',t:'Louisville cremation costs'},
+    {h:'cremation-costs-milwaukee.html',t:'Milwaukee cremation costs'},
+    {h:'cremation-costs-minneapolis.html',t:'Minneapolis cremation costs'},
+    {h:'cremation-costs-mississippi.html',t:'Mississippi cremation costs'},
+    {h:'cremation-costs-new-jersey.html',t:'New Jersey cremation costs'},
+    {h:'cremation-costs-new-orleans.html',t:'New Orleans cremation costs'},
+    {h:'cremation-costs-new-york-city.html',t:'New York City cremation costs'},
+    {h:'cremation-costs-north-dakota.html',t:'North Dakota cremation costs'},
+    {h:'cremation-costs-omaha.html',t:'Omaha cremation costs'},
+    {h:'cremation-costs-portland-or.html',t:'Portland cremation costs'},
+    {h:'cremation-costs-rhode-island.html',t:'Rhode Island cremation costs'},
+    {h:'cremation-costs-seattle.html',t:'Seattle cremation costs'},
+    {h:'cremation-costs-south-carolina.html',t:'South Carolina cremation costs'},
+    {h:'cremation-costs-south-dakota.html',t:'South Dakota cremation costs'},
+    {h:'cremation-costs-utah.html',t:'Utah cremation costs'},
+    {h:'cremation-costs-vermont.html',t:'Vermont cremation costs'},
+    {h:'cremation-costs-west-virginia.html',t:'West Virginia cremation costs'},
+    {h:'cremation-costs-wyoming.html',t:'Wyoming cremation costs'}
+  ],
+  funeral: [
+    {h:'funeral-costs-el-paso.html',t:'El Paso funeral costs'},
+    {h:'funeral-costs-indianapolis.html',t:'Indianapolis funeral costs'},
+    {h:'funeral-costs-milwaukee.html',t:'Milwaukee funeral costs'},
+    {h:'funeral-costs-new-orleans.html',t:'New Orleans funeral costs'}
+  ]
+};
+
+function authorityBoostLinks(current) {
+  const allTargets = targetedAuthorityLinks.burial.concat(targetedAuthorityLinks.cremation, targetedAuthorityLinks.funeral);
+  if (current === 'burial-costs-by-state.html') {
+    return `<div class="related-guides crawl-priority-links"><h3>Local Burial Cost Checks</h3><p>State averages are useful, but cemetery plot and interment fees can change quickly by market. For a closer local comparison, review these burial cost pages before choosing a cemetery or funeral home.</p><ul>${linkList(targetedAuthorityLinks.burial)}</ul></div>`;
+  }
+  if (current === 'cremation-costs-by-state.html') {
+    return `<div class="related-guides crawl-priority-links"><h3>Local Cremation Cost Checks</h3><p>Direct cremation prices often vary by metro even inside the same state. These local cremation guides help compare provider pricing, memorial options, and state rules before calling funeral homes.</p><ul>${linkList(targetedAuthorityLinks.cremation)}</ul></div>`;
+  }
+  if (current === 'average-funeral-cost-2026.html') {
+    return `<div class="related-guides crawl-priority-links"><h3>Local Cost Pages to Compare Against the National Average</h3><p>National averages are only a baseline. Families comparing real quotes should also check local burial, cremation, and funeral cost pages where city and state pricing can differ from the national figure.</p><ul>${linkList(allTargets)}</ul></div>`;
+  }
+  return '';
+}
+
 function locationAuthorityLinks(current) {
   const metro = metros.find(m => [`funeral-costs-${m.slug}.html`, `cremation-costs-${m.slug}.html`, `burial-costs-${m.slug}.html`].includes(current));
   if (metro) {
@@ -1688,6 +1771,7 @@ ${header()}
       </ol>
 
       ${resources(['military-funeral-honors.html','infant-child-funeral-costs.html','funeral-costs-uninsured.html','funeral-planning-for-parents.html','body-donation-guide.html','medicaid-funeral-assistance.html','funeral-overcharging-protection.html','consumer-rights-funeral-pricing.html'].includes(p.fn) ? 'sensitive' : 'general')}
+      ${authorityBoostLinks(p.fn)}
 
       <h2 id="faq">Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
@@ -1776,6 +1860,7 @@ ${header()}
 
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
+      ${authorityBoostLinks(fn)}
       ${ctaBanner()}
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
@@ -1848,6 +1933,7 @@ ${header()}
 
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
+      ${authorityBoostLinks(fn)}
       ${ctaBanner()}
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
