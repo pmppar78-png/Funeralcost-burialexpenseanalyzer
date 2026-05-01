@@ -606,7 +606,142 @@ function relatedGuides(exclude) {
     });
   }
 
-  return `<div class="related-guides"><h3>Related Guides</h3><ul>${sorted.slice(0,15).map(g=>`<li><a href="${g.h}">${g.t}</a></li>`).join('')}</ul></div>`;
+  const priority = sorted.slice(0, 8);
+  const rotating = guides.slice(hashStr(exclude || 'related') % guides.length).concat(guides).filter(g => !priority.some(p => p.h === g.h)).slice(0, 7);
+  const selected = priority.concat(rotating);
+  return `<div class="related-guides"><h3>Related Guides</h3><ul>${selected.map(g=>`<li><a href="${g.h}">${g.t}</a></li>`).join('')}</ul></div>`;
+}
+
+function linkList(items) {
+  const seen = new Set();
+  return items
+    .filter(Boolean)
+    .filter(i => {
+      if (!i.h || seen.has(i.h)) return false;
+      seen.add(i.h);
+      return true;
+    })
+    .map(i => `<li><a href="${i.h}">${i.t}</a>${i.note ? ` — ${i.note}` : ''}</li>`)
+    .join('');
+}
+
+function locationAuthorityLinks(current) {
+  const metro = metros.find(m => [`funeral-costs-${m.slug}.html`, `cremation-costs-${m.slug}.html`, `burial-costs-${m.slug}.html`].includes(current));
+  if (metro) {
+    const s = states.find(x => x.slug === metro.ss);
+    if (!s) return '';
+    const type = current.startsWith('cremation-costs-') ? 'cremation' : current.startsWith('burial-costs-') ? 'burial' : 'funeral';
+    const prefix = type === 'cremation' ? 'cremation-costs' : type === 'burial' ? 'burial-costs' : 'funeral-costs';
+    const sameCity = [
+      {h:`funeral-costs-${metro.slug}.html`, t:`${metro.city} funeral costs`},
+      {h:`cremation-costs-${metro.slug}.html`, t:`${metro.city} cremation costs`},
+      {h:`burial-costs-${metro.slug}.html`, t:`${metro.city} burial costs`},
+      {h:`${prefix}-${s.slug}.html`, t:`${s.name} ${type} costs`, note:'state parent guide'},
+      {h:`${prefix}-by-state.html`, t:`All state ${type} costs`, note:'comparison hub'}
+    ].filter(i => i.h !== current);
+    const siblings = metros
+      .filter(x => x.ss === metro.ss && x.slug !== metro.slug)
+      .slice(0, 5)
+      .map(x => ({h:`${prefix}-${x.slug}.html`, t:`${type[0].toUpperCase() + type.slice(1)} costs in ${x.city}`}));
+    return `<div class="related-guides crawl-priority-links"><h3>Compare With</h3><ul>${linkList(sameCity.concat(siblings))}</ul></div>`;
+  }
+
+  const state = states.find(s => [`funeral-costs-${s.slug}.html`, `cremation-costs-${s.slug}.html`, `burial-costs-${s.slug}.html`].includes(current));
+  if (state) {
+    const type = current.startsWith('cremation-costs-') ? 'cremation' : current.startsWith('burial-costs-') ? 'burial' : 'funeral';
+    const prefix = type === 'cremation' ? 'cremation-costs' : type === 'burial' ? 'burial-costs' : 'funeral-costs';
+    const stateLinks = [
+      {h:`funeral-costs-${state.slug}.html`, t:`${state.name} funeral costs`},
+      {h:`cremation-costs-${state.slug}.html`, t:`${state.name} cremation costs`},
+      {h:`burial-costs-${state.slug}.html`, t:`${state.name} burial costs`},
+      {h:`${prefix}-by-state.html`, t:`All state ${type} costs`, note:'parent hub'},
+      {h:'national-funeral-cost-index.html', t:'National Funeral Cost Index', note:'national hub'}
+    ].filter(i => i.h !== current);
+    const cityLinks = metros
+      .filter(x => x.ss === state.slug)
+      .slice(0, 5)
+      .map(x => ({h:`${prefix}-${x.slug}.html`, t:`${type[0].toUpperCase() + type.slice(1)} costs in ${x.city}`}));
+    return `<div class="related-guides crawl-priority-links"><h3>Compare With</h3><ul>${linkList(stateLinks.concat(cityLinks))}</ul></div>`;
+  }
+
+  return '';
+}
+
+function crawlPriorityLinks(current) {
+  const guidePool = [
+    {h:'national-funeral-cost-index.html',t:'National Funeral Cost Index'},
+    {h:'funeral-costs-by-state.html',t:'Funeral Costs by State'},
+    {h:'cremation-costs-by-state.html',t:'Cremation Costs by State'},
+    {h:'burial-costs-by-state.html',t:'Burial Costs by State'},
+    {h:'average-funeral-cost-2026.html',t:'Average Funeral Cost in 2026'},
+    {h:'funeral-cost-breakdown.html',t:'Funeral Cost Breakdown'},
+    {h:'direct-cremation-cost.html',t:'Direct Cremation Cost'},
+    {h:'cremation-vs-burial-cost.html',t:'Cremation vs. Burial Cost'},
+    {h:'cheap-funeral-options.html',t:'Cheap Funeral Options'},
+    {h:'funeral-price-comparison.html',t:'How to Compare Funeral Prices'},
+    {h:'funeral-cost-comparison-worksheet.html',t:'Funeral Cost Comparison Worksheet'},
+    {h:'ftc-funeral-rule-guide.html',t:'FTC Funeral Rule Guide'},
+    {h:'consumer-rights-funeral-pricing.html',t:'Consumer Rights in Funeral Pricing'},
+    {h:'funeral-overcharging-protection.html',t:'Funeral Overcharging Protection'},
+    {h:'questions-to-ask-funeral-home.html',t:'Questions to Ask Funeral Homes'},
+    {h:'what-funeral-homes-dont-tell-you.html',t:'What Funeral Homes Don\'t Tell You'},
+    {h:'how-to-pay-for-a-funeral-with-no-money.html',t:'How to Pay for a Funeral With No Money'},
+    {h:'funeral-costs-uninsured.html',t:'Funeral Costs When Uninsured'},
+    {h:'funeral-payment-assistance.html',t:'Funeral Payment Assistance'},
+    {h:'funeral-payment-plans.html',t:'Funeral Payment Plans'},
+    {h:'funeral-financing-options.html',t:'Funeral Financing Options'},
+    {h:'medicaid-funeral-assistance.html',t:'Medicaid Funeral Assistance'},
+    {h:'social-security-death-benefit.html',t:'Social Security Death Benefit'},
+    {h:'veteran-burial-benefits.html',t:'Veteran Burial Benefits'},
+    {h:'military-funeral-honors.html',t:'Military Funeral Honors'},
+    {h:'crowdfunding-funeral-costs.html',t:'Crowdfunding Funeral Costs'},
+    {h:'infant-child-funeral-costs.html',t:'Infant and Child Funeral Costs'},
+    {h:'funeral-planning-for-parents.html',t:'Planning a Funeral for Aging Parents'},
+    {h:'what-to-do-when-someone-dies.html',t:'What to Do When Someone Dies'},
+    {h:'planning-checklist.html',t:'Funeral Planning Checklist'},
+    {h:'funeral-planning-checklist-printable.html',t:'Printable Funeral Planning Checklist'},
+    {h:'end-of-life-planning-checklist.html',t:'End-of-Life Planning Checklist'},
+    {h:'estate-planning-costs.html',t:'Estate Planning Costs'},
+    {h:'probate-process-costs.html',t:'Probate Process and Costs'},
+    {h:'funeral-insurance-guide.html',t:'Funeral Insurance Guide'},
+    {h:'funeral-insurance-comparison.html',t:'Funeral Insurance Comparison'},
+    {h:'final-expense-insurance-guide.html',t:'Final Expense Insurance Guide'},
+    {h:'best-burial-insurance.html',t:'Best Burial Insurance'},
+    {h:'burial-insurance-seniors.html',t:'Burial Insurance for Seniors'},
+    {h:'cremation-insurance-guide.html',t:'Cremation Insurance Guide'},
+    {h:'prepaid-funeral-plans.html',t:'Prepaid Funeral Plans'},
+    {h:'prepaid-funeral-plans-comparison.html',t:'Prepaid Funeral Plans Comparison'},
+    {h:'casket-buying-guide.html',t:'Casket Buying Guide'},
+    {h:'best-online-casket-retailers.html',t:'Best Online Casket Retailers'},
+    {h:'urn-buying-guide.html',t:'Urn Buying Guide'},
+    {h:'best-cremation-urns.html',t:'Best Cremation Urns'},
+    {h:'headstone-monument-costs.html',t:'Headstone and Monument Costs'},
+    {h:'funeral-flowers-guide.html',t:'Funeral Flowers Guide'},
+    {h:'cremation-jewelry-guide.html',t:'Cremation Jewelry Guide'},
+    {h:'pet-cremation-costs.html',t:'Pet Cremation Costs'},
+    {h:'green-burial-options.html',t:'Green Burial Options'},
+    {h:'home-funeral-guide.html',t:'Home Funeral Guide'},
+    {h:'body-donation-guide.html',t:'Body Donation Guide'},
+    {h:'funeral-costs-by-religion.html',t:'Funeral Costs by Religion'},
+    {h:'catholic-funeral-costs.html',t:'Catholic Funeral Costs'},
+    {h:'jewish-funeral-costs.html',t:'Jewish Funeral Costs'},
+    {h:'muslim-funeral-costs.html',t:'Muslim Funeral Costs'},
+    {h:'hindu-funeral-costs.html',t:'Hindu Funeral Costs'},
+    {h:'buddhist-funeral-costs.html',t:'Buddhist Funeral Costs'},
+    {h:'mormon-funeral-costs.html',t:'LDS / Mormon Funeral Costs'},
+    {h:'funeral-cost-widget.html',t:'Funeral Cost Widget'},
+    {h:'state-funeral-regulations.html',t:'State Funeral Regulations'}
+  ].filter(g => g.h !== current);
+  const rotated = guidePool.slice(hashStr(current || 'crawl') % guidePool.length).concat(guidePool);
+  const essentials = [
+    {h:'funeral-costs-by-state.html',t:'Funeral Costs by State'},
+    {h:'cremation-costs-by-state.html',t:'Cremation Costs by State'},
+    {h:'burial-costs-by-state.html',t:'Burial Costs by State'},
+    {h:'national-funeral-cost-index.html',t:'National Funeral Cost Index'}
+  ].filter(g => g.h !== current);
+  const selected = essentials.concat(rotated).filter((g, i, arr) => arr.findIndex(x => x.h === g.h) === i).slice(0, 10);
+  return `${locationAuthorityLinks(current)}
+      <div class="related-guides crawl-priority-links"><h3>You May Also Need</h3><ul>${linkList(selected)}</ul></div>`;
 }
 
 function ctaBanner() {
@@ -954,6 +1089,7 @@ ${header()}
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(fn)}
+      ${crawlPriorityLinks(fn)}
       ${neighborLinks(s, 'funeral')}
       ${ctaBanner()}
 
@@ -1152,6 +1288,7 @@ ${header()}
       <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li><li><a href="cremation-costs-${m.slug}.html">${m.city} Cremation Costs</a></li><li><a href="burial-costs-${m.slug}.html">${m.city} Burial Costs</a></li><li><a href="cremation-costs-by-state.html">All State Cremation Costs</a></li><li><a href="burial-costs-by-state.html">All State Burial Costs</a></li><li><a href="national-funeral-cost-index.html">National Cost Index</a></li></ul></div>
 
       ${relatedGuides(fn)}
+      ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
     </article>
   </main>
@@ -1305,6 +1442,7 @@ ${header()}
 
       ${neighborLinks(s, 'cremation')}
       ${relatedGuides(fn)}
+      ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
     </article>
   </main>
@@ -1456,6 +1594,7 @@ ${header()}
 
       ${neighborLinks(s, 'burial')}
       ${relatedGuides(fn)}
+      ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
     </article>
   </main>
@@ -1554,6 +1693,7 @@ ${header()}
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(p.fn)}
+      ${crawlPriorityLinks(p.fn)}
 
       <div class="related-guides"><h3>Find Costs in Your State</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="burial-costs-by-state.html">Burial Costs by State</a></li><li><a href="funeral-costs-california.html">California Funeral Costs</a></li><li><a href="funeral-costs-texas.html">Texas Funeral Costs</a></li><li><a href="funeral-costs-florida.html">Florida Funeral Costs</a></li><li><a href="funeral-costs-new-york.html">New York Funeral Costs</a></li><li><a href="funeral-costs-pennsylvania.html">Pennsylvania Funeral Costs</a></li><li><a href="funeral-costs-illinois.html">Illinois Funeral Costs</a></li><li><a href="funeral-costs-ohio.html">Ohio Funeral Costs</a></li><li><a href="funeral-costs-georgia.html">Georgia Funeral Costs</a></li><li><a href="funeral-costs-north-carolina.html">North Carolina Funeral Costs</a></li><li><a href="funeral-costs-michigan.html">Michigan Funeral Costs</a></li></ul></div>
 
@@ -1635,6 +1775,7 @@ ${header()}
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(fn)}
+      ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
@@ -1706,6 +1847,7 @@ ${header()}
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(fn)}
+      ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
@@ -1837,6 +1979,7 @@ ${header()}
       <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${m.slug}.html">${m.city} Funeral Costs</a></li><li><a href="burial-costs-${m.slug}.html">${m.city} Burial Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li></ul></div>
 
       ${relatedGuides(fn)}
+      ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
@@ -1977,6 +2120,7 @@ ${header()}
       <div class="topic-nav"><h4>More in ${m.st}</h4><ul><li><a href="funeral-costs-${m.slug}.html">${m.city} Funeral Costs</a></li><li><a href="cremation-costs-${m.slug}.html">${m.city} Cremation Costs</a></li><li><a href="burial-costs-${s.slug}.html">${m.st} Burial Costs</a></li><li><a href="funeral-costs-${s.slug}.html">${m.st} Funeral Costs</a></li><li><a href="cremation-costs-${s.slug}.html">${m.st} Cremation Costs</a></li></ul></div>
 
       ${relatedGuides(fn)}
+      ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
@@ -2100,6 +2244,7 @@ ${header()}
       ${p.faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(p.fn)}
+      ${crawlPriorityLinks(p.fn)}
 
       <div class="related-guides"><h3>Related Insurance &amp; Financial Guides</h3><ul><li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a></li><li><a href="funeral-insurance-comparison.html">Funeral Insurance Comparison</a></li><li><a href="final-expense-insurance-guide.html">Final Expense Insurance Guide</a></li><li><a href="life-insurance-funeral-costs.html">Using Life Insurance for Funeral Costs</a></li><li><a href="prepaid-funeral-plans-comparison.html">Prepaid Funeral Plans Compared</a></li><li><a href="funeral-payment-plans.html">Funeral Payment Plans</a></li><li><a href="funeral-payment-assistance.html">Payment Assistance Programs</a></li></ul></div>
 
@@ -2263,6 +2408,7 @@ ${header()}
       <div class="related-guides"><h3>Funeral Costs by Religion</h3><ul><li><a href="funeral-costs-by-religion.html">Complete Guide: Funeral Costs by Religion</a></li><li><a href="catholic-funeral-costs.html">Catholic Funeral Costs</a></li><li><a href="jewish-funeral-costs.html">Jewish Funeral Costs</a></li><li><a href="muslim-funeral-costs.html">Muslim Funeral Costs</a></li><li><a href="hindu-funeral-costs.html">Hindu Funeral &amp; Cremation Costs</a></li><li><a href="buddhist-funeral-costs.html">Buddhist Funeral Costs</a></li><li><a href="mormon-funeral-costs.html">LDS / Mormon Funeral Costs</a></li></ul></div>
 
       ${relatedGuides(p.fn)}
+      ${crawlPriorityLinks(p.fn)}
       ${ctaBanner()}
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> This guide is for educational purposes only. Religious practices and requirements vary by community, congregation, and individual interpretation. Always consult with your religious leader or community for guidance specific to your tradition. Cost data is based on publicly available surveys and may not reflect current prices in your area.</p></div>
@@ -2632,9 +2778,6 @@ ${metros.map(m => { const s = states.find(x => x.slug === m.ss); return s ? `   
         <li><a href="hindu-funeral-costs.html">Hindu Funeral &amp; Cremation Costs</a></li>
         <li><a href="buddhist-funeral-costs.html">Buddhist Funeral Costs</a></li>
         <li><a href="mormon-funeral-costs.html">LDS / Mormon Funeral Costs</a></li>
-        <li><a href="nondenominational-funeral-costs.html">Non-Denominational Funeral Costs</a></li>
-        <li><a href="baptist-funeral-costs.html">Baptist Funeral Costs</a></li>
-        <li><a href="orthodox-funeral-costs.html">Orthodox Christian Funeral Costs</a></li>
       </ul>
 
       <h2 id="tools">Tools &amp; Resources</h2>
