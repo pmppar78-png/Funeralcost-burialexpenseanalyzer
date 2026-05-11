@@ -87,6 +87,13 @@
 # ─── Domain-level redirects (one-hop, no chains) ─────────────────
 # Canonical host: https://funeralcostanalyzer.com (non-www, HTTPS, no trailing slash except root)
 
+# /index.html → / (prevent duplicate homepage URL in search engines)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # www → non-www (HTTPS is forced by Netlify automatically)
 [[redirects]]
   from = "https://www.funeralcostanalyzer.com/*"
