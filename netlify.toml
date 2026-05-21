@@ -108,339 +108,341 @@
   status = 301
   force = true
 
-# ─── Rewrites ─────────────────────────────────────────────────────
+# ─── Vanity URL Redirects ─────────────────────────────────────────
 
-# Legacy clean URL aliases — serve the canonical page content directly so
-# crawlers do not encounter "Page with redirect" responses for discovered URLs.
+# Legacy clean URL aliases — 301 redirect to the canonical .html version.
+# These MUST be 301 (not 200 rewrites) so search engines treat the vanity URL
+# as an alias rather than a separate indexable page. A 200 rewrite causes
+# Google to flag the vanity URL as "Alternate page with proper canonical tag".
 [[redirects]]
   from = "/green-burial"
   to = "/green-burial-options.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/prepaid-plans"
   to = "/prepaid-funeral-plans.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/ftc-funeral-rule"
   to = "/ftc-funeral-rule-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/funeral-rule"
   to = "/ftc-funeral-rule-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/affordable-funerals"
   to = "/cheap-funeral-options.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/state-costs"
   to = "/funeral-costs-by-state.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/checklist"
   to = "/planning-checklist.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/payment-help"
   to = "/funeral-payment-assistance.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/funeral-insurance"
   to = "/funeral-insurance-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/home-funeral"
   to = "/home-funeral-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/obituary-guide"
   to = "/obituary-writing-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/write-obituary"
   to = "/obituary-writing-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/grief"
   to = "/grief-resources.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/grief-support"
   to = "/grief-resources.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/privacy"
   to = "/privacy-policy.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/medicaid-funeral"
   to = "/medicaid-funeral-assistance.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/final-expense-insurance"
   to = "/final-expense-insurance-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/estate-planning"
   to = "/estate-planning-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/probate-costs"
   to = "/probate-process-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/funeral-financing"
   to = "/funeral-payment-plans.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/compare-prices"
   to = "/funeral-price-comparison.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/average-funeral-cost"
   to = "/average-funeral-cost-2026.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/cremation-jewelry"
   to = "/cremation-jewelry-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/headstone-costs"
   to = "/headstone-monument-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/funeral-flowers"
   to = "/funeral-flowers-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/body-donation"
   to = "/body-donation-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/military-funeral"
   to = "/military-funeral-honors.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/pet-cremation"
   to = "/pet-cremation-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/crowdfunding-funeral"
   to = "/crowdfunding-funeral-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/funeral-overcharging"
   to = "/funeral-overcharging-protection.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/consumer-rights"
   to = "/consumer-rights-funeral-pricing.html"
-  status = 200
+  status = 301
   force = true
 
 # National Funeral Cost Index & Research Assets
 [[redirects]]
   from = "/cost-index"
   to = "/national-funeral-cost-index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/funeral-cost-index"
   to = "/national-funeral-cost-index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/national-index"
   to = "/national-funeral-cost-index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/index-report"
   to = "/national-funeral-cost-index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/cost-index-pdf"
   to = "/funeral-cost-index-pdf.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/printable-checklist"
   to = "/funeral-planning-checklist-printable.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/cost-worksheet"
   to = "/funeral-cost-comparison-worksheet.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/embed-widget"
   to = "/funeral-cost-widget.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/widget"
   to = "/funeral-cost-widget.html"
-  status = 200
+  status = 301
   force = true
 
 # Additional legacy aliases — vanity URLs and religious guides
 [[redirects]]
   from = "/sitemap"
   to = "/sitemap-index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/site-map"
   to = "/sitemap-index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/terms"
   to = "/terms-of-service.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/cremation-insurance"
   to = "/cremation-insurance-guide.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/financing-options"
   to = "/funeral-financing-options.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/end-of-life-planning"
   to = "/end-of-life-planning-checklist.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/catholic-funeral"
   to = "/catholic-funeral-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/jewish-funeral"
   to = "/jewish-funeral-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/muslim-funeral"
   to = "/muslim-funeral-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/hindu-funeral"
   to = "/hindu-funeral-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/buddhist-funeral"
   to = "/buddhist-funeral-costs.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/mormon-funeral"
   to = "/mormon-funeral-costs.html"
-  status = 200
+  status = 301
   force = true
 
 # Author / E-E-A-T
 [[redirects]]
   from = "/author"
   to = "/author-paul-paradis.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/author/paul-paradis"
   to = "/author-paul-paradis.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/paul-paradis"
   to = "/author-paul-paradis.html"
-  status = 200
+  status = 301
   force = true
