@@ -2,6 +2,23 @@ const fs = require('fs');
 const path = require('path');
 const OUT = __dirname;
 
+// ── Page write guard ────────────────────────────────────────────
+// The committed HTML in the repo is the source of truth for any page
+// that already exists on disk. Several generated pages have been
+// hand-optimized after generation (e.g. SurferSEO content edits), and
+// blindly re-running the templates would silently destroy that work on
+// every deploy. writePage() therefore only writes a page when it does
+// NOT already exist — the generator fills in genuinely new/missing pages
+// while preserving every existing (and possibly optimized) page. Every
+// filename is still recorded in allPages so the sitemap stays complete.
+// Sitemaps and robots.txt continue to regenerate unconditionally below.
+function writePage(fn, content) {
+  const dest = path.join(OUT, fn);
+  if (fs.existsSync(dest)) return false; // preserve existing/optimized page
+  fs.writeFileSync(dest, content);
+  return true;
+}
+
 // ── Data ────────────────────────────────────────────────────────
 const states = [
   {name:"Alabama",abbr:"AL",slug:"alabama",region:"South",cities:["Birmingham","Montgomery","Huntsville","Mobile"],cr:"38%",f:6400,c:5200,dc:1800,b:3200},
@@ -2512,7 +2529,7 @@ const allPages = [];
 // State pages
 states.forEach(s => {
   const page = genState(s);
-  fs.writeFileSync(path.join(OUT, page.fn), page.content);
+  writePage(page.fn, page.content);
   allPages.push(page.fn);
   count.state++;
 });
@@ -2522,7 +2539,7 @@ console.log(`  State pages: ${count.state}`);
 metros.forEach(m => {
   const page = genMetro(m);
   if (page) {
-    fs.writeFileSync(path.join(OUT, page.fn), page.content);
+    writePage(page.fn, page.content);
     allPages.push(page.fn);
     count.metro++;
   }
@@ -2532,7 +2549,7 @@ console.log(`  Metro pages: ${count.metro}`);
 // Cremation state pages
 states.forEach(s => {
   const page = genCremation(s);
-  fs.writeFileSync(path.join(OUT, page.fn), page.content);
+  writePage(page.fn, page.content);
   allPages.push(page.fn);
   count.cremation++;
 });
@@ -2541,7 +2558,7 @@ console.log(`  Cremation pages: ${count.cremation}`);
 // Burial state pages
 states.forEach(s => {
   const page = genBurial(s);
-  fs.writeFileSync(path.join(OUT, page.fn), page.content);
+  writePage(page.fn, page.content);
   allPages.push(page.fn);
   count.burial++;
 });
@@ -2550,7 +2567,7 @@ console.log(`  Burial pages: ${count.burial}`);
 // Topical pages
 topical.forEach(p => {
   const page = genTopical(p);
-  fs.writeFileSync(path.join(OUT, page.fn), page.content);
+  writePage(page.fn, page.content);
   allPages.push(page.fn);
   count.topical++;
 });
@@ -2558,10 +2575,10 @@ console.log(`  Topical pages: ${count.topical}`);
 
 // Hub pages (cremation-by-state, burial-by-state)
 const cremHub = genCremationHub();
-fs.writeFileSync(path.join(OUT, cremHub.fn), cremHub.content);
+writePage(cremHub.fn, cremHub.content);
 allPages.push(cremHub.fn);
 const burialHub = genBurialHub();
-fs.writeFileSync(path.join(OUT, burialHub.fn), burialHub.content);
+writePage(burialHub.fn, burialHub.content);
 allPages.push(burialHub.fn);
 console.log('  Hub pages: 2 (cremation-costs-by-state, burial-costs-by-state)');
 
@@ -2569,7 +2586,7 @@ console.log('  Hub pages: 2 (cremation-costs-by-state, burial-costs-by-state)');
 metros.forEach(m => {
   const page = genCremationMetro(m);
   if (page) {
-    fs.writeFileSync(path.join(OUT, page.fn), page.content);
+    writePage(page.fn, page.content);
     allPages.push(page.fn);
     count.cremMetro++;
   }
@@ -2580,7 +2597,7 @@ console.log(`  Cremation metro pages: ${count.cremMetro}`);
 metros.forEach(m => {
   const page = genBurialMetro(m);
   if (page) {
-    fs.writeFileSync(path.join(OUT, page.fn), page.content);
+    writePage(page.fn, page.content);
     allPages.push(page.fn);
     count.burialMetro++;
   }
@@ -2590,7 +2607,7 @@ console.log(`  Burial metro pages: ${count.burialMetro}`);
 // Insurance / High-CPC pages
 insurancePages.forEach(p => {
   const page = genInsurancePage(p);
-  fs.writeFileSync(path.join(OUT, page.fn), page.content);
+  writePage(page.fn, page.content);
   allPages.push(page.fn);
   count.insurance++;
 });
@@ -2599,7 +2616,7 @@ console.log(`  Insurance pages: ${count.insurance}`);
 // Religious funeral guide pages
 religiousPages.forEach(p => {
   const page = genReligiousPage(p);
-  fs.writeFileSync(path.join(OUT, page.fn), page.content);
+  writePage(page.fn, page.content);
   allPages.push(page.fn);
   count.religious++;
 });
