@@ -398,6 +398,8 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6484141649562994"
+     crossorigin="anonymous"></script>
   <title>${title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="${esc(desc)}" />
