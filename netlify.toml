@@ -465,3 +465,13 @@
   to = "/404.html"
   status = 404
   force = true
+
+[[redirects]]
+  from = "/rl-test"
+  to = "/robots.txt"
+  status = 200
+  force = true
+  [redirects.rate_limit]
+    window_limit = 5
+    window_size = 60
+    aggregate_by = ["ip", "domain"]
