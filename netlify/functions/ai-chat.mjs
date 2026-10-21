@@ -1,9 +1,10 @@
-// AI chat endpoint (served at /.netlify/functions/ai-chat).
+// AI chat endpoint (served at /api/ai-chat).
 // Uses the OpenAI-compatible credentials that Netlify AI Gateway injects
 // into the modern function runtime (OPENAI_API_KEY / OPENAI_BASE_URL).
 
 import { SYSTEM_PROMPT, AFFILIATE_DOMAINS } from "./chat-config.mjs";
 import { isCrisis, CRISIS_REPLY } from "./crisis.mjs";
+import { checkRateLimit, LIMIT_MESSAGE } from "./lib/rate-limit.mjs";
 
 // Same-origin only. The old "*" let any website call this endpoint.
 const ALLOWED_ORIGINS = ["https://funeralcostanalyzer.com", "https://www.funeralcostanalyzer.com"];
@@ -13,19 +14,6 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type",
   "Vary": "Origin"
 };
-
-// Best-effort per-instance limiter; pair with a Netlify rate-limit rule (README).
-const hits = new Map();
-const WINDOW_MS = 10 * 60 * 1000;
-const MAX_PER_WINDOW = 30;
-function rateLimited(ip) {
-  const now = Date.now();
-  const list = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
-  list.push(now);
-  hits.set(ip, list);
-  if (hits.size > 5000) hits.clear();
-  return list.length > MAX_PER_WINDOW;
-}
 
 function hasAffiliateLink(text) {
   const urls = text.match(/https?:\/\/[^\s)<>"\]]+/g) || [];
@@ -61,8 +49,13 @@ export default async (req, context) => {
   }
 
   const ip = (context && context.ip) || req.headers.get("x-nf-client-connection-ip") || "unknown";
-  if (rateLimited(ip)) {
-    return reply(429, "You've sent a lot of messages in a short time. Please wait a few minutes and try again.");
+  // Durable per-IP limit (Netlify Blobs), checked before validation and before any OpenAI call.
+  const rl = await checkRateLimit(ip === "unknown" ? "" : ip);
+  if (rl.limited) {
+    return new Response(JSON.stringify({ reply: LIMIT_MESSAGE, rateLimited: true }), {
+      status: 429,
+      headers: { ...CORS_HEADERS, "Retry-After": String(rl.retryAfter || 600) }
+    });
   }
 
   let body;
@@ -172,10 +165,7 @@ export default async (req, context) => {
   return reply(200, content, { hasAffiliate: hasAffiliateLink(content) });
 };
 
-// Served at /api/ai-chat with Netlify's code-based rate limit (free plan,
-// enforced by the platform across instances; the in-memory limiter above stays
-// as a second layer). 20 requests per 60 seconds per IP and domain.
+// Served at /api/ai-chat. Rate limiting is done in code above (Netlify Blobs).
 export const config = {
   path: "/api/ai-chat",
-  rateLimit: { windowLimit: 20, windowSize: 60, aggregateBy: ["ip", "domain"] },
 };
