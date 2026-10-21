@@ -148,7 +148,7 @@ async function sendMessage(message) {
   var typingRow = showTypingIndicator();
 
   try {
-    var response = await fetch("/.netlify/functions/ai-chat", {
+    var response = await fetch("/api/ai-chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

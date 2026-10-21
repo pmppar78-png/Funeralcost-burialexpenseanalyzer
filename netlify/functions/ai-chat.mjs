@@ -171,3 +171,11 @@ export default async (req, context) => {
   }
   return reply(200, content, { hasAffiliate: hasAffiliateLink(content) });
 };
+
+// Served at /api/ai-chat with Netlify's code-based rate limit (free plan,
+// enforced by the platform across instances; the in-memory limiter above stays
+// as a second layer). 20 requests per 60 seconds per IP and domain.
+export const config = {
+  path: "/api/ai-chat",
+  rateLimit: { windowLimit: 20, windowSize: 60, aggregateBy: ["ip", "domain"] },
+};
