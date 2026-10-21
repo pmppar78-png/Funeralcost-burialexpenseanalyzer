@@ -1,0 +1,38 @@
+# Funeral Cost & Burial Expense Analyzer
+
+> An independent, educational website at funeralcostanalyzer.com that explains U.S. funeral, cremation, and burial costs. It has a free cost calculator, cost guides for all 50 states and major metro areas, line-item cost breakdowns, and plain-language guides to consumer rights under the FTC Funeral Rule. It is not a funeral home, cemetery, insurer, or insurance agent, and it does not sell funeral goods or services.
+
+Cost figures are estimates drawn from published sources (for example, National Funeral Directors Association survey data), and actual prices vary by provider and location. The site is supported by display advertising and some affiliate links; see the Affiliate Disclosure. Content is general information, not financial, legal, or funeral-director advice.
+
+## Core tools and data
+- [Funeral Cost Calculator (home)](https://funeralcostanalyzer.com/): estimate funeral, cremation, and burial costs by state
+- [Cremation vs. Burial Calculator](https://funeralcostanalyzer.com/cremation-vs-burial-calculator.html)
+- [National Funeral Cost Index](https://funeralcostanalyzer.com/national-funeral-cost-index.html)
+- [Funeral Costs by State](https://funeralcostanalyzer.com/funeral-costs-by-state.html)
+- [Cremation Costs by State](https://funeralcostanalyzer.com/cremation-costs-by-state.html)
+- [Burial Costs by State](https://funeralcostanalyzer.com/burial-costs-by-state.html)
+
+## Cost guides
+- [Average Funeral Cost in 2026](https://funeralcostanalyzer.com/average-funeral-cost-2026.html)
+- [Funeral Cost Breakdown](https://funeralcostanalyzer.com/funeral-cost-breakdown.html)
+- [Cremation vs. Burial Cost](https://funeralcostanalyzer.com/cremation-vs-burial-cost.html)
+- [Direct Cremation Cost](https://funeralcostanalyzer.com/direct-cremation-cost.html)
+- [Affordable Funeral Options](https://funeralcostanalyzer.com/cheap-funeral-options.html)
+- [How to Pay for a Funeral With No Money](https://funeralcostanalyzer.com/how-to-pay-for-a-funeral-with-no-money.html)
+
+## Consumer rights and planning
+- [FTC Funeral Rule Guide](https://funeralcostanalyzer.com/ftc-funeral-rule-guide.html)
+- [Consumer Rights in Funeral Pricing](https://funeralcostanalyzer.com/consumer-rights-funeral-pricing.html)
+- [Questions to Ask a Funeral Home](https://funeralcostanalyzer.com/questions-to-ask-funeral-home.html)
+- [Veteran Burial Benefits](https://funeralcostanalyzer.com/veteran-burial-benefits.html)
+- [Social Security Death Benefit](https://funeralcostanalyzer.com/social-security-death-benefit.html)
+- [Funeral Planning Checklist](https://funeralcostanalyzer.com/planning-checklist.html)
+- [What to Do When Someone Dies](https://funeralcostanalyzer.com/what-to-do-when-someone-dies.html)
+
+## About and policies
+- [About](https://funeralcostanalyzer.com/about.html)
+- [Editorial Standards](https://funeralcostanalyzer.com/editorial-standards.html)
+- [Affiliate Disclosure](https://funeralcostanalyzer.com/affiliate-disclosure.html)
+- [Disclaimer](https://funeralcostanalyzer.com/disclaimer.html)
+- [Privacy Policy](https://funeralcostanalyzer.com/privacy-policy.html)
+- [Site Map](https://funeralcostanalyzer.com/sitemap-index.html)
