@@ -2,27 +2,67 @@
 // Uses the OpenAI-compatible credentials that Netlify AI Gateway injects
 // into the modern function runtime (OPENAI_API_KEY / OPENAI_BASE_URL).
 
+import { SYSTEM_PROMPT, AFFILIATE_DOMAINS } from "./chat-config.mjs";
+import { isCrisis, CRISIS_REPLY } from "./crisis.mjs";
+
+// Same-origin only. The old "*" let any website call this endpoint.
+const ALLOWED_ORIGINS = ["https://funeralcostanalyzer.com", "https://www.funeralcostanalyzer.com"];
 const CORS_HEADERS = {
   "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "Content-Type"
+  "Access-Control-Allow-Origin": "https://funeralcostanalyzer.com",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Vary": "Origin"
 };
+
+// Best-effort per-instance limiter; pair with a Netlify rate-limit rule (README).
+const hits = new Map();
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_PER_WINDOW = 30;
+function rateLimited(ip) {
+  const now = Date.now();
+  const list = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+  list.push(now);
+  hits.set(ip, list);
+  if (hits.size > 5000) hits.clear();
+  return list.length > MAX_PER_WINDOW;
+}
+
+function hasAffiliateLink(text) {
+  const urls = text.match(/https?:\/\/[^\s)<>"\]]+/g) || [];
+  return urls.some((u) => {
+    let h = "";
+    try { h = new URL(u.replace(/[.,;:!?]+$/, "")).hostname.replace(/^www\./, "").toLowerCase(); } catch { return false; }
+    return AFFILIATE_DOMAINS.some((d) => h === d || h.endsWith("." + d));
+  });
+}
 
 const MODEL = "gpt-4.1-mini";
 const MAX_CONVERSATION_MESSAGES = 20;
 const REQUEST_TIMEOUT_MS = 25000;
 
-function reply(status, text) {
-  return new Response(JSON.stringify({ reply: text }), { status, headers: CORS_HEADERS });
+function reply(status, text, extra = {}) {
+  return new Response(JSON.stringify({ reply: text, ...extra }), { status, headers: CORS_HEADERS });
 }
 
-export default async (req) => {
+export default async (req, context) => {
   if (req.method === "OPTIONS") {
     return new Response("", { status: 204, headers: CORS_HEADERS });
   }
 
   if (req.method !== "POST") {
     return reply(405, "Please send a POST request with your messages.");
+  }
+
+  const origin = req.headers.get("origin") || "";
+  const referer = req.headers.get("referer") || "";
+  const okOrigin = origin ? ALLOWED_ORIGINS.includes(origin) : ALLOWED_ORIGINS.some((o) => referer.startsWith(o + "/"));
+  if (!okOrigin) {
+    return reply(403, "Forbidden.");
+  }
+
+  const ip = (context && context.ip) || req.headers.get("x-nf-client-connection-ip") || "unknown";
+  if (rateLimited(ip)) {
+    return reply(429, "You've sent a lot of messages in a short time. Please wait a few minutes and try again.");
   }
 
   let body;
@@ -50,25 +90,19 @@ export default async (req) => {
     );
   }
 
-  // Sanitize and validate each message
-  const sanitizedMessages = messages
-    .filter((msg) => msg && typeof msg.role === "string" && typeof msg.content === "string")
-    .map((msg) => {
-      let role = msg.role;
-      if (role !== "system" && role !== "assistant" && role !== "user") {
-        role = "user";
-      }
-      return { role, content: msg.content.slice(0, 4000) };
-    });
-
-  // Conversation length management: keep system messages + last 20 messages
-  // to prevent token limit issues on long conversations
-  const systemMessages = sanitizedMessages.filter((m) => m.role === "system");
-  let nonSystemMessages = sanitizedMessages.filter((m) => m.role !== "system");
-  if (nonSystemMessages.length > MAX_CONVERSATION_MESSAGES) {
-    nonSystemMessages = nonSystemMessages.slice(nonSystemMessages.length - MAX_CONVERSATION_MESSAGES);
+  // Only user/assistant turns are accepted; any client "system" message is
+  // dropped and the server-side prompt is used instead.
+  let turns = messages
+    .filter((msg) => msg && (msg.role === "user" || msg.role === "assistant") && typeof msg.content === "string")
+    .map((msg) => ({ role: msg.role, content: msg.content.slice(0, 2000) }));
+  if (turns.length > MAX_CONVERSATION_MESSAGES) {
+    turns = turns.slice(turns.length - MAX_CONVERSATION_MESSAGES);
   }
-  const managedMessages = systemMessages.concat(nonSystemMessages);
+  // Crisis screen before any model call: fixed resources, no products, no links.
+  if (turns.some((m) => m.role === "user" && isCrisis(m.content))) {
+    return new Response(JSON.stringify({ reply: CRISIS_REPLY, hasAffiliate: false, crisis: true }), { status: 200, headers: CORS_HEADERS });
+  }
+  const managedMessages = turns.length ? [{ role: "system", content: SYSTEM_PROMPT }, ...turns] : [];
 
   if (managedMessages.length === 0) {
     return reply(400, "No valid messages were provided. Please type a message and try again.");
@@ -131,11 +165,9 @@ export default async (req) => {
     );
   }
 
-  const content = parsed?.choices?.[0]?.message?.content;
-  return reply(
-    200,
-    content
-      ? content.trim()
-      : "I'm not sure how to respond to that right now, but you can try asking again or in a different way."
-  );
+  const content = parsed?.choices?.[0]?.message?.content?.trim();
+  if (!content) {
+    return reply(200, "I'm not sure how to respond to that right now, but you can try asking again or in a different way.", { hasAffiliate: false });
+  }
+  return reply(200, content, { hasAffiliate: hasAffiliateLink(content) });
 };
