@@ -38,7 +38,7 @@ async function bump(store, key) {
 
 // Returns { limited: boolean, retryAfter?: seconds }.
 export async function checkRateLimit(ip) {
-  if (!ip) return { limited: false, dbg: "noip" };
+  if (!ip) return { limited: false };
   try {
     // Strong consistency: the default (eventual) can serve stale counts for up to ~60s.
     const store = getStore({ name: "chat-rate-limit", consistency: "strong" });
@@ -54,9 +54,9 @@ export async function checkRateLimit(ip) {
     if (s > LIMITS.shortMax) {
       return { limited: true, retryAfter: Math.ceil(((win + 1) * LIMITS.shortWindowMs - now) / 1000) };
     }
-    return { limited: false, dbg: `s=${s} d=${d} h=${h.slice(0,6)}` };
+    return { limited: false };
   } catch (err) {
     console.error("rate-limit: blobs error, failing open:", err && err.message);
-    return { limited: false, dbg: "err:" + (err && err.message) };
+    return { limited: false };
   }
 }
