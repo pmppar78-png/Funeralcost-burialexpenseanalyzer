@@ -13,7 +13,7 @@ var chatSendBtn = document.getElementById("chatSendBtn");
 var conversation = [];
 
 var DISCLOSURE_HTML =
-  '<p class="chat-disclosure" style="font-size:.8rem;color:#666;margin-top:.5rem;border-top:1px solid #eee;padding-top:.4rem">Some links above are affiliate links, so the site may earn a commission at no extra cost to you. ' +
+  '<p class="chat-disclosure" style="font-size:.8rem;color:#666;margin-top:.5rem;border-top:1px solid #eee;padding-top:.4rem">The site may earn a commission from some links, at no extra cost to you. ' +
   '<a href="/affiliate-disclosure.html">Read our disclosure</a></p>';
 
 /* Maximum conversation messages to send (excluding system prompt) */
@@ -35,7 +35,7 @@ function linkify(text) {
   // Handle markdown-style links: [text](url)
   escaped = escaped.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, function (match, linkText, url) {
     var safeUrl = url.replace(/"/g, "&quot;");
-    return '<a href="' + safeUrl + '" target="_blank" rel="sponsored nofollow noopener noreferrer">' + linkText + '</a>';
+    return '<a href="' + safeUrl + '" target="_blank" rel="nofollow noopener noreferrer">' + linkText + '</a>';
   });
 
   // Handle markdown bold: **text**
@@ -47,7 +47,7 @@ function linkify(text) {
     // Clean trailing punctuation that's likely not part of the URL
     var cleanUrl = safeUrl.replace(/[.,;:!?)]+$/, "");
     var trailing = safeUrl.slice(cleanUrl.length);
-    return prefix + '<a href="' + cleanUrl + '" target="_blank" rel="sponsored nofollow noopener noreferrer">' + cleanUrl + '</a>' + trailing;
+    return prefix + '<a href="' + cleanUrl + '" target="_blank" rel="nofollow noopener noreferrer">' + cleanUrl + '</a>' + trailing;
   });
 
   // Convert newlines to <br> for proper display

@@ -8,17 +8,17 @@
 
 export const LINK_MAP = [
   // Retail (commercial; affiliate programs may exist, none configured)
-  { name: "Titan Casket", url: "https://www.titancasket.com", topics: ["buy a casket online"], affiliate: true, trackingId: null },
+  { name: "Titan Casket", url: "https://www.titancasket.com", topics: ["buy a casket online"], affiliate: false, trackingId: null },
   { name: "Overnight Caskets", url: "https://www.overnightcaskets.com", topics: ["buy a casket online", "fast delivery"], affiliate: false, trackingId: null },
   { name: "Best Price Caskets", url: "https://www.bestpricecaskets.com", topics: ["buy a casket online"], affiliate: false, trackingId: null },
-  { name: "Costco caskets", url: "https://www.costco.com", topics: ["buy a casket online", "warehouse club pricing"], affiliate: true, trackingId: null },
-  { name: "Walmart caskets", url: "https://www.walmart.com", topics: ["buy a casket online"], affiliate: true, trackingId: null },
-  { name: "Perfect Memorials", url: "https://www.perfectmemorials.com", topics: ["urns", "cremation jewelry", "memorial keepsakes"], affiliate: true, trackingId: null },
+  { name: "Costco caskets", url: "https://www.costco.com", topics: ["buy a casket online", "warehouse club pricing"], affiliate: false, trackingId: null },
+  { name: "Walmart caskets", url: "https://www.walmart.com", topics: ["buy a casket online"], affiliate: false, trackingId: null },
+  { name: "Perfect Memorials", url: "https://www.perfectmemorials.com", topics: ["urns", "cremation jewelry", "memorial keepsakes"], affiliate: false, trackingId: null },
   { name: "Urns Northwest", url: "https://www.urnsnw.com", topics: ["urns", "biodegradable urns"], affiliate: false, trackingId: null },
-  { name: "Amazon", url: "https://www.amazon.com", topics: ["urns", "memorial items"], affiliate: true, trackingId: null },
-  { name: "Etsy", url: "https://www.etsy.com", topics: ["handmade urns", "custom memorial items"], affiliate: true, trackingId: null },
+  { name: "Amazon", url: "https://www.amazon.com", topics: ["urns", "memorial items"], affiliate: false, trackingId: null },
+  { name: "Etsy", url: "https://www.etsy.com", topics: ["handmade urns", "custom memorial items"], affiliate: false, trackingId: null },
   { name: "Parting.com", url: "https://www.parting.com", topics: ["compare funeral home prices in some areas"], affiliate: false, trackingId: null },
-  { name: "Ever Loved", url: "https://everloved.com", topics: ["memorial website", "planning tools", "fundraising"], affiliate: true, trackingId: null },
+  { name: "Ever Loved", url: "https://everloved.com", topics: ["memorial website", "planning tools", "fundraising"], affiliate: false, trackingId: null },
 
   // Free / official (never affiliate)
   { name: "Funeral Consumers Alliance", url: "https://www.funerals.org", topics: ["consumer rights", "low-cost options", "green burial"], affiliate: false },
