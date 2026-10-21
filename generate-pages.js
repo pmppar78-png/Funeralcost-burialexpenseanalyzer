@@ -2721,11 +2721,9 @@ for (const m of metros) {
     if (!METRO_KEEP.has(from) && !m.dc) CONSOLIDATED[from] = `${kind}-costs-${m.ss}.html`;
   }
 }
-const NOINDEXED = new Set([
-  'body-donation-guide.html', 'crowdfunding-funeral-costs.html', 'estate-planning-costs.html',
-  'funeral-flowers-guide.html', 'funeral-planning-for-parents.html', 'headstone-monument-costs.html',
-  'infant-child-funeral-costs.html', 'pet-cremation-costs.html', 'probate-process-costs.html',
-]);
+// The 9 pages once listed here were rewritten (Content bot batch 4, 2026-10-21)
+// and are indexable again.
+const NOINDEXED = new Set([]);
 const allSitemapPages = existingPages.concat(allPages).concat(['sitemap-index.html'])
   .filter(p => !(p in CONSOLIDATED) && !NOINDEXED.has(p));
 allSitemapPages.forEach((p, idx) => {
