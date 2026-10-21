@@ -51,7 +51,7 @@ export default async (req, context) => {
   const ip = (context && context.ip) || req.headers.get("x-nf-client-connection-ip") || "unknown";
   // Durable per-IP limit (Netlify Blobs), checked before validation and before any OpenAI call.
   const rl = await checkRateLimit(ip === "unknown" ? "" : ip);
-  if (context && context.deploy && context.deploy.context === "deploy-preview" && req.headers.get("x-rl-debug")) return reply(200, "dbg " + rl.dbg);
+  if (context && context.deploy && context.deploy.context === "deploy-preview" && req.headers.get("x-rl-debug")) return reply(200, "dbg " + rl.dbg + " ctx=" + (context.ip||"").length + " hdr=" + (req.headers.get("x-nf-client-connection-ip")||"").length + " same=" + (context.ip===req.headers.get("x-nf-client-connection-ip")) + " fam=" + ((context.ip||"").includes(":")?6:4));
   if (rl.limited) {
     return new Response(JSON.stringify({ reply: LIMIT_MESSAGE, rateLimited: true }), {
       status: 429,

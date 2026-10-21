@@ -42,7 +42,7 @@ export async function checkRateLimit(ip) {
     if (s > LIMITS.shortMax) {
       return { limited: true, retryAfter: Math.ceil(((win + 1) * LIMITS.shortWindowMs - now) / 1000) };
     }
-    return { limited: false, dbg: `s=${s} d=${d}` };
+    return { limited: false, dbg: `s=${s} d=${d} h=${h.slice(0,6)}` };
   } catch (err) {
     console.error("rate-limit: blobs error, failing open:", err && err.message);
     return { limited: false, dbg: "err:" + (err && err.message) };
