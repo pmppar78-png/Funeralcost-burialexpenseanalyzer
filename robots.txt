@@ -1,6 +1,18 @@
 User-agent: *
 Allow: /
 
+# Disallow non-public directories and files
+Disallow: /node_modules/
+Disallow: /.netlify/
+Disallow: /.git/
+Disallow: /404.html
+Disallow: /generate-pages.js
+
+# Allow crawling of all content pages, stylesheets, and scripts
+Allow: /style.css
+Allow: /script.js
+Allow: /*.html
+
 # Explicit allow for major search and advertising crawlers
 # (redundant with User-agent: * / Allow: / above, but stated here to make
 # AdSense readiness unambiguous for auditors and tooling)
@@ -27,21 +39,6 @@ Allow: /
 
 User-agent: DuckDuckBot
 Allow: /
-
-User-agent: *
-Allow: /
-
-# Disallow non-public directories and files
-Disallow: /node_modules/
-Disallow: /.netlify/
-Disallow: /.git/
-Disallow: /404.html
-Disallow: /generate-pages.js
-
-# Allow crawling of all content pages, stylesheets, and scripts
-Allow: /style.css
-Allow: /script.js
-Allow: /*.html
 
 # Sitemaps — segmented sitemap index for optimal crawl prioritization
 Sitemap: https://funeralcostanalyzer.com/sitemap.xml
