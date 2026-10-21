@@ -503,6 +503,7 @@ function footer() {
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-of-service.html">Terms of Service</a>
         <a href="disclaimer.html">Disclaimer</a>
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
         <a href="grief-resources.html">Grief Resources</a>
         <a href="contact.html">Contact</a>
         <a href="sitemap-index.html">Site Map</a>
@@ -2634,7 +2635,7 @@ const existingPages = [
   'cheap-funeral-options.html', 'green-burial-options.html', 'prepaid-funeral-plans.html',
   'ftc-funeral-rule-guide.html', 'funeral-insurance-guide.html', 'home-funeral-guide.html',
   'obituary-writing-guide.html', 'grief-resources.html', 'planning-checklist.html',
-  'about.html', 'author-paul-paradis.html', 'editorial-standards.html', 'privacy-policy.html', 'terms-of-service.html', 'disclaimer.html',
+  'about.html', 'author-paul-paradis.html', 'editorial-standards.html', 'privacy-policy.html', 'terms-of-service.html', 'disclaimer.html', 'affiliate-disclosure.html',
   'funeral-cost-index-pdf.html', 'funeral-planning-checklist-printable.html',
   'funeral-cost-comparison-worksheet.html', 'funeral-cost-widget.html',
   'best-online-casket-retailers.html', 'best-cremation-urns.html',
@@ -2935,6 +2936,7 @@ ${metros.map(m => { const s = states.find(x => x.slug === m.ss); return s ? `   
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="terms-of-service.html">Terms of Service</a></li>
         <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
       </ul>
 
       ${ctaBanner()}
