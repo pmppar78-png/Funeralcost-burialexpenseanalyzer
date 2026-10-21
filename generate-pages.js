@@ -3052,7 +3052,7 @@ console.log(`Sitemap updated with ${existingPages.length + allPages.length} tota
       html = html
         .replace(/(<span class="article-meta-label">By:<\/span> <span class="article-meta-value"><a href=")about\.html(">Paul Paradis<\/a>)/, '$1author-paul-paradis.html$2')
         .replace(/<span class="article-meta-label">(?:Last updated|Updated):<\/span> <span class="article-meta-value">(?:<time[^>]*>[^<]*<\/time>|[^<]*)<\/span>/, `<span class="article-meta-label">Last updated:</span> <span class="article-meta-value">${time}</span>`);
-    } else if (!/class="article-byline"/.test(html)) {
+    } else if (!/class="article-byline[ "]/.test(html)) {
       html = html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n      <p class="article-byline small muted">By <a href="author-paul-paradis.html">Paul Paradis</a>, Editor &middot; Last updated ${time}</p>`);
     } else {
       html = html.replace(/(<p class="article-byline[^>]*>[\s\S]*?Last updated )<time[^>]*>[^<]*<\/time>/, `$1${time}`);
