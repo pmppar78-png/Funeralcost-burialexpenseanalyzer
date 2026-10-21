@@ -159,6 +159,7 @@ const esc = s => s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&lt;/g,
 // indexing. Keep this tied to the real last substantive content update.
 const LASTMOD = '2026-04-27';
 const TODAY = LASTMOD;
+const REVIEW_DATE = new Date(LASTMOD + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 const REVIEW_MONTH = new Date(LASTMOD + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 // Deterministic variant picker — uses state/metro identifiers plus an optional
@@ -1018,8 +1019,8 @@ ${header()}
       <h1>Funeral Costs in ${s.name}: What Families Pay in 2026</h1>
 
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, <a href="https://www.ftc.gov/funerals" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">${s.region}</span></span>
       </div>
@@ -1284,8 +1285,8 @@ ${header()}
 
       <h1>Funeral Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="funeral-costs-${s.slug}.html">${m.st}</a>`}</span></span>
       </div>
 
@@ -1452,8 +1453,8 @@ ${header()}
 
       <h1>Cremation Costs in ${s.name} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
       </div>
 
@@ -1608,8 +1609,8 @@ ${header()}
 
       <h1>Burial Costs in ${s.name} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">${s.region}</span></span>
       </div>
 
@@ -1712,8 +1713,8 @@ ${header()}
 
       <h1>${p.st}: What Families Need to Know in 2026</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, Government Sources</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
       </div>
@@ -1834,8 +1835,8 @@ ${header()}
 
       <h1>Cremation Costs by State: 2026 Price Comparison</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, State Boards</span></span>
       </div>
 
@@ -1907,8 +1908,8 @@ ${header()}
 
       <h1>Burial Costs by State: 2026 Price Comparison</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, State Boards</span></span>
       </div>
 
@@ -2003,8 +2004,8 @@ ${header()}
 
       <h1>Cremation Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="cremation-costs-${s.slug}.html">${m.st}</a>`}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
       </div>
@@ -2140,8 +2141,8 @@ ${header()}
 
       <h1>Burial Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="burial-costs-${s.slug}.html">${m.st}</a>`}</span></span>
       </div>
 
@@ -2312,8 +2313,8 @@ ${header()}
 
       <h1>${p.st}: What You Need to Know in 2026</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, Insurance Industry Data, Government Sources</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
       </div>
@@ -2450,8 +2451,8 @@ ${header()}
 
       <h1>${p.tradition} Funeral Costs: Traditions and Pricing in 2026</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="about.html">Paul Paradis</a>, Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Updated:</span> <span class="article-meta-value">${REVIEW_MONTH}</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, Religious Organizations, Consumer Surveys</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
       </div>
@@ -2708,6 +2709,18 @@ const CONSOLIDATED = {
   'medicaid-funeral-assistance.html': 'funeral-payment-assistance.html',
   'military-funeral-honors.html': 'veteran-burial-benefits.html',
 };
+// Metro pages (2026-10-21): every metro page only scaled its state's numbers
+// by a multiplier (m.mp), so each one 301s to its state page of the same type.
+// Kept: metro pages that were hand-written with real local facts (Memphis and
+// Indianapolis funeral pages) and the Washington, DC pages (no DC state page).
+const METRO_KEEP = new Set(['funeral-costs-memphis.html', 'funeral-costs-indianapolis.html',
+  'funeral-costs-washington-dc.html', 'cremation-costs-washington-dc.html', 'burial-costs-washington-dc.html']);
+for (const m of metros) {
+  for (const kind of ['funeral', 'cremation', 'burial']) {
+    const from = `${kind}-costs-${m.slug}.html`;
+    if (!METRO_KEEP.has(from) && !m.dc) CONSOLIDATED[from] = `${kind}-costs-${m.ss}.html`;
+  }
+}
 const NOINDEXED = new Set([
   'body-donation-guide.html', 'crowdfunding-funeral-costs.html', 'estate-planning-costs.html',
   'funeral-flowers-guide.html', 'funeral-planning-for-parents.html', 'headstone-monument-costs.html',
@@ -2972,3 +2985,79 @@ console.log(`Insurance/financial pages: ${count.insurance}`);
 console.log(`Religious funeral pages: ${count.religious}`);
 console.log(`Total new pages: ${total}`);
 console.log(`Sitemap updated with ${existingPages.length + allPages.length} total pages`);
+
+
+// ── Repoint links to consolidated pages (runs over every page on disk) ──
+// City cards become plain (unlinked) cards that keep their estimate; other
+// links point to the page that replaced the old one, and a list item that would
+// then duplicate a link already in the same list is dropped. Idempotent.
+(function repointConsolidated() {
+  const METRO_OF = {};
+  for (const m of metros) for (const k of ['funeral', 'cremation', 'burial']) METRO_OF[`${k}-costs-${m.slug}.html`] = m;
+  let changed = 0;
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const keys = Object.keys(CONSOLIDATED);
+  const anyRe = new RegExp('href="/?(' + keys.map(esc).join('|') + ')"');
+  for (const f of fs.readdirSync(OUT)) {
+    if (!f.endsWith('.html') || f in CONSOLIDATED) continue;
+    const file = path.join(OUT, f);
+    let html = fs.readFileSync(file, 'utf8');
+    if (!anyRe.test(html)) continue;
+    const before = html;
+    html = html.replace(/<a href="\/?([^"]+)" class="state-card">([\s\S]*?)<\/a>/g, (a, href, inner) =>
+      href in CONSOLIDATED ? `<span class="state-card">${inner}</span>` : a);
+    html = html.replace(/(<a\b[^>]*href="\/?)([^"#]+)((?:#[^"]*)?"[^>]*>)([^<]*)(<\/a>)/g, (a, pre, href, mid, text, end) => {
+      if (!(href in CONSOLIDATED)) return a;
+      const m = METRO_OF[href];
+      const t = m ? text.replace(m.city, m.st) : text;
+      return `${pre}${CONSOLIDATED[href]}${mid.replace(/^#[^"]*/, '')}${t}${end}`;
+    });
+    html = html.replace(/href="(\/?)([^"#]+)(#[^"]*)?"/g, (a, slash, href, hash) =>
+      href in CONSOLIDATED ? `href="${slash}${CONSOLIDATED[href]}"` : a);
+    html = html.replace(/<ul\b[^>]*>[\s\S]*?<\/ul>/g, (ul) => {
+      const seen = new Set();
+      return ul.replace(/\s*<li\b[^>]*>[\s\S]*?<\/li>/g, (li) => {
+        const m = li.match(/href="([^"]+)"/);
+        if (!m) return li;
+        if (seen.has(m[1]) && !/<ul/.test(li)) return '';
+        seen.add(m[1]);
+        return li;
+      });
+    });
+    if (html !== before) { fs.writeFileSync(file, html); changed++; }
+  }
+  console.log(`  Links to consolidated pages repointed on ${changed} page(s)`);
+})();
+
+// ── Bylines and visible "Last updated" dates (2026-10-21) ──────
+// Runs over every page on disk (existing pages are never regenerated, so the
+// templates alone would not reach them). Idempotent. The date shown is the
+// page's own <meta name="last-modified">, the same date the sitemaps use.
+(function applyBylines() {
+  const SKIP = new Set(['404.html', 'about.html', 'affiliate-disclosure.html', 'author-paul-paradis.html', 'chat.html',
+    'contact.html', 'disclaimer.html', 'editorial-standards.html', 'index.html', 'privacy-policy.html',
+    'sitemap-index.html', 'terms-of-service.html']);
+  const fmt = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  let updated = 0;
+  for (const f of fs.readdirSync(OUT)) {
+    if (!f.endsWith('.html') || SKIP.has(f)) continue;
+    const file = path.join(OUT, f);
+    let html = fs.readFileSync(file, 'utf8');
+    if (/<meta name="robots" content="noindex/.test(html) && !/class="article-meta"/.test(html)) continue;
+    const m = html.match(/<meta name="last-modified" content="(\d{4}-\d{2}-\d{2})"/);
+    if (!m) continue;
+    const time = `<time datetime="${m[1]}">${fmt(m[1])}</time>`;
+    const before = html;
+    if (/class="article-meta"/.test(html)) {
+      html = html
+        .replace(/(<span class="article-meta-label">By:<\/span> <span class="article-meta-value"><a href=")about\.html(">Paul Paradis<\/a>)/, '$1author-paul-paradis.html$2')
+        .replace(/<span class="article-meta-label">(?:Last updated|Updated):<\/span> <span class="article-meta-value">(?:<time[^>]*>[^<]*<\/time>|[^<]*)<\/span>/, `<span class="article-meta-label">Last updated:</span> <span class="article-meta-value">${time}</span>`);
+    } else if (!/class="article-byline"/.test(html)) {
+      html = html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n      <p class="article-byline small muted">By <a href="author-paul-paradis.html">Paul Paradis</a>, Editor &middot; Last updated ${time}</p>`);
+    } else {
+      html = html.replace(/(<p class="article-byline[^>]*>[\s\S]*?Last updated )<time[^>]*>[^<]*<\/time>/, `$1${time}`);
+    }
+    if (html !== before) { fs.writeFileSync(file, html); updated++; }
+  }
+  console.log(`  Bylines/dates updated: ${updated} page(s)`);
+})();
