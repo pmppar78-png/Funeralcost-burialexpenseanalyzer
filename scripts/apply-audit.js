@@ -12,6 +12,7 @@ const path = require('path');
 const { loadOversight, NAAG } = require('./lib/oversight');
 const { expansions, more } = require('../data/guide-expansions');
 const { sentencesFromFile, SKIP_CLASS } = require('./sentence-scan');
+const { collectHot, applyStateProseToHtml, oversightHtml } = require('./lib/state-prose');
 
 const ROOT = path.join(__dirname, '..');
 const REVIEW = '2026-10-22';
@@ -246,22 +247,7 @@ function rewriteMain(main, repeated, ctx) {
 }
 
 function oversightSection(ctx) {
-  const city = ctx.cities[0];
-  const city2 = ctx.cities[1] || city;
-  const rule = ctx.rule.replace(/\./g, ';');
-  const place = escapeHtml(ctx.place);
-  const name = escapeHtml(ctx.name);
-  const board = escapeHtml(ctx.board);
-  const safeRule = escapeHtml(rule);
-  const cityH = escapeHtml(city);
-  const city2H = escapeHtml(city2);
-  return `
-<h2 id="state-oversight">Who regulates funerals in ${place}</h2>
-<p>Funeral establishments serving ${place} are overseen by the ${board}, and the rule summary in our <a href="state-funeral-regulations.html">${name} funeral regulations directory</a> is: ${safeRule}. The ${place} summary is a starting point rather than a substitute for the statute, so if a director tells a family in ${place} that the law requires embalming, a casket, or a package, ask which sentence of the ${place} rule they mean and compare it with the federal <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener">FTC Funeral Rule</a> (16 CFR Part 453), which still requires an itemized General Price List from every funeral home in ${place}.</p>
-<p>The cremation share this guide uses for ${name} is ${escapeHtml(String(ctx.cr))}, and that ${place} figure is the planning share on our ${name} pages rather than a statistic from the NFDA 2023 price study, which measured prices rather than a cremation rate for ${place}. In ${cityH}, and in ${city2H} when a family in ${place} is comparing a second market, ask each home for direct cremation and for a viewing-and-burial price, because this ${place} page lists direct cremation at ${money(ctx.dc)} and a traditional funeral at ${money(ctx.f)} as this guide's estimates for ${place}.</p>
-<p>The national context for the ${place} estimates is the ${NFDA_NOTE}, whose national median for a funeral with viewing and burial was $8,300, not including a vault or cemetery plot, whose median for a funeral with viewing and cremation was $6,280, and whose direct-cremation medians were $2,645 when the family supplied the container and $2,750 when the funeral home did. Prices in ${place} can sit above or below those medians, and the General Price List in ${place} is the number that matters on the day.</p>
-<p>To complain about a funeral home in ${place}, contact the ${board} and the ${name} attorney general's consumer-protection office, and because we do not print a phone number for ${place} that might go stale, the <a href="${NAAG}" target="_blank" rel="noopener">National Association of Attorneys General</a> lists the current ${name} consumer line and complaint form. Keep the General Price List, the contract, and any text messages from the ${place} arrangement, because those are the three items the ${board} will ask a family in ${place} to provide.</p>
-`;
+  return oversightHtml(ctx);
 }
 
 function setNamedMeta(html, attr, name, value) {
@@ -574,6 +560,18 @@ function stampMain(main, repeated, topic) {
   return out;
 }
 
+function shortenDisclaimer(html, file) {
+  return html.replace(/<div class="guide-disclaimer"[^>]*>[\s\S]*?<\/div>/gi, block => {
+    const text = block.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (text.length < 180) return block;
+    const statePage = /^(funeral|cremation|burial)-costs-[a-z-]+\.html$/.test(file);
+    const line = statePage
+      ? 'These are planning estimates, not a quote or professional advice.'
+      : 'Information only, not professional advice.';
+    return `<div class="guide-disclaimer"><p><strong>Disclaimer:</strong> ${line} <a href="disclaimer.html">Full disclaimer</a>.</p></div>`;
+  });
+}
+
 function grammarCleanup(html) {
   return html
     .replace(/lets a ([A-Z][^<.]{1,60}?) family/g, 'lets a family in $1')
@@ -618,6 +616,8 @@ function applyAudit() {
 
   const htmlFiles = fs.readdirSync(ROOT).filter(f => f.endsWith('.html'));
   const repeated = collectRepeated(htmlFiles);
+  const stateFiles = htmlFiles.filter(f => /^(funeral|cremation|burial)-costs-[a-z-]+\.html$/.test(f));
+  const hot = collectHot(stateFiles, f => fs.readFileSync(path.join(ROOT, f), 'utf8'));
   let changed = 0;
 
   function ctxFor(file) {
@@ -628,16 +628,16 @@ function applyAudit() {
       if (oversight[slug]) {
         const s = states.find(x => x.slug === slug);
         const o = oversight[slug];
-        return { kind, slug, place: o.name, name: o.name, board: o.board, rule: o.rule, cr: s.cr, dc: s.dc, f: s.f, cities: s.cities };
+        return { kind, slug, place: o.name, name: o.name, board: o.board, rule: o.rule, cr: s.cr, dc: s.dc, f: s.f, c: s.c, b: s.b, cities: s.cities };
       }
       const metro = metros.find(m => m.slug === slug);
       if (!metro) return null;
       const s = states.find(x => x.slug === metro.ss);
       const o = oversight[metro.ss];
       if (metro.dc) {
-        return { kind, slug, place: 'Washington, DC', name: 'the District of Columbia', board: 'the District\'s funeral licensing board (DC is not a row in our 50-state directory)', rule: 'confirm the District\'s cremation-authorization rule with that board', cr: s.cr, dc: Math.round(s.dc * metro.mp), f: Math.round(s.f * metro.mp), cities: ['Washington'] };
+        return { kind, slug, place: 'Washington, DC', name: 'the District of Columbia', board: 'the District\'s funeral licensing board (DC is not a row in our 50-state directory)', rule: 'confirm the District\'s cremation-authorization rule with that board', cr: s.cr, dc: Math.round(s.dc * metro.mp), f: Math.round(s.f * metro.mp), c: Math.round(s.c * metro.mp), b: Math.round(s.b * metro.mp), cities: ['Washington'] };
       }
-      return { kind, slug, place: `${metro.city}, ${s.name}`, name: s.name, board: o.board, rule: o.rule, cr: s.cr, dc: Math.round(s.dc * metro.mp), f: Math.round(s.f * metro.mp), cities: [metro.city].concat(s.cities) };
+      return { kind, slug, place: `${metro.city}, ${s.name}`, name: s.name, board: o.board, rule: o.rule, cr: s.cr, dc: Math.round(s.dc * metro.mp), f: Math.round(s.f * metro.mp), c: Math.round(s.c * metro.mp), b: Math.round(s.b * metro.mp), cities: [metro.city].concat(s.cities) };
     }
     return null;
   }
@@ -661,7 +661,12 @@ function applyAudit() {
 
     const ctx = ctxFor(file);
     if (ctx) {
-      html = html.replace(/<main\b[\s\S]*?<\/main>/i, main => rewriteMain(main, repeated, ctx));
+      html = applyStateProseToHtml(html, ctx, hot);
+      if (html.includes('24-48 hour')) {
+        const rule = ctx.rule.replace(/"/g, '');
+        html = html.replace(/A 24-48 hour waiting period applies before cremation in [^.]+\./g, () => `The regulations directory timing line for ${ctx.place} is: ${rule}. That is not a generic 24-48 hour national wait. Written authorization from the legal next of kin is still required.`);
+        html = html.replace(/the mandatory 24-48 hour waiting period before cremation/g, () => `the directory timing line for ${ctx.place} (${rule}) before cremation`);
+      }
       const section = oversightSection(ctx).trim() + '\n';
       if (html.includes('id="state-oversight"')) {
         const next = html.replace(/\n*<h2 id="state-oversight">[\s\S]*?(?=<h2 |<div id="|<\/article>)/, () => '\n' + section);
@@ -692,6 +697,7 @@ function applyAudit() {
       const topic = pageTopic(html, file);
       if (topic) html = html.replace(/<main\b[\s\S]*?<\/main>/i, main => stampMain(main, repeated, topic));
     }
+    html = shortenDisclaimer(html, file);
     html = grammarCleanup(html);
 
     if (html !== before) {

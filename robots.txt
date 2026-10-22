@@ -5,7 +5,6 @@ Allow: /
 Disallow: /node_modules/
 Disallow: /.netlify/
 Disallow: /.git/
-Disallow: /404.html
 Disallow: /generate-pages.js
 
 # Allow crawling of all content pages, stylesheets, and scripts
