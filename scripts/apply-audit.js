@@ -340,6 +340,10 @@ const ROLE_NOTES = {
   'how-to-pay-for-a-funeral-with-no-money.html': `<p class="page-role"><strong>What this page is for.</strong> This is the zero-budget page: county disposition, the $255 Social Security payment, and direct cremation when there is no insurance and no realistic loan. Program details live on <a href="funeral-payment-assistance.html">payment assistance</a>. Loans and payment plans live on <a href="funeral-financing-options.html">financing options</a>.</p>`
 };
 
+const HUB_FAITH_NOTE = `<p id="faith-range-note">Catholic $7,000 to $15,000, Jewish $5,000 to $12,000, Muslim $3,000 to $8,000, Hindu $3,000 to $10,000, Buddhist $3,000 to $12,000, and LDS $6,000 to $14,000 are planning ranges, not official statistics. Each of those six figures was already printed on its own tradition page, and this overview uses the same figure so the two pages do not disagree. None of them is a median from the ${NFDA_NOTE}, which does not publish costs by faith, and none is taken from a diocese, synagogue, mosque, temple, or church price survey. The burial-leaning ranges (Catholic, Jewish, and LDS) are an editorial bracket around the NFDA median of $8,300 for a funeral with viewing and burial, a median that excludes the cemetery plot, vault, and monument, plus the plot, casket, vault, or marker rows named in that section. The Muslim range starts near the NFDA immediate-burial medians of $2,995 with a family-supplied container and $3,720 with a funeral-home container, reprinted in the 2024 NFDA Cremation and Burial Report, and leaves room for the Islamic cemetery plot named below. The Hindu and Buddhist ranges start near the NFDA direct-cremation medians of $2,645 and $2,750 and can extend through the $6,280 median for a funeral with viewing and cremation, plus the priest, memorial, or multi-day rows named for that tradition. Adding every row in a section will not reproduce the planning range, because a funeral-home service charge overlaps other rows and a family does not buy every row. The dollar figures inside each section are planning ranges too, not surveyed prices. Protestant funerals stay at $5,000 to $14,000 and Sikh funerals stay at $3,000 to $7,000 on this overview only, bracketed the same way around the burial median or the cremation medians, and reviewed ${REVIEW}.</p>`;
+
+const FAITH_METHOD = `<div class="methodology-note"><h3>How these ranges are built</h3><p>The national anchors on this page are NFDA medians, not a formula that turns those medians into a faith average. The ${NFDA_NOTE} reports $8,300 for a funeral with viewing and burial, excluding the cemetery plot, vault, and monument, and $6,280 for a funeral with viewing and cremation. The 2024 NFDA Cremation and Burial Report reprints the 2023 direct-cremation medians of $2,645 and $2,750 and the immediate-burial medians of $2,995 and $3,720. The tradition totals in the table are editorial planning ranges that were already printed on each faith page. They are not adjusted to 2026 with the Consumer Price Index, and they are not a blend of the CANA annual report. Rows for a Mass offering, a simple wood casket, a kafan, a pandit, temple clothing, or a cemetery plot are planning ranges named on the page, not prices from a published church survey. Reviewed ${REVIEW}.</p></div>`;
+
 function faithReconcile(html) {
   const swaps = [
     ['<strong>Jewish</strong></td><td>$4,000 &ndash; $10,000', '<strong>Jewish</strong></td><td>$5,000 &ndash; $12,000'],
@@ -361,26 +365,66 @@ function faithReconcile(html) {
   for (const [a, b] of swaps) next = next.split(a).join(b);
   // Hindu and Sikh share the $3,000 to $7,000 heading. Only the Hindu heading,
   // which follows the 13-day mourning list, moves to the faith-page range.
-  next = next.split('<h3>Average Total Cost: $3,000 to $7,000</h3>\n      <h3>How Hindu Tradition Affects Cost</h3>').join('<h3>Average Total Cost: $3,000 to $10,000</h3>\n      <h3>How Hindu Tradition Affects Cost</h3>');
-  next = next.split('<h3>Average Total Cost: $3,000 to $12,000</h3>\n      <h3>How Hindu Tradition Affects Cost</h3>').join('<h3>Average Total Cost: $3,000 to $10,000</h3>\n      <h3>How Hindu Tradition Affects Cost</h3>');
-  const note = `<p id="faith-range-note">These totals match the individual tradition pages: Catholic $7,000 to $15,000, Jewish $5,000 to $12,000, Muslim $3,000 to $8,000, Hindu $3,000 to $10,000, Buddhist $3,000 to $12,000, and LDS $6,000 to $14,000. Each of those six figures is the compiled planning range on its own page, built from the line items that tradition usually includes, and the same range is used here so the overview and the faith page do not disagree. They are not medians from the ${NFDA_NOTE}, which does not publish costs by faith. Protestant funerals stay at $5,000 to $14,000 and Sikh funerals stay at $3,000 to $7,000 on this overview only, built the same way and reviewed ${REVIEW}.</p>`;
-  if (next.includes('class="cost-table-note"')) {
-    next = next.replace(/<p class="cost-table-note">[\s\S]*?<\/p>/, () => note);
+  next = next.split('<h3>Average Total Cost: $3,000 to $7,000</h3>\n      <h3>How Hindu Tradition Affects Cost</h3>').join('<h3>Planning range: $3,000 to $10,000</h3>\n      <h3>How Hindu Tradition Affects Cost</h3>');
+  next = next.split('<h3>Average Total Cost: $3,000 to $12,000</h3>\n      <h3>How Hindu Tradition Affects Cost</h3>').join('<h3>Planning range: $3,000 to $10,000</h3>\n      <h3>How Hindu Tradition Affects Cost</h3>');
+  next = next.split('<h3>Average Total Cost:').join('<h3>Planning range:');
+  next = next.split('in the compiled Catholic range of $7,000 to $15,000 on this page (Protestant funerals are compiled at $5,000 to $14,000)').join('in the Catholic planning range of $7,000 to $15,000 on this page (the Protestant planning range on this page is $5,000 to $14,000)');
+  next = next.split('<th scope="col">Typical Cost Range</th>').join('<th scope="col">Planning range</th>');
+  next = next.split('what the typical service includes, and what families can expect to pay in 2026, using national benchmarks from the <strong>NFDA 2023 General Price List Study</strong> and the <strong>CANA (Cremation Association of North America) 2024 Annual Report</strong>.').join('what the typical service includes. The dollar totals below are planning ranges, not official statistics. Where a national price is cited, it is an NFDA 2023 median (latest available), not a CANA figure and not a Consumer Price Index adjustment.');
+  next = next.split('what the typical service includes, The dollar totals below are planning ranges, not official statistics.').join('what the typical service includes. The dollar totals below are planning ranges, not official statistics.');
+  next = next.split('approaches death and burial, what the typical service includes.').join('approaches death and burial and what the typical service includes.');
+  next = next.split('NFDA 2023 GPL Study, NFDA 2024 Cremation &amp; Burial Report, Religious Organizations, Consumer Surveys').join('NFDA 2023 GPL Study (latest available). Tradition totals are planning ranges, not a faith survey.');
+  next = next.split('not a faith survey</span>').join('not a faith survey.</span>');
+  if (next.includes('class="methodology-note"')) {
+    next = next.replace(/<div class="methodology-note">[\s\S]*?<\/div>/, () => FAITH_METHOD);
+  }
+  if (next.includes('id="faith-range-note"')) {
+    next = next.replace(/<p id="faith-range-note">[\s\S]*?<\/p>/, () => HUB_FAITH_NOTE);
+  } else if (next.includes('class="cost-table-note"')) {
+    next = next.replace(/<p class="cost-table-note">[\s\S]*?<\/p>/, () => HUB_FAITH_NOTE);
+  }
+  if (next.includes('class="source-note"')) {
+    const source = `<p class="source-note">National anchors on this page are the NFDA 2023 General Price List Study and the direct-cremation and immediate-burial medians reprinted in NFDA's 2024 Cremation and Burial Report. Those medians are the latest available; NFDA's statistics page still cited the 2023 medians as of its September 29, 2025 update. The tradition totals are editorial planning ranges, reviewed ${REVIEW}, and are not CANA statistics, not a Bureau of Labor Statistics inflation adjustment, and not a church survey. Itemized shopping rights come from the FTC Funeral Rule, 16 CFR Part 453.</p>`;
+    next = next.replace(/<p class="source-note">[\s\S]*?<\/p>/, () => source);
   }
   return next;
 }
 
-function faithPageNote(tradition, range) {
-  return `<p id="faith-range-note">The compiled ${tradition} range used on this page and on the <a href="funeral-costs-by-religion.html">religion overview</a> is ${range}, and that ${tradition} range reflects the line items in the table on this ${tradition} page rather than a median from the ${NFDA_NOTE}. NFDA does not publish ${tradition} funeral costs, and this ${tradition} note was reviewed ${REVIEW}.</p>`;
+function faithPageNote(tradition, range, basis) {
+  return `<p id="faith-range-note">The ${tradition} figure of ${range} is a planning range, not an official statistic and not a median from the ${NFDA_NOTE}. ${basis} The ${tradition} range was already printed on this ${tradition} page, and the <a href="funeral-costs-by-religion.html">religion overview</a> uses the same ${tradition} numbers so the two pages do not disagree. Adding every ${tradition} row will not reproduce ${range}, because a funeral-home charge overlaps other rows and a family does not buy every row. The ${tradition} table cells are planning ranges as well, not surveyed prices, and this ${tradition} note was reviewed ${REVIEW}.</p>`;
 }
 
 const FAITH_NOTES = {
-  'catholic-funeral-costs.html': faithPageNote('Catholic', '$7,000 to $15,000'),
-  'jewish-funeral-costs.html': faithPageNote('Jewish', '$5,000 to $12,000'),
-  'muslim-funeral-costs.html': faithPageNote('Muslim', '$3,000 to $8,000'),
-  'hindu-funeral-costs.html': faithPageNote('Hindu', '$3,000 to $10,000'),
-  'buddhist-funeral-costs.html': faithPageNote('Buddhist', '$3,000 to $12,000'),
-  'mormon-funeral-costs.html': faithPageNote('LDS', '$6,000 to $14,000')
+  'catholic-funeral-costs.html': faithPageNote(
+    'Catholic',
+    '$7,000 to $15,000',
+    'No diocesan price survey is cited for the Catholic total. The Catholic bracket sits around the NFDA median of $8,300 for a funeral with viewing and burial, which leaves out the cemetery plot, the vault, and the monument, plus the Catholic rows in the table: a vigil, a funeral Mass offering, a casket, a Catholic cemetery plot, a vault, and a marker.'
+  ),
+  'jewish-funeral-costs.html': faithPageNote(
+    'Jewish',
+    '$5,000 to $12,000',
+    'No synagogue or chevra kadisha price survey is cited for the Jewish total. The NFDA median of $8,300 for a funeral with viewing and burial includes embalming, which this Jewish page treats as prohibited, and the NFDA metal-casket median is $2,500, while the Jewish table uses a simple wood casket of $500 to $2,000. The Jewish cemetery plot row of $2,000 to $8,000 is the item most likely to move a Jewish funeral toward the top of the planning range.'
+  ),
+  'muslim-funeral-costs.html': faithPageNote(
+    'Muslim',
+    '$3,000 to $8,000',
+    'No mosque price survey is cited for the Muslim total. The low end sits near the NFDA immediate-burial medians of $2,995 with a family-supplied container and $3,720 with a funeral-home container, reprinted from the 2023 price list in the 2024 NFDA Cremation and Burial Report. The Muslim table then names a kafan of $50 to $200, a simple casket of $500 to $1,500 only where local law requires one, and an Islamic cemetery plot of $1,000 to $5,000, which is why the Muslim planning range extends to $8,000 without becoming a sum of those rows.'
+  ),
+  'hindu-funeral-costs.html': faithPageNote(
+    'Hindu',
+    '$3,000 to $10,000',
+    'No temple price survey is cited for the Hindu total. Hindu practice on this page is cremation, so the bracket runs from the NFDA direct-cremation medians of $2,645 with a family-supplied container and $2,750 with a funeral-home container up through the $6,280 median for a funeral with viewing and cremation, plus the Hindu rows for a pandit, garlands, ash scattering, and the 13th-day ceremony.'
+  ),
+  'buddhist-funeral-costs.html': faithPageNote(
+    'Buddhist',
+    '$3,000 to $12,000',
+    'No temple price survey is cited for the Buddhist total. The Buddhist bracket starts near the NFDA direct-cremation medians of $2,645 and $2,750 and can pass the $6,280 median for a funeral with viewing and cremation, because this Buddhist page also prices a burial-style service and memorial ceremonies across 49 days.'
+  ),
+  'mormon-funeral-costs.html': faithPageNote(
+    'LDS',
+    '$6,000 to $14,000',
+    'The Church of Jesus Christ of Latter-day Saints does not publish a national funeral median that this LDS page cites. The LDS bracket sits around the NFDA median of $8,300 for a funeral with viewing and burial, which excludes the plot, vault, and monument, plus the LDS casket, cemetery plot, vault, and marker rows in the table. Meetinghouse use is listed at $0 on this LDS page, and temple clothing is listed at $50 to $200, so those two LDS items are not what sets the width of the range.'
+  )
 };
 
 function swap(html, from, to) {
@@ -605,7 +649,15 @@ function applyAudit() {
     if (metaByFile[file]) html = applyMeta(html, metaByFile[file]);
     html = priceFixes(file, html);
     if (file === 'funeral-costs-by-religion.html') html = faithReconcile(html);
-    if (FAITH_NOTES[file]) html = insertOnce(html, 'faith-range-note', FAITH_NOTES[file], /<h2 id="costs"/);
+    if (FAITH_NOTES[file]) {
+      if (html.includes('id="faith-range-note"')) {
+        html = html.replace(/<p id="faith-range-note">[\s\S]*?<\/p>/, () => FAITH_NOTES[file]);
+      } else {
+        html = insertOnce(html, 'faith-range-note', FAITH_NOTES[file], /<h2 id="costs"/);
+      }
+      html = html.split('>NFDA</a>, Religious Organizations, Consumer Surveys').join('>NFDA</a>. The total on this page is a planning range, not a consumer-survey median.');
+      html = html.split('not a consumer-survey median</span>').join('not a consumer-survey median.</span>');
+    }
 
     const ctx = ctxFor(file);
     if (ctx) {
