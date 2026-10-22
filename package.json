@@ -1,5 +1,9 @@
 {
   "private": true,
+  "scripts": {
+    "build": "node generate-pages.js",
+    "check:repeats": "node scripts/check-repeated-sentences.js"
+  },
   "dependencies": {
     "@netlify/blobs": "8.2.0"
   }

@@ -1,6 +1,18 @@
 const fs = require('fs');
 const path = require('path');
+const { loadOversight, NAAG } = require('./scripts/lib/oversight');
 const OUT = __dirname;
+const oversightBySlug = loadOversight(OUT);
+const METRO_KEEP = new Set([
+  'funeral-costs-memphis.html',
+  'funeral-costs-indianapolis.html',
+  'funeral-costs-washington-dc.html',
+  'cremation-costs-washington-dc.html',
+  'burial-costs-washington-dc.html'
+]);
+function keepMetro(m, kind) {
+  return METRO_KEEP.has(`${kind}-costs-${m.slug}.html`) || !!m.dc;
+}
 
 // ── Page write guard ────────────────────────────────────────────
 // The committed HTML in the repo is the source of truth for any page
@@ -552,7 +564,7 @@ function footer() {
 }
 
 function resources(type) {
-  const costCluster = `<div class="resource-suggestions"><h3>Compare Funeral Costs</h3><ul class="resource-list"><li><a href="average-funeral-cost-2026.html">Average Funeral Cost in 2026</a><span class="resource-desc">National cost breakdown with real prices</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Comparison</a><span class="resource-desc">Side-by-side price comparison to help you decide</span></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a><span class="resource-desc">Every line item explained — know what you're paying for</span></li><li><a href="cheap-funeral-options.html">Cheapest Funeral Options</a><span class="resource-desc">Lower-cost alternatives, with typical price ranges</span></li><li><a href="direct-cremation-cost.html">Direct Cremation — Most Affordable Option</a><span class="resource-desc">From $1,000 — the lowest-cost disposition choice</span></li><li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a><span class="resource-desc">Step-by-step guide to getting the best price</span></li></ul></div>`;
+  const costCluster = `<div class="resource-suggestions"><h3>Compare Funeral Costs</h3><ul class="resource-list"><li><a href="average-funeral-cost-2026.html">Average Funeral Cost in 2026</a><span class="resource-desc">National cost breakdown with real prices</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Comparison</a><span class="resource-desc">Side-by-side price comparison to help you decide</span></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a><span class="resource-desc">Every line item explained — know what you're paying for</span></li><li><a href="cheap-funeral-options.html">Cheapest Funeral Options</a><span class="resource-desc">Lower-cost alternatives, with typical price ranges</span></li><li><a href="direct-cremation-cost.html">Direct Cremation — Most Affordable Option</a><span class="resource-desc">NFDA 2023 median $2,645 with a family-supplied container (latest available)</span></li><li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a><span class="resource-desc">Step-by-step guide to getting the best price</span></li></ul></div>`;
   const all = {
     general: `<div class="resource-suggestions"><h3>Educational Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a><span class="resource-desc">Independent nonprofit consumer advocacy for funeral rights</span></li><li><a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a><span class="resource-desc">The federal rule protecting funeral consumers</span></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Compare final expense and burial insurance options</span></li><li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a><span class="resource-desc">Side-by-side comparison of top burial insurance providers</span></li><li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">Government programs and financial help for funeral costs</span></li><li><a href="funeral-insurance-comparison.html">Insurance Plan Comparison</a><span class="resource-desc">Compare coverage, premiums, and payout speed across providers</span></li></ul></div>` + costCluster,
     cremation: `<div class="resource-suggestions"><h3>Cremation Resources</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a><span class="resource-desc">Nonprofit advocacy — compare cremation providers</span></li><li><a href="urn-buying-guide.html">Cremation Jewelry Guide</a><span class="resource-desc">Memorial keepsakes and remembrance options</span></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs</a><span class="resource-desc">Side-by-side cost comparison</span></li><li><a href="urn-buying-guide.html">Urn Buying Guide</a><span class="resource-desc">Types, prices, and how to choose the right urn</span></li><li><a href="pet-cremation-costs.html">Pet Cremation Costs</a><span class="resource-desc">Options and prices for pet cremation and memorials</span></li><li><a href="best-burial-insurance.html">Final Expense Insurance</a><span class="resource-desc">Coverage options to help pay for cremation costs</span></li></ul></div>` + costCluster,
@@ -1050,7 +1062,7 @@ ${header()}
       <div class="callout callout-info"><strong>2026 ${s.name} Funeral Cost Update:</strong> Our estimate for an average traditional funeral in ${s.name} is <strong>${$(s.f)}</strong>, compared with a national median of $8,300 for a funeral with viewing and burial (NFDA 2023 General Price List Study, the most recent edition). Direct cremation remains the most affordable option at <strong>${$(s.dc)}</strong>. <a href="average-funeral-cost-2026.html">See the full 2026 national funeral cost report</a> | <a href="funeral-costs-rising-2026.html">Why funeral costs are rising</a></div>
 
       <h2 id="cost-breakdown">Funeral Cost Breakdown in ${s.name}</h2>
-      <p>The following table shows the average costs for common funeral services in ${s.name}. These figures are based on data from the National Funeral Directors Association, state funeral boards, and consumer surveys. Individual prices will vary depending on the provider, location within the state, and specific services chosen.</p>
+      <p>The table below is this guide's ${s.name} estimate, not a separate NFDA state study. The national medians behind it are from the NFDA 2023 General Price List Study (latest available; NFDA's statistics page still cited these medians as of its September 29, 2025 update): $8,300 for a funeral with viewing and burial, vault not included, and $6,280 for a funeral with viewing and cremation. A ${s.name} provider's price still varies, and the ${oversightBySlug[s.slug] ? oversightBySlug[s.slug].board : s.name + ' licensing board'} licenses homes in ${s.name} without setting their prices.</p>
       <div class="cost-table-wrap">
         <table class="cost-table">
           <caption>${s.name} Funeral Cost Averages (2026)</caption>
@@ -1118,7 +1130,7 @@ ${header()}
       <p>For more strategies, see our guides on <a href="cheap-funeral-options.html">affordable funeral options</a> and <a href="how-to-pay-for-a-funeral-with-no-money.html">how to pay for a funeral with no money</a>.</p>
 
       <h2 id="cities">Major Cities in ${s.name}</h2>
-      <p>Funeral costs vary across ${s.name}'s major metropolitan areas. Urban centers typically have higher overhead costs, which are reflected in funeral pricing. Here are the major cities in ${s.name}:</p>
+      <p>Funeral costs vary across ${s.name}'s major metropolitan areas. In ${s.cities[0]}, rent and wages are often higher than in smaller ${s.name} towns, and that ${s.name} difference shows up on the General Price List rather than in one statewide number. Here are the major cities in ${s.name}:</p>
       <div class="state-grid">${cityLinks}</div>
 
       <h2 id="cremation-vs-burial">Cremation vs. Burial in ${s.name}</h2>
@@ -1136,7 +1148,7 @@ ${header()}
 
       <h2 id="consumer-rights">Your Consumer Rights in ${s.name}</h2>
       <div class="callout callout-info"><strong>Know Your Rights Under the FTC Funeral Rule</strong> Every funeral home in ${s.name} must comply with the Federal Trade Commission's Funeral Rule, which protects consumers nationwide. You have the right to: receive an itemized General Price List before making any decisions; choose only the services and products you want; purchase a casket or urn from a third party without penalty; decline embalming unless required by state law for specific circumstances; and receive a written estimate before services are performed.</div>
-      <p>If you believe a funeral home in ${s.name} has violated these rights, you can file a complaint with the FTC at <a href="https://www.ftc.gov" target="_blank" rel="nofollow noopener">ftc.gov</a> or contact the <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a> for guidance. Your state attorney general's office can also assist with consumer protection complaints.</p>
+      <p>If you believe a funeral home in ${s.name} has violated these rights, file a complaint with the FTC at <a href="https://www.ftc.gov" target="_blank" rel="nofollow noopener">ftc.gov</a> or contact the <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a>. In ${s.name}, funeral complaints also go to the ${oversightBySlug[s.slug] ? oversightBySlug[s.slug].board : 'state licensing board'} and to the attorney general's consumer-protection office, and the <a href="${NAAG}" target="_blank" rel="noopener">National Association of Attorneys General</a> lists the current ${s.name} phone number and form.</p>
 
       <h2 id="regional-context">What's Specific to ${s.name} (${s.region})</h2>
       <p>${regionalFuneralNote(s)}</p>
@@ -1167,7 +1179,7 @@ ${header()}
         return pickVariant(key, intros, 'whattodo');
       })()}
       <ol>
-        <li><strong>Take a breath.</strong> Unless there are legal or medical time constraints, you typically have 24–72 hours before decisions must be finalized.</li>
+        <li><strong>Take a breath.</strong> In ${s.name}, the regulations directory summarizes local timing as "${oversightBySlug[s.slug] ? oversightBySlug[s.slug].rule : 'confirm the local rule'}." Refrigeration usually leaves a ${s.name} family time to read two or three General Price Lists before choosing a casket, unless a medical examiner is holding the body.</li>
         <li><strong>Request General Price Lists</strong> from at least 2–3 funeral homes in your area of ${s.name}. They are legally required to provide them. <a href="questions-to-ask-funeral-home.html">Questions to ask funeral homes</a></li>
         <li><strong>Decide on disposition:</strong> <a href="cremation-costs-${s.slug}.html">cremation in ${s.name}</a> or <a href="burial-costs-${s.slug}.html">burial in ${s.name}</a>. This is the single biggest cost decision.</li>
         <li><strong>Choose only the services you need.</strong> Embalming, premium caskets, and elaborate arrangements are optional. <a href="what-funeral-homes-dont-tell-you.html">What funeral homes don't tell you</a></li>
@@ -1241,7 +1253,7 @@ function genMetro(m) {
     const q6 = [
       {q:`Are there affordable funeral options in ${m.city}?`,a:`Yes. Direct cremation from ${$(mdc)} is the most affordable. You can also consider direct burial (no service), memorial-only services, or home funerals where permitted. Third-party caskets often cost less than funeral home prices. Veteran benefits, Medicaid, and crowdfunding may also help offset costs.`},
       {q:`What are the cheapest funeral choices in ${m.city}?`,a:`${m.city} has several affordable paths. Direct cremation at ${$(mdc)} is the cheapest disposition. Direct burial (no viewing or ceremony) is the cheapest burial. Memorial-only services at a venue you choose sidestep funeral-home facility fees. Independently purchased caskets often cost less. And veteran benefits, Medicaid assistance, and crowdfunding can close remaining gaps.`},
-      {q:`How can ${m.city} families find low-cost funeral options?`,a:`The cheapest path in ${m.city} is direct cremation at ${$(mdc)}. Direct burial, memorial services held outside the funeral home, and third-party caskets (50-70% cheaper than funeral home pricing) are other standard cost-cutters. Veteran benefits, Medicaid funeral aid, and crowdfunding platforms can offset whatever remains.`}
+      {q:`How can ${m.city} families find low-cost funeral options?`,a:`The cheapest path in ${m.city} is direct cremation at ${$(mdc)}. Direct burial and a memorial held outside the funeral home are the other low-cost paths in ${m.city}. A casket bought elsewhere must be accepted with no handling fee under the FTC Funeral Rule; the NFDA 2023 median metal casket was $2,500 (latest available), and that study did not price online shops. Veteran benefits and crowdfunding can offset whatever remains in ${m.city}.`}
     ];
     return [
       pickVariant(key, q1, 'mq1'),
@@ -1502,14 +1514,14 @@ ${header()}
       <h2>What to Know Before Choosing Cremation in ${s.name}</h2>
       <p>When considering cremation in ${s.name}, keep these important points in mind:</p>
       <ul>
-        <li><strong>Cooling-off period:</strong> Most states require a 24-48 hour waiting period before cremation can proceed</li>
+        <li><strong>Cooling-off period:</strong> For cremation in ${s.name}, follow the rule summarized in our <a href="state-funeral-regulations.html">${s.name} regulations directory</a>${oversightBySlug[s.slug] ? `: ${oversightBySlug[s.slug].rule}` : ''}. Do not assume a generic 24-to-48-hour national wait is the ${s.name} rule</li>
         <li><strong>Authorization:</strong> Written authorization from the legal next of kin is required</li>
         <li><strong>Pacemakers and implants:</strong> These must be removed before cremation for safety</li>
         <li><strong>No casket required:</strong> Under the FTC Funeral Rule, you are not required to purchase a casket for cremation — an alternative container is sufficient</li>
         <li><strong>Ashes:</strong> The cremated remains (typically 3-7 pounds) are returned to the family in a container or urn of your choice</li>
       </ul>
 
-      <div class="callout callout-tip"><strong>Cost-Saving Tip:</strong> You do not need to purchase an urn from the cremation provider. Urns can be purchased independently for significantly less. The FTC Funeral Rule protects your right to use a container purchased elsewhere.</div>
+      <div class="callout callout-tip"><strong>Urns in ${s.name}:</strong> You do not have to buy the urn from the ${s.name} crematory. The FTC Funeral Rule lets a ${s.name} family bring a container, and the ${oversightBySlug[s.slug] ? oversightBySlug[s.slug].board : s.name + ' licensing board'} is who you call if a ${s.name} home refuses it.</div>
 
       <h2>How to Save on Cremation in ${s.name}</h2>
       <p>Cremation costs in ${s.name} can be reduced with these strategies:</p>
@@ -1661,7 +1673,7 @@ ${header()}
         <li><strong>Mausoleum entombment</strong> — Above-ground placement in a mausoleum. Typically more expensive than ground burial.</li>
       </ul>
 
-      <div class="callout callout-tip"><strong>Save on Caskets:</strong> Under the FTC Funeral Rule, you have the right to purchase a casket from any retailer and the funeral home must accept it without charging a handling fee. Third-party retailers and online stores often offer caskets for 50-70% less than funeral homes.</div>
+      <div class="callout callout-tip"><strong>Caskets in ${s.name}:</strong> The FTC Funeral Rule (16 CFR § 453.4) requires a ${s.name} funeral home to accept a casket bought elsewhere and bars a handling fee. The NFDA 2023 General Price List Study (latest available) puts the national median metal burial casket at $2,500. That study did not price online retailers, so compare the ${s.name} General Price List with the retailer's current price.</div>
 
       <h2>How to Reduce Burial Costs in ${s.name}</h2>
       <p>Burial costs in ${s.name} can be managed with smart planning:</p>
@@ -1699,7 +1711,7 @@ function genTopical(p) {
     {q:`How current is this information?`,a:`This guide was last reviewed in March 2026. We regularly update our content based on the latest data from industry sources, government agencies, and consumer research.`},
     {q:`Where can I get personalized advice?`,a:`For specific decisions about your situation, always consult with licensed professionals — such as attorneys for legal matters, financial advisors for insurance questions, and licensed funeral directors for service planning.`},
     {q:`Is this information free to use?`,a:`Yes, all guides on Funeral Cost Analyzer are free and available without registration. We provide independent educational resources to help families make informed decisions.`},
-    {q:`How much does the average funeral cost in the United States?`,a:`The national median cost of a funeral with viewing and burial is $8,300, and a funeral with viewing and cremation is $6,280, according to the NFDA 2023 General Price List Study (the most recent edition). Direct cremation is the most affordable option at $1,000 to $3,500. Costs vary significantly by state and provider.`},
+    {q:`How much does the average funeral cost in the United States?`,a:`The national median cost of a funeral with viewing and burial is $8,300, and a funeral with viewing and cremation is $6,280, according to the NFDA 2023 General Price List Study (latest available). Direct cremation medians in that study are $2,645 when the family supplies the container and $2,750 when the funeral home does. A local advertisement near $1,000 is an asking price, not the median. Costs vary by state and provider.`},
     {q:`What are my consumer rights when arranging a funeral?`,a:`The FTC Funeral Rule protects all consumers. Funeral homes must provide itemized pricing, allow you to choose only the services you want, accept caskets purchased elsewhere, and refrain from misrepresenting legal requirements. You have the right to a General Price List from any funeral home upon request.`}
   ];
 
@@ -1711,7 +1723,7 @@ ${header()}
         <a href="/">Home</a> &rsaquo; <span aria-current="page">${p.st}</span>
       </nav>
 
-      <h1>${p.st}: What Families Need to Know in 2026</h1>
+      <h1>${p.h1 || p.st}</h1>
       <div class="article-meta">
         <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
@@ -1745,13 +1757,13 @@ ${header()}
         <li><strong>There is no single right answer</strong> — Every family's needs, values, and budget are different. What matters most is that you feel informed and at peace with your decisions.</li>
         <li><strong>Help is available</strong> — From government assistance programs to community resources, there are options if cost is a concern. <a href="funeral-payment-assistance.html">Explore payment assistance</a></li>
         <li><strong>Planning ahead saves money and stress</strong> — Families who research options before an immediate need arises often pay less and experience less decision-making stress.</li>
-        <li><strong>Cremation is the most affordable option</strong> — Direct cremation ($1,000–$3,500) is the least expensive disposition choice. Over 60% of American families now choose cremation. <a href="cremation-vs-burial-cost.html">Cremation vs. burial comparison</a></li>
+        <li><strong>Cremation is often the lower-cost option</strong> — The NFDA 2023 direct-cremation medians (latest available) are $2,645 and $2,750 depending on who supplies the container. NFDA's 2025 Cremation and Burial Report projects a 2025 cremation rate of 63.4%. <a href="cremation-vs-burial-cost.html">Cremation vs. burial comparison</a></li>
         <li><strong>Compare at least 2–3 providers</strong> — Use the <a href="funeral-cost-comparison-worksheet.html">funeral cost comparison worksheet</a> to organize your research</li>
       </ul>
 
       <h2 id="costs">Costs and Pricing</h2>
       <p>Understanding the financial aspects of ${p.st.toLowerCase()} is crucial for making informed decisions. While costs vary by location and provider, here are some general pricing guidelines to keep in mind:</p>
-      <div class="callout callout-info"><strong>National Context:</strong> The national median cost of a funeral with viewing and burial is $8,300, and a funeral with viewing and cremation is $6,280, according to the NFDA 2023 General Price List Study (the most recent edition). Direct cremation — the most affordable option — typically costs $1,000 to $3,500. These figures exclude cemetery costs and provide a baseline, but actual costs in your area may differ significantly.</div>
+      <div class="callout callout-info"><strong>National Context:</strong> The national median cost of a funeral with viewing and burial is $8,300, and a funeral with viewing and cremation is $6,280, according to the NFDA 2023 General Price List Study (latest available). Direct-cremation medians in that study are $2,645 (family container) and $2,750 (funeral-home container). These figures exclude cemetery costs. A local price near $1,000 is an advertisement, not the median.</div>
       <p>When evaluating costs related to ${p.st.toLowerCase()}, consider the total picture rather than individual line items. Ask every provider for their complete General Price List, compare similar services side by side, and do not hesitate to ask questions about anything you do not understand. There is no such thing as a silly question when it comes to funeral planning.</p>
 
       <h2 id="consumer-rights">Your Consumer Rights</h2>
@@ -1800,10 +1812,10 @@ ${footer()}`;
 // ── Hub Pages: Cremation & Burial by State ──────────────────────
 function genCremationHub() {
   const fn = 'cremation-costs-by-state.html';
-  const title = 'Cremation Costs by State (2026) — Compare All 50 States | From $1,000';
-  const desc = 'How much does cremation cost in your state? Compare direct cremation and cremation service prices across all 50 states. Find the cheapest cremation near you — direct cremation from $1,000 to $3,000 depending on state.';
+  const title = 'Cremation Costs by State 2026: All 50 Compared';
+  const desc = 'Compare direct cremation and cremation-with-service prices in all 50 states. Direct cremation runs roughly $1,000 to $3,000 in most areas.';
   const faq = [
-    {q:'What is the average cremation cost in the US?',a:'The national average for a funeral with cremation is approximately $6,280, while direct cremation — without a viewing or service — averages $1,000 to $3,500 depending on location and provider.'},
+    {q:'What is the average cremation cost in the US?',a:'The NFDA 2023 General Price List Study (latest available) reports a national median of $6,280 for a funeral with viewing and cremation, and direct-cremation medians of $2,645 when the family supplies the container and $2,750 when the funeral home does. A local advertisement near $1,000 is an asking price, not that median.'},
     {q:'Which states have the cheapest cremation?',a:'States in the South and Mountain regions tend to have the lowest cremation costs. Mississippi, Oklahoma, Arkansas, and New Mexico typically offer direct cremation for under $1,500.'},
     {q:'Which states have the highest cremation rates?',a:'Western states lead in cremation rates. Oregon (78%), Washington (76%), Maine (75%), Hawaii (70%), and Montana (72%) have among the highest cremation rates in the country.'},
     {q:'Is direct cremation the cheapest funeral option?',a:'Yes, direct cremation is generally the most affordable disposition option in every state. It includes only the essential services: transportation, the cremation itself, and return of remains to the family.'}
@@ -2285,7 +2297,7 @@ const insurancePages = [
     st:'End-of-Life Planning Checklist',
     d:'Comprehensive end-of-life planning checklist covering legal documents, financial planning, funeral wishes, medical directives, and digital assets. Plan with confidence.',
     sections:[
-      {h:'Why End-of-Life Planning Matters',content:`<p>End-of-life planning goes beyond funeral arrangements. A complete plan ensures your wishes are documented, your family is prepared, and your legal and financial affairs are in order. Families who plan ahead report less stress, lower costs, and greater peace of mind during an already difficult time.</p><div class="callout callout-info"><strong>Did You Know?</strong> Only 34% of American adults have a will, and fewer than 30% have an advance healthcare directive. Completing these documents while you are healthy protects your family from costly legal proceedings and emotionally difficult decisions.</div>`},
+      {h:'Why End-of-Life Planning Matters',content:`<p>End-of-life planning goes beyond funeral arrangements. A complete plan ensures your wishes are documented, your family is prepared, and your legal and financial affairs are in order. Families who plan ahead report less stress, lower costs, and greater peace of mind during an already difficult time.</p><div class="callout callout-info"><strong>Worth doing while you can sign.</strong> A will and an advance directive protect a family from decisions nobody wrote down. A percentage previously printed here was removed because we could not tie it to an official series. Completing these documents while you are healthy is the point.</div>`},
       {h:'Legal Documents Checklist',content:`<ul><li><strong>Last will and testament</strong> — Names an executor, distributes assets, and can designate guardians for minor children. Cost: $300-$1,000 with an attorney, or $50-$200 using an online service. <a href="estate-planning-costs.html">See estate planning costs</a></li><li><strong>Advance healthcare directive / living will</strong> — Documents your wishes for medical treatment if you become incapacitated. Covers life support, resuscitation, feeding tubes, and pain management preferences.</li><li><strong>Durable power of attorney</strong> — Designates someone to make financial decisions on your behalf if you become unable to do so.</li><li><strong>Healthcare proxy / medical power of attorney</strong> — Designates someone to make medical decisions on your behalf.</li><li><strong>Beneficiary designations</strong> — Review and update beneficiaries on life insurance, retirement accounts, bank accounts, and investment accounts. These override your will.</li><li><strong>Trust (if applicable)</strong> — Helps avoid probate, provides for minor children, or manages assets for specific purposes. <a href="probate-process-costs.html">Learn about probate costs</a></li></ul>`},
       {h:'Financial Planning Checklist',content:`<ul><li><strong>Funeral funding</strong> — Ensure funeral costs are covered through savings, <a href="best-burial-insurance.html">burial insurance</a>, or a dedicated fund. The average funeral costs $8,300.</li><li><strong>Account inventory</strong> — List all bank accounts, investment accounts, retirement accounts, and insurance policies with account numbers and contact information.</li><li><strong>Debt inventory</strong> — Document all outstanding debts including mortgages, car loans, credit cards, and personal loans.</li><li><strong>Insurance review</strong> — Confirm life insurance coverage is adequate and beneficiaries are current. <a href="best-burial-insurance.html">Using life insurance for funeral costs</a></li><li><strong>Digital assets</strong> — List online accounts, passwords, cryptocurrency wallets, and subscription services. Designate a digital executor if possible.</li><li><strong>Safe deposit box</strong> — Ensure someone has access and knows the location of your important documents.</li></ul>`},
       {h:'Funeral Wishes Documentation',content:`<ul><li><strong>Disposition preference</strong> — Cremation, burial, green burial, body donation, or other. <a href="cremation-vs-burial-cost.html">Compare options</a></li><li><strong>Service preferences</strong> — Traditional funeral, memorial service, celebration of life, or no service.</li><li><strong>Specific requests</strong> — Music, readings, dress code, flowers vs. donations, open vs. closed casket.</li><li><strong>Location preferences</strong> — Specific funeral home, church, cemetery, or scattering location.</li><li><strong>Budget guidance</strong> — How much should be spent, and what matters most to you.</li><li><strong>Contact list</strong> — Who should be notified, and any specific wishes about the obituary.</li></ul><p>Document all preferences in writing and share copies with your family and estate executor. Our <a href="planning-checklist.html">funeral planning checklist</a> provides a detailed breakdown of funeral-specific decisions.</p>`}
@@ -2311,7 +2323,7 @@ ${header()}
         <a href="/">Home</a> &rsaquo; <span aria-current="page">${p.st}</span>
       </nav>
 
-      <h1>${p.st}: What You Need to Know in 2026</h1>
+      <h1>${p.h1 || p.st}</h1>
       <div class="article-meta">
         <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
@@ -2525,8 +2537,15 @@ states.forEach(s => {
 });
 console.log(`  State pages: ${count.state}`);
 
-// Metro pages
+// Metro pages. Redirected metros are not written; an old file is removed
+// so the build stops shipping HTML that only exists to 301.
+function retireMetro(fn) {
+  const dest = path.join(OUT, fn);
+  if (fs.existsSync(dest)) fs.unlinkSync(dest);
+}
 metros.forEach(m => {
+  const fn = `funeral-costs-${m.slug}.html`;
+  if (!keepMetro(m, 'funeral')) { retireMetro(fn); return; }
   const page = genMetro(m);
   if (page) {
     writePage(page.fn, page.content);
@@ -2574,6 +2593,8 @@ console.log('  Hub pages: 2 (cremation-costs-by-state, burial-costs-by-state)');
 
 // Cremation metro pages
 metros.forEach(m => {
+  const fn = `cremation-costs-${m.slug}.html`;
+  if (!keepMetro(m, 'cremation')) { retireMetro(fn); return; }
   const page = genCremationMetro(m);
   if (page) {
     writePage(page.fn, page.content);
@@ -2585,6 +2606,8 @@ console.log(`  Cremation metro pages: ${count.cremMetro}`);
 
 // Burial metro pages
 metros.forEach(m => {
+  const fn = `burial-costs-${m.slug}.html`;
+  if (!keepMetro(m, 'burial')) { retireMetro(fn); return; }
   const page = genBurialMetro(m);
   if (page) {
     writePage(page.fn, page.content);
@@ -2713,8 +2736,6 @@ const CONSOLIDATED = {
 // by a multiplier (m.mp), so each one 301s to its state page of the same type.
 // Kept: metro pages that were hand-written with real local facts (Memphis and
 // Indianapolis funeral pages) and the Washington, DC pages (no DC state page).
-const METRO_KEEP = new Set(['funeral-costs-memphis.html', 'funeral-costs-indianapolis.html',
-  'funeral-costs-washington-dc.html', 'cremation-costs-washington-dc.html', 'burial-costs-washington-dc.html']);
 for (const m of metros) {
   for (const kind of ['funeral', 'cremation', 'burial']) {
     const from = `${kind}-costs-${m.slug}.html`;
@@ -2729,10 +2750,8 @@ const allSitemapPages = existingPages.concat(allPages).concat(['sitemap-index.ht
 allSitemapPages.forEach((p, idx) => {
   const entry = { page: p, idx };
   // Metro pages (check before state pages since they also start with funeral-costs-)
-  const isMetro = metros.some(m => p.includes(m.slug));
-  if (isMetro && p.startsWith('funeral-costs-')) { metroFuneralUrls.push(entry); return; }
-  if (isMetro && p.startsWith('cremation-costs-')) { metroCremationUrls.push(entry); return; }
-  if (isMetro && p.startsWith('burial-costs-')) { metroBurialUrls.push(entry); return; }
+  const metroMatch = p.match(/^(funeral|cremation|burial)-costs-([a-z0-9-]+)\.html$/);
+  if (metroMatch && metros.some(m => m.slug === metroMatch[2])) { guideUrls.push(entry); return; }
   // State pages
   if (p.startsWith('funeral-costs-') && !p.includes('-by-') && !p.includes('uninsured') && !p.includes('rising')) { funeralStateUrls.push(entry); return; }
   if (p.startsWith('cremation-costs-') && !p.includes('-by-')) { cremationStateUrls.push(entry); return; }
@@ -2761,27 +2780,28 @@ const sitemapSegments = [
   { file: 'sitemap-funeral-states.xml', entries: funeralStateUrls },
   { file: 'sitemap-cremation-states.xml', entries: cremationStateUrls },
   { file: 'sitemap-burial-states.xml', entries: burialStateUrls },
-  { file: 'sitemap-metro-funeral.xml', entries: metroFuneralUrls },
-  { file: 'sitemap-metro-cremation.xml', entries: metroCremationUrls },
-  { file: 'sitemap-metro-burial.xml', entries: metroBurialUrls },
   { file: 'sitemap-guides.xml', entries: guideUrls }
 ];
 
-sitemapSegments.forEach(seg => {
-  if (seg.entries.length > 0) {
-    fs.writeFileSync(path.join(OUT, seg.file), buildSitemapXml(seg.entries));
-    console.log(`  Sitemap: ${seg.file} (${seg.entries.length} URLs)`);
+function writeXmlSitemaps() {
+  for (const stale of ['sitemap-metro-funeral.xml', 'sitemap-metro-cremation.xml', 'sitemap-metro-burial.xml']) {
+    const stalePath = path.join(OUT, stale);
+    if (fs.existsSync(stalePath)) fs.unlinkSync(stalePath);
   }
-});
-
-// Write sitemap index
-const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
+  sitemapSegments.forEach(seg => {
+    if (seg.entries.length > 0) {
+      fs.writeFileSync(path.join(OUT, seg.file), buildSitemapXml(seg.entries));
+      console.log(`  Sitemap: ${seg.file} (${seg.entries.length} URLs)`);
+    }
+  });
+  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapSegments.filter(s => s.entries.length > 0).map(s => `  <sitemap><loc>${BASE}/${s.file}</loc><lastmod>${s.entries.map(e => sitemapLastmod(e.page, e.idx)).sort().pop()}</lastmod></sitemap>`).join('\n')}
 </sitemapindex>
 `;
-fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemapIndex);
-console.log(`  Sitemap index: sitemap.xml (${sitemapSegments.filter(s => s.entries.length > 0).length} sub-sitemaps)`);
+  fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemapIndex);
+  console.log(`  Sitemap index: sitemap.xml (${sitemapSegments.filter(s => s.entries.length > 0).length} sub-sitemaps)`);
+}
 
 // ── Generate extensionless → .html canonical redirects ─────────
 // Netlify serves every .html file at its bare, extensionless path with a
@@ -2860,18 +2880,19 @@ ${states.map(s => `        <a href="burial-costs-${s.slug}.html" class="state-ca
       </div>
 
       <h2 id="metro-funeral">Funeral Costs by Metro Area</h2>
+      <p>City pages that only scaled a state price have been retired. The pages below are the metro guides that still have their own copy. Every other city redirects to its state page.</p>
       <div class="state-grid">
-${metros.map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="funeral-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.f * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+${metros.filter(m => keepMetro(m, 'funeral')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="funeral-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.f * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
       </div>
 
       <h2 id="metro-cremation">Cremation Costs by Metro Area</h2>
       <div class="state-grid">
-${metros.map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="cremation-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.dc * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+${metros.filter(m => keepMetro(m, 'cremation')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="cremation-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.dc * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
       </div>
 
       <h2 id="metro-burial">Burial Costs by Metro Area</h2>
       <div class="state-grid">
-${metros.map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="burial-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.b * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+${metros.filter(m => keepMetro(m, 'burial')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="burial-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.b * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
       </div>
 
       <h2 id="guides">Planning &amp; Consumer Guides</h2>
@@ -3027,6 +3048,10 @@ console.log(`Sitemap updated with ${existingPages.length + allPages.length} tota
   console.log(`  Links to consolidated pages repointed on ${changed} page(s)`);
 })();
 
+// Titles, sourced expansions, and state-specific rewrites. Runs before
+// bylines and the XML sitemaps so last-modified dates match this edit.
+require('./scripts/apply-audit').applyAudit();
+
 // ── Bylines and visible "Last updated" dates (2026-10-21) ──────
 // Runs over every page on disk (existing pages are never regenerated, so the
 // templates alone would not reach them). Idempotent. The date shown is the
@@ -3058,4 +3083,15 @@ console.log(`Sitemap updated with ${existingPages.length + allPages.length} tota
     if (html !== before) { fs.writeFileSync(file, html); updated++; }
   }
   console.log(`  Bylines/dates updated: ${updated} page(s)`);
+})();
+
+writeXmlSitemaps();
+
+(function writeRobotsReviewed() {
+  const robotsPath = path.join(OUT, 'robots.txt');
+  let text = fs.readFileSync(robotsPath, 'utf8');
+  text = text.replace(/Sitemap: https:\/\/funeralcostanalyzer\.com\/sitemap-metro-[^\n]*\n/g, '');
+  text = text.replace(/# Last reviewed: .*/, '# Last reviewed: 2026-10-22 — Paul Paradis, Founder & Editor');
+  fs.writeFileSync(robotsPath, text);
+  console.log('  robots.txt last-reviewed set to 2026-10-22; metro sitemaps removed');
 })();
