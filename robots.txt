@@ -46,9 +46,6 @@ Sitemap: https://funeralcostanalyzer.com/sitemap-core.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-funeral-states.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-cremation-states.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-burial-states.xml
-Sitemap: https://funeralcostanalyzer.com/sitemap-metro-funeral.xml
-Sitemap: https://funeralcostanalyzer.com/sitemap-metro-cremation.xml
-Sitemap: https://funeralcostanalyzer.com/sitemap-metro-burial.xml
 Sitemap: https://funeralcostanalyzer.com/sitemap-guides.xml
 
-# Last reviewed: 2026-04-27 — Paul Paradis, Founder & Editor
+# Last reviewed: 2026-10-22 — Paul Paradis, Founder & Editor
