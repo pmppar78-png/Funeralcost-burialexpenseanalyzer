@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "build": "node generate-pages.js",
-    "check:repeats": "node scripts/check-repeated-sentences.js"
+    "check:repeats": "node scripts/check-repeated-sentences.js",
+    "check:overlap": "node scripts/check-state-overlap.js"
   },
   "dependencies": {
     "@netlify/blobs": "8.2.0"

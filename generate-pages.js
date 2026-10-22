@@ -139,13 +139,13 @@ const metros = [
 ];
 
 const topical = [
-  {fn:"medicaid-funeral-assistance.html",t:"Medicaid Funeral Assistance (2026) — State Programs &amp; Eligibility",st:"Medicaid Funeral Assistance",d:"Learn how Medicaid can help pay for funeral costs including state programs, eligibility requirements, and application steps."},
+  {fn:"medicaid-funeral-assistance.html",t:"Medicaid Funeral Assistance by State (2026)",st:"Medicaid Funeral Assistance",d:"Learn how Medicaid can help pay for funeral costs including state programs, eligibility requirements, and application steps."},
   {fn:"funeral-overcharging-protection.html",t:"Funeral Overcharging Protection (2026) — Spot &amp; Prevent Fraud",st:"Funeral Overcharging Protection",d:"Protect yourself from funeral overcharging and fraud with this guide to common tactics, legal rights, and reporting."},
   {fn:"consumer-rights-funeral-pricing.html",t:"Consumer Rights in Funeral Pricing (2026) — Your Legal Guide",st:"Consumer Rights in Funeral Pricing",d:"Understand your legal rights when purchasing funeral services under the FTC Funeral Rule and state laws."},
-  {fn:"final-expense-insurance-guide.html",t:"Final Expense Insurance Guide (2026) — Plans, Costs &amp; Comparison",st:"Final Expense Insurance",d:"Compare final expense insurance plans with coverage details, costs, eligibility, and honest analysis."},
+  {fn:"final-expense-insurance-guide.html",t:"Final Expense Insurance: Plans and Costs",st:"Final Expense Insurance",d:"Compare final expense insurance plans with coverage details, costs, eligibility, and honest analysis."},
   {fn:"estate-planning-costs.html",t:"Estate Planning Costs (2026) — Wills, Trusts &amp; Budgeting",st:"Estate Planning Costs",d:"Understand estate planning costs including wills, trusts, power of attorney, and funeral pre-planning."},
   {fn:"probate-process-costs.html",t:"Probate Process &amp; Costs (2026) — Guide for Families",st:"Probate Process & Costs",d:"Learn about probate costs, timelines, and how to navigate the process after a loved one passes."},
-  {fn:"funeral-payment-plans.html",t:"Funeral Payment Plans &amp; Financing (2026) — Options for Every Budget",st:"Funeral Payment Plans",d:"Explore funeral payment plans, financing options, and assistance programs for managing funeral costs."},
+  {fn:"funeral-payment-plans.html",t:"Funeral Payment Plans and Financing",st:"Funeral Payment Plans",d:"Explore funeral payment plans, financing options, and assistance programs for managing funeral costs."},
   {fn:"funeral-price-comparison.html",t:"How to Compare Funeral Prices (2026) — Step-by-Step Guide",st:"Compare Funeral Prices",d:"Learn how to effectively compare funeral prices using General Price Lists and smart questions."},
   {fn:"average-funeral-cost-2026.html",t:"Average Funeral Cost in 2026 — Complete National Breakdown",st:"Average Funeral Cost 2026",d:"Comprehensive guide to the average funeral cost in 2026 with national averages and regional breakdowns."},
   {fn:"cremation-jewelry-guide.html",t:"Cremation Jewelry &amp; Memorial Keepsakes (2026) — Guide",st:"Cremation Jewelry Guide",d:"Explore cremation jewelry and memorial keepsakes including types, costs, materials, and options."},
@@ -488,6 +488,13 @@ function header() {
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
   </header>`;
+}
+
+function shortDisclaimer(which) {
+  const line = which === 'state'
+    ? 'These are planning estimates, not a quote or professional advice.'
+    : 'Information only, not professional advice.';
+  return `<div class="guide-disclaimer"><p><strong>Disclaimer:</strong> ${line} <a href="disclaimer.html">Full disclaimer</a>.</p></div>`;
 }
 
 function footer() {
@@ -1197,7 +1204,7 @@ ${header()}
 
       <div class="callout callout-info"><strong>Compare All 50 States</strong> See how ${s.name} funeral costs compare to the national average and all other states in our <a href="national-funeral-cost-index.html">2026 National Funeral Cost Index</a>.</div>
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only and does not constitute financial, legal, or professional advice. Always consult licensed professionals before making funeral arrangements.</p></div>
+      ${shortDisclaimer('state')}
     </article>
   </main>
 ${footer()}`;
@@ -1802,7 +1809,7 @@ ${header()}
 
       ${ctaBanner()}
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> This guide is for general educational purposes only and does not constitute financial, legal, tax, medical, or professional advice. Always consult licensed professionals before making decisions. Cost data is based on publicly available surveys and may not reflect current prices in your area.</p></div>
+      ${shortDisclaimer('general')}
     </article>
   </main>
 ${footer()}`;
@@ -1882,7 +1889,7 @@ ${header()}
       ${authorityBoostLinks(fn)}
       ${ctaBanner()}
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
+      ${shortDisclaimer('general')}
     </article>
   </main>
 ${footer()}`;
@@ -1955,7 +1962,7 @@ ${header()}
       ${authorityBoostLinks(fn)}
       ${ctaBanner()}
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
+      ${shortDisclaimer('general')}
     </article>
   </main>
 ${footer()}`;
@@ -2087,7 +2094,7 @@ ${header()}
       ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
+      ${shortDisclaimer('general')}
     </article>
   </main>
 ${footer()}`;
@@ -2228,7 +2235,7 @@ ${header()}
       ${crawlPriorityLinks(fn)}
       ${ctaBanner()}
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Cost data is based on publicly available surveys and consumer research. Actual prices vary by provider. This information is for educational purposes only. Always consult licensed professionals before making funeral arrangements.</p></div>
+      ${shortDisclaimer('general')}
     </article>
   </main>
 ${footer()}`;
@@ -2355,7 +2362,7 @@ ${header()}
 
       ${ctaBanner()}
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> This guide is for educational purposes only and does not constitute financial, legal, insurance, or professional advice. Insurance products and availability vary by state. Always consult licensed insurance professionals before purchasing any policy. We may receive compensation from partners, but this never influences our recommendations.</p></div>
+      ${shortDisclaimer('general')}
     </article>
   </main>
 ${footer()}`;
@@ -2516,7 +2523,7 @@ ${header()}
       ${crawlPriorityLinks(p.fn)}
       ${ctaBanner()}
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> This guide is for educational purposes only. Religious practices and requirements vary by community, congregation, and individual interpretation. Always consult with your religious leader or community for guidance specific to your tradition. Cost data is based on publicly available surveys and may not reflect current prices in your area.</p></div>
+      ${shortDisclaimer('general')}
     </article>
   </main>
 ${footer()}`;
