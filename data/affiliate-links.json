@@ -96,7 +96,7 @@
       "hosts": [
         "walmart.com"
       ],
-      "destination": "https://www.walmart.com",
+      "destination": "https://www.walmart.com/browse/home/caskets/4044_4431611_1058564",
       "trackingUrl": "",
       "status": "program-available-not-joined",
       "network": "Impact",
@@ -187,7 +187,7 @@
       "hosts": [
         "etsy.com"
       ],
-      "destination": "https://www.etsy.com",
+      "destination": "https://www.etsy.com/c/home-and-living/spirituality-and-religion/cemetery-and-funeral/caskets-and-urns",
       "trackingUrl": "",
       "status": "program-available-not-joined",
       "network": "Awin",
@@ -203,15 +203,16 @@
       "network": "Refersion",
       "notes": "No paid ads/search/social, retargeting or coupon sites"
     },
-    "Perfect Memorials": {
+    "OneWorld Memorials": {
       "hosts": [
+        "oneworldmemorials.com",
         "perfectmemorials.com"
       ],
-      "destination": "https://www.perfectmemorials.com",
+      "destination": "https://www.oneworldmemorials.com",
       "trackingUrl": "",
       "status": "program-available-not-joined",
       "network": "Sovrn Commerce [AGG]",
-      "notes": "Unknown"
+      "notes": "perfectmemorials.com returns 301 to oneworldmemorials.com. Plain link until a tracking URL is copied from the network dashboard."
     },
     "Ever Loved": {
       "hosts": [
@@ -237,17 +238,17 @@
       "hosts": [
         "amazon.com"
       ],
-      "destination": "https://www.amazon.com",
+      "destination": "https://www.amazon.com/cremation-urns/s?k=cremation+urns",
       "trackingUrl": "",
       "status": "program-available-not-joined",
       "network": "In-house",
-      "notes": "Operating Agreement disclosure line required; 3 sales in 180 days (standard terms, not re-fetched)"
+      "notes": "Operating Agreement disclosure line required; 3 sales in 180 days (standard terms, not re-fetched). Destination is the cremation-urn results page. trackingUrl stays empty."
     },
     "Costco": {
       "hosts": [
         "costco.com"
       ],
-      "destination": "https://www.costco.com",
+      "destination": "https://www.costco.com/funeral-caskets.html",
       "trackingUrl": "",
       "status": "program-available-not-joined",
       "network": "Unknown",
