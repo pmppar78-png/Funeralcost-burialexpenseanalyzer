@@ -4,15 +4,14 @@
  * after metro files that only exist to be redirected have been removed.
  *
  * Does not invent affiliate IDs, does not change affiliate hrefs, and does
- * not delete existing sections. It adds sourced copy and rewrites boilerplate
- * sentences so the same sentence is not repeated across dozens of state pages.
+ * not delete existing sections. It adds sourced copy where a guide is thin.
+ * It does not pad state pages with generated fragment sentences.
  */
 const fs = require('fs');
 const path = require('path');
-const { loadOversight, NAAG } = require('./lib/oversight');
+const { loadOversight } = require('./lib/oversight');
 const { expansions, more } = require('../data/guide-expansions');
 const { sentencesFromFile, SKIP_CLASS } = require('./sentence-scan');
-const { collectHot, applyStateProseToHtml, oversightHtml } = require('./lib/state-prose');
 
 const ROOT = path.join(__dirname, '..');
 const REVIEW = '2026-10-22';
@@ -244,10 +243,6 @@ function rewriteMain(main, repeated, ctx) {
     out = out.split(`%%SHIELD${i}%%`).join(block);
   });
   return out;
-}
-
-function oversightSection(ctx) {
-  return oversightHtml(ctx);
 }
 
 function setNamedMeta(html, attr, name, value) {
@@ -616,8 +611,6 @@ function applyAudit() {
 
   const htmlFiles = fs.readdirSync(ROOT).filter(f => f.endsWith('.html'));
   const repeated = collectRepeated(htmlFiles);
-  const stateFiles = htmlFiles.filter(f => /^(funeral|cremation|burial)-costs-[a-z-]+\.html$/.test(f));
-  const hot = collectHot(stateFiles, f => fs.readFileSync(path.join(ROOT, f), 'utf8'));
   let changed = 0;
 
   function ctxFor(file) {
@@ -660,20 +653,10 @@ function applyAudit() {
     }
 
     const ctx = ctxFor(file);
-    if (ctx) {
-      html = applyStateProseToHtml(html, ctx, hot);
-      if (html.includes('24-48 hour')) {
-        const rule = ctx.rule.replace(/"/g, '');
-        html = html.replace(/A 24-48 hour waiting period applies before cremation in [^.]+\./g, () => `The regulations directory timing line for ${ctx.place} is: ${rule}. That is not a generic 24-48 hour national wait. Written authorization from the legal next of kin is still required.`);
-        html = html.replace(/the mandatory 24-48 hour waiting period before cremation/g, () => `the directory timing line for ${ctx.place} (${rule}) before cremation`);
-      }
-      const section = oversightSection(ctx).trim() + '\n';
-      if (html.includes('id="state-oversight"')) {
-        const next = html.replace(/\n*<h2 id="state-oversight">[\s\S]*?(?=<h2 |<div id="|<\/article>)/, () => '\n' + section);
-        html = next;
-      } else {
-        html = insertOnce(html, 'state-oversight', section, /<h2 id="faq">/);
-      }
+    if (ctx && html.includes('24-48 hour')) {
+      const rule = ctx.rule.replace(/"/g, '');
+      html = html.replace(/A 24-48 hour waiting period applies before cremation in [^.]+\./g, () => `The regulations directory timing line for ${ctx.place} is: ${rule}. That is not a generic 24-48 hour national wait. Written authorization from the legal next of kin is still required.`);
+      html = html.replace(/the mandatory 24-48 hour waiting period before cremation/g, () => `the directory timing line for ${ctx.place} (${rule}) before cremation`);
     }
 
     if (expansions[file]) {
