@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build": "node scripts/write-og-image.js && node generate-pages.js",
+    "build": "node scripts/write-og-image.js && node generate-pages.js && node scripts/check-desc-totals.js",
+    "check:desc-totals": "node scripts/check-desc-totals.js",
     "check:repeats": "node scripts/check-repeated-sentences.js",
     "check:overlap": "node scripts/check-state-overlap.js",
     "check:fragments": "node scripts/check-fragment-sentences.js"
