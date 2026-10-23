@@ -134,7 +134,7 @@ const metros = [
   {city:"Virginia Beach",slug:"virginia-beach",st:"Virginia",ss:"virginia",mp:1.05},
   {city:"Colorado Springs",slug:"colorado-springs",st:"Colorado",ss:"colorado",mp:1.05},
   {city:"Mesa",slug:"mesa-az",st:"Arizona",ss:"arizona",mp:1.05},
-  {city:"Washington DC",slug:"washington-dc",st:"District of Columbia",ss:"virginia",mp:1,dc:true,sourced:true}, // no multiplier: DC pages carry cited figures and are never generated
+  {city:"Washington DC",slug:"washington-dc",st:"District of Columbia",ss:"virginia",mp:1,dc:true,sourced:true,fig:{f:8023,dc:1945,b:5252}}, // no multiplier: DC pages carry cited figures and are never generated
   {city:"El Paso",slug:"el-paso",st:"Texas",ss:"texas",mp:0.95}
 ];
 
@@ -1028,7 +1028,7 @@ function genState(s) {
 
   const cityLinks = s.cities.map(c => {
     const m = metros.find(x => x.city === c);
-    return m ? `<a href="funeral-costs-${m.slug}.html" class="state-card"><span class="state-name">${c}</span><span class="state-cost">From ${$(Math.round(s.f*m.mp))}</span></a>` : `<span class="state-card"><span class="state-name">${c}</span><span class="state-cost">~${$(s.f)}</span></span>`;
+    return m ? `<a href="funeral-costs-${m.slug}.html" class="state-card"><span class="state-name">${c}</span><span class="state-cost">From ${$(m.fig ? m.fig.f : Math.round(s.f*m.mp))}</span></a>` : `<span class="state-card"><span class="state-name">${c}</span><span class="state-cost">~${$(s.f)}</span></span>`;
   }).join('');
 
   const content = `${head(title, desc, fn, `Funeral Costs in ${s.name}`, faq, {name:'Funeral Costs by State',url:'funeral-costs-by-state.html'})}
@@ -2896,17 +2896,17 @@ ${states.map(s => `        <a href="burial-costs-${s.slug}.html" class="state-ca
       <h2 id="metro-funeral">Funeral Costs by Metro Area</h2>
       <p>City pages that only scaled a state price have been retired. The pages below are the metro guides that still have their own copy. Every other city redirects to its state page.</p>
       <div class="state-grid">
-${metros.filter(m => keepMetro(m, 'funeral')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="funeral-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.f * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+${metros.filter(m => keepMetro(m, 'funeral')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="funeral-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(m.fig ? m.fig.f : Math.round(s.f * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
       </div>
 
       <h2 id="metro-cremation">Cremation Costs by Metro Area</h2>
       <div class="state-grid">
-${metros.filter(m => keepMetro(m, 'cremation')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="cremation-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.dc * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+${metros.filter(m => keepMetro(m, 'cremation')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="cremation-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(m.fig ? m.fig.dc : Math.round(s.dc * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
       </div>
 
       <h2 id="metro-burial">Burial Costs by Metro Area</h2>
       <div class="state-grid">
-${metros.filter(m => keepMetro(m, 'burial')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="burial-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(Math.round(s.b * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
+${metros.filter(m => keepMetro(m, 'burial')).map(m => { const s = states.find(x => x.slug === m.ss); return s ? `        <a href="burial-costs-${m.slug}.html" class="state-card"><span class="state-name">${m.city}</span><span class="state-cost">${$(m.fig ? m.fig.b : Math.round(s.b * m.mp))}</span></a>` : ''; }).filter(Boolean).join('\n')}
       </div>
 
       <h2 id="guides">Planning &amp; Consumer Guides</h2>
