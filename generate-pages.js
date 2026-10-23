@@ -134,7 +134,7 @@ const metros = [
   {city:"Virginia Beach",slug:"virginia-beach",st:"Virginia",ss:"virginia",mp:1.05},
   {city:"Colorado Springs",slug:"colorado-springs",st:"Colorado",ss:"colorado",mp:1.05},
   {city:"Mesa",slug:"mesa-az",st:"Arizona",ss:"arizona",mp:1.05},
-  {city:"Washington DC",slug:"washington-dc",st:"District of Columbia",ss:"virginia",mp:1,dc:true,sourced:true} // no multiplier: DC pages carry cited figures and are never generated,
+  {city:"Washington DC",slug:"washington-dc",st:"District of Columbia",ss:"virginia",mp:1,dc:true,sourced:true}, // no multiplier: DC pages carry cited figures and are never generated
   {city:"El Paso",slug:"el-paso",st:"Texas",ss:"texas",mp:0.95}
 ];
 
