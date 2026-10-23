@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "node generate-pages.js"
+  command = "node scripts/write-og-image.js && node generate-pages.js"
 
 [build.processing.html]
   pretty_urls = false
