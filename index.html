@@ -60,10 +60,50 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "How this estimator works — data sources and methodology Cost ranges are compiled from publicly available data including NFDA consumer surveys (2021–2023), state funeral board price surveys, Funeral Consumers Alliance reports, and published General Price Lists. Many tools, including a final expenses calculator, start with national medians and average costs before applying regional adjustments; some also fill fields with national figures that may not reflect local prices. Regional adjustments are based on cost-of-living indices and metropolitan vs. rural pricing differentials. All figures represent typical ranges and are for illustrative purposes only — your actual costs will depend on the specific provider, location, and choices you make. Inflation is also considered when projecting current and future estimates. We update this data periodically. Last reviewed: April 2026. For current pricing in your area, always request a General Price List directly from providers. Decision checklist — what affects the total Type of service (traditional, memorial only, direct cremation, or direct burial) Location (funeral home, house of worship, community hall, graveside) Body preparation (embalming, dressing, or minimal care) Casket or urn — rental and simpler options can save significantly Burial plot, niche, or scattering location plus cemetery fees Transportation for the deceased and family Optional extras: flowers, music, livestreaming, programs Some funeral home fees do not include third-party charges or other expenses, which can still affect the total cost. The AI helper can walk through this checklist with you step by step. Payment ideas families explore Funeral costs add up quickly. Here are common paths families research — not advice on what to do. Families arranging services without life insurance may also benefit from a guide to funeral costs when uninsured in 2026. Life insurance Policies can sometimes be assigned directly to the funeral home, and proceeds may help cover immediate funeral expenses when payment is due quickly. Savings & POD accounts Payable-on-death bank accounts or earmarked savings. Payment plans Some funeral homes or third-party companies offer short-term plans. Benefits Veterans, union, or employer-sponsored assistance may be available. Government aid State or county assistance for hardship situations. Community support Faith communities, mutual aid, or family fundraising. Many funeral homes require payment before services are rendered. The AI helper can suggest questions to ask about each option. Eligibility decisions should be made with licensed professionals. Talk with the AI funeral cost helper A calm, private conversation about costs, options, and questions to ask providers. Try asking: \"We were quoted $9,000. What questions should I ask?\" \"Help me plan a simple, respectful service on a limited budget.\" \"What is the FTC Funeral Rule and how does it protect me?\" The AI cannot give legal, financial, or medical advice. It helps you organize thoughts before speaking with professionals. Open the AI helper ↗ Frequently asked questions How much does a funeral cost on average?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The median cost of a funeral with viewing and burial is approximately $8,300; cremation averages around $6,280 (NFDA data). Costs vary widely by state and provider. A typical direct cremation costs roughly $2,200, though prices still vary by provider and area. Request itemized price lists from several local funeral homes — they're required by law to provide them, and transportation services can add significantly to the total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Traditional funeral vs. direct cremation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A traditional funeral includes embalming, viewing, ceremony, and burial. Direct cremation skips these — the body is cremated shortly after death, and families may hold a memorial later. Cremation is generally more affordable than burial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to buy a casket from the funeral home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Under the FTC Funeral Rule, funeral homes must accept caskets from third-party retailers without a handling fee. Comparing prices can save hundreds or thousands of dollars."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "What is the FTC Funeral Rule?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The FTC Funeral Rule requires funeral providers to give you itemized price lists, allows you to choose only the goods and services you want, and prohibits misrepresentations about legal requirements for items like caskets or embalming."
+        "text": "A federal regulation requiring funeral providers to give you itemized price lists, let you choose only what you want (no forced packages), and prohibit false claims about legal requirements. The basic services fee is mandatory and non-declinable even when other items are optional. If violated, you can file a complaint with the FTC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is embalming legally required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most states, no. It may be required for open-casket viewings by funeral home policy. Alternatives include refrigeration or dry ice. If told it's mandatory, ask for the specific law — it's usually a policy, not a legal requirement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I plan a funeral without a funeral home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In many states, families can handle arrangements themselves (\"home funeral\"). Laws vary — some states require a licensed director for certain steps. Research your state's laws or consult your state's funeral board."
       }
     },
     {
@@ -71,7 +111,7 @@
       "name": "What is a General Price List and how do I use it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A General Price List (GPL) is an itemized list of every service and product a funeral home offers, with prices. Under the FTC Funeral Rule, funeral homes must provide this to you upon request. The GPL is your most powerful tool for comparison shopping. Request GPLs from 2-3 providers and compare line items directly."
+        "text": "A General Price List (GPL) is an itemized list of every service and product a funeral home offers, with prices. Under the FTC Funeral Rule, funeral homes must provide this to you upon request — in person or over the phone. The GPL is your most powerful tool for comparison shopping. Request GPLs from 2–3 providers and compare line items directly. If a funeral home refuses to provide one, they are violating federal law."
       }
     },
     {
@@ -79,7 +119,7 @@
       "name": "Should I prepay for a funeral?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Prepaying can lock in current prices and reduce the burden on your family, but it also carries risks. Consumer protections for prepaid funeral contracts vary significantly by state. Before signing any preneed contract, ask about what happens if the funeral home closes, whether money is held in trust, cancellation policies, and transferability."
+        "text": "Prepaying can lock in current prices and reduce the burden on your family, but it also carries risks. Consumer protections for prepaid funeral contracts vary significantly by state. Before signing any preneed contract, ask: What happens if the funeral home closes or is sold? Is the money held in trust? Can you cancel and get a refund? Can the contract be transferred to another provider? Consider consulting with a financial advisor and reviewing your state's preneed regulations before committing."
       }
     }
   ]
@@ -456,8 +496,7 @@
             <h3 id="estSummaryTitle">Estimated total</h3>
             <span class="estimator-total" id="estTotal"></span>
           </div>
-          <p class="small muted" id="estSummaryNote"></p>
-        </div>
+          </div>
         <div class="estimator-breakdown">
           <h4>Line-item breakdown</h4>
           <div class="estimator-line-items" id="estLineItems"></div>
@@ -847,7 +886,7 @@
         Funeral Cost &amp; Burial Expense Analyzer is an independent, one-person educational resource run by <a href="author-paul-paradis.html">Paul Paradis</a>, founder and editor, in Boston, Massachusetts. Paul built the site after arranging funerals for people close to him and seeing how confusing, overwhelming, and opaque funeral costs can be — especially when you're grieving. When this site says &ldquo;we,&rdquo; it means that one-person editorial voice.
       </p>
       <p>
-        We are <strong>not</strong> a funeral director, lawyer, or financial advisor. We do not sell funeral services. Some pages may contain affiliate links to services we believe are genuinely useful — if you use one, we may earn a small commission at no cost to you. These relationships never influence our content or recommendations. Our primary purpose is consumer education.
+        We are <strong>not</strong> a funeral director, lawyer, or financial advisor. Some pages may contain affiliate links to services we believe are genuinely useful — if you use one, we may earn a small commission at no cost to you. These relationships never influence our content or recommendations. Our primary purpose is consumer education.
       </p>
 
       <div class="editorial-principles">
@@ -877,7 +916,7 @@
         <ul class="checklist">
           <li><strong>NFDA 2023 General Price List Study:</strong> The National Funeral Directors Association's latest nationwide survey of itemized funeral-home pricing forms the core of our national medians.</li>
           <li><strong>NFDA 2024 Cremation &amp; Burial Report &amp; CANA (Cremation Association of North America) 2024 Annual Report:</strong> Used to project cremation-rate adoption and service-fee spread.</li>
-          <li><strong>BLS Consumer Price Index: Funeral Services (CUUR0000SEGD):</strong> Used to forward-project 2024 figures into 2026 dollars at the currently published rate of change.</li>
+          <li><strong>BLS Consumer Price Index: Funeral Services (CUUR0000SEGD02):</strong> Used to forward-project 2024 figures into 2026 dollars at the currently published rate of change.</li>
           <li><strong>CDC NCHS mortality data:</strong> Used to weight regional figures by death counts per state.</li>
           <li><strong>State funeral board reports and locally-filed General Price Lists:</strong> Obtained under the <strong>FTC Funeral Rule (16 CFR Part 453)</strong> to validate and supplement survey data; funeral homes must provide a written estimate for cash advance items before arrangements are finalized, including charges paid on your behalf.</li>
           <li><strong>Funeral Consumers Alliance research:</strong> Consulted for market context, pricing trends, and consumer-advocacy findings.</li>
@@ -1125,7 +1164,7 @@
 
     <div class="email-capture">
   <h3>Get Our Free Funeral Cost Guide</h3>
-  <p>For readers of Funeral Cost Calculator: understand costs before you make that first call., sign up for occasional email updates on managing funeral costs, understanding your rights, and planning with confidence.</p>
+  <p>For readers of Funeral Cost Calculator: understand costs before you make that first call, sign up for occasional email updates on managing funeral costs, understanding your rights, and planning with confidence.</p>
   <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
     <p class="hidden honeypot-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
     <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
@@ -1145,8 +1184,8 @@
         <p class="form-note">Questions about this site&rsquo;s data? <a href="contact.html">Contact the editor</a>.</p>
       </section>
 
-      <p class="source-note">For readers of Funeral Cost Calculator: understand costs before you make that first call., sources &amp; review: Figures on this page draw on the NFDA 2023 General Price List Study, the NFDA 2024 Cremation &amp; Burial Report, the CANA (Cremation Association of North America) 2024 Annual Report, the BLS Consumer Price Index: Funeral Services (CUUR0000SEGD), CDC NCHS mortality data, the FTC Funeral Rule (16 CFR Part 453), the Funeral Consumers Alliance, the SSA lump-sum death payment (42 U.S.C. For readers of Funeral Cost Calculator: understand costs before you make that first call., § 402(i)), and the VA burial allowance (38 CFR § 3.1600). National figures updated 2026-10-02; reviewed 2026-10-22 by Paul Paradis, Founder &amp; Editor, funeralcostanalyzer.com, for Funeral Cost Calculator: understand costs before you make that first call.. Corrections: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>.</p>
-      <div class="related-guides crawl-priority-links"><h3>You May Also Need</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="burial-costs-by-state.html">Burial Costs by State</a></li><li><a href="national-funeral-cost-index.html">National Funeral Cost Index</a></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a></li><li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a></li><li><a href="funeral-cost-comparison-worksheet.html">Funeral Cost Comparison Worksheet</a></li><li><a href="funeral-cost-index-pdf.html">Funeral Cost Index PDF</a></li><li><a href="funeral-cost-widget.html">Funeral Cost Widget</a></li><li><a href="ftc-funeral-rule-guide.html">FTC Funeral Rule Guide</a></li><li><a href="questions-to-ask-funeral-home.html">Questions to Ask Funeral Homes</a></li><li><a href="what-funeral-homes-dont-tell-you.html">What Funeral Homes Don't Tell You</a></li></ul></div>
+      <p class="source-note">For readers of Funeral Cost Calculator: understand costs before you make that first call, sources &amp; review: Figures on this page draw on the NFDA 2023 General Price List Study, the NFDA 2024 Cremation &amp; Burial Report, the CANA (Cremation Association of North America) 2024 Annual Report, the BLS Consumer Price Index: Funeral Services (CUUR0000SEGD02), CDC NCHS mortality data, the FTC Funeral Rule (16 CFR Part 453), the Funeral Consumers Alliance, the SSA lump-sum death payment (42 U.S.C. For readers of Funeral Cost Calculator: understand costs before you make that first call, § 402(i)), and the VA burial allowance (38 CFR § 3.1600). National figures updated 2026-10-02; reviewed 2026-10-22 by Paul Paradis, Founder &amp; Editor, funeralcostanalyzer.com, for Funeral Cost Calculator: understand costs before you make that first call. Corrections: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>.</p>
+      <div class="related-guides crawl-priority-links"><h3>You May Also Need</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="burial-costs-by-state.html">Burial Costs by State</a></li><li><a href="national-funeral-cost-index.html">National Funeral Cost Index</a></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a></li><li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a></li><li><a href="funeral-cost-comparison-worksheet.html">Funeral Cost Comparison Worksheet</a></li><li><a href="funeral-cost-index-pdf.html">Funeral Cost Index PDF</a></li><li><a href="funeral-cost-widget.html">Funeral Cost Widget</a></li><li><a href="ftc-funeral-rule-guide.html">FTC Funeral Rule Guide</a></li><li><a href="questions-to-ask-funeral-home.html">Questions to Ask Funeral Homes</a></li></ul></div>
   </main>
 
   <footer class="site-footer" role="contentinfo">

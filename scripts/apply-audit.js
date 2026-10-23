@@ -659,6 +659,18 @@ function applyAudit() {
       html = html.replace(/the mandatory 24-48 hour waiting period before cremation/g, () => `the directory timing line for ${ctx.place} (${rule}) before cremation`);
     }
 
+    if (ctx) {
+      const SF = require('./lib/state-facts-section');
+      html = SF.fixWaitClaims(html, ctx);
+      html = require('./lib/post-fix').preClean(html, ctx.kind + ctx.slug + '.html');
+      html = require('./lib/fill-empty').fillEmpty(html, ctx);
+      const section = SF.stateFactsSectionHtml(ctx).trim() + '\n';
+      if (section.length > 1) {
+        if (html.includes('id="state-oversight"')) html = html.replace(/\n*<h2 id="state-oversight">[\s\S]*?(?=<h2 |<div id="|<\/article>)/, () => '\n' + section);
+        else html = insertOnce(html, 'state-oversight', section, /<h2 id="faq">/);
+      }
+    }
+
     if (expansions[file]) {
       html = insertOnce(html, 'guide-expansion-2026', expansions[file], /<h2 id="faq">|<h2 id="sources">/);
     }

@@ -913,7 +913,7 @@ function genState(s) {
     const q2Variants = [
       {
         q: `Is cremation cheaper than burial in ${s.name}?`,
-        a: `Yes — significantly. In ${s.name}, direct cremation at ${$(s.dc)} saves families roughly ${$(cremSave)} compared with the ${$(s.f)} traditional funeral plus cemetery costs. The ${s.name} cremation rate currently sits at ${s.cr}, ${cremCompare} the national rate of about 63%. ${rc.regNote}`
+        a: `Yes — significantly. In ${s.name}, direct cremation at ${$(s.dc)} costs about ${$(cremSave)} less than the ${$(s.f)} traditional funeral, and roughly ${$(cremSave + s.b)} less once about ${$(s.b)} in cemetery costs is added. The ${s.name} cremation rate currently sits at ${s.cr}, ${cremCompare} the national rate of about 63%. ${rc.regNote}`
       },
       {
         q: `Does cremation save money compared with burial in ${s.name}?`,
@@ -981,7 +981,7 @@ function genState(s) {
         a: `${s.name}'s ${$(s.f)} average for a traditional funeral puts it ${priceComp} the ${natAvgStr} national median. Pricing in ${s.name} is ${rc.priceCtx}, and the ${s.region} region as a whole tends to price ${regionCmp} than other parts of the US.`
       }
     ];
-    const directBurialCost = $(Math.round(s.f*0.6));
+    const directBurialCost = $(Math.round(s.f*0.5));
     const q7Variants = [
       {
         q: `What is the cheapest funeral option in ${s.name}?`,
@@ -1143,7 +1143,7 @@ ${header()}
       <h2 id="cremation-vs-burial">Cremation vs. Burial in ${s.name}</h2>
       <div class="comparison-grid">
         <div class="comparison-card"><h3>Cremation</h3><div class="price-range">${$(s.dc)} – ${$(s.c)}</div><ul><li>Direct cremation from ${$(s.dc)}</li><li>Cremation with service from ${$(s.c)}</li><li>No cemetery plot required</li><li>More flexible memorial options</li><li>Current rate: ${s.cr} of families</li></ul></div>
-        <div class="comparison-card"><h3>Traditional Burial</h3><div class="price-range">${$(Math.round(s.f*0.75))} – ${$(Math.round(s.f*1.3))}</div><ul><li>Traditional service from ${$(s.f)}</li><li>Cemetery plot from ${$(s.b)}</li><li>Vault or liner typically required</li><li>Permanent memorial location</li><li>Casket from ${$(Math.round(s.f*0.12))}</li></ul></div>
+        <div class="comparison-card"><h3>Traditional Burial</h3><div class="price-range">${$(Math.round(s.f*0.75))} – ${$(Math.round(s.f*1.3))}</div><ul><li>Traditional service from ${$(s.f)}</li><li>Cemetery plot from ${$(s.b)}</li><li>Vault or liner typically required</li><li>Permanent memorial location</li><li>Metal casket: about $2,500 national median (<a href="https://content.nfda.org/Portals/0/12-8-2023--2023%20GPL%20Survey.pdf" target="_blank" rel="noopener">NFDA 2023 General Price List Study</a>); ${s.name} prices vary by seller</li></ul></div>
       </div>
 
       <h2 id="detailed-guides">Detailed ${s.name} Cost Guides</h2>
@@ -2304,7 +2304,7 @@ const insurancePages = [
     st:'End-of-Life Planning Checklist',
     d:'Comprehensive end-of-life planning checklist covering legal documents, financial planning, funeral wishes, medical directives, and digital assets. Plan with confidence.',
     sections:[
-      {h:'Why End-of-Life Planning Matters',content:`<p>End-of-life planning goes beyond funeral arrangements. A complete plan ensures your wishes are documented, your family is prepared, and your legal and financial affairs are in order. Families who plan ahead report less stress, lower costs, and greater peace of mind during an already difficult time.</p><div class="callout callout-info"><strong>Worth doing while you can sign.</strong> A will and an advance directive protect a family from decisions nobody wrote down. A percentage previously printed here was removed because we could not tie it to an official series. Completing these documents while you are healthy is the point.</div>`},
+      {h:'Why End-of-Life Planning Matters',content:`<p>End-of-life planning goes beyond funeral arrangements. A complete plan ensures your wishes are documented, your family is prepared, and your legal and financial affairs are in order. Families who plan ahead report less stress, lower costs, and fewer hard decisions during an already difficult time.</p><div class="callout callout-info"><strong>Worth doing while you can sign.</strong> A will and an advance directive protect a family from decisions nobody wrote down. A percentage previously printed here was removed because we could not tie it to an official series. Completing these documents while you are healthy is the point.</div>`},
       {h:'Legal Documents Checklist',content:`<ul><li><strong>Last will and testament</strong> — Names an executor, distributes assets, and can designate guardians for minor children. Cost: $300-$1,000 with an attorney, or $50-$200 using an online service. <a href="estate-planning-costs.html">See estate planning costs</a></li><li><strong>Advance healthcare directive / living will</strong> — Documents your wishes for medical treatment if you become incapacitated. Covers life support, resuscitation, feeding tubes, and pain management preferences.</li><li><strong>Durable power of attorney</strong> — Designates someone to make financial decisions on your behalf if you become unable to do so.</li><li><strong>Healthcare proxy / medical power of attorney</strong> — Designates someone to make medical decisions on your behalf.</li><li><strong>Beneficiary designations</strong> — Review and update beneficiaries on life insurance, retirement accounts, bank accounts, and investment accounts. These override your will.</li><li><strong>Trust (if applicable)</strong> — Helps avoid probate, provides for minor children, or manages assets for specific purposes. <a href="probate-process-costs.html">Learn about probate costs</a></li></ul>`},
       {h:'Financial Planning Checklist',content:`<ul><li><strong>Funeral funding</strong> — Ensure funeral costs are covered through savings, <a href="best-burial-insurance.html">burial insurance</a>, or a dedicated fund. The average funeral costs $8,300.</li><li><strong>Account inventory</strong> — List all bank accounts, investment accounts, retirement accounts, and insurance policies with account numbers and contact information.</li><li><strong>Debt inventory</strong> — Document all outstanding debts including mortgages, car loans, credit cards, and personal loans.</li><li><strong>Insurance review</strong> — Confirm life insurance coverage is adequate and beneficiaries are current. <a href="best-burial-insurance.html">Using life insurance for funeral costs</a></li><li><strong>Digital assets</strong> — List online accounts, passwords, cryptocurrency wallets, and subscription services. Designate a digital executor if possible.</li><li><strong>Safe deposit box</strong> — Ensure someone has access and knows the location of your important documents.</li></ul>`},
       {h:'Funeral Wishes Documentation',content:`<ul><li><strong>Disposition preference</strong> — Cremation, burial, green burial, body donation, or other. <a href="cremation-vs-burial-cost.html">Compare options</a></li><li><strong>Service preferences</strong> — Traditional funeral, memorial service, celebration of life, or no service.</li><li><strong>Specific requests</strong> — Music, readings, dress code, flowers vs. donations, open vs. closed casket.</li><li><strong>Location preferences</strong> — Specific funeral home, church, cemetery, or scattering location.</li><li><strong>Budget guidance</strong> — How much should be spent, and what matters most to you.</li><li><strong>Contact list</strong> — Who should be notified, and any specific wishes about the obituary.</li></ul><p>Document all preferences in writing and share copies with your family and estate executor. Our <a href="planning-checklist.html">funeral planning checklist</a> provides a detailed breakdown of funeral-specific decisions.</p>`}
@@ -3058,6 +3058,8 @@ console.log(`Sitemap updated with ${existingPages.length + allPages.length} tota
 // Titles, sourced expansions, and state-specific rewrites. Runs before
 // bylines and the XML sitemaps so last-modified dates match this edit.
 require('./scripts/apply-audit').applyAudit();
+// Articles, FAQ JSON-LD rebuilt from the visible answers, number consistency.
+require('./scripts/lib/post-fix').run(OUT);
 
 // ── Bylines and visible "Last updated" dates (2026-10-21) ──────
 // Runs over every page on disk (existing pages are never regenerated, so the
