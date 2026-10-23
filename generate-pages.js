@@ -425,8 +425,12 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${esc(desc)}" />
-  <meta property="og:image" content="${BASE}/og-default.svg" />
-  <meta name="twitter:image" content="${BASE}/og-default.svg" />
+  <meta property="og:image" content="${BASE}/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Funeral Cost &amp; Burial Expense Analyzer" />
+  <meta name="twitter:image" content="${BASE}/og-default.png" />
   <link rel="canonical" href="${BASE}/${filename}" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
