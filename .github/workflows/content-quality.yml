@@ -15,5 +15,7 @@ jobs:
           node-version: '20'
       - name: Check repeated sentences
         run: node scripts/check-repeated-sentences.js
+      - name: Check fragment sentences
+        run: node scripts/check-fragment-sentences.js
       - name: Check state-page overlap
         run: node scripts/check-state-overlap.js
