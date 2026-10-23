@@ -84,7 +84,15 @@ function regulatorP(ctx, f) {
       `The ${org} (${esc(r.phone)}) licenses the funeral homes that arrange burials in ${n}. It can also tell you which ${n} office handles cemetery complaints.`
     ]
   }[ctx.kind];
-  return `<p>${pick(ctx, 'reg', frames)}</p>`;
+  let t = pick(ctx, 'reg', frames);
+  if (f.code === 'CO') {
+    t = t.replace('licenses funeral directors and establishments', 'registers funeral homes and crematories')
+      .replace('are licensed by the', 'are registered with the').replace('is licensed, or', 'is registered, or')
+      .replace('licenses the funeral homes', 'registers the funeral homes').replace('licensing office', 'registration office')
+      .replace('licensing body', 'regulator').replace('to check a license', 'to check a registration').replace('a license check', 'a registration check');
+    t += ' Individual funeral directors, embalmers and cremationists have not needed a Colorado license so far; Senate Bill 24-173 (C.R.S. 12-135-501) requires one starting January 1, 2027, and practitioners without the new qualifications can apply for a provisional license before then.';
+  }
+  return `<p>${t}</p>`;
 }
 
 function directorP(ctx, f) {
