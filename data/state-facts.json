@@ -1,0 +1,1876 @@
+{
+ "Alabama": {
+  "code": "AL",
+  "waitHours": 24,
+  "waitRule": "Alabama bars cremation within 24 hours of death unless a medical examiner waives it for infectious disease; the authorizing agent must sign the consent.",
+  "waitCite": "Ala. Code § 34-13-121",
+  "boardRule": false,
+  "regulator": {
+   "org": "Alabama Board of Funeral Services",
+   "phone": "334-242-4049",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Alabama National Cemetery",
+    "status": "Open",
+    "phone": "205-665-9039"
+   },
+   {
+    "name": "Fort Mitchell National Cemetery",
+    "status": "Open",
+    "phone": "334-855-4731"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Alabama State Veterans Memorial Cemetery at Spanish Fort",
+    "status": "Open",
+    "phone": "251-625-1338"
+   }
+  ],
+  "cremationNote": "Alabama does not make families hire a funeral director for every arrangement, but every cremation must be arranged through a funeral establishment licensed by the Alabama Board of Funeral Services (Ala. Code § 34-13-121(b))."
+ },
+ "Alaska": {
+  "code": "AK",
+  "waitHours": 0,
+  "waitRule": "Alaska sets no waiting period before cremation. The person with the right to control disposition must authorize it, and a burial-transit permit is required.",
+  "waitCite": "AS 13.75.020",
+  "boardRule": false,
+  "regulator": {
+   "org": "Alaska Division of Corporations, Business and Professional Licensing (mortuary science program)",
+   "phone": "907-465-2250",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Fort Richardson National Cemetery",
+    "status": "Open",
+    "phone": "907-384-7075"
+   },
+   {
+    "name": "Sitka National Cemetery",
+    "status": "Open",
+    "phone": "907-384-7075"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Metlakatla Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "907-886-1121"
+   }
+  ]
+ },
+ "Arizona": {
+  "code": "AZ",
+  "waitHours": 0,
+  "waitRule": "Arizona has no waiting period before cremation. The authorizing agent must give prior written consent and the medical examiner reviews the death certificate.",
+  "waitCite": "A.R.S. § 32-1365.02",
+  "boardRule": false,
+  "regulator": {
+   "org": "Arizona Department of Health Services, Bureau of Licensing for Professions & Occupations (BLPO)",
+   "phone": "602-364-2079",
+   "url": "https://www.azdhs.gov/licensing/blpo/index.php#funeral-licensing"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "National Memorial Cemetery of Arizona",
+    "status": "Open",
+    "phone": "480-513-3600"
+   },
+   {
+    "name": "Prescott National Cemetery",
+    "status": "Cremation Only",
+    "phone": "928-445-4860"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Arizona Veterans Memorial Cemetery at Camp Navajo",
+    "status": "Open",
+    "phone": "928-214-3474"
+   },
+   {
+    "name": "Arizona Veterans Memorial Cemetery at Marana",
+    "status": "Open",
+    "phone": "520-638-4894"
+   },
+   {
+    "name": "Monte Calvario Veterans Cemetery",
+    "status": "Open",
+    "phone": "520-879-6317"
+   }
+  ]
+ },
+ "Arkansas": {
+  "code": "AR",
+  "waitHours": 0,
+  "waitRule": "Arkansas has no waiting period before cremation. A cremation authorization signed by the authorizing agent and a death certificate are required.",
+  "waitCite": "17 CAR § 30-205",
+  "boardRule": false,
+  "regulator": {
+   "org": "Arkansas Insurance Department, Funeral Services Division",
+   "phone": "501-682-0574",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Fayetteville National Cemetery",
+    "status": "Open",
+    "phone": "479-442-2566"
+   },
+   {
+    "name": "Fort Smith National Cemetery",
+    "status": "Open",
+    "phone": "479-783-5345"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Arkansas State Veterans Cemetery at Birdeye",
+    "status": "Open",
+    "phone": "870-588-4608"
+   },
+   {
+    "name": "Arkansas State Veterans Cemetery at North Little Rock",
+    "status": "Open",
+    "phone": "501-683-2259"
+   }
+  ]
+ },
+ "California": {
+  "code": "CA",
+  "waitHours": 0,
+  "waitRule": "California has no waiting period before cremation, but requires a filed death certificate, a permit for disposition and written authorization.",
+  "waitCite": "Health & Safety Code § 103050",
+  "boardRule": false,
+  "regulator": {
+   "org": "California Cemetery and Funeral Bureau",
+   "phone": "916-574-7870",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": {
+   "text": "California counties handle indigent burial or cremation under Health & Safety Code § 7104; the county coroner or public administrator can explain the local process.",
+   "source": "Cal. Health & Safety Code § 7104",
+   "contact": "the county coroner or public administrator"
+  },
+  "national": [
+   {
+    "name": "Bakersfield National Cemetery",
+    "status": "Open",
+    "phone": "661-867-2250"
+   },
+   {
+    "name": "Los Angeles National Cemetery Annex",
+    "status": "Cremation Only",
+    "phone": "310-268-4675"
+   },
+   {
+    "name": "Miramar National Cemetery",
+    "status": "Open",
+    "phone": "858-658-7360"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Big Sandy Rancheria Veterans Cemetery",
+    "status": "Open",
+    "phone": "559-374-0066"
+   },
+   {
+    "name": "California Central Coast Veterans Cemetery",
+    "status": "Open",
+    "phone": "831-393-9371"
+   },
+   {
+    "name": "Northern California Veterans Cemetery",
+    "status": "Open",
+    "phone": "866-777-4533"
+   }
+  ]
+ },
+ "Colorado": {
+  "code": "CO",
+  "waitHours": 0,
+  "waitRule": "Colorado lets families arrange cremation without a funeral director. There is no waiting period, but the crematory needs written authorization.",
+  "waitCite": "C.R.S. § 12-135-307",
+  "boardRule": false,
+  "regulator": {
+   "org": "Colorado Department of Regulatory Agencies",
+   "phone": "303-894-7800",
+   "url": "https://dpo.colorado.gov/MortuaryScience"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Fort Logan National Cemetery",
+    "status": "Open",
+    "phone": "303-761-0117"
+   },
+   {
+    "name": "Fort Lyon National Cemetery",
+    "status": "Open",
+    "phone": "719-391-6920"
+   },
+   {
+    "name": "Pikes Peak National Cemetery",
+    "status": "Open",
+    "phone": "719-391-6920"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Veterans Memorial Cemetery of Western Colorado",
+    "status": "Open",
+    "phone": "970-263-8986"
+   }
+  ]
+ },
+ "Connecticut": {
+  "code": "CT",
+  "waitHours": 48,
+  "waitRule": "Connecticut requires a 48-hour waiting period before cremation unless death was from a communicable disease, plus a medical examiner's certificate.",
+  "waitCite": "Conn. Gen. Stat. § 19a-323",
+  "boardRule": false,
+  "regulator": {
+   "org": "Connecticut Department of Public Health",
+   "phone": "860-509-7603",
+   "url": "https://portal.ct.gov/DPH/Practitioner-Licensing--Investigations/Embalmer/Embalmer-Licensure"
+  },
+  "fdRestricted": [
+   "Conn. Gen. Stat. §§ 7-62b, 7-65a, 7-69",
+   "filing the death certificate, moving the body, and obtaining the disposition permit"
+  ],
+  "aid": {
+   "text": "The Connecticut Department of Social Services funeral and burial allowance pays up to $1,800; contributions over $3,400 reduce it, and you must apply within one year. Medicaid applicants may set aside up to $10,000 in an irrevocable funeral contract (Conn. Gen. Stat. § 42-207).",
+   "source": "Connecticut DSS",
+   "contact": "the Connecticut Department of Social Services"
+  },
+  "national": [],
+  "stateCems": [
+   {
+    "name": "Connecticut State Veterans Cemetery",
+    "status": "Open",
+    "phone": "860-616-3688"
+   }
+  ]
+ },
+ "Delaware": {
+  "code": "DE",
+  "waitHours": 0,
+  "waitRule": "Delaware has no waiting period, but a body may be cremated only under a permit signed by the chief medical examiner, with next-of-kin authorization.",
+  "waitCite": "16 Del. C. § 3159",
+  "boardRule": false,
+  "regulator": {
+   "org": "Delaware Division of Professional Regulation",
+   "phone": "302-744-4500",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [],
+  "stateCems": [
+   {
+    "name": "Delaware Veterans Memorial Cemetery - New Castle County",
+    "status": "Open",
+    "phone": "302-834-8046"
+   },
+   {
+    "name": "Delaware Veterans Memorial Cemetery - Sussex County",
+    "status": "Open",
+    "phone": "302-934-5653"
+   }
+  ]
+ },
+ "District of Columbia": {
+  "code": "DC",
+  "waitHours": 0,
+  "waitRule": "The District has no waiting period. A funeral director needs next-of-kin authorization, a filed death certificate, a Registrar's permit and medical examiner approval.",
+  "waitCite": "D.C. Code § 7-231.17",
+  "boardRule": false,
+  "regulator": {
+   "org": "DC Occupational and Professional Licensing Administration",
+   "phone": "202-671-4500",
+   "url": "https://dcratransition.dc.gov/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [],
+  "stateCems": []
+ },
+ "Florida": {
+  "code": "FL",
+  "waitHours": 48,
+  "waitRule": "Florida law bars cremation until 48 hours after death; the district medical examiner must also approve it first.",
+  "waitCite": "Fla. Stat. § 872.03; Fla. Stat. § 406.11(1)(c)",
+  "boardRule": false,
+  "regulator": {
+   "org": "Florida Department of Financial Services",
+   "phone": "850-413-3039",
+   "url": "https://myfloridacfo.com/division/funeralcemetery/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Barrancas National Cemetery",
+    "status": "Open",
+    "phone": "850-453-4108"
+   },
+   {
+    "name": "Bay Pines National Cemetery",
+    "status": "Cremation Only",
+    "phone": "727-319-6479"
+   }
+  ],
+  "stateCems": []
+ },
+ "Georgia": {
+  "code": "GA",
+  "waitHours": 0,
+  "waitRule": "Georgia sets no waiting period before cremation, but a disposition permit from the local registrar is required.",
+  "waitCite": "O.C.G.A. § 31-10-20; Ga. Comp. R. & Regs. r. 511-1-3-.23",
+  "boardRule": false,
+  "regulator": {
+   "org": "Georgia State Board of Funeral Service",
+   "phone": "404-424-9966",
+   "url": "https://sos.ga.gov/georgia-state-board-funeral-service"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Georgia National Cemetery",
+    "status": "Open",
+    "phone": "770-479-9300"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Georgia Veterans Memorial Cemetery - Glennville",
+    "status": "Open",
+    "phone": "912-654-5398"
+   },
+   {
+    "name": "Georgia Veterans Memorial Cemetery - Milledgeville",
+    "status": "Open",
+    "phone": "478-445-3363"
+   }
+  ]
+ },
+ "Hawaii": {
+  "code": "HI",
+  "waitHours": 0,
+  "waitRule": "Hawaii sets no waiting period before cremation; a health department permit is required and cannot issue until a death certificate is filed.",
+  "waitCite": "HRS §§ 338-23, 338-25",
+  "boardRule": false,
+  "regulator": {
+   "org": "Hawaii Department of Health",
+   "phone": "808-586-8000",
+   "url": "https://cca.hawaii.gov/pvl/programs/cemetery/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "National Memorial Cemetery of the Pacific",
+    "status": "Cremation Only",
+    "phone": "808-532-3720"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Hawaii State Veterans Cemetery",
+    "status": "Open",
+    "phone": "808-369-3575"
+   },
+   {
+    "name": "Kauai Veterans Cemetery",
+    "status": "Open",
+    "phone": "808-241-4460"
+   },
+   {
+    "name": "Lanai Veterans Cemetery",
+    "status": "Open",
+    "phone": "808-565-7086"
+   }
+  ]
+ },
+ "Idaho": {
+  "code": "ID",
+  "waitHours": 0,
+  "waitRule": "Idaho sets no waiting period, but the coroner of the county where the death occurred must give written authorization to cremate.",
+  "waitCite": "IDAPA 24.08.01.100; Idaho Code § 39-268",
+  "boardRule": false,
+  "regulator": {
+   "org": "Idaho Division of Occupational and Professional Licenses",
+   "phone": "208-334-3233",
+   "url": "https://dopl.idaho.gov/mor/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Snake River Canyon National Cemetery",
+    "status": "Open",
+    "phone": "208-732-7499"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Idaho State Veterans Cemetery at Blackfoot",
+    "status": "Open",
+    "phone": "208-701-7161"
+   },
+   {
+    "name": "Idaho State Veterans Cemetery at Boise",
+    "status": "Open",
+    "phone": "208-780-1340"
+   }
+  ]
+ },
+ "Illinois": {
+  "code": "IL",
+  "waitHours": 24,
+  "waitRule": "Illinois bars cremation within 24 hours of death and requires a cremation permit from the county coroner or medical examiner plus a signed authorization form.",
+  "waitCite": "410 ILCS 18/35",
+  "boardRule": false,
+  "regulator": {
+   "org": "Illinois Department of Financial and Professional Regulation",
+   "phone": "217-524-1981",
+   "url": "https://idfpr.illinois.gov/profs/fundiremb.html"
+  },
+  "fdRestricted": [
+   "410 ILCS 535",
+   "filing the death certificate, moving the body, being present at burial or cremation, and obtaining permits"
+  ],
+  "aid": {
+   "text": "The Illinois Department of Human Services pays up to $1,370 toward funeral services and $686 toward burial or cremation (up to $2,056) for eligible recipients; the claim must be filed within 180 days of death.",
+   "source": "Illinois DHS",
+   "contact": "the Illinois Department of Human Services"
+  },
+  "national": [
+   {
+    "name": "Abraham Lincoln National Cemetery",
+    "status": "Open",
+    "phone": "815-423-9958"
+   },
+   {
+    "name": "Camp Butler National Cemetery",
+    "status": "Open",
+    "phone": "217-492-4070"
+   },
+   {
+    "name": "Danville National Cemetery",
+    "status": "Open",
+    "phone": "217-554-4550"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Sunset Veterans Cemetery",
+    "status": "Open",
+    "phone": "217-222-8641"
+   }
+  ]
+ },
+ "Indiana": {
+  "code": "IN",
+  "waitHours": 48,
+  "waitRule": "Indiana bars cremation less than 48 hours after death unless the city or county health officer waives it in writing; an authorizing agent must sign.",
+  "waitCite": "IC 23-14-31-36",
+  "boardRule": false,
+  "regulator": {
+   "org": "Indiana Professional Licensing Agency",
+   "phone": "317-234-3031",
+   "url": "https://www.in.gov/pla/professions/funeral-and-cemetery-home/"
+  },
+  "fdRestricted": [
+   "Ind. Code § 16-37",
+   "removing and transporting the body"
+  ],
+  "aid": {
+   "text": "Indiana FSSA can pay up to $1,200 for the funeral and $800 for the cemetery for eligible Medicaid recipients; the claim must be filed within 90 days (Ind. Code § 12-14-17).",
+   "source": "Ind. Code § 12-14-17",
+   "contact": "your local FSSA Division of Family Resources office"
+  },
+  "national": [
+   {
+    "name": "Crown Hill National Cemetery Annex",
+    "status": "Cremation Only",
+    "phone": "317-916-5460"
+   },
+   {
+    "name": "Marion National Cemetery",
+    "status": "Open",
+    "phone": "765-674-0284"
+   },
+   {
+    "name": "New Albany National Cemetery",
+    "status": "Cremation Only",
+    "phone": "502-893-3852"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Indiana Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "812-273-9220"
+   }
+  ]
+ },
+ "Iowa": {
+  "code": "IA",
+  "waitHours": 0,
+  "waitRule": "Iowa sets no waiting period before cremation, but a county or state medical examiner must first issue a cremation permit.",
+  "waitCite": "Iowa Code § 331.805(3)(b)",
+  "boardRule": false,
+  "regulator": {
+   "org": "Iowa Department of Inspections, Appeals, and Licensing",
+   "phone": "515-229-3939",
+   "url": "https://dial.iowa.gov/licenses/health-professions/mortuary-science"
+  },
+  "fdRestricted": [
+   "Iowa Code § 331.805; Iowa Admin. Code 481-900.10(2)",
+   "arranging a cremation"
+  ],
+  "aid": null,
+  "national": [
+   {
+    "name": "Keokuk National Cemetery",
+    "status": "Open",
+    "phone": "319-524-5193"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Iowa Veterans Cemetery",
+    "status": "Open",
+    "phone": "515-727-3444"
+   }
+  ]
+ },
+ "Kansas": {
+  "code": "KS",
+  "waitHours": 0,
+  "waitRule": "Kansas sets no mandatory waiting period, but a crematory needs a signed authorization form and a coroner's permit to cremate.",
+  "waitCite": "K.S.A. 65-1762; 65-2426a",
+  "boardRule": false,
+  "regulator": {
+   "org": "Kansas State Board of Mortuary Arts",
+   "phone": "785-296-3980",
+   "url": "https://www.ksbma.ks.gov/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Fort Leavenworth National Cemetery",
+    "status": "Cremation Only",
+    "phone": "913-684-4348"
+   },
+   {
+    "name": "Fort Scott National Cemetery",
+    "status": "Open",
+    "phone": "913-212-4612"
+   },
+   {
+    "name": "Leavenworth National Cemetery",
+    "status": "Open",
+    "phone": "913-727-1376"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Kansas Veterans Cemetery at Fort Dodge",
+    "status": "Open",
+    "phone": "620-682-7564"
+   },
+   {
+    "name": "Kansas Veterans Cemetery at Fort Riley / Manhattan",
+    "status": "Open",
+    "phone": "785-717-3050"
+   },
+   {
+    "name": "Kansas Veterans Cemetery at WaKeeney",
+    "status": "Open",
+    "phone": "785-743-5685"
+   }
+  ]
+ },
+ "Kentucky": {
+  "code": "KY",
+  "waitHours": 0,
+  "waitRule": "Kentucky sets no waiting period, but cremation requires a coroner's permit and a filed provisional death certificate first.",
+  "waitCite": "KRS 213.081; KRS 213.076(7)",
+  "boardRule": false,
+  "regulator": {
+   "org": "Kentucky Board of Embalmers and Funeral Directors",
+   "phone": "502-426-4589",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Camp Nelson National Cemetery",
+    "status": "Open",
+    "phone": "859-885-5727"
+   },
+   {
+    "name": "Lebanon National Cemetery",
+    "status": "Open",
+    "phone": "270-692-3390"
+   },
+   {
+    "name": "Mill Springs National Cemetery",
+    "status": "Open",
+    "phone": "859-885-5727"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Kentucky Veterans Cemetery - Central",
+    "status": "Open",
+    "phone": "270-351-5115"
+   },
+   {
+    "name": "Kentucky Veterans Cemetery - North",
+    "status": "Open",
+    "phone": "859-823-0720"
+   },
+   {
+    "name": "Kentucky Veterans Cemetery - Northeast",
+    "status": "Open",
+    "phone": "606-929-5354"
+   }
+  ]
+ },
+ "Louisiana": {
+  "code": "LA",
+  "waitHours": 0,
+  "waitRule": "Louisiana sets no waiting period before cremation: a funeral director arranges it on the next of kin's signed authorization, and the coroner issues the permit.",
+  "waitCite": "La. R.S. 37:876-877; 13:5716",
+  "boardRule": false,
+  "regulator": {
+   "org": "Louisiana State Board of Embalmers and Funeral Directors",
+   "phone": "504-838-5109",
+   "url": null
+  },
+  "fdRestricted": [
+   "La. R.S. 37:848",
+   "filing the death certificate, moving the body, and being present at the final disposition"
+  ],
+  "aid": null,
+  "national": [
+   {
+    "name": "Louisiana National Cemetery",
+    "status": "Open",
+    "phone": "225-654-1988"
+   },
+   {
+    "name": "Port Hudson National Cemetery",
+    "status": "Cremation Only",
+    "phone": "225-654-1988"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Central Louisiana Veterans Cemetery",
+    "status": "Open",
+    "phone": "337-238-6405"
+   },
+   {
+    "name": "Northeast Louisiana Veterans Cemetery",
+    "status": "Open",
+    "phone": "318-728-4346"
+   },
+   {
+    "name": "Northwest Louisiana Veterans Cemetery",
+    "status": "Open",
+    "phone": "318-925-0612"
+   }
+  ]
+ },
+ "Maine": {
+  "code": "ME",
+  "waitHours": 48,
+  "waitRule": "Maine bars cremation within 48 hours of death unless a contagious disease caused it, and a medical examiner must certify the death first.",
+  "waitCite": "32 M.R.S. § 1405",
+  "boardRule": false,
+  "regulator": {
+   "org": "Maine Board of Funeral Service",
+   "phone": "207-624-8624",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Acadia National Cemetery",
+    "status": "Open",
+    "phone": "508-563-7113"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Central Maine Veterans Cemetery",
+    "status": "Open",
+    "phone": "207-287-3481"
+   },
+   {
+    "name": "Houlton Band of Maliseet Indians Veterans Cemetery",
+    "status": "Open",
+    "phone": "207-532-4273"
+   },
+   {
+    "name": "Northern Maine Veterans Cemetery",
+    "status": "Open",
+    "phone": "207-492-0577"
+   }
+  ]
+ },
+ "Maryland": {
+  "code": "MD",
+  "waitHours": 12,
+  "waitRule": "Maryland bars cremation until at least 12 hours after death, and requires written authorization from the legal next of kin; no medical examiner sign-off.",
+  "waitCite": "Md. Health-Gen. § 5-503",
+  "boardRule": false,
+  "regulator": {
+   "org": "Maryland Department of Health",
+   "phone": "410-764-4792",
+   "url": "https://health.maryland.gov/bom/Pages/home.aspx"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Baltimore National Cemetery",
+    "status": "Cremation Only",
+    "phone": "410-644-9696"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Cheltenham Veterans Cemetery",
+    "status": "Open",
+    "phone": "301-372-6398"
+   },
+   {
+    "name": "Crownsville Veterans Cemetery",
+    "status": "Open",
+    "phone": "410-987-6320"
+   },
+   {
+    "name": "Eastern Shore Veterans Cemetery",
+    "status": "Open",
+    "phone": "410-943-3420"
+   }
+  ]
+ },
+ "Massachusetts": {
+  "code": "MA",
+  "waitHours": 48,
+  "waitRule": "Massachusetts bars cremation within 48 hours of death unless a contagious disease caused it, and a medical examiner must view the body and authorize it.",
+  "waitCite": "M.G.L. ch. 114, § 44",
+  "boardRule": false,
+  "regulator": {
+   "org": "Massachusetts Board of Embalming and Funeral Directing",
+   "phone": "617-701-8628",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": {
+   "text": "The Massachusetts Department of Transitional Assistance pays up to $1,100 toward a funeral for eligible people, but only when the total cost is no more than $3,500.",
+   "source": "Massachusetts DTA",
+   "contact": "the Department of Transitional Assistance"
+  },
+  "national": [
+   {
+    "name": "Massachusetts National Cemetery",
+    "status": "Open",
+    "phone": "508-563-7113"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Massachusetts State Veterans Cemetery - Agawam",
+    "status": "Open",
+    "phone": "413-821-9500"
+   },
+   {
+    "name": "Massachusetts State Veterans Cemetery - Winchendon",
+    "status": "Open",
+    "phone": "978-297-9501"
+   }
+  ]
+ },
+ "Michigan": {
+  "code": "MI",
+  "waitHours": 0,
+  "waitRule": "Michigan sets no waiting period before cremation, but the medical examiner of the county where the death occurred must sign the authorization.",
+  "waitCite": "Mich. Comp. Laws § 333.2848",
+  "boardRule": false,
+  "regulator": {
+   "org": "Michigan Department of Licensing and Regulatory Affairs",
+   "phone": "517-241-9221",
+   "url": null
+  },
+  "fdRestricted": [
+   "Mich. Comp. Laws § 700.3206",
+   "filing the death certificate, moving the body, supervising the disposition, and obtaining permits"
+  ],
+  "aid": {
+   "text": "Michigan State Emergency Relief (SER) burial payments for 2026 are $875 for burial with a memorial service, $610 without, $640 for cremation with a memorial, and $390 without.",
+   "source": "Michigan MDHHS",
+   "contact": "your local MDHHS office"
+  },
+  "national": [
+   {
+    "name": "Fort Custer National Cemetery",
+    "status": "Open",
+    "phone": "269-731-4164"
+   },
+   {
+    "name": "Great Lakes National Cemetery",
+    "status": "Open",
+    "phone": "248-328-0386"
+   }
+  ],
+  "stateCems": []
+ },
+ "Minnesota": {
+  "code": "MN",
+  "waitHours": 0,
+  "waitRule": "Minnesota sets no waiting period; it requires written authorization from whoever controls disposition, and cremation within 24 hours of custody.",
+  "waitCite": "Minn. Stat. § 149A.95, subd. 6a",
+  "boardRule": false,
+  "regulator": {
+   "org": "Minnesota Department of Health, Health Regulation Division",
+   "phone": "651-201-4200",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": {
+   "text": "Minnesota counties must pay for the burial or cremation of people who die without the means to cover it (Minn. Stat. § 261.035); amounts are set by each county.",
+   "source": "Minn. Stat. § 261.035",
+   "contact": "the county human-services office"
+  },
+  "national": [
+   {
+    "name": "Fort Snelling National Cemetery",
+    "status": "Open",
+    "phone": "612-726-1127"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Leech Lake Veterans Cemetery - Cass Lake",
+    "status": "Open",
+    "phone": "218-335-4463"
+   },
+   {
+    "name": "Minnesota State Veterans Cemetery - Duluth",
+    "status": "Open",
+    "phone": "218-520-0120"
+   },
+   {
+    "name": "Minnesota State Veterans Cemetery - Little Falls",
+    "status": "Open",
+    "phone": "320-616-2527"
+   }
+  ]
+ },
+ "Mississippi": {
+  "code": "MS",
+  "waitHours": 0,
+  "waitRule": "Mississippi sets no waiting period, but the death certificate must be completed and filed with Vital Records before cremation.",
+  "waitCite": "15 Miss. Admin. Code Pt. 5, R. 4.7.2",
+  "boardRule": false,
+  "regulator": {
+   "org": "Mississippi State Board of Funeral Service",
+   "phone": "601-932-1973",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Biloxi National Cemetery",
+    "status": "Open",
+    "phone": "228-388-6668"
+   },
+   {
+    "name": "Corinth National Cemetery",
+    "status": "Open",
+    "phone": "901-386-8311"
+   },
+   {
+    "name": "Natchez National Cemetery",
+    "status": "Open",
+    "phone": "601-445-4981"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Mississippi Veterans Memorial Cemetery - Kilmichael",
+    "status": "Open",
+    "phone": "662-262-4232"
+   },
+   {
+    "name": "Mississippi Veterans Memorial Cemetery - Newton",
+    "status": "Open",
+    "phone": "601-683-2959"
+   }
+  ]
+ },
+ "Missouri": {
+  "code": "MO",
+  "waitHours": 0,
+  "waitRule": "Missouri sets no firm waiting period; written authorization to cremate from the next of kin, the coroner or the decedent is required.",
+  "waitCite": "20 CSR 2120-2.071; RSMo § 194.119",
+  "boardRule": false,
+  "regulator": {
+   "org": "Missouri State Board of Embalmers & Funeral Directors",
+   "phone": "573-751-0813",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Jefferson Barracks National Cemetery",
+    "status": "Open",
+    "phone": "314-845-8320"
+   },
+   {
+    "name": "Springfield National Cemetery",
+    "status": "Cremation Only",
+    "phone": "417-881-9499"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Missouri State Veterans Cemetery - Bloomfield",
+    "status": "Open",
+    "phone": "573-568-3871"
+   },
+   {
+    "name": "Missouri State Veterans Cemetery - Fort Leonard Wood",
+    "status": "Open",
+    "phone": "573-774-3496"
+   },
+   {
+    "name": "Missouri State Veterans Cemetery - Higginsville",
+    "status": "Open",
+    "phone": "660-362-6111"
+   }
+  ]
+ },
+ "Montana": {
+  "code": "MT",
+  "waitHours": 24,
+  "waitRule": "Montana bars cremation within 24 hours of death and requires a signed cremation authorization, though no funeral director is required by law.",
+  "waitCite": "MCA 37-19-705",
+  "boardRule": false,
+  "regulator": {
+   "org": "Montana Department of Labor and Industry",
+   "phone": "406-841-2359",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Yellowstone National Cemetery",
+    "status": "Open",
+    "phone": "406-647-2746"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Apsaalooke Veterans Cemetery",
+    "status": "Open",
+    "phone": "406-620-3504"
+   },
+   {
+    "name": "Eastern Montana State Veterans Cemetery - Miles City",
+    "status": "Open",
+    "phone": "406-218-2945"
+   },
+   {
+    "name": "Montana State Veterans Cemetery - Fort Harrison",
+    "status": "Open",
+    "phone": "406-324-4793"
+   }
+  ]
+ },
+ "Nebraska": {
+  "code": "NE",
+  "waitHours": 0,
+  "waitRule": "Nebraska has no statutory waiting period, but the county attorney must sign a cremation permit and the next of kin must authorize it.",
+  "waitCite": "Neb. Rev. Stat. 71-605",
+  "boardRule": false,
+  "regulator": {
+   "org": "Nebraska Board of Funeral Directing and Embalming",
+   "phone": "402-471-2117",
+   "url": "https://dhhs.ne.gov/licensure/Pages/Funeral-Directing-and-Embalming.aspx"
+  },
+  "fdRestricted": [
+   "Neb. Rev. Stat. §§ 38-1400s, 71-605",
+   "filing the death certificate, moving the body, obtaining permits, supervising a home burial, and arranging a cremation"
+  ],
+  "aid": null,
+  "national": [
+   {
+    "name": "Fort McPherson National Cemetery",
+    "status": "Open",
+    "phone": "308-582-4433"
+   },
+   {
+    "name": "Omaha National Cemetery",
+    "status": "Open",
+    "phone": "402-253-3949"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Nebraska Veterans Cemetery at Alliance",
+    "status": "Open",
+    "phone": "308-763-2958"
+   },
+   {
+    "name": "Nebraska Veterans Cemetery at Grand Island",
+    "status": "Open",
+    "phone": "308-661-1987"
+   }
+  ]
+ },
+ "Nevada": {
+  "code": "NV",
+  "waitHours": 0,
+  "waitRule": "Nevada has no statutory waiting period before cremation; the crematory needs a signed death certificate and written authorization from the authorizing agent.",
+  "waitCite": "NRS 451.660",
+  "boardRule": false,
+  "regulator": {
+   "org": "Nevada Funeral and Cemetery Services Board",
+   "phone": "775-825-5535",
+   "url": "https://www.funeral.nv.gov/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [],
+  "stateCems": [
+   {
+    "name": "Northern Nevada Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "775-575-4441"
+   },
+   {
+    "name": "Southern Nevada Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "702-486-5920"
+   }
+  ]
+ },
+ "New Hampshire": {
+  "code": "NH",
+  "waitHours": 48,
+  "waitRule": "New Hampshire bars cremation within 48 hours of death unless death was from a contagious disease, and requires a medical examiner's certificate.",
+  "waitCite": "RSA 325-A:18",
+  "boardRule": false,
+  "regulator": {
+   "org": "New Hampshire Office of Professional Licensure and Certification",
+   "phone": "603-271-2152",
+   "url": "https://www.oplc.nh.gov/board-registration-funeral-directors-and-embalmers"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [],
+  "stateCems": [
+   {
+    "name": "New Hampshire State Veterans Cemetery",
+    "status": "Open",
+    "phone": "603-796-2026"
+   }
+  ]
+ },
+ "New Jersey": {
+  "code": "NJ",
+  "waitHours": 24,
+  "waitRule": "New Jersey requires at least 24 hours to elapse after death before cremation, and cremating without a final disposition permit is a crime.",
+  "waitCite": "N.J.S.A. 26:7-18.1",
+  "boardRule": false,
+  "regulator": {
+   "org": "New Jersey Division of Consumer Affairs",
+   "phone": "973-504-6425",
+   "url": null
+  },
+  "fdRestricted": [
+   "N.J. Stat. § 26:6",
+   "filing the death certificate, moving the body, and being present at the final disposition"
+  ],
+  "aid": {
+   "text": "New Jersey WorkFirst/General Assistance can pay up to $3,056 for the funeral and $714 for the cemetery ($3,770 total); family contributions up to $1,570 do not reduce it (N.J.A.C. 10:90-8.5).",
+   "source": "N.J.A.C. 10:90-8.5",
+   "contact": "your county welfare agency"
+  },
+  "national": [
+   {
+    "name": "Finn's Point National Cemetery",
+    "status": "Cremation Only",
+    "phone": "215-222-7510"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Brigadier General William C. Doyle Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "609-738-2400"
+   }
+  ]
+ },
+ "New Mexico": {
+  "code": "NM",
+  "waitHours": 0,
+  "waitRule": "New Mexico sets no waiting period, but no cremation may occur without signed authorization and a permit from the Office of the Medical Investigator.",
+  "waitCite": "NMSA 61-32-19",
+  "boardRule": false,
+  "regulator": {
+   "org": "New Mexico Board of Funeral Services",
+   "phone": "505-476-4622",
+   "url": "https://www.rld.nm.gov/boards-and-commissions/individual-boards-and-commissions/funeral-services/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Fort Bayard National Cemetery",
+    "status": "Open",
+    "phone": "505-988-6400"
+   },
+   {
+    "name": "Santa Fe National Cemetery",
+    "status": "Open",
+    "phone": "505-988-6400"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Angel Fire State Veterans Cemetery",
+    "status": "Open",
+    "phone": "505-225-4341"
+   },
+   {
+    "name": "Fort Stanton State Veterans Cemetery",
+    "status": "Open",
+    "phone": "505-205-6707"
+   },
+   {
+    "name": "Gallup State Veterans Cemetery",
+    "status": "Open",
+    "phone": "575-921-3494"
+   }
+  ]
+ },
+ "New York": {
+  "code": "NY",
+  "waitHours": 0,
+  "waitRule": "New York has no statutory waiting period; cremation requires a disposition permit and an authorization form signed by the next of kin.",
+  "waitCite": "Pub. Health Law 4145; N-PCL 1517",
+  "boardRule": false,
+  "regulator": {
+   "org": "New York State Department of Health, Bureau of Funeral Directing",
+   "phone": "518-402-0785",
+   "url": null
+  },
+  "fdRestricted": [
+   "N.Y. Pub. Health Law § 4140",
+   "filing the death certificate, moving the body, obtaining the permit, and supervising the disposition"
+  ],
+  "aid": {
+   "text": "In New York each county social-services district sets its own burial-assistance rules; in New York City, HRA pays up to $1,700 and the total bill generally cannot exceed $3,400.",
+   "source": "NYC HRA",
+   "contact": "the local social-services district (HRA in New York City)"
+  },
+  "national": [
+   {
+    "name": "Bath National Cemetery",
+    "status": "Open",
+    "phone": "607-664-4853"
+   },
+   {
+    "name": "Calverton National Cemetery",
+    "status": "Open",
+    "phone": "631-727-5410"
+   },
+   {
+    "name": "Gerald B. H. Solomon Saratoga National Cemetery",
+    "status": "Open",
+    "phone": "518-581-9128"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "New York State Veterans Cemetery - Finger Lakes",
+    "status": "Open",
+    "phone": "607-379-0197"
+   }
+  ]
+ },
+ "North Carolina": {
+  "code": "NC",
+  "waitHours": 24,
+  "waitRule": "North Carolina bars cremation within 24 hours after death, and a medical examiner must certify that no further examination is needed.",
+  "waitCite": "N.C.G.S. 90-210.129, 130A-388",
+  "boardRule": false,
+  "regulator": {
+   "org": "North Carolina Board of Funeral Service",
+   "phone": "919-733-9380",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Salisbury National Cemetery Annex",
+    "status": "Open",
+    "phone": "704-636-2661"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Coastal Carolina State Veterans Cemetery",
+    "status": "Open",
+    "phone": "910-347-4550"
+   },
+   {
+    "name": "Eastern Carolina State Veterans Cemetery",
+    "status": "Open",
+    "phone": "919-648-0510"
+   },
+   {
+    "name": "Sandhills State Veterans Cemetery",
+    "status": "Open",
+    "phone": "919-664-1175"
+   }
+  ]
+ },
+ "North Dakota": {
+  "code": "ND",
+  "waitHours": 0,
+  "waitRule": "North Dakota sets no waiting period before cremation; a final disposition-transit permit and a cremation authorization signed by the next of kin are required.",
+  "waitCite": "N.D.C.C. § 23-06-07",
+  "boardRule": false,
+  "regulator": {
+   "org": "North Dakota State Board of Funeral Service",
+   "phone": "701-776-6222",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Fargo National Cemetery",
+    "status": "Open",
+    "phone": "701-451-4650"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "All Nations Veterans Cemetery - Fort Yates",
+    "status": "Open",
+    "phone": "701-854-8689"
+   },
+   {
+    "name": "North Dakota Veterans Cemetery",
+    "status": "Open",
+    "phone": "701-667-1418"
+   }
+  ]
+ },
+ "Ohio": {
+  "code": "OH",
+  "waitHours": 24,
+  "waitRule": "Ohio bars cremation until 24 hours after death and requires a complete death certificate, a burial-transit permit, and the next of kin's written authorization.",
+  "waitCite": "Ohio Rev. Code § 4717.23",
+  "boardRule": false,
+  "regulator": {
+   "org": "Ohio Board of Embalmers and Funeral Directors",
+   "phone": "614-466-4252",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Dayton National Cemetery",
+    "status": "Open",
+    "phone": "937-268-2221"
+   },
+   {
+    "name": "Ohio Western Reserve National Cemetery",
+    "status": "Open",
+    "phone": "330-335-3069"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Ohio Veterans Home Cemetery",
+    "status": "Open",
+    "phone": "419-625-2454"
+   }
+  ]
+ },
+ "Oklahoma": {
+  "code": "OK",
+  "waitHours": 0,
+  "waitRule": "Oklahoma sets no waiting period, but the medical examiner must issue a cremation permit and the next of kin must authorize the cremation in writing.",
+  "waitCite": "63 O.S. § 1-329.1",
+  "boardRule": false,
+  "regulator": {
+   "org": "Oklahoma Funeral Board",
+   "phone": "405-522-1790",
+   "url": "https://oklahoma.gov/funeral.html"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Fort Gibson National Cemetery",
+    "status": "Open",
+    "phone": "918-478-2334"
+   },
+   {
+    "name": "Fort Sill National Cemetery",
+    "status": "Open",
+    "phone": "580-492-3200"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Seaman First Class Billy Turner Veterans Cemetery",
+    "status": "Open",
+    "phone": "580-490-6489"
+   },
+   {
+    "name": "Seminole Nation and Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "405-295-4549"
+   },
+   {
+    "name": "White Eagle Cemetery",
+    "status": "Open",
+    "phone": "580-762-8104"
+   }
+  ]
+ },
+ "Oregon": {
+  "code": "OR",
+  "waitHours": 0,
+  "waitRule": "Oregon sets no waiting period before cremation, but the medical certifier or medical examiner must authorize final disposition and a disposition permit is required.",
+  "waitCite": "ORS 432.158",
+  "boardRule": false,
+  "regulator": {
+   "org": "Oregon Mortuary and Cemetery Board",
+   "phone": "971-673-1500",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Eagle Point National Cemetery",
+    "status": "Open",
+    "phone": "541-826-2511"
+   },
+   {
+    "name": "Fort Stevens National Cemetery",
+    "status": "Open",
+    "phone": "503-273-5250"
+   },
+   {
+    "name": "Roseburg National Cemetery Annex",
+    "status": "Open",
+    "phone": "541-677-3152"
+   }
+  ],
+  "stateCems": []
+ },
+ "Pennsylvania": {
+  "code": "PA",
+  "waitHours": 24,
+  "waitRule": "Pennsylvania bars cremation until 24 hours after death; the county coroner must authorize it and the next of kin holds sole authority to consent.",
+  "waitCite": "49 Pa. Code § 13.212",
+  "boardRule": false,
+  "regulator": {
+   "org": "Pennsylvania State Board of Funeral Directors",
+   "phone": "1-833-367-2762",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": {
+   "text": "Pennsylvania DHS pays up to $750 toward burial or cremation for eligible people, paid to an enrolled funeral director; resources of $1,500 or more disqualify the estate (55 Pa. Code ch. 283).",
+   "source": "Pennsylvania DHS",
+   "contact": "your county assistance office (Pennsylvania DHS)"
+  },
+  "national": [
+   {
+    "name": "Indiantown Gap National Cemetery",
+    "status": "Open",
+    "phone": "717-865-5254"
+   },
+   {
+    "name": "National Cemetery of the Alleghenies",
+    "status": "Open",
+    "phone": "724-746-4363"
+   },
+   {
+    "name": "Washington Crossing National Cemetery",
+    "status": "Open",
+    "phone": "215-222-7510"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Pennsylvania Soldiers' and Sailors' Home Cemetery",
+    "status": "Open",
+    "phone": "814-871-4531"
+   }
+  ]
+ },
+ "Rhode Island": {
+  "code": "RI",
+  "waitHours": 24,
+  "waitRule": "Rhode Island bars cremation until 24 hours after death and requires a burial permit plus a cremation certificate from the state medical examiners.",
+  "waitCite": "R.I. Gen. Laws § 23-3-18",
+  "boardRule": false,
+  "regulator": {
+   "org": "Rhode Island Department of Health, Board of Funeral Directing/Embalming",
+   "phone": "401-222-4998",
+   "url": "https://health.ri.gov/licensing"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [],
+  "stateCems": [
+   {
+    "name": "Rhode Island Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "401-268-3088"
+   }
+  ]
+ },
+ "South Carolina": {
+  "code": "SC",
+  "waitHours": 24,
+  "waitRule": "South Carolina bars cremation until 24 hours after death and requires a death certificate, next-of-kin authorization, and a coroner's cremation permit.",
+  "waitCite": "S.C. Code § 32-8-340",
+  "boardRule": false,
+  "regulator": {
+   "org": "South Carolina Board of Funeral Service",
+   "phone": "803-896-4429",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Beaufort National Cemetery",
+    "status": "Open",
+    "phone": "843-524-3925"
+   },
+   {
+    "name": "Florence National Cemetery Annex",
+    "status": "Open",
+    "phone": "843-669-8783"
+   },
+   {
+    "name": "Fort Jackson National Cemetery",
+    "status": "Open",
+    "phone": "803-699-2246"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "M.J. Dolly Cooper Veterans Cemetery",
+    "status": "Open",
+    "phone": "864-332-8022"
+   }
+  ]
+ },
+ "South Dakota": {
+  "code": "SD",
+  "waitHours": 24,
+  "waitRule": "South Dakota bars cremation until 24 hours after death and requires a signed cremation authorization plus a permit for disposition.",
+  "waitCite": "S.D. Codified Laws § 34-26A-13.1",
+  "boardRule": false,
+  "regulator": {
+   "org": "South Dakota State Board of Funeral Service",
+   "phone": "605-642-1600",
+   "url": "https://doh.sd.gov/licensing-and-records/boards/funeral/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Black Hills National Cemetery",
+    "status": "Open",
+    "phone": "605-347-3830"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "South Dakota Veterans Cemetery",
+    "status": "Open",
+    "phone": "605-277-8094"
+   },
+   {
+    "name": "Akicita Owicahe Lakota Freedom Veterans Cemetery",
+    "status": "Open",
+    "phone": "605-455-1497"
+   },
+   {
+    "name": "Sicangu Akicita Owicahe Veterans Cemetery",
+    "status": "Open",
+    "phone": "605-259-3044",
+    "phoneSource": "https://www.rosebudsiouxtribe-nsn.gov/contact-8"
+   }
+  ]
+ },
+ "Tennessee": {
+  "code": "TN",
+  "waitHours": 0,
+  "waitRule": "Tennessee sets no fixed waiting period before cremation, but a permit for cremation authorized by the county medical examiner is required.",
+  "waitCite": "Tenn. Code Ann. 62-5-504",
+  "boardRule": false,
+  "regulator": {
+   "org": "Tennessee Board of Funeral Directors and Embalmers",
+   "phone": "615-741-5062",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Chattanooga National Cemetery",
+    "status": "Open",
+    "phone": "423-855-6590"
+   },
+   {
+    "name": "Knoxville National Cemetery",
+    "status": "Cremation Only",
+    "phone": "423-979-3535"
+   },
+   {
+    "name": "Memphis National Cemetery",
+    "status": "Cremation Only",
+    "phone": "901-386-8311"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "East Tennessee State Veterans Cemetery",
+    "status": "Open",
+    "phone": "865-577-3228"
+   },
+   {
+    "name": "Middle Tennessee State Veterans Cemetery",
+    "status": "Open",
+    "phone": "615-532-2238"
+   },
+   {
+    "name": "Tennessee State Veterans Cemetery at Parkers Crossroads",
+    "status": "Open",
+    "phone": "731-967-4127"
+   }
+  ]
+ },
+ "Texas": {
+  "code": "TX",
+  "waitHours": 48,
+  "waitRule": "Texas requires a 48-hour waiting period before cremation unless waived in writing by a justice of the peace, medical examiner, or court order.",
+  "waitCite": "Tex. Health & Safety Code 716.004",
+  "boardRule": false,
+  "regulator": {
+   "org": "Texas Funeral Service Commission",
+   "phone": "512-936-2474",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": {
+   "text": "Texas law makes each county commissioners court responsible for disposing of the body of a person whose family cannot pay (Tex. Health & Safety Code § 694.002); ask the county indigent-services office.",
+   "source": "Tex. Health & Safety Code ch. 694",
+   "contact": "the county commissioners court or county indigent-services office"
+  },
+  "national": [
+   {
+    "name": "Dallas-Fort Worth National Cemetery",
+    "status": "Open",
+    "phone": "214-467-3374"
+   },
+   {
+    "name": "Fort Bliss National Cemetery",
+    "status": "Open",
+    "phone": "915-564-0201"
+   },
+   {
+    "name": "Fort Sam Houston National Cemetery",
+    "status": "Open",
+    "phone": "210-820-3891"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Central Texas State Veterans Cemetery in Killeen",
+    "status": "Open",
+    "phone": "254-616-1770"
+   },
+   {
+    "name": "Coastal Bend State Veterans Cemetery in Corpus Christi",
+    "status": "Open",
+    "phone": "361-248-4830"
+   },
+   {
+    "name": "Rio Grande Valley State Veterans Cemetery in Mission",
+    "status": "Open",
+    "phone": "956-583-7227"
+   }
+  ]
+ },
+ "Utah": {
+  "code": "UT",
+  "waitHours": 0,
+  "waitRule": "Utah sets no waiting period before cremation; the crematory must file the death certificate and obtain the medical examiner's permit.",
+  "waitCite": "Utah Code 58-9-610, 26B-8-230",
+  "boardRule": false,
+  "regulator": {
+   "org": "Utah Board of Funeral Service",
+   "phone": "801-530-6621",
+   "url": "https://commerce.utah.gov/dopl/funeral-service/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Southern Utah National Cemetery",
+    "status": "Open",
+    "phone": "435-267-2710"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Utah Veterans Cemetery and Memorial Park",
+    "status": "Open",
+    "phone": "801-254-9036"
+   }
+  ]
+ },
+ "Vermont": {
+  "code": "VT",
+  "waitHours": 24,
+  "waitRule": "Vermont requires a 24-hour waiting period before cremation plus a medical examiner's certificate, though families may act without a funeral director.",
+  "waitCite": "18 V.S.A. 5201",
+  "boardRule": false,
+  "regulator": {
+   "org": "Vermont Office of Professional Regulation",
+   "phone": "802-828-1188",
+   "url": "https://sos.vermont.gov/funeral-service"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [],
+  "stateCems": [
+   {
+    "name": "Vermont Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "802-828-3379"
+   }
+  ]
+ },
+ "Virginia": {
+  "code": "VA",
+  "waitHours": 0,
+  "waitRule": "Virginia sets no waiting period, but the Office of the Chief Medical Examiner must authorize every cremation and next of kin must identify the body.",
+  "waitCite": "Va. Code 54.1-2818.1",
+  "boardRule": false,
+  "regulator": {
+   "org": "Virginia Board of Funeral Directors and Embalmers",
+   "phone": "804-367-4479",
+   "url": "https://www.dhp.virginia.gov/Boards/Funeral/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Culpeper National Cemetery",
+    "status": "Open",
+    "phone": "540-825-0027"
+   },
+   {
+    "name": "Danville National Cemetery",
+    "status": "Cremation Only",
+    "phone": "704-636-2661"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Albert G. Horton, Jr. Memorial Veterans Cemetery",
+    "status": "Open",
+    "phone": "855-482-8387"
+   },
+   {
+    "name": "Southwest Virginia Veterans Cemetery",
+    "status": "Open",
+    "phone": "855-482-8387"
+   },
+   {
+    "name": "Virginia Veterans Cemetery in Amelia",
+    "status": "Open",
+    "phone": "855-482-8387"
+   }
+  ]
+ },
+ "Washington": {
+  "code": "WA",
+  "waitHours": 0,
+  "waitRule": "Washington sets no waiting period before cremation; families may act without a funeral director once the death is registered and a burial-transit permit issued.",
+  "waitCite": "RCW 70.58A.210",
+  "boardRule": false,
+  "regulator": {
+   "org": "Washington State Department of Licensing",
+   "phone": "360-664-1555",
+   "url": "https://dol.wa.gov/professional-licenses/funeral-directors/funeral-and-cemetery-board"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Tahoma National Cemetery",
+    "status": "Open",
+    "phone": "425-413-9614"
+   },
+   {
+    "name": "Vancouver Barracks National Cemetery",
+    "status": "Cremation Only",
+    "phone": "503-273-5250"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Washington State Veterans Cemetery - Medical Lake",
+    "status": "Open",
+    "phone": "509-299-6280"
+   }
+  ]
+ },
+ "West Virginia": {
+  "code": "WV",
+  "waitHours": 0,
+  "waitRule": "West Virginia sets no waiting period; a crematory needs written next-of-kin permission plus a medical examiner's or coroner's cremation permit.",
+  "waitCite": "W. Va. Code 30-6-21",
+  "boardRule": false,
+  "regulator": {
+   "org": "West Virginia Board of Funeral Service Examiners",
+   "phone": "304-558-0302",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "West Virginia National Cemetery",
+    "status": "Open",
+    "phone": "304-265-2044"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Donel C. Kinnard Memorial State Veterans Cemetery",
+    "status": "Open",
+    "phone": "304-746-0026"
+   }
+  ]
+ },
+ "Wisconsin": {
+  "code": "WI",
+  "waitHours": 48,
+  "waitRule": "Wisconsin requires a 48-hour waiting period before cremation unless death was from a contagious disease, plus a coroner's or medical examiner's permit.",
+  "waitCite": "Wis. Stat. 979.10",
+  "boardRule": false,
+  "regulator": {
+   "org": "Wisconsin Department of Safety and Professional Services",
+   "phone": "608-266-2112",
+   "url": null
+  },
+  "fdRestricted": null,
+  "aid": {
+   "text": "The Wisconsin Funeral and Cemetery Aids Program (WFCAP) pays up to $1,500 for funeral and up to $1,000 for cemetery or crematory costs, with limits on the total bill.",
+   "source": "Wisconsin DHS",
+   "contact": "the county or tribal agency that handles WFCAP"
+  },
+  "national": [
+   {
+    "name": "Northwoods National Cemetery",
+    "status": "Open",
+    "phone": "906-396-9276"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Central Wisconsin Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "715-256-5000"
+   },
+   {
+    "name": "Northern Wisconsin Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "715-635-5360"
+   },
+   {
+    "name": "Southern Wisconsin Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "262-878-5660"
+   }
+  ]
+ },
+ "Wyoming": {
+  "code": "WY",
+  "waitHours": 24,
+  "waitRule": "Wyoming has no statutory waiting period, but board rules bar cremation within 24 hours of death without the county coroner's written permission.",
+  "waitCite": "035-4 Wyo. Code R. 4-5",
+  "boardRule": true,
+  "regulator": {
+   "org": "Wyoming State Board of Funeral Service Practitioners",
+   "phone": "307-777-5403",
+   "url": "https://fspboard.wyo.gov/"
+  },
+  "fdRestricted": null,
+  "aid": null,
+  "national": [
+   {
+    "name": "Cheyenne National Cemetery",
+    "status": "Open",
+    "phone": "307-778-7316"
+   }
+  ],
+  "stateCems": [
+   {
+    "name": "Oregon Trail State Veterans Cemetery",
+    "status": "Open",
+    "phone": "307-235-6673"
+   }
+  ]
+ }
+}
