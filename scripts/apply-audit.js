@@ -12,6 +12,10 @@ const path = require('path');
 const { loadOversight } = require('./lib/oversight');
 const { expansions, more } = require('../data/guide-expansions');
 const { sentencesFromFile, SKIP_CLASS } = require('./sentence-scan');
+// Sitewide disclosure lines that are meant to be identical (Growth, 2026-10-22).
+const ALLOW_REPEAT = new Set([
+  'These figures are our estimates, not a survey of local providers.',
+]);
 
 const ROOT = path.join(__dirname, '..');
 const REVIEW = '2026-10-22';
@@ -592,7 +596,7 @@ function collectRepeated(files) {
       map.set(s, map.get(s) + 1);
     }
   }
-  return [...map.entries()].filter(([, n]) => n >= 5).map(([s]) => s);
+  return [...map.entries()].filter(([s, n]) => n >= 5 && !ALLOW_REPEAT.has(s)).map(([s]) => s);
 }
 
 function applyAudit() {

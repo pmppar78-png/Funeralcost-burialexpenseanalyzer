@@ -134,7 +134,7 @@ const metros = [
   {city:"Virginia Beach",slug:"virginia-beach",st:"Virginia",ss:"virginia",mp:1.05},
   {city:"Colorado Springs",slug:"colorado-springs",st:"Colorado",ss:"colorado",mp:1.05},
   {city:"Mesa",slug:"mesa-az",st:"Arizona",ss:"arizona",mp:1.05},
-  {city:"Washington DC",slug:"washington-dc",st:"District of Columbia",ss:"virginia",mp:1.35,dc:true},
+  {city:"Washington DC",slug:"washington-dc",st:"District of Columbia",ss:"virginia",mp:1,dc:true,sourced:true} // no multiplier: DC pages carry cited figures and are never generated,
   {city:"El Paso",slug:"el-paso",st:"Texas",ss:"texas",mp:0.95}
 ];
 
@@ -346,7 +346,7 @@ function regionalBurialSavingsBullets(s) {
     ],
     'West': [
       `<li><strong>Look for hybrid or natural burial sections:</strong> Several ${s.name} cemeteries have added green or natural burial sections without advertising them prominently. These sections skip the vault and embalming requirements and often price plots 30-50% below the traditional sections of the same cemetery.</li>`,
-      `<li><strong>Consider certified conservation burial grounds:</strong> ${s.name} is one of the more active states for true conservation burial. These grounds protect land in perpetuity and price simply, typically ${$(Math.round(s.f * 0.4))}-${$(Math.round(s.f * 0.7))} all-in versus ${$(Math.round(s.f + s.b + s.b * 0.9))}+ for traditional burial in ${s.name}.</li>`,
+      `<li><strong>Consider certified conservation burial grounds:</strong> ${s.name} is one of the more active states for true conservation burial. These grounds protect land in perpetuity and price simply, typically ${$(Math.round(s.f * 0.4))}-${$(Math.round(s.f * 0.7))} all-in versus ${$(Math.round(s.f*1.3 + s.b*1.9 + 500))}+ for traditional burial in ${s.name}.</li>`,
       `<li><strong>Use the competitive cremation market as leverage:</strong> With ${s.cr} of ${s.name} families choosing cremation, burial-focused providers often have pricing flexibility they do not advertise. Mentioning direct cremation as an alternative in the quote conversation sometimes surfaces better burial pricing.</li>`
     ],
     'Mountain': [
@@ -1154,7 +1154,7 @@ ${header()}
       <p>For deeper analysis on specific disposition types in ${s.name}, see our dedicated guides:</p>
       <div class="comparison-grid">
         <div class="comparison-card"><h3><a href="cremation-costs-${s.slug}.html">Cremation Costs in ${s.name}</a></h3><p>Complete guide to cremation pricing in ${s.name} including direct cremation from ${$(s.dc)}, cremation with service from ${$(s.c)}, urn options, scattering regulations, and memorial alternatives. The cremation rate in ${s.name} is ${s.cr}.</p><p><a href="cremation-costs-${s.slug}.html"><strong>See ${s.name} cremation prices &rarr;</strong></a></p></div>
-        <div class="comparison-card"><h3><a href="burial-costs-${s.slug}.html">Burial Costs in ${s.name}</a></h3><p>Detailed breakdown of burial expenses in ${s.name} including cemetery plots from ${$(s.b)}, caskets, vaults, headstones, and opening/closing fees. Total burial costs in ${s.name} range from ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}.</p><p><a href="burial-costs-${s.slug}.html"><strong>See ${s.name} burial prices &rarr;</strong></a></p></div>
+        <div class="comparison-card"><h3><a href="burial-costs-${s.slug}.html">Burial Costs in ${s.name}</a></h3><p>Detailed breakdown of burial expenses in ${s.name} including cemetery plots from ${$(s.b)}, caskets, vaults, headstones, and opening/closing fees. Total burial costs in ${s.name} range from ${$(Math.round(s.f*1.3 + s.b*1.9 + 500))} to ${$(Math.round(s.f*1.3 + s.b*1.9 + 5000))}.</p><p><a href="burial-costs-${s.slug}.html"><strong>See ${s.name} burial prices &rarr;</strong></a></p></div>
       </div>
 
       <h2 id="consumer-rights">Your Consumer Rights in ${s.name}</h2>
@@ -1566,8 +1566,8 @@ ${footer()}`;
 // ── Burial State Pages ──────────────────────────────────────────
 function genBurial(s) {
   const fn = `burial-costs-${s.slug}.html`;
-  const totalBurial = $(Math.round(s.f + s.b + s.b * 0.9));
-  const totalBurialHigh = $(Math.round(s.f * 1.3 + s.b * 2 + s.b * 0.9));
+  const totalBurial = $(Math.round(s.f * 1.3 + s.b * 1.9 + 500)); // items + $500 headstone
+  const totalBurialHigh = $(Math.round(s.f * 1.3 + s.b * 1.9 + 5000)); // items + $5,000 headstone
   const title = `${s.name} Burial Costs 2026: Plots from ${$(s.b)}`;
   const desc = `Burial costs in ${s.name} (2026): funeral service ${$(s.f)}, cemetery plot from ${$(s.b)}, total ${totalBurial}–${totalBurialHigh}. Hidden fees, casket savings, cheapest options.`;
 
@@ -1583,9 +1583,9 @@ function genBurial(s) {
   const faq = (function(){
     const key = [s.slug, s.abbr, s.region, 'burial'];
     const q1 = [
-      {q:`How much does burial cost in ${s.name}?`,a:`A traditional burial in ${s.name} costs approximately ${$(s.f)} for the funeral service plus ${$(s.b)} for a cemetery plot. When you add a burial vault (${$(Math.round(s.b * 0.4))}), opening and closing fees (${$(Math.round(s.b * 0.5))}), casket (${$(Math.round(s.f * 0.3))}), and headstone ($1,000-$3,000), the total typically ranges from ${totalBurial} to ${totalBurialHigh}.`},
-      {q:`What is the full price of burial in ${s.name}?`,a:`A full burial in ${s.name} comes in at about ${$(s.f)} for the funeral service, ${$(s.b)} for the cemetery plot, ${$(Math.round(s.f * 0.3))} for a casket, ${$(Math.round(s.b * 0.4))} for a vault, ${$(Math.round(s.b * 0.5))} for opening and closing, and $1,000-$3,000 for a headstone. Totals generally land between ${totalBurial} and ${totalBurialHigh} depending on choices.`},
-      {q:`What do ${s.name} families spend on burial?`,a:`Typical ${s.name} burials total between ${totalBurial} and ${totalBurialHigh}. The funeral service runs about ${$(s.f)}, the cemetery plot ${$(s.b)}, the casket around ${$(Math.round(s.f * 0.3))}, the vault ${$(Math.round(s.b * 0.4))}, opening-and-closing ${$(Math.round(s.b * 0.5))}, and a headstone $1,000-$3,000. Every line has room to move if you compare providers.`}
+      {q:`How much does burial cost in ${s.name}?`,a:`A traditional burial in ${s.name} costs approximately ${$(s.f)} for the funeral service plus ${$(s.b)} for a cemetery plot. When you add a burial vault (${$(Math.round(s.b * 0.4))}), opening and closing fees (${$(Math.round(s.b * 0.5))}), casket (${$(Math.round(s.f * 0.3))}), and headstone ($500-$5,000), the total typically ranges from ${totalBurial} to ${totalBurialHigh}.`},
+      {q:`What is the full price of burial in ${s.name}?`,a:`A full burial in ${s.name} comes in at about ${$(s.f)} for the funeral service, ${$(s.b)} for the cemetery plot, ${$(Math.round(s.f * 0.3))} for a casket, ${$(Math.round(s.b * 0.4))} for a vault, ${$(Math.round(s.b * 0.5))} for opening and closing, and $500-$5,000 for a headstone. Totals generally land between ${totalBurial} and ${totalBurialHigh} depending on choices.`},
+      {q:`What do ${s.name} families spend on burial?`,a:`Typical ${s.name} burials total between ${totalBurial} and ${totalBurialHigh}. The funeral service runs about ${$(s.f)}, the cemetery plot ${$(s.b)}, the casket around ${$(Math.round(s.f * 0.3))}, the vault ${$(Math.round(s.b * 0.4))}, opening-and-closing ${$(Math.round(s.b * 0.5))}, and a headstone $500-$5,000. Every line has room to move if you compare providers.`}
     ];
     const q2 = [
       {q:`Is a burial vault required in ${s.name}?`,a:`Burial vaults are required by most cemeteries in ${s.name} as a matter of cemetery policy (to prevent ground settling), though they are rarely mandated by state law. A grave liner — a less expensive alternative to a full vault — may also meet the cemetery's requirements. Always ask the specific cemetery about their policies and whether cheaper alternatives are accepted. Vault costs in ${s.name} typically range from $800 to $10,000.`},
@@ -1603,9 +1603,9 @@ function genBurial(s) {
       {q:`How do cemetery prices differ across ${s.name}?`,a:`${s.name} cemetery pricing varies widely — two cemeteries in the same city can differ by thousands on plot price alone. Always request an itemized sheet covering plot, opening-and-closing, vault policy, perpetual care, and any residency or membership restrictions. Cemeteries are outside the FTC Funeral Rule's reach, so transparency is on you to pursue. A useful tip: ${bHint}`}
     ];
     const q5 = [
-      {q:`What is the total cost of burial in ${s.name} including everything?`,a:`The total cost of burial in ${s.name} including funeral service (${$(s.f)}), cemetery plot (${$(s.b)}), casket (${$(Math.round(s.f*0.3))}), vault (${$(Math.round(s.b*0.4))}), opening/closing (${$(Math.round(s.b*0.5))}), and headstone ($1,000–$3,000) typically ranges from ${totalBurial} to ${totalBurialHigh}. These figures vary by provider and the specific choices made. Comparing at least 2–3 funeral homes and cemeteries separately can save significant money.`},
-      {q:`Once I add every line item, what does burial actually cost in ${s.name}?`,a:`A complete burial in ${s.name} — funeral service (${$(s.f)}) + plot (${$(s.b)}) + casket (${$(Math.round(s.f*0.3))}) + vault (${$(Math.round(s.b*0.4))}) + opening-and-closing (${$(Math.round(s.b*0.5))}) + headstone ($1,000-$3,000) — totals ${totalBurial} to ${totalBurialHigh} in practice. Comparing two or three funeral homes and two or three cemeteries independently is the single most reliable way to bring that number down.`},
-      {q:`What is an all-in burial estimate for ${s.name}?`,a:`Adding every line item, burial in ${s.name} usually totals ${totalBurial} to ${totalBurialHigh}: funeral service about ${$(s.f)}, plot about ${$(s.b)}, casket about ${$(Math.round(s.f*0.3))}, vault about ${$(Math.round(s.b*0.4))}, opening-and-closing about ${$(Math.round(s.b*0.5))}, and headstone $1,000-$3,000. Shopping funeral homes and cemeteries as separate bills is what bends the total number down.`}
+      {q:`What is the total cost of burial in ${s.name} including everything?`,a:`The total cost of burial in ${s.name} including funeral service (${$(s.f)}), cemetery plot (${$(s.b)}), casket (${$(Math.round(s.f*0.3))}), vault (${$(Math.round(s.b*0.4))}), opening/closing (${$(Math.round(s.b*0.5))}), and headstone ($500–$5,000) typically ranges from ${totalBurial} to ${totalBurialHigh}. These figures vary by provider and the specific choices made. Comparing at least 2–3 funeral homes and cemeteries separately can save significant money.`},
+      {q:`Once I add every line item, what does burial actually cost in ${s.name}?`,a:`A complete burial in ${s.name} — funeral service (${$(s.f)}) + plot (${$(s.b)}) + casket (${$(Math.round(s.f*0.3))}) + vault (${$(Math.round(s.b*0.4))}) + opening-and-closing (${$(Math.round(s.b*0.5))}) + headstone ($500-$5,000) — totals ${totalBurial} to ${totalBurialHigh} in practice. Comparing two or three funeral homes and two or three cemeteries independently is the single most reliable way to bring that number down.`},
+      {q:`What is an all-in burial estimate for ${s.name}?`,a:`Adding every line item, burial in ${s.name} usually totals ${totalBurial} to ${totalBurialHigh}: funeral service about ${$(s.f)}, plot about ${$(s.b)}, casket about ${$(Math.round(s.f*0.3))}, vault about ${$(Math.round(s.b*0.4))}, opening-and-closing about ${$(Math.round(s.b*0.5))}, and headstone $500-$5,000. Shopping funeral homes and cemeteries as separate bills is what bends the total number down.`}
     ];
     const q6 = [
       {q:`Is green burial available in ${s.name}?`,a:`Green burial options are available in some areas of ${s.name}. Green burial uses biodegradable containers, no embalming, and often costs less than traditional burial. Not all cemeteries in ${s.name} offer green burial sections, so you may need to research options in your area. Some families also consider hybrid approaches, such as traditional caskets with no embalming. See our green burial guide for more details.`},
@@ -1640,13 +1640,13 @@ ${header()}
       <p class="guide-intro">${(function(){
         const openings = [
           `Traditional burial remains a meaningful choice for many ${s.name} families. Understanding the full cost picture — from funeral service fees to cemetery charges, caskets, vaults, and headstones — helps you plan with confidence. This guide breaks down what you can expect to pay for burial in ${s.name} and how to make informed decisions.`,
-          `If you are arranging a burial in ${s.name}, the costs can add up faster than most families expect. Between the funeral home bill and the separate cemetery invoice, total burial expenses in ${s.name} typically range from ${$(Math.round(s.f + s.b + s.b*0.9))} to well over ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}. This guide lays out what drives each line item and where families have room to save.`,
-          `Burial costs in ${s.name} are shaped by three separate bills: the funeral home's service fee (around ${$(s.f)}), the cemetery's plot and interment charges (starting near ${$(s.b)}), and the headstone or marker (typically $1,000–$3,000). Each is negotiable in its own way. This guide walks through each one so you know what you're actually paying for.`,
+          `If you are arranging a burial in ${s.name}, the costs can add up faster than most families expect. Between the funeral home bill and the separate cemetery invoice, total burial expenses in ${s.name} typically range from ${$(Math.round(s.f*1.3 + s.b*1.9 + 500))} to well over ${$(Math.round(s.f*1.3 + s.b*1.9 + 5000))}. This guide lays out what drives each line item and where families have room to save.`,
+          `Burial costs in ${s.name} are shaped by three separate bills: the funeral home's service fee (around ${$(s.f)}), the cemetery's plot and interment charges (starting near ${$(s.b)}), and the headstone or marker (typically $500–$5,000). Each is negotiable in its own way. This guide walks through each one so you know what you're actually paying for.`,
           `Planning a burial in ${s.name} is more involved than most people realize — there's the funeral home, the cemetery, the casket, the vault, the headstone, and the paperwork, and each comes with its own price list. We've broken down current ${s.name} costs so you can compare providers honestly and avoid the charges that often get bundled quietly into a package.`,
-          `Whether ${s.name} burial is a family tradition or simply the right choice for your loved one, knowing the real numbers before you walk into a funeral home matters. Average totals in ${s.name} run from ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}, but careful comparison — especially on caskets and cemetery choice — can cut thousands off that bill.`,
-          `Burial in ${s.name} is almost never a single transaction. You pay the funeral home, you pay the cemetery, you pay the monument company, and frequently you pay a handful of administrative fees on top. Across those bills, ${s.name} families typically see totals from ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))} — with the ceiling often set by the casket and the cemetery choice rather than the ceremony itself.`,
+          `Whether ${s.name} burial is a family tradition or simply the right choice for your loved one, knowing the real numbers before you walk into a funeral home matters. Average totals in ${s.name} run from ${$(Math.round(s.f*1.3 + s.b*1.9 + 500))} to ${$(Math.round(s.f*1.3 + s.b*1.9 + 5000))}, but careful comparison — especially on caskets and cemetery choice — can cut thousands off that bill.`,
+          `Burial in ${s.name} is almost never a single transaction. You pay the funeral home, you pay the cemetery, you pay the monument company, and frequently you pay a handful of administrative fees on top. Across those bills, ${s.name} families typically see totals from ${$(Math.round(s.f*1.3 + s.b*1.9 + 500))} to ${$(Math.round(s.f*1.3 + s.b*1.9 + 5000))} — with the ceiling often set by the casket and the cemetery choice rather than the ceremony itself.`,
           `${s.name} burial costs can surprise families because the funeral home estimate is never the complete bill. Cemetery fees, vault or liner requirements, headstones, opening-and-closing charges, and documentation costs land on separate invoices. This guide puts them all in one place for ${s.name} and flags which line items most often carry room to negotiate.`,
-          `For ${s.name} families choosing burial in 2026, the honest pricing conversation starts with three numbers: the ${$(s.f)} funeral service average, the ${$(s.b)} cemetery plot average, and the $1,000-$3,000 headstone range. Add vault, opening-and-closing, and casket and the complete picture runs ${$(Math.round(s.f + s.b + s.b*0.9))} to ${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}. Here is how those numbers get built — and where they can bend lower.`
+          `For ${s.name} families choosing burial in 2026, the honest pricing conversation starts with three numbers: the ${$(s.f)} funeral service average, the ${$(s.b)} cemetery plot average, and the $500-$5,000 headstone range. Add vault, opening-and-closing, casket and a headstone and the complete picture runs ${totalBurial} to ${totalBurialHigh}. Here is how those numbers get built — and where they can bend lower.`
         ];
         return pickVariant([s.slug, s.abbr, s.region, 'burial'], openings, 'intro');
       })()}</p>
@@ -1674,7 +1674,7 @@ ${header()}
         </table>
       </div>
 
-      <p>The total cost of burial in ${s.name}, including all cemetery fees, typically ranges from <strong>${$(Math.round(s.f + s.b + s.b*0.9))}</strong> to <strong>${$(Math.round(s.f*1.3 + s.b*2 + s.b*0.9))}</strong> depending on choices made.</p>
+      <p>The total cost of burial in ${s.name}, including all cemetery fees, typically ranges from <strong>${$(Math.round(s.f*1.3 + s.b*1.9 + 500))}</strong> to <strong>${$(Math.round(s.f*1.3 + s.b*1.9 + 5000))}</strong> depending on choices made.</p>
 
       <h2>Burial Options in ${s.name}</h2>
       <ul>
@@ -1913,7 +1913,7 @@ function genBurialHub() {
 
   const stateRows = states
     .sort((a, b) => a.name.localeCompare(b.name))
-    .map(s => `<tr><td><a href="burial-costs-${s.slug}.html">${s.name}</a></td><td class="cost-value">${$(s.f)}</td><td>${$(s.b)}</td><td>${$(Math.round(s.f + s.b + s.b*0.9))}</td></tr>`)
+    .map(s => `<tr><td><a href="burial-costs-${s.slug}.html">${s.name}</a></td><td class="cost-value">${$(s.f)}</td><td>${$(s.b)}</td><td>${$(Math.round(s.f * 1.3 + s.b * 1.9 + 1500))}</td></tr>`)
     .join('\n            ');
 
   const stateGrid = states
@@ -2112,8 +2112,8 @@ function genBurialMetro(m) {
   const fn = `burial-costs-${m.slug}.html`;
   const mf = Math.round(s.f * m.mp);
   const mb = Math.round(s.b * m.mp);
-  const totalBurial = $(Math.round(mf + mb + mb * 0.9));
-  const totalBurialHigh = $(Math.round(mf * 1.3 + mb * 2 + mb * 0.9));
+  const totalBurial = $(Math.round(mf * 1.3 + mb * 1.9 + 1500)); // items + $1,500 headstone
+  const totalBurialHigh = $(Math.round(mf * 1.3 + mb * 1.9 + 3500)); // items + $3,500 headstone
   const title = `${m.city} Burial Costs 2026: Total ${totalBurial}+`;
   const desc = `Burial in ${m.city}${m.dc ? '' : ', ' + m.st} (2026): funeral service ${$(mf)}, plot from ${$(mb)}, total ${totalBurial}–${totalBurialHigh}. Compare cemeteries and save.`;
 
@@ -2557,6 +2557,7 @@ function retireMetro(fn) {
 metros.forEach(m => {
   const fn = `funeral-costs-${m.slug}.html`;
   if (!keepMetro(m, 'funeral')) { retireMetro(fn); return; }
+  if (m.sourced) { allPages.push(fn); count.metro++; return; } // hand-maintained, cited
   const page = genMetro(m);
   if (page) {
     writePage(page.fn, page.content);
@@ -2606,6 +2607,7 @@ console.log('  Hub pages: 2 (cremation-costs-by-state, burial-costs-by-state)');
 metros.forEach(m => {
   const fn = `cremation-costs-${m.slug}.html`;
   if (!keepMetro(m, 'cremation')) { retireMetro(fn); return; }
+  if (m.sourced) { allPages.push(fn); count.cremMetro++; return; } // hand-maintained, cited
   const page = genCremationMetro(m);
   if (page) {
     writePage(page.fn, page.content);
@@ -2619,6 +2621,7 @@ console.log(`  Cremation metro pages: ${count.cremMetro}`);
 metros.forEach(m => {
   const fn = `burial-costs-${m.slug}.html`;
   if (!keepMetro(m, 'burial')) { retireMetro(fn); return; }
+  if (m.sourced) { allPages.push(fn); count.burialMetro++; return; } // hand-maintained, cited
   const page = genBurialMetro(m);
   if (page) {
     writePage(page.fn, page.content);

@@ -14,6 +14,10 @@ const { sentencesFromFile } = require('./sentence-scan');
 const ROOT = path.join(__dirname, '..');
 const MIN_PAGES = Number(process.argv.find((a, i) => process.argv[i - 1] === '--min') || 5);
 const AS_JSON = process.argv.includes('--json');
+// Sitewide disclosure lines that are meant to be identical (Growth, 2026-10-22).
+const ALLOW_REPEAT = new Set([
+  'These figures are our estimates, not a survey of local providers.',
+]);
 
 function sentencesFrom(file) {
   return sentencesFromFile(path.join(ROOT, file));
@@ -25,7 +29,7 @@ function main() {
   for (const f of files) {
     const seen = new Set();
     for (const s of sentencesFrom(f)) {
-      if (seen.has(s)) continue;
+      if (seen.has(s) || ALLOW_REPEAT.has(s)) continue;
       seen.add(s);
       if (!map.has(s)) map.set(s, []);
       map.get(s).push(f);
