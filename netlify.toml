@@ -206,13 +206,13 @@
 
 [[redirects]]
   from = "/medicaid-funeral"
-  to = "/medicaid-funeral-assistance.html"
+  to = "/funeral-payment-assistance.html"
   status = 301
   force = true
 
 [[redirects]]
   from = "/final-expense-insurance"
-  to = "/final-expense-insurance-guide.html"
+  to = "/best-burial-insurance.html"
   status = 301
   force = true
 
@@ -230,7 +230,7 @@
 
 [[redirects]]
   from = "/funeral-financing"
-  to = "/funeral-payment-plans.html"
+  to = "/funeral-financing-options.html"
   status = 301
   force = true
 
@@ -248,7 +248,7 @@
 
 [[redirects]]
   from = "/cremation-jewelry"
-  to = "/cremation-jewelry-guide.html"
+  to = "/urn-buying-guide.html"
   status = 301
   force = true
 
@@ -272,7 +272,7 @@
 
 [[redirects]]
   from = "/military-funeral"
-  to = "/military-funeral-honors.html"
+  to = "/veteran-burial-benefits.html"
   status = 301
   force = true
 
@@ -290,13 +290,13 @@
 
 [[redirects]]
   from = "/funeral-overcharging"
-  to = "/funeral-overcharging-protection.html"
+  to = "/ftc-funeral-rule-guide.html"
   status = 301
   force = true
 
 [[redirects]]
   from = "/consumer-rights"
-  to = "/consumer-rights-funeral-pricing.html"
+  to = "/ftc-funeral-rule-guide.html"
   status = 301
   force = true
 
