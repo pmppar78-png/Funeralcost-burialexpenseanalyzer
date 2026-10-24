@@ -505,7 +505,7 @@ function stamped(sentence, topic) {
   const s = sentence.replace(/[.!?]+$/, '').trim();
   if (s.includes(topic)) return s + '.';
   if (/\$1,000\s*[–-]\s*\$3,500|\$1,000 to \$3,500/.test(s)) {
-    return `For ${topic}, direct cremation is cited at the NFDA 2023 medians of $2,645 when the family supplies the container and $2,750 when the funeral home does (latest available), not as a $1,000 to $3,500 national average.`;
+    return `For ${topic}, the national reference point for direct cremation is the NFDA 2023 median: $2,645 when the family supplies the container and $2,750 when the funeral home does (latest available).`;
   }
   if (/Over 60% of American families now choose cremation/i.test(s)) {
     return `NFDA's statistics page, updated September 29, 2025, points to the 2025 Cremation and Burial Report projection of a 63.4% United States cremation rate, and that is the share used on ${topic}.`;
