@@ -18,7 +18,7 @@ const ALLOW_REPEAT = new Set([
 ]);
 
 const ROOT = path.join(__dirname, '..');
-const REVIEW = '2026-10-22';
+const REVIEW = '2026-10-24';
 const NFDA_NOTE = 'NFDA 2023 General Price List Study (latest available; NFDA\'s statistics page still cited these medians as of its September 29, 2025 update)';
 
 function decode(s) {
