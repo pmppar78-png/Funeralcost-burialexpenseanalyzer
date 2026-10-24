@@ -341,6 +341,23 @@ function stateFixes(html, f) {
   return html;
 }
 
+// Round-2 review: per-state FAQ answers that replace one-line templated ones.
+// Sourced text lives in data/faq-answers.json ({file: {question: html}}).
+let FAQA = null;
+function faqAnswers() {
+  if (FAQA) return FAQA;
+  const c = path.join(__dirname, '../../data/faq-answers.json');
+  return (FAQA = fs.existsSync(c) ? JSON.parse(fs.readFileSync(c, 'utf8')) : {});
+}
+function applyFaqAnswers(html, f) {
+  const A = faqAnswers()[f];
+  if (!A) return html;
+  return html.replace(/(<summary>([^<]*)<\/summary><div class="faq-answer">)([\s\S]*?)(<\/div><\/details>)/g, (x, a, q, body, z) => {
+    const ans = A[text(q).replace(/\s+/g, ' ').trim()];
+    return ans ? a + ans + z : x;
+  });
+}
+
 function run(root) {
   const cem = loadCemetery(root);
   let changed = 0;
@@ -384,6 +401,7 @@ function run(root) {
     html = html.replace(/(<(?:p|li|div|summary)\b[^>]*>)\s*most expensive option but/g, '$1It is the most expensive option but')
       .replace(/(<(?:p|li|div|summary)\b[^>]*>) +(?=[A-Za-z])/g, '$1')
       .replace(/(<(?:p|li|div)\b[^>]*data-state-fact[^>]*>)([a-z])/g, (x, t, c) => t + c.toUpperCase());
+    html = applyFaqAnswers(html, f);
     html = syncFaqLd(html);
     if (html !== before) { fs.writeFileSync(p, html); changed++; }
   }
