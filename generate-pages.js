@@ -917,15 +917,15 @@ function genState(s) {
     const q2Variants = [
       {
         q: `Is cremation cheaper than burial in ${s.name}?`,
-        a: `Yes — significantly. In ${s.name}, direct cremation at ${$(s.dc)} costs about ${$(cremSave)} less than the ${$(s.f)} traditional funeral, and roughly ${$(cremSave + s.b)} less once about ${$(s.b)} in cemetery costs is added. The ${s.name} cremation rate currently sits at ${s.cr}, ${cremCompare} the national rate of about 63%. ${rc.regNote}`
+        a: `Yes — significantly. In ${s.name}, direct cremation at ${$(s.dc)} costs about ${$(cremSave)} less than the ${$(s.f)} traditional funeral, and roughly ${$(cremSave + s.b)} less once about ${$(s.b)} in cemetery costs is added. The ${s.name} cremation rate currently sits at ${s.cr}, ${cremCompare} the 63.4% national rate NFDA projected for 2025. ${rc.regNote}`
       },
       {
         q: `Does cremation save money compared with burial in ${s.name}?`,
-        a: `It does. A direct cremation in ${s.name} runs about ${$(s.dc)}, whereas a traditional funeral with burial averages ${$(s.f)} before adding the plot — so the gap can easily exceed ${$(cremSave)}. ${s.name}'s cremation rate of ${s.cr} sits ${cremCompare} the roughly 63% national figure. ${rc.regNote}`
+        a: `It does. A direct cremation in ${s.name} runs about ${$(s.dc)}, whereas a traditional funeral with burial averages ${$(s.f)} before adding the plot — so the gap can easily exceed ${$(cremSave)}. ${s.name}'s cremation rate of ${s.cr} sits ${cremCompare} the 63.4% national rate NFDA projected for 2025. ${rc.regNote}`
       },
       {
         q: `How much cheaper is cremation than burial in ${s.name}?`,
-        a: `Direct cremation in ${s.name} starts around ${$(s.dc)}; a traditional funeral with burial averages ${$(s.f)}, not counting the cemetery plot or vault. That is a difference of at least ${$(cremSave)} for most families. With ${s.name}'s cremation rate at ${s.cr} (${cremCompare} the national rate of about 63%), cremation providers in the state are competitive. ${rc.regNote}`
+        a: `Direct cremation in ${s.name} starts around ${$(s.dc)}; a traditional funeral with burial averages ${$(s.f)}, not counting the cemetery plot or vault. That is a difference of at least ${$(cremSave)} for most families. With ${s.name}'s cremation rate at ${s.cr} (${cremCompare} the 63.4% national rate NFDA projected for 2025), cremation providers in the state are competitive. ${rc.regNote}`
       }
     ];
     const q3Variants = [
@@ -1443,7 +1443,7 @@ function genCremation(s) {
     const q5 = [
       {q:`Why is cremation ${crRate > 55 ? 'so popular' : 'growing'} in ${s.name}?`,a:`${s.name} has ${crContext}, with a cremation rate of ${s.cr}. Factors driving cremation adoption include lower cost compared to traditional burial (an estimated ${savingsVsBurial} less), greater flexibility for memorial services, environmental considerations, and changing cultural preferences. The national cremation rate has exceeded 60% and continues to rise annually.`},
       {q:`Why do so many ${s.name} families choose cremation?`,a:`${s.name} sits with ${crContext} at ${s.cr}. The drivers are familiar: cremation costs far less than traditional burial (the direct-cremation-to-traditional-funeral gap is about ${savingsVsBurial} in ${s.name}), families can schedule memorials on their own timeline, environmental concerns weigh on more people, and cultural norms around burial have shifted nationally past 60% cremation.`},
-      {q:`What is driving ${s.name}'s cremation rate?`,a:`${s.name}'s ${s.cr} cremation rate reflects ${crContext}. The cost delta alone explains a lot — direct cremation costs an estimated ${savingsVsBurial} less than a traditional funeral in ${s.name}. Add in the greater flexibility for memorial service timing, the environmental considerations, and the broad cultural shift (US cremation rate is now over 60% and still climbing), and the trend is easy to see.`}
+      {q:`What is driving ${s.name}'s cremation rate?`,a:`${s.name}'s ${s.cr} cremation rate reflects ${crContext}. The cost delta alone explains a lot — direct cremation costs an estimated ${savingsVsBurial} less than a traditional funeral in ${s.name}. Add in the greater flexibility for memorial service timing, the environmental considerations, and the broad cultural shift (NFDA projected a 63.4% U.S. cremation rate for 2025), and the trend is easy to see.`}
     ];
     const q6 = [
       {q:`How long does cremation take in ${s.name}?`,a:`In ${s.name}, the cremation process itself takes 2 to 3 hours. However, there is typically a mandatory 24 to 48 hour waiting period before cremation can proceed. After cremation, ashes are usually ready for pickup or delivery within 3 to 7 business days. Direct cremation (${$(s.dc)}) has the shortest total timeline since no viewing or ceremony is involved.`},
@@ -1824,11 +1824,11 @@ ${footer()}`;
 function genCremationHub() {
   const fn = 'cremation-costs-by-state.html';
   const title = 'Cremation Costs by State 2026: All 50 Compared';
-  const desc = 'Compare direct cremation and cremation-with-service prices in all 50 states. Direct cremation runs roughly $1,000 to $3,000 in most areas.';
+  const desc = 'Compare direct cremation and cremation-with-service prices in all 50 states. Direct cremation runs from about $1,400 to $3,000, depending on the state.';
   const faq = [
     {q:'What is the average cremation cost in the US?',a:'The NFDA 2023 General Price List Study (latest available) reports a national median of $6,280 for a funeral with viewing and cremation, and direct-cremation medians of $2,645 when the family supplies the container and $2,750 when the funeral home does. A local advertisement near $1,000 is an asking price, not that median.'},
-    {q:'Which states have the cheapest cremation?',a:'States in the South and Mountain regions tend to have the lowest cremation costs. Mississippi, Oklahoma, Arkansas, and New Mexico typically offer direct cremation for under $1,500.'},
-    {q:'Which states have the highest cremation rates?',a:'Western states lead in cremation rates. Oregon (78%), Washington (76%), Maine (75%), Hawaii (70%), and Montana (72%) have among the highest cremation rates in the country.'},
+    {q:'Which states have the cheapest cremation?',a:'In this guide\'s state table, Mississippi, Oklahoma, and West Virginia have the lowest direct-cremation estimate at about $1,400. Arkansas, Idaho, Iowa, Kansas, Nebraska, New Mexico, North Dakota, and South Dakota follow at about $1,500, so the cheapest states are spread across the South, the Plains, and the Mountain West.'},
+    {q:'Which states have the highest cremation rates?',a:'Among the rounded state rates used on this site, Oregon (78%), Washington (76%), and Maine (75%) rank highest, followed by Alaska, Colorado, Montana, Nevada, New Hampshire, and Vermont at 72% and Hawaii at 70%. So the leaders are mostly in the West, with northern New England close behind. All of them sit well above the 63.4% national rate NFDA projected for 2025.'},
     {q:'Is direct cremation the cheapest funeral option?',a:'Yes, direct cremation is generally the most affordable disposition option in every state. It includes only the essential services: transportation, the cremation itself, and return of remains to the family.'}
   ];
 
@@ -1863,7 +1863,7 @@ ${header()}
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, State Boards</span></span>
       </div>
 
-      <p class="guide-intro">Cremation has become the most popular disposition choice in the United States, with the national cremation rate exceeding 60%. Costs vary significantly by state — direct cremation can range from under $1,000 in some Southern states to over $3,000 in the Northeast. This guide compares cremation costs across all 50 states to help you understand what to expect in your area.</p>
+      <p class="guide-intro">Cremation has become the most popular disposition choice in the United States: NFDA&rsquo;s 2025 Cremation &amp; Burial Report projected a 63.4% national cremation rate for 2025. Costs vary significantly by state. In the table below, direct cremation starts around $1,400 in Mississippi, Oklahoma, and West Virginia, reaches $2,400 to $2,600 in Connecticut, New Jersey, Massachusetts, and New York, and tops out near $3,000 in Hawaii. This guide compares cremation costs across all 50 states to help you understand what to expect in your area.</p>
 
       <h2 id="all-states">Browse All 50 States</h2>
       <p>Click any state below for a detailed cremation cost guide including types, pricing breakdowns, regulations, and consumer rights.</p>
@@ -1905,8 +1905,8 @@ function genBurialHub() {
   const title = 'Burial Costs by State (2026) — Cemetery Plots &amp; Funeral Prices | All 50 States';
   const desc = 'How much does burial cost in your state? Compare funeral service fees, cemetery plot prices, and total burial expenses in all 50 states. See which states are cheapest and how to reduce costs.';
   const faq = [
-    {q:'What is the average burial cost in the US?',a:'A traditional funeral with burial costs approximately $8,300 nationally. Adding cemetery fees (plot, vault, opening/closing, headstone) brings the total to $10,000–$15,000 in most areas.'},
-    {q:'Which states have the cheapest burial costs?',a:'Southern states tend to have the lowest burial costs. Mississippi, Oklahoma, Arkansas, and Alabama typically see traditional burials under $7,000 including basic cemetery fees.'},
+    {q:'What is the average burial cost in the US?',a:'NFDA\'s 2023 national median for a funeral with viewing and burial is $8,300, and that figure leaves out the cemetery. Once a plot, vault, opening and closing, and a basic headstone are added, the estimated totals in the table above run from about $14,110 in Mississippi to about $26,250 in Hawaii.'},
+    {q:'Which states have the cheapest burial costs?',a:'In our estimates the lowest full-burial totals are in Mississippi (about $14,110), Oklahoma and West Virginia (about $14,560 each), and Arkansas (about $14,750). The funeral service alone is lowest in Mississippi at about $5,900; skipping the viewing with a direct burial cuts the bill much further.'},
     {q:'Is a burial vault required?',a:'Burial vaults are required by most cemeteries (as a matter of cemetery policy) to prevent ground settling, though they are rarely required by state law. Grave liners are a less expensive alternative. Always ask the cemetery about their specific requirements.'},
     {q:'What is the cheapest way to be buried?',a:'Direct burial (without a viewing or ceremony) is the most affordable burial option. Green burial, which skips embalming and uses a biodegradable container, is another cost-effective choice. Both usually cost far less than a traditional funeral with burial.'}
   ];
