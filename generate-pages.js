@@ -189,30 +189,10 @@ function pickVariant(keyParts, arr, salt) {
 
 const BASE = 'https://funeralcostanalyzer.com';
 
-// Region groupings for neighboring-state cross-links
-const regionMap = {
-  'South': ['Alabama','Arkansas','Florida','Georgia','Kentucky','Louisiana','Mississippi','North Carolina','Oklahoma','South Carolina','Tennessee','Texas','Virginia','West Virginia'],
-  'Northeast': ['Connecticut','Delaware','Maine','Maryland','Massachusetts','New Hampshire','New Jersey','New York','Pennsylvania','Rhode Island','Vermont'],
-  'Midwest': ['Illinois','Indiana','Iowa','Kansas','Michigan','Minnesota','Missouri','Nebraska','North Dakota','Ohio','South Dakota','Wisconsin'],
-  'West': ['Alaska','California','Hawaii','Oregon','Washington'],
-  'Mountain': ['Arizona','Colorado','Idaho','Montana','Nevada','New Mexico','Utah','Wyoming']
-};
-
-function getNeighborStates(s) {
-  const region = regionMap[s.region] || [];
-  return region.filter(n => n !== s.name).slice(0, 5).map(n => states.find(x => x.name === n)).filter(Boolean);
-}
-
-function neighborLinks(s, pageType) {
-  const neighbors = getNeighborStates(s);
-  if (!neighbors.length) return '';
-  const prefix = pageType === 'cremation' ? 'cremation-costs' : pageType === 'burial' ? 'burial-costs' : 'funeral-costs';
-  const label = pageType === 'cremation' ? 'Cremation' : pageType === 'burial' ? 'Burial' : 'Funeral';
-  return `<div class="related-guides"><h3>${label} Costs in Nearby States</h3><ul>${neighbors.map(n => {
-    const cost = pageType === 'cremation' ? $(n.dc) : pageType === 'burial' ? $(n.b) : $(n.f);
-    return `<li><a href="${prefix}-${n.slug}.html">${n.name}</a> — from ${cost}</li>`;
-  }).join('')}</ul></div>`;
-}
+// Bordering-state cross-links: a standard land-border adjacency list, with
+// Alaska and Hawaii pointed at the Pacific Coast states (scripts/lib/neighbors.js).
+const { neighborBlock, syncNeighborBlocks } = require('./scripts/lib/neighbors');
+function neighborLinks(s, pageType) { return neighborBlock(s, pageType, states); }
 
 // ── Region-specific content helpers ─────────────────────────────
 // These return a UNIQUE block of prose per page based on region + state slug.
@@ -300,7 +280,7 @@ function regionalFuneralNote(s) {
       `${s.name}'s Catholic, Jewish, Greek Orthodox, and Protestant communities each have distinct funeral customs, and ${s.name} funeral homes generally know these well. If faith tradition matters, asking for a provider that regularly serves your community is usually more useful than asking for "the cheapest" — specialized providers in ${s.name} are often well-priced within their niche because they do volume.`
     ],
     'Midwest': [
-      `Independent, family-owned funeral homes still anchor ${s.name}'s market more than in the coasts, and they generally price closer to the NFDA national averages than corporate-chain locations. Asking a ${s.name} provider whether they are independently owned or part of a national group is a quick way to predict where their GPL will sit. The spread between independent and chain in ${s.name} is often ${$(Math.round(s.f * 0.15))} or more.`,
+      `Independent, family-owned funeral homes still anchor ${s.name}'s market more than in the coasts, and they generally price closer to the NFDA national averages than corporate-chain locations. Asking a ${s.name} provider whether they are independently owned or part of a national group is a quick way to predict where their GPL will sit. How far apart the two kinds of home sit in ${s.name} is not published anywhere, so the only reliable measure is the General Price List each one must hand you under the FTC Funeral Rule.`,
       `Midwestern funeral customs in ${s.name} tend to be direct and practical — viewings are common but not always lengthy, memorial luncheons are often hosted at the church or a family's home rather than the funeral home, and cremation followed by a graveside or memorial service is increasingly standard. This practicality tends to keep average ${s.name} funeral costs (${$(s.f)}) close to the national median.`,
       `Rural ${s.name} counties often have just one or two funeral homes within a reasonable distance, which limits comparison shopping but also means those providers rely heavily on community reputation. Independent ${s.name} providers with decades in the same town are generally straightforward on pricing in a way that more transient markets are not. Still, always request the GPL in writing.`
     ],
@@ -1080,11 +1060,11 @@ ${header()}
           <thead><tr><th>Service</th><th>Average Cost</th><th>Range</th></tr></thead>
           <tbody>
             <tr><td>Traditional funeral with burial</td><td class="cost-value">${$(s.f)}</td><td>${$(Math.round(s.f*0.75))} – ${$(Math.round(s.f*1.3))}</td></tr>
-            <tr><td>Funeral with cremation</td><td class="cost-value">${$(s.c)}</td><td>${$(Math.round(s.c*0.8))} – ${$(Math.round(s.c*1.25))}</td></tr>
+            <tr><td>Funeral with cremation</td><td class="cost-value">${$(s.c)}</td><td>${$(Math.round(s.c*0.8))} – ${$(Math.round(s.c*1.3))}</td></tr>
             <tr><td>Direct cremation</td><td class="cost-value">${$(s.dc)}</td><td>${$(Math.round(s.dc*0.7))} – ${$(Math.round(s.dc*1.4))}</td></tr>
-            <tr><td>Cemetery / burial plot</td><td class="cost-value">${$(s.b)}</td><td>${$(Math.round(s.b*0.6))} – ${$(Math.round(s.b*1.8))}</td></tr>
-            <tr><td>Embalming</td><td class="cost-value">${$(Math.round(s.f*0.1))}</td><td>${$(Math.round(s.f*0.07))} – ${$(Math.round(s.f*0.15))}</td></tr>
-            <tr><td>Casket</td><td class="cost-value">${$(Math.round(s.f*0.3))}</td><td>${$(Math.round(s.f*0.12))} – ${$(Math.round(s.f*0.65))}</td></tr>
+            <tr><td>Cemetery / burial plot</td><td class="cost-value">${$(s.b)}</td><td>${$(Math.round(s.b*0.5))} – ${$(Math.round(s.b*2))}</td></tr>
+            <tr><td>Embalming</td><td class="cost-value">${$(Math.round(s.f*0.1))}</td><td>$500 – $1,500</td></tr>
+            <tr><td>Casket</td><td class="cost-value">${$(Math.round(s.f*0.3))}</td><td>${$(Math.round(s.f*0.1))} – ${$(Math.round(s.f*0.8))}</td></tr>
           </tbody>
         </table>
       </div>
@@ -1667,7 +1647,7 @@ ${header()}
             <tr><td>Cemetery plot</td><td class="cost-value">${$(s.b)}</td><td>${$(Math.round(s.b*0.5))} – ${$(Math.round(s.b*2))}</td></tr>
             <tr><td>Casket</td><td class="cost-value">${$(Math.round(s.f*0.3))}</td><td>${$(Math.round(s.f*0.1))} – ${$(Math.round(s.f*0.8))}</td></tr>
             <tr><td>Burial vault / liner</td><td class="cost-value">${$(Math.round(s.b*0.4))}</td><td>$800 – $10,000</td></tr>
-            <tr><td>Opening &amp; closing grave</td><td class="cost-value">${$(Math.round(s.b*0.5))}</td><td>$800 – $2,500</td></tr>
+            <tr><td>Opening &amp; closing grave</td><td class="cost-value">${$(Math.round(s.b*0.5))}</td><td>$500 – $3,000</td></tr>
             <tr><td>Headstone / marker</td><td class="cost-value">$1,500</td><td>$500 – $5,000+</td></tr>
             <tr><td>Embalming</td><td class="cost-value">${$(Math.round(s.f*0.1))}</td><td>$500 – $1,500</td></tr>
           </tbody>
@@ -2272,7 +2252,7 @@ const insurancePages = [
     st:'Cremation Insurance Guide',
     d:'Learn about cremation insurance — what it covers, how much it costs, and the best plans for 2026. Compare policies designed to cover cremation expenses.',
     sections:[
-      {h:'What Is Cremation Insurance?',content:`<p>Cremation insurance is a type of final expense insurance specifically designed to cover the cost of cremation services. While any life insurance policy can technically pay for cremation, cremation-specific plans are tailored for smaller coverage amounts that match typical cremation costs of $1,000 to $7,000.</p><div class="stat-highlights"><div class="stat-box"><span class="stat-number">$1,000 – $3,500</span><span class="stat-label">Direct Cremation</span></div><div class="stat-box"><span class="stat-number">$4,000 – $7,000</span><span class="stat-label">Cremation w/ Service</span></div><div class="stat-box"><span class="stat-number">$15 – $60/mo</span><span class="stat-label">Typical Premium</span></div></div>`},
+      {h:'What Is Cremation Insurance?',content:`<p>Cremation insurance is a type of final expense insurance specifically designed to cover the cost of cremation services. While any life insurance policy can technically pay for cremation, cremation-specific plans are tailored for smaller coverage amounts that match typical cremation costs of $1,000 to $7,000.</p><div class="stat-highlights"><div class="stat-box"><span class="stat-number">$2,645</span><span class="stat-label">Direct Cremation, NFDA 2023 Median</span></div><div class="stat-box"><span class="stat-number">$4,000 – $7,000</span><span class="stat-label">Cremation w/ Service</span></div><div class="stat-box"><span class="stat-number">$15 – $60/mo</span><span class="stat-label">Typical Premium</span></div></div>`},
       {h:'Cremation Insurance vs. Prepaid Cremation Plans',content:`<p>Families often confuse cremation insurance with prepaid cremation plans. Here is how they differ:</p><div class="cost-table-wrap"><table class="cost-table"><caption>Cremation Insurance vs. Prepaid Plans</caption><thead><tr><th>Feature</th><th>Cremation Insurance</th><th>Prepaid Cremation Plan</th></tr></thead><tbody><tr><td>What it is</td><td>Life insurance policy</td><td>Contract with a specific provider</td></tr><tr><td>Payment</td><td>Monthly premiums</td><td>Lump sum or installments to provider</td></tr><tr><td>Flexibility</td><td>Beneficiary chooses any provider</td><td>Locked to one provider</td></tr><tr><td>Portability</td><td>Works anywhere in the US</td><td>May not transfer if you move</td></tr><tr><td>If provider closes</td><td>Not affected — insurance is separate</td><td>Funds may be at risk</td></tr><tr><td>Excess funds</td><td>Go to beneficiary</td><td>May not be refundable</td></tr></tbody></table></div><div class="callout callout-info"><strong>Recommendation:</strong> Cremation insurance generally offers more flexibility and security than prepaid plans. Your beneficiary can choose any provider and keep any excess funds. Prepaid plans can be risky if the provider goes out of business or you relocate. See our <a href="prepaid-funeral-plans-comparison.html">prepaid plans comparison</a> for more details.</div>`},
       {h:'How Much Cremation Insurance Do You Need?',content:`<p>The right coverage amount depends on the type of cremation you prefer and your location:</p><ul><li><strong>$3,000 – $5,000</strong> — Covers direct cremation in most states with some margin for incidental costs</li><li><strong>$5,000 – $10,000</strong> — Covers cremation with a memorial service, urn, and other expenses</li><li><strong>$10,000 – $15,000</strong> — Covers a full cremation funeral plus memorial, travel, or other final expenses</li></ul><p>Check our <a href="cremation-costs-by-state.html">cremation costs by state</a> guide to see average cremation prices in your area and determine the right coverage level.</p>`}
     ],
@@ -2290,13 +2270,13 @@ const insurancePages = [
     st:'Funeral Financing Options',
     d:'Explore all funeral financing options including loans, payment plans, insurance assignments, government programs, and crowdfunding. Find the right way to cover funeral costs.',
     sections:[
-      {h:'Overview of Funeral Financing',content:`<p>When funeral costs exceed your immediate resources, several financing options can help bridge the gap. Understanding all available options — from insurance assignments to government programs — ensures you find the most appropriate solution for your situation.</p><div class="stat-highlights"><div class="stat-box"><span class="stat-number">$8,300</span><span class="stat-label">Avg. Funeral Cost</span></div><div class="stat-box"><span class="stat-number">$1,000–$3,500</span><span class="stat-label">Direct Cremation</span></div><div class="stat-box"><span class="stat-number">60%+</span><span class="stat-label">Families Without Funeral Savings</span></div></div>`},
+      {h:'Overview of Funeral Financing',content:`<p>When funeral costs exceed your immediate resources, several financing options can help bridge the gap. Understanding all available options — from insurance assignments to government programs — ensures you find the most appropriate solution for your situation.</p><div class="stat-highlights"><div class="stat-box"><span class="stat-number">$8,300</span><span class="stat-label">Avg. Funeral Cost</span></div><div class="stat-box"><span class="stat-number">$2,645</span><span class="stat-label">Median Direct Cremation (NFDA 2023)</span></div><div class="stat-box"><span class="stat-number">60%+</span><span class="stat-label">Families Without Funeral Savings</span></div></div>`},
       {h:'Financing Options Compared',content:`<div class="cost-table-wrap"><table class="cost-table"><caption>Funeral Financing Options Comparison</caption><thead><tr><th>Option</th><th>Speed</th><th>Cost</th><th>Best For</th></tr></thead><tbody><tr><td>Life insurance assignment</td><td>3-10 days</td><td>No interest</td><td>Families with existing life insurance</td></tr><tr><td>Funeral home payment plan</td><td>Immediate</td><td>0-18% APR</td><td>Families needing time to pay</td></tr><tr><td>Personal loan</td><td>1-7 days</td><td>6-36% APR</td><td>Those with good credit</td></tr><tr><td>Credit card</td><td>Immediate</td><td>15-29% APR</td><td>Smaller expenses or 0% intro APR</td></tr><tr><td>Crowdfunding</td><td>1-3 days</td><td>Platform fees 3-5%</td><td>Community-supported families</td></tr><tr><td>Government assistance</td><td>2-8 weeks</td><td>Free</td><td>Qualifying low-income families</td></tr><tr><td>Burial insurance payout</td><td>1-4 weeks</td><td>Already paid via premiums</td><td>Those with existing policies</td></tr></tbody></table></div>`},
       {h:'Government Assistance Programs',content:`<p>Several government programs can help with funeral costs:</p><ul><li><strong>Social Security death benefit</strong> — $255 one-time payment for eligible survivors. <a href="social-security-death-benefit.html">Learn how to apply</a></li><li><strong>Veteran burial benefits</strong> — Up to $2,000+ in burial allowances, free cemetery plots at national cemeteries, and headstones/markers. <a href="veteran-burial-benefits.html">See eligibility requirements</a></li><li><strong>Medicaid funeral assistance</strong> — Most states offer $1,000-$5,000 toward funeral costs for Medicaid recipients. <a href="funeral-payment-assistance.html">Check your state's program</a></li><li><strong>FEMA funeral assistance</strong> — Available when death is related to a federally declared disaster</li><li><strong>County indigent burial programs</strong> — Most counties provide basic burial or cremation for those who cannot afford it</li></ul>`}
     ],
     faq:[
       {q:'Can you make payments on a funeral?',a:'Yes. Many funeral homes offer payment plans ranging from 12 to 60 months. Some charge no interest while others charge 10-18% APR. Always ask about payment options before signing any agreement, and get the terms in writing. Not all funeral homes offer financing, so call ahead if this is important to your planning.'},
-      {q:'What happens if you cannot afford a funeral?',a:'If you cannot afford a funeral, several options exist: county indigent burial programs provide basic disposition at no cost; Medicaid may cover funeral expenses for eligible recipients; veteran benefits cover burial costs for qualifying veterans; crowdfunding platforms like GoFundMe can rally community support; and choosing direct cremation ($1,000-$3,500) is the most affordable option. See our complete guide to paying for a funeral with no money.'},
+      {q:'What happens if you cannot afford a funeral?',a:'If you cannot afford a funeral, several options exist: county indigent burial programs provide basic disposition at no cost; Medicaid may cover funeral expenses for eligible recipients; veteran benefits cover burial costs for qualifying veterans; crowdfunding platforms like GoFundMe can rally community support; and choosing direct cremation, which averages about $1,400 to $3,000 depending on the state, is the most affordable option. See our complete guide to paying for a funeral with no money.'},
       {q:'Are funeral loans a good idea?',a:'Funeral loans can help when immediate funds are unavailable, but they come with interest charges that increase the total cost. Before borrowing, explore alternatives: insurance assignment, government programs, crowdfunding, payment plans from the funeral home, or reducing costs through simpler service options. If you do borrow, compare rates from multiple lenders and choose the shortest repayment term you can afford.'},
       {q:'Can life insurance pay for a funeral directly?',a:'Yes, through a process called insurance assignment. You can assign your life insurance policy to a funeral home, which receives payment directly from the insurer. This allows the funeral to proceed before the full claim is processed. Most funeral homes accept insurance assignments, though they may require partial upfront payment. The process typically takes 3-10 business days.'},
       {q:'How much does the government pay for funerals?',a:'Government funeral assistance varies: Social Security provides a $255 death benefit; VA burial allowances range from $300 to $2,000+ depending on circumstances; Medicaid burial allowances range from $1,000 to $5,000 by state; and FEMA provides up to $9,000 for disaster-related deaths. These programs have specific eligibility requirements — see our payment assistance guide for details.'}
@@ -3061,6 +3041,9 @@ console.log(`Sitemap updated with ${existingPages.length + allPages.length} tota
   }
   console.log(`  Links to consolidated pages repointed on ${changed} page(s)`);
 })();
+
+// Bordering-state boxes on committed state pages (writePage never overwrites them).
+console.log(`  Bordering-state boxes rewritten on ${syncNeighborBlocks(OUT, states, fs, path)} page(s)`);
 
 // Titles, sourced expansions, and state-specific rewrites. Runs before
 // bylines and the XML sitemaps so last-modified dates match this edit.
