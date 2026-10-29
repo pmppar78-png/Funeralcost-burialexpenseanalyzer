@@ -25,8 +25,10 @@ function bumpDates(html, d) {
 
 const norm = (s) => s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, "'").replace(/\s+/g, ' ').trim();
 
-function run(outDir) {
-  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'cremation-local.json'), 'utf8'));
+// dataFile defaults to the cremation entries; data/state-local.json uses the
+// same format for sourced facts on funeral, cremation and burial pages.
+function run(outDir, dataFile = 'cremation-local.json') {
+  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', dataFile), 'utf8'));
   for (const [slug, entries] of Object.entries(data)) {
     if (slug.startsWith('_')) continue;
     const file = path.join(outDir, slug.endsWith('.html') ? slug : `cremation-costs-${slug}.html`);

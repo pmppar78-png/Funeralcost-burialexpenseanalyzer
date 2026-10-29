@@ -3064,6 +3064,8 @@ console.log(`  Bordering-state boxes rewritten on ${syncNeighborBlocks(OUT, stat
 require('./scripts/apply-audit').applyAudit();
 // State-specific cremation facts in place of sentences shared across states.
 require('./scripts/lib/cremation-local').run(OUT);
+// Sourced state facts (boards, statutes, cemetery regulators) on state pages.
+require('./scripts/lib/cremation-local').run(OUT, 'state-local.json');
 require('./scripts/lib/dash-cut').run(OUT);
 // Articles, FAQ JSON-LD rebuilt from the visible answers, number consistency.
 require('./scripts/lib/post-fix').run(OUT);

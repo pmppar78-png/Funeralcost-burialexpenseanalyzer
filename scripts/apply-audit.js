@@ -585,9 +585,12 @@ function grammarCleanup(html) {
     .split('63.4% U.S. cremation rate').join('63.4% United States cremation rate');
 }
 
+// Moves dates forward to REVIEW, never back: a page edited after the review
+// (state-local replaces text this pass re-renders) keeps its later date.
 function bumpDate(html) {
-  let next = html.replace(/(<meta name="last-modified" content=")[^"]*(")/, `$1${REVIEW}$2`);
-  next = next.replace(/("dateModified"\s*:\s*")[^"]*(")/, `$1${REVIEW}$2`);
+  const later = (o) => (/^\d{4}-\d{2}-\d{2}$/.test(o) && o > REVIEW ? o : REVIEW);
+  let next = html.replace(/(<meta name="last-modified" content=")([^"]*)(")/, (m, a, o, c) => a + later(o) + c);
+  next = next.replace(/("dateModified"\s*:\s*")([^"]*)(")/, (m, a, o, c) => a + later(o) + c);
   return next;
 }
 
