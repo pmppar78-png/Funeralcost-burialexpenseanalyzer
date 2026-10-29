@@ -3126,6 +3126,9 @@ require('./scripts/lib/dash-cut').run(OUT);
   console.log(`  Non-blocking font CSS: ${n} page(s)`);
 })();
 
+// F3: answer-first summaries and state-rule tables on the cremation and burial hubs.
+require('./scripts/lib/hubs-f3').run(OUT);
+
 writeXmlSitemaps();
 
 (function writeRobotsReviewed() {
