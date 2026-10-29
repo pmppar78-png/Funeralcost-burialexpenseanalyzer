@@ -1,7 +1,7 @@
 // Re-audit pass (2026-10-29). Runs after the bylines step on every page on
 // disk and is idempotent, so a second build produces identical output.
-//  1. "Reviewed" date beside each byline (Paul Paradis, the page's own
-//     last-modified date).
+//  1. "Reviewed" date beside each byline (Paul Paradis, the page's last
+//     real content change from git history, see data/reviewed-dates.json).
 //  2. State pages: per-family heading wording and section order picked from a
 //     hash of the state, so neighbouring pages do not share one skeleton. Only
 //     whole sections move; no text is removed.
@@ -24,10 +24,17 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const strip = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&rsquo;/g, '\u2019').replace(/&ndash;/g, '\u2013').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
 
 // ── 1. Reviewed dates ────────────────────────────────────────────────
-function addReviewed(html) {
+// The reviewed date is the page's last real content change, taken from git
+// history by scripts/reviewed-dates.py (date-only, punctuation-only and
+// heading-only edits do not count) and stored in data/reviewed-dates.json.
+// Pages not listed fall back to their own last-modified date.
+let REVIEWED = {};
+try { REVIEWED = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'reviewed-dates.json'), 'utf8')).dates || {}; } catch (e) { REVIEWED = {}; }
+function addReviewed(html, f) {
   const m = html.match(/<meta name="last-modified" content="(\d{4}-\d{2}-\d{2})"/);
-  if (!m) return html;
-  const time = `<time datetime="${m[1]}">${fmt(m[1])}</time>`;
+  const iso = (f && REVIEWED[f]) || (m && m[1]);
+  if (!iso) return html;
+  const time = `<time datetime="${iso}">${fmt(iso)}</time>`;
   if (/class="article-meta"/.test(html)) {
     if (/article-meta-label">(?:Reviewed|Last reviewed):/.test(html)) {
       return html.replace(/(<span class="article-meta-label">Last reviewed:<\/span> <span class="article-meta-value">)<time[^>]*>[^<]*<\/time>/, `$1${time}`);
@@ -282,7 +289,7 @@ function run(OUT) {
     if (!f.endsWith('.html') || SKIP.has(f)) continue;
     const file = path.join(OUT, f);
     const before = fs.readFileSync(file, 'utf8');
-    let html = addReviewed(before);
+    let html = addReviewed(before, f);
     if (html !== before) rev++;
     const fam = f.match(/^(funeral|cremation|burial)-costs-([a-z-]+)\.html$/);
     if (fam && !/^(by-state|by-religion|indianapolis|memphis|uninsured|rising-2026)$/.test(fam[2])) { const h2 = varyState(html, fam[1], fam[2]); if (h2 !== html) lay++; html = h2; }
