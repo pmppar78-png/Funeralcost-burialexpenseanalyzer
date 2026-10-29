@@ -29,7 +29,9 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="style.css" />
 <!-- Dataset Schema -->
   <script type="application/ld+json">
@@ -222,7 +224,7 @@
       <!-- ========== HERO ========== -->
       <div class="index-hero">
         <h1>2026 National Funeral Cost Index</h1>
-        <p class="index-hero-sub">Original research &mdash; comprehensive funeral pricing data for all 50 states and 50 major metropolitan areas, with regional analysis, cremation trends, and inflation tracking.</p>
+        <p class="index-hero-sub">Original research: comprehensive funeral pricing data for all 50 states and 50 major metropolitan areas, with regional analysis, cremation trends, and inflation tracking.</p>
         <p class="index-hero-meta">Published January 2026 &middot; Updated October 2026 &middot; Data: NFDA, FCA, State Funeral Boards, Federal Consumer Surveys</p>
       </div>
 
@@ -292,10 +294,10 @@
 
         <ul>
           <li><strong>Hawaii is the most expensive state</strong> for a traditional funeral at $11,000, followed by New York ($10,800) and California ($10,600). The Northeast and West regions are consistently the highest-cost areas (state estimates on this site; see methodology).</li>
-          <li><strong>Mississippi is the most affordable state</strong> at $5,900 for a traditional funeral, with the South region averaging $6,736&mdash;13% below the national average.</li>
+          <li><strong>Mississippi is the most affordable state</strong> at $5,900 for a traditional funeral, with the South region averaging $6,736—13% below the national average.</li>
           <li><strong>Cremation is now the majority choice</strong> nationally: NFDA&rsquo;s 2025 Cremation &amp; Burial Report projected a 63.4% United States cremation rate for 2025. Among the state estimates used on this site, Western states average 71.6% while Southern states average 44.0%.</li>
           <li><strong>State gaps are wide in our estimates:</strong> California ($14,310) comes out 85% above our 50-state average, and Oklahoma ($6,405) 17% below it.</li>
-          <li><strong>In our estimates, direct cremation costs 76.3% less</strong> than a traditional funeral&mdash;an average difference of $5,902 across our 50 state estimates.</li>
+          <li><strong>In our estimates, direct cremation costs 76.3% less</strong> than a traditional funeral—an average difference of $5,902 across our 50 state estimates.</li>
           <li><strong>Funeral prices have risen about 3.6% a year</strong> since 2021 according to the <strong>BLS Consumer Price Index for funeral expenses (CUUR0000SEGD02)</strong>, compared with about 4.1% a year for all items.</li>
         </ul>
       </section>
@@ -318,7 +320,7 @@
             <tr>
               <td><strong>Traditional Funeral</strong></td>
               <td><strong>$7,736</strong></td>
-              <td>&mdash;</td>
+              <td>—</td>
               <td>Full-service funeral with viewing, ceremony, hearse, and burial</td>
             </tr>
             <tr>
@@ -424,7 +426,7 @@
       <!-- ========== REGIONAL ANALYSIS ========== -->
       <section id="regional-analysis">
         <h2>Regional Cost Analysis</h2>
-        <p>Funeral costs vary dramatically by region. The Northeast averages 20% above the national average, while the South averages 13% below it&mdash;a gap of over $2,500 per funeral.</p>
+        <p>Funeral costs vary dramatically by region. The Northeast averages 20% above the national average, while the South averages 13% below it—a gap of over $2,500 per funeral.</p>
 
         <table class="index-regional-table" aria-label="Average funeral costs by U.S. region">
           <thead>
@@ -500,7 +502,7 @@
               <td>$1,834</td>
               <td>$3,656</td>
               <td>55.8%</td>
-              <td>&mdash;</td>
+              <td>—</td>
             </tr>
           </tfoot>
         </table>
@@ -635,21 +637,21 @@
           <div>
             <h4>Top 5 Cremation States</h4>
             <ol>
-              <li><strong>Oregon</strong> &mdash; 78%</li>
-              <li><strong>Washington</strong> &mdash; 76%</li>
-              <li><strong>Maine</strong> &mdash; 75%</li>
-              <li><strong>Alaska, Colorado, Montana, Nevada, New Hampshire, Vermont</strong> &mdash; 72%</li>
-              <li><strong>Hawaii</strong> &mdash; 70%</li>
+              <li><strong>Oregon</strong>: 78%</li>
+              <li><strong>Washington</strong>: 76%</li>
+              <li><strong>Maine</strong>: 75%</li>
+              <li><strong>Alaska, Colorado, Montana, Nevada, New Hampshire, Vermont</strong>: 72%</li>
+              <li><strong>Hawaii</strong>: 70%</li>
             </ol>
           </div>
           <div>
             <h4>Lowest 5 Cremation States</h4>
             <ol>
-              <li><strong>Mississippi</strong> &mdash; 28%</li>
-              <li><strong>Louisiana</strong> &mdash; 35%</li>
-              <li><strong>Alabama</strong> &mdash; 38%</li>
-              <li><strong>Kentucky</strong> &mdash; 40%</li>
-              <li><strong>Arkansas, Tennessee, Utah</strong> &mdash; 42%</li>
+              <li><strong>Mississippi</strong>: 28%</li>
+              <li><strong>Louisiana</strong>: 35%</li>
+              <li><strong>Alabama</strong>: 38%</li>
+              <li><strong>Kentucky</strong>: 40%</li>
+              <li><strong>Arkansas, Tennessee, Utah</strong>: 42%</li>
             </ol>
           </div>
         </div>
@@ -698,11 +700,11 @@
 
         <h3>Primary Data Sources</h3>
         <ol>
-          <li><strong>National Funeral Directors Association (NFDA)</strong> &mdash; Annual member surveys covering service fees, casket costs, and facility charges across thousands of funeral homes nationwide.</li>
-          <li><strong>Funeral Consumers Alliance (FCA)</strong> &mdash; Independent consumer advocacy surveys providing pricing data from a consumer perspective, including price shopping research and overcharging analysis.</li>
-          <li><strong>State Funeral Regulatory Boards</strong> &mdash; Licensing data, complaint records, and required price disclosure filings from all 50 state regulatory agencies.</li>
-          <li><strong>Bureau of Labor Statistics (BLS)</strong> &mdash; the Consumer Price Index series for funeral expenses (CUUR0000SEGD02) and for all items, used in the inflation table on this page. The metro multipliers are not BLS figures; they are our own editorial estimates.</li>
-          <li><strong>Cremation Association of North America (CANA)</strong> &mdash; Annual cremation rate statistics and disposition trend reports.</li>
+          <li><strong>National Funeral Directors Association (NFDA)</strong>: Annual member surveys covering service fees, casket costs, and facility charges across thousands of funeral homes nationwide.</li>
+          <li><strong>Funeral Consumers Alliance (FCA)</strong>: Independent consumer advocacy surveys providing pricing data from a consumer perspective, including price shopping research and overcharging analysis.</li>
+          <li><strong>State Funeral Regulatory Boards</strong>: Licensing data, complaint records, and required price disclosure filings from all 50 state regulatory agencies.</li>
+          <li><strong>Bureau of Labor Statistics (BLS)</strong>: the Consumer Price Index series for funeral expenses (CUUR0000SEGD02) and for all items, used in the inflation table on this page. The metro multipliers are not BLS figures; they are our own editorial estimates.</li>
+          <li><strong>Cremation Association of North America (CANA)</strong>: Annual cremation rate statistics and disposition trend reports.</li>
         </ol>
 
         <h3>Methodology</h3>
@@ -787,7 +789,7 @@
         <h2>Frequently Asked Questions</h2>
 
         <h3>What is the average funeral cost in the United States in 2026?</h3>
-        <p>Averaging our 50 state estimates, a traditional funeral with viewing and burial costs <strong>$7,736</strong>. A cremation with a memorial service averages <strong>$6,072</strong>. Direct cremation&mdash;the most affordable standard option&mdash;averages <strong>$1,834</strong> across those estimates. These figures do not include cemetery costs, monuments, flowers, or other add-ons that can increase the total by $3,000&ndash;$8,000.</p>
+        <p>Averaging our 50 state estimates, a traditional funeral with viewing and burial costs <strong>$7,736</strong>. A cremation with a memorial service averages <strong>$6,072</strong>. Direct cremation—the most affordable standard option—averages <strong>$1,834</strong> across those estimates. These figures do not include cemetery costs, monuments, flowers, or other add-ons that can increase the total by $3,000&ndash;$8,000.</p>
 
         <h3>Which state has the most expensive funerals?</h3>
         <p><strong>Hawaii</strong> has the highest average funeral costs at $11,000 for a traditional funeral, followed by New York ($10,800) and California ($10,600). Northeast and West Coast states consistently rank highest due to higher costs of living, real estate prices, and labor costs. See the <a href="#state-rankings">full 50-state ranking table</a> above.</p>
@@ -809,16 +811,16 @@
       <section>
         <h2>Related Guides &amp; Resources</h2>
         <ul>
-          <li><a href="funeral-costs-by-state.html"><strong>Funeral Costs by State</strong></a> &mdash; Detailed breakdowns with city-level data for all 50 states</li>
-          <li><a href="funeral-cost-breakdown.html">Complete Funeral Cost Breakdown</a> &mdash; Every fee explained line by line</li>
-          <li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Guide</a> &mdash; Side-by-side comparison of all disposition options</li>
-          <li><a href="average-funeral-cost-2026.html">Average Funeral Cost 2026</a> &mdash; What to budget and how to save</li>
-          <li><a href="cheap-funeral-options.html">Affordable Funeral Options</a> &mdash; Strategies to reduce costs without sacrificing dignity</li>
-          <li><a href="funeral-payment-assistance.html">Funeral Payment Assistance</a> &mdash; Government and nonprofit programs that can help</li>
-          <li><a href="ftc-funeral-rule-guide.html">FTC Funeral Rule Guide</a> &mdash; Your legal rights when purchasing funeral services</li>
-          <li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a> &mdash; Pre-need policies and final expense insurance explained</li>
-          <li><a href="funeral-price-comparison.html">Funeral Price Comparison</a> &mdash; How to shop for the best value</li>
-          <li><a href="planning-checklist.html">Funeral Planning Checklist</a> &mdash; Step-by-step planning guide</li>
+          <li><a href="funeral-costs-by-state.html"><strong>Funeral Costs by State</strong></a>: Detailed breakdowns with city-level data for all 50 states</li>
+          <li><a href="funeral-cost-breakdown.html">Complete Funeral Cost Breakdown</a>: Every fee explained line by line</li>
+          <li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Guide</a>: Side-by-side comparison of all disposition options</li>
+          <li><a href="average-funeral-cost-2026.html">Average Funeral Cost 2026</a>: What to budget and how to save</li>
+          <li><a href="cheap-funeral-options.html">Affordable Funeral Options</a>: Strategies to reduce costs without sacrificing dignity</li>
+          <li><a href="funeral-payment-assistance.html">Funeral Payment Assistance</a>: Government and nonprofit programs that can help</li>
+          <li><a href="ftc-funeral-rule-guide.html">FTC Funeral Rule Guide</a>: Your legal rights when purchasing funeral services</li>
+          <li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a>: Pre-need policies and final expense insurance explained</li>
+          <li><a href="funeral-price-comparison.html">Funeral Price Comparison</a>: How to shop for the best value</li>
+          <li><a href="planning-checklist.html">Funeral Planning Checklist</a>: Step-by-step planning guide</li>
         </ul>
       </section>
 

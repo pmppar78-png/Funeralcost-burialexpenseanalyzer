@@ -379,40 +379,42 @@ function faithReconcile(html) {
   return next;
 }
 
-function faithPageNote(tradition, range, basis) {
-  return `<p id="faith-range-note">The ${tradition} figure of ${range} is a planning range, not an official statistic and not a median from the ${NFDA_NOTE}. ${basis} The ${tradition} range was already printed on this ${tradition} page, and the <a href="funeral-costs-by-religion.html">religion overview</a> uses the same ${tradition} numbers so the two pages do not disagree. Adding every ${tradition} row will not reproduce ${range}, because a funeral-home charge overlaps other rows and a family does not buy every row. The ${tradition} table cells are planning ranges as well, not surveyed prices, and this ${tradition} note was reviewed ${REVIEW}.</p>`;
+// Each faith page words its opening and closing sentences differently, so
+// the six notes do not repeat one another.
+function faithPageNote(lead, basis, tail) {
+  return `<p id="faith-range-note">${lead} ${basis} ${tail}</p>`;
 }
 
 const FAITH_NOTES = {
   'catholic-funeral-costs.html': faithPageNote(
-    'Catholic',
-    '$7,000 to $15,000',
-    'No diocesan price survey is cited for the Catholic total. The Catholic bracket sits around the NFDA median of $8,300 for a funeral with viewing and burial, which leaves out the cemetery plot, the vault, and the monument, plus the Catholic rows in the table: a vigil, a funeral Mass offering, a casket, a Catholic cemetery plot, a vault, and a marker.'
+    "Our $7,000 to $15,000 range for a Catholic funeral is an estimate built for planning. No agency publishes it, and it does not come from the medians in the NFDA 2023 General Price List Study, which is still the most recent edition and was still quoted on NFDA's statistics page as of September 29, 2025.",
+    'No diocesan price survey is cited for the Catholic total. The Catholic bracket sits around the NFDA median of $8,300 for a funeral with viewing and burial, which leaves out the cemetery plot, the vault, and the monument, plus the Catholic rows in the table: a vigil, a funeral Mass offering, a casket, a Catholic cemetery plot, a vault, and a marker.',
+    "The <a href=\"funeral-costs-by-religion.html\">religion overview</a> quotes this same $7,000 to $15,000 span. A parish family rarely pays for every line in the table, and several lines share costs, so the rows will not add up to the bracket; treat each cell as an estimate. Reviewed October 24, 2026."
   ),
   'jewish-funeral-costs.html': faithPageNote(
-    'Jewish',
-    '$5,000 to $12,000',
-    'No synagogue or chevra kadisha price survey is cited for the Jewish total. The NFDA median of $8,300 for a funeral with viewing and burial includes embalming, which this Jewish page treats as prohibited, and the NFDA metal-casket median is $2,500, while the Jewish table uses a simple wood casket of $500 to $2,000. The Jewish cemetery plot row of $2,000 to $8,000 is the item most likely to move a Jewish funeral toward the top of the planning range.'
+    "The range of $5,000 to $12,000 for a Jewish funeral is a planning estimate we set. It is neither an official statistic nor a median from the NFDA 2023 General Price List Study, the newest edition, still referenced on NFDA's statistics page as of September 29, 2025.",
+    'No synagogue or chevra kadisha price survey is cited for the Jewish total. The NFDA median of $8,300 for a funeral with viewing and burial includes embalming, which this Jewish page treats as prohibited, and the NFDA metal-casket median is $2,500, while the Jewish table uses a simple wood casket of $500 to $2,000. The Jewish cemetery plot row of $2,000 to $8,000 is the item most likely to move a Jewish funeral toward the top of the planning range.',
+    "That same $5,000 to $12,000 range appears on our <a href=\"funeral-costs-by-religion.html\">religion overview</a>. Since some rows overlap and no family buys all of them, the table will not total to the range; each cell is an estimate. Reviewed October 24, 2026."
   ),
   'muslim-funeral-costs.html': faithPageNote(
-    'Muslim',
-    '$3,000 to $8,000',
-    'No mosque price survey is cited for the Muslim total. The low end sits near the NFDA immediate-burial medians of $2,995 with a family-supplied container and $3,720 with a funeral-home container, reprinted from the 2023 price list in the 2024 NFDA Cremation and Burial Report. The Muslim table then names a kafan of $50 to $200, a simple casket of $500 to $1,500 only where local law requires one, and an Islamic cemetery plot of $1,000 to $5,000, which is why the Muslim planning range extends to $8,000 without becoming a sum of those rows.'
+    "Our planning range for a Muslim funeral is $3,000 to $8,000. We set that bracket ourselves; it is not an official statistic and not a median from the NFDA 2023 General Price List Study, the most recent one, which NFDA's statistics page still quoted on September 29, 2025.",
+    'No mosque price survey is cited for the Muslim total. The low end sits near the NFDA immediate-burial medians of $2,995 with a family-supplied container and $3,720 with a funeral-home container, reprinted from the 2023 price list in the 2024 NFDA Cremation and Burial Report. The Muslim table then names a kafan of $50 to $200, a simple casket of $500 to $1,500 only where local law requires one, and an Islamic cemetery plot of $1,000 to $5,000, which is why the Muslim planning range extends to $8,000 without becoming a sum of those rows.',
+    "We show the same $3,000 to $8,000 range on the <a href=\"funeral-costs-by-religion.html\">religion overview</a>. A family will not buy every row in the table, and the rows overlap, so they do not total to the range; read each as an estimate. Reviewed October 24, 2026."
   ),
   'hindu-funeral-costs.html': faithPageNote(
-    'Hindu',
-    '$3,000 to $10,000',
-    'No temple price survey is cited for the Hindu total. Hindu practice on this page is cremation, so the bracket runs from the NFDA direct-cremation medians of $2,645 with a family-supplied container and $2,750 with a funeral-home container up through the $6,280 median for a funeral with viewing and cremation, plus the Hindu rows for a pandit, garlands, ash scattering, and the 13th-day ceremony.'
+    "We use $3,000 to $10,000 as the planning range for a Hindu cremation. That bracket is ours, not an official figure, and it is not a median from the NFDA 2023 General Price List Study (still the latest; NFDA's statistics page cited those medians in its September 29, 2025 update).",
+    'No temple price survey is cited for the Hindu total. Hindu practice on this page is cremation, so the bracket runs from the NFDA direct-cremation medians of $2,645 with a family-supplied container and $2,750 with a funeral-home container up through the $6,280 median for a funeral with viewing and cremation, plus the Hindu rows for a pandit, garlands, ash scattering, and the 13th-day ceremony.',
+    "Our <a href=\"funeral-costs-by-religion.html\">religion overview</a> lists the identical $3,000 to $10,000 range. Because crematory, viewing and ritual charges overlap and families choose different rites, the table rows do not sum to it, and every row is an estimate. Checked October 24, 2026."
   ),
   'buddhist-funeral-costs.html': faithPageNote(
-    'Buddhist',
-    '$3,000 to $12,000',
-    'No temple price survey is cited for the Buddhist total. The Buddhist bracket starts near the NFDA direct-cremation medians of $2,645 and $2,750 and can pass the $6,280 median for a funeral with viewing and cremation, because this Buddhist page also prices a burial-style service and memorial ceremonies across 49 days.'
+    "The $3,000 to $12,000 Buddhist estimate is our planning bracket. It is not a government statistic, and it is not one of the medians in NFDA's 2023 General Price List Study, the latest edition, which NFDA's statistics page was still citing in its September 29, 2025 update.",
+    'No temple price survey is cited for the Buddhist total. The Buddhist bracket starts near the NFDA direct-cremation medians of $2,645 and $2,750 and can pass the $6,280 median for a funeral with viewing and cremation, because this Buddhist page also prices a burial-style service and memorial ceremonies across 49 days.',
+    "We print the same $3,000 to $12,000 figure on the <a href=\"funeral-costs-by-religion.html\">religion overview</a>. Summing the rows below gives a different number, since the facility and service lines overlap and few families use all of them; each cell is an estimate rather than a surveyed price. Last reviewed October 24, 2026."
   ),
   'mormon-funeral-costs.html': faithPageNote(
-    'LDS',
-    '$6,000 to $14,000',
-    'The Church of Jesus Christ of Latter-day Saints does not publish a national funeral median that this LDS page cites. The LDS bracket sits around the NFDA median of $8,300 for a funeral with viewing and burial, which excludes the plot, vault, and monument, plus the LDS casket, cemetery plot, vault, and marker rows in the table. Meetinghouse use is listed at $0 on this LDS page, and temple clothing is listed at $50 to $200, so those two LDS items are not what sets the width of the range.'
+    "For a Latter-day Saint funeral we use a planning range of $6,000 to $14,000. It is our own estimate, not an official statistic, and not drawn from the medians in the NFDA 2023 General Price List Study, which remains the latest and was still shown on NFDA's statistics page on September 29, 2025.",
+    'The Church of Jesus Christ of Latter-day Saints does not publish a national funeral median that this LDS page cites. The LDS bracket sits around the NFDA median of $8,300 for a funeral with viewing and burial, which excludes the plot, vault, and monument, plus the LDS casket, cemetery plot, vault, and marker rows in the table. Meetinghouse use is listed at $0 on this LDS page, and temple clothing is listed at $50 to $200, so those two LDS items are not what sets the width of the range.',
+    "The <a href=\"funeral-costs-by-religion.html\">religion overview</a> carries the same $6,000 to $14,000 figure. Families seldom need every line below, and some overlap, so the rows are not meant to add up to the range; each is an estimate. Last checked October 24, 2026."
   )
 };
 

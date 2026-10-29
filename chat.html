@@ -10,7 +10,7 @@
     name="description"
     content="Ask about funeral prices, your FTC Funeral Rule rights, veteran and Social Security benefits, or cremation vs. burial. Educational, not advice."
   />
-  <meta name="last-modified" content="2026-10-22" />
+  <meta name="last-modified" content="2026-10-29" />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="AI Funeral Cost Helper: Free, Private Answers" />
   <meta property="og:description" content="Ask about funeral prices, your FTC Funeral Rule rights, veteran and Social Security benefits, or cremation vs. burial. Educational, not advice." />
@@ -30,7 +30,9 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="style.css" />
 <!-- JSON-LD: WebPage schema -->
   <script type="application/ld+json">
@@ -462,9 +464,10 @@
     <!-- Warm introduction explaining what the AI can help with -->
     <div class="chat-intro">
       <div class="chat-intro-card">
-        <h1>AI Funeral Cost Helper — Free, Private, Compassionate Guidance</h1>
+        <h1>AI Funeral Cost Helper: Free, Private, Compassionate Guidance</h1>
+        <p class="article-byline small muted">Maintained by <a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor &middot; Last updated <time datetime="2026-10-29">October 29, 2026</time></p>
         <p>
-          This AI assistant has broad knowledge of funeral and burial costs, consumer rights, benefits programs, and planning options. Ask anything about costs, your rights, or what to do next — and get clear, unhurried answers in plain language. It is educational information, not professional advice.
+          This AI assistant has broad knowledge of funeral and burial costs, consumer rights, benefits programs, and planning options. Ask anything about costs, your rights, or what to do next, and get clear, unhurried answers in plain language. It is educational information, not professional advice.
         </p>
         <p><strong>Topics this AI can help with:</strong></p>
         <ul class="chat-topics-list">
@@ -485,7 +488,7 @@
     <!-- Disclaimer about AI limitations -->
     <div class="chat-disclaimer-enhanced">
       <p>
-        <strong>Please read:</strong> This AI is an educational assistant, not a licensed professional. It provides general information about funeral costs, consumer rights, and planning — not financial, legal, tax, medical, or funeral-director advice. It can be wrong. Always verify important details and review contracts, insurance, benefits, and pricing with licensed professionals before signing or paying. In an emergency, call 911. For mental-health crisis, call or text 988.
+        <strong>Please read:</strong> This AI is an educational assistant, not a licensed professional. It provides general information about funeral costs, consumer rights, and planning, not financial, legal, tax, medical, or funeral-director advice. It can be wrong. Always verify important details and review contracts, insurance, benefits, and pricing with licensed professionals before signing or paying. In an emergency, call 911. For mental-health crisis, call or text 988.
       </p>
     </div>
 
@@ -494,13 +497,13 @@
       <p class="starter-questions-heading">Not sure where to start? Try one of these:</p>
       <div class="starter-buttons">
         <button class="starter-btn" onclick="handleStarterQuestion('My parent just passed away and I do not know what to do first. Can you gently walk me through the very first steps?')">
-          My parent just passed — what do I do first?
+          My parent just passed: what do I do first?
         </button>
         <button class="starter-btn" onclick="handleStarterQuestion('How much does a funeral typically cost, and what are the main things that affect the price?')">
           How much does a funeral typically cost?
         </button>
         <button class="starter-btn" onclick="handleStarterQuestion('Can you explain the real cost difference between cremation and burial, including what drives the price for each?')">
-          Cremation vs. burial — what are the real costs?
+          Cremation vs. burial: what are the real costs?
         </button>
         <button class="starter-btn" onclick="handleStarterQuestion('What is the FTC Funeral Rule, and what specific rights does it give me when I talk to a funeral home?')">
           What rights do I have under the FTC Funeral Rule?
@@ -509,10 +512,10 @@
           The quote feels high and they want me to sign now
         </button>
         <button class="starter-btn" onclick="handleStarterQuestion('I cannot afford a funeral right now. What assistance programs, benefits, or low-cost options should I know about?')">
-          I can't afford a funeral — what help exists?
+          I can't afford a funeral: what help exists?
         </button>
         <button class="starter-btn" onclick="handleStarterQuestion('What veteran burial benefits are available through the VA, and how do I apply for them?')">
-          Veteran burial benefits — what's available?
+          Veteran burial benefits: what's available?
         </button>
         <button class="starter-btn" onclick="handleStarterQuestion('How do I claim the $255 Social Security death benefit for a surviving spouse or child?')">
           How do I claim the Social Security death benefit?
