@@ -28,9 +28,12 @@ const strip = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&
 // history by scripts/reviewed-dates.py (date-only, punctuation-only and
 // heading-only edits do not count) and stored in data/reviewed-dates.json.
 // Pages not listed fall back to their own last-modified date.
+const NO_REVIEW_STAMP = new Set(['methodology.html']);
 let REVIEWED = {};
 try { REVIEWED = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'reviewed-dates.json'), 'utf8')).dates || {}; } catch (e) { REVIEWED = {}; }
 function addReviewed(html, f) {
+  // Pages that have not had an editorial review carry a plain byline; never stamp one.
+  if (NO_REVIEW_STAMP.has(f)) return html;
   const m = html.match(/<meta name="last-modified" content="(\d{4}-\d{2}-\d{2})"/);
   const iso = (f && REVIEWED[f]) || (m && m[1]);
   if (!iso) return html;
