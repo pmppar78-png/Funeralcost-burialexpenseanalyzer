@@ -3064,6 +3064,7 @@ console.log(`  Bordering-state boxes rewritten on ${syncNeighborBlocks(OUT, stat
 require('./scripts/apply-audit').applyAudit();
 // State-specific cremation facts in place of sentences shared across states.
 require('./scripts/lib/cremation-local').run(OUT);
+require('./scripts/lib/dash-cut').run(OUT);
 // Articles, FAQ JSON-LD rebuilt from the visible answers, number consistency.
 require('./scripts/lib/post-fix').run(OUT);
 
@@ -3098,6 +3099,26 @@ require('./scripts/lib/post-fix').run(OUT);
     if (html !== before) { fs.writeFileSync(file, html); updated++; }
   }
   console.log(`  Bylines/dates updated: ${updated} page(s)`);
+})();
+
+require('./scripts/lib/dash-cut').run(OUT);
+
+// Google Fonts load without blocking first paint; text renders in the
+// fallback font until the webfont arrives. Idempotent.
+(function nonBlockingFonts() {
+  const FONT = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap';
+  const blocking = `<link href="${FONT}" rel="stylesheet" />`;
+  const lazy = `<link rel="preload" as="style" href="${FONT}" />\n  <link href="${FONT}" rel="stylesheet" media="print" onload="this.media='all'" />\n  <noscript><link href="${FONT}" rel="stylesheet" /></noscript>`;
+  let n = 0;
+  for (const f of fs.readdirSync(OUT)) {
+    if (!f.endsWith('.html')) continue;
+    const file = path.join(OUT, f);
+    const html = fs.readFileSync(file, 'utf8');
+    if (!html.includes(blocking) || html.includes('media="print" onload=')) continue;
+    fs.writeFileSync(file, html.split(blocking).join(lazy));
+    n++;
+  }
+  console.log(`  Non-blocking font CSS: ${n} page(s)`);
 })();
 
 writeXmlSitemaps();

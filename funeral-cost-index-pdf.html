@@ -29,7 +29,9 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="style.css" />
 <script type="application/ld+json">
   {
@@ -272,7 +274,7 @@
       </nav>
 
       <div class="print-instruction no-print">
-        <strong>Save as PDF:</strong> Use your browser&rsquo;s Print function &mdash; press <kbd>Ctrl</kbd>+<kbd>P</kbd> (Windows/Linux) or <kbd>Cmd</kbd>+<kbd>P</kbd> (Mac) &mdash; then select <strong>&ldquo;Save as PDF&rdquo;</strong> as the destination. This page is print-optimized: navigation, headers, and footers are automatically hidden when printing.
+        <strong>Save as PDF:</strong> Use your browser&rsquo;s Print function: press <kbd>Ctrl</kbd>+<kbd>P</kbd> (Windows/Linux) or <kbd>Cmd</kbd>+<kbd>P</kbd> (Mac), then select <strong>&ldquo;Save as PDF&rdquo;</strong> as the destination. This page is print-optimized: navigation, headers, and footers are automatically hidden when printing.
       </div>
 
       <div class="report-header-block">
@@ -417,7 +419,7 @@
             <tr><td>West Virginia</td><td>$6,580</td><td>$5,860</td><td>$1,950</td><td>South</td></tr>
             <tr><td>Wisconsin</td><td>$7,580</td><td>$6,750</td><td>$2,350</td><td>Midwest</td></tr>
             <tr><td>Wyoming</td><td>$6,880</td><td>$6,130</td><td>$2,050</td><td>West</td></tr>
-            <tr class="table-highlight"><td><strong>National Median</strong></td><td><strong>$8,300</strong></td><td><strong>$6,280</strong></td><td><strong>$2,398</strong></td><td>&mdash;</td></tr>
+            <tr class="table-highlight"><td><strong>National Median</strong></td><td><strong>$8,300</strong></td><td><strong>$6,280</strong></td><td><strong>$2,398</strong></td><td>—</td></tr>
           </tbody>
         </table>
         </div>
@@ -475,8 +477,8 @@
 
         <h3>Key Regional Observations</h3>
         <ul>
-          <li><strong>Most expensive state:</strong> New York ($9,850 traditional burial) &mdash; driven by high real estate costs, labor costs, and metropolitan pricing in the NYC area.</li>
-          <li><strong>Least expensive state:</strong> Mississippi ($6,150 traditional burial) &mdash; lower cost of living and a competitive rural funeral market contribute to below-average pricing.</li>
+          <li><strong>Most expensive state:</strong> New York ($9,850 traditional burial): driven by high real estate costs, labor costs, and metropolitan pricing in the NYC area.</li>
+          <li><strong>Least expensive state:</strong> Mississippi ($6,150 traditional burial): lower cost of living and a competitive rural funeral market contribute to below-average pricing.</li>
           <li><strong>Largest spread:</strong> The difference between the most and least expensive states is approximately $3,700 for a traditional burial, demonstrating why state-level data matters more than national averages.</li>
           <li><strong>Urban premium:</strong> Major metro areas within any state can run 20&ndash;40% higher than rural areas in the same state. For example, a traditional funeral in New York City may exceed $12,000, while upstate New York averages closer to $8,500.</li>
         </ul>
@@ -545,11 +547,11 @@
         <div class="methodology-note">
           <p><strong>Data compilation:</strong> The 2026 National Funeral Cost Index aggregates pricing data from the following publicly available sources:</p>
           <ul>
-            <li><strong>National Funeral Directors Association (NFDA)</strong> &mdash; Periodic General Price List study of member funeral homes, considered the industry benchmark. The most recent edition is the 2023 study (median $8,300 for a funeral with viewing and burial).</li>
-            <li><strong>Funeral Consumers Alliance (FCA)</strong> &mdash; Independent consumer organization that conducts periodic funeral home price surveys. Their most recent comprehensive survey included data from over 1,800 funeral homes.</li>
-            <li><strong>State Funeral Regulatory Boards</strong> &mdash; State-specific pricing data filed by licensed funeral establishments as required by state law.</li>
-            <li><strong>U.S. Bureau of Labor Statistics (BLS)</strong> &mdash; Consumer Price Index (CPI) funeral expense component used to adjust for inflation and verify cost trends.</li>
-            <li><strong>Federal Trade Commission (FTC)</strong> &mdash; Enforcement data and General Price List compliance reports.</li>
+            <li><strong>National Funeral Directors Association (NFDA)</strong>: Periodic General Price List study of member funeral homes, considered the industry benchmark. The most recent edition is the 2023 study (median $8,300 for a funeral with viewing and burial).</li>
+            <li><strong>Funeral Consumers Alliance (FCA)</strong>: Independent consumer organization that conducts periodic funeral home price surveys. Their most recent comprehensive survey included data from over 1,800 funeral homes.</li>
+            <li><strong>State Funeral Regulatory Boards</strong>: State-specific pricing data filed by licensed funeral establishments as required by state law.</li>
+            <li><strong>U.S. Bureau of Labor Statistics (BLS)</strong>: Consumer Price Index (CPI) funeral expense component used to adjust for inflation and verify cost trends.</li>
+            <li><strong>Federal Trade Commission (FTC)</strong>: Enforcement data and General Price List compliance reports.</li>
           </ul>
           <p><strong>Methodology:</strong> State-level figures represent median costs across surveyed funeral homes within each state. Where direct data was unavailable for a specific state, estimates were derived using regional averages adjusted for cost-of-living indices (BLS regional CPI data). All figures are rounded to the nearest $10.</p>
           <p><strong>Limitations:</strong> Actual costs can vary substantially based on the specific funeral home, metro vs. rural location, time of year, and individual family choices. The figures in this report are intended as planning references, not price quotes. Always request a General Price List from any funeral home you are considering.</p>
@@ -573,12 +575,12 @@
       <section class="no-print">
         <h2>Related Resources</h2>
         <ul>
-          <li><a href="funeral-costs-by-state.html">Funeral Costs by State</a> &mdash; Interactive state-by-state cost data with detailed breakdowns</li>
-          <li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a> &mdash; Every fee explained line by line</li>
-          <li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Guide</a> &mdash; Detailed comparison of disposition options</li>
-          <li><a href="funeral-payment-assistance.html">Funeral Payment Assistance</a> &mdash; Programs and resources for families who need financial help</li>
-          <li><a href="planning-checklist.html">Funeral Planning Checklist</a> &mdash; Step-by-step planning guide</li>
-          <li><a href="funeral-cost-comparison-worksheet.html">Funeral Cost Comparison Worksheet</a> &mdash; Printable worksheet for comparing funeral home prices</li>
+          <li><a href="funeral-costs-by-state.html">Funeral Costs by State</a>: Interactive state-by-state cost data with detailed breakdowns</li>
+          <li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a>: Every fee explained line by line</li>
+          <li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Guide</a>: Detailed comparison of disposition options</li>
+          <li><a href="funeral-payment-assistance.html">Funeral Payment Assistance</a>: Programs and resources for families who need financial help</li>
+          <li><a href="planning-checklist.html">Funeral Planning Checklist</a>: Step-by-step planning guide</li>
+          <li><a href="funeral-cost-comparison-worksheet.html">Funeral Cost Comparison Worksheet</a>: Printable worksheet for comparing funeral home prices</li>
         </ul>
       </section>
 
