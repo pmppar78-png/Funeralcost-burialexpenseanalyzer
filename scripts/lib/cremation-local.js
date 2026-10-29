@@ -29,7 +29,7 @@ function run(outDir) {
   const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'cremation-local.json'), 'utf8'));
   for (const [slug, entries] of Object.entries(data)) {
     if (slug.startsWith('_')) continue;
-    const file = path.join(outDir, `cremation-costs-${slug}.html`);
+    const file = path.join(outDir, slug.endsWith('.html') ? slug : `cremation-costs-${slug}.html`);
     let html = fs.readFileSync(file, 'utf8');
     for (const [find, replacement] of entries) {
       if (norm(html).includes(norm(replacement))) continue; // already applied
@@ -42,6 +42,7 @@ function run(outDir) {
       }
       if (hits.length !== 1) throw new Error(`cremation-local: "${find}" matched ${hits.length} elements in ${path.basename(file)}`);
       const h = hits[0];
+      if (/<a\s/i.test(h[3]) && !/<a\s/i.test(replacement)) throw new Error(`cremation-local: "${find}" would drop a link in ${path.basename(file)}`);
       const open = `<${h[1]}${h[2] || ''}>`;
       html = html.slice(0, h.index) + open + replacement + `</${h[1]}>` + html.slice(h.index + h[0].length);
     }
