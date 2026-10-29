@@ -13,6 +13,7 @@
  *     structured data and the page say exactly the same thing.
  */
 const fs = require('fs');
+const SS = require('./state-sentences');
 const path = require('path');
 
 const VOWEL_PLACES = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Ohio', 'Oklahoma', 'Oregon', 'Utah', 'Indianapolis', 'Omaha', 'Orlando', 'Atlanta', 'Austin', 'Albuquerque', 'Anchorage', 'Oakland', 'El Paso', 'Arlington'];
@@ -210,9 +211,14 @@ function preClean(html, file) {
   return html.slice(0, i) + b;
 }
 function fixDirectBurial(html) {
-  const t = html.match(/<td>(?:<strong>)?Direct burial(?:<\/strong>)?<\/td><td class="cost-value">(\$[\d,]+)<\/td>/);
+  // Every FAQ phrasing that quotes a direct-burial price takes the figure from
+  // the page's own "Direct burial" table row (which may be a range, e.g.
+  // "$4,500–$5,041"); generate-pages.js computes it differently, so the raw
+  // FAQ figure is never trusted. scripts/check-figures.js fails the build if
+  // any of these sentences disagrees with the table.
+  const t = html.match(/<td>(?:<strong>)?Direct burial(?:<\/strong>)?<\/td><td class="cost-value">(\$[\d,]+(?:\u2013\$[\d,]+)?)<\/td>/);
   if (!t) return html;
-  return html.replace(/(Direct burial (?:is the next step up at about|comes next at around) )\$[\d,]+/g, `$1${t[1]}`);
+  return html.replace(/(Direct burial (?:is the next step up at about|comes next at around) |direct burial \(no viewing or ceremony\) runs near )\$\d{1,3}(?:,\d{3})*(?:\u2013\$\d{1,3}(?:,\d{3})*)?/g, (m, p) => p + t[1]);
 }
 
 function fixSavings(html, b) {
@@ -385,7 +391,8 @@ function run(root) {
       html = html.replace(/<li data-state-fact="1">This service type is the most expensive option[^<]*<\/li>/, '<li data-state-fact="1">A traditional funeral with viewing and burial is the most expensive route in Georgia, at about $6,900 for the funeral home\'s part before the plot, vault and opening fees in the table above.</li>')
         .replace(/<li data-state-fact="1">Embalming is generally not legally required in Georgia unless there is a public viewing[^<]*<\/li>/, '<li data-state-fact="1">A Georgia funeral home may insist on embalming as its own policy for a public viewing, but the FTC Funeral Rule bars it from claiming the law requires embalming when it does not.</li>')
         .replace(/<li><strong>Direct cremation<\/strong> starts around \$995 in Georgia[^<]*<\/li>/, '<li><strong>Direct cremation</strong> starts around $1,700 in Georgia, and cremation with a full service runs about $5,600; for any cremation, Georgia providers must let you use a simple container instead of a casket.</li>')
-        .replace('An eco friendly green burial can be a lower-cost alternative', 'A green burial, without embalming or a vault, can cost less than a conventional one');
+        .replace('An eco friendly green burial can be a lower-cost alternative to a traditional service', 'A green burial, without embalming or a vault, can cost less than a conventional burial')
+        .replace('A green burial, without embalming or a vault, can cost less than a conventional one to a traditional service', 'A green burial, without embalming or a vault, can cost less than a conventional burial');
     }
     if (/-costs-/.test(f)) html = defill(html, f).out;
     if (/-costs-/.test(f)) {
@@ -402,6 +409,8 @@ function run(root) {
       .replace(/(<(?:p|li|div|summary)\b[^>]*>) +(?=[A-Za-z])/g, '$1')
       .replace(/(<(?:p|li|div)\b[^>]*data-state-fact[^>]*>)([a-z])/g, (x, t, c) => t + c.toUpperCase());
     html = applyFaqAnswers(html, f);
+    html = SS.rewrite(html, f);
+    html = SS.methodologyNote(html, f);
     html = syncFaqLd(html);
     if (html !== before) { fs.writeFileSync(p, html); changed++; }
   }

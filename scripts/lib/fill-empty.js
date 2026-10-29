@@ -59,7 +59,9 @@ function answer(q, ctx, f) {
   if (/reduce burial|cheapest burial/.test(ql)) return [
     `Direct (immediate) burial skips embalming, viewing and a ceremony at the funeral home, so it is usually the lowest-cost burial on ${an(n)} ${n} price list.`,
     `You may supply your own casket in ${n}; the FTC Funeral Rule forbids a handling fee for it.`,
-    f.aid ? f.aid.text : pick(ctx, 'q-vet', [`Eligible veterans in ${n} can be buried in a VA national cemetery at no cost for the grave, opening and closing, liner and marker.`, `A VA national cemetery burial costs eligible ${n} veterans nothing for the plot, opening and closing, or headstone.`])];
+    // The state's aid program is quoted in the rules-and-help section of the page, so this
+    // answer carries the veterans' option instead of repeating it.
+    pick(ctx, 'q-vet', [`Eligible veterans in ${n} can be buried in a VA national cemetery at no cost for the grave, opening and closing, liner and marker.`, `A VA national cemetery burial costs eligible ${n} veterans nothing for the plot, opening and closing, or headstone.`])];
   if (/cemetery prices|shop cemeteries/.test(ql)) return [
     pick(ctx, 'q-cem', [`Each ${n} cemetery sets its own prices for the plot, opening and closing, and any required vault or liner.`, `${n} cemeteries price plots, opening and closing, and vault rules separately, so ask each one for a written price list.`]),
     `The FTC Funeral Rule covers funeral homes, not most cemeteries, so ${an(n)} ${n} cemetery may not be required to give an itemized price list; ask for one anyway.`,
@@ -74,7 +76,8 @@ function answer(q, ctx, f) {
     `Plan the date around the law: ${waitLine(ctx, f)}`];
   if (/types of cremation/.test(ql)) return [
     `Most ${n} providers offer direct cremation (no service) and cremation with a memorial or viewing.`,
-    `Alkaline hydrolysis (water cremation) is legal only in some states, so ask ${an(n)} ${n} provider whether it is offered.`,
+    // State-specific legal status (data/state-facts.json "hydrolysis", sourced in the r4 README); no generic line.
+    f.hydrolysis || '',
     waitLine(ctx, f)];
   if (/cremation rate|choose cremation/.test(ql)) return [
     `Cost is a major reason: the national median for a funeral with cremation is $6,280 versus $8,300 with burial (NFDA 2023), and direct cremation in ${n} costs less than either.`,
@@ -104,6 +107,14 @@ function fillEmpty(html, ctx) {
     html = html.replace(re, (_, a) => a + JSON.stringify(text).replace(/<\//g, '<\\/'));
     return `<summary>${qh}</summary><div class="faq-answer"><p>${esc(text)}</p></div>`;
   });
+  // Older builds put the state's aid sentence in a burial page's FAQ answer (e.g. "reduce burial costs").
+  // The rules-and-help section now quotes it (aid.burial), so the answer carries the
+  // veterans' option instead (idempotent; JSON-LD is re-synced by post-fix).
+  if (ctx.kind === 'burial-costs-' && f.aid && f.aid.burial) {
+    const vet = answer('How can I reduce burial costs in ' + n + '?', ctx, f)[2];
+    html = html.replace(/(<summary>[^<]*<\/summary><div class="faq-answer"><p>)([^<]*)(<\/p>)/g, (m, a, t, c) =>
+      t.includes(esc(f.aid.burial)) ? a + t.split(esc(f.aid.burial)).join(esc(vet)) + c : m);
+  }
   const wait = f.waitHours ? `${n} requires a ${f.waitHours}-hour wait first (${f.waitCite})` : `${n} needs a permit but sets no fixed wait (${f.waitCite})`;
   const notes = {
     'Direct cremation': `Cremation with no viewing or service; ${wait}.`,
@@ -114,9 +125,17 @@ function fillEmpty(html, ctx) {
     (m, a, label, c) => (notes[label] ? a + esc(notes[label]) + c : m));
   const has = (u) => html.split('<main')[1] ? html.split('<main')[1].includes(u) : html.includes(u);
   const lis = (arr) => '\n' + arr.filter(Boolean).map(t => `        <li data-state-fact="1">${t}</li>`).join('\n') + '\n      ';
-  const office = f.aid && f.aid.contact ? esc(f.aid.contact) : `the ${n} county social services office`;
+  // Pages built before r4 already carry one of three templated "call the office" frames in
+  // the payment-help list; swap it for the state's own written step (idempotent).
+  if (f.aid && f.aid.payF) html = html.replace(/<li data-state-fact="1">(?:If the family cannot pay, call [^<]*? before signing with a funeral home, since public help may require approval first and is often limited to the lowest-cost option\.|Talk to [^<]*? before any [^<]*? contract is signed: public burial help often has to be approved in advance and usually covers only a basic burial or cremation\.|Families in [^<]*? who have no money for a funeral should reach [^<]*? first; signing with a provider before the office approves can cost you the help\.)<\/li>/, () => `<li data-state-fact="1">${esc(f.aid.payF)}</li>`);
+  if (f.aid && f.aid.payF && f.aid.stepF) html = html.split(`<li data-state-fact="1">${esc(f.aid.stepF)}</li>`).join(`<li data-state-fact="1">${esc(f.aid.payF)}</li>`);
+  // Keep the payment-help list's state line in step with aid.payF when that line is edited
+  // (the first item, unless it is one of the shared SSA, VA or guide-link lines).
+  if (f.aid && f.aid.payF) html = html.replace(/(<h2 id="payment-help">Payment Assistance in [^<]*<\/h2>\s*<ul>\s*<li data-state-fact="1">)([^<]*)(<\/li>)/, (m, a, t, c) =>
+    /\$255|21P-530EZ|More options for/.test(t) ? m : a + esc(f.aid.payF) + c);
   html = html.replace(/(<h2 id="payment-help">Payment Assistance in [^<]*<\/h2>\s*<ul>)\s*(<\/ul>)/, (m, a, c) => a + lis([
-    pick(ctx, 'pa-office', [`If the family cannot pay, call ${office} before signing with a funeral home, since public help may require approval first and is often limited to the lowest-cost option.`, `Talk to ${office} before any ${n} contract is signed: public burial help often has to be approved in advance and usually covers only a basic burial or cremation.`, `Families in ${n} who have no money for a funeral should reach ${office} first; signing with a provider before the office approves can cost you the help.`]),
+    // Individually written, sourced payment line for this state (data/state-facts.json aid.payF).
+    f.aid && f.aid.payF ? esc(f.aid.payF) : '',
     pick(ctx, 'pa-ssa', [`The $255 Social Security death payment goes only to an eligible surviving spouse or child; in ${n}, as elsewhere, they apply by calling 1-800-772-1213 within two years of the death.`, `To collect the one-time $255 from Social Security, a ${n} widow, widower or eligible child must call 1-800-772-1213, and the claim has to be made within two years.`, `Funeral homes in ${n} usually report the death to Social Security, but the $255 lump sum still has to be claimed by the spouse or child (1-800-772-1213, within two years).`]),
     pick(ctx, 'pa-va', [`Whoever paid for a veteran's funeral in ${n} can file VA Form 21P-530EZ; for a death on or after October 1, 2026 that was not service-connected, VA pays up to $1,032 toward burial and $1,032 toward a plot (see our <a href="veteran-burial-benefits.html">veteran burial benefits guide</a>).`, `For a ${n} veteran, the person who covered the funeral bill claims the VA allowance on Form 21P-530EZ: up to $1,032 for burial plus $1,032 for a plot when a non-service-connected death falls on or after October 1, 2026. Eligibility rules for ${n} families are in our <a href="veteran-burial-benefits.html">veteran burial benefits guide</a>.`, `VA reimburses part of a ${n} veteran's funeral through Form 21P-530EZ, filed by whoever paid; deaths not connected to service on or after October 1, 2026 qualify for up to $1,032 for burial and $1,032 for the plot, as our <a href="veteran-burial-benefits.html">veteran burial benefits guide</a> explains.`]),
     `More options for ${n} families, including Medicaid and charity help, are in our <a href="funeral-payment-assistance.html">funeral payment assistance guide</a> and <a href="how-to-pay-for-a-funeral-with-no-money.html">how to pay for a funeral with no money</a>.`,

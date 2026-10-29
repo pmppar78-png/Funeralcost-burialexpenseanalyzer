@@ -12,9 +12,13 @@ const path = require('path');
 const { loadOversight } = require('./lib/oversight');
 const { expansions, more } = require('../data/guide-expansions');
 const { sentencesFromFile, SKIP_CLASS } = require('./sentence-scan');
-// Sitewide disclosure lines that are meant to be identical (Growth, 2026-10-22).
+// Sitewide disclosure lines that are meant to be identical (Growth, 2026-10-22;
+// round 4 merges the state-page table note and disclaimer box into one
+// labeled "Methodology note:" line).
 const ALLOW_REPEAT = new Set([
   'These figures are our estimates, not a survey of local providers.',
+  'Methodology note: These figures are our estimates, not a survey of local providers, and they are not a quote or professional advice.',
+  'See how we calculate them or read the full disclaimer.',
 ]);
 
 const ROOT = path.join(__dirname, '..');
@@ -77,7 +81,7 @@ function loadStates() {
     cities: m[5].split(',').map(x => x.replace(/"/g, '')),
     cr: m[6], f: +m[7], c: +m[8], dc: +m[9], b: +m[10]
   }));
-  const metros = [...metrosBlock.matchAll(/\{city:"([^"]+)",slug:"([^"]+)",st:"([^"]+)",ss:"([^"]+)",mp:([0-9.]+)(?:,dc:true)?\}/g)].map(m => ({
+  const metros = [...metrosBlock.matchAll(/\{city:"([^"]+)",slug:"([^"]+)",st:"([^"]+)",ss:"([^"]+)",mp:([0-9.]+)(?:,dc:true)?[^}]*\}/g)].map(m => ({
     city: m[1], slug: m[2], st: m[3], ss: m[4], mp: +m[5], dc: /dc:true/.test(m[0])
   }));
   return { states, metros };
@@ -668,7 +672,7 @@ function applyAudit() {
       html = SF.fixWaitClaims(html, ctx);
       html = require('./lib/post-fix').preClean(html, ctx.kind + ctx.slug + '.html');
       html = require('./lib/fill-empty').fillEmpty(html, ctx);
-      const section = SF.stateFactsSectionHtml(ctx).trim() + '\n';
+      const section = SF.stateFactsSectionHtml(Object.assign({}, ctx, { html })).trim() + '\n';
       if (section.length > 1) {
         if (html.includes('id="state-oversight"')) html = html.replace(/\n*<h2 id="state-oversight">[\s\S]*?(?=<h2 |<div id="|<\/article>)/, () => '\n' + section);
         else html = insertOnce(html, 'state-oversight', section, /<h2 id="faq">/);
