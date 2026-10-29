@@ -182,6 +182,7 @@ function tableData(html) {
   const re = /<table\b[\s\S]*?<\/table>/g;
   let t;
   while ((t = re.exec(html))) {
+    if (/^<table[^>]*data-no-chart/.test(t[0])) continue; // answer-first snapshot tables keep the page's main chart
     const cap = (t[0].match(/<caption>([\s\S]*?)<\/caption>/) || [])[1];
     const head = [...(t[0].match(/<thead>[\s\S]*?<\/thead>/) || [''])[0].matchAll(/<th[^>]*>([\s\S]*?)<\/th>/g)].map((x) => strip(x[1]));
     const rows = [...t[0].matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((r) => [...r[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((c, i) => strip(i === 0 ? c[1].replace(/<span class="avg-reference">[\s\S]*?<\/span>/g, '') : c[1]))).filter((r) => r.length >= 2);
