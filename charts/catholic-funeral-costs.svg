@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="304" viewBox="0 0 680 304" role="img" aria-labelledby="t d">
+<title id="t">Catholic Funeral Cost Estimates (2026)</title>
+<desc id="d">Range chart of Catholic Funeral Cost Estimates (2026). Vigil / Wake service $500 to $2,000; Funeral Mass (church offering) $200 to $500; Funeral home services $5,000 to $10,000; Casket $1,000 to $5,000; Cemetery plot (Catholic cemetery) $1,500 to $6,000; Burial vault $800 to $4,000; Headstone / marker $1,000 to $3,000; Flowers and music $300 to $1,000.</desc>
+<rect width="680" height="304" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Catholic Funeral Cost Estimates (2026)</text>
+<line x1="230" y1="48" x2="230" y2="292" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Vigil / Wake service</text><rect x="246" y="53" width="47" height="20" rx="3" fill="#8a6d3b"/><text x="299" y="67">$500–$2,000</text>
+<text x="222" y="97" text-anchor="end">Funeral Mass (church offering)</text><rect x="236" y="83" width="10" height="20" rx="3" fill="#8a6d3b"/><text x="252" y="97">$200–$500</text>
+<text x="222" y="127" text-anchor="end">Funeral home services</text><rect x="387" y="113" width="157" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="127">$5,000–$10,000</text>
+<text x="222" y="157" text-anchor="end">Casket</text><rect x="261" y="143" width="126" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="157">$1,000–$5,000</text>
+<text x="222" y="187" text-anchor="end">Cemetery plot (Catholic cemete…</text><rect x="277" y="173" width="141" height="20" rx="3" fill="#8a6d3b"/><text x="424" y="187">$1,500–$6,000</text>
+<text x="222" y="217" text-anchor="end">Burial vault</text><rect x="255" y="203" width="101" height="20" rx="3" fill="#8a6d3b"/><text x="362" y="217">$800–$4,000</text>
+<text x="222" y="247" text-anchor="end">Headstone / marker</text><rect x="261" y="233" width="63" height="20" rx="3" fill="#8a6d3b"/><text x="330" y="247">$1,000–$3,000</text>
+<text x="222" y="277" text-anchor="end">Flowers and music</text><rect x="239" y="263" width="22" height="20" rx="3" fill="#8a6d3b"/><text x="267" y="277">$300–$1,000</text>
+</g>
+</svg>

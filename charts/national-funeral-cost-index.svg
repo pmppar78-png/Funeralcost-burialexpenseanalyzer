@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="184" viewBox="0 0 680 184" role="img" aria-labelledby="t d">
+<title id="t">2026 National Funeral Cost Index</title>
+<desc id="d">Horizontal bar chart of 2026 National Funeral Cost Index. Traditional Funeral $7,736; Cremation with Service $6,072; Burial Plot $3,656; Direct Cremation $1,834.</desc>
+<rect width="680" height="184" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">2026 National Funeral Cost Index</text>
+<line x1="230" y1="48" x2="230" y2="172" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Traditional Funeral</text><rect x="230" y="53" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$7,736</text>
+<text x="222" y="97" text-anchor="end">Cremation with Service</text><rect x="230" y="83" width="246" height="20" rx="3" fill="#8a6d3b"/><text x="482" y="97">$6,072</text>
+<text x="222" y="127" text-anchor="end">Burial Plot</text><rect x="230" y="113" width="148" height="20" rx="3" fill="#8a6d3b"/><text x="384" y="127">$3,656</text>
+<text x="222" y="157" text-anchor="end">Direct Cremation</text><rect x="230" y="143" width="74" height="20" rx="3" fill="#8a6d3b"/><text x="310" y="157">$1,834</text>
+</g>
+</svg>

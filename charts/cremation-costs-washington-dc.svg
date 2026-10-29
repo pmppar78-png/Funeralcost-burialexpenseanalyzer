@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="184" viewBox="0 0 680 184" role="img" aria-labelledby="t d">
+<title id="t">Washington DC Cremation Costs (2026)</title>
+<desc id="d">Range chart of Washington DC Cremation Costs (2026). Basic urn $50 to $300; Memorial service $500 to $2,500; Cremation jewelry $50 to $500; Scattering service $200 to $800.</desc>
+<rect width="680" height="184" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Washington DC Cremation Costs (2026)</text>
+<line x1="230" y1="48" x2="230" y2="172" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Basic urn</text><rect x="236" y="53" width="32" height="20" rx="3" fill="#8a6d3b"/><text x="274" y="67">$50–$300</text>
+<text x="222" y="97" text-anchor="end">Memorial service</text><rect x="293" y="83" width="251" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="97">$500–$2,500</text>
+<text x="222" y="127" text-anchor="end">Cremation jewelry</text><rect x="236" y="113" width="57" height="20" rx="3" fill="#8a6d3b"/><text x="299" y="127">$50–$500</text>
+<text x="222" y="157" text-anchor="end">Scattering service</text><rect x="255" y="143" width="75" height="20" rx="3" fill="#8a6d3b"/><text x="336" y="157">$200–$800</text>
+</g>
+</svg>

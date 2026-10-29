@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="1564" viewBox="0 0 680 1564" role="img" aria-labelledby="t d">
+<title id="t">Burial Costs by State (2026)</title>
+<desc id="d">Horizontal bar chart of Burial Costs by State (2026) with 50 bars, from Mississippi at $5,900 to Hawaii at $11,000.</desc>
+<rect width="680" height="1564" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Burial Costs by State (2026)</text>
+<line x1="230" y1="48" x2="230" y2="1552" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Alabama</text><rect x="230" y="53" width="183" height="20" rx="3" fill="#8a6d3b"/><text x="419" y="67">$6,400</text>
+<text x="222" y="97" text-anchor="end">Alaska</text><rect x="230" y="83" width="280" height="20" rx="3" fill="#8a6d3b"/><text x="516" y="97">$9,800</text>
+<text x="222" y="127" text-anchor="end">Arizona</text><rect x="230" y="113" width="206" height="20" rx="3" fill="#8a6d3b"/><text x="442" y="127">$7,200</text>
+<text x="222" y="157" text-anchor="end">Arkansas</text><rect x="230" y="143" width="174" height="20" rx="3" fill="#8a6d3b"/><text x="410" y="157">$6,100</text>
+<text x="222" y="187" text-anchor="end">California</text><rect x="230" y="173" width="303" height="20" rx="3" fill="#8a6d3b"/><text x="539" y="187">$10,600</text>
+<text x="222" y="217" text-anchor="end">Colorado</text><rect x="230" y="203" width="228" height="20" rx="3" fill="#8a6d3b"/><text x="464" y="217">$8,000</text>
+<text x="222" y="247" text-anchor="end">Connecticut</text><rect x="230" y="233" width="291" height="20" rx="3" fill="#8a6d3b"/><text x="527" y="247">$10,200</text>
+<text x="222" y="277" text-anchor="end">Delaware</text><rect x="230" y="263" width="245" height="20" rx="3" fill="#8a6d3b"/><text x="481" y="277">$8,600</text>
+<text x="222" y="307" text-anchor="end">Florida</text><rect x="230" y="293" width="223" height="20" rx="3" fill="#8a6d3b"/><text x="459" y="307">$7,800</text>
+<text x="222" y="337" text-anchor="end">Georgia</text><rect x="230" y="323" width="197" height="20" rx="3" fill="#8a6d3b"/><text x="433" y="337">$6,900</text>
+<text x="222" y="367" text-anchor="end">Hawaii</text><rect x="230" y="353" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="367">$11,000</text>
+<text x="222" y="397" text-anchor="end">Idaho</text><rect x="230" y="383" width="191" height="20" rx="3" fill="#8a6d3b"/><text x="427" y="397">$6,700</text>
+<text x="222" y="427" text-anchor="end">Illinois</text><rect x="230" y="413" width="243" height="20" rx="3" fill="#8a6d3b"/><text x="479" y="427">$8,500</text>
+<text x="222" y="457" text-anchor="end">Indiana</text><rect x="230" y="443" width="197" height="20" rx="3" fill="#8a6d3b"/><text x="433" y="457">$6,900</text>
+<text x="222" y="487" text-anchor="end">Iowa</text><rect x="230" y="473" width="191" height="20" rx="3" fill="#8a6d3b"/><text x="427" y="487">$6,700</text>
+<text x="222" y="517" text-anchor="end">Kansas</text><rect x="230" y="503" width="188" height="20" rx="3" fill="#8a6d3b"/><text x="424" y="517">$6,600</text>
+<text x="222" y="547" text-anchor="end">Kentucky</text><rect x="230" y="533" width="183" height="20" rx="3" fill="#8a6d3b"/><text x="419" y="547">$6,400</text>
+<text x="222" y="577" text-anchor="end">Louisiana</text><rect x="230" y="563" width="191" height="20" rx="3" fill="#8a6d3b"/><text x="427" y="577">$6,700</text>
+<text x="222" y="607" text-anchor="end">Maine</text><rect x="230" y="593" width="234" height="20" rx="3" fill="#8a6d3b"/><text x="470" y="607">$8,200</text>
+<text x="222" y="637" text-anchor="end">Maryland</text><rect x="230" y="623" width="263" height="20" rx="3" fill="#8a6d3b"/><text x="499" y="637">$9,200</text>
+<text x="222" y="667" text-anchor="end">Massachusetts</text><rect x="230" y="653" width="297" height="20" rx="3" fill="#8a6d3b"/><text x="533" y="667">$10,400</text>
+<text x="222" y="697" text-anchor="end">Michigan</text><rect x="230" y="683" width="206" height="20" rx="3" fill="#8a6d3b"/><text x="442" y="697">$7,200</text>
+<text x="222" y="727" text-anchor="end">Minnesota</text><rect x="230" y="713" width="220" height="20" rx="3" fill="#8a6d3b"/><text x="456" y="727">$7,700</text>
+<text x="222" y="757" text-anchor="end">Mississippi</text><rect x="230" y="743" width="168" height="20" rx="3" fill="#8a6d3b"/><text x="404" y="757">$5,900</text>
+<text x="222" y="787" text-anchor="end">Missouri</text><rect x="230" y="773" width="194" height="20" rx="3" fill="#8a6d3b"/><text x="430" y="787">$6,800</text>
+<text x="222" y="817" text-anchor="end">Montana</text><rect x="230" y="803" width="203" height="20" rx="3" fill="#8a6d3b"/><text x="439" y="817">$7,100</text>
+<text x="222" y="847" text-anchor="end">Nebraska</text><rect x="230" y="833" width="191" height="20" rx="3" fill="#8a6d3b"/><text x="427" y="847">$6,700</text>
+<text x="222" y="877" text-anchor="end">Nevada</text><rect x="230" y="863" width="228" height="20" rx="3" fill="#8a6d3b"/><text x="464" y="877">$8,000</text>
+<text x="222" y="907" text-anchor="end">New Hampshire</text><rect x="230" y="893" width="251" height="20" rx="3" fill="#8a6d3b"/><text x="487" y="907">$8,800</text>
+<text x="222" y="937" text-anchor="end">New Jersey</text><rect x="230" y="923" width="291" height="20" rx="3" fill="#8a6d3b"/><text x="527" y="937">$10,200</text>
+<text x="222" y="967" text-anchor="end">New Mexico</text><rect x="230" y="953" width="183" height="20" rx="3" fill="#8a6d3b"/><text x="419" y="967">$6,400</text>
+<text x="222" y="997" text-anchor="end">New York</text><rect x="230" y="983" width="308" height="20" rx="3" fill="#8a6d3b"/><text x="544" y="997">$10,800</text>
+<text x="222" y="1027" text-anchor="end">North Carolina</text><rect x="230" y="1013" width="203" height="20" rx="3" fill="#8a6d3b"/><text x="439" y="1027">$7,100</text>
+<text x="222" y="1057" text-anchor="end">North Dakota</text><rect x="230" y="1043" width="191" height="20" rx="3" fill="#8a6d3b"/><text x="427" y="1057">$6,700</text>
+<text x="222" y="1087" text-anchor="end">Ohio</text><rect x="230" y="1073" width="203" height="20" rx="3" fill="#8a6d3b"/><text x="439" y="1087">$7,100</text>
+<text x="222" y="1117" text-anchor="end">Oklahoma</text><rect x="230" y="1103" width="174" height="20" rx="3" fill="#8a6d3b"/><text x="410" y="1117">$6,100</text>
+<text x="222" y="1147" text-anchor="end">Oregon</text><rect x="230" y="1133" width="234" height="20" rx="3" fill="#8a6d3b"/><text x="470" y="1147">$8,200</text>
+<text x="222" y="1177" text-anchor="end">Pennsylvania</text><rect x="230" y="1163" width="243" height="20" rx="3" fill="#8a6d3b"/><text x="479" y="1177">$8,500</text>
+<text x="222" y="1207" text-anchor="end">Rhode Island</text><rect x="230" y="1193" width="257" height="20" rx="3" fill="#8a6d3b"/><text x="493" y="1207">$9,000</text>
+<text x="222" y="1237" text-anchor="end">South Carolina</text><rect x="230" y="1223" width="191" height="20" rx="3" fill="#8a6d3b"/><text x="427" y="1237">$6,700</text>
+<text x="222" y="1267" text-anchor="end">South Dakota</text><rect x="230" y="1253" width="183" height="20" rx="3" fill="#8a6d3b"/><text x="419" y="1267">$6,400</text>
+<text x="222" y="1297" text-anchor="end">Tennessee</text><rect x="230" y="1283" width="191" height="20" rx="3" fill="#8a6d3b"/><text x="427" y="1297">$6,700</text>
+<text x="222" y="1327" text-anchor="end">Texas</text><rect x="230" y="1313" width="206" height="20" rx="3" fill="#8a6d3b"/><text x="442" y="1327">$7,200</text>
+<text x="222" y="1357" text-anchor="end">Utah</text><rect x="230" y="1343" width="197" height="20" rx="3" fill="#8a6d3b"/><text x="433" y="1357">$6,900</text>
+<text x="222" y="1387" text-anchor="end">Vermont</text><rect x="230" y="1373" width="243" height="20" rx="3" fill="#8a6d3b"/><text x="479" y="1387">$8,500</text>
+<text x="222" y="1417" text-anchor="end">Virginia</text><rect x="230" y="1403" width="234" height="20" rx="3" fill="#8a6d3b"/><text x="470" y="1417">$8,200</text>
+<text x="222" y="1447" text-anchor="end">Washington</text><rect x="230" y="1433" width="251" height="20" rx="3" fill="#8a6d3b"/><text x="487" y="1447">$8,800</text>
+<text x="222" y="1477" text-anchor="end">West Virginia</text><rect x="230" y="1463" width="174" height="20" rx="3" fill="#8a6d3b"/><text x="410" y="1477">$6,100</text>
+<text x="222" y="1507" text-anchor="end">Wisconsin</text><rect x="230" y="1493" width="206" height="20" rx="3" fill="#8a6d3b"/><text x="442" y="1507">$7,200</text>
+<text x="222" y="1537" text-anchor="end">Wyoming</text><rect x="230" y="1523" width="197" height="20" rx="3" fill="#8a6d3b"/><text x="433" y="1537">$6,900</text>
+</g>
+</svg>

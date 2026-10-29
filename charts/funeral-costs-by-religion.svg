@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="304" viewBox="0 0 680 304" role="img" aria-labelledby="t d">
+<title id="t">Funeral Costs by Religion (2026): What Each Tradition Costs</title>
+<desc id="d">Range chart of Funeral Costs by Religion (2026): What Each Tradition Costs. Catholic $7,000 to $15,000; Protestant $5,000 to $14,000; Jewish $5,000 to $12,000; Muslim $3,000 to $8,000; Hindu $3,000 to $10,000; Buddhist $3,000 to $12,000; LDS (Mormon) $6,000 to $14,000; Sikh $3,000 to $7,000.</desc>
+<rect width="680" height="304" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Funeral Costs by Religion (2026): What Each Tradition Costs</text>
+<line x1="230" y1="48" x2="230" y2="292" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Catholic</text><rect x="377" y="53" width="167" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$7,000–$15,000</text>
+<text x="222" y="97" text-anchor="end">Protestant</text><rect x="335" y="83" width="188" height="20" rx="3" fill="#8a6d3b"/><text x="529" y="97">$5,000–$14,000</text>
+<text x="222" y="127" text-anchor="end">Jewish</text><rect x="335" y="113" width="146" height="20" rx="3" fill="#8a6d3b"/><text x="487" y="127">$5,000–$12,000</text>
+<text x="222" y="157" text-anchor="end">Muslim</text><rect x="293" y="143" width="104" height="20" rx="3" fill="#8a6d3b"/><text x="403" y="157">$3,000–$8,000</text>
+<text x="222" y="187" text-anchor="end">Hindu</text><rect x="293" y="173" width="146" height="20" rx="3" fill="#8a6d3b"/><text x="445" y="187">$3,000–$10,000</text>
+<text x="222" y="217" text-anchor="end">Buddhist</text><rect x="293" y="203" width="188" height="20" rx="3" fill="#8a6d3b"/><text x="487" y="217">$3,000–$12,000</text>
+<text x="222" y="247" text-anchor="end">LDS (Mormon)</text><rect x="356" y="233" width="167" height="20" rx="3" fill="#8a6d3b"/><text x="529" y="247">$6,000–$14,000</text>
+<text x="222" y="277" text-anchor="end">Sikh</text><rect x="293" y="263" width="84" height="20" rx="3" fill="#8a6d3b"/><text x="383" y="277">$3,000–$7,000</text>
+</g>
+</svg>

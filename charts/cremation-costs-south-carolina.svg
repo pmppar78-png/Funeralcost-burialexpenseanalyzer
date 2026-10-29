@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="244" viewBox="0 0 680 244" role="img" aria-labelledby="t d">
+<title id="t">Cremation Costs in South Carolina (2026)</title>
+<desc id="d">Range chart of Cremation Costs in South Carolina (2026). Direct cremation $1,120 to $2,240; Cremation with service $4,320 to $7,020; Basic urn $25 to $3,000 or more; Memorial service $0 to $5,000; Cremation jewelry $20 to $2,000 or more; Scattering service $0 to $1,500.</desc>
+<rect width="680" height="244" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Cremation Costs in South Carolina (2026)</text>
+<line x1="230" y1="48" x2="230" y2="232" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Direct cremation</text><rect x="280" y="53" width="50" height="20" rx="3" fill="#8a6d3b"/><text x="336" y="67">$1,120–$2,240</text>
+<text x="222" y="97" text-anchor="end">Cremation with service</text><rect x="423" y="83" width="121" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="97">$4,320–$7,020</text>
+<text x="222" y="127" text-anchor="end">Basic urn</text><rect x="231" y="113" width="133" height="20" rx="3" fill="#8a6d3b"/><text x="370" y="127">$25–$3,000+</text>
+<text x="222" y="157" text-anchor="end">Memorial service</text><rect x="230" y="143" width="224" height="20" rx="3" fill="#8a6d3b"/><text x="460" y="157">$0–$5,000</text>
+<text x="222" y="187" text-anchor="end">Cremation jewelry</text><rect x="231" y="173" width="88" height="20" rx="3" fill="#8a6d3b"/><text x="325" y="187">$20–$2,000+</text>
+<text x="222" y="217" text-anchor="end">Scattering service</text><rect x="230" y="203" width="67" height="20" rx="3" fill="#8a6d3b"/><text x="303" y="217">$0–$1,500</text>
+</g>
+</svg>
