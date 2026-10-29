@@ -3,6 +3,27 @@
    Warm, compassionate, high-trust design for grieving users
    ============================================================ */
 
+/* Size-matched stand-in for Inter while the webfont loads (metrics as used by
+   next/font for Inter over Arial), so text does not reflow when Inter swaps in. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo");
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
+}
+/* Same idea for Merriweather headings (bold widths measured against Times New
+   Roman / its metric twin Liberation Serif), so titles keep their line breaks. */
+@font-face {
+  font-family: "Merriweather Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Tinos");
+  ascent-override: 87.35%;
+  descent-override: 24.23%;
+  line-gap-override: 0%;
+  size-adjust: 112.65%;
+}
+
 *,
 *::before,
 *::after {
@@ -61,8 +82,8 @@
   --accent-light: var(--gold-50);
 
   /* Typography */
-  --font-heading: "Merriweather", "Georgia", "Palatino Linotype", serif;
-  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  --font-heading: "Merriweather", "Merriweather Fallback", "Georgia", "Palatino Linotype", serif;
+  --font-body: "Inter", "Inter Fallback", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
 
   /* Spacing scale — generous for calm reading */
   --space-xs: 0.25rem;
