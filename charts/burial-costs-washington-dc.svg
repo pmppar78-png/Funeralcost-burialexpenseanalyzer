@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="244" viewBox="0 0 680 244" role="img" aria-labelledby="t d">
+<title id="t">Washington DC Burial Costs (2026)</title>
+<desc id="d">Horizontal bar chart of Washington DC Burial Costs (2026). Funeral service (with casket) $8,200; Cemetery plot $4,000; Casket $2,460; Burial vault / liner $1,600; Opening &amp; closing grave $2,000; Embalming $820.</desc>
+<rect width="680" height="244" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Washington DC Burial Costs (2026)</text>
+<line x1="230" y1="48" x2="230" y2="232" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Funeral service (with casket)</text><rect x="230" y="53" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$8,200</text>
+<text x="222" y="97" text-anchor="end">Cemetery plot</text><rect x="230" y="83" width="153" height="20" rx="3" fill="#8a6d3b"/><text x="389" y="97">$4,000</text>
+<text x="222" y="127" text-anchor="end">Casket</text><rect x="230" y="113" width="94" height="20" rx="3" fill="#8a6d3b"/><text x="330" y="127">$2,460</text>
+<text x="222" y="157" text-anchor="end">Burial vault / liner</text><rect x="230" y="143" width="61" height="20" rx="3" fill="#8a6d3b"/><text x="297" y="157">$1,600</text>
+<text x="222" y="187" text-anchor="end">Opening &amp; closing grave</text><rect x="230" y="173" width="77" height="20" rx="3" fill="#8a6d3b"/><text x="313" y="187">$2,000</text>
+<text x="222" y="217" text-anchor="end">Embalming</text><rect x="230" y="203" width="31" height="20" rx="3" fill="#8a6d3b"/><text x="267" y="217">$820</text>
+</g>
+</svg>

@@ -152,7 +152,7 @@ const topical = [
   {fn:"consumer-rights-funeral-pricing.html",t:"Consumer Rights in Funeral Pricing (2026) — Your Legal Guide",st:"Consumer Rights in Funeral Pricing",d:"Understand your legal rights when purchasing funeral services under the FTC Funeral Rule and state laws."},
   {fn:"final-expense-insurance-guide.html",t:"Final Expense Insurance: Plans and Costs",st:"Final Expense Insurance",d:"Compare final expense insurance plans with coverage details, costs, eligibility, and honest analysis."},
   {fn:"estate-planning-costs.html",t:"Estate Planning Costs (2026) — Wills, Trusts &amp; Budgeting",st:"Estate Planning Costs",d:"Understand estate planning costs including wills, trusts, power of attorney, and funeral pre-planning."},
-  {fn:"probate-process-costs.html",t:"Probate Process &amp; Costs (2026) — Guide for Families",st:"Probate Process & Costs",d:"Learn about probate costs, timelines, and how to navigate the process after a loved one passes."},
+  {fn:"probate-process-costs.html",t:"Probate Process &amp; Costs (2026) — Guide for Families",st:"Probate Process & Costs",d:"Learn about probate costs, timelines, and how to get through the process after a loved one dies."},
   {fn:"funeral-payment-plans.html",t:"Funeral Payment Plans and Financing",st:"Funeral Payment Plans",d:"Explore funeral payment plans, financing options, and assistance programs for managing funeral costs."},
   {fn:"funeral-price-comparison.html",t:"How to Compare Funeral Prices (2026) — Step-by-Step Guide",st:"Compare Funeral Prices",d:"Learn how to effectively compare funeral prices using General Price Lists and smart questions."},
   {fn:"average-funeral-cost-2026.html",t:"Average Funeral Cost in 2026 — Complete National Breakdown",st:"Average Funeral Cost 2026",d:"Comprehensive guide to the average funeral cost in 2026 with national averages and regional breakdowns."},
@@ -855,7 +855,7 @@ function ctaBanner() {
         <h3>Calculate Your Funeral Costs — Free Tools</h3>
         <p>Use our free calculator to estimate funeral costs in your area, compare cremation vs. burial prices, and find ways to lower costs.</p>
         <div class="cta-actions">
-          <a href="chat.html" class="btn-primary">Ask Our AI Cost Expert</a>
+          <a href="chat.html" class="btn-primary">Ask the Free AI Guide</a>
           <a href="/#calculator" class="btn-secondary">Calculate Funeral Cost</a>
         </div>
       </div>`;
@@ -1735,7 +1735,7 @@ ${header()}
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
       </div>
 
-      <p class="guide-intro">${p.d} This guide is designed to give you clear, honest, and compassionate information so you can navigate these decisions with confidence. Take your time reading — there is no rush, and every family's path is different.</p>
+      <p class="guide-intro">${p.d} This guide is designed to give you clear, honest, and compassionate information so you can make these decisions with confidence. Take your time reading — there is no rush, and every family's path is different.</p>
 
       <nav class="toc" aria-label="Table of contents">
         <p class="toc-heading">In This Guide</p>
@@ -1750,7 +1750,7 @@ ${header()}
       </nav>
 
       <h2 id="overview">Understanding ${p.st}</h2>
-      <p>Navigating funeral costs and end-of-life planning is one of the most challenging things families face. Whether you are dealing with an immediate need or planning ahead, having clear, accurate information makes a real difference.</p>
+      <p>Working out funeral costs and end-of-life planning is one of the most challenging things families face. Whether you are dealing with an immediate need or planning ahead, having clear, accurate information makes a real difference.</p>
       <p>The funeral industry in the United States generates over $20 billion annually, and prices vary widely by location, provider, and the specific services chosen. Federal law — specifically the FTC Funeral Rule — protects consumers by requiring transparency and choice, but many families are unaware of these protections during their time of grief. This guide aims to change that by giving you the knowledge you need.</p>
 
       <h2 id="what-to-know">What You Need to Know</h2>
@@ -2869,7 +2869,7 @@ ${header()}
         <li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a></li>
         <li><a href="cheap-funeral-options.html">Affordable Funeral Options</a></li>
         <li><a href="how-to-pay-for-a-funeral-with-no-money.html">How to Pay for a Funeral With No Money</a></li>
-        <li><a href="chat.html">AI Funeral Cost Helper</a></li>
+        <li><a href="chat.html">Free AI Guide to Funeral Costs</a></li>
       </ul>
 
       <h2 id="funeral-by-state">Funeral Costs by State</h2>
@@ -3102,6 +3102,9 @@ require('./scripts/lib/post-fix').run(OUT);
   }
   console.log(`  Bylines/dates updated: ${updated} page(s)`);
 })();
+
+// Reviewed dates, varied state-page layout, and data charts (re-audit 2026-10-29).
+require('./scripts/lib/reaudit').run(OUT);
 
 require('./scripts/lib/dash-cut').run(OUT);
 

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="274" viewBox="0 0 680 274" role="img" aria-labelledby="t d">
+<title id="t">Jewish Funeral Cost Estimates (2026)</title>
+<desc id="d">Range chart of Jewish Funeral Cost Estimates (2026). Simple wood casket $500 to $2,000; Funeral home services $3,000 to $7,000; Jewish cemetery plot $2,000 to $8,000; Rabbi / officiant $300 to $800; Burial (opening/closing) $800 to $2,000; Headstone / unveiling $1,000 to $4,000; Shiva expenses $200 to $1,000.</desc>
+<rect width="680" height="274" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Jewish Funeral Cost Estimates (2026)</text>
+<line x1="230" y1="48" x2="230" y2="262" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Simple wood casket</text><rect x="250" y="53" width="59" height="20" rx="3" fill="#8a6d3b"/><text x="315" y="67">$500–$2,000</text>
+<text x="222" y="97" text-anchor="end">Funeral home services</text><rect x="348" y="83" width="157" height="20" rx="3" fill="#8a6d3b"/><text x="511" y="97">$3,000–$7,000</text>
+<text x="222" y="127" text-anchor="end">Jewish cemetery plot</text><rect x="309" y="113" width="235" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="127">$2,000–$8,000</text>
+<text x="222" y="157" text-anchor="end">Rabbi / officiant</text><rect x="242" y="143" width="19" height="20" rx="3" fill="#8a6d3b"/><text x="267" y="157">$300–$800</text>
+<text x="222" y="187" text-anchor="end">Burial (opening/closing)</text><rect x="261" y="173" width="48" height="20" rx="3" fill="#8a6d3b"/><text x="315" y="187">$800–$2,000</text>
+<text x="222" y="217" text-anchor="end">Headstone / unveiling</text><rect x="269" y="203" width="118" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="217">$1,000–$4,000</text>
+<text x="222" y="247" text-anchor="end">Shiva expenses</text><rect x="238" y="233" width="31" height="20" rx="3" fill="#8a6d3b"/><text x="275" y="247">$200–$1,000</text>
+</g>
+</svg>

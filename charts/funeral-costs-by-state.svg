@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="244" viewBox="0 0 680 244" role="img" aria-labelledby="t d">
+<title id="t">Funeral Costs by State: What Families Actually Pay in 2026</title>
+<desc id="d">Range chart of Funeral Costs by State: What Families Actually Pay in 2026. Northeast (NY, NJ, MA, CT, PA) $6,375 to $14,040; Southeast (FL, GA, NC, SC, VA) $5,025 to $10,660; Midwest (OH, IL, MI, IN, WI) $5,175 to $11,050; South (TX, LA, OK, AR, MS, AL) $4,425 to $9,360; West (CA, WA, OR, HI) $6,150 to $14,300; Mountain (AZ, NV, UT, CO, NM, ID, MT) $4,800 to $10,400.</desc>
+<rect width="680" height="244" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Funeral Costs by State: What Families Actually Pay in 2026</text>
+<line x1="230" y1="48" x2="230" y2="232" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Northeast (NY, NJ, MA, CT, PA)</text><rect x="370" y="53" width="168" height="20" rx="3" fill="#8a6d3b"/><text x="544" y="67">$6,375–$14,040</text>
+<text x="222" y="97" text-anchor="end">Southeast (FL, GA, NC, SC, VA)</text><rect x="340" y="83" width="124" height="20" rx="3" fill="#8a6d3b"/><text x="470" y="97">$5,025–$10,660</text>
+<text x="222" y="127" text-anchor="end">Midwest (OH, IL, MI, IN, WI)</text><rect x="344" y="113" width="129" height="20" rx="3" fill="#8a6d3b"/><text x="479" y="127">$5,175–$11,050</text>
+<text x="222" y="157" text-anchor="end">South (TX, LA, OK, AR, MS, AL)</text><rect x="327" y="143" width="109" height="20" rx="3" fill="#8a6d3b"/><text x="442" y="157">$4,425–$9,360</text>
+<text x="222" y="187" text-anchor="end">West (CA, WA, OR, HI)</text><rect x="365" y="173" width="179" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="187">$6,150–$14,300</text>
+<text x="222" y="217" text-anchor="end">Mountain (AZ, NV, UT, CO, NM, …</text><rect x="335" y="203" width="123" height="20" rx="3" fill="#8a6d3b"/><text x="464" y="217">$4,800–$10,400</text>
+</g>
+</svg>

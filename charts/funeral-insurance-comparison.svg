@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="274" viewBox="0 0 680 274" role="img" aria-labelledby="t d">
+<title id="t">Funeral Insurance Comparison: Final Expense vs. Burial Insurance vs. Pre-Need</title>
+<desc id="d">Range chart of Funeral Insurance Comparison: Final Expense vs. Burial Insurance vs. Pre-Need. Mutual of Omaha $2,000 to $40,000; AARP / New York Life $5,000 to $25,000; AIG Direct $5,000 to $50,000; Globe Life $5,000 to $50,000; Colonial Penn $400 to $25,000; Lincoln Heritage $5,000 to $50,000; Gerber Life $5,000 to $25,000.</desc>
+<rect width="680" height="274" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Funeral Insurance Comparison: Final Expense vs. Burial Insurance vs. Pre-Need</text>
+<line x1="230" y1="48" x2="230" y2="262" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Mutual of Omaha</text><rect x="243" y="53" width="238" height="20" rx="3" fill="#8a6d3b"/><text x="487" y="67">$2,000–$40,000</text>
+<text x="222" y="97" text-anchor="end">AARP / New York Life</text><rect x="261" y="83" width="126" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="97">$5,000–$25,000</text>
+<text x="222" y="127" text-anchor="end">AIG Direct</text><rect x="261" y="113" width="283" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="127">$5,000–$50,000</text>
+<text x="222" y="157" text-anchor="end">Globe Life</text><rect x="261" y="143" width="283" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="157">$5,000–$50,000</text>
+<text x="222" y="187" text-anchor="end">Colonial Penn</text><rect x="233" y="173" width="154" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="187">$400–$25,000</text>
+<text x="222" y="217" text-anchor="end">Lincoln Heritage</text><rect x="261" y="203" width="283" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="217">$5,000–$50,000</text>
+<text x="222" y="247" text-anchor="end">Gerber Life</text><rect x="261" y="233" width="126" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="247">$5,000–$25,000</text>
+</g>
+</svg>

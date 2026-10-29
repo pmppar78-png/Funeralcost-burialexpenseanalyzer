@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="244" viewBox="0 0 680 244" role="img" aria-labelledby="t d">
+<title id="t">Wisconsin Funeral Cost Averages (2026)</title>
+<desc id="d">Horizontal bar chart of Wisconsin Funeral Cost Averages (2026). Traditional funeral with burial $7,200; Funeral with cremation $5,800; Direct cremation $1,700; Cemetery / burial plot $3,400; Embalming $720; Casket $2,160.</desc>
+<rect width="680" height="244" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Wisconsin Funeral Cost Averages (2026)</text>
+<line x1="230" y1="48" x2="230" y2="232" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Traditional funeral with burial</text><rect x="230" y="53" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$7,200</text>
+<text x="222" y="97" text-anchor="end">Funeral with cremation</text><rect x="230" y="83" width="253" height="20" rx="3" fill="#8a6d3b"/><text x="489" y="97">$5,800</text>
+<text x="222" y="127" text-anchor="end">Direct cremation</text><rect x="230" y="113" width="74" height="20" rx="3" fill="#8a6d3b"/><text x="310" y="127">$1,700</text>
+<text x="222" y="157" text-anchor="end">Cemetery / burial plot</text><rect x="230" y="143" width="148" height="20" rx="3" fill="#8a6d3b"/><text x="384" y="157">$3,400</text>
+<text x="222" y="187" text-anchor="end">Embalming</text><rect x="230" y="173" width="31" height="20" rx="3" fill="#8a6d3b"/><text x="267" y="187">$720</text>
+<text x="222" y="217" text-anchor="end">Casket</text><rect x="230" y="203" width="94" height="20" rx="3" fill="#8a6d3b"/><text x="330" y="217">$2,160</text>
+</g>
+</svg>

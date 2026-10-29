@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="274" viewBox="0 0 680 274" role="img" aria-labelledby="t d">
+<title id="t">Burial Costs in Wyoming (2026)</title>
+<desc id="d">Horizontal bar chart of Burial Costs in Wyoming (2026). Funeral service $6,900; Cemetery plot $3,200; Casket $2,070; Burial vault / liner $1,280; Opening &amp; closing grave $1,600; Headstone / marker $1,500; Embalming $690.</desc>
+<rect width="680" height="274" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
+<text x="16" y="28" font-size="16" font-weight="700">Burial Costs in Wyoming (2026)</text>
+<line x1="230" y1="48" x2="230" y2="262" stroke="#bbbbbb"/>
+<text x="222" y="67" text-anchor="end">Funeral service</text><rect x="230" y="53" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$6,900</text>
+<text x="222" y="97" text-anchor="end">Cemetery plot</text><rect x="230" y="83" width="146" height="20" rx="3" fill="#8a6d3b"/><text x="382" y="97">$3,200</text>
+<text x="222" y="127" text-anchor="end">Casket</text><rect x="230" y="113" width="94" height="20" rx="3" fill="#8a6d3b"/><text x="330" y="127">$2,070</text>
+<text x="222" y="157" text-anchor="end">Burial vault / liner</text><rect x="230" y="143" width="58" height="20" rx="3" fill="#8a6d3b"/><text x="294" y="157">$1,280</text>
+<text x="222" y="187" text-anchor="end">Opening &amp; closing grave</text><rect x="230" y="173" width="73" height="20" rx="3" fill="#8a6d3b"/><text x="309" y="187">$1,600</text>
+<text x="222" y="217" text-anchor="end">Headstone / marker</text><rect x="230" y="203" width="68" height="20" rx="3" fill="#8a6d3b"/><text x="304" y="217">$1,500</text>
+<text x="222" y="247" text-anchor="end">Embalming</text><rect x="230" y="233" width="31" height="20" rx="3" fill="#8a6d3b"/><text x="267" y="247">$690</text>
+</g>
+</svg>
