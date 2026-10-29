@@ -2662,7 +2662,7 @@ const existingPages = [
   'prepaid-funeral-plans-comparison.html', 'cremation-vs-burial-calculator.html',
   'funeral-costs-by-religion.html', 'state-funeral-regulations.html',
   'what-to-do-when-someone-dies.html', 'how-to-pay-for-a-funeral-with-no-money.html',
-  'funeral-costs-rising-2026.html'
+  'funeral-costs-rising-2026.html', 'burial-plot-cost.html'
 ];
 
 // Priority tiers: differentiate money pages from support pages
