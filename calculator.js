@@ -175,7 +175,8 @@
             serviceLabels[service] + " — " + costData[region].name;
           document.getElementById("estTotal").textContent =
             formatCurrency(totalLow) + " – " + formatCurrency(totalHigh);
-          document.getElementById("estSummaryNote").textContent =
+          var estNote = document.getElementById("estSummaryNote");
+          if (estNote) estNote.textContent =
             "Estimated range for " + costData[region].name.toLowerCase() + " region. Actual costs depend on the specific provider and your choices. Always request an itemized General Price List.";
           document.getElementById("estLineItems").innerHTML = lineItemsHtml;
           resultDiv.style.display = "block";
