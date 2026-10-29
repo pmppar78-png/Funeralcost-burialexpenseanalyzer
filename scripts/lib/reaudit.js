@@ -87,6 +87,14 @@ function stateName(html) {
 function varyState(html, family, slug) {
   const S = slug === 'washington-dc' ? stateName(html) : slug.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
   if (!S) return html;
+  // A burial page names only sources its cremation sibling does not already
+  // list, so the two pages for one state do not repeat the same line.
+  let exclude = [];
+  if (family === 'burial' && OUTDIR) {
+    const sib = path.join(OUTDIR, `cremation-costs-${slug}.html`);
+    if (fs.existsSync(sib)) exclude = sourceNames(fs.readFileSync(sib, 'utf8'));
+  }
+  html = sourceLine(html, S, exclude);
   const sets = HEADINGS[family];
   const salt = family + '|' + slug;
   // Headings.
@@ -134,6 +142,31 @@ function varyState(html, family, slug) {
   if (last >= 0) keyed.push(keyed.splice(last, 1)[0]);
   const body = keyed.map((x) => x.sec).join('\n');
   return html.slice(0, movable[0]) + body + '\n' + html.slice(end);
+}
+
+// ── 2b. Source line under the state cost table ────────────────────
+// Names only the official and consumer sources this page already links in
+// its "rules and help" section. The methodology note is left as it is.
+function sourceNames(html) {
+  const at = html.indexOf('id="state-oversight"');
+  if (at < 0) return [];
+  const sec = html.slice(at, html.indexOf('</article>', at));
+  const names = [];
+  for (const m of sec.matchAll(/<a href="(https?:\/\/[^"]+)"[^>]*>([^<]+)<\/a>/g)) {
+    // State bodies and state law only; national sources are already named
+    // in the page's Sources line and footer.
+    if (/funerals\.org|va\.gov|ftc\.gov|ssa\.gov|naag\.org/.test(m[1])) continue;
+    const n = m[2].trim();
+    if (!names.includes(n)) names.push(n);
+  }
+  return names;
+}
+function sourceLine(html, S, exclude) {
+  html = html.replace(/\n<p class="table-note state-source-note">[^\n]*<\/p>/g, '');
+  const names = sourceNames(html).filter((n) => !(exclude || []).includes(n));
+  if (!names.length) return html;
+  const line = `\n<p class="table-note state-source-note"><strong>State sources:</strong> ${names.join("; ")}.</p>`;
+  return html.replace(/(<p class="table-note state-method-note">[\s\S]*?<\/p>)/, `$1${line}`);
 }
 
 // ── 3. Charts ───────────────────────────────────────────────────────
@@ -241,7 +274,9 @@ function addChart(html, f, OUT) {
   return html.slice(0, insertAt) + fig + html.slice(insertAt);
 }
 
+let OUTDIR = null;
 function run(OUT) {
+  OUTDIR = OUT;
   let rev = 0, lay = 0, ch = 0;
   for (const f of fs.readdirSync(OUT).sort()) {
     if (!f.endsWith('.html') || SKIP.has(f)) continue;
