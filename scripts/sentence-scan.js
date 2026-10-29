@@ -12,6 +12,8 @@ const SKIP_CLASS = [
   'resource-suggestions',
   'resource-list',
   'guide-disclaimer',
+  // Round 4: the one labeled sitewide methodology/disclosure line on state pages.
+  'state-method-note',
   'toc',
   'guide-breadcrumb',
   'chat-breadcrumb',

@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "set -e; node scripts/write-og-image.js && node generate-pages.js && node scripts/check-desc-totals.js"
+  command = "set -e; node scripts/write-og-image.js && node generate-pages.js && node scripts/check-desc-totals.js && node scripts/check-figures.js"
 
 [build.processing.html]
   pretty_urls = false

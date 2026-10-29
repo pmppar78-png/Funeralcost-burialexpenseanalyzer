@@ -11,7 +11,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Alabama has no state funeral payment, but Ala. Code § 38-8-2 makes the necessary burial expenses of a person who dies with no estate, and no relatives in the county able to pay, a charge on the county where the death occurred; the county commission pays when the burial account is presented, and each commission sets its own amount.",
+   "source": "Ala. Code § 38-8-2",
+   "srcUrl": "https://law.justia.com/codes/alabama/title-38/chapter-8/section-38-8-2/",
+   "contact": "the county commission in the county where the death occurred",
+   "cremation": "When an Alabama death leaves no estate and no relative in the county who can pay, the county commission where the person died is charged with the necessary disposition costs under Ala. Code § 38-8-2, and many commissions pay a separate, lower rate for a cremation than for a burial.",
+   "burial": "An Alabama county commission must pay the necessary burial expenses when the person died with no estate and no relatives in that county able to cover them (Ala. Code § 38-8-2); it is the county of death, not of residence, that is charged.",
+   "stepF": "Before an Alabama funeral home books anything, ask the county commission where the death happened whether the person qualifies under Ala. Code § 38-8-2 and what rate it pays.",
+   "payF": "Because each Alabama county commission sets its own rate under § 38-8-2, two neighboring counties can pay very different amounts for the same pauper burial.",
+   "stepC": "Ask the Alabama county commission (often through the coroner) what it pays toward an indigent cremation; rates are set county by county.",
+   "stepB": "Call the commission office in the Alabama county of death before choosing a plot; a § 38-8-2 burial is paid only on an approved burial account."
+  },
   "national": [
    {
     "name": "Alabama National Cemetery",
@@ -31,7 +42,8 @@
     "phone": "251-625-1338"
    }
   ],
-  "cremationNote": "Alabama does not make families hire a funeral director for every arrangement, but every cremation must be arranged through a funeral establishment licensed by the Alabama Board of Funeral Services (Ala. Code § 34-13-121(b))."
+  "cremationNote": "Alabama does not make families hire a funeral director for every arrangement, but every cremation must be arranged through a funeral establishment licensed by the Alabama Board of Funeral Services (Ala. Code § 34-13-121(b)).",
+  "plotCem": "Alabama National Cemetery"
  },
  "Alaska": {
   "code": "AK",
@@ -45,7 +57,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Alaska's General Relief Assistance program can pay a funeral home up to $1,250 for basic services (preparation, a qualifying casket, one chapel service and the hearse), with the least-cost plot, grave opening, cremation and needed transport payable on top (7 AAC 47.130). Most of Alaska lies in the Unorganized Borough, with no borough government to turn to, so this state program is the usual route.",
+   "source": "7 AAC 47.130",
+   "srcUrl": "https://www.law.cornell.edu/regulations/alaska/7-AAC-47.130",
+   "contact": "the Alaska Division of Public Assistance (General Relief Assistance)",
+   "cremation": "An Alaska cremation for a person with no means can be paid through General Relief Assistance: the funeral home's basic services are capped at $1,250, and the crematory charge is one of the additional necessary costs the Division of Public Assistance may pay (7 AAC 47.130).",
+   "burial": "For an Alaska burial, General Relief Assistance pays up to $1,250 for the funeral home's basic services and may also pay for a plot in the least expensive section and the opening and closing of the grave (7 AAC 47.130).",
+   "stepF": "Have the Alaska funeral home send the GEN-61 pre-authorization form to the Division of Public Assistance before services; General Relief burial claims need that approval first.",
+   "payF": "Alaska's General Relief burial help is a state program, so a family applies the same way whether the death was in an organized borough or in the Unorganized Borough.",
+   "stepC": "Ask the Alaska funeral home to request General Relief pre-authorization (form GEN-61) before the cremation is scheduled.",
+   "stepB": "Ask the Division of Public Assistance which least-cost plot it will approve before a family in Alaska buys one; General Relief pays only for the cheapest section."
+  },
   "national": [
    {
     "name": "Fort Richardson National Cemetery",
@@ -62,9 +85,11 @@
    {
     "name": "Metlakatla Veterans Memorial Cemetery",
     "status": "Open",
-    "phone": "907-886-1121"
+    "phone": "907-886-1121",
+    "tribal": true
    }
-  ]
+  ],
+  "plotCem": "Fort Richardson National Cemetery"
  },
  "Arizona": {
   "code": "AZ",
@@ -78,7 +103,18 @@
    "url": "https://www.azdhs.gov/licensing/blpo/index.php#funeral-licensing"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Arizona puts the duty to arrange a funeral on the family first (A.R.S. § 36-831); only if no one is willing or able does the county provide a burial or other disposition, funded by the board of supervisors under § 11-251(27) and usually run by the county public fiduciary, which checks the estate's and family's finances.",
+   "source": "A.R.S. §§ 36-831, 11-251(27)",
+   "srcUrl": "https://www.azleg.gov/ars/36/00831.htm",
+   "contact": "the county public fiduciary",
+   "cremation": "In Arizona, the county's indigent program, usually run by the public fiduciary, handles disposition only after family members decline or cannot pay (A.R.S. § 36-831), and several counties, Yavapai among them, provide it as a cremation.",
+   "burial": "An Arizona county pays for an indigent burial only when no family member or other authorized person is willing or able to (A.R.S. § 36-831); the board of supervisors funds it and keeps a permanent register of the indigent dead (§ 11-251(27)).",
+   "stepF": "Call the Arizona county public fiduciary before signing with a funeral home; in Maricopa County the application is completed with one of its contracted funeral homes.",
+   "payF": "Arizona county help is a last resort: § 36-831 expects relatives to arrange the funeral first, and the county public fiduciary looks at both the estate and the family's finances before it steps in.",
+   "stepC": "Ask the Arizona public fiduciary what financial records it needs, such as bank statements, before the cremation is arranged.",
+   "stepB": "Ask the county public fiduciary whether Arizona's indigent program buries or cremates in your county before you look at plots."
+  },
   "national": [
    {
     "name": "National Memorial Cemetery of Arizona",
@@ -105,9 +141,22 @@
    {
     "name": "Monte Calvario Veterans Cemetery",
     "status": "Open",
-    "phone": "520-879-6317"
+    "phone": "520-879-6317",
+    "tribal": true
+   },
+   {
+    "name": "San Carlos Apache Tribal Veterans Cemetery",
+    "status": "Open",
+    "phone": "928-475-2361",
+    "tribal": true
+   },
+   {
+    "name": "Southern Arizona Veterans Memorial Cemetery",
+    "status": "Open",
+    "phone": "520-458-7144"
    }
-  ]
+  ],
+  "plotCem": "National Memorial Cemetery of Arizona"
  },
  "Arkansas": {
   "code": "AR",
@@ -121,7 +170,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Arkansas has no statewide funeral payment; the county court, presided over by the county judge, keeps authority over pauper burials, and before an unclaimed body is buried at public expense the person holding it must search for next of kin, including checking for veteran status (Ark. Code Ann. § 20-17-702).",
+   "source": "Ark. Code Ann. § 20-17-702",
+   "srcUrl": "https://law.justia.com/codes/arkansas/title-20/subtitle-2/chapter-17/subchapter-7/section-20-17-702/",
+   "contact": "the county judge's office (county court)",
+   "cremation": "An Arkansas county court can order an indigent person cremated, but only after the next-of-kin search that Ark. Code Ann. § 20-17-702 requires, including a check of veteran status, has been done.",
+   "burial": "When no one in Arkansas claims a body, the person holding it must search for relatives and check for military service, and the county court decides on a pauper burial (Ark. Code Ann. § 20-17-702).",
+   "stepF": "If no one can pay, call the Arkansas county judge's office before a funeral home is chosen; pauper burials go through the county court.",
+   "payF": "An Arkansas pauper burial goes through the county court, and the body cannot be buried at public expense until the next-of-kin search, including a check for veteran status, is done (Ark. Code Ann. § 20-17-702).",
+   "stepC": "Ask the county judge's office in Arkansas whether the county court will order an indigent cremation and what it pays.",
+   "stepB": "Ask the Arkansas county judge's office about a county-paid burial plot before buying one."
+  },
   "national": [
    {
     "name": "Fayetteville National Cemetery",
@@ -145,7 +205,8 @@
     "status": "Open",
     "phone": "501-683-2259"
    }
-  ]
+  ],
+  "plotCem": "Fort Smith National Cemetery"
  },
  "California": {
   "code": "CA",
@@ -162,7 +223,14 @@
   "aid": {
    "text": "California counties handle indigent burial or cremation under Health & Safety Code § 7104; the county coroner or public administrator can explain the local process.",
    "source": "Cal. Health & Safety Code § 7104",
-   "contact": "the county coroner or public administrator"
+   "srcUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=7104",
+   "contact": "the county coroner or public administrator",
+   "cremation": "When no one can pay for a cremation in California, the county handles the disposition under Health & Safety Code § 7104; ask the county coroner or public administrator how indigent cremation is arranged where the death occurred.",
+   "burial": "For a burial the family cannot pay for, a California county steps in under Health & Safety Code § 7104; the county coroner or public administrator decides how and where the body is buried or cremated.",
+   "stepF": "If no one can pay for a California funeral, call the county coroner or public administrator in the county of death before a funeral home is hired.",
+   "payF": "California has no state funeral payment; indigent burial and cremation are county programs under Health & Safety Code § 7104, so the rules and amounts change from one county to the next.",
+   "stepC": "Ask the California county coroner how its Health & Safety Code § 7104 indigent cremations are scheduled and whether the family may receive the remains.",
+   "stepB": "Ask the California public administrator whether a county burial is possible, or only cremation, before buying a plot."
   },
   "national": [
    {
@@ -179,13 +247,29 @@
     "name": "Miramar National Cemetery",
     "status": "Open",
     "phone": "858-658-7360"
+   },
+   {
+    "name": "Riverside National Cemetery",
+    "status": "Open",
+    "phone": "951-653-8417"
+   },
+   {
+    "name": "Sacramento Valley National Cemetery",
+    "status": "Open",
+    "phone": "707-693-2460"
+   },
+   {
+    "name": "San Joaquin Valley National Cemetery",
+    "status": "Open",
+    "phone": "209-854-1040"
    }
   ],
   "stateCems": [
    {
     "name": "Big Sandy Rancheria Veterans Cemetery",
     "status": "Open",
-    "phone": "559-374-0066"
+    "phone": "559-374-0066",
+    "tribal": true
    },
    {
     "name": "California Central Coast Veterans Cemetery",
@@ -196,8 +280,15 @@
     "name": "Northern California Veterans Cemetery",
     "status": "Open",
     "phone": "866-777-4533"
+   },
+   {
+    "name": "Yurok Veterans Cemetery",
+    "status": "Open",
+    "phone": "707-482-1350",
+    "tribal": true
    }
-  ]
+  ],
+  "plotCem": "Riverside National Cemetery"
  },
  "Colorado": {
   "code": "CO",
@@ -211,7 +302,18 @@
    "url": "https://dpo.colorado.gov/MortuaryScience"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Colorado's Burial Assistance program pays up to $1,500 toward a funeral, burial or cremation when the person was receiving Old Age Pension, Aid to the Needy Disabled, Aid to the Blind or a similar program, but nothing is paid if the total bill is over $2,500; the estate and voluntary family contributions reduce the payment, and the money goes straight to the provider.",
+   "source": "Colorado DHS Adult Financial Reference Guide (Burial Assistance)",
+   "srcUrl": "https://training.colorado.gov/sites/training/files/documents/AFReferenceGuide_Dec2025.pdf",
+   "contact": "the county department of human services",
+   "cremation": "A Colorado cremation can qualify for state Burial Assistance of up to $1,500 if the person received Old Age Pension or another listed program, as long as the provider's total charge stays at or under $2,500.",
+   "burial": "Colorado Burial Assistance pays at most $1,500 to the provider for an eligible public-assistance recipient, and only if the whole funeral and burial bill is $2,500 or less.",
+   "stepF": "Ask the Colorado county human services office to confirm Burial Assistance eligibility while the total is still under the $2,500 limit; the state pays the provider, not the family.",
+   "payF": "Colorado's $1,500 Burial Assistance payment is lost entirely if the bill goes over $2,500, and the estate and any voluntary family money reduce what the state pays.",
+   "stepC": "Keep a Colorado cremation quote under $2,500 if you want county human services to approve the $1,500 Burial Assistance payment.",
+   "stepB": "Ask the county human services office whether the Colorado Burial Assistance limit counts the plot and opening in its $2,500 total before choosing a cemetery."
+  },
   "national": [
    {
     "name": "Fort Logan National Cemetery",
@@ -235,7 +337,8 @@
     "status": "Open",
     "phone": "970-263-8986"
    }
-  ]
+  ],
+  "plotCem": "Fort Logan National Cemetery"
  },
  "Connecticut": {
   "code": "CT",
@@ -255,7 +358,14 @@
   "aid": {
    "text": "The Connecticut Department of Social Services funeral and burial allowance pays up to $1,800; contributions over $3,400 reduce it, and you must apply within one year. Medicaid applicants may set aside up to $10,000 in an irrevocable funeral contract (Conn. Gen. Stat. § 42-207).",
    "source": "Connecticut DSS",
-   "contact": "the Connecticut Department of Social Services"
+   "srcUrl": "https://portal.ct.gov/dss/knowledge-base/articles/cash-assistance/funeral-and-burial-allowance",
+   "contact": "the Connecticut Department of Social Services",
+   "cremation": "Ask the Connecticut Department of Social Services whether its funeral and burial allowance, up to $1,800 and reduced by contributions over $3,400, applies to the cremation you are planning; the application deadline is one year. Medicaid applicants can also prepay up to $10,000 in an irrevocable funeral contract (Conn. Gen. Stat. § 42-207), which can be written for a cremation.",
+   "burial": "For a Connecticut burial, the DSS funeral and burial allowance is capped at $1,800 and falls as contributions pass $3,400; the claim has to be filed within a year, and Connecticut has no county government to ask instead.",
+   "stepF": "File the Connecticut DSS funeral and burial allowance claim within one year of the death, and tell DSS about any family contributions.",
+   "payF": "Connecticut's DSS allowance tops out at $1,800, and family contributions above $3,400 reduce it, so tell DSS what relatives are putting in before the bill is finalized.",
+   "stepC": "Ask Connecticut DSS how a cremation's cost and any family contributions over $3,400 affect the $1,800 allowance.",
+   "stepB": "Ask Connecticut DSS how much of the $1,800 remains for the cemetery once family contributions are counted."
   },
   "national": [],
   "stateCems": [
@@ -264,7 +374,8 @@
     "status": "Open",
     "phone": "860-616-3688"
    }
-  ]
+  ],
+  "plotCem": "Connecticut State Veterans Cemetery"
  },
  "Delaware": {
   "code": "DE",
@@ -278,7 +389,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Delaware's Division of Social Services pays up to $100 toward funeral expenses when the person was receiving TANF, General Assistance or Medicaid at death (16 Del. Admin. Code 2000-2020); the next of kin sends a written request with the death certificate and proof of the bill, and DSS pays the funeral home. Separately, DSS buries indigent or unclaimed people at state expense through its indigent burial service.",
+   "source": "16 Del. Admin. Code 2000-2020; Delaware DSS indigent burial service",
+   "srcUrl": "https://www.law.cornell.edu/regulations/delaware/16-Del-Admin-Code-SS-2000-2020",
+   "contact": "the Delaware Division of Social Services",
+   "cremation": "The Delaware DSS payment for a cremation is small, up to $100 for a person on TANF, General Assistance or Medicaid (16 Del. Admin. Code 2000-2020); when there is no one able to pay at all, the DSS indigent burial service handles the disposition.",
+   "burial": "Delaware DSS covers up to $100 of burial costs for a person who was on TANF, General Assistance or Medicaid, paid to the funeral vendor, and a separate DSS service arranges burial of the indigent or unclaimed at public expense.",
+   "stepF": "Send the Delaware Division of Social Services a written request, the death certificate and the funeral bill if the person was on TANF, General Assistance or Medicaid.",
+   "payF": "Delaware's $100 DSS payment is small, so ask the Division of Social Services about its separate indigent burial service as well when no one can pay.",
+   "stepC": "If nobody can pay for a Delaware cremation, ask the Division of Social Services about its indigent burial service before a provider is hired.",
+   "stepB": "Ask the Delaware Division of Social Services whether the indigent burial service applies before buying a plot."
+  },
   "national": [],
   "stateCems": [
    {
@@ -291,7 +413,8 @@
     "status": "Open",
     "phone": "302-934-5653"
    }
-  ]
+  ],
+  "plotCem": "Delaware Veterans Memorial Cemetery - New Castle County"
  },
  "District of Columbia": {
   "code": "DC",
@@ -300,12 +423,23 @@
   "waitCite": "D.C. Code § 7-231.17",
   "boardRule": false,
   "regulator": {
-   "org": "DC Occupational and Professional Licensing Administration",
+   "org": "DC Department of Licensing and Consumer Protection (DLCP), Occupational and Professional Licensing",
    "phone": "202-671-4500",
-   "url": "https://dcratransition.dc.gov/"
+   "url": "https://dlcp.dc.gov/page/board-funeral-directors"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "The District's Department of Human Services ended its Burial Assistance program on September 30, 2025, so DC no longer pays toward a funeral for low-income residents; the DHS Economic Security Administration's public benefits line, 202-727-5355, can say which remaining benefits a family may still have.",
+   "source": "DC DHS Burial Assistance notice",
+   "srcUrl": "https://dhs.dc.gov/service/burial-assistance",
+   "contact": "the DHS Economic Security Administration (202-727-5355)",
+   "cremation": "Since DC Burial Assistance ended on September 30, 2025, there is no District payment for a cremation; a family that was on DC benefits can call the Economic Security Administration at 202-727-5355 about what is left.",
+   "burial": "DC stopped paying for low-income burials when its DHS Burial Assistance program closed on September 30, 2025; for questions about other District benefits, the Economic Security Administration answers at 202-727-5355.",
+   "stepF": "Do not count on District money for a DC funeral: DHS Burial Assistance closed on September 30, 2025. Call the Economic Security Administration at 202-727-5355 about other benefits.",
+   "payF": "No District program pays toward a DC funeral since DHS ended Burial Assistance on September 30, 2025, so plan the cost around family money, a VA benefit or a funeral home's lowest-priced package.",
+   "stepC": "Plan a DC cremation budget without District aid, which ended in September 2025; the Economic Security Administration (202-727-5355) can review other benefits.",
+   "stepB": "Budget a DC burial without the old DHS benefit, which closed September 30, 2025, and ask a VA cemetery about a veteran's free grave."
+  },
   "national": [],
   "stateCems": []
  },
@@ -321,7 +455,18 @@
    "url": "https://myfloridacfo.com/division/funeralcemetery/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Florida has no state funeral payment; for unclaimed remains, the board of county commissioners or a county department it designates may arrange and pay for burial or cremation once the anatomical board declines the body, after checking for relatives and for national-cemetery eligibility (Fla. Stat. § 406.50).",
+   "source": "Fla. Stat. §§ 406.50, 406.53",
+   "srcUrl": "https://www.flsenate.gov/Laws/Statutes/2025/0406.50",
+   "contact": "the county's indigent burial program (board of county commissioners)",
+   "cremation": "A Florida county can authorize cremation of unclaimed remains after the anatomical board declines them (Fla. Stat. § 406.50), and § 406.53 lets the county skip that board notice in some indigent cases, such as when a relative claims the remains.",
+   "burial": "Before a Florida county buries unclaimed remains, it must make reasonable efforts to find relatives and to see whether the person can go to a national cemetery (Fla. Stat. § 406.50).",
+   "stepF": "Ask the Florida county's indigent burial office, run under the county commission, whether it will help before a funeral home contract is signed.",
+   "payF": "Florida county help covers unclaimed remains after the anatomical board declines the body, and the county must first look for relatives and check whether the person can go to a national cemetery (Fla. Stat. § 406.50).",
+   "stepC": "Call the county indigent burial program in Florida before a crematory is booked; each county sets its own policy by resolution or ordinance.",
+   "stepB": "If the person was a veteran, tell the Florida county office; § 406.50 requires it to check national-cemetery eligibility before burial."
+  },
   "national": [
    {
     "name": "Barrancas National Cemetery",
@@ -332,9 +477,40 @@
     "name": "Bay Pines National Cemetery",
     "status": "Cremation Only",
     "phone": "727-319-6479"
+   },
+   {
+    "name": "Cape Canaveral National Cemetery",
+    "status": "Open",
+    "phone": "321-383-2638"
+   },
+   {
+    "name": "Florida National Cemetery",
+    "status": "Open",
+    "phone": "352-793-7740"
+   },
+   {
+    "name": "Jacksonville National Cemetery",
+    "status": "Open",
+    "phone": "904-766-5222"
+   },
+   {
+    "name": "Sarasota National Cemetery",
+    "status": "Open",
+    "phone": "877-861-9840"
+   },
+   {
+    "name": "South Florida National Cemetery",
+    "status": "Open",
+    "phone": "561-649-6489"
+   },
+   {
+    "name": "Tallahassee National Cemetery",
+    "status": "Open",
+    "phone": "850-402-8941"
    }
   ],
-  "stateCems": []
+  "stateCems": [],
+  "plotCem": "Florida National Cemetery"
  },
  "Georgia": {
   "code": "GA",
@@ -348,7 +524,18 @@
    "url": "https://sos.ga.gov/georgia-state-board-funeral-service"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Under O.C.G.A. § 36-12-5, the Georgia county where a person dies must provide or reimburse a decent burial, cremation or other disposition when the person, the family and close kin are all indigent; the county sets the amount, never more than the actual cost, and Fulton County, for one, screens requests through DFCS.",
+   "source": "O.C.G.A. § 36-12-5",
+   "srcUrl": "https://law.justia.com/codes/georgia/title-36/provisions-applicable-to-counties-only/chapter-12/section-36-12-5/",
+   "contact": "the county where the death occurred (often through the county DFCS office)",
+   "cremation": "A Georgia county must cover a cremation when the deceased and close family are indigent (O.C.G.A. § 36-12-5), at an amount the county sets; Whitfield County, for example, caps cremation at $800 and burial at $2,100.",
+   "burial": "O.C.G.A. § 36-12-5 makes the Georgia county of death responsible for an indigent burial, but each county decides how much it reimburses, up to the actual cost.",
+   "stepF": "Ask the Georgia county where the death happened, often through DFCS, about § 36-12-5 help before the funeral home is paid.",
+   "payF": "A Georgia county's § 36-12-5 payment never exceeds the actual cost and only applies when the person, the family and close kin are all indigent.",
+   "stepC": "Check the county's cremation rate under O.C.G.A. § 36-12-5 before booking; Georgia counties set different caps.",
+   "stepB": "Ask the Georgia county what it reimburses for a burial under § 36-12-5 before choosing a cemetery."
+  },
   "national": [
    {
     "name": "Georgia National Cemetery",
@@ -367,7 +554,8 @@
     "status": "Open",
     "phone": "478-445-3363"
    }
-  ]
+  ],
+  "plotCem": "Georgia National Cemetery"
  },
  "Hawaii": {
   "code": "HI",
@@ -381,7 +569,18 @@
    "url": "https://cca.hawaii.gov/pvl/programs/cemetery/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Hawaii's Department of Human Services can pay a lump sum equal to Social Security's death payment for a medical or financial assistance recipient who did not qualify for Social Security's own, and for an unclaimed body it pays the mortuary, crematory or hydrolysis provider up to $1,600 (Haw. Rev. Stat. § 346-15; HAR ch. 17-1745); applications are due within 60 days of the death.",
+   "source": "Haw. Rev. Stat. § 346-15; HAR ch. 17-1745",
+   "srcUrl": "https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0346/HRS_0346-0015.htm",
+   "contact": "the Hawaii Department of Human Services",
+   "cremation": "By Hawaii law, unclaimed bodies are cremated, and DHS pays the licensed provider the cost or $1,600, whichever is less, if the application arrives within 60 days of the death (Haw. Rev. Stat. § 346-15).",
+   "burial": "Hawaii's state help does not fund a burial plot: unclaimed bodies are cremated with up to $1,600 paid to the provider, and an eligible assistance recipient's family can apply within 60 days for a lump sum the size of Social Security's (Haw. Rev. Stat. § 346-15).",
+   "stepF": "If the person was on Hawaii medical or financial assistance, file the DHS death-payment application within 60 days of the death.",
+   "payF": "For an unclaimed body, Hawaii DHS pays the mortuary, crematory or hydrolysis provider up to $1,600 (Haw. Rev. Stat. § 346-15).",
+   "stepC": "Note the 60-day DHS deadline in Hawaii; a provider caring for an unclaimed body must apply by then for the $1,600 payment.",
+   "stepB": "Apply to Hawaii DHS within 60 days for the lump sum if the person received state assistance; it can go toward a plot."
+  },
   "national": [
    {
     "name": "National Memorial Cemetery of the Pacific",
@@ -404,8 +603,29 @@
     "name": "Lanai Veterans Cemetery",
     "status": "Open",
     "phone": "808-565-7086"
+   },
+   {
+    "name": "East Hawaii Veterans Cemetery",
+    "status": "Open",
+    "phone": "808-961-8311"
+   },
+   {
+    "name": "Maui Veterans Cemetery",
+    "status": "Open",
+    "phone": "808-876-4534"
+   },
+   {
+    "name": "Molokai Veterans Cemetery",
+    "status": "Open",
+    "phone": "808-553-3222"
+   },
+   {
+    "name": "West Hawaii State Veterans Cemetery",
+    "status": "Open",
+    "phone": "808-961-8311"
    }
-  ]
+  ],
+  "plotCem": "Hawaii State Veterans Cemetery"
  },
  "Idaho": {
   "code": "ID",
@@ -419,7 +639,18 @@
    "url": "https://dopl.idaho.gov/mor/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Idaho Code § 31-3412 requires the board of county commissioners to provide a burial or cremation for an indigent person who dies in the county, paid at no more than the county's established or negotiated rate; if no one takes charge of a body within 14 days, the coroner arranges it and the county bears the unpaid cost.",
+   "source": "Idaho Code § 31-3412",
+   "srcUrl": "https://legislature.idaho.gov/statutesrules/idstat/title31/t31ch34/sect31-3412/",
+   "contact": "the board of county commissioners",
+   "cremation": "Idaho counties must provide an indigent cremation or burial under Idaho Code § 31-3412, and many, Canyon County among them, set a fixed cremation rate by resolution.",
+   "burial": "An Idaho county pays for an indigent burial only up to its own established or negotiated rate (Idaho Code § 31-3412), so ask the commissioners what that rate covers.",
+   "stepF": "Ask the Idaho board of county commissioners about indigent help under § 31-3412 before choosing a funeral home.",
+   "payF": "An Idaho county pays an indigent burial or cremation at its own established or negotiated rate, and if no one takes charge of a body within 14 days, the coroner arranges it (Idaho Code § 31-3412).",
+   "stepC": "Ask the Idaho county what its negotiated cremation rate is before booking a crematory.",
+   "stepB": "Confirm with the Idaho county commissioners whether their indigent rate covers the grave opening before buying a plot."
+  },
   "national": [
    {
     "name": "Snake River Canyon National Cemetery",
@@ -438,7 +669,8 @@
     "status": "Open",
     "phone": "208-780-1340"
    }
-  ]
+  ],
+  "plotCem": "Snake River Canyon National Cemetery"
  },
  "Illinois": {
   "code": "IL",
@@ -458,7 +690,14 @@
   "aid": {
    "text": "The Illinois Department of Human Services pays up to $1,370 toward funeral services and $686 toward burial or cremation (up to $2,056) for eligible recipients; the claim must be filed within 180 days of death.",
    "source": "Illinois DHS",
-   "contact": "the Illinois Department of Human Services"
+   "srcUrl": "https://www.dhs.state.il.us/page.aspx?item=33509",
+   "contact": "the Illinois Department of Human Services",
+   "cremation": "For an eligible recipient, Illinois DHS puts up to $686 toward the cremation itself and up to $1,370 toward the funeral home's services, $2,056 in all, if the claim is filed within 180 days of death.",
+   "burial": "Illinois DHS can put up to $686 toward the cemetery or burial costs and up to $1,370 toward funeral services, $2,056 in all, for an eligible recipient, if the claim is filed within 180 days of death.",
+   "stepF": "File the Illinois DHS funeral and burial claim within 180 days of the death; the funeral home usually submits it.",
+   "payF": "Illinois DHS help has two parts, one for funeral services and one for burial or cremation, so ask the funeral home to put both on the claim.",
+   "stepC": "Make sure the Illinois crematory's charge is billed under the $686 burial portion of the DHS claim.",
+   "stepB": "Send the Illinois cemetery's invoice with the DHS claim before the 180-day deadline passes."
   },
   "national": [
    {
@@ -475,6 +714,21 @@
     "name": "Danville National Cemetery",
     "status": "Open",
     "phone": "217-554-4550"
+   },
+   {
+    "name": "Fort Sheridan National Cemetery",
+    "status": "Cremation Only",
+    "phone": "224-610-7296"
+   },
+   {
+    "name": "Mound City National Cemetery",
+    "status": "Open",
+    "phone": "618-694-1391"
+   },
+   {
+    "name": "Rock Island National Cemetery",
+    "status": "Open",
+    "phone": "309-784-0000"
    }
   ],
   "stateCems": [
@@ -483,7 +737,8 @@
     "status": "Open",
     "phone": "217-222-8641"
    }
-  ]
+  ],
+  "plotCem": "Abraham Lincoln National Cemetery"
  },
  "Indiana": {
   "code": "IN",
@@ -503,7 +758,20 @@
   "aid": {
    "text": "Indiana FSSA can pay up to $1,200 for the funeral and $800 for the cemetery for eligible Medicaid recipients; the claim must be filed within 90 days (Ind. Code § 12-14-17).",
    "source": "Ind. Code § 12-14-17",
-   "contact": "your local FSSA Division of Family Resources office"
+   "srcUrl": "https://iga.in.gov/laws/2024/ic/titles/12#12-14-17",
+   "contact": "your local FSSA Division of Family Resources office",
+   "cremation": "Indiana FSSA's help for Medicaid recipients is split into up to $1,200 for the funeral home and $800 for the cemetery, and the claim has to be filed within 90 days (Ind. Code § 12-14-17); ask the local FSSA office how those amounts apply to a cremation.",
+   "burial": "Of the Indiana FSSA help for Medicaid recipients, up to $800 goes to the cemetery and up to $1,200 to the funeral home, with a 90-day filing deadline (Ind. Code § 12-14-17).",
+   "stepF": "Ask the Indiana Division of Family Resources office about the funeral claim and file within 90 days.",
+   "payF": "Indiana's FSSA funeral help is only for Medicaid recipients, so check the person's Medicaid status before counting on it.",
+   "metro": {
+    "indianapolis": {
+     "text": "An Indianapolis death falls under the same Indiana FSSA rules as the rest of the state: for an eligible Medicaid recipient the program pays up to $1,200 to the funeral home and $800 to the cemetery, and the claim is due within 90 days (Ind. Code § 12-14-17).",
+     "stepF": "Ask the Marion County office of the Division of Family Resources about the FSSA funeral claim well before the 90-day deadline."
+    }
+   },
+   "stepC": "Ask Indiana DFR how the $1,200 funeral and $800 cemetery split applies to a cremation before the 90 days run out.",
+   "stepB": "Send the Indiana cemetery's bill for the $800 portion within the 90-day FSSA deadline."
   },
   "national": [
    {
@@ -528,7 +796,8 @@
     "status": "Open",
     "phone": "812-273-9220"
    }
-  ]
+  ],
+  "plotCem": "Marion National Cemetery"
  },
  "Iowa": {
   "code": "IA",
@@ -545,7 +814,18 @@
    "Iowa Code § 331.805; Iowa Admin. Code 481-900.10(2)",
    "arranging a cremation"
   ],
-  "aid": null,
+  "aid": {
+   "text": "Iowa leaves funeral help to each county board of supervisors, which sets the form and amount of general assistance (Iowa Code §§ 252.25, 252.27); the state code itself caps burial of a nonresident transient at $250, and counties set their own amounts for residents, such as Linn County's $1,000.",
+   "source": "Iowa Code §§ 252.25, 252.27",
+   "srcUrl": "https://www.legis.iowa.gov/docs/code/2026/252.27.pdf",
+   "contact": "the county general assistance office (board of supervisors)",
+   "cremation": "An Iowa county's general assistance office decides whether to pay for a cremation and how much; Linn County, for example, pays up to $1,000 for a resident's burial or cremation (Iowa Code § 252.27).",
+   "burial": "Iowa Code § 252.27 lets the county board of supervisors pay reasonable burial costs, limited to $250 for a nonresident transient; a resident's county may pay more under its own policy.",
+   "stepF": "Apply to the Iowa county general assistance office before signing a funeral contract; amounts vary by county.",
+   "payF": "Iowa's state code caps a transient nonresident's burial at $250, but for residents each county board of supervisors sets the amount, such as $1,000 in Linn County (Iowa Code §§ 252.25, 252.27).",
+   "stepC": "Ask the Iowa county general assistance office whether it pays a cremation rate before choosing a provider.",
+   "stepB": "Ask the Iowa county about its general assistance burial limit before choosing a cemetery."
+  },
   "national": [
    {
     "name": "Keokuk National Cemetery",
@@ -559,7 +839,8 @@
     "status": "Open",
     "phone": "515-727-3444"
    }
-  ]
+  ],
+  "plotCem": "Keokuk National Cemetery"
  },
  "Kansas": {
   "code": "KS",
@@ -573,7 +854,18 @@
    "url": "https://www.ksbma.ks.gov/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "In Kansas the coroner arranges burial or cremation when no family claims the body (K.S.A. 22a-215); the cost comes first from any property found with the person, then from the state assistance program if the person qualified under K.S.A. 39-713d, and otherwise from the county general fund.",
+   "source": "K.S.A. 22a-215; K.S.A. 39-713d",
+   "srcUrl": "https://www.ksrevisor.gov/statutes/chapters/ch22a/022a_002_0015.html",
+   "contact": "the county coroner",
+   "cremation": "A Kansas coroner can cremate an unclaimed body under K.S.A. 22a-215, with the state assistance program paying if the person qualified under K.S.A. 39-713d and the county general fund paying if not.",
+   "burial": "When nobody claims a body in Kansas, the coroner arranges the burial and the county general fund pays whatever the person's property and the state assistance program do not (K.S.A. 22a-215).",
+   "stepF": "Ask the Kansas county coroner whether K.S.A. 22a-215 applies before a funeral is arranged for someone with no means.",
+   "payF": "A Kansas coroner pays for a disposition first from property found with the person, then from state assistance if the person qualified under K.S.A. 39-713d, and only then from the county general fund.",
+   "stepC": "If the person received Kansas public assistance, ask the coroner whether the state program under K.S.A. 39-713d will pay for the cremation.",
+   "stepB": "Call the Kansas county coroner about a county-paid burial before purchasing a plot."
+  },
   "national": [
    {
     "name": "Fort Leavenworth National Cemetery",
@@ -606,8 +898,14 @@
     "name": "Kansas Veterans Cemetery at WaKeeney",
     "status": "Open",
     "phone": "785-743-5685"
+   },
+   {
+    "name": "Kansas Veterans Cemetery at Winfield",
+    "status": "Open",
+    "phone": "620-705-6300"
    }
-  ]
+  ],
+  "plotCem": "Leavenworth National Cemetery"
  },
  "Kentucky": {
   "code": "KY",
@@ -621,7 +919,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Kentucky has no statewide indigent-funeral program; under KRS 72.450 the coroner notifies next of kin, and if no one claims the body the fiscal court (or a consolidated or urban-county government) may pay for burial or cremation. For an indigent veteran, the Kentucky Department of Veterans Affairs can reimburse up to $1,000 (17 KAR 4:040).",
+   "source": "KRS 72.450; 17 KAR 4:040",
+   "srcUrl": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=57645",
+   "contact": "the county coroner and fiscal court",
+   "cremation": "A Kentucky fiscal court may pay to cremate and inter an unclaimed body (KRS 72.450), but state law does not require it, so practice varies; an indigent veteran's cremation can draw up to $1,000 from the Department of Veterans Affairs.",
+   "burial": "Kentucky's Department of Veterans Affairs reimburses up to $1,000 toward an indigent veteran's burial (17 KAR 4:040); for others, the county fiscal court decides whether to pay (KRS 72.450).",
+   "stepF": "Ask the Kentucky county coroner and fiscal court about help before signing; for a veteran, ask the funeral home to apply to KDVA's indigent burial program.",
+   "payF": "Kentucky fiscal courts may pay for an unclaimed burial or cremation under KRS 72.450, and an indigent veteran's funeral can be reimbursed up to $1,000 by the state Department of Veterans Affairs (17 KAR 4:040).",
+   "stepC": "Ask whether the Kentucky fiscal court pays for cremation of an unclaimed body; it is optional under KRS 72.450.",
+   "stepB": "For a Kentucky veteran, ask about a state or federal veterans cemetery first, which the KDVA program favors."
+  },
   "national": [
    {
     "name": "Camp Nelson National Cemetery",
@@ -654,8 +963,19 @@
     "name": "Kentucky Veterans Cemetery - Northeast",
     "status": "Open",
     "phone": "606-929-5354"
+   },
+   {
+    "name": "Kentucky Veterans Cemetery - Southeast",
+    "status": "Open",
+    "phone": "606-672-2750"
+   },
+   {
+    "name": "Kentucky Veterans Cemetery - West",
+    "status": "Open",
+    "phone": "270-889-6106"
    }
-  ]
+  ],
+  "plotCem": "Camp Nelson National Cemetery"
  },
  "Louisiana": {
   "code": "LA",
@@ -672,7 +992,18 @@
    "La. R.S. 37:848",
    "filing the death certificate, moving the body, and being present at the final disposition"
   ],
-  "aid": null,
+  "aid": {
+   "text": "Louisiana handles pauper funerals through the parish coroner, who arranges the disposition, preferably with a Louisiana-licensed funeral home; the parish or municipality where the person was domiciled pays the actual cost (the one where death occurred, if the person lived out of state), and the coroner may set a maximum (La. R.S. 13:5715).",
+   "source": "La. R.S. 13:5715(A)(2)",
+   "srcUrl": "https://www.legis.la.gov/legis/Law.aspx?d=763364",
+   "contact": "the parish coroner",
+   "cremation": "When a Louisiana coroner arranges a pauper's disposition, the cost may not exceed the actual price of the service and is paid by the parish or municipality of the person's Louisiana domicile (La. R.S. 13:5715); ask that parish coroner whether it is a cremation.",
+   "burial": "A Louisiana pauper burial is billed to the parish or municipality where the person lived, not necessarily where the death happened, and patients of state-run facilities are paid for by the state (La. R.S. 13:5715).",
+   "stepF": "Call the coroner of the Louisiana parish where the person lived about a pauper disposition before a funeral home is hired.",
+   "payF": "A Louisiana parish pauper disposition is capped at its actual cost, and the parish coroner may set a lower maximum for the funeral home (La. R.S. 13:5715).",
+   "stepC": "Ask the Louisiana parish coroner whether its pauper disposition is a cremation and what maximum it pays.",
+   "stepB": "If the person was in a Louisiana state-run facility, ask whether the state pays the burial instead of the parish."
+  },
   "national": [
    {
     "name": "Louisiana National Cemetery",
@@ -700,8 +1031,19 @@
     "name": "Northwest Louisiana Veterans Cemetery",
     "status": "Open",
     "phone": "318-925-0612"
+   },
+   {
+    "name": "Southeast Louisiana Veterans Cemetery",
+    "status": "Open",
+    "phone": "985-646-6458"
+   },
+   {
+    "name": "Southwest Louisiana Veterans Cemetery",
+    "status": "Open",
+    "phone": "337-246-7094"
    }
-  ]
+  ],
+  "plotCem": "Louisiana National Cemetery"
  },
  "Maine": {
   "code": "ME",
@@ -715,7 +1057,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "In Maine, help comes from the town or city, not a county: under 22 M.R.S. § 4313 the municipal general assistance program may pay a funeral director's direct costs when no legally liable relative can, up to $1,620 for a burial and $1,125 for a cremation from October 1, 2026, to September 30, 2027.",
+   "source": "22 M.R.S. § 4313; Maine GA Appendix H (10/1/26–9/30/27)",
+   "srcUrl": "https://legislature.maine.gov/statutes/22/title22ch1161.pdf",
+   "contact": "the town or city general assistance administrator",
+   "cremation": "A Maine town's general assistance can pay up to $1,125 for a cremation through September 30, 2027, limited to the funeral director's direct costs (22 M.R.S. § 4313).",
+   "burial": "Maine general assistance pays up to $1,620 for a burial, and the administrator may add the actual cost of a required liner, the grave opening, and a lot in the least expensive section (22 M.R.S. § 4313).",
+   "stepF": "Contact the Maine town or city general assistance administrator before the funeral; it pays only the funeral director's direct costs.",
+   "payF": "Because Maine's burial help comes from municipal general assistance, it is paid only when no legally liable relative can cover the cost, so expect the administrator to ask about close family.",
+   "stepC": "Ask the Maine municipal GA administrator to approve the $1,125 cremation maximum before services.",
+   "stepB": "Ask the town whether it has a municipal cemetery lot; Maine GA will not pay for a lot elsewhere if it does."
+  },
   "national": [
    {
     "name": "Acadia National Cemetery",
@@ -732,14 +1085,21 @@
    {
     "name": "Houlton Band of Maliseet Indians Veterans Cemetery",
     "status": "Open",
-    "phone": "207-532-4273"
+    "phone": "207-532-4273",
+    "tribal": true
    },
    {
     "name": "Northern Maine Veterans Cemetery",
     "status": "Open",
     "phone": "207-492-0577"
+   },
+   {
+    "name": "Southern Maine Veterans Cemetery",
+    "status": "Open",
+    "phone": "207-490-4612"
    }
-  ]
+  ],
+  "plotCem": "Acadia National Cemetery"
  },
  "Maryland": {
   "code": "MD",
@@ -753,7 +1113,18 @@
    "url": "https://health.maryland.gov/bom/Pages/home.aspx"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Maryland's Burial Assistance program pays up to $650 toward a funeral for an eligible person, such as a public-assistance recipient, but only if the total funeral cost is $2,500 or less (COMAR 07.03.20.03); a plot, vault, grave digging or clothing paid for by family or friends does not count toward that $2,500.",
+   "source": "COMAR 07.03.20.03",
+   "srcUrl": "https://regs.maryland.gov/us/md/exec/comar/07.03.20.03",
+   "contact": "the local department of social services",
+   "cremation": "Maryland's $650 Burial Assistance payment can go toward a cremation as long as the funeral cost stays at or under $2,500, and it cannot reimburse bills already paid (COMAR 07.03.20.03).",
+   "burial": "For a Maryland burial, the $650 state payment survives if family or friends buy the plot, vault and grave digging, since those are left out of the $2,500 limit (COMAR 07.03.20.03).",
+   "stepF": "Apply to the Maryland local department of social services before paying the funeral home, since Burial Assistance cannot reimburse a paid bill.",
+   "payF": "Since Maryland's $2,500 test leaves out a plot, vault, grave digging or clothing that family or friends pay for, relatives can cover those items themselves and the person can still qualify.",
+   "stepC": "Keep the Maryland cremation total within $2,500 and apply through the local department of social services before paying.",
+   "stepB": "Have family pay the plot or vault directly in Maryland so it stays outside the $2,500 Burial Assistance limit."
+  },
   "national": [
    {
     "name": "Baltimore National Cemetery",
@@ -776,8 +1147,19 @@
     "name": "Eastern Shore Veterans Cemetery",
     "status": "Open",
     "phone": "410-943-3420"
+   },
+   {
+    "name": "Garrison Forest Veterans Cemetery",
+    "status": "Open",
+    "phone": "410-363-6090"
+   },
+   {
+    "name": "Rocky Gap Veterans Cemetery",
+    "status": "Open",
+    "phone": "301-777-2185"
    }
-  ]
+  ],
+  "plotCem": "Crownsville Veterans Cemetery"
  },
  "Massachusetts": {
   "code": "MA",
@@ -794,7 +1176,14 @@
   "aid": {
    "text": "The Massachusetts Department of Transitional Assistance pays up to $1,100 toward a funeral for eligible people, but only when the total cost is no more than $3,500.",
    "source": "Massachusetts DTA",
-   "contact": "the Department of Transitional Assistance"
+   "srcUrl": "https://www.mass.gov/info-details/learn-about-burial-assistance",
+   "contact": "the Department of Transitional Assistance",
+   "cremation": "Massachusetts DTA pays up to $1,100 only when the whole bill is $3,500 or less, and the $2,500 direct cremation estimate on this page is one of the few Massachusetts options under that cap.",
+   "burial": "Massachusetts DTA burial help, up to $1,100, is paid only when the total funeral and burial bill is $3,500 or less, so a plot and opening must fit inside that limit.",
+   "stepF": "Ask the Massachusetts Department of Transitional Assistance about burial assistance while the total is still under $3,500.",
+   "payF": "Because the Massachusetts DTA limit applies to the whole funeral bill, a simple burial or direct cremation is the usual way to stay at or under $3,500.",
+   "stepC": "Get a Massachusetts cremation price in writing and confirm with DTA that the full bill is $3,500 or less.",
+   "stepB": "Add the Massachusetts cemetery charges to the funeral bill before applying to DTA; the $3,500 limit counts both."
   },
   "national": [
    {
@@ -814,7 +1203,8 @@
     "status": "Open",
     "phone": "978-297-9501"
    }
-  ]
+  ],
+  "plotCem": "Massachusetts National Cemetery"
  },
  "Michigan": {
   "code": "MI",
@@ -834,7 +1224,14 @@
   "aid": {
    "text": "Michigan State Emergency Relief (SER) burial payments for 2026 are $875 for burial with a memorial service, $610 without, $640 for cremation with a memorial, and $390 without.",
    "source": "Michigan MDHHS",
-   "contact": "your local MDHHS office"
+   "srcUrl": "https://www.michigan.gov/mdhhs/assistance-programs/emergency-relief/burial",
+   "contact": "your local MDHHS office",
+   "cremation": "For a cremation, Michigan State Emergency Relief pays $640 in 2026 when there is a memorial service and $390 when there is not, compared with $875 and $610 for a burial.",
+   "burial": "For a Michigan burial, State Emergency Relief pays $875 in 2026 if there is a memorial service and $610 if there is not, with lower cremation amounts.",
+   "stepF": "Apply for Michigan State Emergency Relief burial help at the local MDHHS office before the funeral is held.",
+   "payF": "Michigan's SER payment is lower without a memorial service, so ask the MDHHS office how the arrangement you choose changes the amount before you book it.",
+   "stepC": "Tell Michigan MDHHS whether a memorial service is planned; the 2026 SER cremation payment is $640 with one and $390 without.",
+   "stepB": "Ask the local Michigan MDHHS office whether SER will cover the burial before signing with a cemetery."
   },
   "national": [
    {
@@ -848,7 +1245,8 @@
     "phone": "248-328-0386"
    }
   ],
-  "stateCems": []
+  "stateCems": [],
+  "plotCem": "Great Lakes National Cemetery"
  },
  "Minnesota": {
   "code": "MN",
@@ -865,7 +1263,14 @@
   "aid": {
    "text": "Minnesota counties must pay for the burial or cremation of people who die without the means to cover it (Minn. Stat. § 261.035); amounts are set by each county.",
    "source": "Minn. Stat. § 261.035",
-   "contact": "the county human-services office"
+   "srcUrl": "https://www.revisor.mn.gov/statutes/cite/261.035",
+   "contact": "the county human-services office",
+   "cremation": "A Minnesota county must cover the cremation of a person who died without the means to pay for it (Minn. Stat. § 261.035), but each county sets its own amount and approved providers, so call the county before booking a crematory.",
+   "burial": "Each Minnesota county must pay for the burial of a person who died without the means to cover it (Minn. Stat. § 261.035) and sets its own amount, so ask the county before buying a plot.",
+   "stepF": "Call the Minnesota county human-services office before signing; each county sets its own § 261.035 amount.",
+   "payF": "Minnesota requires counties to cover the burial or cremation of people who die without means, but each county sets its own § 261.035 amount, so ask for it in writing.",
+   "stepC": "Ask the Minnesota county which crematory it approves for county-paid cremations.",
+   "stepB": "Ask the Minnesota county human-services office about its burial amount before buying a plot."
   },
   "national": [
    {
@@ -878,7 +1283,8 @@
    {
     "name": "Leech Lake Veterans Cemetery - Cass Lake",
     "status": "Open",
-    "phone": "218-335-4463"
+    "phone": "218-335-4463",
+    "tribal": true
    },
    {
     "name": "Minnesota State Veterans Cemetery - Duluth",
@@ -889,8 +1295,19 @@
     "name": "Minnesota State Veterans Cemetery - Little Falls",
     "status": "Open",
     "phone": "320-616-2527"
+   },
+   {
+    "name": "Minnesota State Veterans Cemetery - Preston",
+    "status": "Open",
+    "phone": "507-765-7320"
+   },
+   {
+    "name": "Minnesota State Veterans Cemetery - Redwood Falls",
+    "status": "Open",
+    "phone": "507-709-4390"
    }
-  ]
+  ],
+  "plotCem": "Fort Snelling National Cemetery"
  },
  "Mississippi": {
   "code": "MS",
@@ -904,7 +1321,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Each Mississippi county board of supervisors must bury paupers and strangers who die in the county and must adopt a written indigent-burial policy with eligibility standards (Miss. Code Ann. § 43-31-29); the board can pay the full cost or only contribute.",
+   "source": "Miss. Code Ann. § 43-31-29",
+   "srcUrl": "https://codes.findlaw.com/ms/title-43-public-welfare/ms-code-sect-43-31-29/",
+   "contact": "the county board of supervisors",
+   "cremation": "A Mississippi county board of supervisors may pay all or part of an indigent person's disposition under the burial policy it records in its minutes (Miss. Code Ann. § 43-31-29); ask whether that policy covers cremation.",
+   "burial": "Mississippi law requires the board of supervisors to bury paupers who die in the county, and it can find a person a pauper from public-assistance records even after death (Miss. Code Ann. § 43-31-29).",
+   "stepF": "Ask the Mississippi county board of supervisors for its indigent-burial policy before signing with a funeral home.",
+   "payF": "Every Mississippi county must have a written indigent-burial policy with eligibility standards, and its board can pay the whole cost or only part of it (Miss. Code Ann. § 43-31-29).",
+   "stepC": "Ask the Mississippi supervisors whether the county pays fully or only contributes toward a cremation.",
+   "stepB": "Bring proof of public assistance to the Mississippi board of supervisors when asking about a county burial."
+  },
   "national": [
    {
     "name": "Biloxi National Cemetery",
@@ -933,7 +1361,8 @@
     "status": "Open",
     "phone": "601-683-2959"
    }
-  ]
+  ],
+  "plotCem": "Biloxi National Cemetery"
  },
  "Missouri": {
   "code": "MO",
@@ -947,7 +1376,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "When no relative or friend claims a body in Missouri, the coroner arranges burial or cremation and the county commission reimburses the reasonable cost (RSMo § 58.460); where there is no estate and no one liable to pay, the commission may pay burial costs from the county treasury (§ 58.550).",
+   "source": "RSMo §§ 58.460, 58.550",
+   "srcUrl": "https://revisor.mo.gov/main/OneSection.aspx?section=58.460",
+   "contact": "the county coroner or medical examiner",
+   "cremation": "A Missouri coroner can arrange cremation of an unclaimed body and be reimbursed by the county commission for reasonable actual expenses (RSMo § 58.460).",
+   "burial": "Missouri burial costs come first from the estate; if there is none and no one liable can pay, the county commission may allow them (RSMo § 58.550).",
+   "stepF": "Ask the Missouri county coroner or medical examiner about a county-paid disposition before the funeral home is chosen.",
+   "payF": "In Missouri the county commission reimburses the reasonable cost of a coroner-arranged disposition (RSMo § 58.460), and it may pay burial costs where there is no estate and no one liable to pay (§ 58.550).",
+   "stepC": "Ask the Missouri coroner whether the county commission will reimburse a cremation.",
+   "stepB": "Check with the Missouri county commission before buying a plot when there is no estate."
+  },
   "national": [
    {
     "name": "Jefferson Barracks National Cemetery",
@@ -975,8 +1415,19 @@
     "name": "Missouri State Veterans Cemetery - Higginsville",
     "status": "Open",
     "phone": "660-362-6111"
+   },
+   {
+    "name": "Missouri State Veterans Cemetery - Jacksonville",
+    "status": "Open",
+    "phone": "660-372-6024"
+   },
+   {
+    "name": "Missouri State Veterans Cemetery - Springfield",
+    "status": "Open",
+    "phone": "417-823-3944"
    }
-  ]
+  ],
+  "plotCem": "Jefferson Barracks National Cemetery"
  },
  "Montana": {
   "code": "MT",
@@ -990,7 +1441,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Montana counties may, but are not required to, provide indigent burial, entombment or cremation help, where indigent means the person could not pay the amount the county negotiated with the funeral home (Mont. Code Ann. § 53-3-116); the county can seek repayment from the estate and draw on the state indigent-funeral account.",
+   "source": "Mont. Code Ann. §§ 53-3-116, 7-4-2924",
+   "srcUrl": "https://codes.findlaw.com/mt/title-53-social-services-and-institutions/mt-st-53-3-116/",
+   "contact": "the county commissioners",
+   "cremation": "Montana counties can help pay for an indigent cremation through the state indigent-funeral account even if they run no general indigent program (Mont. Code Ann. §§ 53-3-116, 7-4-2924).",
+   "burial": "A Montana county that helps with an indigent burial pays the amount it has negotiated with the funeral home and may later seek repayment from the estate (Mont. Code Ann. § 53-3-116).",
+   "stepF": "Ask the Montana county commissioners whether the county offers indigent funeral help before choosing a funeral home.",
+   "payF": "Montana counties are not required to offer indigent funeral help, and a county that does can seek repayment from the estate (Mont. Code Ann. § 53-3-116).",
+   "stepC": "Ask the Montana county about its negotiated cremation rate under § 53-3-116.",
+   "stepB": "Ask the Montana county whether it will help with a burial and what it negotiated with local funeral homes."
+  },
   "national": [
    {
     "name": "Yellowstone National Cemetery",
@@ -1002,7 +1464,8 @@
    {
     "name": "Apsaalooke Veterans Cemetery",
     "status": "Open",
-    "phone": "406-620-3504"
+    "phone": "406-620-3504",
+    "tribal": true
    },
    {
     "name": "Eastern Montana State Veterans Cemetery - Miles City",
@@ -1013,8 +1476,14 @@
     "name": "Montana State Veterans Cemetery - Fort Harrison",
     "status": "Open",
     "phone": "406-324-4793"
+   },
+   {
+    "name": "Western Montana State Veterans Cemetery - Missoula",
+    "status": "Open",
+    "phone": "406-721-2995"
    }
-  ]
+  ],
+  "plotCem": "Yellowstone National Cemetery"
  },
  "Nebraska": {
   "code": "NE",
@@ -1031,7 +1500,18 @@
    "Neb. Rev. Stat. §§ 38-1400s, 71-605",
    "filing the death certificate, moving the body, obtaining permits, supervising a home burial, and arranging a cremation"
   ],
-  "aid": null,
+  "aid": {
+   "text": "Nebraska counties must include burial expenses in their general assistance standards (Neb. Rev. Stat. § 68-133), and the county where the person had legal settlement is responsible (§ 68-131); for a poor person without settlement who received temporary help, the county board must provide a decent burial (§ 68-146).",
+   "source": "Neb. Rev. Stat. §§ 68-131, 68-133, 68-146",
+   "srcUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=68-133",
+   "contact": "the county general assistance office",
+   "cremation": "A Nebraska county's general assistance standards must cover burial expenses (Neb. Rev. Stat. § 68-133); ask the county of legal settlement how those standards treat a cremation.",
+   "burial": "In Nebraska, the county of legal settlement pays burial costs for an eligible person under its general assistance standards (Neb. Rev. Stat. §§ 68-131, 68-133).",
+   "stepF": "Ask the Nebraska county general assistance office of the person's settlement county about burial help before the funeral.",
+   "payF": "In Nebraska the county of legal settlement is responsible for burial help, and every county has to include burial expenses in its general assistance standards (Neb. Rev. Stat. §§ 68-131, 68-133).",
+   "stepC": "Ask the Nebraska county general assistance office how much its standards allow for cremation.",
+   "stepB": "Confirm which Nebraska county had the person's legal settlement before asking about a county burial."
+  },
   "national": [
    {
     "name": "Fort McPherson National Cemetery",
@@ -1055,7 +1535,8 @@
     "status": "Open",
     "phone": "308-661-1987"
    }
-  ]
+  ],
+  "plotCem": "Omaha National Cemetery"
  },
  "Nevada": {
   "code": "NV",
@@ -1069,7 +1550,18 @@
    "url": "https://www.funeral.nv.gov/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Under NRS 428.090, when an eligible indigent person dies, the Nevada board of county commissioners must provide or order a decent burial or cremation and may pay the reasonable cost; county programs such as Washoe County's Human Services Agency set residency and income rules.",
+   "source": "NRS 428.090",
+   "srcUrl": "https://www.leg.state.nv.us/nrs/nrs-428.html",
+   "contact": "the county social services or human services agency",
+   "cremation": "Nevada counties must arrange a burial or cremation for an eligible indigent person (NRS 428.090); Washoe County's Human Services Agency runs a burial and cremation assistance program with residency and income rules.",
+   "burial": "A Nevada county pays reasonable burial costs for an eligible indigent person and may ask responsible relatives to repay (NRS 428.090).",
+   "stepF": "Apply to the Nevada county social services agency before a funeral is arranged; residency and income rules apply.",
+   "payF": "Nevada county commissioners must provide or order a decent burial or cremation for an eligible indigent person and may pay the reasonable cost (NRS 428.090).",
+   "stepC": "Ask the Nevada county human services agency about indigent cremation before choosing a crematory.",
+   "stepB": "Ask the Nevada county whether relatives will be billed back before accepting a county burial."
+  },
   "national": [],
   "stateCems": [
    {
@@ -1082,7 +1574,8 @@
     "status": "Open",
     "phone": "702-486-5920"
    }
-  ]
+  ],
+  "plotCem": "Southern Nevada Veterans Memorial Cemetery"
  },
  "New Hampshire": {
   "code": "NH",
@@ -1096,7 +1589,18 @@
    "url": "https://www.oplc.nh.gov/board-registration-funeral-directors-and-embalmers"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "New Hampshire funeral help is handled by towns and cities: when a person receiving assistance dies, the local overseers of public welfare must provide a decent burial or cremation at the town's or city's expense (RSA 165:3), and the town may recover the cost from the estate or liable relatives.",
+   "source": "RSA 165:3",
+   "srcUrl": "https://gc.nh.gov/rsa/html/XII/165/165-3.htm",
+   "contact": "the town or city welfare officer",
+   "cremation": "A New Hampshire town or city welfare office must pay for a decent cremation when an assisted person dies there (RSA 165:3); if the death was in a county nursing home, the town where the person lived on admission pays.",
+   "burial": "Under RSA 165:3, a New Hampshire town's welfare officer arranges a decent burial for an assisted person who dies there and may seek repayment from the estate.",
+   "stepF": "Call the town or city welfare officer in New Hampshire before signing with a funeral home.",
+   "payF": "New Hampshire towns and cities pay for a decent burial or cremation of a person who was receiving assistance, and they may recover the cost from the estate or liable relatives (RSA 165:3).",
+   "stepC": "If the person died in a New Hampshire county nursing home, contact the welfare office of the town of residence at admission.",
+   "stepB": "Ask the New Hampshire town welfare officer about a town-paid burial before buying a plot."
+  },
   "national": [],
   "stateCems": [
    {
@@ -1104,7 +1608,8 @@
     "status": "Open",
     "phone": "603-796-2026"
    }
-  ]
+  ],
+  "plotCem": "New Hampshire State Veterans Cemetery"
  },
  "New Jersey": {
   "code": "NJ",
@@ -1124,7 +1629,14 @@
   "aid": {
    "text": "New Jersey WorkFirst/General Assistance can pay up to $3,056 for the funeral and $714 for the cemetery ($3,770 total); family contributions up to $1,570 do not reduce it (N.J.A.C. 10:90-8.5).",
    "source": "N.J.A.C. 10:90-8.5",
-   "contact": "your county welfare agency"
+   "srcUrl": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-10-90-8-5",
+   "contact": "your county welfare agency",
+   "cremation": "For a New Jersey cremation, WorkFirst New Jersey or General Assistance pays the funeral home's services and the urn from the $3,056 funeral allowance, while the crematory's own charge, and any burial of the urn, comes from the separate $714 cemetery allowance; family contributions of up to $1,570 do not reduce either (N.J.A.C. 10:90-8.5).",
+   "burial": "New Jersey keeps its two allowances separate: up to $714 for the cemetery, claimed on its own form, and up to $3,056 for the funeral home, with up to $1,570 in family help not counted (N.J.A.C. 10:90-8.5).",
+   "stepF": "Contact the New Jersey county welfare agency before the funeral; the funeral home and cemetery each file their own claim.",
+   "payF": "Relatives in New Jersey can put up to $1,570 of their own money toward the funeral without reducing the General Assistance allowance, so family help and public help can be combined.",
+   "stepC": "Have the New Jersey crematory bill the county welfare agency on the cemetery form, since its charge falls under the $714 allowance.",
+   "stepB": "Make sure the New Jersey cemetery files its own WFNJ-11C claim with the county welfare agency."
   },
   "national": [
    {
@@ -1139,7 +1651,9 @@
     "status": "Open",
     "phone": "609-738-2400"
    }
-  ]
+  ],
+  "hydrolysis": "New Jersey has not authorized alkaline hydrolysis; its cemetery law defines cremation as reduction by heat (N.J.S.A. 45:27-2), so water cremation for a New Jersey death means arranging it in another state through a New Jersey funeral director.",
+  "plotCem": "Brigadier General William C. Doyle Veterans Memorial Cemetery"
  },
  "New Mexico": {
   "code": "NM",
@@ -1153,7 +1667,18 @@
    "url": "https://www.rld.nm.gov/boards-and-commissions/individual-boards-and-commissions/funeral-services/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "A New Mexico county must authorize burial or cremation of an unclaimed body within 30 days after it is found unclaimed but not sooner than 14 days after death (NMSA § 24-13-1); if there is no estate, the county of residence can pay up to $1,000 from its general or health-care assistance fund (§ 24-13-3).",
+   "source": "NMSA §§ 24-13-1, 24-13-3",
+   "srcUrl": "https://law.justia.com/codes/new-mexico/chapter-24/article-13/section-24-13-1/",
+   "contact": "the county indigent or health care assistance office",
+   "cremation": "New Mexico counties may pay up to $1,000 toward an unclaimed person's cremation when there is no estate (NMSA § 24-13-3), and it cannot happen sooner than 14 days after death.",
+   "burial": "A New Mexico county can put up to $1,000 toward an indigent burial when the person left no estate; the county of residence pays, or the county where the body was found if residence is unknown (NMSA § 24-13-3).",
+   "stepF": "Ask the New Mexico county indigent office about the $1,000 limit before a funeral is planned.",
+   "payF": "A New Mexico county of residence can pay up to $1,000 toward a disposition when there is no estate, from its general or health-care assistance fund (NMSA § 24-13-3).",
+   "stepC": "Allow at least 14 days before a county-paid cremation in New Mexico; § 24-13-1 sets that minimum.",
+   "stepB": "Ask the New Mexico county of residence about indigent burial help before purchasing a plot."
+  },
   "national": [
    {
     "name": "Fort Bayard National Cemetery",
@@ -1182,7 +1707,8 @@
     "status": "Open",
     "phone": "575-921-3494"
    }
-  ]
+  ],
+  "plotCem": "Santa Fe National Cemetery"
  },
  "New York": {
   "code": "NY",
@@ -1202,7 +1728,14 @@
   "aid": {
    "text": "In New York each county social-services district sets its own burial-assistance rules; in New York City, HRA pays up to $1,700 and the total bill generally cannot exceed $3,400.",
    "source": "NYC HRA",
-   "contact": "the local social-services district (HRA in New York City)"
+   "srcUrl": "https://www.nyc.gov/site/hra/help/burial-assistance.page",
+   "contact": "the local social-services district (HRA in New York City)",
+   "cremation": "New York City's HRA burial help, up to $1,700, is only paid when the total bill is $3,400 or less, so a direct cremation is the arrangement most likely to qualify; elsewhere in New York, each county social-services district sets its own rules.",
+   "burial": "New York City's HRA pays up to $1,700 toward a burial only when the total bill is $3,400 or less; outside the city, the county social-services district sets the amount.",
+   "stepF": "Apply to HRA in New York City, or the county social-services district elsewhere in New York, before the funeral contract is signed.",
+   "payF": "New York City's HRA burial allowance is up to $1,700, and the total funeral bill generally has to stay at or under $3,400 to qualify; other counties set their own limits.",
+   "stepC": "Keep a New York City cremation under the $3,400 HRA limit and apply before paying.",
+   "stepB": "Ask the New York social-services district whether its burial limit includes the cemetery charges."
   },
   "national": [
    {
@@ -1219,6 +1752,26 @@
     "name": "Gerald B. H. Solomon Saratoga National Cemetery",
     "status": "Open",
     "phone": "518-581-9128"
+   },
+   {
+    "name": "Long Island National Cemetery",
+    "status": "Cremation Only",
+    "phone": "631-454-4949"
+   },
+   {
+    "name": "St. Albans National Cemetery",
+    "status": "Cremation Only",
+    "phone": "718-298-8545"
+   },
+   {
+    "name": "Western New York National Cemetery",
+    "status": "Open",
+    "phone": "585-297-1300"
+   },
+   {
+    "name": "Woodlawn National Cemetery",
+    "status": "Cremation Only",
+    "phone": "607-732-5411"
    }
   ],
   "stateCems": [
@@ -1227,7 +1780,8 @@
     "status": "Open",
     "phone": "607-379-0197"
    }
-  ]
+  ],
+  "plotCem": "Calverton National Cemetery"
  },
  "North Carolina": {
   "code": "NC",
@@ -1241,7 +1795,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "In North Carolina, if the Commission of Anatomy declines an unclaimed body, the county social services director arranges a prompt cremation, hydrolysis or burial (N.C. Gen. Stat. § 130A-415); the cost comes first from the estate, then from the county of residence.",
+   "source": "N.C. Gen. Stat. § 130A-415",
+   "srcUrl": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_130A/GS_130A-415.html",
+   "contact": "the county department of social services director",
+   "cremation": "A North Carolina county DSS director arranges cremation or hydrolysis of an unclaimed body, paid by the estate first and then by the county where the person lived (N.C. Gen. Stat. § 130A-415).",
+   "burial": "North Carolina counties pay for burial of an unclaimed body only after the estate is used; residence decides which county pays (N.C. Gen. Stat. § 130A-415).",
+   "stepF": "Call the North Carolina county DSS director about an unclaimed-body disposition before a funeral is arranged.",
+   "payF": "For an unclaimed North Carolina body, the cost of disposition is paid first from the estate and then by the county of residence (N.C. Gen. Stat. § 130A-415).",
+   "stepC": "Ask the North Carolina DSS director whether the county uses cremation or hydrolysis for unclaimed bodies.",
+   "stepB": "Ask the North Carolina county DSS whether a burial is possible for an unclaimed body before buying a plot."
+  },
   "national": [
    {
     "name": "Salisbury National Cemetery Annex",
@@ -1264,8 +1829,14 @@
     "name": "Sandhills State Veterans Cemetery",
     "status": "Open",
     "phone": "919-664-1175"
+   },
+   {
+    "name": "Western Carolina State Veterans Cemetery",
+    "status": "Open",
+    "phone": "828-669-0684"
    }
-  ]
+  ],
+  "plotCem": "Salisbury National Cemetery Annex"
  },
  "North Dakota": {
   "code": "ND",
@@ -1279,7 +1850,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "When a North Dakota death leaves too little to pay and no responsible relative, the human service zone must arrange the final disposition within seven days of the application, and the reimbursement is $3,500 (N.D.C.C. § 23-06-03); it is a cremation unless a burial is requested for religious reasons.",
+   "source": "N.D.C.C. § 23-06-03(6)",
+   "srcUrl": "https://ndlegis.gov/cencode/t23c06.pdf",
+   "contact": "the human service zone",
+   "cremation": "North Dakota human service zones pay $3,500 for an indigent final disposition, which is a cremation by default (N.D.C.C. § 23-06-03), and a small family contribution does not reduce it.",
+   "burial": "A North Dakota human service zone will approve an indigent burial instead of cremation when religious beliefs require it, paying the same $3,500 (N.D.C.C. § 23-06-03).",
+   "stepF": "Apply to the North Dakota human service zone; it must act within seven days of the application.",
+   "payF": "North Dakota's human service zone reimburses $3,500 for a final disposition, which is a cremation unless a burial is requested for religious reasons (N.D.C.C. § 23-06-03).",
+   "stepC": "Note that North Dakota's indigent disposition is a cremation unless a religious burial is requested.",
+   "stepB": "Ask the North Dakota human service zone about a burial request for religious reasons before buying a plot."
+  },
   "national": [
    {
     "name": "Fargo National Cemetery",
@@ -1291,14 +1873,17 @@
    {
     "name": "All Nations Veterans Cemetery - Fort Yates",
     "status": "Open",
-    "phone": "701-854-8689"
+    "phone": "701-854-8689",
+    "tribal": true
    },
    {
     "name": "North Dakota Veterans Cemetery",
     "status": "Open",
     "phone": "701-667-1418"
    }
-  ]
+  ],
+  "hydrolysis": "Alkaline hydrolysis is not an authorized method in North Dakota: legislators stripped it out of 2017’s House Bill 1294 before passing the rest, so a North Dakota family would have to use a provider in a state that allows it.",
+  "plotCem": "Fargo National Cemetery"
  },
  "Ohio": {
   "code": "OH",
@@ -1315,7 +1900,14 @@
   "aid": {
    "text": "Under Ohio Rev. Code § 9.15, the township or city where a person lived pays for burial or cremation when the body is unclaimed or is claimed by someone with income at or below 150% of the federal poverty line, and the Ohio Board of Embalmers and Funeral Directors can reimburse that local government up to $1,000 for an adult or $750 for a child age 11 or younger, while program funds last.",
    "source": "Ohio Rev. Code § 9.15; Ohio Admin. Code 4717-17-06",
-   "contact": "the township or city fiscal officer"
+   "srcUrl": "https://codes.ohio.gov/ohio-revised-code/section-9.15",
+   "contact": "the township or city fiscal officer",
+   "cremation": "An Ohio township or city pays for cremation, as well as burial, when the body is unclaimed or the person claiming it earns no more than 150% of the poverty line (Ohio Rev. Code § 9.15); the state board can reimburse it up to $1,000 for an adult and $750 for a child 11 or younger while funds last.",
+   "burial": "In Ohio, the township or city where the person lived pays for the burial when the body is unclaimed or the claimant's household earns no more than 150% of the poverty line, and the state embalmers board repays part of that cost while its fund lasts (Ohio Rev. Code § 9.15).",
+   "stepF": "Call the Ohio township or city fiscal officer where the person lived about § 9.15 help before a funeral home is chosen.",
+   "payF": "Ohio's § 9.15 help is local: outside a city it comes from the township, not the county, and it is the township or city, not the family, that later applies to the state board for reimbursement (Ohio Admin. Code 4717-17-06).",
+   "stepC": "Ask the Ohio township or city whether it pays for cremation, and bring proof of income at or below 150% of poverty.",
+   "stepB": "Ask the Ohio township whether it owns a cemetery where an indigent burial can be placed."
   },
   "national": [
    {
@@ -1335,7 +1927,8 @@
     "status": "Open",
     "phone": "419-625-2454"
    }
-  ]
+  ],
+  "plotCem": "Dayton National Cemetery"
  },
  "Oklahoma": {
   "code": "OK",
@@ -1349,7 +1942,18 @@
    "url": "https://oklahoma.gov/funeral.html"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Oklahoma has no statewide funeral payment; the county commissioners, acting as overseers of the indigent, must arrange and supervise the burial of a person who dies in the county without means, and the county treasurer pays necessary grave opening and closing costs on their order (56 O.S. § 54).",
+   "source": "56 O.S. § 54",
+   "srcUrl": "https://law.justia.com/codes/oklahoma/title-56/section-56-54/",
+   "contact": "the board of county commissioners",
+   "cremation": "Oklahoma's county overseers of the indigent must arrange disposition for a person who dies without means (56 O.S. § 54); ask the county commissioners whether they use cremation.",
+   "burial": "An Oklahoma county pays the reasonable cost of opening and closing the grave for an indigent burial on the commissioners' order (56 O.S. § 54).",
+   "stepF": "Call the Oklahoma board of county commissioners about indigent burial before contracting with a funeral home.",
+   "payF": "Oklahoma county commissioners, acting as overseers of the indigent, arrange the burial, and the county treasurer pays the grave opening and closing on their order (56 O.S. § 54).",
+   "stepC": "Ask the Oklahoma county commissioners whether their indigent program offers cremation.",
+   "stepB": "Ask the Oklahoma commissioners about grave-opening costs, which the county treasurer pays on their order."
+  },
   "national": [
    {
     "name": "Fort Gibson National Cemetery",
@@ -1366,19 +1970,23 @@
    {
     "name": "Seaman First Class Billy Turner Veterans Cemetery",
     "status": "Open",
-    "phone": "580-490-6489"
+    "phone": "580-490-6489",
+    "tribal": true
    },
    {
     "name": "Seminole Nation and Veterans Memorial Cemetery",
     "status": "Open",
-    "phone": "405-295-4549"
+    "phone": "405-295-4549",
+    "tribal": true
    },
    {
     "name": "White Eagle Cemetery",
     "status": "Open",
-    "phone": "580-762-8104"
+    "phone": "580-762-8104",
+    "tribal": true
    }
-  ]
+  ],
+  "plotCem": "Fort Gibson National Cemetery"
  },
  "Oregon": {
   "code": "OR",
@@ -1392,7 +2000,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Oregon's help for an unclaimed indigent body runs through the funeral home, not the county: after the notice steps in ORS 97.170, the funeral establishment uses the least costly lawful disposition and the Oregon Mortuary and Cemetery Board reimburses it, currently $550 per approved claim.",
+   "source": "ORS 97.170; Oregon Indigent Disposition Program guide",
+   "srcUrl": "https://www.oregon.gov/omcb/Documents/Indigent-Disposition/IDP-Guide.pdf",
+   "contact": "the Oregon Mortuary and Cemetery Board's Indigent Disposition Program",
+   "cremation": "When no one claims an Oregon body, the funeral home may cremate it as the least costly method and claim $550 from the Mortuary and Cemetery Board's Indigent Disposition Program (ORS 97.170).",
+   "burial": "Oregon's Indigent Disposition Program reimburses $550 for an unclaimed body and expects the least costly lawful method, so a family that wants a particular cemetery would need to claim the body and pay for the burial itself (ORS 97.170).",
+   "stepF": "Ask the Oregon funeral home whether it will file an Indigent Disposition Program claim if the body is unclaimed.",
+   "payF": "Oregon's Indigent Disposition Program reimburses the funeral establishment, currently $550 per approved claim, rather than paying the family (ORS 97.170).",
+   "stepC": "Expect the Oregon Indigent Disposition Program to pay $550 only after the ORS 97.170 notice process.",
+   "stepB": "Claim the body yourself if you want an Oregon burial in a chosen cemetery; the $550 state claim covers only an unclaimed body."
+  },
   "national": [
    {
     "name": "Eagle Point National Cemetery",
@@ -1408,9 +2027,16 @@
     "name": "Roseburg National Cemetery Annex",
     "status": "Open",
     "phone": "541-677-3152"
+   },
+   {
+    "name": "Willamette National Cemetery",
+    "status": "Open",
+    "phone": "503-273-5250"
    }
   ],
-  "stateCems": []
+  "stateCems": [],
+  "hydrolysis": "Oregon does allow alkaline hydrolysis (water cremation): state law defines it as a form of reduction carried out in a licensed hydrolysis facility (ORS 97.010), so ask an Oregon provider whether it uses one and what it charges compared with flame cremation.",
+  "plotCem": "Willamette National Cemetery"
  },
  "Pennsylvania": {
   "code": "PA",
@@ -1427,7 +2053,14 @@
   "aid": {
    "text": "Pennsylvania DHS pays up to $750 toward burial or cremation for eligible people, paid to an enrolled funeral director; resources of $1,500 or more disqualify the estate (55 Pa. Code ch. 283).",
    "source": "Pennsylvania DHS",
-   "contact": "your county assistance office (Pennsylvania DHS)"
+   "srcUrl": "https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter283/chap283toc.html",
+   "contact": "your county assistance office (Pennsylvania DHS)",
+   "cremation": "Pennsylvania DHS can pay up to $750 toward a cremation for an eligible person, but only through an enrolled funeral director, and an estate with $1,500 or more in resources does not qualify (55 Pa. Code ch. 283).",
+   "burial": "Pennsylvania DHS pays up to $750 toward the burial of an eligible person through an enrolled funeral director, and an estate with $1,500 or more in resources does not qualify (55 Pa. Code ch. 283).",
+   "stepF": "Use a Pennsylvania funeral director enrolled with DHS, and ask the county assistance office about the $750 payment first.",
+   "payF": "Pennsylvania DHS pays up to $750 to an enrolled funeral director, and an estate with $1,500 or more in resources is not eligible (55 Pa. Code ch. 283).",
+   "stepC": "Confirm the Pennsylvania cremation provider is enrolled with DHS before relying on the $750 payment.",
+   "stepB": "Ask the Pennsylvania county assistance office whether the estate is under the $1,500 resource limit before buying a plot."
   },
   "national": [
    {
@@ -1452,7 +2085,8 @@
     "status": "Open",
     "phone": "814-871-4531"
    }
-  ]
+  ],
+  "plotCem": "Washington Crossing National Cemetery"
  },
  "Rhode Island": {
   "code": "RI",
@@ -1466,7 +2100,18 @@
    "url": "https://health.ri.gov/licensing"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Rhode Island has no county government, so funeral help comes from the state: the DHS General Public Assistance burial program pays up to $900 for funeral expenses, plus set cemetery maximums ($150 for a lot, $175 to open the grave, $125 for a required liner), if the application is made within 30 days of the death (R.I. Gen. Laws § 40-6-3.10).",
+   "source": "R.I. Gen. Laws § 40-6-3.10; 218-RICR-20-00-3",
+   "srcUrl": "https://webserver.rilegislature.gov/statutes/TITLE40/40-6/40-6-3.10.htm",
+   "contact": "the Rhode Island Department of Human Services (GPA-Burial)",
+   "cremation": "Rhode Island's GPA-Burial program pays up to $900 toward the funeral home's charges and up to $150 for the crematory fee, paid directly to the providers, when DHS receives the application within 30 days of death.",
+   "burial": "For a Rhode Island burial, GPA-Burial adds $150 toward a lot, $175 for opening and closing and $125 for a liner the cemetery requires to its $900 funeral payment (R.I. Gen. Laws § 40-6-3.10).",
+   "stepF": "Apply for Rhode Island GPA-Burial within 30 days of the death; DHS pays the providers directly.",
+   "payF": "Because Rhode Island has no county government, there is no county office to try first; GPA-Burial at the state Department of Human Services is the place to apply.",
+   "stepC": "Send the Rhode Island DHS GPA-Burial application within 30 days so the $150 crematory fee is covered.",
+   "stepB": "Ask the Rhode Island cemetery whether a liner is required; GPA-Burial pays $125 for one only then."
+  },
   "national": [],
   "stateCems": [
    {
@@ -1474,7 +2119,9 @@
     "status": "Open",
     "phone": "401-268-3088"
    }
-  ]
+  ],
+  "hydrolysis": "Rhode Island law does not authorize alkaline hydrolysis, and 2026’s House Bill 7070 on new disposition methods passed the House but stalled in Senate Judiciary, so a Rhode Island family would need an out-of-state facility.",
+  "plotCem": "Rhode Island Veterans Memorial Cemetery"
  },
  "South Carolina": {
   "code": "SC",
@@ -1488,7 +2135,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "South Carolina has no state funeral payment; an unclaimed body goes to the county coroner after the anatomical board declines it, the estate pays first, and the county can be charged only after that (S.C. Code § 17-5-570). County councils may fund indigent burial or cremation as a public purpose.",
+   "source": "S.C. Code § 17-5-570; S.C. Code § 4-9-130",
+   "srcUrl": "https://law.justia.com/codes/south-carolina/title-17/chapter-5/section-17-5-570/",
+   "contact": "the county coroner",
+   "cremation": "A South Carolina county council may fund indigent cremation, but only after the deceased's estate has been used (S.C. Code § 17-5-570).",
+   "burial": "In South Carolina, the county coroner arranges disposition of an unclaimed body, and county money is used only after the estate pays what it can (S.C. Code § 17-5-570).",
+   "stepF": "Ask the South Carolina county coroner about indigent burial before signing with a funeral home.",
+   "payF": "In South Carolina the estate pays first for an unclaimed body, and the county can be charged only after that (S.C. Code § 17-5-570).",
+   "stepC": "Ask whether the South Carolina county council funds cremation for indigent residents.",
+   "stepB": "Ask the South Carolina coroner about county burial help before purchasing a plot."
+  },
   "national": [
    {
     "name": "Beaufort National Cemetery",
@@ -1512,7 +2170,8 @@
     "status": "Open",
     "phone": "864-332-8022"
    }
-  ]
+  ],
+  "plotCem": "Fort Jackson National Cemetery"
  },
  "South Dakota": {
   "code": "SD",
@@ -1526,7 +2185,18 @@
    "url": "https://doh.sd.gov/licensing-and-records/boards/funeral/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "South Dakota county commissioners must arrange a burial or cremation when a person dies without funds and relatives or friends cannot pay (SDCL 28-17-1); the county of residence pays, or the county of death if residence is unknown, and the expense becomes a lien on the person's property, including a homestead.",
+   "source": "SDCL 28-17-1; SDCL ch. 28-14",
+   "srcUrl": "https://sdlegislature.gov/Statutes/28-17-1",
+   "contact": "the county commissioners (county poor relief)",
+   "cremation": "A South Dakota county pays for an indigent cremation when relatives cannot (SDCL 28-17-1), and the cost becomes a lien on the deceased's property.",
+   "burial": "South Dakota's county of residence pays for an indigent burial, and the county places a lien on the estate, homestead included (SDCL 28-17-1; ch. 28-14).",
+   "stepF": "Call the South Dakota county commissioners about poor-relief burial before a funeral home is chosen.",
+   "payF": "A South Dakota county-paid burial or cremation becomes a lien on the person's property, including a homestead (SDCL 28-17-1), so families with a house should ask about that before applying.",
+   "stepC": "Ask the South Dakota county about the lien before accepting a county-paid cremation.",
+   "stepB": "Consider the South Dakota county lien on a homestead before accepting a county burial."
+  },
   "national": [
    {
     "name": "Black Hills National Cemetery",
@@ -1543,15 +2213,24 @@
    {
     "name": "Akicita Owicahe Lakota Freedom Veterans Cemetery",
     "status": "Open",
-    "phone": "605-455-1497"
+    "phone": "605-455-1497",
+    "tribal": true
    },
    {
     "name": "Sicangu Akicita Owicahe Veterans Cemetery",
     "status": "Open",
     "phone": "605-259-3044",
-    "phoneSource": "https://www.rosebudsiouxtribe-nsn.gov/contact-8"
+    "phoneSource": "https://www.rosebudsiouxtribe-nsn.gov/contact-8",
+    "tribal": true
+   },
+   {
+    "name": "Sisseton-Wahpeton Oyate Veterans Cemetery",
+    "status": "Open",
+    "phone": "605-698-3388",
+    "tribal": true
    }
-  ]
+  ],
+  "plotCem": "Black Hills National Cemetery"
  },
  "Tennessee": {
   "code": "TN",
@@ -1565,7 +2244,24 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Tennessee county legislative bodies may, but need not, pay the burial or cremation expenses of a poor person who dies in the county without means (Tenn. Code Ann. § 5-9-101(4)); a claim needs an affidavit showing the cost, the burial in the county, and that there is no other way to pay.",
+   "source": "Tenn. Code Ann. § 5-9-101(4)",
+   "srcUrl": "https://law.justia.com/codes/tennessee/title-5/chapter-9/part-1/section-5-9-101/",
+   "contact": "the county mayor's office",
+   "cremation": "A Tennessee county can choose to fund an indigent cremation (Tenn. Code Ann. § 5-9-101(4)); ask the county mayor's office whether yours does.",
+   "burial": "Tennessee county help with a pauper burial is optional, and a claim requires an affidavit that the person was buried in that county (Tenn. Code Ann. § 5-9-101(4)).",
+   "stepF": "Ask the Tennessee county mayor's office whether the county funds indigent burials before signing.",
+   "payF": "A Tennessee county claim for a pauper burial needs an affidavit showing the cost, the burial in the county and that there was no other way to pay (Tenn. Code Ann. § 5-9-101(4)).",
+   "metro": {
+    "memphis": {
+     "text": "Whether a Memphis family gets county help depends on Shelby County: Tennessee leaves it to each county legislative body to decide whether to pay a poor person's burial or cremation, and a claim must be backed by a sworn statement of the cost and the lack of other means (Tenn. Code Ann. § 5-9-101(4)).",
+     "stepF": "Ask the Shelby County mayor's office whether the county pays indigent burials before signing with a Memphis funeral home."
+    }
+   },
+   "stepC": "Ask the Tennessee county whether it funds cremation for poor residents.",
+   "stepB": "Prepare the affidavit Tennessee counties require before seeking burial reimbursement."
+  },
   "national": [
    {
     "name": "Chattanooga National Cemetery",
@@ -1614,7 +2310,8 @@
     "status": "Open",
     "phone": "731-967-4127"
    }
-  ]
+  ],
+  "plotCem": "Chattanooga National Cemetery"
  },
  "Texas": {
   "code": "TX",
@@ -1631,7 +2328,14 @@
   "aid": {
    "text": "Texas law makes each county commissioners court responsible for disposing of the body of a person whose family cannot pay (Tex. Health & Safety Code § 694.002); ask the county indigent-services office.",
    "source": "Tex. Health & Safety Code ch. 694",
-   "contact": "the county commissioners court or county indigent-services office"
+   "srcUrl": "https://statutes.capitol.texas.gov/Docs/HS/htm/HS.694.htm",
+   "contact": "the county commissioners court or county indigent-services office",
+   "cremation": "When a Texas family cannot pay, the county commissioners court is responsible for disposing of the body (Tex. Health & Safety Code § 694.002); ask the county indigent-services office whether it uses cremation and what the family must sign.",
+   "burial": "The commissioners court of each Texas county must arrange the disposition when the family cannot pay (Tex. Health & Safety Code § 694.002); ask the county indigent-services office whether that includes a burial plot.",
+   "stepF": "Ask the Texas county indigent-services office about a county disposition before a funeral home is hired.",
+   "payF": "Every Texas county commissioners court is responsible for disposing of a body when the family cannot pay (Tex. Health & Safety Code § 694.002), but the process and any limits are set county by county.",
+   "stepC": "Ask the Texas county whether its indigent program cremates and whether the family can receive the ashes.",
+   "stepB": "Ask the Texas county commissioners court whether it has a county cemetery for indigent burials."
   },
   "national": [
    {
@@ -1647,6 +2351,16 @@
    {
     "name": "Fort Sam Houston National Cemetery",
     "status": "Open",
+    "phone": "210-820-3891"
+   },
+   {
+    "name": "Houston National Cemetery",
+    "status": "Open",
+    "phone": "281-447-8686"
+   },
+   {
+    "name": "San Antonio National Cemetery",
+    "status": "Cremation Only",
     "phone": "210-820-3891"
    }
   ],
@@ -1665,8 +2379,19 @@
     "name": "Rio Grande Valley State Veterans Cemetery in Mission",
     "status": "Open",
     "phone": "956-583-7227"
+   },
+   {
+    "name": "Texas State Veterans Cemetery in Abilene",
+    "status": "Open",
+    "phone": "325-673-4446"
+   },
+   {
+    "name": "West Texas State Veterans Cemetery in Lubbock",
+    "status": "Open",
+    "phone": "806-392-9927"
    }
-  ]
+  ],
+  "plotCem": "Dallas-Fort Worth National Cemetery"
  },
  "Utah": {
   "code": "UT",
@@ -1680,7 +2405,18 @@
    "url": "https://commerce.utah.gov/dopl/funeral-service/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Utah requires the county to give an unclaimed body found there a decent burial at county expense unless the University of Utah School of Medicine requests it (Utah Code § 26B-8-225), and lets counties pay to cremate indigent people (§ 17-53-221); Salt Lake County, for example, runs its own indigent program.",
+   "source": "Utah Code §§ 26B-8-225, 17-53-221",
+   "srcUrl": "https://le.utah.gov/xcode/Title26B/Chapter8/C26B-8-S225_2023050320230503.pdf",
+   "contact": "the county indigent burial program (such as Salt Lake County Vital Records)",
+   "cremation": "Utah counties may pay for cremation of indigent people (Utah Code § 17-53-221), and some, such as Salt Lake County, set income limits and exclude memorial and transport costs.",
+   "burial": "Utah law makes the county pay for a decent burial of an unclaimed body found there (Utah Code § 26B-8-225).",
+   "stepF": "Ask the Utah county's indigent program, such as Salt Lake County Vital Records, before a funeral is arranged.",
+   "payF": "A Utah county must give an unclaimed body a decent burial at county expense unless the University of Utah School of Medicine requests it (Utah Code § 26B-8-225).",
+   "stepC": "Ask which costs a Utah county's indigent cremation excludes before booking.",
+   "stepB": "Ask the Utah county about a county burial before buying a plot."
+  },
   "national": [
    {
     "name": "Southern Utah National Cemetery",
@@ -1694,7 +2430,8 @@
     "status": "Open",
     "phone": "801-254-9036"
    }
-  ]
+  ],
+  "plotCem": "Southern Utah National Cemetery"
  },
  "Vermont": {
   "code": "VT",
@@ -1708,7 +2445,18 @@
    "url": "https://sos.vermont.gov/funeral-service"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Vermont has no county government, so burial help comes from the state: DCF General Assistance can pay up to $1,100 toward a funeral, reduced by the resources of the deceased and a surviving spouse; other relatives and friends can add money without lowering it, and the funeral director and the person arranging must sign an itemized invoice.",
+   "source": "Vermont DCF General Assistance burial rules; 33 V.S.A. § 2301",
+   "srcUrl": "https://legislature.vermont.gov/statutes/section/33/023/02301",
+   "contact": "the Vermont DCF Economic Services Division",
+   "cremation": "Vermont DCF General Assistance pays up to $1,100 toward a cremation, less what the deceased and spouse had; extra help from other relatives does not reduce it.",
+   "burial": "For a Vermont burial, DCF General Assistance pays up to $1,100 after subtracting the deceased's and spouse's resources, and other family can add money without lowering it.",
+   "stepF": "Apply to the Vermont DCF Economic Services Division before the funeral; the itemized invoice must be signed.",
+   "payF": "Vermont's $1,100 General Assistance burial payment is reduced by the resources of the deceased and a surviving spouse, but money from other relatives or friends does not lower it.",
+   "stepC": "Ask Vermont DCF how the spouse's resources affect the $1,100 cremation payment.",
+   "stepB": "Ask Vermont DCF to confirm the $1,100 burial payment before buying a plot."
+  },
   "national": [],
   "stateCems": [
    {
@@ -1716,7 +2464,8 @@
     "status": "Open",
     "phone": "802-828-3379"
    }
-  ]
+  ],
+  "plotCem": "Vermont Veterans Memorial Cemetery"
  },
  "Virginia": {
   "code": "VA",
@@ -1730,7 +2479,18 @@
    "url": "https://www.dhp.virginia.gov/Boards/Funeral/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Virginia's independent cities and counties pay for disposition of an unclaimed body: the locality where the person lived pays reasonable costs, or the locality of death if the person was not a Virginia resident, with approval from the local court (Va. Code § 32.1-309.2); if a claimant cannot pay, the city or county may pay under § 32.1-309.1.",
+   "source": "Va. Code §§ 32.1-309.1, 32.1-309.2",
+   "srcUrl": "https://law.lis.virginia.gov/vacode/title32.1/chapter8.1/section32.1-309.2/",
+   "contact": "the city or county where the person lived",
+   "cremation": "A Virginia city or county may pay for cremation when the person claiming the body cannot afford it (Va. Code § 32.1-309.1).",
+   "burial": "A Virginia locality pays reasonable costs to bury an unclaimed resident, with court approval (Va. Code § 32.1-309.2).",
+   "stepF": "Ask the Virginia city or county social services office about § 32.1-309.1 help before signing.",
+   "payF": "In Virginia the locality where the person lived pays for an unclaimed body, or the locality of death for a non-resident, with approval from the local court (Va. Code § 32.1-309.2).",
+   "stepC": "Ask the Virginia locality whether it will pay for a cremation when the claimant cannot.",
+   "stepB": "Ask the Virginia city or county whether the local court has approved a burial before buying a plot."
+  },
   "national": [
    {
     "name": "Culpeper National Cemetery",
@@ -1741,6 +2501,11 @@
     "name": "Danville National Cemetery",
     "status": "Cremation Only",
     "phone": "704-636-2661"
+   },
+   {
+    "name": "National Memorial Cemetery at Quantico",
+    "status": "Open",
+    "phone": "703-221-2183"
    }
   ],
   "stateCems": [
@@ -1759,7 +2524,8 @@
     "status": "Open",
     "phone": "855-482-8387"
    }
-  ]
+  ],
+  "plotCem": "National Memorial Cemetery at Quantico"
  },
  "Washington": {
   "code": "WA",
@@ -1773,7 +2539,18 @@
    "url": "https://dol.wa.gov/professional-licenses/funeral-directors/funeral-and-cemetery-board"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Washington county commissioners must arrange disposition of an indigent person who dies in the county when relatives or a church do not claim the body (RCW 36.39.030), and counties must pay for the disposition of an indigent veteran (RCW 73.08.070).",
+   "source": "RCW 36.39.030; RCW 73.08.070",
+   "srcUrl": "https://app.leg.wa.gov/Rcw/default.aspx?cite=36.39.030",
+   "contact": "the county medical examiner or coroner",
+   "cremation": "Washington counties handle disposition of unclaimed indigent remains (RCW 36.39.030); King County, for example, runs an indigent remains program through its medical examiner.",
+   "burial": "Washington counties pay for the disposition of an indigent veteran (RCW 73.08.070) and of other unclaimed indigent people who die there (RCW 36.39.030).",
+   "stepF": "Ask the Washington county medical examiner or coroner about indigent remains before choosing a funeral home.",
+   "payF": "Washington counties must pay for the disposition of an indigent veteran (RCW 73.08.070), separate from the commissioners' duty for other unclaimed indigent people (RCW 36.39.030).",
+   "stepC": "Ask the Washington county about its indigent remains program before booking a cremation.",
+   "stepB": "For a Washington veteran, ask the county about RCW 73.08.070 burial help."
+  },
   "national": [
    {
     "name": "Tahoma National Cemetery",
@@ -1792,7 +2569,8 @@
     "status": "Open",
     "phone": "509-299-6280"
    }
-  ]
+  ],
+  "plotCem": "Tahoma National Cemetery"
  },
  "West Virginia": {
   "code": "WV",
@@ -1806,7 +2584,18 @@
    "url": null
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "West Virginia's Indigent Burial program pays a funeral director up to $1,000, a direct cremation included; the first $1,200 of the deceased's resources or family payments to the funeral home is exempt, anything between $1,200 and $2,200 is subtracted from the $1,000, and at $2,200 or more the state pays nothing (W. Va. Code § 9-5-18). The DFA-BU-1 application must reach the local DoHS office within 30 days of the burial or cremation.",
+   "source": "W. Va. Code § 9-5-18; WV Funeral Home Director Handbook (Indigent Burial)",
+   "srcUrl": "https://bfa.wv.gov/media/1476/download?inline=",
+   "contact": "the local West Virginia DoHS office",
+   "cremation": "A West Virginia direct cremation can draw the state's $1,000 Indigent Burial rate, but only if the resources and family payments the funeral home receives stay under $2,200, of which the first $1,200 does not count against the rate.",
+   "burial": "If relatives agree to pay the full $2,200 maximum allowable amount for a West Virginia burial, the Indigent Burial application is denied; a smaller contribution, above the $1,200 exemption, is simply deducted from the $1,000 rate (W. Va. Code § 9-5-18).",
+   "stepF": "File West Virginia's DFA-BU-1 burial application at the local DoHS office no later than 30 days after the interment or cremation.",
+   "payF": "West Virginia counts what the family pays the funeral home against the $1,000, so a large family contribution can cancel the state payment altogether.",
+   "stepC": "Tell the West Virginia DoHS worker about any family money paid to the funeral home; more than $1,200 lowers the $1,000 cremation rate.",
+   "stepB": "Before relatives in West Virginia pay toward the grave, ask DoHS how the $1,200 exemption and $2,200 limit apply."
+  },
   "national": [
    {
     "name": "West Virginia National Cemetery",
@@ -1820,7 +2609,8 @@
     "status": "Open",
     "phone": "304-746-0026"
    }
-  ]
+  ],
+  "plotCem": "West Virginia National Cemetery"
  },
  "Wisconsin": {
   "code": "WI",
@@ -1837,7 +2627,14 @@
   "aid": {
    "text": "The Wisconsin Funeral and Cemetery Aids Program (WFCAP) pays up to $1,500 for funeral and up to $1,000 for cemetery or crematory costs, with limits on the total bill.",
    "source": "Wisconsin DHS",
-   "contact": "the county or tribal agency that handles WFCAP"
+   "srcUrl": "https://www.dhs.wisconsin.gov/em/wfcap.htm",
+   "contact": "the county or tribal agency that handles WFCAP",
+   "cremation": "WFCAP pays up to $1,000 toward crematory costs and up to $1,500 toward the funeral home's charges, but only if the total bill stays within the program's limits, so ask the county or tribal WFCAP agency before choosing a cremation package.",
+   "burial": "WFCAP covers up to $1,000 of cemetery costs and up to $1,500 of funeral home costs for an eligible person, as long as the total bill stays within the program's limits.",
+   "stepF": "Ask the Wisconsin county or tribal agency about WFCAP before the funeral bill passes the program's limits.",
+   "payF": "Wisconsin's WFCAP is run locally by county or tribal agencies, and its payments stop if the total funeral or cemetery bill passes the program's limits.",
+   "stepC": "Ask the Wisconsin WFCAP agency to confirm the $1,000 crematory amount before booking.",
+   "stepB": "Ask the Wisconsin WFCAP agency whether the cemetery's charges fit within the $1,000 cemetery limit."
   },
   "national": [
    {
@@ -1862,7 +2659,8 @@
     "status": "Open",
     "phone": "262-878-5660"
    }
-  ]
+  ],
+  "plotCem": "Northwoods National Cemetery"
  },
  "Wyoming": {
   "code": "WY",
@@ -1876,7 +2674,18 @@
    "url": "https://fspboard.wyo.gov/"
   },
   "fdRestricted": null,
-  "aid": null,
+  "aid": {
+   "text": "Wyoming pays up to $1,500 toward the burial or cremation of a person on POWER, SSI or Medicaid without enough estate, after other resources, plus up to $500 to carry a qualifying veteran to the veterans cemetery (W.S. 42-2-103(c)); cemetery costs are not included, and county commissioners cover others without means (W.S. 18-3-504(c)).",
+   "source": "W.S. 42-2-103(c); W.S. 18-3-504(c)",
+   "srcUrl": "https://wyoleg.gov/statutes/compress/title42.pdf",
+   "contact": "the Wyoming Department of Family Services",
+   "cremation": "Wyoming's Department of Family Services pays up to $1,500 for the cremation of a person on POWER, SSI or Medicaid (W.S. 42-2-103(c)).",
+   "burial": "Wyoming's $1,500 burial payment does not cover cemetery costs, though it adds up to $500 to transport a veteran to the veterans cemetery (W.S. 42-2-103(c)).",
+   "stepF": "Ask the Wyoming Department of Family Services about the $1,500 payment if the person was on POWER, SSI or Medicaid.",
+   "payF": "Wyoming's $1,500 payment does not cover cemetery costs, and it can add up to $500 to carry a qualifying veteran to the veterans cemetery (W.S. 42-2-103(c)).",
+   "stepC": "Ask Wyoming DFS to confirm the cremation payment before booking.",
+   "stepB": "Budget Wyoming cemetery costs separately; the state payment excludes them."
+  },
   "national": [
    {
     "name": "Cheyenne National Cemetery",
@@ -1890,6 +2699,8 @@
     "status": "Open",
     "phone": "307-235-6673"
    }
-  ]
+  ],
+  "hydrolysis": "Wyoming permits alkaline hydrolysis under the name “chemical disposition,” with its own facility rules (W.S. 33-16-502 and 33-16-530 to -536), though a Wyoming family should ask the provider whether a chemical-disposition facility is actually within reach.",
+  "plotCem": "Cheyenne National Cemetery"
  }
 }

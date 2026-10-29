@@ -14,9 +14,13 @@ const { sentencesFromFile } = require('./sentence-scan');
 const ROOT = path.join(__dirname, '..');
 const MIN_PAGES = Number(process.argv.find((a, i) => process.argv[i - 1] === '--min') || 5);
 const AS_JSON = process.argv.includes('--json');
-// Sitewide disclosure lines that are meant to be identical (Growth, 2026-10-22).
+// Sitewide disclosure lines that are meant to be identical (Growth, 2026-10-22;
+// round 4 merges the state-page table note and disclaimer box into one
+// labeled "Methodology note:" line).
 const ALLOW_REPEAT = new Set([
   'These figures are our estimates, not a survey of local providers.',
+  'Methodology note: These figures are our estimates, not a survey of local providers, and they are not a quote or professional advice.',
+  'See how we calculate them or read the full disclaimer.',
 ]);
 
 function sentencesFrom(file) {

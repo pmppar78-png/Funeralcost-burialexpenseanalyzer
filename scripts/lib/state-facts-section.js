@@ -10,6 +10,7 @@ const path = require('path');
 
 const FACTS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'state-facts.json'), 'utf8'));
 
+const CEM_NOTES = require('../../data/cemetery-notes.json');
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -27,7 +28,11 @@ function stateName(ctx) {
 function an(w) { return /^[AEIO]/.test(w) || (/^U/.test(w) && !/^U(?:tah|ni|s[aeiou]|r[aeiou])/i.test(w)) ? 'an' : 'a'; }
 function An(w) { return an(w) === 'an' ? 'An' : 'A'; }
 function factsFor(ctx) {
-  return FACTS[stateName(ctx)] || null;
+  const f = FACTS[stateName(ctx)] || null;
+  // Metro pages (e.g. Indianapolis, Memphis) carry their own written aid lines so they do
+  // not repeat the state page word for word (data/state-facts.json aid.metro).
+  const m = f && f.aid && f.aid.metro && ctx && f.aid.metro[ctx.slug];
+  return m ? Object.assign({}, f, { aid: Object.assign({}, f.aid, m) }) : f;
 }
 function nameIn(ctx) {
   return stateName(ctx) === 'District of Columbia' ? 'DC' : stateName(ctx);
@@ -90,28 +95,68 @@ function regulatorP(ctx, f) {
       .replace('are licensed by the', 'are registered with the').replace('is licensed, or', 'is registered, or')
       .replace('licenses the funeral homes', 'registers the funeral homes').replace('licensing office', 'registration office')
       .replace('licensing body', 'regulator').replace('to check a license', 'to check a registration').replace('a license check', 'a registration check');
-    t += ' Individual funeral directors, embalmers and cremationists have not needed a Colorado license so far; Senate Bill 24-173 (C.R.S. 12-135-501) requires one starting January 1, 2027, and practitioners without the new qualifications can apply for a provisional license before then.';
+    t += {
+      'funeral-costs-': ' Individual funeral directors, embalmers and cremationists have not needed a Colorado license so far; Senate Bill 24-173 (C.R.S. 12-135-501) requires one starting January 1, 2027, and practitioners without the new qualifications can apply for a provisional license before then.',
+      'cremation-costs-': ' The person running a Colorado cremation has not needed an individual license so far; under Senate Bill 24-173 (C.R.S. 12-135-501), cremationists must be licensed from January 1, 2027, or hold a provisional license applied for before that date.',
+      'burial-costs-': ' From January 1, 2027, Senate Bill 24-173 (C.R.S. 12-135-501) requires the funeral directors and embalmers who handle Colorado burials to hold an individual license, with a provisional license for those who apply before then without the new qualifications.'
+    }[ctx.kind];
   }
   return `<p>${t}</p>`;
 }
 
+const FCA = '<a href="https://funerals.org/your-rights/state-by-state-rights/the-9-states-that-restrict-caring-for-your-own-dead/" target="_blank" rel="noopener">Funeral Consumers Alliance</a>';
+const VA_NCA = '<a href="https://www.cem.va.gov/" target="_blank" rel="noopener">VA National Cemetery Administration</a>';
+const VA_SCHED = '<a href="https://www.va.gov/burials-memorials/schedule-a-burial/" target="_blank" rel="noopener">National Cemetery Scheduling Office</a>';
+const { tableFigures, money } = require('./state-data');
+
+/** Dollar figures from the page's own tables (falls back to the state row). */
+function figs(ctx) {
+  const t = ctx.html ? tableFigures(ctx.html) : {};
+  const get = (...keys) => { for (const k of keys) if (t[k]) return t[k]; return null; };
+  return {
+    f: get('traditional funeral with burial', 'funeral service (includes basic services and professional services)', 'traditional funeral') || ctx.f,
+    dc: get('direct cremation') || ctx.dc,
+    plot: get('cemetery plot', 'cemetery / burial plot') || ctx.b,
+    open: get('opening & closing grave'),
+    vault: get('burial vault / liner')
+  };
+}
+
+// Round 4: every paragraph below is written for one page type (funeral,
+// cremation or burial), so a state's three pages never share a sentence, and
+// each sentence carries the state's own name, statute, office or figure.
 function directorP(ctx, f) {
   const n = esc(nameIn(ctx));
-  const src = '<a href="https://funerals.org/your-rights/state-by-state-rights/the-9-states-that-restrict-caring-for-your-own-dead/" target="_blank" rel="noopener">Funeral Consumers Alliance</a>';
+  const k = ctx.kind;
+  const g = figs(ctx);
   if (f.fdRestricted) {
-    const [cite, steps] = f.fdRestricted;
-    return `<p>${pick(ctx, 'fd', [
-      `${n} is one of nine states where a licensed funeral director must be involved in some steps: ${esc(steps)} (${esc(cite)}, as summarized by ${src}). ${An(n)} ${n} family can still do the rest, such as washing and dressing the body or holding a service at home.`,
-      `Under ${esc(cite)}, ${n} requires a funeral director for ${esc(steps)}. ${src} lists ${n} among the nine states with this kind of rule; other parts of after-death care can stay with the family.`,
-      `Plan on paying a funeral director for at least part of the process in ${n}: state law (${esc(cite)}) reserves ${esc(steps)} for a licensee, according to ${src}.`
-    ])}</p>`;
+    const [cite0, steps0] = f.fdRestricted;
+    const cite = esc(cite0), steps = esc(steps0);
+    if (k === 'funeral-costs-') return `<p>${n} is one of nine states where a licensed funeral director must be involved in some steps: ${steps} (${cite}, as summarized by ${FCA}). ${An(n)} ${n} family can still do the rest of a funeral itself, such as washing and dressing the body or holding the service at home.</p>`;
+    if (k === 'cremation-costs-') return `<p>For a cremation in ${n}, state law (${cite}) reserves ${steps} for a licensed funeral director, according to the ${FCA}, so even the ${money(g.dc)} direct cremation in the table runs through a licensee.</p>`;
+    if (/^arranging a cremation$/.test(steps0)) return `<p>The ${n} funeral-director requirement that the ${FCA} lists (${cite}) covers arranging a cremation, not a burial; for a burial, ask the ${n} cemetery what it needs from the family before the date is set.</p>`;
+    return `<p>A burial in ${n} cannot be handled entirely by the family: ${cite} requires a licensed funeral director for ${steps}, as the ${FCA} summarizes it, while the ${n} cemetery itself opens and closes the grave.</p>`;
   }
-  if (f.cremationNote) return `<p>${esc(f.cremationNote)}</p>`;
-  return `<p>${pick(ctx, 'fd', [
-    `${src} does not list ${n} among the nine states that require a funeral director for parts of after-death care, so a family may handle much of the work itself. The ${n} death certificate and disposition permit still have to be filed.`,
-    `Hiring a funeral home is a choice, not a legal requirement, for most steps in ${n}; ${src} does not count it among the nine states with funeral-director rules. ${n} paperwork and permits still apply.`,
-    `${n} is not on the ${src} list of nine states that restrict families from caring for their own dead. You can buy only the services you need, but someone must still file the ${n} death certificate and get the permit.`
-  ])}</p>`;
+  if (f.cremationNote) {
+    if (k === 'funeral-costs-') return `<p>${esc(f.cremationNote)}</p>`;
+    if (k === 'cremation-costs-') return `<p>Every cremation in ${n} has to be arranged through a funeral establishment licensed by the ${esc(f.regulator.org)} (Ala. Code § 34-13-121(b)), so the ${money(g.dc)} direct cremation in the table is bought from a licensed establishment rather than from a crematory alone.</p>`;
+    return `<p>The ${n} rule that a licensed funeral establishment arrange the disposition applies to cremation (Ala. Code § 34-13-121(b)); ${n} does not make families hire a funeral director for every arrangement, so ask the cemetery what it needs for a burial.</p>`;
+  }
+  const v = {
+    'funeral-costs-': [
+      `The ${FCA} does not list ${n} among the nine states that require a funeral director for parts of after-death care, so ${an(n)} ${n} family may arrange much of a funeral itself. The ${n} death certificate and disposition permit still have to be filed.`,
+      `Hiring a funeral home is a choice, not a legal requirement, for most steps of a funeral in ${n}; the ${FCA} does not count ${n} among the nine states with funeral-director rules, and you can buy only the services you want.`
+    ],
+    'cremation-costs-': [
+      `${n} is not among the nine states the ${FCA} lists as requiring a funeral director, but no ${n} crematory will proceed without the death certificate, the cremation permit and the next of kin's signed authorization.`,
+      `Because ${n} is not on the ${FCA} list of nine states that restrict family-directed care, the family may deal with ${an(n)} ${n} crematory directly once the cremation permit has been issued.`
+    ],
+    'burial-costs-': [
+      `Because the ${FCA} does not count ${n} among the nine states that require a funeral director, ${an(n)} ${n} family may arrange a burial without one; the cemetery still sets its own rules for the grave, and the burial permit must be in hand.`,
+      `${n} does not require a funeral director for a burial, by the ${FCA}'s count of the nine states that do, so the family can work with ${an(n)} ${n} cemetery directly on the plot, the grave opening and the container it accepts.`
+    ]
+  }[k];
+  return `<p>${pick(ctx, 'fd', v)}</p>`;
 }
 
 function waitP(ctx, f) {
@@ -129,67 +174,136 @@ function waitP(ctx, f) {
 }
 
 function aidP(ctx, f) {
-  if (f.aid && ctx.kind === 'burial-costs-') {
-    const n = esc(nameIn(ctx));
-    const fp = ctx.kind.replace('burial', 'funeral') + ctx.slug + '.html';
-    return `<p>${esc(nameIn(ctx))} has a public program that can help pay for a burial when the family cannot (${esc(f.aid.source)}); ${/\$/.test(f.aid.text) ? 'the amounts and deadlines are' : 'how it works is explained'} on our <a href="${esc(fp)}#state-oversight">${esc(nameIn(ctx))} funeral cost page</a>. Ask about it before you buy ${an(n)} ${n} plot, since help may be limited or capped.</p>`;
-  }
-  if (f.aid) return `<p>${esc(f.aid.text)} (Source: ${esc(f.aid.source)}.)</p>`;
+  // Every jurisdiction now has an individually written, sourced aid entry in
+  // data/state-facts.json (text / cremation / burial, sources in the r4 README);
+  // there is no templated "county" fallback any more.
+  if (!f.aid) return '';
+  const k = ctx.kind;
+  const t = k === 'burial-costs-' ? (f.aid.burial || f.aid.text) : k === 'cremation-costs-' ? (f.aid.cremation || f.aid.text) : f.aid.text;
+  const src = f.aid.srcUrl ? `<a href="${esc(f.aid.srcUrl)}" target="_blank" rel="noopener">${esc(f.aid.source)}</a>` : esc(f.aid.source);
+  // The live pages for these jurisdictions already carry the Social Security $255 line
+  // after the aid sentence; it is kept (tied to this page's own table figure) so no page
+  // loses it. It is not added to states whose live page never had it.
+  if (!SSA_LIVE.has(f.code)) return `<p>${esc(t)} (Source: ${src}.)</p>`;
+  const g = figs(ctx);
   const n = esc(nameIn(ctx));
-  return `<p>${pick(ctx, 'aid', [
-    `We have not verified a statewide burial-assistance amount for ${n}. Ask the ${n} county social-services office whether it pays for indigent burial or cremation, and see our <a href="medicaid-funeral-assistance.html">guide to public funeral assistance</a>.`,
-    `${n} help with funeral costs, where it exists, is usually run by counties, and we could not confirm a statewide figure. Start with the ${n} county social-services office; our <a href="medicaid-funeral-assistance.html">public assistance guide</a> covers what to ask.`,
-    `No verified statewide burial benefit is listed here for ${n}. The county social-services or human-services office in ${n} is the place to ask, and our <a href="medicaid-funeral-assistance.html">assistance guide</a> explains the federal options.`
-  ])} ${pick(ctx, 'ssa', [`Social Security pays a one-time $255 to a qualifying surviving spouse or child in ${n}, as in every state.`, `Separately, Social Security pays ${n} survivors $255 once, if they are an eligible spouse or child.`, `The federal Social Security lump sum available in ${n} is $255, paid only to a qualifying spouse or child.`])}</p>`;
+  const ssa = pick(ctx, 'ssa', {
+    'funeral-costs-': [
+      `Social Security's one-time $255 death payment, paid only to a qualifying spouse or child, is small next to the ${money(g.f)} average ${n} funeral in the table.`,
+      `The $255 Social Security lump sum goes only to an eligible spouse or child and must be claimed within two years; it does not go to the ${n} funeral home.`
+    ],
+    'cremation-costs-': [
+      `The $255 Social Security death payment to a qualifying ${n} spouse or child would cover only part of the ${money(g.dc)} direct cremation estimate above.`,
+      `Social Security's $255 lump sum is paid only to an eligible ${n} spouse or child, and only if claimed within two years of the death.`
+    ],
+    'burial-costs-': [
+      `Social Security's $255 payment to a surviving spouse or child is well short of the ${money(g.plot)} ${n} plot estimate on this page.`,
+      `A surviving spouse or child may claim Social Security's one-time $255 death payment within two years; it is paid to them, not to the ${n} cemetery.`
+    ]
+  }[k]);
+  return `<p>${esc(t)} (Source: ${src}.) ${ssa}</p>`;
+}
+const SSA_LIVE = new Set(["AL","AK","AZ","AR","CO","DE","DC","FL","GA","HI","ID","IA","KS","KY","LA","ME","MD","MS","MO","MT","NE","NV","NH","NM","NC","ND","OK","OR","RI","SC","SD","TN","UT","VT","VA","WA","WV","WY"]);
+
+function plotCem(f) {
+  const all = f.national.concat(f.stateCems);
+  return all.find(c => c.name === f.plotCem) || all.find(c => c.status === 'Open');
 }
 
 function veteransP(ctx, f) {
   const n = esc(nameIn(ctx));
-  const fmt = c => `${esc(c.name)} (${esc(c.phone)}${c.status === 'Cremation Only' ? ', cremated remains only' : ''})`;
+  const fmt = c => `${esc(c.name)} (${c.tribal ? 'tribal, ' : ''}${esc(c.phone)}${c.status === 'Cremation Only' ? ', cremated remains only' : ''})`;
+  const tribal = f.stateCems.some(c => c.tribal);
+  const allTribal = f.stateCems.length > 0 && f.stateCems.every(c => c.tribal);
+  const kindLabel = allTribal ? 'tribal' : tribal ? 'state and tribal' : 'state-run';
   const nat = f.national.map(fmt);
   const st = f.stateCems.map(fmt);
   if (ctx.kind === 'cremation-costs-') {
-    const first = (f.national[0] || f.stateCems[0]);
+    // Lead with the default cemetery (never a statewide Barrancas), then the rest.
+    const lead = plotCem(f);
+    const opts = lead ? [lead].concat(f.national.concat(f.stateCems).filter(c => c !== lead)) : [];
     return `<p>${pick(ctx, 'vetc', [
       `Cremated remains of an eligible ${n} veteran can be placed in a VA national cemetery columbarium or in-ground site at no charge for the space.`,
       `${An(n)} ${n} veteran who is cremated keeps the same burial benefit: the niche or plot and the marker in a national cemetery cost nothing.`,
       `Choosing cremation does not give up ${an(n)} ${n} veteran's cemetery benefit; urns can be interred in national cemeteries free of charge.`
-    ])}${first ? ` One option in ${n} is ${fmt(first)}.` : ''} See <a href="https://www.cem.va.gov/" target="_blank" rel="noopener">cem.va.gov</a>.</p>`;
+    ])}${opts.length === 1 ? ` The one option in ${n} is ${fmt(opts[0])}.` : opts.length ? ` Options in ${n} include ${((a) => a.length > 2 ? a.slice(0, -1).join(', ') + ', and ' + a[a.length - 1] : a.join(' and '))(opts.slice(0, 3).map(fmt))}.` : ''} See <a href="https://www.cem.va.gov/" target="_blank" rel="noopener">cem.va.gov</a>.</p>`;
+  }
+  if (f.code === 'DC' && ctx.kind === 'funeral-costs-') {
+    return `<p>Veterans can be buried at no cost for the grave in a VA national cemetery, but the only VA site in the District, the Congressional Cemetery government lots, is closed, so the closest VA-run option is Quantico National Cemetery in Virginia. The Army runs Arlington, in Virginia, and the Soldiers&rsquo; and Airmen&rsquo;s Home National Cemetery, in the District; most veterans with honorable service qualify for above-ground inurnment at <a href="https://www.arlingtoncemetery.mil/Funerals/Scheduling-a-Funeral/Establishing-Eligibility" target="_blank" rel="noopener">Arlington National Cemetery</a>, but in-ground burial there has stricter rules. A DC funeral home books a VA grave through the ${VA_SCHED} (800-535-1117).</p>`;
+  }
+  if (f.code === 'DC' && ctx.kind === 'burial-costs-') {
+    return `<p>Veterans can be buried at no cost for the grave in a VA national cemetery; VA has no national cemetery with open burial space inside the District itself (its Congressional Cemetery government lots are closed). The <a href="https://www.cem.va.gov/" target="_blank" rel="noopener">VA cemetery locator</a> lists the nearest open ones, including Quantico National Cemetery in Virginia.</p>`;
   }
   if (!nat.length && !st.length) {
+    if (ctx.kind === 'funeral-costs-') return `<p>A funeral home can book a veteran's burial in a VA national cemetery through the ${VA_SCHED} (800-535-1117); families in ${n} usually use cemeteries in neighboring states, which the <a href="https://www.cem.va.gov/" target="_blank" rel="noopener">VA cemetery locator</a> lists.</p>`;
     return `<p>Veterans can be buried at no cost for the grave in a VA national cemetery; families in ${n} usually use cemeteries in neighboring states. The <a href="https://www.cem.va.gov/" target="_blank" rel="noopener">VA cemetery locator</a> lists them.</p>`;
+  }
+  const alt = f.stateCems.filter(c => c.phoneSource).map(c => ctx.kind === 'funeral-costs-' ? ` We took the ${esc(c.name)} phone number from the <a href="${esc(c.phoneSource)}" target="_blank" rel="noopener">tribe's office directory</a>.` : ` The ${esc(c.name)} number comes from the <a href="${esc(c.phoneSource)}" target="_blank" rel="noopener">tribe's office directory</a>.`).join('');
+  if (ctx.kind === 'funeral-costs-') {
+    const one = fmt;
+    const join = a => a.length > 1 ? a.slice(0, -1).join(', ') + (a.length > 2 ? ',' : '') + ' or ' + a[a.length - 1] : a[0];
+    const out = [];
+    // A metro page names its city so it does not repeat the state page's sentence.
+    const who = ctx.place && ctx.place.includes(', ') && !/^Washington, DC$/.test(ctx.place) ? esc(ctx.place.split(', ')[0]) : n;
+    if (f.national.length) out.push(`${An(who)} ${who} funeral home can reserve a veteran's grave at ${join(f.national.map(one))} through the VA's ${VA_SCHED} (800-535-1117).`);
+    if (f.stateCems.length) out.push(`${f.national.length ? `The ${kindLabel}` : `${n}'s ${kindLabel}`} ${f.stateCems.length > 1 ? 'veterans cemeteries' : 'veterans cemetery'}, ${join(f.stateCems.map(one))}, ${f.stateCems.length > 1 ? 'take' : 'takes'} requests directly${f.national.length ? '' : `, and the VA supplies the veteran's headstone or marker there at no charge`}.`);
+    return `<p>${out.join(' ')}${alt}</p>`;
   }
   const parts = [];
   if (nat.length) parts.push(`VA national cemeteries accepting burials: ${nat.join('; ')}`);
-  if (st.length) parts.push(`state veterans cemeteries: ${st.join('; ')}`);
+  if (st.length) parts.push(`${allTribal ? 'tribal' : tribal ? 'state and tribal' : 'state'} ${st.length > 1 ? 'veterans cemeteries' : 'veterans cemetery'}: ${st.join('; ')}`);
   const lead = pick(ctx, 'vet', [
     `Eligible ${n} veterans get a grave, opening and closing, a liner and a headstone at no cost in a national cemetery.`,
     `${An(n)} ${n} veteran's grave in a national cemetery costs the family nothing for the plot, opening and closing, or marker.`,
     `For ${n} veterans, the plot and marker in a national cemetery are free, which can remove thousands from a burial bill.`
   ]);
-  const alt = f.stateCems.filter(c => c.phoneSource).map(c => ` The ${esc(c.name)} number comes from the <a href="${esc(c.phoneSource)}" target="_blank" rel="noopener">tribe's office directory</a>.`).join('');
-  return `<p>${lead} In ${n}, ${parts.join('; ')}. Source: <a href="https://www.cem.va.gov/" target="_blank" rel="noopener">VA National Cemetery Administration</a>.${alt}</p>`;
+  return `<p>${lead} In ${n}, ${parts.join('; ')} (source: ${VA_NCA}).${alt}</p>`;
 }
 
 function nextSteps(ctx, f) {
   const n = esc(nameIn(ctx));
   const phone = f.regulator ? esc(f.regulator.phone) : '';
-  const cem = f.national[0] || f.stateCems[0];
+  const cem = plotCem(f);
+  const k = ctx.kind;
+  const has = t => (ctx.html || '').includes(esc(t));
   const items = [];
-  items.push(pick(ctx, 'ns1', [
-    `Ask every ${n} provider for its General Price List; the FTC Funeral Rule says they must give it to you.`,
-    `Get written price lists from at least two ${n} providers before you agree to anything.`,
-    `Request itemized prices from ${n} providers by phone or in person; under the FTC Funeral Rule you only pay for what you choose.`,
-    `Compare at least two ${n} providers line by line, using their printed price lists.`
-  ]));
-  if (ctx.kind === 'cremation-costs-') items.push(f.waitHours ? pick(ctx, 'ns2', [`Allow at least ${f.waitHours} hours after death, plus time for the permit, before the cremation date.`, `Do not expect a cremation date sooner than ${f.waitHours} hours after death in ${n}.`, `Build the ${f.waitHours}-hour legal wait into any travel or memorial plans.`]) : pick(ctx, 'ns2', [`Ask the provider how long the ${n} cremation permit usually takes where you live.`, `Ask which office signs cremation permits in your ${n} county and how long it takes.`, `Confirm who signs the ${n} permit and when, so the memorial date is realistic.`]));
-  if (ctx.kind === 'burial-costs-') items.push(pick(ctx, 'ns2', [`Price the ${n} cemetery separately: plot, opening and closing, vault or liner, and marker are often sold apart from the funeral home.`, `Ask the ${n} cemetery for its own price sheet, since grave opening and vault rules vary by cemetery.`, `Check whether the ${n} cemetery requires an outer burial container before you shop for one.`, `Ask whether the ${n} cemetery lets you buy the headstone elsewhere.`]));
-  if (ctx.kind === 'funeral-costs-') items.push(pick(ctx, 'ns2', [`Decide early whether you want embalming and a viewing in ${n}; skipping them is often the largest saving.`, `Ask the ${n} funeral home whether embalming is actually needed for your plans.`, `Consider ${an(n)} ${n} memorial service after cremation or burial, which avoids embalming and viewing fees.`]));
-  if (f.aid) items.push(pick(ctx, 'ns3', [`If money is short, contact ${esc(f.aid.contact)} before signing a contract.`, `Check eligibility with ${esc(f.aid.contact)} first; some programs refuse claims after a contract is signed.`, `Contact ${esc(f.aid.contact)} early, because deadlines and limits can apply.`]));
-  else items.push(pick(ctx, 'ns3', [`If money is short, call the ${n} county social-services office before signing a contract.`, `Ask your ${n} county human-services office about indigent burial help before you commit.`, `Ask about ${n} county help before any contract is signed; it may not be available afterward.`]));
-  if (cem && ctx.kind !== 'cremation-costs-') items.push(pick(ctx, 'ns4', [`For a veteran, ask ${esc(cem.name)} about eligibility before buying a private plot.`, `Veterans' families can schedule through the VA's National Cemetery Scheduling Office; ${esc(cem.name)} is listed above.`, `If the person served, ask ${esc(cem.name)} what paperwork it needs, usually starting with the DD214 discharge record.`]));
-  if (phone) items.push(pick(ctx, 'ns5', [`Report problems with a provider to the licensing board at ${phone}.`, `Keep the board's number, ${phone}, in case a provider will not honor its price list.`, `A complaint call to ${phone} is free if a provider misleads you.`]));
-  return `<h3>${pick(ctx, 'nsh', ['Next steps', 'What to do next', `Next steps in ${n}`])}</h3>\n<ol>\n${items.map(i => `<li>${i}</li>`).join('\n')}\n</ol>`;
+  if (k === 'funeral-costs-') {
+    items.push(pick(ctx, 'ns1', [
+      `Ask every ${n} funeral home for its General Price List; the FTC Funeral Rule says it must give you one when you ask in person.`,
+      `Get written price lists from at least two ${n} funeral homes before you agree to anything.`,
+      `Request itemized prices from ${n} funeral homes by phone or in person; under the FTC Funeral Rule you only pay for what you choose.`,
+      `Compare at least two ${n} funeral homes line by line, using their printed price lists.`
+    ]));
+    items.push(pick(ctx, 'ns2', [`Decide early whether you want embalming and a viewing in ${n}; skipping them is often the largest saving.`, `Ask the ${n} funeral home whether embalming is actually needed for your plans.`, `Consider ${an(n)} ${n} memorial service after cremation or burial, which avoids embalming and viewing fees.`]));
+    // Individually written per-state step (data/state-facts.json aid.stepF); skipped when
+    // the payment-help list above already carries it.
+    if (f.aid && f.aid.stepF) items.push(esc(f.aid.stepF));
+    if (cem) items.push(pick(ctx, 'ns4', [`For a veteran, price ${esc(cem.name)} against a private ${n} plot before choosing.`, `If the person served, have the funeral home ask about ${esc(cem.name)} before you buy a private plot.`]));
+    if (phone) items.push(pick(ctx, 'ns5', [`Report a funeral home that hides or ignores its price list to the board at ${phone}.`, `Keep the board's number, ${phone}, in case a funeral home will not honor its price list.`]));
+  } else if (k === 'cremation-costs-') {
+    items.push(pick(ctx, 'ns1', [
+      `Get written cremation prices from at least two ${n} providers and compare what each direct cremation price includes.`,
+      `Ask ${n} cremation providers to itemize transport, the container and the crematory fee before you choose one.`,
+      `Ask whether ${an(n)} ${n} cremation price includes the death certificates and the permit fee, which some providers bill separately.`
+    ]));
+    items.push(f.waitHours
+      ? pick(ctx, 'ns2', [`Allow at least ${f.waitHours} hours after death in ${n}, plus time for the permit, before the cremation date.`, `Build the ${f.waitHours}-hour wait set by ${esc(f.waitCite)} into any ${n} travel or memorial plans.`])
+      : pick(ctx, 'ns2', [`Ask which office signs ${n} cremation permits where the death occurred, and how long it takes.`, `Confirm who signs the ${n} cremation permit and when, so the memorial date is realistic.`]));
+    if (f.aid && f.aid.stepC) items.push(esc(f.aid.stepC));
+    if (phone) items.push(pick(ctx, 'ns5', [`A cremation provider that misstates its prices can be reported at ${phone}.`, `Note the board's number, ${phone}, before you pay a cremation provider.`]));
+  } else {
+    items.push(pick(ctx, 'ns1', [
+      `Get the funeral home's General Price List and the ${n} cemetery's own price sheet before you agree to a burial.`,
+      `Compare at least two ${n} cemeteries as well as two funeral homes, since the plot, grave opening and marker are priced separately.`,
+      `Price the ${n} cemetery separately: plot, opening and closing, vault or liner, and marker are often sold apart from the funeral home.`
+    ]));
+    items.push(pick(ctx, 'ns2', [`Ask the ${n} cemetery whether it requires an outer burial container before you shop for one.`, `Ask whether the ${n} cemetery lets you buy the headstone elsewhere.`, `Ask the ${n} cemetery for its rules on grave opening times, vaults and markers.`]));
+    if (f.aid && f.aid.stepB) items.push(esc(f.aid.stepB));
+    if (cem) items.push(pick(ctx, 'ns4', [`For a veteran, ask ${esc(cem.name)} about eligibility before buying a private plot.`, `If the person served, ask ${esc(cem.name)} what paperwork it needs, usually starting with the DD214 discharge record.`]));
+    if (phone) items.push(pick(ctx, 'ns5', [`Report a funeral home that misprices a burial to the board at ${phone}.`, `A complaint call to ${phone} is free if a funeral home misleads you about burial costs.`]));
+  }
+  const head = { 'funeral-costs-': `Next steps for a funeral in ${n}`, 'cremation-costs-': `Next steps for a cremation in ${n}`, 'burial-costs-': `Next steps for a burial in ${n}` }[k];
+  return `<h3>${head}</h3>\n<ol>\n${items.map(i => `<li>${i}</li>`).join('\n')}\n</ol>`;
 }
 
 function stateFactsSectionHtml(ctx) {
@@ -197,11 +311,11 @@ function stateFactsSectionHtml(ctx) {
   const place = esc(ctx.place);
   const title = { 'funeral-costs-': `Funeral rules and help in ${place}`, 'cremation-costs-': `Cremation rules and help in ${place}`, 'burial-costs-': `Burial rules and help in ${place}` }[ctx.kind];
   if (!f) return '';
-  let body = [regulatorP(ctx, f), directorP(ctx, f), waitP(ctx, f), aidP(ctx, f), veteransP(ctx, f), nextSteps(ctx, f)].filter(Boolean).join('\n');
-  if (f.code === 'DC') {
-    body = body.replace(/DC help with funeral costs, where it exists, is usually run by counties, and/g, 'DC has no counties, and')
-      .replace(/ county (social-services|human-services)/g, ' $1').replace(/DC county /g, 'DC ').replace(/statewide/g, 'District-wide');
-  }
+  // Page-specific cemetery note (data/cemetery-notes.json; VA listings), added inside the veterans paragraph.
+  const note = CEM_NOTES[ctx.kind + ctx.slug];
+  const vet = veteransP(ctx, f);
+  const vetP = note && vet ? vet.replace(/<\/p>$/, ` ${esc(note)}</p>`) : vet;
+  let body = [regulatorP(ctx, f), directorP(ctx, f), waitP(ctx, f), aidP(ctx, f), vetP, nextSteps(ctx, f)].filter(Boolean).join('\n');
   return `\n<h2 id="state-oversight">${title}</h2>\n${body}\n`;
 }
 
