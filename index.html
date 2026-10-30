@@ -2114,7 +2114,18 @@ img {
     .home-video-play:hover .home-video-icon path:first-child, .home-video-play:focus-visible .home-video-icon path:first-child { fill: #f00; fill-opacity: 1; }
     .home-video-play:focus-visible { outline: 3px solid var(--gold-400); outline-offset: -3px; }
     @media (min-width: 720px) { .home-video { grid-template-columns: minmax(0, 1fr) 240px; } .home-video-frame { max-width: 240px; } }
+    /* Mobile speed: until a visitor first clicks, taps, presses a key or arrives on a #link, the browser skips layout and paint for the footer and for home sections from the AI guide onward until they scroll near. Every section above that renders in full at load, with or without JavaScript. The script below switches this off (class cv-off) before any jump link moves the page, so every #anchor lands exactly where it would without it. */
+    html:not(.cv-off) .main > section:nth-of-type(n+12), html:not(.cv-off) .site-footer { content-visibility: auto; contain-intrinsic-size: auto 900px; }
   </style>
+  <script>
+  (function(){
+    var d=document.documentElement;
+    function off(){ d.classList.add('cv-off'); }
+    if (location.hash) off();
+    addEventListener('hashchange', off);
+    ['click','keydown','touchstart'].forEach(function(t){ document.addEventListener(t, off, {capture:true, once:true, passive:true}); });
+  })();
+  </script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
