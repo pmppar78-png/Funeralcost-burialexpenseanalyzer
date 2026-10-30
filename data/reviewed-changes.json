@@ -19,7 +19,7 @@
   },
   "burial-costs-arkansas.html": {
    "date": "2026-10-30",
-   "text": "Arkansas burial guide rewritten, with the registered-cemetery rule explained."
+   "text": "The unsourced 30-50% figure for church and family cemetery plots is gone; the tip now says a grave there usually runs cheaper and that a call to the church office is often enough to get a price."
   },
   "burial-costs-by-state.html": {
    "date": "2026-10-29",
@@ -42,12 +42,12 @@
    "text": "Delaware burial page tightened around the Cemetery Board, vault rules and green-burial wording, with headings and the method note rewritten."
   },
   "burial-costs-florida.html": {
-   "date": "2026-10-29",
-   "text": "Rewrote the page by hand, including the section “Who regulates a Florida burial, and where to get help”."
+   "date": "2026-10-30",
+   "text": "We had said a church graveyard or family-run cemetery in rural north and central Florida quotes plots 30-50% below a memorial park. No source backed that number, so the tip now just says the quote will often be noticeably lower."
   },
   "burial-costs-georgia.html": {
-   "date": "2026-10-29",
-   "text": "Rewrote the page by hand, including the section “Georgia Burial Prices, Charge by Charge”."
+   "date": "2026-10-30",
+   "text": "Removed a 30-50% savings figure for rural Georgia church and family graves that had no source behind it."
   },
   "burial-costs-hawaii.html": {
    "date": "2026-10-30",
@@ -688,6 +688,10 @@
   "casket-buying-guide.html": {
    "date": "2026-10-30",
    "text": "Unsourced 30-50%, 40-60% and 200-400% casket figures removed, and the $800 and $10,000 price ends dropped; the $2,500 figure is now cited as the NFDA 2023 median metal casket, with a link to the study."
+  },
+  "best-online-casket-retailers.html": {
+   "date": "2026-10-30",
+   "text": "The unsourced claim that most families save 30 to 70 percent ($1,000 to $3,000) by buying a casket online is gone from the list and the FAQ; both now tell you to compare the funeral home's casket price list with the seller's total including shipping."
   }
  }
 }

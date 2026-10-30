@@ -24,7 +24,7 @@ const money = (n) => '$' + Math.round(n).toLocaleString('en-US');
 const num = (s) => Number(String(s).replace(/[$,]/g, ''));
 
 function decode(s) {
-  return s.replace(/&nbsp;/g, ' ').replace(/&mdash;/g, '\u2014').replace(/&ndash;/g, '\u2013').replace(/&rsquo;/g, '\u2019').replace(/&lsquo;/g, '\u2018')
+  return s.replace(/&nbsp;/g, ' ').replace(/&mdash;/g, '\u2014').replace(/&ndash;/g, '\u2013').replace(/&sect;/g, '\u00a7').replace(/&rsquo;/g, '\u2019').replace(/&lsquo;/g, '\u2018')
     .replace(/&ldquo;/g, '\u201c').replace(/&rdquo;/g, '\u201d').replace(/&middot;/g, '\u00b7').replace(/&rsaquo;/g, '\u203a').replace(/&hellip;/g, '\u2026')
     .replace(/&#(\d+);/g, (m, d) => String.fromCodePoint(+d)).replace(/&#x([0-9a-f]+);/gi, (m, d) => String.fromCodePoint(parseInt(d, 16)))
     .replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
