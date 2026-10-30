@@ -1,0 +1,13 @@
+{
+ "_note": "Page-specific edits the automatic rule misses (under 20 words or below its similarity threshold). Applied only when later than the computed date, so an override can never move a date earlier.",
+ "dates": {
+  "urn-buying-guide.html": {
+   "date": "2026-10-22",
+   "why": "8019be4 rewrote the at-home transfer instructions; af58f7a changed the retailer list"
+  },
+  "funeral-cost-breakdown.html": {
+   "date": "2026-10-24",
+   "why": "e2137ec changed the direct-cremation median to $2,645"
+  }
+ }
+}
