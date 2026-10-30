@@ -425,7 +425,6 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
   <meta name="twitter:image" content="${BASE}/og-default.png" />
   <link rel="canonical" href="${BASE}/${filename}" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"${esc(title)}","description":"${esc(desc)}","datePublished":"2026-01-15","dateModified":"${LASTMOD}","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"${BASE}/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"${BASE}/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"${BASE}/${filename}"}}
