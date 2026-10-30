@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="244" viewBox="0 0 680 244" role="img" aria-labelledby="t d">
-<title id="t">Indiana Funeral Cost Averages (2026)</title>
-<desc id="d">Horizontal bar chart of Indiana Funeral Cost Averages (2026). Traditional funeral with burial $6,900; Funeral with cremation $5,600; Direct cremation $1,600; Cemetery / burial plot $3,200; Embalming $690; Casket $2,070.</desc>
+<title id="t">Indiana estimates for 2026</title>
+<desc id="d">Horizontal bar chart of Indiana estimates for 2026. Traditional funeral with burial $6,900; Funeral with cremation $5,600; Direct cremation $1,600; Cemetery / burial plot $3,200; Embalming $690; Casket $2,070.</desc>
 <rect width="680" height="244" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
-<text x="16" y="28" font-size="16" font-weight="700">Indiana Funeral Cost Averages (2026)</text>
+<text x="16" y="28" font-size="16" font-weight="700">Indiana estimates for 2026</text>
 <line x1="230" y1="48" x2="230" y2="232" stroke="#bbbbbb"/>
 <text x="222" y="67" text-anchor="end">Traditional funeral with burial</text><rect x="230" y="53" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$6,900</text>
 <text x="222" y="97" text-anchor="end">Funeral with cremation</text><rect x="230" y="83" width="255" height="20" rx="3" fill="#8a6d3b"/><text x="491" y="97">$5,600</text>
