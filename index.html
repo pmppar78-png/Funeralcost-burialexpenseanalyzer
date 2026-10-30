@@ -3251,7 +3251,22 @@ a:hover {
     </div>
   </footer>
 
-  <script src="calculator.js" defer></script>
+  <script>
+  /* Lazy-start calculator.js (estimator, mobile menu, dropdowns): it loads when the
+     calculator nears the viewport, on the first tap, key or scroll, or once the page
+     has loaded and the browser is idle, whichever comes first. */
+  (function(){
+    var started=false;
+    function start(){ if(started) return; started=true; var s=document.createElement('script'); s.src='calculator.js'; document.body.appendChild(s); }
+    var calc=document.getElementById('calculator');
+    if(calc && 'IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){ for(var i=0;i<es.length;i++){ if(es[i].isIntersecting){ io.disconnect(); start(); return; } } },{rootMargin:'400px 0px'});
+      io.observe(calc);
+    }
+    ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){ window.addEventListener(ev,start,{once:true,passive:true}); });
+    window.addEventListener('load',function(){ ('requestIdleCallback' in window) ? requestIdleCallback(start,{timeout:2000}) : setTimeout(start,1500); });
+  })();
+  </script>
 <script>
 (function(){
   if(typeof gtag!=='function')return;
