@@ -342,6 +342,29 @@ a:hover {
 .card:hover {
   box-shadow: var(--shadow-md);
 }
+.checklist {
+  list-style: none;
+  padding-left: 0;
+  margin: var(--space-md) 0 0;
+}
+.checklist li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  margin-top: 0.5rem;
+  line-height: 1.8;
+}
+.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.6rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--gold-400);
+}
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -615,6 +638,9 @@ a:hover {
   h1, h2, h3 {
     color: #000;
     page-break-after: avoid;
+  }
+  .checklist li::before {
+    background: #000;
   }
   a[href]::after {
     content: " (" attr(href) ")";
@@ -1033,7 +1059,7 @@ a:hover {
         "name": "Is cremation cheaper than burial in New Hampshire?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "In New Hampshire, direct cremation at $2,100 costs about $6,700 less than the $8,800 traditional funeral, and roughly $11,100 less once about $4,400 in cemetery costs is added."
+          "text": "Yes, by a wide margin. Direct cremation at about $2,100 is roughly $6,700 below the $8,800 traditional New Hampshire funeral, and the gap grows to about $11,100 once a $4,400 plot and its cemetery fees are counted. A memorial service can still be held after cremation."
         }
       },
       {
@@ -1081,7 +1107,7 @@ a:hover {
         "name": "How can I find affordable funeral homes in New Hampshire?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Call several New Hampshire funeral homes and ask for prices by phone, which the FTC Funeral Rule requires them to give. Buying the casket or urn elsewhere is allowed under the FTC Funeral Rule, and the New Hampshire home cannot charge a fee for it."
+          "text": "Phone several New Hampshire homes and ask for their prices; the FTC Funeral Rule requires them to answer by phone. If the person received public assistance, also call the town welfare officer, since RSA 165:3 may cover a basic burial or cremation. You may supply your own casket or urn without paying a handling fee."
         }
       }
     ]
@@ -1144,8 +1170,8 @@ a:hover {
       <div class="article-meta">
         <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="2026-10-29">October 29, 2026</time></span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Last reviewed:</span> <span class="article-meta-value"><time datetime="2026-10-29">October 29, 2026</time></span></span>
-        <span class="article-meta-item article-meta-change"><span class="article-meta-label">What changed:</span> <span class="article-meta-value">New Hampshire death certificates: $15, then $10 (new section)</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last reviewed:</span> <span class="article-meta-value"><time datetime="2026-10-30">October 30, 2026</time></span></span>
+        <span class="article-meta-item article-meta-change"><span class="article-meta-label">What changed:</span> <span class="article-meta-value">New Hampshire rules section rewritten around the OPLC board, town welfare burials under RSA 165:3, the two 48-hour rules and the state veterans cemetery.</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, <a href="https://www.ftc.gov/funerals" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">Northeast</span></span>
       </div>
@@ -1244,8 +1270,8 @@ a:hover {
       <h2 id="detailed-guides">More New Hampshire Cost Guides</h2>
       <p>For deeper analysis on specific disposition types in New Hampshire, see our dedicated guides:</p>
       <div class="comparison-grid">
-        <div class="comparison-card"><h3><a href="cremation-costs-new-hampshire.html">Cremation Costs in New Hampshire</a></h3><p>Complete guide to cremation pricing in New Hampshire including direct cremation from $2,100, cremation with service from $6,800, urn options, scattering regulations, and memorial alternatives. The cremation rate in New Hampshire is 72%.</p><p><a href="cremation-costs-new-hampshire.html"><strong>See New Hampshire cremation prices &rarr;</strong></a></p></div>
-        <div class="comparison-card"><h3><a href="burial-costs-new-hampshire.html">Burial Costs in New Hampshire</a></h3><p>Detailed breakdown of burial expenses in New Hampshire including cemetery plots from $4,400, caskets, vaults, headstones, and opening/closing fees. Total burial costs in New Hampshire range from $20,300 to $24,800.</p><p><a href="burial-costs-new-hampshire.html"><strong>See New Hampshire burial prices &rarr;</strong></a></p></div>
+        <div class="comparison-card"><h3><a href="cremation-costs-new-hampshire.html">Cremation Costs in New Hampshire</a></h3><p>The New Hampshire cremation page sets direct cremation from $2,100 against a $6,800 cremation with service, explains the 48-hour wait under RSA 325-A:18, and covers urns, scattering and memorial ideas. New Hampshire's cremation rate is 72%.</p><p><a href="cremation-costs-new-hampshire.html"><strong>See New Hampshire cremation prices &rarr;</strong></a></p></div>
+        <div class="comparison-card"><h3><a href="burial-costs-new-hampshire.html">Burial Costs in New Hampshire</a></h3><p>For burial, the New Hampshire page lists the cemetery charges that come on top of the funeral home's bill: plots from $4,400, opening and closing, vaults and headstones, plus caskets. A New Hampshire burial totals $20,300 to $24,800 on our estimates.</p><p><a href="burial-costs-new-hampshire.html"><strong>See New Hampshire burial prices &rarr;</strong></a></p></div>
       </div>
 
       <h2 id="what-to-do">Planning a Funeral in New Hampshire: Where to Start</h2>
@@ -1266,29 +1292,29 @@ a:hover {
 <li><strong>Card orders:</strong> VitalChek and EB2Gov add their own processing and shipping fees on top of the $15.</li>
 </ul>
 
-<h2 id="state-oversight">Funeral rules and help in New Hampshire</h2>
-<p>The <a href="https://www.oplc.nh.gov/board-registration-funeral-directors-and-embalmers" target="_blank" rel="noopener">New Hampshire Office of Professional Licensure and Certification</a> licenses funeral directors and establishments in New Hampshire; call 603-271-2152 to check a license or file a complaint.</p>
-<p>The <a href="https://funerals.org/your-rights/state-by-state-rights/the-9-states-that-restrict-caring-for-your-own-dead/" target="_blank" rel="noopener">Funeral Consumers Alliance</a> does not list New Hampshire among the nine states that require a funeral director for parts of after-death care, so a New Hampshire family may arrange much of a funeral itself. The New Hampshire death certificate and disposition permit still have to be filed.</p>
-<p>For families comparing a funeral with cremation, note that New Hampshire requires a 48-hour wait before cremation (RSA 325-A:18).</p>
-<p>New Hampshire funeral help is handled by towns and cities: when a person receiving assistance dies, the local overseers of public welfare must provide a decent burial or cremation at the town's or city's expense (RSA 165:3), and the town may recover the cost from the estate or liable relatives. (Source: <a href="https://gc.nh.gov/rsa/html/XII/165/165-3.htm" target="_blank" rel="noopener">RSA 165:3</a>.) The $255 Social Security lump sum goes only to an eligible spouse or child and must be claimed within two years; it does not go to the New Hampshire funeral home.</p>
-<p>New Hampshire's state-run veterans cemetery, New Hampshire State Veterans Cemetery (603-796-2026), takes requests directly, and the VA supplies the veteran's headstone or marker there at no charge.</p>
-<h3>Next steps for a funeral in New Hampshire</h3>
+<h2 id="state-oversight">New Hampshire: the licensing office, town welfare burials and the state veterans cemetery</h2>
+<p>New Hampshire does not run a stand-alone funeral board office. Funeral directors, embalmers and funeral establishments are registered through the <a href="https://www.oplc.nh.gov/board-registration-funeral-directors-and-embalmers" target="_blank" rel="noopener">New Hampshire Office of Professional Licensure and Certification</a>, which staffs the Board of Registration of Funeral Directors and Embalmers. Its line, 603-271-2152, is the place to confirm that a home's license is current or to lodge a complaint about a price list that was refused or a charge you never agreed to.</p>
+<p>Families here have more room to act on their own than in some states. New Hampshire is absent from the <a href="https://funerals.org/your-rights/state-by-state-rights/the-9-states-that-restrict-caring-for-your-own-dead/" target="_blank" rel="noopener">Funeral Consumers Alliance list of nine states</a> that require a funeral director for parts of after-death care, so relatives may handle much of the work themselves. The paperwork does not go away: someone still has to file the death certificate and obtain the disposition permit before burial or cremation.</p>
+<p>Two time limits shape the schedule. Cremation cannot take place until 48 hours after death (RSA 325-A:18), which is worth knowing if relatives are travelling in for a short service. Separately, RSA 325:40-b says that once a funeral home has held a body for 48 hours without disposition, it must be embalmed, refrigerated below 40°F or sealed, so a refrigerated hold keeps embalming optional.</p>
+<p>Public help comes from the municipality rather than a county or the state. When someone who was receiving assistance dies, the town or city overseers of public welfare must pay for a decent burial or cremation under <a href="https://gc.nh.gov/rsa/html/XII/165/165-3.htm" target="_blank" rel="noopener">RSA 165:3</a>. The town can later try to recover that cost from the estate or from relatives who are legally liable, so the family should talk to the local welfare officer before it signs anything with a funeral home. Social Security adds only a $255 lump sum, and that goes to an eligible spouse or child who claims it within two years, not to the funeral home.</p>
+<p>For veterans, the New Hampshire State Veterans Cemetery (603-796-2026) handles its own burial requests, and the VA provides the headstone or marker there without charge. With a private plot estimated at about $4,400 on this page, eligibility for the state cemetery can change the total more than any other single choice.</p>
+<h3>A short checklist for New Hampshire families</h3>
 <ol>
-<li>Request itemized prices from New Hampshire funeral homes by phone or in person; under the FTC Funeral Rule you only pay for what you choose.</li>
-<li>Consider a New Hampshire memorial service after cremation or burial, which avoids embalming and viewing fees.</li>
-<li>Call the town or city welfare officer in New Hampshire before signing with a funeral home.</li>
-<li>If the person served, have the funeral home ask about New Hampshire State Veterans Cemetery before you buy a private plot.</li>
-<li>Report a funeral home that hides or ignores its price list to the board at 603-271-2152.</li>
+<li>If the person was on public assistance, phone the town or city welfare officer first; RSA 165:3 help depends on contact before arrangements are fixed.</li>
+<li>Ask each funeral home for its General Price List and compare the direct cremation line against the $2,100 estimate here.</li>
+<li>Plan around the 48-hour cremation wait, and ask whether refrigeration is included so embalming stays your decision.</li>
+<li>For a veteran, call the state veterans cemetery before buying a private grave.</li>
+<li>Take any refusal to show prices to the OPLC at 603-271-2152.</li>
 </ol>
 <h2 id="faq">Frequently Asked Questions</h2>
       <details class="faq-item"><summary>What is the average price of a funeral in New Hampshire right now?</summary><div class="faq-answer"><p data-state-fact="1">Current averages in New Hampshire come in at $8,800 for a traditional funeral, $6,800 for cremation with a service, and from $2,100 for direct cremation, with the traditional figure sitting near the $8,300 US median. Cemetery and burial fees add roughly $4,400 when a New Hampshire family chooses burial.</p></div></details>
-      <details class="faq-item"><summary>Is cremation cheaper than burial in New Hampshire?</summary><div class="faq-answer"><p data-state-fact="1">In New Hampshire, direct cremation at $2,100 costs about $6,700 less than the $8,800 traditional funeral, and roughly $11,100 less once about $4,400 in cemetery costs is added.</p></div></details>
+      <details class="faq-item"><summary>Is cremation cheaper than burial in New Hampshire?</summary><div class="faq-answer"><p>Yes, by a wide margin. Direct cremation at about $2,100 is roughly $6,700 below the $8,800 traditional New Hampshire funeral, and the gap grows to about $11,100 once a $4,400 plot and its cemetery fees are counted. A memorial service can still be held after cremation.</p></div></details>
       <details class="faq-item"><summary>What rights do New Hampshire families have when arranging a funeral?</summary><div class="faq-answer"><p>In New Hampshire, as everywhere in the US, the FTC Funeral Rule requires an itemized General Price List, phone price quotes, and no fee for using a casket bought elsewhere. New Hampshire is not among the nine states the Funeral Consumers Alliance lists as requiring families to hire a funeral director. Complaints about a New Hampshire funeral home go to the New Hampshire Office of Professional Licensure and Certification (603-271-2152).</p></div></details>
       <details class="faq-item"><summary>How do I keep funeral costs down in New Hampshire?</summary><div class="faq-answer"><p data-state-fact="1">Direct cremation runs about $2,100 in New Hampshire, and municipal, Catholic and Jewish cemeteries often cost at least $1,000 less than private memorial parks. A death between December and March can bring a frozen-ground charge, so ask for it in writing. If you buy ahead, New Hampshire requires any prearranged contract funded through a trust, insurance policy or annuity to be in writing and to list the seller's name, address and phone number and the purchaser's name and address, plus the beneficiary's if that is someone else (<a href="https://gc.nh.gov/rsa/html/XXX/325/325-mrg.htm" target="_blank" rel="nofollow noopener">RSA 325:46-a</a>). Comparing three General Price Lists still saves the most.</p></div></details>
       <details class="faq-item"><summary>Does New Hampshire require embalming?</summary><div class="faq-answer"><p data-state-fact="1">No. RSA 325:40-b requires that if disposition has not happened within 48 hours after the funeral home takes custody, the body be embalmed, kept below 40°F, or sealed in a leak-proof container. With refrigeration, embalming remains your choice.</p><p data-state-fact="1">New Hampshire funeral homes are licensed through the Office of Professional Licensure and Certification (603-271-2152), which is also where to report a charge for embalming you did not approve; this page estimates that charge at about $880 in New Hampshire.</p></div></details>
       <details class="faq-item"><summary>Is New Hampshire cheaper or more expensive than the US average for funerals?</summary><div class="faq-answer"><p>Compare the New Hampshire figures in the cost table on this page with the national median of $8,300 for a funeral with viewing and burial, or $6,280 with cremation (NFDA 2023). Prices inside New Hampshire vary by provider, so the General Price Lists you collect matter more than any average.</p></div></details>
       <details class="faq-item"><summary>Which funeral option costs the least in New Hampshire?</summary><div class="faq-answer"><p data-state-fact="1">Direct cremation carries the lowest price tag in New Hampshire, from roughly $2,100. Direct burial is the next step up at about $4,400, which is $4,400 below a traditional New Hampshire funeral.</p></div></details>
-      <details class="faq-item"><summary>How can I find affordable funeral homes in New Hampshire?</summary><div class="faq-answer"><p>Call several New Hampshire funeral homes and ask for prices by phone, which the FTC Funeral Rule requires them to give. Buying the casket or urn elsewhere is allowed under the FTC Funeral Rule, and the New Hampshire home cannot charge a fee for it.</p></div></details>
+      <details class="faq-item"><summary>How can I find affordable funeral homes in New Hampshire?</summary><div class="faq-answer"><p>Phone several New Hampshire homes and ask for their prices; the FTC Funeral Rule requires them to answer by phone. If the person received public assistance, also call the town welfare officer, since RSA 165:3 may cover a basic burial or cremation. You may supply your own casket or urn without paying a handling fee.</p></div></details>
 
       <div class="related-guides"><h3>Related Guides</h3><ul><li><a href="average-funeral-cost-2026.html">Average Funeral Cost in 2026: National Breakdown</a></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown: Every Line Item Explained</a></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs: Side-by-Side Comparison</a></li><li><a href="cheap-funeral-options.html">Cheapest Funeral Options: Lower-Cost Choices</a></li><li><a href="direct-cremation-cost.html">Direct Cremation Cost: Most Affordable Option</a></li><li><a href="funeral-costs-by-state.html">Funeral Costs by State: All 50 States</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="planning-checklist.html">Funeral Planning Checklist</a></li><li><a href="funeral-costs-rising-2026.html">Why Funeral Costs Are Rising in 2026</a></li><li><a href="funeral-costs-uninsured.html">Funeral Costs When Uninsured</a></li><li><a href="funeral-planning-for-parents.html">Planning a Funeral for Aging Parents</a></li><li><a href="infant-child-funeral-costs.html">Infant &amp; Child Funeral Costs</a></li><li><a href="veteran-burial-benefits.html">Military Funeral Honors Guide</a></li><li><a href="funeral-costs-by-religion.html">Funeral Costs by Religion</a></li></ul></div>
       <div class="related-guides crawl-priority-links"><h3>Compare With</h3><ul><li><a href="cremation-costs-new-hampshire.html">New Hampshire cremation costs</a></li><li><a href="burial-costs-new-hampshire.html">New Hampshire burial costs</a></li><li><a href="funeral-costs-by-state.html">All state funeral costs</a>: parent hub</li><li><a href="national-funeral-cost-index.html">National Funeral Cost Index</a>: national hub</li></ul></div>
