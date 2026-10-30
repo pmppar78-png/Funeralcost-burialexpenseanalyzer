@@ -31,10 +31,930 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" /></noscript>
-  <link rel="stylesheet" href="style.css" />
+  <style data-critical>/* ============================================================
+   Funeral Cost & Burial Expense Analyzer — Premium Stylesheet
+   Warm, compassionate, high-trust design for grieving users
+   ============================================================ */
+/* Size-matched stand-in for Inter while the webfont loads (metrics as used by
+   next/font for Inter over Arial), so text does not reflow when Inter swaps in. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo");
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
+}
+/* Same idea for Merriweather headings (bold widths measured against Times New
+   Roman / its metric twin Liberation Serif), so titles keep their line breaks. */
+@font-face {
+  font-family: "Merriweather Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Tinos");
+  ascent-override: 87.35%;
+  descent-override: 24.23%;
+  line-gap-override: 0%;
+  size-adjust: 112.65%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  /* Primary palette — warm browns, beiges, creams */
+  --brown-900: #3b2314;
+  --brown-800: #432818;
+  --brown-700: #5c3a1e;
+  --brown-600: #6d4a2a;
+  --brown-500: #8b5e34;
+  --brown-400: #a67c52;
+  --brown-300: #c4a27a;
+  --brown-200: #dcc5a4;
+  /* Warm neutrals */
+  --warm-900: #352a21;
+  --warm-800: #483b2f;
+  --warm-700: #5e4d3d;
+  --warm-600: #7a6652;
+  --warm-500: #756553;
+  --warm-400: #b5a594;
+  --warm-300: #d1c4b4;
+  --warm-200: #e4d9cc;
+  --warm-150: #ede5db;
+  --warm-100: #f4efe8;
+  --warm-50: #faf7f3;
+  /* Accent — gentle gold / warm amber */
+  --gold-600: #a67c3d;
+  --gold-500: #c49a52;
+  --gold-400: #d4af6a;
+  --gold-300: #e2c88e;
+  --gold-200: #eddcb5;
+  --gold-100: #f5ecda;
+  --gold-50: #fbf6ed;
+  /* Soft rose accent for condolence warmth */
+  --rose-100: #faf0ee;
+  --rose-50: #fdf7f6;
+  /* Semantic */
+  --bg-page: #f9f6f1;
+  --bg-card: #fffefb;
+  --bg-hero: linear-gradient(155deg, #faf7f2 0%, #f3ece2 30%, #f5ebd8 60%, #faf5ec 100%);
+  --bg-header: linear-gradient(180deg, #fdfbf7 0%, #f9f6f1 100%);
+  --text-heading: var(--brown-800);
+  --text-body: var(--warm-700);
+  --text-muted: var(--warm-500);
+  --text-subtle: var(--warm-400);
+  --border-light: var(--warm-200);
+  --border-card: #e5dace;
+  --accent: var(--gold-600);
+  --accent-light: var(--gold-50);
+  /* Typography */
+  --font-heading: "Merriweather", "Merriweather Fallback", "Georgia", "Palatino Linotype", serif;
+  --font-body: "Inter", "Inter Fallback", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  /* Spacing scale — generous for calm reading */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  /* Shadows — warm-toned, gentle, layered depth */
+  --shadow-sm: 0 1px 4px rgba(74, 44, 23, 0.04), 0 1px 2px rgba(74, 44, 23, 0.025);
+  --shadow-md: 0 4px 14px -2px rgba(74, 44, 23, 0.06), 0 2px 6px -1px rgba(74, 44, 23, 0.035);
+  --shadow-lg: 0 12px 28px -4px rgba(74, 44, 23, 0.07), 0 4px 10px -4px rgba(74, 44, 23, 0.03);
+  --shadow-xl: 0 22px 44px -8px rgba(74, 44, 23, 0.08), 0 8px 18px -6px rgba(74, 44, 23, 0.03);
+  --shadow-warm-glow: 0 2px 20px rgba(166, 124, 61, 0.1);
+  /* Content width */
+  --max-width: 860px;
+}
+/* ============================================================
+   Base
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  line-height: 1.38;
+  margin: 0 0 var(--space-md);
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold-300);
+  display: inline-block;
+  margin-bottom: var(--space-xl);
+  color: var(--brown-900);
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+p {
+  margin: 0 0 var(--space-md);
+}
+p:last-child {
+  margin-bottom: 0;
+}
+a {
+  color: var(--brown-500);
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--gold-500);
+}
+/* ============================================================
+   Skip Link — accessible, hidden until keyboard focus
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 100;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--brown-800);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top 0.15s ease;
+  outline: 2px solid transparent;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: var(--space-md);
+  outline: 2px solid var(--gold-400);
+  outline-offset: 2px;
+}
+/* ============================================================
+   Screen Reader Only
+   ============================================================ */
+/* ============================================================
+   Header — clean, authoritative, left-aligned brand
+   Hamburger on the RIGHT for modern mobile UX
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-xl);
+  height: 72px;
+  background: var(--bg-header);
+  border-bottom: 1px solid rgba(228, 217, 204, 0.7);
+  box-shadow: 0 1px 8px rgba(74, 44, 23, 0.03);
+}
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.brand-accent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, var(--brown-600), var(--brown-800));
+  box-shadow: 0 2px 12px rgba(92, 58, 30, 0.2), 0 0 0 1px rgba(255, 224, 150, 0.08) inset;
+  flex-shrink: 0;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+.brand-link {
+  text-decoration: none;
+  color: var(--text-heading);
+}
+.brand-link:hover {
+  color: var(--text-heading);
+}
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--brown-800);
+}
+.brand-tagline {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--warm-500);
+  letter-spacing: 0.03em;
+  margin-top: 1px;
+  font-style: italic;
+}
+/* Navigation */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav-link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--warm-600);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.nav-link:hover {
+  background: var(--warm-100);
+  color: var(--brown-800);
+  text-decoration: none;
+}
+/* Mobile nav toggle — positioned to the RIGHT on mobile (modern UX standard) */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-sm);
+  flex-direction: column;
+  gap: 5px;
+  order: 1;
+  margin-left: auto;
+}
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--brown-700);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+/* Navigation Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.dropdown-arrow {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--warm-500);
+  border-bottom: 1.5px solid var(--warm-500);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  margin-top: -2px;
+}
+.nav-dropdown.dropdown-open .dropdown-arrow {
+  transform: rotate(-135deg);
+}
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-xs) 0;
+  z-index: 60;
+}
+.nav-dropdown.dropdown-open .nav-dropdown-menu {
+  display: block;
+}
+.nav-dropdown-link {
+  display: block;
+  padding: 0.45rem var(--space-lg);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--warm-600);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-dropdown-link:hover {
+  background: var(--warm-50);
+  color: var(--brown-800);
+  text-decoration: none;
+}
+/* ============================================================
+   Layout
+   ============================================================ */
+.main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
+}
+/* ============================================================
+   Section Dividers — soft, warm, minimal
+   ============================================================ */
+/* ============================================================
+   Hero Section — concise, calming
+   ============================================================ */
+/* Hero Action Buttons */
+/* Trust Bar */
+/* ============================================================
+   Quick Actions — the "What do I do first?" bar
+   ============================================================ */
+/* ============================================================
+   A) Why This Exists — purpose clarity section
+   ============================================================ */
+/* ============================================================
+   B) How We Help — 3-card value row
+   ============================================================ */
+/* ============================================================
+   C) Quick Start — "In 60 Seconds" block
+   ============================================================ */
+/* ============================================================
+   Section Cards
+   ============================================================ */
+.section {
+  margin-top: 0;
+}
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-xl);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(250,247,241,0.3) 100%);
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+/* ============================================================
+   Expandable / Collapsible Blocks
+   ============================================================ */
+/* Expandable used as section heading */
+/* ============================================================
+   Commitment Box
+   ============================================================ */
+/* ============================================================
+   Checklists
+   ============================================================ */
+/* ============================================================
+   Calculator
+   ============================================================ */
+/* Cost Range Grid */
+/* ============================================================
+   Payment Options Grid — scannable cards
+   ============================================================ */
+/* ============================================================
+   AI CTA Layout
+   ============================================================ */
+/* ============================================================
+   Buttons — consistent, dignified
+   ============================================================ */
+/* ============================================================
+   Text Helpers
+   ============================================================ */
+.small {
+  font-size: 0.8125rem;
+}
+.muted {
+  color: var(--text-muted);
+}
+/* ============================================================
+   FAQ Section
+   ============================================================ */
+/* ============================================================
+   Glossary
+   ============================================================ */
+/* ============================================================
+   Tip Box
+   ============================================================ */
+/* ============================================================
+   Resource Grid
+   ============================================================ */
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  padding: var(--space-xl) var(--space-xl) var(--space-2xl);
+  border-top: 1px solid var(--warm-200);
+  background: linear-gradient(180deg, var(--warm-50) 0%, var(--warm-100) 100%);
+  color: var(--text-muted);
+  text-align: center;
+}
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.footer-accent {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-300), var(--gold-500));
+  border-radius: 2px;
+  margin: 0 auto var(--space-lg);
+}
+.footer-text {
+  margin: var(--space-xs) 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+/* ============================================================
+   Chat Layout
+   ============================================================ */
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 768px) {
+  .site-header {
+    height: auto;
+    padding: var(--space-md) var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .mobile-nav-toggle {
+    display: flex;
+  }
+  .site-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--warm-200);
+    margin-top: var(--space-sm);
+  }
+  .site-nav.nav-open {
+    display: flex;
+  }
+  .nav-link {
+    width: 100%;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.875rem;
+    border-radius: var(--radius-sm);
+  }
+  .card {
+    padding: var(--space-lg);
+  }
+  .main {
+    padding: var(--space-lg) var(--space-md) var(--space-2xl);
+  }
+  /* Quick actions: stack on mobile */
+  /* How we help: stack on mobile */
+  /* Quick start: stack on mobile */
+  /* Nav dropdown on mobile */
+  .nav-dropdown {
+    width: 100%;
+  }
+  .nav-dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.875rem;
+  }
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding-left: var(--space-md);
+    background: transparent;
+    min-width: 0;
+  }
+  .nav-dropdown-link {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8125rem;
+  }
+  /* Payment options: single column on mobile */
+  /* AI CTA: stack on mobile */
+}
+@media (min-width: 769px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+/* ============================================================
+   Guide / Subpage Styles
+   ============================================================ */
+.guide-body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  background: var(--bg-page);
+  color: var(--text-body);
+}
+.guide-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
+}
+.guide-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--warm-500);
+  margin-bottom: var(--space-lg);
+}
+.guide-breadcrumb a {
+  color: var(--warm-500);
+  text-decoration: none;
+}
+.guide-breadcrumb a:hover {
+  color: var(--brown-600);
+  text-decoration: underline;
+}
+.guide-article {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-sm);
+}
+.guide-article h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--brown-900);
+  line-height: 1.35;
+  margin: 0 0 var(--space-lg);
+  letter-spacing: -0.02em;
+}
+.guide-article h2 {
+  font-size: 1.3rem;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-md);
+  display: block;
+}
+.guide-article h3 {
+  font-size: 1.05rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+.guide-article p {
+  margin: 0 0 var(--space-md);
+  line-height: 1.85;
+}
+.guide-article ul {
+  margin: var(--space-md) 0;
+  padding-left: 1.5rem;
+}
+.guide-article li {
+  margin-bottom: var(--space-sm);
+  line-height: 1.8;
+}
+.guide-intro {
+  font-size: 1rem;
+  color: var(--warm-600);
+  line-height: 1.85;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--warm-200);
+  margin-bottom: var(--space-xl);
+}
+.guide-internal-links {
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--warm-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--warm-200);
+}
+.guide-internal-links h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: var(--brown-800);
+}
+.guide-internal-links ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xs) var(--space-lg);
+}
+.guide-internal-links li {
+  margin: 0;
+}
+.guide-internal-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--brown-500);
+  text-decoration: none;
+}
+.guide-internal-links a:hover {
+  color: var(--gold-500);
+  text-decoration: underline;
+}
+/* Guide tables */
+/* Guide FAQ section */
+@media (max-width: 768px) {
+  .guide-main {
+    padding: var(--space-lg) var(--space-md) var(--space-2xl);
+  }
+  .guide-article {
+    padding: var(--space-lg);
+  }
+  .guide-article h1 {
+    font-size: 1.35rem;
+  }
+  .guide-internal-links ul {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================================
+   Enhanced Cost Estimator
+   ============================================================ */
+/* ============================================================
+   Before You Call Section
+   ============================================================ */
+/* ============================================================
+   Editorial Standards / Methodology
+   ============================================================ */
+/* ============================================================
+   Community Contact / Share Experience
+   ============================================================ */
+/* ============================================================
+   Printable Planning Checklist
+   ============================================================ */
+/* ============================================================
+   Printable Checklist Page (print styles)
+   ============================================================ */
+@media print {
+  .site-header, .site-footer, .site-nav,
+  .mobile-nav-toggle, .skip-link, .nav-dropdown, .guide-internal-links {
+    display: none !important;
+  }
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+  .main, .guide-main {
+    max-width: 100%;
+    padding: 0;
+  }
+  .card, .guide-article {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  h1, h2, h3 {
+    color: #000;
+    page-break-after: avoid;
+  }
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+  a[href^="javascript"]::after {
+    content: "";
+  }
+  .guide-article a[href]::after {
+    content: "";
+  }
+}
+/* ============================================================
+   Article Meta — Review Date & Authority Signals
+   ============================================================ */
+/* ============================================================
+   Table of Contents
+   ============================================================ */
+/* ============================================================
+   Authority Trust Bar (for guide pages)
+   ============================================================ */
+/* ============================================================
+   Footer Links Grid
+   ============================================================ */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm) var(--space-lg);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--warm-200);
+}
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--warm-500);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover {
+  color: var(--gold-600);
+  text-decoration: underline;
+}
+/* ============================================================
+   State / Metro / Topic Pages — Cost Tables
+   ============================================================ */
+/* ============================================================
+   State Hub — Map & Grid Layout
+   ============================================================ */
+/* ============================================================
+   City / Metro Cards
+   ============================================================ */
+/* ============================================================
+   Resource / Affiliate Suggestions
+   ============================================================ */
+/* ============================================================
+   Stat Highlight Boxes
+   ============================================================ */
+/* ============================================================
+   Related Guides Sidebar
+   ============================================================ */
+.related-guides {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: var(--warm-50);
+  border: 1px solid var(--warm-200);
+  border-radius: var(--radius-md);
+}
+.related-guides h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--brown-700);
+  margin: 0 0 var(--space-md);
+}
+.related-guides ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.related-guides li {
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--warm-150);
+}
+.related-guides li:last-child {
+  border-bottom: none;
+}
+.related-guides a {
+  color: var(--brown-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.related-guides a:hover {
+  color: var(--gold-600);
+  text-decoration: underline;
+}
+/* ============================================================
+   CTA Banner (Free AI Guide, Contact, etc.)
+   ============================================================ */
+/* ============================================================
+   Topic Cluster Navigation
+   ============================================================ */
+/* ============================================================
+   Chat Page Enhancements
+   ============================================================ */
+/* ============================================================
+   Contact Form
+   ============================================================ */
+/* ============================================================
+   Consumer Protection / Warning Callouts
+   ============================================================ */
+/* ============================================================
+   Comparison Layout
+   ============================================================ */
+/* ============================================================
+   National Funeral Cost Index — Flagship Research Page
+   ============================================================ */
+/* Index Hero */
+/* Key Findings Box */
+/* National Summary Stats — larger version for Index */
+/* Full 50-State Data Table */
+/* Rank Badge */
+/* Regional Table */
+/* CSS Bar Charts */
+/* Inflation Trends Table */
+/* Citation / Methodology Box */
+/* Download Cards Grid */
+/* Metro Comparison Grid */
+/* Two-Column Grid (cremation trends, comparisons) */
+/* Regional table coloring */
+/* Rank badges for #1, #2, #3, #50 */
+/* Table footnote */
+/* Cremation bar fill variant */
+/* ============================================================
+   Printable Pages — Print-Optimized Styles
+   ============================================================ */
+/* Checklist Styles */
+/* Comparison Worksheet */
+/* Embed Widget Page */
+/* Print Styles — enhanced for printable pages */
+@media print {
+  .site-header,
+  .skip-link,
+  .site-footer,
+  .related-guides,
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt !important;
+  }
+  .guide-main {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .guide-article {
+    box-shadow: none !important;
+    border: none !important;
+    padding: var(--space-md) !important;
+  }
+  a[href]::after {
+    content: none !important;
+  }
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
+/* Calculator checkbox group */
+/* ============================================================
+   Ad Placeholder & Monetization Styles
+   ============================================================ */
+/* Insurance/Product Comparison Tables */
+/* Affiliate CTA Buttons */
+/* Pros/Cons Lists */
+/* Rating Stars */
+/* Calculator Styles */
+/* Regulation Table Styles */
+/* ============================================================
+   Email Capture / Newsletter Signup
+   ============================================================ */
+/* ============================================================
+   Author Bio — E-E-A-T trust component
+   ============================================================ */
+.author-bio {
+  background: var(--cream-100, #faf8f5);
+  border: 1px solid var(--brown-100, #e8ddd0);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.author-bio h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--brown-700, #5a3e28);
+}
+.author-bio h2 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  color: var(--brown-700, #5a3e28);
+}
+.author-bio p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+.author-bio p:last-child {
+  margin-bottom: 0;
+}
+.author-bio .author-bio-signoff {
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: var(--brown-700, #5a3e28);
+}
+.author-bio .author-bio-disclaimer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--brown-100, #e8ddd0);
+  font-size: 0.875rem;
+  color: var(--brown-600, #6d4d35);
+}
+/* ============================================================
+   Lead Generation Form
+   ============================================================ */
+/* CTA Actions — dual button layout */
+/* Homepage utility classes — extracted from inline styles */
+/* ===========================================================
+   Funeral Cost Widget page — warm palette rebrand
+   =========================================================== */
+/* Live preview widget — full */
+/* Embed code textareas */
+/* FAQ callouts on widget page */
+/* Widget page bottom CTA banner — warm replacement for slate gradient */
+/* Affiliate note under chat replies */
+</style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
