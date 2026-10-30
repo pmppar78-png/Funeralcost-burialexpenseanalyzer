@@ -8,6 +8,18 @@
   "funeral-cost-breakdown.html": {
    "date": "2026-10-24",
    "why": "e2137ec changed the direct-cremation median to $2,645"
+  },
+  "burial-costs-arkansas.html": {
+   "date": "2026-10-30",
+   "why": "9085ef7 replaced the unsourced 30-50% church-cemetery plot claim (under the 20-word rule)"
+  },
+  "burial-costs-florida.html": {
+   "date": "2026-10-30",
+   "why": "9085ef7 replaced the unsourced 30-50% parish/family cemetery plot claim (under the 20-word rule)"
+  },
+  "burial-costs-georgia.html": {
+   "date": "2026-10-30",
+   "why": "9085ef7 replaced the unsourced 30-50% church/family cemetery plot claim (under the 20-word rule)"
   }
  }
 }
