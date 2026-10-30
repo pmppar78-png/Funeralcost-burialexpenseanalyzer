@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="244" viewBox="0 0 680 244" role="img" aria-labelledby="t d">
-<title id="t">Kansas Funeral Cost Averages (2026)</title>
-<desc id="d">Horizontal bar chart of Kansas Funeral Cost Averages (2026). Traditional funeral with burial $6,600; Funeral with cremation $5,300; Direct cremation $1,500; Cemetery / burial plot $2,900; Embalming $660; Casket $1,980.</desc>
+<title id="t">Kansas averages, 2026 estimate</title>
+<desc id="d">Horizontal bar chart of Kansas averages, 2026 estimate. Traditional funeral with burial $6,600; Funeral with cremation $5,300; Direct cremation $1,500; Cemetery / burial plot $2,900; Embalming $660; Casket $1,980.</desc>
 <rect width="680" height="244" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
-<text x="16" y="28" font-size="16" font-weight="700">Kansas Funeral Cost Averages (2026)</text>
+<text x="16" y="28" font-size="16" font-weight="700">Kansas averages, 2026 estimate</text>
 <line x1="230" y1="48" x2="230" y2="232" stroke="#bbbbbb"/>
 <text x="222" y="67" text-anchor="end">Traditional funeral with burial</text><rect x="230" y="53" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$6,600</text>
 <text x="222" y="97" text-anchor="end">Funeral with cremation</text><rect x="230" y="83" width="252" height="20" rx="3" fill="#8a6d3b"/><text x="488" y="97">$5,300</text>
