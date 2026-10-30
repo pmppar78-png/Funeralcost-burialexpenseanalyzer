@@ -116,6 +116,31 @@ function run(OUT, states, metros) {
     if (st && T.includes('P')) h = h.replace(`<caption>Most Affordable Funeral Options in ${s.name}</caption>`, `<caption>Most Affordable Funeral Options in ${s.name}, from ${$(s.dc)} to ${$(s.f)}</caption>`);
     if (h !== before) { fs.writeFileSync(fp, h); n++; }
   }
+  // Cremation and burial state pages: reordering only (Growth step 3), options in SSX.
+  const X = (process.env.SSX === undefined ? 'r,G' : process.env.SSX).split(',').filter(Boolean);
+  for (const kind of ['cremation', 'burial']) {
+    for (const s of states) {
+      const fp = path.join(OUT, `${kind}-costs-${s.slug}.html`);
+      if (!fs.existsSync(fp) || !F(s)) continue;
+      let h = fs.readFileSync(fp, 'utf8'); const before = h; const key = kind + '-' + s.slug;
+      if (X.includes('r')) {
+        h = h.replace(/(<div class="resource-suggestions"><h3>(?:Cremation Resources|Burial Resources|Compare Funeral Costs)<\/h3><ul class="resource-list">)([\s\S]*?)(<\/ul><\/div>)/g, (all, a, body, c) => {
+          const li = body.match(/<li>[\s\S]*?<\/li>/g) || [];
+          if (li.join('') !== body) return all;
+          const it = li.map(x => ({ h: (x.match(/href="([^"]+)"/) || [])[1] || '', x }));
+          return a + orderGuides(s, it, key).map(y => y.x).join('') + c;
+        });
+      }
+      const g = h.match(/<div class="related-guides"><h3>Related Guides<\/h3><ul>([\s\S]*?)<\/ul><\/div>/);
+      if (g && X.includes('G')) {
+        const items = [...g[1].matchAll(/<li><a href="([^"]+)">([\s\S]*?)<\/a><\/li>/g)].map(x => ({ h: x[1], t: x[2] }));
+        if (items.length === (g[1].match(/<li>/g) || []).length)
+          h = h.replace(g[0], `<div class="related-guides"><h3>Related ${kind} guides for ${s.name}</h3><ul>${orderGuides(s, items, key).map(x => `<li><a href="${x.h}">${x.t}</a></li>`).join('')}</ul></div>`);
+      }
+      if (X.includes('c')) h = h.replace(/<h3>Calculate Your Funeral Costs[^<]*<\/h3>/, `<h3>Calculate ${s.name} ${kind === 'cremation' ? 'Cremation' : 'Burial'} Costs With the Free Tools</h3>`);
+      if (h !== before) { fs.writeFileSync(fp, h); n++; }
+    }
+  }
   return n;
 }
 module.exports = { run, resources, orderGuides, ctaIntro, rankLine, waitNote, plotNote, natNote };
