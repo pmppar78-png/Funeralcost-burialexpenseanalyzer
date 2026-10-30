@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="274" viewBox="0 0 680 274" role="img" aria-labelledby="t d">
-<title id="t">Burial Costs in New York (2026)</title>
-<desc id="d">Horizontal bar chart of Burial Costs in New York (2026). Funeral service $10,800; Cemetery plot $5,400; Casket $3,240; Burial vault / liner $2,160; Opening &amp; closing grave $2,700; Headstone / marker $1,500; Embalming $1,080.</desc>
+<title id="t">New York burial estimates, 2026</title>
+<desc id="d">Horizontal bar chart of New York burial estimates, 2026. Funeral service $10,800; Cemetery plot $5,400; Casket $3,240; Burial vault / liner $2,160; Opening &amp; closing grave $2,700; Headstone / marker $1,500; Embalming $1,080.</desc>
 <rect width="680" height="274" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
-<text x="16" y="28" font-size="16" font-weight="700">Burial Costs in New York (2026)</text>
+<text x="16" y="28" font-size="16" font-weight="700">New York burial estimates, 2026</text>
 <line x1="230" y1="48" x2="230" y2="262" stroke="#bbbbbb"/>
 <text x="222" y="67" text-anchor="end">Funeral service</text><rect x="230" y="53" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$10,800</text>
 <text x="222" y="97" text-anchor="end">Cemetery plot</text><rect x="230" y="83" width="157" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="97">$5,400</text>
