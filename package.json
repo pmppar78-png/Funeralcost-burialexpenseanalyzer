@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "node scripts/write-og-image.js && node generate-pages.js && node scripts/check-desc-totals.js && node scripts/check-figures.js",
+    "build": "node scripts/write-og-image.js && node generate-pages.js && node scripts/inline-critical-css.js && node scripts/check-desc-totals.js && node scripts/check-figures.js",
     "check:desc-totals": "node scripts/check-desc-totals.js",
     "check:figures": "node scripts/check-figures.js",
     "check:repeats": "node scripts/check-repeated-sentences.js",
@@ -9,6 +9,7 @@
     "check:fragments": "node scripts/check-fragment-sentences.js"
   },
   "dependencies": {
-    "@netlify/blobs": "8.2.0"
+    "@netlify/blobs": "8.2.0",
+    "purgecss": "6.0.0"
   }
 }
