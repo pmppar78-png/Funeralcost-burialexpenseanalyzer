@@ -55,7 +55,7 @@
   },
   "burial-costs-idaho.html": {
    "date": "2026-10-30",
-   "text": "Idaho burial costs reworked to cover cemetery districts, receiving-vault holds over winter and county rates, and the unsourced percentage savings and home-burial claims cut."
+   "text": "Idaho green burial note reworded to say some cemeteries offer it, dropping an unsourced trend and price claim."
   },
   "burial-costs-illinois.html": {
    "date": "2026-10-30",
@@ -67,7 +67,7 @@
   },
   "burial-costs-iowa.html": {
    "date": "2026-10-30",
-   "text": "Iowa burial text now explains the cemetery price disclosures in chapter 523I and county assistance; unsourced township fee ranges were removed."
+   "text": "Iowa burial tip on independent funeral homes now points to the cemetery's own charges under Iowa Code 523I.301, since the family-owned pricing claim had no official source."
   },
   "burial-costs-kansas.html": {
    "date": "2026-10-29",
@@ -299,7 +299,7 @@
   },
   "cremation-costs-maryland.html": {
    "date": "2026-10-30",
-   "text": "Maryland cremation page reorganized around the 12-hour wait, next-of-kin authorization and the $650 rule, and an unsourced cremation-time figure replaced with CANA's."
+   "text": "Maryland turnaround tip now gives the 12-hour minimum under Md. Health-Gen. § 5-503 instead of an unsourced 10-14 day figure."
   },
   "cremation-costs-massachusetts.html": {
    "date": "2026-10-30",
@@ -331,11 +331,11 @@
   },
   "cremation-costs-nevada.html": {
    "date": "2026-10-30",
-   "text": "Nevada cremation write-up updated with the NRS 451.700 scattering rules and neighbor-state prices, and unsourced scattering and price-list claims removed."
+   "text": "Nevada cost-saving tip no longer claims a mature flat-rate market; the NRS 451.675 handling rules are unchanged."
   },
   "cremation-costs-new-hampshire.html": {
    "date": "2026-10-30",
-   "text": "New Hampshire cremation guide revised around the 48-hour wait, the medical examiner's certificate and town welfare under RSA 165:3, with an unsourced superlative removed."
+   "text": "New Hampshire turnaround tip now gives the 48-hour wait and medical examiner certificate under RSA 325-A:18 instead of an unsourced 10-14 day figure."
   },
   "cremation-costs-new-jersey.html": {
    "date": "2026-10-30",
