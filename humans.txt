@@ -17,7 +17,7 @@ Hosting: Netlify
 
 /* SITE */
 
-Editorial Stance: Informational only. All cost figures are estimates derived from publicly available consumer surveys and may not reflect current prices in your area. Always verify each line item against a provider's written General Price List before signing anything.
+Editorial Stance: Informational only. State and metro prices here are our estimates, anchored to the NFDA national price study and adjusted for regional costs (how we build them: /methodology.html). They are not quotes, and a funeral home's own General Price List is the only reliable local price. Always verify each line item against a provider's written General Price List before signing anything.
 Last Updated: 2026-10-02
 Language: English
 Standards: HTML5, CSS3, Semantic Markup, WCAG 2.1 AA
