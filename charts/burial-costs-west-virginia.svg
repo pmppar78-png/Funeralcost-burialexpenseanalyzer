@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="274" viewBox="0 0 680 274" role="img" aria-labelledby="t d">
-<title id="t">Burial Costs in West Virginia (2026)</title>
-<desc id="d">Horizontal bar chart of Burial Costs in West Virginia (2026). Funeral service $6,100; Cemetery plot $2,700; Casket $1,830; Burial vault / liner $1,080; Opening &amp; closing grave $1,350; Headstone / marker $1,500; Embalming $610.</desc>
+<title id="t">West Virginia burial prices (2026 estimates)</title>
+<desc id="d">Horizontal bar chart of West Virginia burial prices (2026 estimates). Funeral service $6,100; Cemetery plot $2,700; Casket $1,830; Burial vault / liner $1,080; Opening &amp; closing grave $1,350; Headstone / marker $1,500; Embalming $610.</desc>
 <rect width="680" height="274" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
-<text x="16" y="28" font-size="16" font-weight="700">Burial Costs in West Virginia (2026)</text>
+<text x="16" y="28" font-size="16" font-weight="700">West Virginia burial prices (2026 estimates)</text>
 <line x1="230" y1="48" x2="230" y2="262" stroke="#bbbbbb"/>
 <text x="222" y="67" text-anchor="end">Funeral service</text><rect x="230" y="53" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$6,100</text>
 <text x="222" y="97" text-anchor="end">Cemetery plot</text><rect x="230" y="83" width="139" height="20" rx="3" fill="#8a6d3b"/><text x="375" y="97">$2,700</text>
