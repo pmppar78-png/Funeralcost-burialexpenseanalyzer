@@ -3066,6 +3066,8 @@ require('./scripts/apply-audit').applyAudit();
 require('./scripts/lib/cremation-local').run(OUT);
 // Sourced state facts (boards, statutes, cemetery regulators) on state pages.
 require('./scripts/lib/cremation-local').run(OUT, 'state-local.json');
+// G4: state-specific shared blocks (resources, guide order, CTA intro, table notes, rank).
+console.log(`  State-specific shared blocks on ${require('./scripts/lib/state-shared').run(OUT, states, metros.filter(m => fs.existsSync(path.join(OUT, `funeral-costs-${m.slug}.html`))))} page(s)`);
 require('./scripts/lib/dash-cut').run(OUT);
 // Articles, FAQ JSON-LD rebuilt from the visible answers, number consistency.
 require('./scripts/lib/post-fix').run(OUT);
