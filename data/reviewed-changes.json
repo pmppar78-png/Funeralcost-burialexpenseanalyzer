@@ -199,7 +199,7 @@
   },
   "burial-costs-washington.html": {
    "date": "2026-10-30",
-   "text": "Unsourced 30-50% plot-savings claim replaced with advice to get the Washington cemetery's natural or hybrid and traditional plot prices in writing."
+   "text": "Deleted a 30-50% saving for natural and hybrid sections that had no source; the tip now says only that natural or hybrid graves in Washington usually cost less than a standard one."
   },
   "burial-costs-west-virginia.html": {
    "date": "2026-10-30",
@@ -435,7 +435,7 @@
   },
   "funeral-costs-arizona.html": {
    "date": "2026-10-30",
-   "text": "Unsourced 30-50% plot-savings claim replaced with advice to get the Arizona cemetery's natural or hybrid and traditional plot prices in writing."
+   "text": "The cost-cutting FAQ dropped its 30-50% figure for conservation and hybrid graves, which had no source, and now suggests asking the cemetery to quote both kinds of plot."
   },
   "funeral-costs-arkansas.html": {
    "date": "2026-10-30",
@@ -443,7 +443,7 @@
   },
   "funeral-costs-california.html": {
    "date": "2026-10-30",
-   "text": "Unsourced 30-50% plot-savings claim replaced with advice to get the California cemetery's natural or hybrid and traditional plot prices in writing."
+   "text": "Removed an unsourced 30-50% discount for conservation and hybrid cemetery sections in California; the answer now says those graves are often cheaper and to ask for both prices."
   },
   "funeral-costs-colorado.html": {
    "date": "2026-10-30",
@@ -687,7 +687,7 @@
   },
   "casket-buying-guide.html": {
    "date": "2026-10-30",
-   "text": "Unsourced 30-50%, 40-60% and 200-400% casket savings and markup figures removed; the buying-channel notes now point to the General Price List and the FTC Funeral Rule instead."
+   "text": "Unsourced 30-50%, 40-60% and 200-400% casket figures removed, and the $800 and $10,000 price ends dropped; the $2,500 figure is now cited as the NFDA 2023 median metal casket, with a link to the study."
   }
  }
 }
