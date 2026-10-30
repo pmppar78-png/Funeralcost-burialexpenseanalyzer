@@ -31,6 +31,18 @@ const strip = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&
 const NO_REVIEW_STAMP = new Set(['methodology.html']);
 let REVIEWED = {};
 try { REVIEWED = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'reviewed-dates.json'), 'utf8')).dates || {}; } catch (e) { REVIEWED = {}; }
+// One short "What changed" line per page (data/reviewed-changes.json). It is shown
+// only while its date still equals the page's reviewed date, so it never goes stale.
+let CHANGES = {};
+try { CHANGES = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'reviewed-changes.json'), 'utf8')).changes || {}; } catch (e) { CHANGES = {}; }
+const escHtml = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+function addChange(html, f, iso) {
+  html = html.replace(/\n[ \t]*<span class="article-meta-item article-meta-change">[^\n]*/, '');
+  const c = f && CHANGES[f];
+  if (!c || c.date !== iso) return html;
+  const item = `<span class="article-meta-item article-meta-change"><span class="article-meta-label">What changed:</span> <span class="article-meta-value">${escHtml(c.text)}</span></span>`;
+  return html.replace(/(<span class="article-meta-item"><span class="article-meta-label">Last reviewed:<\/span> <span class="article-meta-value"><time[^>]*>[^<]*<\/time><\/span><\/span>)/, (m) => `${m}\n        ${item}`);
+}
 function addReviewed(html, f) {
   // Pages that have not had an editorial review carry a plain byline; never stamp one.
   if (NO_REVIEW_STAMP.has(f)) return html;
@@ -40,7 +52,7 @@ function addReviewed(html, f) {
   const time = `<time datetime="${iso}">${fmt(iso)}</time>`;
   if (/class="article-meta"/.test(html)) {
     if (/article-meta-label">(?:Reviewed|Last reviewed):/.test(html)) {
-      return html.replace(/(<span class="article-meta-label">Last reviewed:<\/span> <span class="article-meta-value">)<time[^>]*>[^<]*<\/time>/, `$1${time}`);
+      return addChange(html.replace(/(<span class="article-meta-label">Last reviewed:<\/span> <span class="article-meta-value">)<time[^>]*>[^<]*<\/time>/, `$1${time}`), f, iso);
     }
     return html.replace(/(<span class="article-meta-item"><span class="article-meta-label">Last updated:<\/span>[\s\S]*?<\/span><\/span>)/,
       `$1\n        <span class="article-meta-item"><span class="article-meta-label">Last reviewed:</span> <span class="article-meta-value">${time}</span></span>`);

@@ -1,0 +1,657 @@
+{
+ "_note": "One honest line per page describing the edit behind its Last reviewed date. Shown only while the date in data/reviewed-dates.json still matches; update the line whenever the date moves.",
+ "changes": {
+  "buddhist-funeral-costs.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the Buddhist cost breakdown and replaced the support list with named resources."
+  },
+  "burial-costs-alabama.html": {
+   "date": "2026-10-29",
+   "text": "Visiting a family grave on private land in Alabama (new section)"
+  },
+  "burial-costs-alaska.html": {
+   "date": "2026-10-29",
+   "text": "Alaska's permit for moving a burial (new section)"
+  },
+  "burial-costs-arizona.html": {
+   "date": "2026-10-29",
+   "text": "Where part of an Arizona plot price goes (new section)"
+  },
+  "burial-costs-arkansas.html": {
+   "date": "2026-10-29",
+   "text": "Arkansas allows burial only in a registered cemetery (new section)"
+  },
+  "burial-costs-by-state.html": {
+   "date": "2026-10-29",
+   "text": "Added a table of VA national cemeteries open for burial in each state, plus links to local burial cost checks."
+  },
+  "burial-costs-california.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Bringing Down a California Burial Bill”."
+  },
+  "burial-costs-colorado.html": {
+   "date": "2026-10-29",
+   "text": "Colorado's disposition permit and the 30-day land record (new section)"
+  },
+  "burial-costs-connecticut.html": {
+   "date": "2026-10-29",
+   "text": "Connecticut's disinterment permit comes from the town (new section)"
+  },
+  "burial-costs-delaware.html": {
+   "date": "2026-10-29",
+   "text": "Delaware's five-day rule and the burial permit (new section)"
+  },
+  "burial-costs-florida.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Who regulates a Florida burial, and where to get help”."
+  },
+  "burial-costs-georgia.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Georgia Burial Prices, Charge by Charge”."
+  },
+  "burial-costs-hawaii.html": {
+   "date": "2026-10-29",
+   "text": "When Hawaii requires a disinterment permit (new section)"
+  },
+  "burial-costs-idaho.html": {
+   "date": "2026-10-29",
+   "text": "Idaho's rules for moving a burial (new section)"
+  },
+  "burial-costs-illinois.html": {
+   "date": "2026-10-29",
+   "text": "Illinois: when the 24-hour report doubles as the burial permit (new section)"
+  },
+  "burial-costs-indiana.html": {
+   "date": "2026-10-29",
+   "text": "Indiana's burial permit and the cemetery's permanent record (new section)"
+  },
+  "burial-costs-iowa.html": {
+   "date": "2026-10-29",
+   "text": "Iowa's limits on disinterment (new section)"
+  },
+  "burial-costs-kansas.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Kansas Burial Charges in Detail”."
+  },
+  "burial-costs-kentucky.html": {
+   "date": "2026-10-29",
+   "text": "Kentucky's burial-transit permit and grave depth rule (new section)"
+  },
+  "burial-costs-louisiana.html": {
+   "date": "2026-10-29",
+   "text": "Louisiana's burial-transit permit and moving a grave (new section)"
+  },
+  "burial-costs-maine.html": {
+   "date": "2026-10-29",
+   "text": "Who signs Maine's disposition permit at the grave (new section)"
+  },
+  "burial-costs-maryland.html": {
+   "date": "2026-10-29",
+   "text": "Getting to a family grave on someone else's land in Maryland (new section)"
+  },
+  "burial-costs-massachusetts.html": {
+   "date": "2026-10-29",
+   "text": "New burial ground in Massachusetts needs town approval (new section)"
+  },
+  "burial-costs-michigan.html": {
+   "date": "2026-10-29",
+   "text": "Reworded the page in plainer, state-specific language and cited the state statutes behind the rules."
+  },
+  "burial-costs-minnesota.html": {
+   "date": "2026-10-29",
+   "text": "Starting a family cemetery on private land in Minnesota (new section)"
+  },
+  "burial-costs-mississippi.html": {
+   "date": "2026-10-29",
+   "text": "Mississippi's 48-hour burial rule (new section)"
+  },
+  "burial-costs-missouri.html": {
+   "date": "2026-10-29",
+   "text": "Moving a grave in Missouri: who can authorize it (new section)"
+  },
+  "burial-costs-montana.html": {
+   "date": "2026-10-29",
+   "text": "Montana's removal authorization and county burial rules (new section)"
+  },
+  "burial-costs-nebraska.html": {
+   "date": "2026-10-29",
+   "text": "Moving a grave in Nebraska (new section)"
+  },
+  "burial-costs-nevada.html": {
+   "date": "2026-10-29",
+   "text": "Disinterment permits in Nevada (new section)"
+  },
+  "burial-costs-new-hampshire.html": {
+   "date": "2026-10-29",
+   "text": "What New Hampshire requires after a backyard burial (new section)"
+  },
+  "burial-costs-new-jersey.html": {
+   "date": "2026-10-29",
+   "text": "Added a sourced permit section and added the section “The New Jersey burial permit and the 10-day return”."
+  },
+  "burial-costs-new-mexico.html": {
+   "date": "2026-10-29",
+   "text": "When New Mexico needs a burial-transit permit (new section)"
+  },
+  "burial-costs-new-york.html": {
+   "date": "2026-10-29",
+   "text": "Moving a grave to another New York cemetery (new section)"
+  },
+  "burial-costs-north-carolina.html": {
+   "date": "2026-10-29",
+   "text": "How deep a North Carolina grave must be (new section)"
+  },
+  "burial-costs-north-dakota.html": {
+   "date": "2026-10-29",
+   "text": "North Dakota's disinterment permit and the receiving-vault exception (new section)"
+  },
+  "burial-costs-ohio.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Keeping an Ohio Burial Affordable”."
+  },
+  "burial-costs-oklahoma.html": {
+   "date": "2026-10-29",
+   "text": "Moving a grave in Oklahoma: permit or five-day notice (new section)"
+  },
+  "burial-costs-oregon.html": {
+   "date": "2026-10-29",
+   "text": "Who must agree before an Oregon grave is moved (new section)"
+  },
+  "burial-costs-pennsylvania.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Line-by-Line Pennsylvania Burial Prices”."
+  },
+  "burial-costs-rhode-island.html": {
+   "date": "2026-10-29",
+   "text": "Rhode Island's seven-day burial-transit permit (new section)"
+  },
+  "burial-costs-south-carolina.html": {
+   "date": "2026-10-29",
+   "text": "South Carolina's disinterment permit (new section)"
+  },
+  "burial-costs-south-dakota.html": {
+   "date": "2026-10-29",
+   "text": "Moving a grave in South Dakota (new section)"
+  },
+  "burial-costs-tennessee.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Where a Tennessee Family Can Save”."
+  },
+  "burial-costs-texas.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Burial Choices Beyond the Standard Plot”."
+  },
+  "burial-costs-utah.html": {
+   "date": "2026-10-29",
+   "text": "Utah's interment rule and the cemetery's monthly report (new section)"
+  },
+  "burial-costs-vermont.html": {
+   "date": "2026-10-29",
+   "text": "Vermont's burial-transit permit and family plots (new section)"
+  },
+  "burial-costs-virginia.html": {
+   "date": "2026-10-29",
+   "text": "Virginia's interment record and the rule for moving a grave (new section)"
+  },
+  "burial-costs-washington-dc.html": {
+   "date": "2026-10-29",
+   "text": "Disinterment in the District of Columbia (new section)"
+  },
+  "burial-costs-washington.html": {
+   "date": "2026-10-29",
+   "text": "Who must consent to moving a grave in Washington (new section)"
+  },
+  "burial-costs-west-virginia.html": {
+   "date": "2026-10-29",
+   "text": "West Virginia's authorization for final disposition (new section)"
+  },
+  "burial-costs-wisconsin.html": {
+   "date": "2026-10-29",
+   "text": "Who signs to move a grave in Wisconsin (new section)"
+  },
+  "burial-costs-wyoming.html": {
+   "date": "2026-10-29",
+   "text": "The certificate that proves you own a Wyoming plot (new section)"
+  },
+  "catholic-funeral-costs.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the Catholic cost breakdown, including Mass and cemetery fees, and refreshed the support resources."
+  },
+  "cremation-costs-alabama.html": {
+   "date": "2026-10-29",
+   "text": "How Alabama keeps track of identity through cremation (new section)"
+  },
+  "cremation-costs-alaska.html": {
+   "date": "2026-10-29",
+   "text": "When Alaska needs a burial-transit permit (new section)"
+  },
+  "cremation-costs-arizona.html": {
+   "date": "2026-10-29",
+   "text": "The medical examiner's review in Arizona (new section)"
+  },
+  "cremation-costs-arkansas.html": {
+   "date": "2026-10-29",
+   "text": "Coroner authorization at an Arkansas crematory (new section)"
+  },
+  "cremation-costs-by-state.html": {
+   "date": "2026-10-29",
+   "text": "Added a table of cremation waiting periods and regulators by state, plus links to local cremation cost checks."
+  },
+  "cremation-costs-california.html": {
+   "date": "2026-10-29",
+   "text": "California's $6 disposition permit and the 10-day return (new section)"
+  },
+  "cremation-costs-colorado.html": {
+   "date": "2026-10-29",
+   "text": "How Colorado's disposition permit is issued (new section)"
+  },
+  "cremation-costs-connecticut.html": {
+   "date": "2026-10-29",
+   "text": "What the Connecticut medical examiner actually checks (new section)"
+  },
+  "cremation-costs-delaware.html": {
+   "date": "2026-10-29",
+   "text": "How Delaware's medical examiner permit works (new section)"
+  },
+  "cremation-costs-florida.html": {
+   "date": "2026-10-29",
+   "text": "What Florida counties charge for the medical examiner's approval (new section)"
+  },
+  "cremation-costs-georgia.html": {
+   "date": "2026-10-29",
+   "text": "Who signs off before a Georgia cremation (new section)"
+  },
+  "cremation-costs-hawaii.html": {
+   "date": "2026-10-29",
+   "text": "Hawaii's burial-transit permit and 30-hour rule (new section)"
+  },
+  "cremation-costs-idaho.html": {
+   "date": "2026-10-29",
+   "text": "How often an Idaho coroner signs off on cremation (new section)"
+  },
+  "cremation-costs-illinois.html": {
+   "date": "2026-10-29",
+   "text": "Cook County's $150 cremation permit (new section)"
+  },
+  "cremation-costs-indiana.html": {
+   "date": "2026-10-29",
+   "text": "Marion County dropped its cremation authorization fee (new section)"
+  },
+  "cremation-costs-iowa.html": {
+   "date": "2026-10-29",
+   "text": "What Iowa's medical examiner cremation permit costs (new section)"
+  },
+  "cremation-costs-kansas.html": {
+   "date": "2026-10-29",
+   "text": "The Kansas coroner's permit to cremate (new section)"
+  },
+  "cremation-costs-kentucky.html": {
+   "date": "2026-10-29",
+   "text": "How the Kentucky coroner's permit works on paper (new section)"
+  },
+  "cremation-costs-louisiana.html": {
+   "date": "2026-10-29",
+   "text": "The Louisiana coroner's cremation permit (new section)"
+  },
+  "cremation-costs-maine.html": {
+   "date": "2026-10-29",
+   "text": "How Maine's town clerk and crematory handle the paperwork (new section)"
+  },
+  "cremation-costs-maryland.html": {
+   "date": "2026-10-29",
+   "text": "Who identifies the body before a Maryland cremation (new section)"
+  },
+  "cremation-costs-massachusetts.html": {
+   "date": "2026-10-29",
+   "text": "What the Massachusetts cremation view costs, and who pays (new section)"
+  },
+  "cremation-costs-michigan.html": {
+   "date": "2026-10-29",
+   "text": "Wayne County's $75 cremation permit (new section)"
+  },
+  "cremation-costs-minnesota.html": {
+   "date": "2026-10-29",
+   "text": "Minnesota's coroner or medical examiner approval (new section)"
+  },
+  "cremation-costs-mississippi.html": {
+   "date": "2026-10-29",
+   "text": "Mississippi's $25 medical examiner certificate (new section)"
+  },
+  "cremation-costs-missouri.html": {
+   "date": "2026-10-29",
+   "text": "Missouri: a filed death certificate comes first (new section)"
+  },
+  "cremation-costs-montana.html": {
+   "date": "2026-10-29",
+   "text": "Who signs off on a Montana cremation (new section)"
+  },
+  "cremation-costs-nebraska.html": {
+   "date": "2026-10-29",
+   "text": "Who signs the Nebraska cremation permit, and the county fallback (new section)"
+  },
+  "cremation-costs-nevada.html": {
+   "date": "2026-10-29",
+   "text": "What a Nevada crematory must have in writing (new section)"
+  },
+  "cremation-costs-new-hampshire.html": {
+   "date": "2026-10-29",
+   "text": "How the New Hampshire cremation paperwork moves (new section)"
+  },
+  "cremation-costs-new-jersey.html": {
+   "date": "2026-10-29",
+   "text": "New Jersey's 24-hour death certification (new section)"
+  },
+  "cremation-costs-new-mexico.html": {
+   "date": "2026-10-29",
+   "text": "What New Mexico's medical investigator charges (new section)"
+  },
+  "cremation-costs-new-york.html": {
+   "date": "2026-10-29",
+   "text": "New York City's medical examiner sign-off (new section)"
+  },
+  "cremation-costs-north-carolina.html": {
+   "date": "2026-10-29",
+   "text": "North Carolina's $50 cap on the cremation certification (new section)"
+  },
+  "cremation-costs-north-dakota.html": {
+   "date": "2026-10-29",
+   "text": "North Dakota's rules for mailing cremated remains (new section)"
+  },
+  "cremation-costs-ohio.html": {
+   "date": "2026-10-29",
+   "text": "Ohio's $10 permit that authorizes cremation (new section)"
+  },
+  "cremation-costs-oklahoma.html": {
+   "date": "2026-10-29",
+   "text": "The extra medical examiner charges in Oklahoma (new section)"
+  },
+  "cremation-costs-oregon.html": {
+   "date": "2026-10-29",
+   "text": "Oregon's disposition authorization and 24-hour notice (new section)"
+  },
+  "cremation-costs-pennsylvania.html": {
+   "date": "2026-10-29",
+   "text": "The coroner's $50 cremation authorization in Pennsylvania (new section)"
+  },
+  "cremation-costs-rhode-island.html": {
+   "date": "2026-10-29",
+   "text": "What the Rhode Island cremation certificate costs (new section)"
+  },
+  "cremation-costs-south-carolina.html": {
+   "date": "2026-10-29",
+   "text": "What a South Carolina coroner's cremation permit costs (new section)"
+  },
+  "cremation-costs-south-dakota.html": {
+   "date": "2026-10-29",
+   "text": "What a South Dakota coroner case costs the family (new section)"
+  },
+  "cremation-costs-tennessee.html": {
+   "date": "2026-10-29",
+   "text": "The Tennessee cremation permit fee and the medical examiner's sign-off (new section)"
+  },
+  "cremation-costs-texas.html": {
+   "date": "2026-10-29",
+   "text": "Travis County's $25 cremation approval (new section)"
+  },
+  "cremation-costs-utah.html": {
+   "date": "2026-10-29",
+   "text": "Utah's medical examiner review in EDEN (new section)"
+  },
+  "cremation-costs-vermont.html": {
+   "date": "2026-10-29",
+   "text": "Vermont's medical examiner certificate and $25 permit charge (new section)"
+  },
+  "cremation-costs-virginia.html": {
+   "date": "2026-10-29",
+   "text": "Virginia's medical examiner clearance, needed for every cremation (new section)"
+  },
+  "cremation-costs-washington-dc.html": {
+   "date": "2026-10-29",
+   "text": "Getting the DC medical examiner's cremation approval (new section)"
+  },
+  "cremation-costs-washington.html": {
+   "date": "2026-10-29",
+   "text": "What King County charges to clear a cremation (new section)"
+  },
+  "cremation-costs-west-virginia.html": {
+   "date": "2026-10-29",
+   "text": "West Virginia's cremation permit and the 21-day rule (new section)"
+  },
+  "cremation-costs-wisconsin.html": {
+   "date": "2026-10-29",
+   "text": "Wisconsin's cremation permit: a county charge that varies (new section)"
+  },
+  "cremation-costs-wyoming.html": {
+   "date": "2026-10-29",
+   "text": "What a Wyoming coroner case costs the family (new section)"
+  },
+  "funeral-costs-alabama.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Why One Alabama Funeral Costs More Than Another”."
+  },
+  "funeral-costs-alaska.html": {
+   "date": "2026-10-29",
+   "text": "Alaska death certificates: $30, then $25 a copy (new section)"
+  },
+  "funeral-costs-arizona.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Arizona Funeral Costs by Line Item”."
+  },
+  "funeral-costs-arkansas.html": {
+   "date": "2026-10-29",
+   "text": "Reworded the page in plainer, state-specific language and added the section “Cremation Against Burial in Arkansas”."
+  },
+  "funeral-costs-california.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “California Funeral Prices, Item by Item”."
+  },
+  "funeral-costs-colorado.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Colorado Funeral Costs, Line by Line”."
+  },
+  "funeral-costs-connecticut.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Cremation Costs in Connecticut”."
+  },
+  "funeral-costs-delaware.html": {
+   "date": "2026-10-29",
+   "text": "Delaware death certificates cost $25 each (new section)"
+  },
+  "funeral-costs-florida.html": {
+   "date": "2026-10-29",
+   "text": "Reworded the page in plainer, state-specific language and cited the state statutes behind the rules."
+  },
+  "funeral-costs-georgia.html": {
+   "date": "2026-10-29",
+   "text": "Reworded the page in plainer, state-specific language and added the section “Georgia Funeral Costs, Item by Item”."
+  },
+  "funeral-costs-hawaii.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Hawaii Funeral Charges in Detail”."
+  },
+  "funeral-costs-idaho.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Idaho Funeral Charges in Detail”."
+  },
+  "funeral-costs-illinois.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Federal Funeral Rule Protections”."
+  },
+  "funeral-costs-indiana.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “What Each Part of an Indiana Funeral Costs”."
+  },
+  "funeral-costs-indianapolis.html": {
+   "date": "2026-10-29",
+   "text": "Cited the state statutes behind the rules and corrected the assistance and direct burial figures."
+  },
+  "funeral-costs-iowa.html": {
+   "date": "2026-10-29",
+   "text": "Matched the FAQ answers to the visible text and rewrote the state sections by hand, including “What Each Part of an Iowa Funeral Costs”."
+  },
+  "funeral-costs-kansas.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Kansas Funeral Prices, Line by Line”."
+  },
+  "funeral-costs-kentucky.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Kentucky Funeral Costs, Line by Line”."
+  },
+  "funeral-costs-louisiana.html": {
+   "date": "2026-10-29",
+   "text": "Louisiana Funeral Charges, Item by Item (new section)"
+  },
+  "funeral-costs-maine.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Maine Funeral Costs, Item by Item”."
+  },
+  "funeral-costs-maryland.html": {
+   "date": "2026-10-29",
+   "text": "Reworded the page in plainer, state-specific language and added the section “Maryland Funeral Charges by Line Item”."
+  },
+  "funeral-costs-massachusetts.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Paying for a Massachusetts Funeral”."
+  },
+  "funeral-costs-memphis.html": {
+   "date": "2026-10-29",
+   "text": "Corrected the assistance and direct burial figures."
+  },
+  "funeral-costs-michigan.html": {
+   "date": "2026-10-29",
+   "text": "Michigan Funeral Prices, Line by Line (new section)"
+  },
+  "funeral-costs-minnesota.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “What Each Part of a Minnesota Funeral Costs”."
+  },
+  "funeral-costs-mississippi.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Cremation Costs in Mississippi”."
+  },
+  "funeral-costs-missouri.html": {
+   "date": "2026-10-29",
+   "text": "Line-Item Funeral Prices in Missouri (new section)"
+  },
+  "funeral-costs-montana.html": {
+   "date": "2026-10-29",
+   "text": "Montana death certificates: a flat $16 (new section)"
+  },
+  "funeral-costs-nebraska.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Nebraska Funeral Costs by Item”."
+  },
+  "funeral-costs-nevada.html": {
+   "date": "2026-10-29",
+   "text": "What a Nevada death certificate costs (new section)"
+  },
+  "funeral-costs-new-hampshire.html": {
+   "date": "2026-10-29",
+   "text": "New Hampshire death certificates: $15, then $10 (new section)"
+  },
+  "funeral-costs-new-jersey.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “New Jersey Funeral Prices in Detail”."
+  },
+  "funeral-costs-new-mexico.html": {
+   "date": "2026-10-29",
+   "text": "New Mexico death certificates: $5 each (new section)"
+  },
+  "funeral-costs-new-york.html": {
+   "date": "2026-10-29",
+   "text": "New York Funeral Prices, Line by Line (new section)"
+  },
+  "funeral-costs-north-carolina.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “What Each Part of a North Carolina Funeral Costs”."
+  },
+  "funeral-costs-north-dakota.html": {
+   "date": "2026-10-29",
+   "text": "North Dakota death certificates: $15 and $10 (new section)"
+  },
+  "funeral-costs-ohio.html": {
+   "date": "2026-10-29",
+   "text": "Ohio Funeral Costs by Item (new section)"
+  },
+  "funeral-costs-oklahoma.html": {
+   "date": "2026-10-29",
+   "text": "Reworded the page in plainer, state-specific language and cited the state statutes behind the rules."
+  },
+  "funeral-costs-oregon.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Oregon Funeral Costs, Item by Item”."
+  },
+  "funeral-costs-pennsylvania.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Pennsylvania Funeral Prices by Line Item”."
+  },
+  "funeral-costs-rhode-island.html": {
+   "date": "2026-10-29",
+   "text": "Reworded the page in plainer, state-specific language and cited the state statutes behind the rules."
+  },
+  "funeral-costs-south-carolina.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Lower-Cost Choices, Ranked”."
+  },
+  "funeral-costs-south-dakota.html": {
+   "date": "2026-10-29",
+   "text": "South Dakota death certificates: $15 a copy (new section)"
+  },
+  "funeral-costs-tennessee.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “What Each Tennessee Funeral Item Costs”."
+  },
+  "funeral-costs-texas.html": {
+   "date": "2026-10-29",
+   "text": "What Each Part of a Texas Funeral Costs (new section)"
+  },
+  "funeral-costs-utah.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Utah Funeral Costs by Line”."
+  },
+  "funeral-costs-vermont.html": {
+   "date": "2026-10-29",
+   "text": "Vermont death certificates: $10 from the town clerk (new section)"
+  },
+  "funeral-costs-virginia.html": {
+   "date": "2026-10-29",
+   "text": "What Each Part of a Virginia Funeral Costs (new section)"
+  },
+  "funeral-costs-washington-dc.html": {
+   "date": "2026-10-29",
+   "text": "Corrected the assistance and direct burial figures."
+  },
+  "funeral-costs-washington.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “Washington Funeral Prices Item by Item”."
+  },
+  "funeral-costs-west-virginia.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the page by hand, including the section “West Virginia Funeral Charges, One by One”."
+  },
+  "funeral-costs-wisconsin.html": {
+   "date": "2026-10-29",
+   "text": "Wisconsin death certificates: $20, then $3 (new section)"
+  },
+  "funeral-costs-wyoming.html": {
+   "date": "2026-10-29",
+   "text": "Ordering death records from Cheyenne (new section)"
+  },
+  "hindu-funeral-costs.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the Hindu cost breakdown around cremation timing and refreshed the support resources."
+  },
+  "jewish-funeral-costs.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the Jewish cost breakdown, including chevra kadisha and plain-casket costs, and refreshed the support resources."
+  },
+  "mormon-funeral-costs.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the LDS cost breakdown, including ward support and temple clothing, and refreshed the support resources."
+  },
+  "muslim-funeral-costs.html": {
+   "date": "2026-10-29",
+   "text": "Rewrote the Muslim cost breakdown around washing, shrouding and quick burial, and refreshed the support resources."
+  }
+ }
+}
