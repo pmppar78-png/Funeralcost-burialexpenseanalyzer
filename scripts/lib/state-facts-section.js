@@ -307,6 +307,12 @@ function nextSteps(ctx, f) {
 }
 
 function stateFactsSectionHtml(ctx) {
+  // Hand-written override for a page (data/overrides/{file-slug}.html), used
+  // instead of the generated rules-and-help section and its next-steps list.
+  // The file must open with <h2 id="state-oversight">. Pages without one are
+  // unchanged.
+  const ov = path.join(__dirname, '..', '..', 'data', 'overrides', `${ctx.kind}${ctx.slug}.html`);
+  if (fs.existsSync(ov)) return `\n${fs.readFileSync(ov, 'utf8').trim()}\n`;
   const f = factsFor(ctx);
   const place = esc(ctx.place);
   const title = { 'funeral-costs-': `Funeral rules and help in ${place}`, 'cremation-costs-': `Cremation rules and help in ${place}`, 'burial-costs-': `Burial rules and help in ${place}` }[ctx.kind];
