@@ -342,6 +342,29 @@ a:hover {
 .card:hover {
   box-shadow: var(--shadow-md);
 }
+.checklist {
+  list-style: none;
+  padding-left: 0;
+  margin: var(--space-md) 0 0;
+}
+.checklist li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  margin-top: 0.5rem;
+  line-height: 1.8;
+}
+.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.6rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--gold-400);
+}
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -615,6 +638,9 @@ a:hover {
   h1, h2, h3 {
     color: #000;
     page-break-after: avoid;
+  }
+  .checklist li::before {
+    background: #000;
   }
   a[href]::after {
     content: " (" attr(href) ")";
@@ -1025,7 +1051,7 @@ a:hover {
         "name": "How much does a funeral cost in New Mexico?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The only reliable way to pin down your number is to pull General Price Lists from two or three Albuquerque-area providers and compare line by line."
+          "text": "Our New Mexico estimate is $6,400 for a traditional funeral with burial, $5,200 for a funeral followed by cremation and about $1,500 for direct cremation, with a plot adding roughly $2,800. Homes in Albuquerque, Las Cruces and smaller towns price differently, so the General Price Lists of two or three nearby homes will tell you more than any average."
         }
       },
       {
@@ -1033,7 +1059,7 @@ a:hover {
         "name": "How much cheaper is cremation than burial in New Mexico?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Direct cremation in New Mexico starts around $1,500; a traditional funeral with burial averages $6,400, not counting the cemetery plot or vault. For most New Mexico families, that is a difference of at least $4,900."
+          "text": "About $4,900 before the cemetery is counted: direct cremation runs near $1,500 against a $6,400 traditional funeral. Add the $2,800 plot estimate and the gap passes $7,000. Remember that cremation in New Mexico waits for the medical investigator's permit (NMSA 61-32-19)."
         }
       },
       {
@@ -1041,7 +1067,7 @@ a:hover {
         "name": "What rights do New Mexico families have when arranging a funeral?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Under the FTC Funeral Rule (16 CFR 453), every New Mexico funeral home must give you an itemized General Price List, quote prices by phone, and accept a casket or urn you bought elsewhere without a handling fee. New Mexico is not among the nine states the Funeral Consumers Alliance lists as requiring families to hire a funeral director. Complaints about a New Mexico funeral home go to the New Mexico Board of Funeral Services (505-476-4622)."
+          "text": "The FTC Funeral Rule gives you an itemized price list, prices over the phone, and the right to bring a casket or urn bought elsewhere with no handling fee. New Mexico adds no funeral-director requirement, so you can pick individual services. The Board of Funeral Services (505-476-4622) takes complaints when a home breaks those rules."
         }
       },
       {
@@ -1049,7 +1075,7 @@ a:hover {
         "name": "How can I save on funeral costs in New Mexico?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Start by lining up General Price Lists from two or three Albuquerque-area providers before you commit to anything. Home and family burial is legal in parts of New Mexico with permits and can eliminate cemetery fees entirely. Direct cremation at $1,500 remains the lowest-cost disposition in every New Mexico market."
+          "text": "Compare written price lists before agreeing to anything, and buy only the items you want, since New Mexico does not make you hire a director for every step. A memorial after direct cremation (about $1,500) avoids embalming and viewing. For a veteran, a national or state veterans cemetery removes the plot cost, and a family with no estate should ask the county about its $1,000 help."
         }
       },
       {
@@ -1057,7 +1083,7 @@ a:hover {
         "name": "Do I have to embalm a loved one in New Mexico?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The FTC Funeral Rule bars a New Mexico funeral home from saying embalming is required by law when it is not, and its price list must state that embalming is not required except in certain special cases. If a New Mexico provider says embalming is needed, ask which law or cemetery rule it is citing."
+          "text": "Usually not. Under the FTC Funeral Rule a home may not tell you embalming is legally required when it is not, and its price list has to say so. If a New Mexico home insists, ask it to name the statute or cemetery rule. Declining embalming keeps the $640 average charge in our table off the bill, though a public viewing may not be possible without it."
         }
       },
       {
@@ -1065,7 +1091,7 @@ a:hover {
         "name": "Is New Mexico cheaper or more expensive than the US average for funerals?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "New Mexico's $6,400 traditional-funeral average is 23% below the $8,300 national median (NFDA 2023)."
+          "text": "Cheaper. The $6,400 New Mexico estimate for a traditional funeral is about 23% under the $8,300 national median for a funeral with viewing and burial (NFDA 2023)."
         }
       },
       {
@@ -1073,7 +1099,7 @@ a:hover {
         "name": "What is the cheapest funeral option in New Mexico?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Direct cremation is the lowest-cost option in New Mexico, starting at roughly $1,500. Direct burial comes next at around $3,200 and still avoids viewing, ceremony, and embalming, though the $2,800 New Mexico plot estimate still applies."
+          "text": "Direct cremation, from roughly $1,500, costs the least in New Mexico because there is no viewing, ceremony or embalming. Direct burial is the next step up at about $3,200, but the family still needs a grave, and the $2,800 plot estimate applies unless the person is eligible for a veterans cemetery."
         }
       },
       {
@@ -1081,7 +1107,7 @@ a:hover {
         "name": "What is the best way to find a cheap funeral home in New Mexico?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Call several New Mexico funeral homes and ask for prices by phone, which the FTC Funeral Rule requires them to give. Buying the casket or urn elsewhere is allowed under the FTC Funeral Rule, and the New Mexico home cannot charge a fee for it."
+          "text": "Phone several homes in your area, ask each for its direct cremation and immediate burial prices, and request the General Price List in writing. Check the license with the Board of Funeral Services before paying a deposit."
         }
       }
     ]
@@ -1144,8 +1170,8 @@ a:hover {
       <div class="article-meta">
         <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="2026-10-29">October 29, 2026</time></span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Last reviewed:</span> <span class="article-meta-value"><time datetime="2026-10-29">October 29, 2026</time></span></span>
-        <span class="article-meta-item article-meta-change"><span class="article-meta-label">What changed:</span> <span class="article-meta-value">New Mexico death certificates: $5 each (new section)</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last reviewed:</span> <span class="article-meta-value"><time datetime="2026-10-30">October 30, 2026</time></span></span>
+        <span class="article-meta-item article-meta-change"><span class="article-meta-label">What changed:</span> <span class="article-meta-value">New hand-written New Mexico rules section: Board of Funeral Services, OMI cremation permit, county $1,000 limit and veterans cemeteries, plus two rewritten FAQ answers.</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, <a href="https://www.ftc.gov/funerals" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">Mountain</span></span>
       </div>
@@ -1177,7 +1203,7 @@ a:hover {
           </tbody>
         </table>
 <p class="table-note state-method-note"><strong>Methodology note:</strong> These figures are our estimates, not a survey of local providers, and they are not a quote or professional advice. <a href="national-funeral-cost-index.html#state-estimates">See how we calculate them</a> or read the <a href="disclaimer.html">full disclaimer</a>.</p>
-<p class="table-note state-source-note"><strong>State sources:</strong> New Mexico Board of Funeral Services; Bureau of Vital Records and Health Statistics; NMSA §§ 24-13-1, 24-13-3.</p>
+<p class="table-note state-source-note"><strong>State sources:</strong> New Mexico Board of Funeral Services; Bureau of Vital Records and Health Statistics; NMSA § 24-13-1.</p>
       </div>
       <figure class="data-chart"><img src="charts/funeral-costs-new-mexico.svg" alt="Horizontal bar chart of New Mexico Funeral Cost Averages (2026). Traditional funeral with burial $6,400; Funeral with cremation $5,200; Direct cremation $1,500; Cemetery / burial plot $2,800; Embalming $640; Casket $1,920." width="680" height="244" loading="lazy" decoding="async" /></figure>
 
@@ -1228,8 +1254,8 @@ a:hover {
       <h2 id="detailed-guides">Other New Mexico Guides on This Site</h2>
       <p>For deeper analysis on specific disposition types in New Mexico, see our dedicated guides:</p>
       <div class="comparison-grid">
-        <div class="comparison-card"><h3><a href="cremation-costs-new-mexico.html">Cremation Costs in New Mexico</a></h3><p>Complete guide to cremation pricing in New Mexico including direct cremation from $1,500, cremation with service from $5,200, urn options, scattering regulations, and memorial alternatives. The cremation rate in New Mexico is 65%.</p><p><a href="cremation-costs-new-mexico.html"><strong>See New Mexico cremation prices &rarr;</strong></a></p></div>
-        <div class="comparison-card"><h3><a href="burial-costs-new-mexico.html">Burial Costs in New Mexico</a></h3><p>Detailed breakdown of burial expenses in New Mexico including cemetery plots from $2,800, caskets, vaults, headstones, and opening/closing fees. Total burial costs in New Mexico range from $14,140 to $18,640.</p><p><a href="burial-costs-new-mexico.html"><strong>See New Mexico burial prices &rarr;</strong></a></p></div>
+        <div class="comparison-card"><h3><a href="cremation-costs-new-mexico.html">Cremation Costs in New Mexico</a></h3><p>Our New Mexico cremation page walks through direct cremation from $1,500 and a cremation with service from $5,200, how the medical investigator's permit works, what urns cost and where ashes may be scattered. About 65% of deaths in New Mexico end in cremation.</p><p><a href="cremation-costs-new-mexico.html"><strong>See New Mexico cremation prices &rarr;</strong></a></p></div>
+        <div class="comparison-card"><h3><a href="burial-costs-new-mexico.html">Burial Costs in New Mexico</a></h3><p>The New Mexico burial page itemizes what the cemetery charges on top of the funeral home: plots from $2,800, opening and closing, vaults and headstones, with caskets priced separately. All in, a New Mexico burial runs from $14,140 to $18,640 on our figures.</p><p><a href="burial-costs-new-mexico.html"><strong>See New Mexico burial prices &rarr;</strong></a></p></div>
       </div>
 
       <h2 id="payment-help">Where New Mexico Families Can Find Money for a Funeral</h2>
@@ -1265,29 +1291,34 @@ a:hover {
 <li><strong>Only in Santa Fe:</strong> public health offices do not issue death certificates; use the Bureau of Vital Records at 2554 Camino Entrada (505-827-0121) or mail P.O. Box 26110, Santa Fe, NM 87502, with a certified check or money order.</li>
 </ul>
 
-<h2 id="state-oversight">Funeral rules and help in New Mexico</h2>
-<p>Funeral homes in New Mexico are licensed by the <a href="https://www.rld.nm.gov/boards-and-commissions/individual-boards-and-commissions/funeral-services/" target="_blank" rel="noopener">New Mexico Board of Funeral Services</a> (505-476-4622). That office takes New Mexico complaints about pricing, misleading sales, or a home that will not hand over its price list.</p>
-<p>The <a href="https://funerals.org/your-rights/state-by-state-rights/the-9-states-that-restrict-caring-for-your-own-dead/" target="_blank" rel="noopener">Funeral Consumers Alliance</a> does not list New Mexico among the nine states that require a funeral director for parts of after-death care, so a New Mexico family may arrange much of a funeral itself. The New Mexico death certificate and disposition permit still have to be filed. Certified copies come from the <a href="https://www.nmhealth.org/about/erd/bvrhs/vrp/" target="_blank" rel="nofollow noopener">Bureau of Vital Records and Health Statistics</a> in Santa Fe, which lists a death certificate ordered through VitalChek at $21.00 with regular mail delivery or $39.50 with next-day air.</p>
-<p>For families comparing a funeral with cremation, note that New Mexico sets no fixed waiting period before cremation, but a permit is needed first (NMSA 61-32-19).</p>
-<p>A New Mexico county must authorize burial or cremation of an unclaimed body within 30 days after it is found unclaimed but not sooner than 14 days after death (NMSA § 24-13-1); if there is no estate, the county of residence can pay up to $1,000 from its general or health-care assistance fund (§ 24-13-3). (Source: <a href="https://nmonesource.com/nmos/nmsa/en/4384/1/document.do" target="_blank" rel="noopener">NMSA §§ 24-13-1, 24-13-3</a>.) Social Security adds a $255 lump sum, but only a qualifying spouse or child can collect it, the claim has a two-year deadline, and the money is paid to the family rather than to the New Mexico funeral home.</p>
-<p>A New Mexico funeral home can reserve a veteran's grave at Fort Bayard National Cemetery (505-988-6400) or Santa Fe National Cemetery (505-988-6400) through the VA's <a href="https://www.va.gov/burials-memorials/schedule-a-burial/" target="_blank" rel="noopener">National Cemetery Scheduling Office</a> (800-535-1117). The state-run veterans cemeteries, Angel Fire State Veterans Cemetery (505-225-4341), Fort Stanton State Veterans Cemetery (505-205-6707), or Gallup State Veterans Cemetery (575-921-3494), take requests directly.</p>
-<h3>Next steps for a funeral in New Mexico</h3>
+<h2 id="state-oversight">Who regulates New Mexico funerals, and what the state will pay</h2>
+<p>The <a href="https://www.rld.nm.gov/boards-and-commissions/individual-boards-and-commissions/funeral-services/" target="_blank" rel="noopener">New Mexico Board of Funeral Services</a>, part of the Regulation and Licensing Department, licenses every funeral home in the state. Its line, 505-476-4622, is the one to use if a home will not give you its price list, quotes one figure and bills another, or presses you to sign before you have compared. Board staff can also confirm that a license is current before you hand over a deposit.</p>
+<p>New Mexico does not make families hire a funeral director: the <a href="https://funerals.org/your-rights/state-by-state-rights/the-9-states-that-restrict-caring-for-your-own-dead/" target="_blank" rel="noopener">Funeral Consumers Alliance</a> leaves it off its list of nine states with that requirement. A family can therefore buy only the pieces it needs, such as transport and filing, and handle a home vigil or a church service itself. Two documents are needed whoever does the work: the death certificate and the disposition permit.</p>
+<h3>Death certificates from Santa Fe</h3>
+<p>The <a href="https://www.nmhealth.org/about/erd/bvrhs/vrp/" target="_blank" rel="nofollow noopener">Bureau of Vital Records and Health Statistics</a> issues certified copies. Through VitalChek a copy is $21.00 by regular mail or $39.50 by next-day air. Banks, insurers and pension plans often each want their own certified copy, so count them up before ordering.</p>
+<h3>If the family is choosing cremation</h3>
+<p>The state sets no minimum wait, but nothing can be cremated until the Office of the Medical Investigator issues a permit and the next of kin signs an authorization (NMSA 61-32-19). In practice the permit, not the calendar, sets the pace, so ask the funeral home how long the medical investigator is taking that week.</p>
+<h3>When there is no money</h3>
+<p>The safety net here is the county. If a body goes unclaimed, the county must authorize burial or cremation within 30 days after it is found unclaimed, and not sooner than 14 days after death (<a href="https://nmonesource.com/nmos/nmsa/en/4384/1/document.do" target="_blank" rel="noopener">NMSA § 24-13-1</a>). Where the person left no estate, the county of residence can contribute up to $1,000 from its general or health-care assistance fund (§ 24-13-3). That cap is well below the $6,400 average traditional funeral in the table, so a county-paid service will usually be a direct cremation or a simple burial. Social Security adds only $255, and only for a qualifying spouse or child who claims it within two years; it is paid to the family, never to the funeral home.</p>
+<h3>Veterans in New Mexico</h3>
+<p>Both national cemeteries in the state, Fort Bayard National Cemetery and Santa Fe National Cemetery, share the number 505-988-6400, and a funeral home books the grave through the VA's <a href="https://www.va.gov/burials-memorials/schedule-a-burial/" target="_blank" rel="noopener">National Cemetery Scheduling Office</a> (800-535-1117). Three state veterans cemeteries take requests directly: Angel Fire (505-225-4341), Fort Stanton (505-205-6707) and Gallup (575-921-3494). At the national cemeteries an eligible veteran's grave, opening and closing, and marker cost the family nothing, so the $2,800 plot line in the table drops off; ask a state cemetery what, if anything, it charges.</p>
+<h3>A short New Mexico checklist</h3>
 <ol>
-<li>Ask every New Mexico funeral home for its General Price List; the FTC Funeral Rule says it must give you one when you ask in person.</li>
-<li>Consider a New Mexico memorial service after cremation or burial, which avoids embalming and viewing fees.</li>
-<li>Ask the New Mexico county indigent office about the $1,000 limit before a funeral is planned.</li>
-<li>If the person served, have the funeral home ask about Santa Fe National Cemetery before you buy a private plot.</li>
-<li>Report a funeral home that hides or ignores its price list to the board at 505-476-4622.</li>
+<li>Collect a General Price List from each home you are considering; the FTC Funeral Rule entitles you to one in person.</li>
+<li>Price a memorial service held after cremation or burial, which leaves out embalming and a viewing.</li>
+<li>Speak to the county indigent office about the $1,000 limit before anything is booked.</li>
+<li>For a veteran, ask about Santa Fe National Cemetery before buying a private plot.</li>
+<li>Take pricing complaints to the board at 505-476-4622.</li>
 </ol>
 <h2 id="faq">Frequently Asked Questions</h2>
-      <details class="faq-item"><summary>How much does a funeral cost in New Mexico?</summary><div class="faq-answer"><p data-state-fact="1">The only reliable way to pin down your number is to pull General Price Lists from two or three Albuquerque-area providers and compare line by line.</p></div></details>
-      <details class="faq-item"><summary>How much cheaper is cremation than burial in New Mexico?</summary><div class="faq-answer"><p data-state-fact="1">Direct cremation in New Mexico starts around $1,500; a traditional funeral with burial averages $6,400, not counting the cemetery plot or vault. For most New Mexico families, that is a difference of at least $4,900.</p></div></details>
-      <details class="faq-item"><summary>What rights do New Mexico families have when arranging a funeral?</summary><div class="faq-answer"><p>Under the FTC Funeral Rule (16 CFR 453), every New Mexico funeral home must give you an itemized General Price List, quote prices by phone, and accept a casket or urn you bought elsewhere without a handling fee. New Mexico is not among the nine states the Funeral Consumers Alliance lists as requiring families to hire a funeral director. Complaints about a New Mexico funeral home go to the New Mexico Board of Funeral Services (505-476-4622).</p></div></details>
-      <details class="faq-item"><summary>How can I save on funeral costs in New Mexico?</summary><div class="faq-answer"><p data-state-fact="1">Start by lining up General Price Lists from two or three Albuquerque-area providers before you commit to anything. Home and family burial is legal in parts of New Mexico with permits and can eliminate cemetery fees entirely. Direct cremation at $1,500 remains the lowest-cost disposition in every New Mexico market.</p></div></details>
-      <details class="faq-item"><summary>Do I have to embalm a loved one in New Mexico?</summary><div class="faq-answer"><p>The FTC Funeral Rule bars a New Mexico funeral home from saying embalming is required by law when it is not, and its price list must state that embalming is not required except in certain special cases. If a New Mexico provider says embalming is needed, ask which law or cemetery rule it is citing.</p></div></details>
-      <details class="faq-item"><summary>Is New Mexico cheaper or more expensive than the US average for funerals?</summary><div class="faq-answer"><p data-state-fact="1">New Mexico's $6,400 traditional-funeral average is 23% below the $8,300 national median (NFDA 2023).</p></div></details>
-      <details class="faq-item"><summary>What is the cheapest funeral option in New Mexico?</summary><div class="faq-answer"><p data-state-fact="1">Direct cremation is the lowest-cost option in New Mexico, starting at roughly $1,500. Direct burial comes next at around $3,200 and still avoids viewing, ceremony, and embalming, though the $2,800 New Mexico plot estimate still applies.</p></div></details>
-      <details class="faq-item"><summary>What is the best way to find a cheap funeral home in New Mexico?</summary><div class="faq-answer"><p>Call several New Mexico funeral homes and ask for prices by phone, which the FTC Funeral Rule requires them to give. Buying the casket or urn elsewhere is allowed under the FTC Funeral Rule, and the New Mexico home cannot charge a fee for it.</p></div></details>
+      <details class="faq-item"><summary>How much does a funeral cost in New Mexico?</summary><div class="faq-answer"><p>Our New Mexico estimate is $6,400 for a traditional funeral with burial, $5,200 for a funeral followed by cremation and about $1,500 for direct cremation, with a plot adding roughly $2,800. Homes in Albuquerque, Las Cruces and smaller towns price differently, so the General Price Lists of two or three nearby homes will tell you more than any average.</p></div></details>
+      <details class="faq-item"><summary>How much cheaper is cremation than burial in New Mexico?</summary><div class="faq-answer"><p>About $4,900 before the cemetery is counted: direct cremation runs near $1,500 against a $6,400 traditional funeral. Add the $2,800 plot estimate and the gap passes $7,000. Remember that cremation in New Mexico waits for the medical investigator's permit (NMSA 61-32-19).</p></div></details>
+      <details class="faq-item"><summary>What rights do New Mexico families have when arranging a funeral?</summary><div class="faq-answer"><p>The FTC Funeral Rule gives you an itemized price list, prices over the phone, and the right to bring a casket or urn bought elsewhere with no handling fee. New Mexico adds no funeral-director requirement, so you can pick individual services. The Board of Funeral Services (505-476-4622) takes complaints when a home breaks those rules.</p></div></details>
+      <details class="faq-item"><summary>How can I save on funeral costs in New Mexico?</summary><div class="faq-answer"><p>Compare written price lists before agreeing to anything, and buy only the items you want, since New Mexico does not make you hire a director for every step. A memorial after direct cremation (about $1,500) avoids embalming and viewing. For a veteran, a national or state veterans cemetery removes the plot cost, and a family with no estate should ask the county about its $1,000 help.</p></div></details>
+      <details class="faq-item"><summary>Do I have to embalm a loved one in New Mexico?</summary><div class="faq-answer"><p>Usually not. Under the FTC Funeral Rule a home may not tell you embalming is legally required when it is not, and its price list has to say so. If a New Mexico home insists, ask it to name the statute or cemetery rule. Declining embalming keeps the $640 average charge in our table off the bill, though a public viewing may not be possible without it.</p></div></details>
+      <details class="faq-item"><summary>Is New Mexico cheaper or more expensive than the US average for funerals?</summary><div class="faq-answer"><p>Cheaper. The $6,400 New Mexico estimate for a traditional funeral is about 23% under the $8,300 national median for a funeral with viewing and burial (NFDA 2023).</p></div></details>
+      <details class="faq-item"><summary>What is the cheapest funeral option in New Mexico?</summary><div class="faq-answer"><p>Direct cremation, from roughly $1,500, costs the least in New Mexico because there is no viewing, ceremony or embalming. Direct burial is the next step up at about $3,200, but the family still needs a grave, and the $2,800 plot estimate applies unless the person is eligible for a veterans cemetery.</p></div></details>
+      <details class="faq-item"><summary>What is the best way to find a cheap funeral home in New Mexico?</summary><div class="faq-answer"><p>Phone several homes in your area, ask each for its direct cremation and immediate burial prices, and request the General Price List in writing. Check the license with the Board of Funeral Services before paying a deposit.</p></div></details>
 
       <div class="related-guides"><h3>Related Guides</h3><ul><li><a href="average-funeral-cost-2026.html">Average Funeral Cost in 2026: National Breakdown</a></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown: Every Line Item Explained</a></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Costs: Side-by-Side Comparison</a></li><li><a href="cheap-funeral-options.html">Cheapest Funeral Options: Lower-Cost Choices</a></li><li><a href="direct-cremation-cost.html">Direct Cremation Cost: Most Affordable Option</a></li><li><a href="funeral-costs-by-state.html">Funeral Costs by State: All 50 States</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="funeral-costs-by-religion.html">Funeral Costs by Religion</a></li><li><a href="burial-insurance-seniors.html">Burial Insurance for Seniors</a></li><li><a href="cremation-insurance-guide.html">Cremation Insurance Guide</a></li><li><a href="funeral-financing-options.html">Funeral Financing Options</a></li><li><a href="questions-to-ask-funeral-home.html">Questions to Ask Funeral Homes</a></li><li><a href="what-funeral-homes-dont-tell-you.html">What Funeral Homes Don't Tell You</a></li><li><a href="social-security-death-benefit.html">Social Security Death Benefit</a></li></ul></div>
       <div class="related-guides crawl-priority-links"><h3>Compare With</h3><ul><li><a href="cremation-costs-new-mexico.html">New Mexico cremation costs</a></li><li><a href="burial-costs-new-mexico.html">New Mexico burial costs</a></li><li><a href="funeral-costs-by-state.html">All state funeral costs</a>: parent hub</li><li><a href="national-funeral-cost-index.html">National Funeral Cost Index</a>: national hub</li><li><a href="funeral-costs-new-mexico.html">Funeral costs in New Mexico</a></li></ul></div>
