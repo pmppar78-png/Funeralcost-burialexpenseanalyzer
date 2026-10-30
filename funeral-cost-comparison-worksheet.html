@@ -750,6 +750,20 @@ a:hover {
     page-break-after: avoid;
   }
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
 <script type="application/ld+json">
   {
@@ -1160,7 +1174,7 @@ a:hover {
         <p>Fill in the prices from each funeral home&rsquo;s General Price List. The national average column is provided for reference based on 2026 NFDA data.</p>
 
         <div style="overflow-x: auto;">
-        <table class="comparison-table" aria-label="Funeral cost comparison worksheet">
+        <div class="table-scroll"><table class="comparison-table" aria-label="Funeral cost comparison worksheet">
           <thead>
             <tr>
               <th scope="col" style="width: 28%;">Service / Item</th>
@@ -1338,9 +1352,9 @@ a:hover {
               <td class="write-in" style="min-height: 2.2rem;">&nbsp;</td>
             </tr>
           </tbody>
-        </table>
-        </div>
+        </table></div>
       <figure class="data-chart"><img src="charts/funeral-cost-comparison-worksheet.svg" alt="Horizontal bar chart of Funeral Cost Comparison Worksheet (2026) with 16 bars, from Death certificates at $150 to Casket at $2,500." width="680" height="544" loading="lazy" decoding="async" /><figcaption>The bars show the national avg. column of the Funeral Cost Comparison Worksheet (2026) table; Casket is highest at $2,500 and Death certificates lowest at $150.</figcaption></figure>
+        </div>
 
         <p><em><strong>Notes space:</strong></em></p>
         <div style="border: 1px solid #d5cbb8; border-radius: 6px; min-height: 100px; padding: 0.75rem; background: #fdfaf5; margin-bottom: 1.5rem;">

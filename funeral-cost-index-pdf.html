@@ -777,6 +777,20 @@ a:hover {
     page-break-after: avoid;
   }
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
 <script type="application/ld+json">
   {
@@ -1104,7 +1118,7 @@ a:hover {
         <p>The table below shows the estimated average cost for a traditional funeral with viewing and burial, a funeral with cremation, and direct cremation in each state. Figures are medians compiled from NFDA data, state funeral board reports, and consumer surveys.</p>
 
         <div style="overflow-x:auto;">
-        <table class="cost-table" aria-label="Funeral costs by state, 2026">
+        <div class="table-scroll"><table class="cost-table" aria-label="Funeral costs by state, 2026">
           <thead>
             <tr>
               <th scope="col">State</th>
@@ -1167,9 +1181,9 @@ a:hover {
             <tr><td>Wyoming</td><td>$6,880</td><td>$6,130</td><td>$2,050</td><td>West</td></tr>
             <tr class="table-highlight"><td><strong>National Median</strong></td><td><strong>$8,300</strong></td><td><strong>$6,280</strong></td><td><strong>$2,398</strong></td><td>—</td></tr>
           </tbody>
-        </table>
-        </div>
+        </table></div>
       <figure class="data-chart"><img src="charts/funeral-cost-index-pdf.svg" alt="Horizontal bar chart of 2026 National Funeral Cost Index Report with 50 bars, from Mississippi at $6,150 to New York at $9,850." width="680" height="1564" loading="lazy" decoding="async" /><figcaption>The bars show the traditional burial column of the 2026 National Funeral Cost Index Report table; New York is highest at $9,850 and Mississippi lowest at $6,150.</figcaption></figure>
+        </div>
         <p><em>Note: Figures exclude cemetery costs (plot, vault, headstone, opening/closing) which can add $3,000&ndash;$7,500 or more to the total.</em></p>
       </section>
 
@@ -1180,7 +1194,7 @@ a:hover {
         <h2>Regional Breakdown</h2>
         <p>Funeral costs vary significantly by region. The Northeast consistently reports the highest average costs, driven by higher cost of living, real estate prices affecting cemetery costs, and market concentration. The South generally offers the lowest prices, though urban areas within any region can exceed these averages considerably.</p>
 
-        <table class="cost-table" aria-label="Regional funeral cost averages, 2026">
+        <div class="table-scroll"><table class="cost-table" aria-label="Regional funeral cost averages, 2026">
           <thead>
             <tr>
               <th scope="col">Region</th>
@@ -1220,7 +1234,7 @@ a:hover {
               <td>AK, AZ, CA, CO, HI, ID, MT, NV, NM, OR, UT, WA, WY</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
 
         <h3>Key Regional Observations</h3>
         <ul>
@@ -1238,7 +1252,7 @@ a:hover {
         <h2>Cremation vs. Burial Cost Comparison</h2>
         <p>Cremation has become the preferred disposition method in the United States; NFDA&rsquo;s 2025 Cremation &amp; Burial Report projected a 63.4% national cremation rate for 2025. The primary driver is cost: even a funeral with viewing and cremation ($6,280 NFDA 2023 median) costs about $2,000 less than one with viewing and burial ($8,300), and direct cremation can save families $5,000 or more compared to a full-service burial.</p>
 
-        <table class="cost-table" aria-label="Cremation vs. burial cost comparison">
+        <div class="table-scroll"><table class="cost-table" aria-label="Cremation vs. burial cost comparison">
           <thead>
             <tr>
               <th scope="col">Cost Component</th>
@@ -1262,10 +1276,10 @@ a:hover {
             <tr><td>Alternative container</td><td>$0</td><td>$0</td><td>$150</td></tr>
             <tr class="table-highlight"><td><strong>Subtotal (funeral home)</strong></td><td><strong>$7,750</strong></td><td><strong>$5,095&ndash;$6,920</strong></td><td><strong>$2,395</strong></td></tr>
           </tbody>
-        </table>
+        </table></div>
 
         <h3>Additional Cemetery Costs for Burial</h3>
-        <table class="cost-table" aria-label="Cemetery costs for traditional burial">
+        <div class="table-scroll"><table class="cost-table" aria-label="Cemetery costs for traditional burial">
           <thead>
             <tr>
               <th scope="col">Cemetery Item</th>
@@ -1281,7 +1295,7 @@ a:hover {
             <tr><td>Perpetual care fee</td><td>$200&ndash;$500</td><td>$350</td></tr>
             <tr class="table-highlight"><td><strong>Total cemetery costs</strong></td><td><strong>$3,500&ndash;$12,800</strong></td><td><strong>$6,872</strong></td></tr>
           </tbody>
-        </table>
+        </table></div>
 
         <p>When cemetery costs are included, the total cost of a traditional burial arrangement averages <strong>$14,720</strong> nationally. By contrast, direct cremation with a simple memorial gathering at home or a place of worship may total under <strong>$3,000</strong>, making it the most affordable option for families facing financial constraints.</p>
       </section>

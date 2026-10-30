@@ -929,6 +929,16 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"Average Funeral Cost in 2026: A National Breakdown","description":"The median funeral with burial is $8,300 and cremation with a service $6,280 (NFDA). See regional ranges, line items and where families save.","datePublished":"2026-01-15","dateModified":"2026-10-24","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/average-funeral-cost-2026.html"}}
@@ -1114,13 +1124,13 @@ a:hover {
 
       <h3 id="whats-changed-2026">What's changed in 2026: estimated 2026 dollars</h3>
       <p>NFDA's 2023 study is still the most recent official national survey of funeral home prices. To show roughly what those medians are worth at 2026 prices, we adjusted them with the Bureau of Labor Statistics consumer price index for <em>funeral expenses</em>. These are <strong>our estimates, not new survey data</strong>, and your local prices may be higher or lower.</p>
-      <table class="cost-table">
+      <div class="table-scroll"><table class="cost-table">
         <thead><tr><th>Service</th><th>NFDA 2023 median (official)</th><th>Estimated in September 2026 dollars</th></tr></thead>
         <tbody>
           <tr><td>Funeral with viewing and burial</td><td>$8,300</td><td>About $9,150 (estimate)</td></tr>
           <tr><td>Funeral with viewing and cremation</td><td>$6,280</td><td>About $6,920 (estimate)</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p><strong>How we calculated this:</strong> The BLS funeral expenses index averaged 379.301 across the 12 months of 2023 and stood at 418.227 in September 2026, the latest month published as of October 21, 2026. That is an increase of about 10.3% (418.227 ÷ 379.301 = 1.1026). We multiplied each NFDA median by 1.1026 and rounded to the nearest $10. The CPI tracks price changes for funeral services in general, not one funeral home, so treat these as ballpark figures. Neither median includes cemetery costs such as a plot, vault, opening and closing, or a headstone.</p>
       <p class="source-note">Sources: <a href="https://nfda.org/news/statistics" target="_blank" rel="noopener">NFDA 2023 General Price List Study</a>; <a href="https://data.bls.gov/timeseries/CUUR0000SEGD02" target="_blank" rel="noopener">BLS CPI-U, Funeral expenses, U.S. city average (series CUUR0000SEGD02)</a>, not seasonally adjusted, retrieved October 21, 2026. Last updated October 21, 2026.</p>
 

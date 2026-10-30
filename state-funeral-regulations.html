@@ -905,6 +905,27 @@ a:hover {
   color: var(--warm-400, #b5a594);
   font-size: 0.875rem;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .stat-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+  .stat-highlights .stat-card {
+    min-width: 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .stat-highlights .stat-number {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
 <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"Funeral Cost & Burial Expense Analyzer","url":"https://funeralcostanalyzer.com/","description":"Funeral laws for all 50 states: regulatory boards, cremation rules, average costs and consumer protections, with links to each state agency."}
