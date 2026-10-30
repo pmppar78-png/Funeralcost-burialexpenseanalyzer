@@ -29,12 +29,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" /></noscript>
-  <style data-critical>/* ============================================================
-   Funeral Cost & Burial Expense Analyzer — Premium Stylesheet
-   Warm, compassionate, high-trust design for grieving users
-   ============================================================ */
-/* Size-matched stand-in for Inter while the webfont loads (metrics as used by
-   next/font for Inter over Arial), so text does not reflow when Inter swaps in. */
+  <style data-critical>
 @font-face {
   font-family: "Inter Fallback";
   src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo");
@@ -43,8 +38,6 @@
   line-gap-override: 0%;
   size-adjust: 107.12%;
 }
-/* Same idea for Merriweather headings (bold widths measured against Times New
-   Roman / its metric twin Liberation Serif), so titles keep their line breaks. */
 @font-face {
   font-family: "Merriweather Fallback";
   src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Tinos");
@@ -59,7 +52,6 @@
   box-sizing: border-box;
 }
 :root {
-  /* Primary palette — warm browns, beiges, creams */
   --brown-900: #3b2314;
   --brown-800: #432818;
   --brown-700: #5c3a1e;
@@ -68,7 +60,6 @@
   --brown-400: #a67c52;
   --brown-300: #c4a27a;
   --brown-200: #dcc5a4;
-  /* Warm neutrals */
   --warm-900: #352a21;
   --warm-800: #483b2f;
   --warm-700: #5e4d3d;
@@ -80,7 +71,6 @@
   --warm-150: #ede5db;
   --warm-100: #f4efe8;
   --warm-50: #faf7f3;
-  /* Accent — gentle gold / warm amber */
   --gold-600: #a67c3d;
   --gold-500: #c49a52;
   --gold-400: #d4af6a;
@@ -88,10 +78,8 @@
   --gold-200: #eddcb5;
   --gold-100: #f5ecda;
   --gold-50: #fbf6ed;
-  /* Soft rose accent for condolence warmth */
   --rose-100: #faf0ee;
   --rose-50: #fdf7f6;
-  /* Semantic */
   --bg-page: #f9f6f1;
   --bg-card: #fffefb;
   --bg-hero: linear-gradient(155deg, #faf7f2 0%, #f3ece2 30%, #f5ebd8 60%, #faf5ec 100%);
@@ -104,10 +92,8 @@
   --border-card: #e5dace;
   --accent: var(--gold-600);
   --accent-light: var(--gold-50);
-  /* Typography */
   --font-heading: "Merriweather", "Merriweather Fallback", "Georgia", "Palatino Linotype", serif;
   --font-body: "Inter", "Inter Fallback", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  /* Spacing scale — generous for calm reading */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -115,23 +101,17 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4.5rem;
-  /* Border radius */
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
-  /* Shadows — warm-toned, gentle, layered depth */
   --shadow-sm: 0 1px 4px rgba(74, 44, 23, 0.04), 0 1px 2px rgba(74, 44, 23, 0.025);
   --shadow-md: 0 4px 14px -2px rgba(74, 44, 23, 0.06), 0 2px 6px -1px rgba(74, 44, 23, 0.035);
   --shadow-lg: 0 12px 28px -4px rgba(74, 44, 23, 0.07), 0 4px 10px -4px rgba(74, 44, 23, 0.03);
   --shadow-xl: 0 22px 44px -8px rgba(74, 44, 23, 0.08), 0 8px 18px -6px rgba(74, 44, 23, 0.03);
   --shadow-warm-glow: 0 2px 20px rgba(166, 124, 61, 0.1);
-  /* Content width */
   --max-width: 860px;
 }
-/* ============================================================
-   Base
-   ============================================================ */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -170,9 +150,6 @@ a {
 a:hover {
   color: var(--gold-500);
 }
-/* ============================================================
-   Skip Link — accessible, hidden until keyboard focus
-   ============================================================ */
 .skip-link {
   position: absolute;
   top: -100%;
@@ -194,13 +171,6 @@ a:hover {
   outline: 2px solid var(--gold-400);
   outline-offset: 2px;
 }
-/* ============================================================
-   Screen Reader Only
-   ============================================================ */
-/* ============================================================
-   Header — clean, authoritative, left-aligned brand
-   Hamburger on the RIGHT for modern mobile UX
-   ============================================================ */
 .site-header {
   position: sticky;
   top: 0;
@@ -256,7 +226,6 @@ a:hover {
   margin-top: 1px;
   font-style: italic;
 }
-/* Navigation */
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -279,7 +248,6 @@ a:hover {
   color: var(--brown-800);
   text-decoration: none;
 }
-/* Mobile nav toggle — positioned to the RIGHT on mobile (modern UX standard) */
 .mobile-nav-toggle {
   display: none;
   background: none;
@@ -299,7 +267,6 @@ a:hover {
   border-radius: 2px;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
-/* Navigation Dropdown */
 .nav-dropdown {
   position: relative;
 }
@@ -356,37 +323,11 @@ a:hover {
   color: var(--brown-800);
   text-decoration: none;
 }
-/* ============================================================
-   Layout
-   ============================================================ */
 .main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
 }
-/* ============================================================
-   Section Dividers — soft, warm, minimal
-   ============================================================ */
-/* ============================================================
-   Hero Section — concise, calming
-   ============================================================ */
-/* Hero Action Buttons */
-/* Trust Bar */
-/* ============================================================
-   Quick Actions — the "What do I do first?" bar
-   ============================================================ */
-/* ============================================================
-   A) Why This Exists — purpose clarity section
-   ============================================================ */
-/* ============================================================
-   B) How We Help — 3-card value row
-   ============================================================ */
-/* ============================================================
-   C) Quick Start — "In 60 Seconds" block
-   ============================================================ */
-/* ============================================================
-   Section Cards
-   ============================================================ */
 .card {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
@@ -399,29 +340,6 @@ a:hover {
 .card:hover {
   box-shadow: var(--shadow-md);
 }
-/* ============================================================
-   Expandable / Collapsible Blocks
-   ============================================================ */
-/* Expandable used as section heading */
-/* ============================================================
-   Commitment Box
-   ============================================================ */
-/* ============================================================
-   Checklists
-   ============================================================ */
-/* ============================================================
-   Calculator
-   ============================================================ */
-/* Cost Range Grid */
-/* ============================================================
-   Payment Options Grid — scannable cards
-   ============================================================ */
-/* ============================================================
-   AI CTA Layout
-   ============================================================ */
-/* ============================================================
-   Buttons — consistent, dignified
-   ============================================================ */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -449,27 +367,9 @@ a:hover {
 .btn-primary:active {
   transform: translateY(0);
 }
-/* ============================================================
-   Text Helpers
-   ============================================================ */
 .small {
   font-size: 0.8125rem;
 }
-/* ============================================================
-   FAQ Section
-   ============================================================ */
-/* ============================================================
-   Glossary
-   ============================================================ */
-/* ============================================================
-   Tip Box
-   ============================================================ */
-/* ============================================================
-   Resource Grid
-   ============================================================ */
-/* ============================================================
-   Footer
-   ============================================================ */
 .site-footer {
   padding: var(--space-xl) var(--space-xl) var(--space-2xl);
   border-top: 1px solid var(--warm-200);
@@ -493,12 +393,6 @@ a:hover {
   font-size: 0.8rem;
   line-height: 1.6;
 }
-/* ============================================================
-   Chat Layout
-   ============================================================ */
-/* ============================================================
-   Responsive
-   ============================================================ */
 @media (max-width: 768px) {
   .site-header {
     height: auto;
@@ -534,10 +428,6 @@ a:hover {
   .main {
     padding: var(--space-lg) var(--space-md) var(--space-2xl);
   }
-  /* Quick actions: stack on mobile */
-  /* How we help: stack on mobile */
-  /* Quick start: stack on mobile */
-  /* Nav dropdown on mobile */
   .nav-dropdown {
     width: 100%;
   }
@@ -560,17 +450,12 @@ a:hover {
     padding: 0.4rem 0.65rem;
     font-size: 0.8125rem;
   }
-  /* Payment options: single column on mobile */
-  /* AI CTA: stack on mobile */
 }
 @media (min-width: 769px) {
   .mobile-nav-toggle {
     display: none;
   }
 }
-/* ============================================================
-   Guide / Subpage Styles
-   ============================================================ */
 .guide-body {
   margin: 0;
   min-height: 100vh;
@@ -645,8 +530,6 @@ a:hover {
   border-bottom: 1px solid var(--warm-200);
   margin-bottom: var(--space-xl);
 }
-/* Guide tables */
-/* Guide FAQ section */
 @media (max-width: 768px) {
   .guide-main {
     padding: var(--space-lg) var(--space-md) var(--space-2xl);
@@ -658,21 +541,6 @@ a:hover {
     font-size: 1.35rem;
   }
 }
-/* ============================================================
-   Enhanced Cost Estimator
-   ============================================================ */
-/* ============================================================
-   Before You Call Section
-   ============================================================ */
-/* ============================================================
-   Editorial Standards / Methodology
-   ============================================================ */
-/* ============================================================
-   Community Contact / Share Experience
-   ============================================================ */
-/* ============================================================
-   Printable Planning Checklist
-   ============================================================ */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -697,9 +565,6 @@ a:hover {
   box-shadow: var(--shadow-md);
   color: var(--brown-800);
 }
-/* ============================================================
-   Printable Checklist Page (print styles)
-   ============================================================ */
 @media print {
   .site-header, .site-footer, .site-nav,
   .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary, .btn-secondary {
@@ -736,18 +601,6 @@ a:hover {
     content: "";
   }
 }
-/* ============================================================
-   Article Meta — Review Date & Authority Signals
-   ============================================================ */
-/* ============================================================
-   Table of Contents
-   ============================================================ */
-/* ============================================================
-   Authority Trust Bar (for guide pages)
-   ============================================================ */
-/* ============================================================
-   Footer Links Grid
-   ============================================================ */
 .footer-links {
   display: flex;
   flex-wrap: wrap;
@@ -767,12 +620,6 @@ a:hover {
   color: var(--gold-600);
   text-decoration: underline;
 }
-/* ============================================================
-   State / Metro / Topic Pages — Cost Tables
-   ============================================================ */
-/* ============================================================
-   State Hub — Map & Grid Layout
-   ============================================================ */
 .state-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -803,21 +650,6 @@ a:hover {
   font-size: 0.8125rem;
   color: var(--text-muted);
 }
-/* ============================================================
-   City / Metro Cards
-   ============================================================ */
-/* ============================================================
-   Resource / Affiliate Suggestions
-   ============================================================ */
-/* ============================================================
-   Stat Highlight Boxes
-   ============================================================ */
-/* ============================================================
-   Related Guides Sidebar
-   ============================================================ */
-/* ============================================================
-   CTA Banner (Free AI Guide, Contact, etc.)
-   ============================================================ */
 .cta-banner {
   margin: var(--space-xl) 0;
   padding: var(--space-xl);
@@ -837,47 +669,6 @@ a:hover {
   color: var(--text-body);
   margin: 0 0 var(--space-md);
 }
-/* ============================================================
-   Topic Cluster Navigation
-   ============================================================ */
-/* ============================================================
-   Chat Page Enhancements
-   ============================================================ */
-/* ============================================================
-   Contact Form
-   ============================================================ */
-/* ============================================================
-   Consumer Protection / Warning Callouts
-   ============================================================ */
-/* ============================================================
-   Comparison Layout
-   ============================================================ */
-/* ============================================================
-   National Funeral Cost Index — Flagship Research Page
-   ============================================================ */
-/* Index Hero */
-/* Key Findings Box */
-/* National Summary Stats — larger version for Index */
-/* Full 50-State Data Table */
-/* Rank Badge */
-/* Regional Table */
-/* CSS Bar Charts */
-/* Inflation Trends Table */
-/* Citation / Methodology Box */
-/* Download Cards Grid */
-/* Metro Comparison Grid */
-/* Two-Column Grid (cremation trends, comparisons) */
-/* Regional table coloring */
-/* Rank badges for #1, #2, #3, #50 */
-/* Table footnote */
-/* Cremation bar fill variant */
-/* ============================================================
-   Printable Pages — Print-Optimized Styles
-   ============================================================ */
-/* Checklist Styles */
-/* Comparison Worksheet */
-/* Embed Widget Page */
-/* Print Styles — enhanced for printable pages */
 @media print {
   .site-header,
   .skip-link,
@@ -907,26 +698,6 @@ a:hover {
     page-break-after: avoid;
   }
 }
-/* Calculator checkbox group */
-/* ============================================================
-   Ad Placeholder & Monetization Styles
-   ============================================================ */
-/* Insurance/Product Comparison Tables */
-/* Affiliate CTA Buttons */
-/* Pros/Cons Lists */
-/* Rating Stars */
-/* Calculator Styles */
-/* Regulation Table Styles */
-/* ============================================================
-   Email Capture / Newsletter Signup
-   ============================================================ */
-/* ============================================================
-   Author Bio — E-E-A-T trust component
-   ============================================================ */
-/* ============================================================
-   Lead Generation Form
-   ============================================================ */
-/* CTA Actions — dual button layout */
 .cta-actions {
   display: flex;
   gap: 0.75rem;
@@ -952,15 +723,6 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
-/* Homepage utility classes — extracted from inline styles */
-/* ===========================================================
-   Funeral Cost Widget page — warm palette rebrand
-   =========================================================== */
-/* Live preview widget — full */
-/* Embed code textareas */
-/* FAQ callouts on widget page */
-/* Widget page bottom CTA banner — warm replacement for slate gradient */
-/* Affiliate note under chat replies */
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"Complete Site Map","description":"Every guide on Funeral Cost Analyzer: state and metro price pages, cremation and burial costs, insurance, benefits and planning resources.","datePublished":"2026-01-15","dateModified":"2026-10-24","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/sitemap-index.html"}}

@@ -25,7 +25,7 @@ async function main() {
       keyframes: true,
       safelist: { standard: [/^nav-open$/, /^is-/, /^active$/, /^open$/] }
     });
-    const css = res.css.replace(/\n\s*\n/g, '\n').replace(/<\/style/gi, '<\\/style');
+    const css = res.css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\n\s*\n/g, '\n').replace(/<\/style/gi, '<\\/style');
     const block = '<style data-critical>' + css + '</style>';
     if (INLINE_RE.test(html)) html = html.replace(INLINE_RE, () => block);
     else html = html.replace(BLOCKING, () => block + ASYNC);
