@@ -12,7 +12,7 @@
     name="description"
     content="Free 2026 funeral cost calculator for all 50 states. Compare cremation and burial prices line by line; direct cremation often starts near $1,000."
   />
-  <meta name="last-modified" content="2026-10-29" />
+  <meta name="last-modified" content="2026-10-30" />
   <meta property="og:title" content="Funeral Cost Calculator 2026: Cremation &amp; Burial by State" />
   <meta property="og:description" content="Free 2026 funeral cost calculator for all 50 states. Compare cremation and burial prices line by line; direct cremation often starts near $1,000." />
   <meta property="og:type" content="website" />
@@ -1970,6 +1970,15 @@ a:hover {
   text-decoration: none;
 }
 .honeypot-field { display: none; }
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
 <script type="application/ld+json">
   {
@@ -2105,18 +2114,7 @@ a:hover {
     .home-video-play:hover .home-video-icon path:first-child, .home-video-play:focus-visible .home-video-icon path:first-child { fill: #f00; fill-opacity: 1; }
     .home-video-play:focus-visible { outline: 3px solid var(--gold-400); outline-offset: -3px; }
     @media (min-width: 720px) { .home-video { grid-template-columns: minmax(0, 1fr) 240px; } .home-video-frame { max-width: 240px; } }
-    /* Mobile speed: until a visitor first clicks, taps, presses a key or arrives on a #link, the browser skips layout and paint for the footer and for home sections below the first three until they scroll near. The script below switches this off (class cv-off) before any jump link moves the page, so every #anchor lands exactly where it would without it. Nothing is hidden: the text stays in the page for search, find-in-page and screen readers. */
-    html:not(.cv-off) .main > section:nth-of-type(n+4), html:not(.cv-off) .site-footer { content-visibility: auto; contain-intrinsic-size: auto 900px; }
   </style>
-  <script>
-  (function(){
-    var d=document.documentElement;
-    function off(){ d.classList.add('cv-off'); }
-    if (location.hash) off();
-    addEventListener('hashchange', off);
-    ['click','keydown','touchstart'].forEach(function(t){ document.addEventListener(t, off, {capture:true, once:true, passive:true}); });
-  })();
-  </script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -3130,7 +3128,7 @@ a:hover {
     <!-- How to Save on Funeral Costs — targets "cheap funeral" and "save money" queries -->
     <section id="save-money" class="section card">
       <h2>How to save money on funeral costs</h2>
-      <p>Families who research their options before contacting a funeral home save an average of 20–30% on total funeral costs. Here are the most effective strategies:</p>
+      <p>Comparing itemized price lists before you call a funeral home is the surest way to keep the total down, because the FTC Funeral Rule lets you pick only the goods and services you want. Here are the most effective strategies:</p>
       <ol>
         <li><strong>Compare General Price Lists from 2–3 funeral homes</strong>: Prices vary by 200–300% between providers in the same area. This is the single most effective way to save. <a href="funeral-price-comparison.html">Learn how to compare prices</a></li>
         <li><strong>Consider direct cremation</strong>: At roughly $1,400–$3,000 in most states, it is the most affordable disposition option. A memorial service can be held separately at any location. <a href="direct-cremation-cost.html">Direct cremation guide</a></li>
@@ -3162,14 +3160,14 @@ a:hover {
           <p>
             Spotted a factual error or outdated figure? Corrections are taken seriously and reviewed promptly.
           </p>
-          <a href="mailto:corrections@funeralcostanalyzer.com">corrections@funeralcostanalyzer.com</a>
+          <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>
         </div>
         <div class="contact-option">
           <h3>Advertising inquiries</h3>
           <p>
             For ethical advertising partnerships that respect the sensitivity of this topic.
           </p>
-          <a href="mailto:advertise@funeralcostanalyzer.com">advertise@funeralcostanalyzer.com</a>
+          <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>
         </div>
         <div class="contact-option">
           <h3>Business opportunities</h3>
@@ -3247,6 +3245,7 @@ a:hover {
         <a href="sitemap-index.html">Site Map</a>
         <a href="sitemap.xml">XML Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>

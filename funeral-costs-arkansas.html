@@ -1027,6 +1027,27 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .stat-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+  .stat-highlights .stat-box {
+    min-width: 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .stat-highlights .stat-number {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"Funeral Costs in Arkansas: What Families Pay in 2026","description":"Funeral costs in Arkansas (2026): traditional $6,100, cremation $5,000, direct cremation from $1,500. Full breakdown, hidden fees, and ways to save.","datePublished":"2026-01-15","dateModified":"2026-10-30","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/funeral-costs-arkansas.html"}}
@@ -1364,6 +1385,7 @@ a:hover {
         <a href="sitemap-index.html">Site Map</a>
         <a href="sitemap.xml">XML Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>

@@ -968,6 +968,20 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"How to Compare Funeral Prices Step by Step","description":"How to request General Price Lists, compare funeral homes line by line, and spot package markups before you sign anything.","datePublished":"2026-01-15","dateModified":"2026-10-24","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/funeral-price-comparison.html"}}
@@ -1160,7 +1174,7 @@ a:hover {
 <p>Comparing funeral prices is a paperwork job. The FTC already requires the paperwork. This price-comparison guide walks through a phone call using the national median lines from the NFDA 2023 General Price List Study so you know which rows to ask for. The medians are not what your funeral home must charge.</p>
 <h3>What the 2023 study actually measured</h3>
 <p>NFDA mailed and emailed its member funeral homes in July 2023 and published the results on December 8, 2023. The medians below are from that release and from the same study as reprinted in the 2024 NFDA Cremation and Burial Report. NFDA has not published a newer national GPL study; its statistics page still cited these 2023 figures as of September 29, 2025. That is why this site labels them latest available.</p>
-<table class="cost-table"><caption>NFDA 2023 national medians to look for on a GPL</caption><thead><tr><th>GPL line</th><th>2023 median</th></tr></thead><tbody>
+<div class="table-scroll"><table class="cost-table"><caption>NFDA 2023 national medians to look for on a GPL</caption><thead><tr><th>GPL line</th><th>2023 median</th></tr></thead><tbody>
 <tr><td>Non-declinable basic services fee</td><td>$2,495</td></tr>
 <tr><td>Removal or transfer of remains</td><td>$395</td></tr>
 <tr><td>Embalming</td><td>$845</td></tr>
@@ -1173,7 +1187,7 @@ a:hover {
 <tr><td>Direct cremation, container from the funeral home</td><td>$2,750</td></tr>
 <tr><td>Metal burial casket (median on the GPL)</td><td>$2,500</td></tr>
 <tr><td>Alternative cremation container</td><td>$160</td></tr>
-</tbody></table>
+</tbody></table></div>
       <figure class="data-chart"><img src="charts/funeral-price-comparison.svg" alt="Horizontal bar chart of NFDA 2023 national medians to look for on a GPL with 12 bars, from Alternative cremation container at $160 to Funeral with viewing and burial, metal casket, no vault at $8,300." width="680" height="424" loading="lazy" decoding="async" /><figcaption>The bars show the 2023 median column of the NFDA 2023 national medians to look for on a GPL table; Funeral with viewing and burial, metal casket, no vault is highest at $8,300 and Alternative cremation container lowest at $160.</figcaption></figure>
 <p>Source: <a href="https://content.nfda.org/news/media-center/nfda-news-releases/id/8134/2023-nfda-general-price-list-study-shows-inflation-increasing-faster-than-the-cost-of-a-funeral" target="_blank" rel="noopener">NFDA, December 8, 2023</a>, and the 2024 NFDA Cremation and Burial Report's reprint of the 2023 GPL table. Half of the surveyed homes charged less than the median and half charged more. Cemetery plots, vaults, flowers, and obituaries were not in the $8,300 figure.</p>
 <h3>The phone script</h3>
@@ -1246,6 +1260,7 @@ a:hover {
         <a href="sitemap-index.html">Site Map</a>
         <a href="sitemap.xml">XML Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>

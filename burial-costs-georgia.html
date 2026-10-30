@@ -949,6 +949,27 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .stat-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+  .stat-highlights .stat-box {
+    min-width: 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .stat-highlights .stat-number {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"Burial Costs in Georgia","description":"Burial cost Georgia 2026: cemetery plot about $3,200, funeral service $6,900, total $15,550–$20,050. Perpetual care rules, death certificate fees and Georgia veterans cemeteries.","datePublished":"2026-01-15","dateModified":"2026-10-29","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/burial-costs-georgia.html"}}
@@ -1123,7 +1144,7 @@ a:hover {
       <h2>Cutting the Cost of a Georgia Burial</h2>
       <p>Arranging things ahead of time is the surest way for Georgia families to save and to know how the bill will be paid.</p>
       <ul>
-        <li data-state-fact="1">Get cemetery prices in writing: the FTC Funeral Rule does not reach cemeteries, but Georgia cemeteries registered with the Secretary of State will generally give a price sheet when asked.</li><li><strong>Request the General Price List:</strong> Ask each funeral provider for the free GPL, since the federal trade commission Funeral Rule requires itemized price lists from funeral homes.</li><li data-state-fact="1">Ask churches and family cemeteries in rural Georgia: many still sell graves, often for 30-50% less than a commercial memorial park.</li><li><strong>Review charges before you sign:</strong> Check every service fee, any add-on charges, and unnecessary services before finalizing funeral arrangements.</li><li data-state-fact="1">Ask the county about a veterans' section: some Georgia counties set aside veterans' sections in their own cemeteries, separate from Georgia National Cemetery and the state veterans cemeteries.</li><li><strong>Ask about financing:</strong> Many Georgia funeral homes offer payment plans, and some families may need payment assistance information or other professional guidance to manage costs.</li><li><strong>Look into benefits and protections:</strong> Checking your rights matters in Georgia; eligible families may receive a $255 Social Security death benefit, low-income households may qualify for Georgia DFCS help, and veterans may receive VA burial benefits or cash assistance.</li>
+        <li data-state-fact="1">Get cemetery prices in writing: the FTC Funeral Rule does not reach cemeteries, but Georgia cemeteries registered with the Secretary of State will generally give a price sheet when asked.</li><li><strong>Request the General Price List:</strong> Ask each funeral provider for the free GPL, since the federal trade commission Funeral Rule requires itemized price lists from funeral homes.</li><li data-state-fact="1">Ask churches and family cemeteries in rural Georgia: many still sell graves, often for less than a commercial memorial park charges.</li><li><strong>Review charges before you sign:</strong> Check every service fee, any add-on charges, and unnecessary services before finalizing funeral arrangements.</li><li data-state-fact="1">Ask the county about a veterans' section: some Georgia counties set aside veterans' sections in their own cemeteries, separate from Georgia National Cemetery and the state veterans cemeteries.</li><li><strong>Ask about financing:</strong> Many Georgia funeral homes offer payment plans, and some families may need payment assistance information or other professional guidance to manage costs.</li><li><strong>Look into benefits and protections:</strong> Checking your rights matters in Georgia; eligible families may receive a $255 Social Security death benefit, low-income households may qualify for Georgia DFCS help, and veterans may receive VA burial benefits or cash assistance.</li>
       </ul>
       
 
@@ -1210,6 +1231,7 @@ a:hover {
         <a href="sitemap-index.html">Site Map</a>
         <a href="sitemap.xml">XML Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>

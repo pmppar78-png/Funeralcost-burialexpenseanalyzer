@@ -4819,3 +4819,37 @@ a:hover {
 
 /* Affiliate note under chat replies */
 .chat-disclosure { font-size: .8rem; color: #666; margin-top: .5rem; border-top: 1px solid #eee; padding-top: .4rem; }
+
+/* ============================================================
+   Mobile overflow guard: images, tables, stat cards, Grow button
+   ============================================================ */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 600px) {
+  .stat-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+  .stat-highlights .stat-box,
+  .stat-highlights .stat-card {
+    min-width: 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .stat-highlights .stat-number {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  /* Room at the end of the page so the Grow floating button never sits on top of the last lines of text */
+  body {
+    padding-bottom: 96px;
+  }
+}

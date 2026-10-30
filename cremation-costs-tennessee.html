@@ -1026,6 +1026,27 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .stat-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+  .stat-highlights .stat-box {
+    min-width: 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .stat-highlights .stat-number {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"Cremation Costs in Tennessee (2026)","description":"Cremation in Tennessee (2026): direct cremation from $1,600, with a service about $5,400, roughly $5,100 less than burial. Options and state rules.","datePublished":"2026-01-15","dateModified":"2026-10-24","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/cremation-costs-tennessee.html"}}
@@ -1187,7 +1208,7 @@ a:hover {
             <tr><td>Scattering service</td><td class="cost-value">$200 – $600</td><td>$0 – $1,500</td></tr>
           </tbody>
         </table>
-          <p class="table-note state-method-note"><strong>About the Tennessee figures:</strong> they come from our price model rather than calls to Tennessee crematories. Use them as a benchmark for the quotes you collect; they are neither a quote nor professional advice. How they are built is set out in <a href="national-funeral-cost-index.html#state-estimates">our method</a> ; the limits are in our <a href="disclaimer.html">disclaimer</a>.</p>
+          <p class="table-note state-method-note"><strong>About the Tennessee figures:</strong> they come from our price model rather than calls to Tennessee crematories. Use them as a benchmark for the quotes you collect; they are neither a quote nor professional advice. How they are built is set out in <a href="national-funeral-cost-index.html#state-estimates">our method</a>; the limits are in our <a href="disclaimer.html">disclaimer</a>.</p>
 <p class="table-note state-source-note"><strong>State sources:</strong> Tenn. Code Ann. § 5-9-101(4).</p>
       </div>
       <figure class="data-chart"><img src="charts/cremation-costs-tennessee.svg" alt="Range chart of Tennessee: what each cremation item is likely to cost in 2026. Direct cremation $1,120 to $2,240; Cremation with service $4,320 to $7,020; Basic urn $25 to $3,000 or more; Memorial service $0 to $5,000; Cremation jewelry $20 to $2,000 or more; Scattering service $0 to $1,500." width="680" height="244" loading="lazy" decoding="async" /></figure>
@@ -1292,6 +1313,7 @@ a:hover {
         <a href="sitemap-index.html">Site Map</a>
         <a href="sitemap.xml">XML Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>

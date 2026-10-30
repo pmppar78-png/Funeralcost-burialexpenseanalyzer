@@ -993,6 +993,27 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .stat-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+  .stat-highlights .stat-box {
+    min-width: 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .stat-highlights .stat-number {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"Funeral Costs in Alaska: What Families Pay in 2026","description":"Funeral costs in Alaska (2026): traditional $9,800, cremation $7,200, direct cremation from $2,800. Full breakdown, hidden fees, and ways to save.","datePublished":"2026-01-15","dateModified":"2026-10-30","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/funeral-costs-alaska.html"}}
@@ -1034,7 +1055,7 @@ a:hover {
         "name": "How can I save on funeral costs in Alaska?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Start by lining up General Price Lists from two or three Anchorage-area providers before you commit to anything. Conservation burial grounds and hybrid cemetery sections in Alaska typically cost 30-50% less than traditional plots in the same cemetery. Direct cremation at $2,800 remains the lowest-cost disposition in every Alaska market."
+          "text": "Start by lining up General Price Lists from two or three Anchorage-area providers before you commit to anything. Conservation burial grounds and hybrid cemetery sections in Alaska are often priced below traditional plots in the same cemetery, so ask for both prices in writing. Direct cremation at $2,800 remains the lowest-cost disposition in every Alaska market."
         }
       },
       {
@@ -1271,7 +1292,7 @@ a:hover {
       <details class="faq-item"><summary>How much does a funeral cost in Alaska?</summary><div class="faq-answer"><p data-state-fact="1">The only reliable way to pin down your number is to pull General Price Lists from two or three Anchorage-area providers and compare line by line.</p></div></details>
       <details class="faq-item"><summary>Does cremation save money compared with burial in Alaska?</summary><div class="faq-answer"><p data-state-fact="1">A direct cremation in Alaska runs about $2,800, whereas a traditional funeral with burial averages $9,800 before adding the plot, so the gap can easily exceed $7,000. Alaska's cremation rate of 72% sits above the 63.4% national rate NFDA projected for 2025.</p></div></details>
       <details class="faq-item"><summary>What does the FTC Funeral Rule mean for me in Alaska?</summary><div class="faq-answer"><p>Under the FTC Funeral Rule (16 CFR 453), every Alaska funeral home must give you an itemized General Price List, quote prices by phone, and accept a casket or urn you bought elsewhere without a handling fee. According to the Funeral Consumers Alliance, Alaska does not require families to hire a funeral director for every step. You can confirm an Alaska license or file a complaint with the Alaska Division of Corporations, Business and Professional Licensing (mortuary science program) at 907-465-2250.</p></div></details>
-      <details class="faq-item"><summary>How can I save on funeral costs in Alaska?</summary><div class="faq-answer"><p data-state-fact="1">Start by lining up General Price Lists from two or three Anchorage-area providers before you commit to anything. Conservation burial grounds and hybrid cemetery sections in Alaska typically cost 30-50% less than traditional plots in the same cemetery. Direct cremation at $2,800 remains the lowest-cost disposition in every Alaska market.</p></div></details>
+      <details class="faq-item"><summary>How can I save on funeral costs in Alaska?</summary><div class="faq-answer"><p data-state-fact="1">Start by lining up General Price Lists from two or three Anchorage-area providers before you commit to anything. Conservation burial grounds and hybrid cemetery sections in Alaska are often priced below traditional plots in the same cemetery, so ask for both prices in writing. Direct cremation at $2,800 remains the lowest-cost disposition in every Alaska market.</p></div></details>
       <details class="faq-item"><summary>Is embalming legally required in Alaska?</summary><div class="faq-answer"><p>Rarely. Alaska law seldom requires embalming, and the FTC Funeral Rule bars any home from telling you otherwise without citing a law. Because shipping a body out of a remote community can change what is needed, ask the funeral home to explain in writing why it recommends embalming.</p></div></details>
       <details class="faq-item"><summary>Where does Alaska rank nationally for funeral costs?</summary><div class="faq-answer"><p>Alaska's $9,800 average for a traditional funeral puts it 18% above the $8,300 national median. Pricing in Alaska is above the national average in most metro areas, though rural communities may see lower prices, and the West region as a whole tends to price higher than other parts of the US.</p></div></details>
       <details class="faq-item"><summary>What is the cheapest funeral option in Alaska?</summary><div class="faq-answer"><p data-state-fact="1">Direct cremation is the lowest-cost option in Alaska, starting at roughly $2,800. In Alaska that price covers transport, cremation, and return of the ashes, nothing else. Direct burial comes next at around $4,900 and still avoids viewing, ceremony, and embalming, though the $4,500 Alaska plot estimate still applies.</p></div></details>
@@ -1323,6 +1344,7 @@ a:hover {
         <a href="sitemap-index.html">Site Map</a>
         <a href="sitemap.xml">XML Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>

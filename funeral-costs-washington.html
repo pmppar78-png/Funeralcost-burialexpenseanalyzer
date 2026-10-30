@@ -1000,6 +1000,27 @@ a:hover {
   background: var(--brown-50, #f5f0eb);
   border-color: var(--brown-600, #6b4c35);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .stat-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+  .stat-highlights .stat-box {
+    min-width: 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .stat-highlights .stat-number {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"Funeral Costs in Washington: What Families Pay in 2026","description":"Funeral costs in Washington (2026): traditional $8,800, cremation $6,800, direct cremation from $2,100. Full breakdown, hidden fees, and ways to save.","datePublished":"2026-01-15","dateModified":"2026-10-30","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/funeral-costs-washington.html"}}
@@ -1041,7 +1062,7 @@ a:hover {
         "name": "What cuts the cost of a Washington funeral?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Put three price lists side by side, cut every item you do not want, and choose direct cremation (about $2,100) if price comes first. Natural burial sections, where a cemetery has them, often cost 30-50% less than its standard plots."
+          "text": "Put three price lists side by side, cut every item you do not want, and choose direct cremation (about $2,100) if price comes first. Natural burial sections, where a cemetery has them, frequently cost less than its standard plots; ask the cemetery to quote both."
         }
       },
       {
@@ -1275,7 +1296,7 @@ a:hover {
       <details class="faq-item"><summary>What does a Washington funeral cost today?</summary><div class="faq-answer"><p data-state-fact="1">About $8,800 for a traditional funeral, $6,800 for a service with cremation and from $2,100 for direct cremation; the traditional figure is close to the $8,300 US median. Burial adds around $4,200 in cemetery costs.</p></div></details>
       <details class="faq-item"><summary>How much cheaper is cremation in Washington?</summary><div class="faq-answer"><p data-state-fact="1">Yes, by $6,700 or more. Direct cremation is about $2,100 and a traditional funeral with burial about $8,800 before the plot. Natural burial and newer methods such as human composting are also widely available in the state.</p></div></details>
       <details class="faq-item"><summary>What rights do Washington funeral buyers have?</summary><div class="faq-answer"><p>The federal Funeral Rule (16 CFR 453) entitles you to an itemized price list, prices by phone and the use of a casket or urn bought elsewhere with no handling fee, and RCW 18.39.195 adds price quotes by text or email. Washington does not require a funeral director for every step (Funeral Consumers Alliance). Complaints go to the Department of Licensing, 360-664-1555.</p></div></details>
-      <details class="faq-item"><summary>What cuts the cost of a Washington funeral?</summary><div class="faq-answer"><p data-state-fact="1">Put three price lists side by side, cut every item you do not want, and choose direct cremation (about $2,100) if price comes first. Natural burial sections, where a cemetery has them, often cost 30-50% less than its standard plots.</p></div></details>
+      <details class="faq-item"><summary>What cuts the cost of a Washington funeral?</summary><div class="faq-answer"><p data-state-fact="1">Put three price lists side by side, cut every item you do not want, and choose direct cremation (about $2,100) if price comes first. Natural burial sections, where a cemetery has them, frequently cost less than its standard plots; ask the cemetery to quote both.</p></div></details>
       <details class="faq-item"><summary>Is embalming legally required in Washington?</summary><div class="faq-answer"><p data-state-fact="1">No. Under RCW 18.39.215, a funeral home must refrigerate or embalm a body as soon as it receives it, and must tell the family that state law does not require embalming except under certain Board of Health conditions. Embalming also requires authorization from the person with the right to control disposition.</p><p data-state-fact="1">Without that authorization a Washington funeral home has no basis to bill the roughly $880 this page estimates for embalming, and the Department of Licensing (360-664-1555), which licenses funeral homes, takes complaints about such charges.</p></div></details>
       <details class="faq-item"><summary>Is Washington pricier than other states?</summary><div class="faq-answer"><p data-state-fact="1">Slightly above. Our $8,800 Washington figure is near the $8,300 national median; prices in the West run higher than in most regions.</p></div></details>
       <details class="faq-item"><summary>What is the cheapest option in Washington?</summary><div class="faq-answer"><p data-state-fact="1">Direct cremation, from about $2,100. Direct burial is the next step up at about $4,400, which is $4,400 below a traditional Washington funeral.</p></div></details>
@@ -1327,6 +1348,7 @@ a:hover {
         <a href="sitemap-index.html">Site Map</a>
         <a href="sitemap.xml">XML Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>

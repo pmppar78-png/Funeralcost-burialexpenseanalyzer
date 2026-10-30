@@ -905,6 +905,27 @@ a:hover {
   color: var(--warm-400, #b5a594);
   font-size: 0.875rem;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .stat-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+  .stat-highlights .stat-card {
+    min-width: 0;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .stat-highlights .stat-number {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
 <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"Funeral Cost & Burial Expense Analyzer","url":"https://funeralcostanalyzer.com/","description":"Funeral laws for all 50 states: regulatory boards, cremation rules, average costs and consumer protections, with links to each state agency."}
@@ -1194,7 +1215,7 @@ a:hover {
 
       <div class="resource-suggestions"><h3>Resources That May Help</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance</a><span class="resource-desc">Independent consumer advocacy and state-by-state funeral rights information</span></li><li><a href="https://www.ftc.gov/funerals" target="_blank" rel="noopener noreferrer">FTC Funeral Rule (16 CFR Part 453)</a><span class="resource-desc">Federal consumer protections for funeral purchases</span></li><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a><span class="resource-desc">Detailed cost data for every state</span></li><li><a href="ftc-funeral-rule-guide.html">FTC Funeral Rule Guide (16 CFR Part 453)</a><span class="resource-desc">Complete guide to your federal funeral consumer rights</span></li></ul></div>
 
-      <p class="source-note" style="font-size:0.9rem;color:#555;border-top:1px solid #e4d9cc;padding-top:1rem;margin:1.5rem 0;">Sources &amp; review: FTC Funeral Rule, 16 CFR Part 453 (&amp;sect;&amp;sect; 453.2, 453.3, 453.4); each state funeral regulatory board named in the directory table above; state attorney general consumer-protection offices; Funeral Consumers Alliance; National Funeral Directors Association 2023 GPL Study; Cremation Association of North America. Paul Paradis, Founder &amp; Editor (Boston, MA), reviewed this regulations directory on October 22, 2026; the national figures were updated October 2, 2026. Informational only: not legal advice.</p>
+      <p class="source-note" style="font-size:0.9rem;color:#555;border-top:1px solid #e4d9cc;padding-top:1rem;margin:1.5rem 0;">Sources &amp; review: FTC Funeral Rule, 16 CFR Part 453 (&sect;&sect; 453.2, 453.3, 453.4); each state funeral regulatory board named in the directory table above; state attorney general consumer-protection offices; Funeral Consumers Alliance; National Funeral Directors Association 2023 GPL Study; Cremation Association of North America. Paul Paradis, Founder &amp; Editor (Boston, MA), reviewed this regulations directory on October 22, 2026; the national figures were updated October 2, 2026. Informational only: not legal advice.</p>
 
       <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Information only, not professional advice. <a href="disclaimer.html">Full disclaimer</a>.</p></div>
       <div class="related-guides crawl-priority-links"><h3>You May Also Need</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="burial-costs-by-state.html">Burial Costs by State</a></li><li><a href="national-funeral-cost-index.html">National Funeral Cost Index</a></li><li><a href="sitemap-index.html">Complete Site Map</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="average-funeral-cost-2026.html">Average Funeral Cost in 2026</a></li><li><a href="direct-cremation-cost.html">Direct Cremation Cost</a></li><li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost</a></li><li><a href="cremation-vs-burial-calculator.html">Cremation vs. Burial Calculator</a></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a></li><li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a></li><li><a href="funeral-cost-comparison-worksheet.html">Funeral Cost Comparison Worksheet</a></li><li><a href="funeral-cost-index-pdf.html">Funeral Cost Index PDF</a></li></ul></div>
@@ -1229,6 +1250,7 @@ a:hover {
         <a href="contact.html">Contact</a>
         <a href="sitemap.xml">Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>

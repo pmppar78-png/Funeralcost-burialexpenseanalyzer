@@ -1163,6 +1163,20 @@ a:hover {
     page-break-after: avoid;
   }
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 96px;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
 <!-- Dataset Schema -->
   <script type="application/ld+json">
@@ -1463,7 +1477,7 @@ a:hover {
         <h2>2026 National Average Funeral Costs</h2>
         <p>These averages are calculated across all 50 states using data from the <strong>NFDA 2023 General Price List Study</strong>, the <strong>Funeral Consumers Alliance</strong>, the <strong>CANA (Cremation Association of North America) 2024 Annual Report</strong>, state funeral board filings made under the <strong>FTC Funeral Rule (16 CFR Part 453)</strong>, <strong>CDC NCHS mortality data</strong>, and federal consumer expenditure data from the <strong>BLS Consumer Price Index: Funeral Services (CUUR0000SEGD02)</strong>. Eligible families should also factor in the <strong>SSA lump-sum death payment (42 U.S.C. § 402(i))</strong> and, for veterans, the <strong>VA burial allowance (38 CFR § 3.1600)</strong>.</p>
 
-        <table class="index-full-table" aria-label="National average funeral costs by service type">
+        <div class="table-scroll"><table class="index-full-table" aria-label="National average funeral costs by service type">
           <thead>
             <tr>
               <th>Service Type</th>
@@ -1498,7 +1512,7 @@ a:hover {
               <td>Cremation only, no viewing or ceremony</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
       <figure class="data-chart"><img src="charts/national-funeral-cost-index.svg" alt="Horizontal bar chart of Average Funeral Cost in the U.S. (2026 Index). Traditional Funeral $7,736; Cremation with Service $6,072; Burial Plot $3,656; Direct Cremation $1,834." width="680" height="184" loading="lazy" decoding="async" /><figcaption>The bars show the average of state estimates column of the Average Funeral Cost in the U.S. (2026 Index) table; Traditional Funeral is the largest item at $7,736.</figcaption></figure>
 
         <div class="callout callout-info">
@@ -1511,7 +1525,7 @@ a:hover {
         <h2>50-State Funeral Cost Rankings</h2>
         <p>States ranked from most to least expensive for a traditional funeral with viewing and burial. Click any state name to see its detailed cost guide with city-level data, local regulations, and payment assistance programs.</p>
 
-        <table class="index-full-table" aria-label="Funeral costs by state, ranked most to least expensive">
+        <div class="table-scroll"><table class="index-full-table" aria-label="Funeral costs by state, ranked most to least expensive">
           <thead>
             <tr>
               <th>Rank</th>
@@ -1575,7 +1589,7 @@ a:hover {
             <tr><td>47</td><td><a href="funeral-costs-west-virginia.html">West Virginia</a></td><td>$6,100</td><td>$5,000</td><td>$1,400</td><td>$2,700</td><td>48%</td></tr>
             <tr><td><span class="rank-badge rank-50">50</span></td><td><a href="funeral-costs-mississippi.html">Mississippi</a></td><td>$5,900</td><td>$4,800</td><td>$1,400</td><td>$2,600</td><td>28%</td></tr>
           </tbody>
-        </table>
+        </table></div>
 
         <p class="table-note">Data reflects 2025&ndash;2026 averages. Actual costs vary by city, funeral home, and service selections. See individual <a href="funeral-costs-by-state.html">state pages</a> for city-level breakdowns.</p>
       </section>
@@ -1585,7 +1599,7 @@ a:hover {
         <h2>Regional Cost Analysis</h2>
         <p>Funeral costs vary dramatically by region. The Northeast averages 20% above the national average, while the South averages 13% below it—a gap of over $2,500 per funeral.</p>
 
-        <table class="index-regional-table" aria-label="Average funeral costs by U.S. region">
+        <div class="table-scroll"><table class="index-regional-table" aria-label="Average funeral costs by U.S. region">
           <thead>
             <tr>
               <th>Region</th>
@@ -1662,7 +1676,7 @@ a:hover {
               <td>—</td>
             </tr>
           </tfoot>
-        </table>
+        </table></div>
 
         <!-- Regional Bar Chart -->
         <h3>Traditional Funeral Cost by Region</h3>
@@ -1706,7 +1720,7 @@ a:hover {
         <p>Metropolitan areas often differ from state averages because of higher real estate costs, wages, and competition levels. These figures apply a metro multiplier to each state-level estimate, so they show where a city is likely to sit against its state rather than prices measured in that city.</p>
 
         <h3>10 Most Expensive Metro Areas</h3>
-        <table class="index-full-table" aria-label="10 most expensive metro areas for funeral costs">
+        <div class="table-scroll"><table class="index-full-table" aria-label="10 most expensive metro areas for funeral costs">
           <thead>
             <tr><th>Rank</th><th>Metro Area</th><th>State</th><th>Trad. Funeral</th><th>Cremation</th><th>Direct Crem.</th></tr>
           </thead>
@@ -1722,10 +1736,10 @@ a:hover {
             <tr><td>9</td><td><a href="funeral-costs-maryland.html">Baltimore</a></td><td>MD</td><td><strong>$10,580</strong></td><td>$8,050</td><td>$2,530</td></tr>
             <tr><td>10</td><td><a href="funeral-costs-illinois.html">Chicago</a></td><td>IL</td><td><strong>$10,200</strong></td><td>$7,920</td><td>$2,400</td></tr>
           </tbody>
-        </table>
+        </table></div>
 
         <h3>10 Most Affordable Metro Areas</h3>
-        <table class="index-full-table" aria-label="10 most affordable metro areas for funeral costs">
+        <div class="table-scroll"><table class="index-full-table" aria-label="10 most affordable metro areas for funeral costs">
           <thead>
             <tr><th>Rank</th><th>Metro Area</th><th>State</th><th>Trad. Funeral</th><th>Cremation</th><th>Direct Crem.</th></tr>
           </thead>
@@ -1741,7 +1755,7 @@ a:hover {
             <tr><td>9</td><td><a href="funeral-costs-ohio.html">Cleveland</a></td><td>OH</td><td><strong>$7,455</strong></td><td>$5,880</td><td>$1,785</td></tr>
             <tr><td>10</td><td><a href="funeral-costs-missouri.html">Kansas City</a></td><td>MO</td><td><strong>$7,480</strong></td><td>$6,050</td><td>$1,760</td></tr>
           </tbody>
-        </table>
+        </table></div>
 
         <div class="callout callout-info">
           <strong>Metro cost methodology:</strong> Metro costs are calculated by applying a multiplier (0.95&times;&ndash;1.35&times;) to the state average. The multipliers are this site's editorial estimates, not survey results for those cities. Washington, DC is left out of both lists because its page uses figures cited from a DC price survey rather than a multiplier. See <a href="#methodology">Methodology</a> for details.
@@ -1821,7 +1835,7 @@ a:hover {
         <h2>Funeral Cost Inflation &amp; 5-Year Trends</h2>
         <p>Our state figures are point-in-time estimates, so the clearest view of how funeral prices are moving comes from two published sources: the National Funeral Directors Association&rsquo;s periodic General Price List studies and the Bureau of Labor Statistics Consumer Price Index for funeral expenses. Over the past five years (August 2021 to August 2026), the BLS funeral-expenses index rose about <strong>19.6%</strong> (roughly 3.6% a year), compared with about <strong>22.4%</strong> (roughly 4.1% a year) for all consumer prices.</p>
 
-        <table class="index-inflation-table" aria-label="Year-over-year change in the BLS Consumer Price Index for funeral expenses versus all items">
+        <div class="table-scroll"><table class="index-inflation-table" aria-label="Year-over-year change in the BLS Consumer Price Index for funeral expenses versus all items">
           <thead>
             <tr>
               <th>12 months ending August</th>
@@ -1836,7 +1850,7 @@ a:hover {
             <tr><td>2025</td><td>+2.6%</td><td>+2.9%</td></tr>
             <tr><td><strong>2026</strong></td><td><strong>+3.0%</strong></td><td><strong>+3.4%</strong></td></tr>
           </tbody>
-        </table>
+        </table></div>
         <p class="source-note">Source: U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers, U.S. city average, not seasonally adjusted (series CUUR0000SEGD02 and CUUR0000SA0), retrieved October 2026.</p>
 
         <h3>Key Trend Observations</h3>
@@ -2014,6 +2028,7 @@ a:hover {
         <a href="contact.html">Contact</a>
         <a href="sitemap.xml">Sitemap</a>
       </div>
+      <p class="footer-text small footer-contact">Contact us for any issues with the site or advertising inquiries: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a></p>
       <div class="footer-sources">
         <p class="footer-text small"><strong>Media &amp; Sources:</strong> Our funeral cost data is compiled from the <a href="https://nfda.org" target="_blank" rel="noopener noreferrer">National Funeral Directors Association (NFDA)</a>, the <a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance (FCA)</a>, the <a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="noopener noreferrer">Federal Trade Commission Funeral Rule</a>, state funeral regulatory boards, and publicly available consumer price surveys. For our full research methodology, see our <a href="editorial-standards.html">Editorial Standards</a>.</p>
       </div>
