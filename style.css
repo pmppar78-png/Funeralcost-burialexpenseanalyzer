@@ -281,7 +281,7 @@ a:hover {
 }
 
 .brand-tagline {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 400;
   color: var(--warm-500);
   letter-spacing: 0.03em;
@@ -3495,7 +3495,7 @@ a:hover {
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 
