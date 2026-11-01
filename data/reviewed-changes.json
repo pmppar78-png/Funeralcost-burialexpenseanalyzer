@@ -654,16 +654,16 @@
    "text": "Rewrote the Muslim cost breakdown around washing, shrouding and quick burial, and refreshed the support resources."
   },
   "funeral-costs-by-state.html": {
-   "date": "2026-10-30",
-   "text": "Titan Casket card now explains the FTC Funeral Rule's no-handling-fee protection instead of an unsourced 50-80% savings figure, and the Parting.com quote line no longer claims an average $1,000+ saving."
+   "date": "2026-11-01",
+   "text": "Added a free AI guide box and a next-step box with links to the estimator, questions checklist and payment help."
   },
   "funeral-costs-uninsured.html": {
    "date": "2026-10-30",
    "text": "Dropped the 20-30% planning-savings claim, which had no source; the bullet now explains comparing General Price Lists from several homes in advance."
   },
   "index.html": {
-   "date": "2026-10-30",
-   "text": "Unsourced 20-30% savings average in the money-saving section replaced with how itemized price lists and the FTC Funeral Rule keep the total down."
+   "date": "2026-11-01",
+   "text": "Added a typical-costs box with the NFDA 2023 medians under the headline."
   },
   "what-funeral-homes-dont-tell-you.html": {
    "date": "2026-10-30",
@@ -692,6 +692,14 @@
   "best-online-casket-retailers.html": {
    "date": "2026-10-30",
    "text": "The unsourced savings, markup and price-range figures for buying a casket online are gone from the page and the FAQ; it now tells you to compare the funeral home's casket price list with the seller's total including shipping."
+  },
+  "ftc-funeral-rule-guide.html": {
+   "date": "2026-11-01",
+   "text": "Added a short summary of your rights under the FTC Funeral Rule, a free AI guide box and a next-step box."
+  },
+  "chat.html": {
+   "date": "2026-11-01",
+   "text": "Added a line pointing to the question box."
   }
  }
 }
