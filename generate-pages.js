@@ -2826,7 +2826,15 @@ const consolidationRules = Object.entries(CONSOLIDATED).flatMap(([from, to]) => 
   `/${from}    /${to}    301!`,
   `/${from.slice(0, -5)}    /${to}    301!`,
 ]);
-const redirectRules = consolidationRules.concat(allSitemapPages
+// Retired/mistyped URLs that Google reported as 404: send each to the
+// closest real page. The FAQ lives on the home page.
+const notFoundRules = [
+  '/faq.html    /#faq    301!',
+  '/funeral-costs-west-vinyl.html    /funeral-costs-west-virginia.html    301!',
+  '/minneapolis-burial-costs.html    /burial-costs-minnesota.html    301!',
+  '/ohio.html    /funeral-costs-ohio.html    301!',
+];
+const redirectRules = notFoundRules.concat(consolidationRules).concat(allSitemapPages
   .filter(p => p !== 'index.html' && p.endsWith('.html'))
   .map(p => `/${p.slice(0, -5)}    /${p}    301!`));
 const redirectsContent =
