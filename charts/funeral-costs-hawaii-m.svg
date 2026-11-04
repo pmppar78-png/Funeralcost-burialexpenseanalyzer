@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<title id="t">What a Hawaii funeral costs (2026 estimates)</title>
+<desc id="d">Horizontal bar chart of What a Hawaii funeral costs (2026 estimates). Traditional funeral with burial $11,000; Funeral with cremation $8,200; Direct cremation $3,000; Cemetery / burial plot $5,500; Embalming $1,100; Casket $3,300.</desc>
+<rect width="360" height="370" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">What a Hawaii funeral costs (2026</text>
+<text x="16" y="48" font-size="16" font-weight="700">estimates)</text>
+<text x="16" y="76">Traditional funeral with burial</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$11,000</text>
+<text x="16" y="126">Funeral with cremation</text><rect x="16" y="134" width="163" height="16" rx="3" fill="#8a6d3b"/><text x="185" y="147" font-weight="600">$8,200</text>
+<text x="16" y="176">Direct cremation</text><rect x="16" y="184" width="59" height="16" rx="3" fill="#8a6d3b"/><text x="81" y="197" font-weight="600">$3,000</text>
+<text x="16" y="226">Cemetery / burial plot</text><rect x="16" y="234" width="109" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="247" font-weight="600">$5,500</text>
+<text x="16" y="276">Embalming</text><rect x="16" y="284" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="297" font-weight="600">$1,100</text>
+<text x="16" y="326">Casket</text><rect x="16" y="334" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="347" font-weight="600">$3,300</text>
+</g>
+</svg>

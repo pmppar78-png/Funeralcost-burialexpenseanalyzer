@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-labelledby="t d">
+<title id="t">Massachusetts burial charges, 2026 estimates</title>
+<desc id="d">Horizontal bar chart of Massachusetts burial charges, 2026 estimates. Funeral service $10,400; Cemetery plot $5,200; Casket $3,120; Burial vault / liner $2,080; Opening &amp; closing grave $2,600; Headstone / marker $1,500; Embalming $1,040.</desc>
+<rect width="360" height="420" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Massachusetts burial charges, 2026</text>
+<text x="16" y="48" font-size="16" font-weight="700">estimates</text>
+<text x="16" y="76">Funeral service</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$10,400</text>
+<text x="16" y="126">Cemetery plot</text><rect x="16" y="134" width="109" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="147" font-weight="600">$5,200</text>
+<text x="16" y="176">Casket</text><rect x="16" y="184" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="197" font-weight="600">$3,120</text>
+<text x="16" y="226">Burial vault / liner</text><rect x="16" y="234" width="44" height="16" rx="3" fill="#8a6d3b"/><text x="66" y="247" font-weight="600">$2,080</text>
+<text x="16" y="276">Opening &amp; closing grave</text><rect x="16" y="284" width="55" height="16" rx="3" fill="#8a6d3b"/><text x="77" y="297" font-weight="600">$2,600</text>
+<text x="16" y="326">Headstone / marker</text><rect x="16" y="334" width="31" height="16" rx="3" fill="#8a6d3b"/><text x="53" y="347" font-weight="600">$1,500</text>
+<text x="16" y="376">Embalming</text><rect x="16" y="384" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="397" font-weight="600">$1,040</text>
+</g>
+</svg>

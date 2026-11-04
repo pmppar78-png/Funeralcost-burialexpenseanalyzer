@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<title id="t">Our 2026 estimates for Virginia funeral charges</title>
+<desc id="d">Horizontal bar chart of Our 2026 estimates for Virginia funeral charges. Traditional funeral with burial $8,200; Funeral with cremation $6,400; Direct cremation $1,900; Cemetery / burial plot $4,000; Embalming $820; Casket $2,460.</desc>
+<rect width="360" height="370" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Our 2026 estimates for Virginia</text>
+<text x="16" y="48" font-size="16" font-weight="700">funeral charges</text>
+<text x="16" y="76">Traditional funeral with burial</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$8,200</text>
+<text x="16" y="126">Funeral with cremation</text><rect x="16" y="134" width="170" height="16" rx="3" fill="#8a6d3b"/><text x="192" y="147" font-weight="600">$6,400</text>
+<text x="16" y="176">Direct cremation</text><rect x="16" y="184" width="51" height="16" rx="3" fill="#8a6d3b"/><text x="73" y="197" font-weight="600">$1,900</text>
+<text x="16" y="226">Cemetery / burial plot</text><rect x="16" y="234" width="106" height="16" rx="3" fill="#8a6d3b"/><text x="128" y="247" font-weight="600">$4,000</text>
+<text x="16" y="276">Embalming</text><rect x="16" y="284" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="297" font-weight="600">$820</text>
+<text x="16" y="326">Casket</text><rect x="16" y="334" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="347" font-weight="600">$2,460</text>
+</g>
+</svg>

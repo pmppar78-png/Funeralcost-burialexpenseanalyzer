@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="448" viewBox="0 0 360 448" role="img" aria-labelledby="t d">
+<title id="t">Direct Cremation Cost</title>
+<desc id="d">Range chart of Direct Cremation Cost. Basic services fee $2,000 to $3,000; Embalming $500 to $800; Viewing / visitation $400 to $800; Funeral ceremony $400 to $700; Casket or rental casket $1,000 to $4,000 or more; Cremation fee $250 to $500; Transport $300 to $600; Typical Total $5,000 to $9,000 or more.</desc>
+<rect width="360" height="448" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Direct Cremation Cost</text>
+<text x="16" y="54">Basic services fee</text><rect x="64" y="62" width="25" height="16" rx="3" fill="#8a6d3b"/><text x="95" y="75" font-weight="600">$2,000–$3,000</text>
+<text x="16" y="104">Embalming</text><rect x="28" y="112" width="7" height="16" rx="3" fill="#8a6d3b"/><text x="41" y="125" font-weight="600">$500–$800</text>
+<text x="16" y="154">Viewing / visitation</text><rect x="26" y="162" width="9" height="16" rx="3" fill="#8a6d3b"/><text x="41" y="175" font-weight="600">$400–$800</text>
+<text x="16" y="204">Funeral ceremony</text><rect x="26" y="212" width="7" height="16" rx="3" fill="#8a6d3b"/><text x="39" y="225" font-weight="600">$400–$700</text>
+<text x="16" y="254">Casket or rental casket</text><rect x="40" y="262" width="73" height="16" rx="3" fill="#8a6d3b"/><text x="119" y="275" font-weight="600">$1,000–$4,000+</text>
+<text x="16" y="304">Cremation fee</text><rect x="22" y="312" width="6" height="16" rx="3" fill="#8a6d3b"/><text x="34" y="325" font-weight="600">$250–$500</text>
+<text x="16" y="354">Transport</text><rect x="23" y="362" width="8" height="16" rx="3" fill="#8a6d3b"/><text x="37" y="375" font-weight="600">$300–$600</text>
+<text x="16" y="404">Typical Total</text><rect x="137" y="412" width="97" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="425" font-weight="600">$5,000–$9,000+</text>
+</g>
+</svg>

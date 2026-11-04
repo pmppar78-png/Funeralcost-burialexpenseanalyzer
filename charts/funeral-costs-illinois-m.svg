@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<title id="t">Illinois funeral charges we estimate for 2026</title>
+<desc id="d">Horizontal bar chart of Illinois funeral charges we estimate for 2026. Traditional funeral with burial $8,500; Funeral with cremation $6,600; Direct cremation $2,000; Cemetery / burial plot $4,200; Embalming $850; Casket $2,550.</desc>
+<rect width="360" height="370" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Illinois funeral charges we</text>
+<text x="16" y="48" font-size="16" font-weight="700">estimate for 2026</text>
+<text x="16" y="76">Traditional funeral with burial</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$8,500</text>
+<text x="16" y="126">Funeral with cremation</text><rect x="16" y="134" width="169" height="16" rx="3" fill="#8a6d3b"/><text x="191" y="147" font-weight="600">$6,600</text>
+<text x="16" y="176">Direct cremation</text><rect x="16" y="184" width="51" height="16" rx="3" fill="#8a6d3b"/><text x="73" y="197" font-weight="600">$2,000</text>
+<text x="16" y="226">Cemetery / burial plot</text><rect x="16" y="234" width="108" height="16" rx="3" fill="#8a6d3b"/><text x="130" y="247" font-weight="600">$4,200</text>
+<text x="16" y="276">Embalming</text><rect x="16" y="284" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="297" font-weight="600">$850</text>
+<text x="16" y="326">Casket</text><rect x="16" y="334" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="347" font-weight="600">$2,550</text>
+</g>
+</svg>

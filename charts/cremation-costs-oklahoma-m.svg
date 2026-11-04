@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="348" viewBox="0 0 360 348" role="img" aria-labelledby="t d">
+<title id="t">Cremation Costs in Oklahoma (2026)</title>
+<desc id="d">Range chart of Cremation Costs in Oklahoma (2026). Direct cremation $980 to $1,960; Cremation with service $4,000 to $6,500; Basic urn $25 to $3,000 or more; Memorial service $0 to $5,000; Cremation jewelry $20 to $2,000 or more; Scattering service $0 to $1,500.</desc>
+<rect width="360" height="348" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Cremation Costs in Oklahoma (2026)</text>
+<text x="16" y="54">Direct cremation</text><rect x="49" y="62" width="33" height="16" rx="3" fill="#8a6d3b"/><text x="88" y="75" font-weight="600">$980–$1,960</text>
+<text x="16" y="104">Cremation with service</text><rect x="150" y="112" width="84" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="125" font-weight="600">$4,000–$6,500</text>
+<text x="16" y="154">Basic urn</text><rect x="17" y="162" width="100" height="16" rx="3" fill="#8a6d3b"/><text x="123" y="175" font-weight="600">$25–$3,000+</text>
+<text x="16" y="204">Memorial service</text><rect x="16" y="212" width="168" height="16" rx="3" fill="#8a6d3b"/><text x="190" y="225" font-weight="600">$0–$5,000</text>
+<text x="16" y="254">Cremation jewelry</text><rect x="17" y="262" width="66" height="16" rx="3" fill="#8a6d3b"/><text x="89" y="275" font-weight="600">$20–$2,000+</text>
+<text x="16" y="304">Scattering service</text><rect x="16" y="312" width="50" height="16" rx="3" fill="#8a6d3b"/><text x="72" y="325" font-weight="600">$0–$1,500</text>
+</g>
+</svg>

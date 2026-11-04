@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<title id="t">Muslim Funeral Cost Estimates (2026)</title>
+<desc id="d">Range chart of Muslim Funeral Cost Estimates (2026). Kafan (shroud) $50 to $200; Simple casket (where required by law) $500 to $1,500; Funeral home / mosque services $1,500 to $4,000; Islamic cemetery plot $1,000 to $5,000; Burial (opening/closing) $800 to $2,000; Headstone / marker $500 to $2,000.</desc>
+<rect width="360" height="370" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Muslim Funeral Cost Estimates</text>
+<text x="16" y="48" font-size="16" font-weight="700">(2026)</text>
+<text x="16" y="76">Kafan (shroud)</text><rect x="18" y="84" width="7" height="16" rx="3" fill="#8a6d3b"/><text x="31" y="97" font-weight="600">$50–$200</text>
+<text x="16" y="126">Simple casket (where required by law)</text><rect x="38" y="134" width="43" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="147" font-weight="600">$500–$1,500</text>
+<text x="16" y="176">Funeral home / mosque services</text><rect x="81" y="184" width="109" height="16" rx="3" fill="#8a6d3b"/><text x="196" y="197" font-weight="600">$1,500–$4,000</text>
+<text x="16" y="226">Islamic cemetery plot</text><rect x="60" y="234" width="174" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="247" font-weight="600">$1,000–$5,000</text>
+<text x="16" y="276">Burial (opening/closing)</text><rect x="51" y="284" width="52" height="16" rx="3" fill="#8a6d3b"/><text x="109" y="297" font-weight="600">$800–$2,000</text>
+<text x="16" y="326">Headstone / marker</text><rect x="38" y="334" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="109" y="347" font-weight="600">$500–$2,000</text>
+</g>
+</svg>

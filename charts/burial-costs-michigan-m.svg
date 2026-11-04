@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-labelledby="t d">
+<title id="t">Michigan burial, line by line (2026 estimates)</title>
+<desc id="d">Horizontal bar chart of Michigan burial, line by line (2026 estimates). Funeral service $7,200; Cemetery plot $3,400; Casket $2,160; Burial vault / liner $1,360; Opening &amp; closing grave $1,700; Headstone / marker $1,500; Embalming $720.</desc>
+<rect width="360" height="420" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Michigan burial, line by line</text>
+<text x="16" y="48" font-size="16" font-weight="700">(2026 estimates)</text>
+<text x="16" y="76">Funeral service</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$7,200</text>
+<text x="16" y="126">Cemetery plot</text><rect x="16" y="134" width="103" height="16" rx="3" fill="#8a6d3b"/><text x="125" y="147" font-weight="600">$3,400</text>
+<text x="16" y="176">Casket</text><rect x="16" y="184" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="197" font-weight="600">$2,160</text>
+<text x="16" y="226">Burial vault / liner</text><rect x="16" y="234" width="41" height="16" rx="3" fill="#8a6d3b"/><text x="63" y="247" font-weight="600">$1,360</text>
+<text x="16" y="276">Opening &amp; closing grave</text><rect x="16" y="284" width="51" height="16" rx="3" fill="#8a6d3b"/><text x="73" y="297" font-weight="600">$1,700</text>
+<text x="16" y="326">Headstone / marker</text><rect x="16" y="334" width="45" height="16" rx="3" fill="#8a6d3b"/><text x="67" y="347" font-weight="600">$1,500</text>
+<text x="16" y="376">Embalming</text><rect x="16" y="384" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="397" font-weight="600">$720</text>
+</g>
+</svg>

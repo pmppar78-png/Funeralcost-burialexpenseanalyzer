@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="220" viewBox="0 0 360 220" role="img" aria-labelledby="t d">
+<title id="t">Cremation vs Burial: What Each Typically Costs</title>
+<desc id="d">Range chart of Cremation vs Burial: What Each Typically Costs. Traditional Burial $7,000 to $12,000 or more; Cremation with Service $5,000 to $9,000 or more; Direct Burial $1,500 to $4,000.</desc>
+<rect width="360" height="220" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Cremation vs Burial: What Each</text>
+<text x="16" y="48" font-size="16" font-weight="700">Typically Costs</text>
+<text x="16" y="76">Traditional Burial</text><rect x="143" y="84" width="91" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$7,000–$12,000+</text>
+<text x="16" y="126">Cremation with Service</text><rect x="107" y="134" width="73" height="16" rx="3" fill="#8a6d3b"/><text x="186" y="147" font-weight="600">$5,000–$9,000+</text>
+<text x="16" y="176">Direct Burial</text><rect x="43" y="184" width="46" height="16" rx="3" fill="#8a6d3b"/><text x="95" y="197" font-weight="600">$1,500–$4,000</text>
+</g>
+</svg>

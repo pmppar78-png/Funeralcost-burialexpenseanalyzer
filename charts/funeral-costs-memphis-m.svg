@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-labelledby="t d">
+<title id="t">Memphis Funeral Cost Averages (2026)</title>
+<desc id="d">Horizontal bar chart of Memphis Funeral Cost Averages (2026). Traditional funeral $7,035; Funeral with cremation $5,670; Direct cremation $1,680; Cemetery plot $3,150; Embalming $704; Casket $2,111; Burial vault / liner $1,260.</desc>
+<rect width="360" height="420" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Memphis Funeral Cost Averages</text>
+<text x="16" y="48" font-size="16" font-weight="700">(2026)</text>
+<text x="16" y="76">Traditional funeral</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$7,035</text>
+<text x="16" y="126">Funeral with cremation</text><rect x="16" y="134" width="176" height="16" rx="3" fill="#8a6d3b"/><text x="198" y="147" font-weight="600">$5,670</text>
+<text x="16" y="176">Direct cremation</text><rect x="16" y="184" width="52" height="16" rx="3" fill="#8a6d3b"/><text x="74" y="197" font-weight="600">$1,680</text>
+<text x="16" y="226">Cemetery plot</text><rect x="16" y="234" width="98" height="16" rx="3" fill="#8a6d3b"/><text x="120" y="247" font-weight="600">$3,150</text>
+<text x="16" y="276">Embalming</text><rect x="16" y="284" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="297" font-weight="600">$704</text>
+<text x="16" y="326">Casket</text><rect x="16" y="334" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="347" font-weight="600">$2,111</text>
+<text x="16" y="376">Burial vault / liner</text><rect x="16" y="384" width="39" height="16" rx="3" fill="#8a6d3b"/><text x="61" y="397" font-weight="600">$1,260</text>
+</g>
+</svg>

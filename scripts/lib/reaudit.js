@@ -249,6 +249,37 @@ ${rows}
 </svg>
 `;
 }
+// Narrow layout for phones: label on its own line, bar and value beneath,
+// drawn at 360 wide so the text stays about 13px tall on a 375px screen.
+function svgChartMobile(title, desc, pts, from) {
+  const W = 360, left = 16, rowH = 50, valueW = 118;
+  const words = title.split(' '), lines = [];
+  for (const w of words) { const l = lines.length - 1; if (l >= 0 && (lines[l] + ' ' + w).length <= 34) lines[l] += ' ' + w; else lines.push(w); }
+  const top = 16 + lines.length * 22;
+  const max = Math.max(...pts.map((p) => p.v));
+  const H = top + pts.length * rowH + 10;
+  const barMax = W - left - valueW - 8;
+  const rows = pts.map((p, i) => {
+    const y = top + i * rowH;
+    const x0 = p.lo !== undefined ? left + Math.round((p.lo / max) * barMax) : left;
+    const w = Math.max(2, left + Math.round((p.v / max) * barMax) - x0);
+    const label = p.label.length > 40 ? p.label.slice(0, 39) + '\u2026' : p.label;
+    return `<text x="${left}" y="${y + 16}">${esc(label)}</text>` +
+      `<rect x="${x0}" y="${y + 24}" width="${w}" height="16" rx="3" fill="#8a6d3b"/>` +
+      `<text x="${x0 + w + 6}" y="${y + 37}" font-weight="600">${p.lo !== undefined ? '$' + p.lo.toLocaleString('en-US') + '\u2013' : (from ? 'from ' : '')}$${p.v.toLocaleString('en-US')}${p.plus ? '+' : ''}</text>`;
+  }).join('\n');
+  const head = lines.map((l, i) => `<text x="${left}" y="${26 + i * 22}" font-size="16" font-weight="700">${esc(l)}</text>`).join('\n');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="t d">
+<title id="t">${esc(title)}</title>
+<desc id="d">${esc(desc)}</desc>
+<rect width="${W}" height="${H}" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+${head}
+${rows}
+</g>
+</svg>
+`;
+}
 const usd = (v) => '$' + v.toLocaleString('en-US');
 function addChart(html, f, OUT) {
   html = html.replace(/\n?\s*<figure class="data-chart">[\s\S]*?<\/figure>/g, '');
@@ -281,6 +312,8 @@ function addChart(html, f, OUT) {
   const name = f.replace(/\.html$/, '') + '.svg';
   fs.mkdirSync(path.join(OUT, 'charts'), { recursive: true });
   fs.writeFileSync(path.join(OUT, 'charts', name), svgChart(title, alt, pts, from));
+  const nameM = name.replace(/\.svg$/, '-m.svg');
+  fs.writeFileSync(path.join(OUT, 'charts', nameM), svgChartMobile(title, alt, pts, from));
   const W = 680, H = 48 + pts.length * 30 + 16;
   const cap = from
     ? `Starting prices from the ${pts.length} cards above, highest first; ${hi.label} is highest at ${usd(hi.v)} and ${lo.label} lowest at ${usd(lo.v)}.`
@@ -294,7 +327,7 @@ function addChart(html, f, OUT) {
   // State pages carry the chart without a caption: the table above already
   // says what the numbers are, and the alt text lists every bar.
   const isState = /^(funeral|cremation|burial)-costs-/.test(f) && /\(2026\)|What Families Pay in 2026/.test(title + (html.match(/<h1>[^<]*/) || [''])[0]) && !/by-state|by-religion/.test(f);
-  const fig = `\n      <figure class="data-chart"><img src="charts/${name}" alt="${esc(alt)}" width="${W}" height="${H}" loading="lazy" decoding="async" />${isState ? '' : `<figcaption>${esc(cap)}</figcaption>`}</figure>`;
+  const fig = `\n      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/${nameM}" /><img src="charts/${name}" alt="${esc(alt)}" width="${W}" height="${H}" loading="lazy" decoding="async" /></picture>${isState ? '' : `<figcaption>${esc(cap)}</figcaption>`}</figure>`;
   return html.slice(0, insertAt) + fig + html.slice(insertAt);
 }
 
@@ -317,4 +350,4 @@ function run(OUT) {
   }
   console.log(`  Re-audit: reviewed dates ${rev}, state layouts ${lay}, charts ${ch}`);
 }
-module.exports = { run };
+module.exports = { run, addChart };

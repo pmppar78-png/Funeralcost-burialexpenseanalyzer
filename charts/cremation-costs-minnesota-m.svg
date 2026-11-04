@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<title id="t">Minnesota cremation: our 2026 figures</title>
+<desc id="d">Range chart of Minnesota cremation: our 2026 figures. Direct cremation $1,260 to $2,520; Cremation with service $4,800 to $7,800; Basic urn $25 to $3,000 or more; Memorial service $0 to $5,000; Cremation jewelry $20 to $2,000 or more; Scattering service $0 to $1,500.</desc>
+<rect width="360" height="370" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Minnesota cremation: our 2026</text>
+<text x="16" y="48" font-size="16" font-weight="700">figures</text>
+<text x="16" y="76">Direct cremation</text><rect x="51" y="84" width="35" height="16" rx="3" fill="#8a6d3b"/><text x="92" y="97" font-weight="600">$1,260–$2,520</text>
+<text x="16" y="126">Cremation with service</text><rect x="150" y="134" width="84" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="147" font-weight="600">$4,800–$7,800</text>
+<text x="16" y="176">Basic urn</text><rect x="17" y="184" width="83" height="16" rx="3" fill="#8a6d3b"/><text x="106" y="197" font-weight="600">$25–$3,000+</text>
+<text x="16" y="226">Memorial service</text><rect x="16" y="234" width="140" height="16" rx="3" fill="#8a6d3b"/><text x="162" y="247" font-weight="600">$0–$5,000</text>
+<text x="16" y="276">Cremation jewelry</text><rect x="17" y="284" width="55" height="16" rx="3" fill="#8a6d3b"/><text x="78" y="297" font-weight="600">$20–$2,000+</text>
+<text x="16" y="326">Scattering service</text><rect x="16" y="334" width="42" height="16" rx="3" fill="#8a6d3b"/><text x="64" y="347" font-weight="600">$0–$1,500</text>
+</g>
+</svg>

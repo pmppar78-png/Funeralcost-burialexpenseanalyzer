@@ -4860,3 +4860,18 @@ img {
   margin-top: var(--space-md);
   padding: 0 var(--space-md);
 }
+
+/* Data charts: full column width; phones get a taller, narrower chart (charts/*-m.svg) */
+figure.data-chart {
+  margin: var(--space-lg) 0;
+}
+figure.data-chart picture {
+  display: block;
+}
+figure.data-chart img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  margin: 0 auto;
+}

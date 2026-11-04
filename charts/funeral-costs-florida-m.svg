@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<title id="t">Florida funeral items and our 2026 estimates</title>
+<desc id="d">Horizontal bar chart of Florida funeral items and our 2026 estimates. Traditional funeral with burial $7,800; Funeral with cremation $6,200; Direct cremation $1,800; Cemetery / burial plot $3,600; Embalming $780; Casket $2,340.</desc>
+<rect width="360" height="370" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Florida funeral items and our 2026</text>
+<text x="16" y="48" font-size="16" font-weight="700">estimates</text>
+<text x="16" y="76">Traditional funeral with burial</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$7,800</text>
+<text x="16" y="126">Funeral with cremation</text><rect x="16" y="134" width="173" height="16" rx="3" fill="#8a6d3b"/><text x="195" y="147" font-weight="600">$6,200</text>
+<text x="16" y="176">Direct cremation</text><rect x="16" y="184" width="50" height="16" rx="3" fill="#8a6d3b"/><text x="72" y="197" font-weight="600">$1,800</text>
+<text x="16" y="226">Cemetery / burial plot</text><rect x="16" y="234" width="101" height="16" rx="3" fill="#8a6d3b"/><text x="123" y="247" font-weight="600">$3,600</text>
+<text x="16" y="276">Embalming</text><rect x="16" y="284" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="297" font-weight="600">$780</text>
+<text x="16" y="326">Casket</text><rect x="16" y="334" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="347" font-weight="600">$2,340</text>
+</g>
+</svg>

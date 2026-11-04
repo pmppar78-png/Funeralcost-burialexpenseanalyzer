@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="670" viewBox="0 0 360 670" role="img" aria-labelledby="t d">
+<title id="t">NFDA 2023 national medians to look for on a GPL</title>
+<desc id="d">Horizontal bar chart of NFDA 2023 national medians to look for on a GPL with 12 bars, from Alternative cremation container at $160 to Funeral with viewing and burial, metal casket, no vault at $8,300.</desc>
+<rect width="360" height="670" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">NFDA 2023 national medians to look</text>
+<text x="16" y="48" font-size="16" font-weight="700">for on a GPL</text>
+<text x="16" y="76">Non-declinable basic services fee</text><rect x="16" y="84" width="66" height="16" rx="3" fill="#8a6d3b"/><text x="88" y="97" font-weight="600">$2,495</text>
+<text x="16" y="126">Removal or transfer of remains</text><rect x="16" y="134" width="10" height="16" rx="3" fill="#8a6d3b"/><text x="32" y="147" font-weight="600">$395</text>
+<text x="16" y="176">Embalming</text><rect x="16" y="184" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="197" font-weight="600">$845</text>
+<text x="16" y="226">Other preparation of the body</text><rect x="16" y="234" width="8" height="16" rx="3" fill="#8a6d3b"/><text x="30" y="247" font-weight="600">$295</text>
+<text x="16" y="276">Use of facilities and staff for viewing</text><rect x="16" y="284" width="12" height="16" rx="3" fill="#8a6d3b"/><text x="34" y="297" font-weight="600">$475</text>
+<text x="16" y="326">Use of facilities and staff for a cerem…</text><rect x="16" y="334" width="14" height="16" rx="3" fill="#8a6d3b"/><text x="36" y="347" font-weight="600">$550</text>
+<text x="16" y="376">Funeral with viewing and burial, metal …</text><rect x="16" y="384" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="397" font-weight="600">$8,300</text>
+<text x="16" y="426">Funeral with viewing and cremation</text><rect x="16" y="434" width="165" height="16" rx="3" fill="#8a6d3b"/><text x="187" y="447" font-weight="600">$6,280</text>
+<text x="16" y="476">Direct cremation, container from the fa…</text><rect x="16" y="484" width="69" height="16" rx="3" fill="#8a6d3b"/><text x="91" y="497" font-weight="600">$2,645</text>
+<text x="16" y="526">Direct cremation, container from the fu…</text><rect x="16" y="534" width="72" height="16" rx="3" fill="#8a6d3b"/><text x="94" y="547" font-weight="600">$2,750</text>
+<text x="16" y="576">Metal burial casket (median on the GPL)</text><rect x="16" y="584" width="66" height="16" rx="3" fill="#8a6d3b"/><text x="88" y="597" font-weight="600">$2,500</text>
+<text x="16" y="626">Alternative cremation container</text><rect x="16" y="634" width="4" height="16" rx="3" fill="#8a6d3b"/><text x="26" y="647" font-weight="600">$160</text>
+</g>
+</svg>

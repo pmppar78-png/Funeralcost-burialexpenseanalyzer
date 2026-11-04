@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-labelledby="t d">
+<title id="t">Estimated Maine burial charges for 2026</title>
+<desc id="d">Horizontal bar chart of Estimated Maine burial charges for 2026. Funeral service $8,200; Cemetery plot $4,000; Casket $2,460; Burial vault / liner $1,600; Opening &amp; closing grave $2,000; Headstone / marker $1,500; Embalming $820.</desc>
+<rect width="360" height="420" fill="#ffffff"/>
+<g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
+<text x="16" y="26" font-size="16" font-weight="700">Estimated Maine burial charges for</text>
+<text x="16" y="48" font-size="16" font-weight="700">2026</text>
+<text x="16" y="76">Funeral service</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$8,200</text>
+<text x="16" y="126">Cemetery plot</text><rect x="16" y="134" width="106" height="16" rx="3" fill="#8a6d3b"/><text x="128" y="147" font-weight="600">$4,000</text>
+<text x="16" y="176">Casket</text><rect x="16" y="184" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="197" font-weight="600">$2,460</text>
+<text x="16" y="226">Burial vault / liner</text><rect x="16" y="234" width="43" height="16" rx="3" fill="#8a6d3b"/><text x="65" y="247" font-weight="600">$1,600</text>
+<text x="16" y="276">Opening &amp; closing grave</text><rect x="16" y="284" width="53" height="16" rx="3" fill="#8a6d3b"/><text x="75" y="297" font-weight="600">$2,000</text>
+<text x="16" y="326">Headstone / marker</text><rect x="16" y="334" width="40" height="16" rx="3" fill="#8a6d3b"/><text x="62" y="347" font-weight="600">$1,500</text>
+<text x="16" y="376">Embalming</text><rect x="16" y="384" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="397" font-weight="600">$820</text>
+</g>
+</svg>
