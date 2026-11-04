@@ -447,32 +447,6 @@ a:hover {
   transform: translateY(-1px);
   color: #fff;
 }
-.btn-hero-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-md);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  font-family: var(--font-body);
-  border: 1px solid var(--warm-300);
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(6px);
-  color: var(--brown-700);
-  text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease, transform 0.15s ease;
-  letter-spacing: 0.01em;
-}
-.btn-hero-secondary:hover {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: var(--gold-400);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-  color: var(--brown-800);
-}
 .trust-bar {
   display: flex;
   flex-wrap: wrap;
@@ -1084,8 +1058,7 @@ a:hover {
     flex-direction: column;
     gap: var(--space-sm);
   }
-  .btn-hero-primary,
-  .btn-hero-secondary {
+  .btn-hero-primary {
     width: 100%;
     text-align: center;
   }
@@ -1475,7 +1448,7 @@ a:hover {
 @media print {
   .site-header, .site-footer, .site-nav,
   .mobile-nav-toggle, .skip-link, .nav-dropdown, .hero-actions, .btn-primary, .btn-secondary,
-  .btn-hero-primary, .btn-hero-secondary,
+  .btn-hero-primary,
   .btn-quick-start, .quick-start, .estimator-controls,
   .calculator-button {
     display: none !important;
@@ -2205,7 +2178,7 @@ img {
         <div class="ux-typical-costs" style="background:#f4f1ec;border-radius:6px;padding:1rem 1.25rem;margin:1.25rem 0;"><p style="margin:0 0 .4rem;"><strong>Typical costs, at a glance</strong> <span style="font-weight:normal;">(NFDA 2023 median)</span></p><ul style="margin:0;padding-left:1.2rem;"><li>Funeral with viewing and burial: about <strong>$8,300</strong> (NFDA 2023 median)</li><li>Funeral with viewing and cremation: about <strong>$6,280</strong> (NFDA 2023 median)</li><li>Direct cremation: about <strong>$2,645</strong> when the family supplies the container, <strong>$2,750</strong> when the funeral home does. Prices vary a lot by state, and some states cost less. <a href="cremation-costs-by-state.html">Check your state&#39;s costs</a>.</li></ul><p style="margin:.4rem 0 0;font-size:.875rem;">Source: NFDA 2023 General Price List Study, as published in the <a href="https://content.nfda.org/Portals/0/2024_NFDA_Cremation%20and%20Burial%20Report.pdf" target="_blank" rel="noopener">NFDA 2024 Cremation &amp; Burial Report</a>. Our state pages show our own state estimates, which can be lower or higher than these national medians.</p></div>
         <div class="hero-actions">
           <a href="#calculator" class="btn-hero-primary">Start Cost Estimator</a>
-          <a href="chat.html" class="btn-hero-secondary">Talk to Free AI Guide</a>
+          <a href="chat.html">AI guide</a>
         </div>
         <div class="trust-bar">
           <div class="trust-item">
@@ -2850,13 +2823,13 @@ img {
         Funeral Cost &amp; Burial Expense Analyzer is an independent, one-person educational resource run by <a href="author-paul-paradis.html">Paul Paradis</a>, founder and editor, in Boston, Massachusetts. Paul built the site after arranging funerals for people close to him and seeing how confusing, overwhelming, and opaque funeral costs can be, especially when you're grieving. When this site says &ldquo;we,&rdquo; it means that one-person editorial voice.
       </p>
       <p>
-        We are <strong>not</strong> a funeral director, lawyer, or financial advisor. As of October 2026, no link on this site is a paid affiliate link we placed by hand in our rankings, but Sovrn Commerce (VigLink) may automatically convert some ordinary links into affiliate links that can earn a commission at no extra cost to you, and this never affects our rankings or recommendations. If we ever add one, it will be disclosed and will not influence our content or recommendations. Our primary purpose is consumer education.
+        We are <strong>not</strong> a funeral director, lawyer, or financial advisor. As of October 2026, no link on this site is a paid affiliate link we placed by hand in our rankings. If we ever add one, it will be disclosed and will not influence our content or recommendations. Our primary purpose is consumer education.
       </p>
 
       <div class="editorial-principles">
         <div class="editorial-principle">
           <h4>Independence</h4>
-          <p>No funeral home, casket company, or insurance provider influences our content. The site has no hand-picked affiliate relationships today, though Sovrn Commerce (VigLink) may automatically convert some ordinary links into affiliate links that can earn a commission at no extra cost to you, and this never affects our rankings or recommendations; if it adds any, they will be disclosed and will not affect editorial decisions.</p>
+          <p>No funeral home, casket company, or insurance provider influences our content. The site has no hand-picked affiliate relationships today; if it adds any, they will be disclosed and will not affect editorial decisions.</p>
         </div>
         <div class="editorial-principle">
           <h4>Accuracy</h4>
