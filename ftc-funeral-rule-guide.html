@@ -336,6 +336,30 @@ a:hover {
   margin: 0 auto;
   padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
 }
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(155deg, var(--brown-500), var(--brown-700));
+  color: #fff;
+  text-decoration: none;
+  box-shadow: var(--shadow-md), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  transition: background 0.2s ease, box-shadow 0.25s ease, transform 0.15s ease;
+  letter-spacing: 0.01em;
+}
+.btn-hero-primary:hover {
+  background: linear-gradient(155deg, var(--brown-600), var(--brown-800));
+  box-shadow: var(--shadow-lg), var(--shadow-warm-glow);
+  transform: translateY(-1px);
+  color: #fff;
+}
 .section {
   margin-top: 0;
 }
@@ -523,6 +547,10 @@ a:hover {
   .main {
     padding: var(--space-lg) var(--space-md) var(--space-2xl);
   }
+  .btn-hero-primary {
+    width: 100%;
+    text-align: center;
+  }
   .nav-dropdown {
     width: 100%;
   }
@@ -678,7 +706,8 @@ a:hover {
 }
 @media print {
   .site-header, .site-footer, .site-nav,
-  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary, .guide-internal-links {
+  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary,
+  .btn-hero-primary, .guide-internal-links {
     display: none !important;
   }
   body {
@@ -1176,7 +1205,7 @@ a:hover {
       </nav>
 
       <h1>The FTC Funeral Rule: A Complete Guide to Your Consumer Rights</h1>
-      <p class="article-byline small muted">By <a href="author-paul-paradis.html">Paul Paradis</a>, Editor &middot; Last updated <time datetime="2026-11-01">November 1, 2026</time> &middot; Reviewed by Paul Paradis on <time datetime="2026-10-24">October 24, 2026</time></p>
+      <p class="article-byline small muted">By <a href="author-paul-paradis.html">Paul Paradis</a>, Editor &middot; Last updated <time datetime="2026-11-01">November 1, 2026</time> &middot; Reviewed by Paul Paradis on <time datetime="2026-11-01">November 1, 2026</time></p>
 
       <div class="callout callout-info" style="border-left:4px solid #b8860b;background:#fdf8ef;padding:1rem 1.25rem;margin:1rem 0 1.5rem;"><strong>Not legal advice.</strong> This guide is informational reporting on the FTC Funeral Rule, 16 CFR Part 453. It does not constitute legal advice. For guidance specific to your situation, consult a licensed attorney or your state attorney general's consumer protection division.</div>
 
@@ -1612,6 +1641,5 @@ a:hover {
   });
 })();
 </script>
-<script type="text/javascript"> var vglnk = {key: 'a57949e7c628565442d6687070befad4'}; (function(d, t) {function go() {var s = d.createElement(t); s.type = 'text/javascript';s.async = true; s.src = '//cdn.viglink.com/api/vglnk.js'; var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);} function idle() {if ('requestIdleCallback' in window) {requestIdleCallback(go, {timeout: 3000});} else {setTimeout(go, 1500);}} if (d.readyState === 'complete') {idle();} else {window.addEventListener('load', idle);}}(document, 'script')); </script>
 </body>
 </html>

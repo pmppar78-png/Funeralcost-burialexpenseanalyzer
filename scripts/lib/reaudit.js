@@ -38,6 +38,7 @@ try { CHANGES = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'dat
 const escHtml = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 function addChange(html, f, iso) {
   html = html.replace(/\n[ \t]*<span class="article-meta-item article-meta-change">[^\n]*/, '');
+  return html; // "What changed" lines retired Nov 3 2026.
   const c = f && CHANGES[f];
   if (!c || c.date !== iso) return html;
   const item = `<span class="article-meta-item article-meta-change"><span class="article-meta-label">What changed:</span> <span class="article-meta-value">${escHtml(c.text)}</span></span>`;

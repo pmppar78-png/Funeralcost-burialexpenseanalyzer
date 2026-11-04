@@ -675,13 +675,6 @@ a:hover {
 .card:hover {
   box-shadow: var(--shadow-md);
 }
-.section-highlight {
-  background: linear-gradient(155deg, var(--gold-50) 0%, var(--warm-100) 45%, var(--rose-50) 100%);
-  border-radius: var(--radius-xl);
-  padding: var(--space-xl);
-  border: 1px solid var(--gold-200);
-  box-shadow: var(--shadow-sm), 0 0 0 1px rgba(212, 175, 106, 0.05) inset;
-}
 .expandable-block {
   margin-top: var(--space-md);
 }
@@ -756,10 +749,6 @@ a:hover {
   border-radius: 50%;
   background: var(--gold-400);
 }
-.checklist-compact li {
-  margin-top: 0.35rem;
-  font-size: 0.85rem;
-}
 .field-hint {
   display: block;
   font-size: 0.75rem;
@@ -829,23 +818,6 @@ a:hover {
   color: var(--warm-600);
   line-height: 1.55;
 }
-.ai-cta-layout {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-xl);
-}
-.ai-cta-text {
-  flex: 1;
-}
-.ai-cta-text h2 {
-  margin-bottom: var(--space-md);
-}
-.ai-cta-action {
-  display: flex;
-  align-items: center;
-  padding-top: var(--space-xl);
-  flex-shrink: 0;
-}
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -872,10 +844,6 @@ a:hover {
 }
 .btn-primary:active {
   transform: translateY(0);
-}
-.btn-large {
-  padding: 0.8rem 2rem;
-  font-size: 0.9375rem;
 }
 .small {
   font-size: 0.8125rem;
@@ -1105,9 +1073,6 @@ a:hover {
   .card {
     padding: var(--space-lg);
   }
-  .section-highlight {
-    padding: var(--space-lg);
-  }
   .main {
     padding: var(--space-lg) var(--space-md) var(--space-2xl);
   }
@@ -1170,13 +1135,6 @@ a:hover {
   }
   .payment-options-grid {
     grid-template-columns: 1fr;
-  }
-  .ai-cta-layout {
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-  .ai-cta-action {
-    padding-top: 0;
   }
   .section-divider {
     margin: var(--space-xl) 0;
@@ -1516,8 +1474,7 @@ a:hover {
 }
 @media print {
   .site-header, .site-footer, .site-nav,
-  .mobile-nav-toggle, .skip-link, .nav-dropdown, .hero-actions,
-  .ai-cta-layout, .btn-primary, .btn-secondary,
+  .mobile-nav-toggle, .skip-link, .nav-dropdown, .hero-actions, .btn-primary, .btn-secondary,
   .btn-hero-primary, .btn-hero-secondary,
   .btn-quick-start, .quick-start, .estimator-controls,
   .calculator-button {
@@ -2012,7 +1969,7 @@ img {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How this estimator works: data sources and methodology Cost ranges are compiled from publicly available data including NFDA consumer surveys (2021–2023), state funeral board price surveys, Funeral Consumers Alliance reports, and published General Price Lists. Many tools, including a final expenses calculator, start with national medians and average costs before applying regional adjustments; some also fill fields with national figures that may not reflect local prices. Regional adjustments are based on cost-of-living indices and metropolitan vs. rural pricing differentials. All figures represent typical ranges and are for illustrative purposes only; your actual costs will depend on the specific provider, location, and choices you make. Inflation is also considered when projecting current and future estimates. We update this data periodically. Last reviewed: April 2026. For current pricing in your area, always request a General Price List directly from providers. Decision checklist: what affects the total Type of service (traditional, memorial only, direct cremation, or direct burial) Location (funeral home, house of worship, community hall, graveside) Body preparation (embalming, dressing, or minimal care) Casket or urn: rental and simpler options can save significantly Burial plot, niche, or scattering location plus cemetery fees Transportation for the deceased and family Optional extras: flowers, music, livestreaming, programs Some funeral home fees do not include third-party charges or other expenses, which can still affect the total cost. The free AI guide can walk through this checklist with you step by step. Payment ideas families explore Funeral costs add up quickly. Here are common paths families research, not advice on what to do. Families arranging services without life insurance may also benefit from a guide to funeral costs when uninsured in 2026. Life insurance Policies can sometimes be assigned directly to the funeral home, and proceeds may help cover immediate funeral expenses when payment is due quickly. Savings & POD accounts Payable-on-death bank accounts or earmarked savings. Payment plans Some funeral homes or third-party companies offer short-term plans. Benefits Veterans, union, or employer-sponsored assistance may be available. Government aid State or county assistance for hardship situations. Community support Faith communities, mutual aid, or family fundraising. Many funeral homes require payment before services are rendered. The free AI guide can suggest questions to ask about each option. Eligibility decisions should be made with licensed professionals. Talk with the free AI guide A calm, unhurried conversation about costs, options, and questions to ask providers. We don’t save the chat, but your messages are sent to OpenAI to generate answers, so leave out personal details (see our privacy policy). Try asking: \"We were quoted $9,000. What questions should I ask?\" \"Help me plan a simple, respectful service on a limited budget.\" \"What is the FTC Funeral Rule and how does it protect me?\" The AI cannot give legal, financial, or medical advice. It helps you organize thoughts before speaking with professionals. Open the free AI guide ↗ Frequently asked questions How much does a funeral cost on average?",
+      "name": "How this estimator works: data sources and methodology Cost ranges are compiled from publicly available data including NFDA consumer surveys (2021–2023), state funeral board price surveys, Funeral Consumers Alliance reports, and published General Price Lists. Many tools, including a final expenses calculator, start with national medians and average costs before applying regional adjustments; some also fill fields with national figures that may not reflect local prices. Regional adjustments are based on cost-of-living indices and metropolitan vs. rural pricing differentials. All figures represent typical ranges and are for illustrative purposes only; your actual costs will depend on the specific provider, location, and choices you make. Inflation is also considered when projecting current and future estimates. We update this data periodically. Last reviewed: April 2026. For current pricing in your area, always request a General Price List directly from providers. Decision checklist: what affects the total Type of service (traditional, memorial only, direct cremation, or direct burial) Location (funeral home, house of worship, community hall, graveside) Body preparation (embalming, dressing, or minimal care) Casket or urn: rental and simpler options can save significantly Burial plot, niche, or scattering location plus cemetery fees Transportation for the deceased and family Optional extras: flowers, music, livestreaming, programs Some funeral home fees do not include third-party charges or other expenses, which can still affect the total cost. The free AI guide can walk through this checklist with you step by step. Payment ideas families explore Funeral costs add up quickly. Here are common paths families research, not advice on what to do. Families arranging services without life insurance may also benefit from a guide to funeral costs when uninsured in 2026. Life insurance Policies can sometimes be assigned directly to the funeral home, and proceeds may help cover immediate funeral expenses when payment is due quickly. Savings & POD accounts Payable-on-death bank accounts or earmarked savings. Payment plans Some funeral homes or third-party companies offer short-term plans. Benefits Veterans, union, or employer-sponsored assistance may be available. Government aid State or county assistance for hardship situations. Community support Faith communities, mutual aid, or family fundraising. Many funeral homes require payment before services are rendered. The free AI guide can suggest questions to ask about each option. Eligibility decisions should be made with licensed professionals. Frequently asked questions How much does a funeral cost on average?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "The median cost of a funeral with viewing and burial is approximately $8,300; cremation averages around $6,280 (NFDA data). Costs vary widely by state and provider. Direct cremation costs about $2,600 to $2,750 nationally (NFDA 2023 medians: $2,645 when the family supplies the container, $2,750 when the funeral home does), though prices still vary by provider and area. Prices vary a lot by state, and some states cost less, so it helps to check your state's costs. Request itemized price lists from several local funeral homes; they're required by law to provide them, and transportation services can add significantly to the total."
@@ -2190,7 +2147,7 @@ img {
       <a href="#calculator" class="nav-link">Calculator</a>
       <a href="#state-costs" class="nav-link">State Costs</a>
       <a href="#payment-help" class="nav-link">Payment Help</a>
-      <a href="#ai-helper" class="nav-link">Free AI Guide</a>
+      <a href="chat.html" class="nav-link">AI Guide</a>
       <a href="#faq" class="nav-link">FAQ</a>
       <div class="nav-dropdown">
         <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Guides <span class="dropdown-arrow" aria-hidden="true"></span></button>
@@ -2619,30 +2576,6 @@ img {
       </p>
     </section>
 
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- Free AI Guide CTA — prominent, distinct -->
-    <section id="ai-helper" class="section section-highlight">
-      <div class="ai-cta-layout">
-        <div class="ai-cta-text">
-          <h2>Talk with the free AI guide</h2>
-          <p>
-            A calm, unhurried conversation about costs, options, and questions to ask providers. We don&rsquo;t save the chat, but your messages are sent to OpenAI to generate answers, so leave out personal details (see our <a href="privacy-policy.html#ai-chat-privacy">privacy policy</a>). Try asking:
-          </p>
-          <ul class="checklist checklist-compact">
-            <li>"We were quoted $9,000. What questions should I ask?"</li>
-            <li>"Help me plan a simple, respectful service on a limited budget."</li>
-            <li>"What is the FTC Funeral Rule and how does it protect me?"</li>
-          </ul>
-          <p class="small muted">
-            The AI cannot give legal, financial, or medical advice. It helps you organize thoughts before speaking with professionals.
-          </p>
-        </div>
-        <div class="ai-cta-action">
-          <a href="chat.html" class="btn-primary btn-large">Open the free AI guide &#8599;</a>
-        </div>
-      </div>
-    </section>
 
     <div class="section-divider" aria-hidden="true"></div>
 
@@ -3329,6 +3262,5 @@ img {
   });
 })();
 </script>
-<script type="text/javascript"> var vglnk = {key: 'a57949e7c628565442d6687070befad4'}; (function(d, t) {function go() {var s = d.createElement(t); s.type = 'text/javascript';s.async = true; s.src = '//cdn.viglink.com/api/vglnk.js'; var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);} function idle() {if ('requestIdleCallback' in window) {requestIdleCallback(go, {timeout: 3000});} else {setTimeout(go, 1500);}} if (d.readyState === 'complete') {idle();} else {window.addEventListener('load', idle);}}(document, 'script')); </script>
 </body>
 </html>
