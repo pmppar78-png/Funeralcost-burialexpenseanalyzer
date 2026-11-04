@@ -4854,3 +4854,8 @@ img {
     padding-bottom: 96px;
   }
 }
+
+/* Breathing room between a state cost table and its estimate note */
+.table-note.state-method-note {
+  margin-top: var(--space-md);
+}
