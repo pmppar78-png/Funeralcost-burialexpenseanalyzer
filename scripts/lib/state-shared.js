@@ -37,7 +37,7 @@ function resources(s) {
     `<li><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-453" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a><span class="resource-desc">${ftc}</span></li>`,
     `<li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">${aid}</span></li>`,
     `<li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Final expense and burial policies for a family planning ahead for a ${$(s.f)} ${s.name} service</span></li>`,
-    `<li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a><span class="resource-desc">Side-by-side comparison of top burial insurance providers</span></li>`,
+    `<li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a><span class="resource-desc">Side-by-side comparison of burial insurance providers</span></li>`,
     `<li><a href="funeral-insurance-comparison.html">Insurance Plan Comparison</a><span class="resource-desc">Compare coverage, premiums, and payout speed across providers</span></li>`];
   const cost = [
     ['c', `<li><a href="direct-cremation-cost.html">Direct Cremation — Most Affordable Option</a><span class="resource-desc">NFDA 2023 median $2,645 with a family-supplied container (latest available); about ${$(s.dc)} in ${s.name} on our estimates</span></li>`],
@@ -45,7 +45,7 @@ function resources(s) {
     ['b', `<li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a><span class="resource-desc">Every line item explained — know what you're paying for</span></li>`],
     ['b', `<li><a href="average-funeral-cost-2026.html">Average Funeral Cost in 2026</a><span class="resource-desc">${s.name}'s ${$(s.f)} traditional average sits ${natNote(s)}</span></li>`],
     ['x', `<li><a href="cheap-funeral-options.html">Cheapest Funeral Options</a><span class="resource-desc">Lower-cost alternatives, with typical price ranges</span></li>`],
-    ['x', `<li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a><span class="resource-desc">Step-by-step guide to getting the best price</span></li>`]];
+    ['x', `<li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a><span class="resource-desc">Step-by-step guide to comparing funeral prices</span></li>`]];
   const cremFirst = crPct(s) >= 60;
   const order = cost.slice().sort((a, b) => (r => r === 'x' ? 2 : (r === 'c') === cremFirst ? 0 : 1)(a[0]) - (r => r === 'x' ? 2 : (r === 'c') === cremFirst ? 0 : 1)(b[0]));
   return `<div class="resource-suggestions"><h3>Where ${s.name} families can check rules and find help</h3><ul class="resource-list">${top.join('')}</ul></div>` +
