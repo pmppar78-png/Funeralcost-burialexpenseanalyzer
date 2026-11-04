@@ -5,16 +5,13 @@ Allow: /
 Disallow: /node_modules/
 Disallow: /.netlify/
 Disallow: /.git/
-Disallow: /generate-pages.js
 
 # Allow crawling of all content pages, stylesheets, and scripts
 Allow: /style.css
 Allow: /script.js
 Allow: /*.html
 
-# Explicit allow for major search and advertising crawlers
-# (redundant with User-agent: * / Allow: / above, but stated here to make
-# AdSense readiness unambiguous for auditors and tooling)
+# Major search and advertising crawlers
 User-agent: Googlebot
 Allow: /
 

@@ -513,16 +513,6 @@ a:hover {
   border-bottom: 1px solid var(--warm-200);
   margin-bottom: var(--space-xl);
 }
-.guide-disclaimer {
-  margin-top: var(--space-2xl);
-  padding: var(--space-md) var(--space-lg);
-  background: var(--gold-50);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--gold-200);
-  font-size: 0.8125rem;
-  color: var(--warm-600);
-  line-height: 1.7;
-}
 @media (max-width: 768px) {
   .guide-main {
     padding: var(--space-lg) var(--space-md) var(--space-2xl);
@@ -762,7 +752,7 @@ a:hover {
 
       <h2 id="estimates">How the state estimates are built</h2>
       <p>Each state starts from two figures we set: a traditional-funeral estimate and a cemetery-plot estimate. Both are anchored to NFDA national benchmarks and adjusted for regional cost differences, and the 2026 figures were adjusted for inflation by 10.3% using the BLS funeral-expense CPI. The other table lines are derived from those two. The casket is 30% and embalming 10% of the funeral figure; the burial vault is 40% and opening and closing 50% of the plot figure. Burial totals add those lines plus the headstone range printed in each table.</p>
-      <p>Metro figures apply cost-of-living multipliers between 0.95&times; and 1.35&times; to the state figure. National and regional averages in the <a href="national-funeral-cost-index.html">National Funeral Cost Index</a> are simple, unweighted means of the state estimates. Where a page cites a specific state fee, statute or survey, that figure is sourced; derived lines are not.</p>
+      <p>State cremation rates shown on state pages are rounded editorial estimates, labelled &ldquo;Est.&rdquo;; the national 63.4% rate is NFDA&rsquo;s published projection, and official state-by-state rates are published by the Cremation Association of North America (CANA). Metro figures apply cost-of-living multipliers between 0.95&times; and 1.35&times; to the state figure. National and regional averages in the <a href="national-funeral-cost-index.html">National Funeral Cost Index</a> are simple, unweighted means of the state estimates. Where a page cites a specific state fee, statute or survey, that figure is sourced; derived lines are not.</p>
       <p>The build itself checks the arithmetic. Before the site is published, a script confirms that every computed figure in a state page&rsquo;s sentences matches that page&rsquo;s own cost table, and another confirms that the totals quoted in page descriptions match the tables. A build with a mismatch fails and is not published.</p>
       <p><strong>Limits:</strong> no estimate is a quote. Prices at funeral homes in the same city can differ widely, and the only reliable local price is a provider&rsquo;s General Price List, which the FTC Funeral Rule lets you request, including by phone.</p>
 
@@ -786,7 +776,6 @@ a:hover {
           <li><strong>2026-10-21</strong>: 2026 state estimates CPI-adjusted (+10.3%, BLS CUUR0000SEGD02) and labelled as estimates; VA burial allowance corrected.</li>
       </ul>
 
-      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Information only, not professional advice. <a href="disclaimer.html">Full disclaimer</a>.</p></div>
     </article>
   </main>
 

@@ -339,7 +339,7 @@ function regionalBurialSavingsBullets(s) {
     'West': [
       `<li><strong>Look for hybrid or natural burial sections:</strong> Several ${s.name} cemeteries have added green or natural burial sections without advertising them prominently. These sections skip the vault and embalming requirements and often price plots 30-50% below the traditional sections of the same cemetery.</li>`,
       `<li><strong>Consider certified conservation burial grounds:</strong> ${s.name} is one of the more active states for true conservation burial. These grounds protect land in perpetuity and price simply, typically ${$(Math.round(s.f * 0.4))}-${$(Math.round(s.f * 0.7))} all-in versus ${$(Math.round(s.f*1.3 + s.b*1.9 + 500))}+ for traditional burial in ${s.name}.</li>`,
-      `<li><strong>Use the competitive cremation market as leverage:</strong> With ${s.cr} of ${s.name} families choosing cremation, burial-focused providers often have pricing flexibility they do not advertise. Mentioning direct cremation as an alternative in the quote conversation sometimes surfaces better burial pricing.</li>`
+      `<li><strong>Use the competitive cremation market to your advantage:</strong> With ${s.cr} of ${s.name} families choosing cremation, burial-focused providers often have pricing flexibility they do not advertise. Mentioning direct cremation as an alternative in the quote conversation sometimes surfaces better burial pricing.</li>`
     ],
     'Mountain': [
       `<li><strong>Confirm seasonal burial windows:</strong> At higher elevations in ${s.name}, cemeteries may pause ground operations from November through April and hold remains in a vault until spring. Vault storage fees vary widely; ask for them specifically in the quote.</li>`,
@@ -1034,7 +1034,7 @@ ${header()}
       <h1>Funeral Costs in ${s.name}: What Families Pay in 2026</h1>
 
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, <a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-453" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">${s.region}</span></span>
@@ -1059,7 +1059,7 @@ ${header()}
         <div class="stat-box"><span class="stat-number">${$(s.f)}</span><span class="stat-label">Avg. Traditional Funeral</span></div>
         <div class="stat-box"><span class="stat-number">${$(s.c)}</span><span class="stat-label">Avg. Cremation Funeral</span></div>
         <div class="stat-box"><span class="stat-number">${$(s.dc)}</span><span class="stat-label">Direct Cremation</span></div>
-        <div class="stat-box"><span class="stat-number">${s.cr}</span><span class="stat-label">Cremation Rate</span></div>
+        <div class="stat-box"><span class="stat-number">${s.cr}</span><span class="stat-label">Est. Cremation Rate</span></div>
       </div>
 
       <div class="callout callout-info"><strong>2026 ${s.name} Funeral Cost Update:</strong> Our estimate for an average traditional funeral in ${s.name} is <strong>${$(s.f)}</strong>, compared with a national median of $8,300 for a funeral with viewing and burial (NFDA 2023 General Price List Study, the most recent edition). Direct cremation remains the most affordable option at <strong>${$(s.dc)}</strong>. <a href="average-funeral-cost-2026.html">See the full 2026 national funeral cost report</a> | <a href="funeral-costs-rising-2026.html">Why funeral costs are rising</a></div>
@@ -1300,7 +1300,7 @@ ${header()}
 
       <h1>Funeral Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="funeral-costs-${s.slug}.html">${m.st}</a>`}</span></span>
       </div>
@@ -1347,7 +1347,7 @@ ${header()}
       </div>
 
       <h2>Understanding ${m.city} Funeral Pricing</h2>
-      <p>Funeral costs in ${m.city} carry a metro premium of approximately ${Math.round((m.mp-1)*100)}% above the ${m.st} state average. This is driven by higher real estate costs for funeral home facilities, higher labor costs, and greater demand for services in a dense metropolitan area. However, the competitive market in ${m.city} also means you have more providers to choose from, which gives you leverage when comparing prices.</p>
+      <p>Funeral costs in ${m.city} carry a metro premium of approximately ${Math.round((m.mp-1)*100)}% above the ${m.st} state average. This is driven by higher real estate costs for funeral home facilities, higher labor costs, and greater demand for services in a dense metropolitan area. However, the competitive market in ${m.city} also means you have more providers to choose from, which puts you in a stronger position when comparing prices.</p>
       <p>The most effective way to find the best price is to request General Price Lists from 2 to 3 funeral homes in the ${m.city} area and compare them line by line. Under the FTC Funeral Rule, every provider must give you this list upon request — no appointment needed, no commitment required.</p>
       ${nearbyCitySection}
 
@@ -1468,7 +1468,7 @@ ${header()}
 
       <h1>Cremation Costs in ${s.name} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
       </div>
@@ -1489,7 +1489,7 @@ ${header()}
       <div class="stat-highlights">
         <div class="stat-box"><span class="stat-number">${$(s.dc)}</span><span class="stat-label">Direct Cremation</span></div>
         <div class="stat-box"><span class="stat-number">${$(s.c)}</span><span class="stat-label">Cremation w/ Service</span></div>
-        <div class="stat-box"><span class="stat-number">${s.cr}</span><span class="stat-label">Cremation Rate</span></div>
+        <div class="stat-box"><span class="stat-number">${s.cr}</span><span class="stat-label">Est. Cremation Rate</span></div>
       </div>
 
       <h2>Types of Cremation in ${s.name}</h2>
@@ -1567,7 +1567,7 @@ function genBurial(s) {
     'South': `church- and family-owned cemeteries in the ${s.region} routinely underprice commercial memorial parks, and above-ground entombment is worth asking about in low-lying parts of ${s.name}.`,
     'Northeast': `${s.name} has many nonprofit, municipal, and denominational cemeteries that undercut private memorial parks, and winter pricing can add a separate line item between December and March.`,
     'Midwest': `township, county, and fraternal cemeteries in ${s.name} are often only listed through the county clerk and frequently price plots well below commercial memorial parks.`,
-    'West': `green and hybrid burial sections in ${s.name} cemeteries often sit 30-50% below traditional plots, and conservation burial grounds are more established here than in most regions.`,
+    'West': `green and hybrid burial sections in ${s.name} cemeteries are often priced below traditional plots, and conservation burial grounds are more established here than in most regions.`,
     'Mountain': `rural ${s.name} cemeteries served by county clerks often price far below ${s.cities[0]}-area private cemeteries, and seasonal ground-closing windows at elevation can affect the interment timeline.`
   };
   const bHint = burialRegionHints[s.region] || burialRegionHints['Midwest'];
@@ -1624,7 +1624,7 @@ ${header()}
 
       <h1>Burial Costs in ${s.name} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Region:</span> <span class="article-meta-value">${s.region}</span></span>
       </div>
@@ -1728,7 +1728,7 @@ ${header()}
 
       <h1>${p.h1 || p.st}</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, Government Sources</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
@@ -1850,7 +1850,7 @@ ${header()}
 
       <h1>Cremation Costs by State: 2026 Price Comparison</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, State Boards</span></span>
       </div>
@@ -1923,7 +1923,7 @@ ${header()}
 
       <h1>Burial Costs by State: 2026 Price Comparison</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, State Boards</span></span>
       </div>
@@ -2019,7 +2019,7 @@ ${header()}
 
       <h1>Cremation Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="cremation-costs-${s.slug}.html">${m.st}</a>`}</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Cremation Rate:</span> <span class="article-meta-value">${s.cr}</span></span>
@@ -2042,7 +2042,7 @@ ${header()}
       <div class="stat-highlights">
         <div class="stat-box"><span class="stat-number">${$(mdc)}</span><span class="stat-label">Direct Cremation</span></div>
         <div class="stat-box"><span class="stat-number">${$(mc)}</span><span class="stat-label">Cremation w/ Service</span></div>
-        <div class="stat-box"><span class="stat-number">${s.cr}</span><span class="stat-label">Cremation Rate</span></div>
+        <div class="stat-box"><span class="stat-number">${s.cr}</span><span class="stat-label">Est. Cremation Rate</span></div>
       </div>
 
       <h2>Types of Cremation in ${m.city}</h2>
@@ -2156,7 +2156,7 @@ ${header()}
 
       <h1>Burial Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">${m.dc ? 'Area' : 'State'}:</span> <span class="article-meta-value">${m.dc ? 'Washington, DC Metro' : `<a href="burial-costs-${s.slug}.html">${m.st}</a>`}</span></span>
       </div>
@@ -2329,7 +2329,7 @@ ${header()}
 
       <h1>${p.h1 || p.st}</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, Insurance Industry Data, Government Sources</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
@@ -2467,7 +2467,7 @@ ${header()}
 
       <h1>${p.tradition} Funeral Costs: Traditions and Pricing in 2026</h1>
       <div class="article-meta">
-        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Editor</span></span>
+        <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="${LASTMOD}">${REVIEW_DATE}</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, Religious Organizations, Consumer Surveys</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
