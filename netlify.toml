@@ -109,6 +109,24 @@
   status = 404
   force = true
 
+[[redirects]]
+  from = "/terms.html"
+  to = "/terms-of-service.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/editorial-policy.html"
+  to = "/editorial-standards.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/editorial-policy"
+  to = "/editorial-standards.html"
+  status = 301
+  force = true
+
 # ─── Domain-level redirects (one-hop, no chains) ─────────────────
 # Canonical host: https://funeralcostanalyzer.com (non-www, HTTPS, no trailing slash except root)
 

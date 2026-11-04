@@ -34,7 +34,7 @@ function resources(s) {
   const aid = f.aid && f.aid.contact ? `Medicaid, charity and federal help, plus the ${s.name} route: ${f.aid.contact}` : 'Government programs and financial help for funeral costs';
   const top = [
     `<li><a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">Funeral Consumers Alliance</a><span class="resource-desc">${fd}</span></li>`,
-    `<li><a href="https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a><span class="resource-desc">${ftc}</span></li>`,
+    `<li><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-453" target="_blank" rel="nofollow noopener">FTC Funeral Rule</a><span class="resource-desc">${ftc}</span></li>`,
     `<li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">${aid}</span></li>`,
     `<li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Final expense and burial policies for a family planning ahead for a ${$(s.f)} ${s.name} service</span></li>`,
     `<li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a><span class="resource-desc">Side-by-side comparison of top burial insurance providers</span></li>`,
