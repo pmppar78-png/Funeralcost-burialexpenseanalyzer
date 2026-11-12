@@ -11,7 +11,7 @@
     name="description"
     content="Where our funeral cost figures come from, how the state estimates are built, how review dates are set and how corrections are made, with a dated update log."
   />
-  <meta name="last-modified" content="2026-10-29" />
+  <meta name="last-modified" content="2026-11-12" />
   <meta property="og:title" content="Methodology: How Our Funeral Cost Figures Are Built" />
   <meta property="og:description" content="Where our funeral cost figures come from, how the state estimates are built, how review dates are set and how corrections are made, with a dated update log." />
   <meta property="og:type" content="article" />
@@ -635,7 +635,7 @@ a:hover {
     "name": "Methodology: How Our Funeral Cost Figures Are Built",
     "description": "Where our funeral cost figures come from, how the state estimates are built, how review dates are set and how corrections are made, with a dated update log.",
     "url": "https://funeralcostanalyzer.com/methodology.html",
-    "dateModified": "2026-10-29",
+    "dateModified": "2026-11-12",
     "publisher": {
       "@type": "Organization",
       "name": "Funeral Cost & Burial Expense Analyzer",
@@ -741,7 +741,7 @@ a:hover {
     <article class="guide-article">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Methodology</span></nav>
       <h1>Methodology: How Our Funeral Cost Figures Are Built</h1>
-      <p class="article-byline small muted">Written by <a href="author-paul-paradis.html">Paul Paradis</a> &middot; Last updated <time datetime="2026-10-29">October 29, 2026</time></p>
+      <p class="article-byline small muted">Written by <a href="author-paul-paradis.html">Paul Paradis</a> &middot; Last updated <time datetime="2026-11-12">November 12, 2026</time></p>
       <p class="guide-intro">This page explains where the numbers on Funeral Cost Analyzer come from, which of them are official and which are our own estimates, how we date our reviews, and how a mistake gets fixed. It is the short technical companion to our <a href="editorial-standards.html">editorial standards</a>.</p>
 
       <h2 id="sources">Data sources</h2>
@@ -756,9 +756,23 @@ a:hover {
       <p>State cremation rates shown on state pages are rounded editorial estimates, labelled &ldquo;Est.&rdquo;; the national 63.4% rate is NFDA&rsquo;s published projection, and official state-by-state rates are published by the Cremation Association of North America (CANA). Metro figures apply cost-of-living multipliers between 0.95&times; and 1.35&times; to the state figure. National and regional averages in the <a href="national-funeral-cost-index.html">National Funeral Cost Index</a> are simple, unweighted means of the state estimates. Where a page cites a specific state fee, statute or survey, that figure is sourced; derived lines are not.</p>
       <p>The build itself checks the arithmetic. Before the site is published, a script confirms that every computed figure in a state page&rsquo;s sentences matches that page&rsquo;s own cost table, and another confirms that the totals quoted in page descriptions match the tables. A build with a mismatch fails and is not published.</p>
       <p><strong>Limits:</strong> no estimate is a quote. Prices at funeral homes in the same city can differ widely, and the only reliable local price is a provider&rsquo;s General Price List, which the FTC Funeral Rule lets you request, including by phone.</p>
+<h2 id="metro-multipliers">How city figures are built</h2>
+<p>Where we publish a city estimate (currently Memphis, Tennessee, and Indianapolis, Indiana) we start from that state's traditional-funeral and direct-cremation estimates and multiply by a cost-of-living factor between 0.95&times; and 1.35&times;. The factor is an editorial adjustment guided by regional price-parity data, not a survey of that city's funeral homes and not a quote.</p>
+<p>The city multipliers in use today are:</p>
+<ul>
+<li><strong>Memphis:</strong> the Tennessee estimates &times; 1.05, so $6,700 becomes $7,035 for a traditional funeral and $1,600 becomes $1,680 for direct cremation.</li>
+<li><strong>Nashville:</strong> the Tennessee estimates &times; 1.15 ($7,705 and $1,840). We show this figure on the Memphis comparison table and on the Tennessee state page because Nashville is the other Tennessee metro we price. We do not currently publish a stand-alone Nashville page.</li>
+<li><strong>Indianapolis:</strong> the Indiana estimates &times; 1.10.</li>
+</ul>
+<p>Knoxville and Chattanooga do not get their own dollar figures, because none of the sources we use prices those cities apart from the Tennessee average. Other U.S. cities are not listed with a separate estimate for the same reason.</p>
+<p>A city page may also cite local facts we can verify from a public source: a county aid rule, a vital-records fee, a national-cemetery policy, a medical-examiner permit charge. Those facts sit beside the multiplier; they are not used to invent a new city average.</p>
+
+<h2 id="update-cadence">How often figures are updated</h2>
+<p>Each page shows the date it was last revised. I, Paul Paradis, update a page when I change its figures or its cited rules, and when a cited source (for example a new NFDA General Price List study, a VA allowance change each October 1, or a state fee schedule) is updated. I aim to reread the cost pages at least once a year. There is no separate editorial board, no retained fact-checker, and no second reviewer. Corrections go through the <a href="contact.html">contact page</a> or to contact@funeralcostanalyzer.com; I review them, with errors in a price, a legal statement or anything a family might act on handled first. If a correction is confirmed, the page is fixed and its date moves.</p>
+
 
       <h2 id="review-dates">How review dates work</h2>
-      <p>The &ldquo;Reviewed&rdquo; date beside a byline is the date of the page&rsquo;s last real content change, read from the site&rsquo;s version history. Edits that only change a date, punctuation or a heading do not move it, so a page cannot look freshly reviewed just because a date was bumped. Pages without a recorded content change show their own last-modified date. Beyond that, cost data is re-checked when NFDA, the VA or a state publishes new figures and at least once a year, and because the VA adjusts its allowances each October 1, the VA guide was updated to the October 1, 2026 rates.</p>
+      <p>The &ldquo;Reviewed&rdquo; date beside a byline is the date of the page&rsquo;s last real content change, read from the site&rsquo;s version history. Edits that only change a date, punctuation or a heading do not move it, so a page cannot look freshly reviewed just because a date was bumped. Pages without a recorded content change show their own last-modified date. Beyond that, cost data is re-checked when NFDA, the VA or a state publishes new figures, and I aim to reread the cost pages at least once a year. Because the VA adjusts its allowances each October 1, the VA guide was updated to the October 1, 2026 rates. There is no retained fact-checker and no second reviewer; corrections go through the contact page.</p>
 
       <h2 id="corrections">How corrections are made</h2>
       <p>Send a correction through the <a href="contact.html">contact page</a> or to <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>. Corrections are reviewed within 5&ndash;10 business days, and errors in a price, a legal statement or anything a family might act on are handled first. If the error is confirmed, the page is fixed, its review date moves, and material changes are listed below and in the <a href="editorial-standards.html">editorial standards</a>. Every change to the site is also public in its <a href="https://github.com/pmppar78-png/Funeralcost-burialexpenseanalyzer/commits/main" target="_blank" rel="noopener">version history on GitHub</a>.</p>

@@ -310,6 +310,27 @@ function insertOnce(html, marker, htmlBlock, beforeRe) {
   return html;
 }
 
+const FAQ_BEFORE_RE = /<h2[^>]*id="faq"[^>]*>|<h2[^>]*>\s*Frequently Asked Questions/i;
+
+function ensureFaqId(html) {
+  return html.replace(/<h2(\s[^>]*)?>\s*Frequently Asked Questions([^<]*)<\/h2>/i, (m, attrs = '', rest = '') => {
+    if (/\sid\s*=/i.test(attrs || '')) return m;
+    return `<h2${attrs} id="faq">Frequently Asked Questions${rest}</h2>`;
+  });
+}
+
+function placeStateOversight(html, section) {
+  html = ensureFaqId(html);
+  const faqIdx = html.search(FAQ_BEFORE_RE);
+  const soIdx = html.search(/<h[23][^>]*id="state-oversight"/i);
+  // Already in the article body above the FAQ: keep the page's own wording.
+  if (soIdx !== -1 && (faqIdx === -1 || soIdx < faqIdx)) return html;
+  if (soIdx !== -1) {
+    html = html.replace(/\n*<h[23][^>]*id="state-oversight"[^>]*>[\s\S]*?(?=<h2 |<div id="|<\/article>)/, '\n');
+  }
+  return insertOnce(html, 'state-oversight', section, FAQ_BEFORE_RE);
+}
+
 const ROLE_NOTES = {
   'average-funeral-cost-2026.html': `<p class="page-role"><strong>What this page is for.</strong> This is the consumer answer: what a funeral costs in plain figures, and what a family can do about it. The <a href="national-funeral-cost-index.html">National Funeral Cost Index</a> is the same research written so a journalist or a researcher can cite it. The <a href="/">homepage calculator</a> turns the figures into a bill for your state and your choices.</p>`,
   'national-funeral-cost-index.html': `<p class="page-role"><strong>What this page is for.</strong> This is the citation copy: state and metro figures, regions, and the inflation context, written so it can be linked. If you want the plain-language answer first, start with <a href="average-funeral-cost-2026.html">average funeral cost in 2026</a>. If you want a personal total, use the <a href="/">calculator</a>.</p>`,
@@ -640,9 +661,11 @@ function applyAudit() {
       if (!metro) return null;
       const s = states.find(x => x.slug === metro.ss);
       const o = oversight[metro.ss];
+      if (!s) return null;
       if (metro.dc) {
         return { kind, slug, place: 'Washington, DC', name: 'the District of Columbia', board: 'the District\'s funeral licensing board (DC is not a row in our 50-state directory)', rule: 'confirm the District\'s cremation-authorization rule with that board', cr: s.cr, dc: Math.round(s.dc * metro.mp), f: Math.round(s.f * metro.mp), c: Math.round(s.c * metro.mp), b: Math.round(s.b * metro.mp), cities: ['Washington'] };
       }
+      if (!o) return null;
       return { kind, slug, place: `${metro.city}, ${s.name}`, name: s.name, board: o.board, rule: o.rule, cr: s.cr, dc: Math.round(s.dc * metro.mp), f: Math.round(s.f * metro.mp), c: Math.round(s.c * metro.mp), b: Math.round(s.b * metro.mp), cities: [metro.city].concat(s.cities) };
     }
     return null;
@@ -679,16 +702,15 @@ function applyAudit() {
       html = require('./lib/fill-empty').fillEmpty(html, ctx);
       const section = SF.stateFactsSectionHtml(Object.assign({}, ctx, { html })).trim() + '\n';
       if (section.length > 1) {
-        if (html.includes('id="state-oversight"')) html = html.replace(/\n*<h2 id="state-oversight">[\s\S]*?(?=<h2 |<div id="|<\/article>)/, () => '\n' + section);
-        else html = insertOnce(html, 'state-oversight', section, /<h2 id="faq">/);
+        html = placeStateOversight(html, section);
       }
     }
 
     if (expansions[file]) {
-      html = insertOnce(html, 'guide-expansion-2026', expansions[file], /<h2 id="faq">|<h2 id="sources">/);
+      html = insertOnce(html, 'guide-expansion-2026', expansions[file], /<h2[^>]*id="faq"[^>]*>|<h2[^>]*>\s*Frequently Asked Questions|<h2 id="sources">/);
     }
     if (more[file]) {
-      html = insertOnce(html, 'guide-expansion-more', more[file], /<h2 id="faq">|<h2 id="sources">/);
+      html = insertOnce(html, 'guide-expansion-more', more[file], /<h2[^>]*id="faq"[^>]*>|<h2[^>]*>\s*Frequently Asked Questions|<h2 id="sources">/);
     }
     if (ROLE_NOTES[file]) {
       html = insertOnce(html, 'page-role', ROLE_NOTES[file], /<p class="guide-intro"|<h2|<section id="average-costs"/);

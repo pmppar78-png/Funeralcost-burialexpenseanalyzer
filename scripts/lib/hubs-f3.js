@@ -104,7 +104,7 @@ function strongest(kind) {
 
 const num = x => Number(x.replace(/[$,]/g, ''));
 function rows(html, kind) {
-  const re = new RegExp(`<tr><td><a href="${kind}-costs-([a-z-]+)\\.html">([^<]+)</a></td><td class="cost-value">([^<]+)</td><td>([^<]+)</td><td>([^<]+)</td></tr>`, 'g');
+  const re = new RegExp(`<tr[^>]*><td[^>]*><a href="${kind}-costs-([a-z-]+)\\.html">([^<]+)</a></td><td[^>]*>([^<]+)</td><td[^>]*>([^<]+)</td><td[^>]*>([^<]+)</td></tr>`, 'g');
   const out = [];
   let m;
   while ((m = re.exec(html))) if (facts[m[2]]) out.push({ slug: m[1], name: m[2], a: m[3], b: m[4], c: m[5] });

@@ -4884,3 +4884,175 @@ figure.data-chart img {
   height: auto;
   margin: 0 auto;
 }
+
+/* human-reviewer mobile: compact header, stacked tables, odd stat cards */
+@media (max-width: 480px) {
+  .site-header {
+    height: auto;
+    min-height: 48px;
+    padding: 0.3rem 0.7rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-accent svg {
+    width: 18px;
+    height: 18px;
+  }
+  .brand-title {
+    font-size: 0.8rem;
+    line-height: 1.15;
+  }
+  .brand-tagline {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+  }
+
+  /* 3 (or other odd count) stat cards: stack so the last card is not left alone */
+  .stat-highlights:has(.stat-box:nth-child(odd):last-child),
+  .stat-highlights:has(.stat-card:nth-child(odd):last-child) {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack wide tables as labelled cards instead of clipping columns */
+  .guide-table-wrapper,
+  .cost-table-wrap,
+  .table-scroll {
+    overflow-x: visible;
+    border: 0;
+    padding: 0;
+  }
+  .guide-table-wrapper table,
+  .cost-table-wrap table,
+  .table-scroll table,
+  table.cost-table,
+  table.guide-table,
+  table.index-full-table,
+  table.index-regional-table,
+  table.index-inflation-table {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+  .guide-table-wrapper thead,
+  .cost-table-wrap thead,
+  .table-scroll thead,
+  table.cost-table thead,
+  table.guide-table thead,
+  table.index-full-table thead,
+  table.index-regional-table thead,
+  table.index-inflation-table thead {
+    display: none;
+  }
+  .guide-table-wrapper tbody,
+  .cost-table-wrap tbody,
+  .table-scroll tbody,
+  table.cost-table tbody,
+  table.guide-table tbody,
+  table.index-full-table tbody,
+  table.index-regional-table tbody,
+  table.index-inflation-table tbody,
+  .guide-table-wrapper tr,
+  .cost-table-wrap tr,
+  .table-scroll tr,
+  table.cost-table tr,
+  table.guide-table tr,
+  table.index-full-table tr,
+  table.index-regional-table tr,
+  table.index-inflation-table tr {
+    display: block;
+    width: 100%;
+  }
+  .guide-table-wrapper tr,
+  .cost-table-wrap tr,
+  .table-scroll tr,
+  table.cost-table tbody tr,
+  table.guide-table tbody tr,
+  table.index-full-table tbody tr,
+  table.index-regional-table tbody tr,
+  table.index-inflation-table tbody tr {
+    margin: 0 0 0.75rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--border-card, #e4d9cc);
+    border-radius: 8px;
+    background: var(--bg-card, #fff);
+  }
+  .guide-table-wrapper td,
+  .cost-table-wrap td,
+  .table-scroll td,
+  table.cost-table td,
+  table.guide-table td,
+  table.index-full-table td,
+  table.index-regional-table td,
+  table.index-inflation-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--warm-150, #eee);
+    padding: 0.35rem 0;
+    text-align: right;
+    white-space: normal;
+  }
+  .guide-table-wrapper td:last-child,
+  .cost-table-wrap td:last-child,
+  .table-scroll td:last-child,
+  table.cost-table td:last-child,
+  table.guide-table td:last-child,
+  table.index-full-table td:last-child,
+  table.index-regional-table td:last-child,
+  table.index-inflation-table td:last-child {
+    border-bottom: 0;
+  }
+  .guide-table-wrapper td::before,
+  .cost-table-wrap td::before,
+  .table-scroll td::before,
+  table.cost-table td::before,
+  table.guide-table td::before,
+  table.index-full-table td::before,
+  table.index-regional-table td::before,
+  table.index-inflation-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--brown-700, #4a2c17);
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0;
+    flex: 0 1 45%;
+  }
+  .guide-table-wrapper td:not([data-label])::before,
+  .cost-table-wrap td:not([data-label])::before,
+  .table-scroll td:not([data-label])::before,
+  table.cost-table td:not([data-label])::before,
+  table.guide-table td:not([data-label])::before,
+  table.index-full-table td:not([data-label])::before,
+  table.index-regional-table td:not([data-label])::before,
+  table.index-inflation-table td:not([data-label])::before {
+    content: none;
+  }
+  /* If a table has no data-label, keep a visible scroll hint as fallback */
+  .guide-table-wrapper:not(:has(td[data-label])),
+  .cost-table-wrap:not(:has(td[data-label])),
+  .table-scroll:not(:has(td[data-label])) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .guide-table-wrapper:not(:has(td[data-label]))::after,
+  .cost-table-wrap:not(:has(td[data-label]))::after,
+  .table-scroll:not(:has(td[data-label]))::after {
+    content: "Swipe to see the rest of the table →";
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted, #6b5a4d);
+    padding: 0.25rem 0.5rem 0.15rem;
+  }
+}

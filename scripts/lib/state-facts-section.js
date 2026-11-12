@@ -306,6 +306,34 @@ function nextSteps(ctx, f) {
   return `<h3>${head}</h3>\n<ol>\n${items.map(i => `<li>${i}</li>`).join('\n')}\n</ol>`;
 }
 
+
+function oversightTitle(kind, place) {
+  const sets = {
+    'funeral-costs-': [
+      `Funeral rules and help in ${place}`,
+      `Who regulates funerals in ${place}, and where to get help`,
+      `${place} funeral licensing, aid and official contacts`,
+      `Oversight and public help for a funeral in ${place}`
+    ],
+    'cremation-costs-': [
+      `Cremation rules and help in ${place}`,
+      `Who regulates cremation in ${place}, and where to find help`,
+      `${place} cremation oversight and help with the cost`,
+      `Licensing, aid and official contacts for a ${place} cremation`
+    ],
+    'burial-costs-': [
+      `Burial rules and help in ${place}`,
+      `Who regulates burial in ${place}, and where to get help`,
+      `${place} burial oversight and public help`,
+      `Licensing, aid and official contacts for a ${place} burial`
+    ]
+  };
+  const list = sets[kind] || [`Rules and help in ${place}`];
+  let h = 0;
+  for (const ch of String(place)) h = (Math.imul(h, 33) + ch.charCodeAt(0)) >>> 0;
+  return list[h % list.length];
+}
+
 function stateFactsSectionHtml(ctx) {
   // Hand-written override for a page (data/overrides/{file-slug}.html), used
   // instead of the generated rules-and-help section and its next-steps list.
@@ -315,7 +343,7 @@ function stateFactsSectionHtml(ctx) {
   if (fs.existsSync(ov)) return `\n${fs.readFileSync(ov, 'utf8').trim()}\n`;
   const f = factsFor(ctx);
   const place = esc(ctx.place);
-  const title = { 'funeral-costs-': `Funeral rules and help in ${place}`, 'cremation-costs-': `Cremation rules and help in ${place}`, 'burial-costs-': `Burial rules and help in ${place}` }[ctx.kind];
+  const title = oversightTitle(ctx.kind, place);
   if (!f) return '';
   // Page-specific cemetery note (data/cemetery-notes.json; VA listings), added inside the veterans paragraph.
   const note = CEM_NOTES[ctx.kind + ctx.slug];

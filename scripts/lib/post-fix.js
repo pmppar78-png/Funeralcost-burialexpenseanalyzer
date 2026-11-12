@@ -216,7 +216,7 @@ function fixDirectBurial(html) {
   // "$4,500–$5,041"); generate-pages.js computes it differently, so the raw
   // FAQ figure is never trusted. scripts/check-figures.js fails the build if
   // any of these sentences disagrees with the table.
-  const t = html.match(/<td>(?:<strong>)?Direct burial(?:<\/strong>)?<\/td><td class="cost-value">(\$[\d,]+(?:\u2013\$[\d,]+)?)<\/td>/);
+  const t = html.match(/<td[^>]*>(?:<strong>)?Direct burial(?:<\/strong>)?<\/td><td[^>]*class="cost-value"[^>]*>(\$[\d,]+(?:\u2013\$[\d,]+)?)<\/td>/);
   if (!t) return html;
   return html.replace(/(Direct burial (?:is the next step up at about|comes next at around) |direct burial \(no viewing or ceremony\) runs near )\$\d{1,3}(?:,\d{3})*(?:\u2013\$\d{1,3}(?:,\d{3})*)?/g, (m, p) => p + t[1]);
 }

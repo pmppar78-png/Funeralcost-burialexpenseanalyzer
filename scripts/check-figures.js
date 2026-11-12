@@ -21,7 +21,7 @@ for (const f of fs.readdirSync(root).filter(f => /^(funeral|cremation|burial)-co
   const h = fs.readFileSync(path.join(root, f), 'utf8');
   const t = tableFigures(h);
   const chk = (ok, what) => { n++; if (!ok) { bad++; console.log(`MISMATCH ${f}: ${what}`); } };
-  const cell = h.match(/<td>(?:<strong>)?Direct burial(?:<\/strong>)?<\/td><td class="cost-value">([^<]+)<\/td>/);
+  const cell = h.match(/<td[^>]*>(?:<strong>)?Direct burial(?:<\/strong>)?<\/td><td[^>]*class="cost-value"[^>]*>([^<]+)<\/td>/);
   const dbRe = new RegExp(`[Dd]irect burial(?: \\(no viewing or ceremony\\))? (?:is the next step up at about|comes next at around|runs near|costs about|at about|of about|around) (${AMT})`, 'g');
   for (const m of h.matchAll(dbRe)) chk(cell && m[1] === cell[1].trim(), `"${m[0]}" vs table ${cell ? cell[1] : '(no Direct burial row)'}`);
   for (const m of h.matchAll(/Direct burial is the next step up at about (\$[\d,]+)(?:\u2013\$[\d,]+)?, which is (\$[\d,]+) below/g)) {

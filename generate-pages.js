@@ -1269,10 +1269,13 @@ function genMetro(m) {
     ];
   })();
 
-  const nearbyCityRows = nearbyComparison.map(nc => {
+  const nearbyCityRows = nearbyComparison.filter(nc => nc.slug !== m.slug).map(nc => {
     const ncf = Math.round(s.f * nc.mp);
     const ncdc = Math.round(s.dc * nc.mp);
-    return `<tr><td><a href="funeral-costs-${nc.slug}.html">${nc.city}</a></td><td>${$(ncf)}</td><td>${$(ncdc)}</td></tr>`;
+    const href = `funeral-costs-${nc.slug}.html`;
+    const hasPage = fs.existsSync(href);
+    const name = hasPage ? `<a href="${href}">${nc.city}</a>` : nc.city;
+    return `<tr><td>${name} (${m.st} × ${nc.mp})</td><td>${$(ncf)}</td><td>${$(ncdc)}</td></tr>`;
   }).join('\n            ');
 
   const nearbyCitySection = nearbyComparison.length > 0 ? `
@@ -1989,10 +1992,13 @@ function genCremationMetro(m) {
     {q:`Can I scatter ashes in ${m.city}?`,a:`Scattering laws in the ${m.city} area follow ${m.st} state regulations. Generally, you may scatter ashes on private property with owner permission, at sea (3+ nautical miles offshore per EPA regulations), and in some designated areas. Check local ordinances in ${m.city} for specific rules. Alternatives include columbarium niches, burial of ashes, and memorial keepsakes.`}
   ];
 
-  const nearbyCityRows = nearbyComparison.map(nc => {
+  const nearbyCityRows = nearbyComparison.filter(nc => nc.slug !== m.slug).map(nc => {
     const ncdc = Math.round(s.dc * nc.mp);
     const ncc = Math.round(s.c * nc.mp);
-    return `<tr><td><a href="cremation-costs-${nc.slug}.html">${nc.city}</a></td><td>${$(ncdc)}</td><td>${$(ncc)}</td></tr>`;
+    const href = `cremation-costs-${nc.slug}.html`;
+    const hasPage = fs.existsSync(href);
+    const name = hasPage ? `<a href="${href}">${nc.city}</a>` : nc.city;
+    return `<tr><td>${name} (${m.st} × ${nc.mp})</td><td>${$(ncdc)}</td><td>${$(ncc)}</td></tr>`;
   }).join('\n            ');
 
   const nearbyCitySection = nearbyComparison.length > 0 ? `
@@ -2126,10 +2132,13 @@ function genBurialMetro(m) {
     {q:`How do ${m.city} burial costs compare to ${m.st}?`,a:`Burial costs in ${m.city} are ${m.mp > 1.1 ? 'approximately ' + Math.round((m.mp-1)*100) + '% above' : 'close to'} the ${m.st} state average. At ${$(mf)} for a funeral service (vs. ${$(s.f)} statewide) and ${$(mb)} for a cemetery plot (vs. ${$(s.b)}), the ${m.city} metro premium reflects higher real estate and operating costs.`}
   ];
 
-  const nearbyCityRows = nearbyComparison.map(nc => {
+  const nearbyCityRows = nearbyComparison.filter(nc => nc.slug !== m.slug).map(nc => {
     const ncf = Math.round(s.f * nc.mp);
     const ncb = Math.round(s.b * nc.mp);
-    return `<tr><td><a href="burial-costs-${nc.slug}.html">${nc.city}</a></td><td>${$(ncf)}</td><td>${$(ncb)}</td></tr>`;
+    const href = `burial-costs-${nc.slug}.html`;
+    const hasPage = fs.existsSync(href);
+    const name = hasPage ? `<a href="${href}">${nc.city}</a>` : nc.city;
+    return `<tr><td>${name} (${m.st} × ${nc.mp})</td><td>${$(ncf)}</td><td>${$(ncb)}</td></tr>`;
   }).join('\n            ');
 
   const nearbyCitySection = nearbyComparison.length > 0 ? `

@@ -23,7 +23,7 @@ function decode(s) {
 function loadOversight(root) {
   const html = fs.readFileSync(path.join(root, 'state-funeral-regulations.html'), 'utf8');
   const map = {};
-  const re = /<tr><td><a href="funeral-costs-([a-z-]+)\.html"><strong>([^<]+)<\/strong><\/a><\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td>/g;
+  const re = /<tr[^>]*><td[^>]*><a href="funeral-costs-([a-z-]+)\.html"><strong>([^<]+)<\/strong><\/a><\/td><td[^>]*>([^<]+)<\/td><td[^>]*>([^<]+)<\/td><td[^>]*>([^<]+)<\/td>/g;
   let m;
   while ((m = re.exec(html))) {
     map[m[1]] = {

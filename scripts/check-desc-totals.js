@@ -12,7 +12,7 @@ let bad = 0, checked = 0;
 for (const f of fs.readdirSync(dir).filter(f => /^burial-costs-.+\.html$/.test(f))) {
   const html = fs.readFileSync(path.join(dir, f), 'utf8');
   const row = label => {
-    const m = html.match(new RegExp('<td>' + label + '[^<]*</td>\\s*<td[^>]*>(\\$[\\d,]+)</td>\\s*<td>(\\$[\\d,]+)(?:\\s|&nbsp;)*[–-]\\s*(\\$[\\d,]+)'));
+    const m = html.match(new RegExp('<td[^>]*>' + label + '[^<]*</td>\\s*<td[^>]*>(\\$[\\d,]+)</td>\\s*<td[^>]*>(\\$[\\d,]+)(?:\\s|&nbsp;)*[–-]\\s*(\\$[\\d,]+)'));
     return m && { avg: n(m[1]), lo: n(m[2]), hi: n(m[3]) };
   };
   const r = ['Funeral service', 'Cemetery plot', 'Casket', 'Burial vault', 'Opening &amp; closing', 'Headstone'].map(row);
