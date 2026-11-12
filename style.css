@@ -5009,15 +5009,16 @@ figure.data-chart img {
   table.index-full-table td,
   table.index-regional-table td,
   table.index-inflation-table td {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.75rem;
+    display: block;
+    overflow-wrap: anywhere;
+    min-width: 0;
+    max-width: 100%;
     width: 100%;
+    box-sizing: border-box;
     border: 0;
     border-bottom: 1px solid var(--warm-150, #eee);
     padding: 0.35rem 0;
-    text-align: right;
+    text-align: left;
     white-space: normal;
   }
   .guide-table-wrapper td:last-child,
@@ -5039,12 +5040,13 @@ figure.data-chart img {
   table.index-regional-table td::before,
   table.index-inflation-table td::before {
     content: attr(data-label);
+    display: block;
     font-weight: 600;
     color: var(--brown-700, #4a2c17);
     text-align: left;
     text-transform: none;
     letter-spacing: 0;
-    flex: 0 1 45%;
+    margin-bottom: 0.15rem;
   }
   .guide-table-wrapper td:not([data-label])::before,
   .cost-table-wrap td:not([data-label])::before,
