@@ -188,6 +188,10 @@ a:hover {
   left: var(--space-md);
   z-index: 100;
   padding: var(--space-sm) var(--space-lg);
+  min-height: 44px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
   background: var(--brown-800);
   color: #fff;
   font-size: 0.875rem;
@@ -325,9 +329,13 @@ a:hover {
   cursor: pointer;
   padding: var(--space-sm);
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   order: 1;
   margin-left: auto;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .hamburger-line {
@@ -3088,6 +3096,7 @@ a:hover {
 
 .starter-btn {
   padding: var(--space-sm) var(--space-md);
+  min-height: 44px;
   background: var(--bg-card);
   border: 1px solid var(--warm-200);
   border-radius: 2rem;
