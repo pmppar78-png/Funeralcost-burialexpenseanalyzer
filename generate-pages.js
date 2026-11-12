@@ -3148,6 +3148,9 @@ require('./scripts/lib/dash-cut').run(OUT);
 // F3: answer-first summaries and state-rule tables on the cremation and burial hubs.
 require('./scripts/lib/hubs-f3').run(OUT);
 
+// Distinctive state-page headings (AdSense re-audit #2). After hubs-f3 so a rebuild cannot restore templated H2/H3.
+require('./scripts/lib/apply-heading-overrides').run(OUT);
+
 writeXmlSitemaps();
 
 (function writeRobotsReviewed() {

@@ -4941,6 +4941,23 @@ figure.data-chart img {
     width: 100%;
     border: 0;
   }
+  /* Captions shrink to a narrow column when the table is display:block; span the full width instead. */
+  .guide-table-wrapper caption,
+  .cost-table-wrap caption,
+  .table-scroll caption,
+  table.cost-table caption,
+  table.guide-table caption,
+  table.index-full-table caption,
+  table.index-regional-table caption,
+  table.index-inflation-table caption,
+  .table-title {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    caption-side: top;
+    box-sizing: border-box;
+    text-align: left;
+  }
   .guide-table-wrapper thead,
   .cost-table-wrap thead,
   .table-scroll thead,
@@ -5039,20 +5056,11 @@ figure.data-chart img {
   table.index-inflation-table td:not([data-label])::before {
     content: none;
   }
-  /* If a table has no data-label, keep a visible scroll hint as fallback */
-  .guide-table-wrapper:not(:has(td[data-label])),
-  .cost-table-wrap:not(:has(td[data-label])),
-  .table-scroll:not(:has(td[data-label])) {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .guide-table-wrapper:not(:has(td[data-label]))::after,
-  .cost-table-wrap:not(:has(td[data-label]))::after,
-  .table-scroll:not(:has(td[data-label]))::after {
-    content: "Swipe to see the rest of the table →";
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-muted, #6b5a4d);
-    padding: 0.25rem 0.5rem 0.15rem;
+  /* Rows stack as cards at this breakpoint, so never show a swipe hint. */
+  .guide-table-wrapper::after,
+  .cost-table-wrap::after,
+  .table-scroll::after {
+    content: none;
+    display: none;
   }
 }

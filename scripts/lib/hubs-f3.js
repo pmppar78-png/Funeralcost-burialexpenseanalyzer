@@ -32,7 +32,7 @@ function cremationRules(states) {
   const rows = st.map(s => {
     const f = facts[s.name];
     const wait = f.waitHours ? `${f.waitHours} hours` : 'None set; permit still needed';
-    return `<tr><td><a href="cremation-costs-${s.slug}.html">${s.name}</a></td><td>${wait}</td><td>${esc(f.waitCite).replace(/\. (?=\S)/g, '.&nbsp;')}</td><td>${regulator(f)}</td></tr>`;
+    return `<tr><td data-label="State"><a href="cremation-costs-${s.slug}.html">${s.name}</a></td><td data-label="Minimum wait">${wait}</td><td data-label="Law">${esc(f.waitCite).replace(/\. (?=\S)/g, '.&nbsp;')}</td><td data-label="Regulator">${regulator(f)}</td></tr>`;
   }).join('\n            ');
   return `<h2 id="state-rules">Cremation Waiting Periods and Regulators by State</h2>
       <p>Price is only half of planning a cremation; the other half is timing. ${h48.length} states (${list(h48)}) make families wait 48 hours after death, ${h24.length} set a 24-hour minimum${h12.length ? `, and ${list(h12)} uses 12 hours` : ''}. The other ${none.length} set no fixed wait, but that rarely means same-day cremation: a coroner, medical examiner or local registrar still has to issue a permit, and the next of kin or authorized agent has to sign. Some of the timed states let a medical examiner or court waive the wait, so the citation in each row is the place to check.</p>
@@ -71,7 +71,7 @@ function burialVA(states) {
       const sc = (facts[s.name].stateCems || []).map(c => esc(c.name));
       cems += (cems ? '<br>' : '') + (sc.length ? `State-run: ${sc.join('; ')}` : 'None in the state');
     }
-    return `<tr><td><a href="burial-costs-${s.slug}.html">${s.name}</a></td><td>${cems}</td></tr>`;
+    return `<tr><td data-label="State"><a href="burial-costs-${s.slug}.html">${s.name}</a></td><td data-label="Veterans cemeteries">${cems}</td></tr>`;
   }).join('\n            ');
   return `<h2 id="va-cemeteries">VA National Cemeteries Open for Burial, by State</h2>
       <p>For a veteran, the biggest single saving on a burial is usually the grave itself: the <a href="https://www.cem.va.gov/" target="_blank" rel="noopener">VA National Cemetery Administration</a> provides the gravesite, opening and closing, a liner and a government headstone or marker at no charge to eligible veterans, and a spouse can often be buried in the same site. The table lists the national cemeteries VA shows as open in each state, marking the ones that now accept only cremated remains. ${without.length} states (${list(without)}) have no national cemetery open for a casket burial, so the table names the state-run veterans cemeteries there instead; most were built with VA grant money, but each state sets its own residency rules and any fee for a spouse.</p>
