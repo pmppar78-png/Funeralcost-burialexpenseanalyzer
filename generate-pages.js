@@ -1029,7 +1029,7 @@ ${header()}
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
       <nav class="guide-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> &rsaquo; <a href="funeral-costs-by-state.html">Costs by State</a> &rsaquo; <span aria-current="page">${s.name}</span>
+        <a href="/">Home</a> &rsaquo; <a href="funeral-costs-by-state.html">Funeral Costs by State</a> &rsaquo; <span aria-current="page">Funeral Costs in ${s.name}</span>
       </nav>
 
       <h1>Funeral Costs in ${s.name}: What Families Pay in 2026</h1>
@@ -1296,7 +1296,7 @@ ${header()}
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
       <nav class="guide-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> &rsaquo; <a href="funeral-costs-by-state.html">Costs by State</a> &rsaquo; ${m.dc ? '' : `<a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; `}<span aria-current="page">${m.city}</span>
+        <a href="/">Home</a> &rsaquo; <a href="funeral-costs-by-state.html">Funeral Costs by State</a> &rsaquo; ${m.dc ? '' : `<a href="funeral-costs-${s.slug}.html">${s.name} Funeral Costs</a> &rsaquo; `}<span aria-current="page">Funeral Costs in ${m.city}</span>
       </nav>
 
       <h1>Funeral Costs in ${m.dc ? 'Washington, DC' : `${m.city}, ${m.st}`} (2026)</h1>
@@ -1464,7 +1464,7 @@ ${header()}
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
       <nav class="guide-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> &rsaquo; <a href="cremation-costs-by-state.html">Cremation Costs by State</a> &rsaquo; <a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">Cremation Costs</span>
+        <a href="/">Home</a> &rsaquo; <a href="cremation-costs-by-state.html">Cremation Costs by State</a> &rsaquo; <span aria-current="page">Cremation Costs in ${s.name}</span>
       </nav>
 
       <h1>Cremation Costs in ${s.name} (2026)</h1>
@@ -1620,7 +1620,7 @@ ${header()}
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
       <nav class="guide-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> &rsaquo; <a href="burial-costs-by-state.html">Burial Costs by State</a> &rsaquo; <a href="funeral-costs-${s.slug}.html">${s.name}</a> &rsaquo; <span aria-current="page">Burial Costs</span>
+        <a href="/">Home</a> &rsaquo; <a href="burial-costs-by-state.html">Burial Costs by State</a> &rsaquo; <span aria-current="page">Burial Costs in ${s.name}</span>
       </nav>
 
       <h1>Burial Costs in ${s.name} (2026)</h1>
