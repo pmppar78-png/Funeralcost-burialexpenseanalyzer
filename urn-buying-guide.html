@@ -9,7 +9,7 @@
     name="description"
     content="Funeral homes charge $150–$500 for urns that cost $40–$150 online. Know the sizing rule (1 cubic inch per pound of body weight) before you pay."
   />
-  <meta name="last-modified" content="2026-10-22" />
+  <meta name="last-modified" content="2026-11-12" />
   <meta property="og:title" content="Cremation Urn Guide (2026) — Types, Prices & How to Choose" />
   <meta property="og:description" content="Funeral homes charge $150–$500 for urns that cost $40–$150 online. Know the sizing rule (1 cubic inch per pound of body weight) before you pay." />
   <meta property="og:type" content="article" />
@@ -1047,7 +1047,7 @@ img {
     "headline": "Cremation Urn Guide: Types, Prices, and How to Choose",
     "description": "Complete cremation urn buying guide covering types, materials, sizes, pricing, personalization options, and where to find the best values.",
     "datePublished": "2026-01-15",
-    "dateModified": "2026-10-22",
+    "dateModified": "2026-11-12",
     "author": {
       "@type": "Person",
       "name": "Paul Paradis",
@@ -1420,6 +1420,8 @@ img {
         <li><strong>Advantages:</strong> Unique, one-of-a-kind creations; personal relationship with the maker; custom options</li>
         <li><strong>Drawbacks:</strong> Higher cost for custom work, longer lead times</li>
       </ul>
+      <p class="affiliate-note"><small>We may earn a commission from the studio-urn link in this section, at no cost to you. <a href="affiliate-disclosure.html">How this works</a>.</small></p>
+      <p>Studio-made ceramic urns sit in this same handmade category, without the lead time of a custom commission. <a href="https://www.pulvisurns.com/?ref=mgqlofwa&utm_campaign=goaffpro&utm_medium=social&utm_source=affiliate" target="_blank" rel="sponsored noopener" data-brand="Pulvis Art Urns">Pulvis Art Urns</a> is one European maker of ceramic and stoneware urns and keepsakes, listed here as an option alongside independent artisans and the online retailers above, not as a default choice. Confirm capacity and shipping before you buy. The code PAULPARADIS currently takes 6% off.</p>
 
       <h3>DIY or Repurposed Containers</h3>
       <ul>
@@ -1608,7 +1610,10 @@ img {
   // Track affiliate link clicks (rel="sponsored")
   document.querySelectorAll('a[rel*="sponsored"]').forEach(function(a){
     a.addEventListener('click',function(){
-      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',page_path:location.pathname});
+      var host=(this.hostname||'').replace(/^www\./,'');
+      var brands={'titancasket.com':'Titan Casket','amazon.com':'Amazon','lawdepot.com':'LawDepot','pulvisurns.com':'Pulvis Art Urns'};
+      var brand=this.getAttribute('data-brand')||brands[host]||host||'unknown';
+      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',brand:brand,page_path:location.pathname});
     });
   });
   // Track CTA clicks
@@ -1628,6 +1633,12 @@ img {
   document.querySelectorAll('form[data-netlify="true"]').forEach(function(f){
     f.addEventListener('submit',function(){
       gtag('event','form_submit',{form_name:this.getAttribute('name')||'unknown',page_path:location.pathname});
+    });
+  });
+  // Track calculator use
+  document.querySelectorAll('#estButton,#calc-button,.calculator-button').forEach(function(b){
+    b.addEventListener('click',function(){
+      gtag('event','calculator_use',{calculator_id:this.id||'calculator',page_path:location.pathname});
     });
   });
 })();

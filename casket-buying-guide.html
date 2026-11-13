@@ -1751,7 +1751,10 @@ img {
   // Track affiliate link clicks (rel="sponsored")
   document.querySelectorAll('a[rel*="sponsored"]').forEach(function(a){
     a.addEventListener('click',function(){
-      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',page_path:location.pathname});
+      var host=(this.hostname||'').replace(/^www\./,'');
+      var brands={'titancasket.com':'Titan Casket','amazon.com':'Amazon','lawdepot.com':'LawDepot','pulvisurns.com':'Pulvis Art Urns'};
+      var brand=this.getAttribute('data-brand')||brands[host]||host||'unknown';
+      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',brand:brand,page_path:location.pathname});
     });
   });
   // Track CTA clicks
@@ -1771,6 +1774,12 @@ img {
   document.querySelectorAll('form[data-netlify="true"]').forEach(function(f){
     f.addEventListener('submit',function(){
       gtag('event','form_submit',{form_name:this.getAttribute('name')||'unknown',page_path:location.pathname});
+    });
+  });
+  // Track calculator use
+  document.querySelectorAll('#estButton,#calc-button,.calculator-button').forEach(function(b){
+    b.addEventListener('click',function(){
+      gtag('event','calculator_use',{calculator_id:this.id||'calculator',page_path:location.pathname});
     });
   });
 })();

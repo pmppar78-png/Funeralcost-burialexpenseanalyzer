@@ -9,7 +9,7 @@
     name="description"
     content="Urns Northwest, OneWorld Memorials, Amazon, Etsy, and Titan compared: prices from about $40 to $800, materials, and biodegradable options."
   />
-  <meta name="last-modified" content="2026-10-24" />
+  <meta name="last-modified" content="2026-11-12" />
   <meta property="og:title" content="Cremation Urn Prices 2026: About $40 to $800 Compared" />
   <meta property="og:description" content="Urns Northwest, OneWorld Memorials, Amazon, Etsy, and Titan compared: prices from about $40 to $800, materials, and biodegradable options." />
   <meta property="og:type" content="article" />
@@ -1042,7 +1042,7 @@ img {
     "headline": "Best Places to Buy Cremation Urns (2026): Prices and Reviews",
     "description": "Comprehensive comparison of the best places to buy cremation urns in 2026, covering prices, materials, urn types, and retailer reviews.",
     "datePublished": "2026-01-15",
-    "dateModified": "2026-10-24",
+    "dateModified": "2026-11-12",
     "author": {
       "@type": "Person",
       "name": "Paul Paradis",
@@ -1580,6 +1580,8 @@ img {
       <div class="callout">
         <strong>Tip for Etsy buyers:</strong> Look for sellers with 100+ sales, a 4.5+ star rating, and detailed photos of actual completed urns. Message the seller before ordering to confirm sizing, materials, and timeline. Many artisans will work with you to create exactly what you envision.
       </div>
+      <p class="affiliate-note"><small>We may earn a commission from the Pulvis Art Urns link in this section, at no cost to you. <a href="affiliate-disclosure.html">How this works</a>.</small></p>
+      <p>If you would rather buy a ready-made handmade ceramic or stoneware urn than commission a one-off piece, <a href="https://www.pulvisurns.com/?ref=mgqlofwa&utm_campaign=goaffpro&utm_medium=social&utm_source=affiliate" target="_blank" rel="sponsored noopener" data-brand="Pulvis Art Urns">Pulvis Art Urns</a> is a European studio that sells cremation urns and keepsakes. Treat it as one maker among the retailers on this page, and compare sizing, shipping time, and return terms before you order. At the time of writing, the code PAULPARADIS takes 6% off at checkout.</p>
 
       <!-- ====== Titan Urns ====== -->
       <h2 id="titan-urns">Titan Casket Urns -- Best Combined with Casket Purchase</h2>
@@ -1822,7 +1824,10 @@ img {
   // Track affiliate link clicks (rel="sponsored")
   document.querySelectorAll('a[rel*="sponsored"]').forEach(function(a){
     a.addEventListener('click',function(){
-      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',page_path:location.pathname});
+      var host=(this.hostname||'').replace(/^www\./,'');
+      var brands={'titancasket.com':'Titan Casket','amazon.com':'Amazon','lawdepot.com':'LawDepot','pulvisurns.com':'Pulvis Art Urns'};
+      var brand=this.getAttribute('data-brand')||brands[host]||host||'unknown';
+      gtag('event','affiliate_click',{link_url:this.href,link_text:this.textContent.trim().substring(0,50),partner:this.hostname||'unknown',brand:brand,page_path:location.pathname});
     });
   });
   // Track CTA clicks
@@ -1842,6 +1847,12 @@ img {
   document.querySelectorAll('form[data-netlify="true"]').forEach(function(f){
     f.addEventListener('submit',function(){
       gtag('event','form_submit',{form_name:this.getAttribute('name')||'unknown',page_path:location.pathname});
+    });
+  });
+  // Track calculator use
+  document.querySelectorAll('#estButton,#calc-button,.calculator-button').forEach(function(b){
+    b.addEventListener('click',function(){
+      gtag('event','calculator_use',{calculator_id:this.id||'calculator',page_path:location.pathname});
     });
   });
 })();

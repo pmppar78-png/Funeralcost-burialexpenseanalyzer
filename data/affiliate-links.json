@@ -668,6 +668,26 @@
       "trackingUrl": "",
       "status": "blocked",
       "notes": "Founders convicted (DOJ, sentenced Jul 7 2026). Never link."
+    },
+    "LawDepot": {
+      "hosts": [
+        "lawdepot.com"
+      ],
+      "destination": "https://www.lawdepot.com/contracts/last-will-and-testament-usa/",
+      "trackingUrl": "https://www.lawdepot.com/contracts/last-will-and-testament-usa/?pid=pg-BUZHHMNQE6-last-will-and-testament-usatextlink&loc=US",
+      "status": "active",
+      "network": "In-house",
+      "notes": "Affiliate pid pg-BUZHHMNQE6. Official last-will, living-will-medical-power-of-attorney, living-trust, and pour-over-will tracking URLs verified HTTP 200 on 2026-11-12. Pattern /contracts/<slug>/?pid=pg-BUZHHMNQE6-<slug>textlink&loc=US. The slug revocable-living-trust 404s and must not be used; living-trust is the working trust form. Minimum 30% commission, 365-day cookie per LawDepot's official FAQ/PDF. Deep-link hrefs were placed in HTML on 2026-11-12; apply-affiliate-links.cjs only rewrites homepage links."
+    },
+    "Pulvis Art Urns": {
+      "hosts": [
+        "pulvisurns.com"
+      ],
+      "destination": "https://www.pulvisurns.com/",
+      "trackingUrl": "https://www.pulvisurns.com/?ref=mgqlofwa&utm_campaign=goaffpro&utm_medium=social&utm_source=affiliate",
+      "status": "active",
+      "network": "GoAffPro",
+      "notes": "Referral link verified HTTP 200 on 2026-11-12. Buyer code PAULPARADIS takes 6% off; publisher commission up to 6% per the official program page (another section on that page says 8% \u2014 use 6% until confirmed in the dashboard). Homepage tracking URL only; do not invent deep links."
     }
   }
 }
