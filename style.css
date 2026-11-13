@@ -5066,3 +5066,38 @@ figure.data-chart img {
     display: none;
   }
 }
+
+/* Homepage popular tools quick links */
+.popular-tools {
+  margin: 0.75rem 0 1.25rem;
+  padding: 0.85rem 1rem;
+  background: #f4f1ec;
+  border-radius: 6px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.popular-tools-heading {
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin: 0 0 0.55rem;
+  font-weight: 650;
+}
+.popular-tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.popular-tools-list li {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+.popular-tools-list a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding: 0.2rem 0;
+}
