@@ -15,7 +15,7 @@ export const LINK_MAP = [
   { name: "Walmart caskets", url: "https://www.walmart.com/browse/home/caskets/4044_4431611_1058564", topics: ["buy a casket online"], affiliate: false, trackingId: null },
   { name: "OneWorld Memorials", url: "https://www.oneworldmemorials.com", topics: ["urns", "cremation jewelry", "memorial keepsakes"], affiliate: false, trackingId: null },
   { name: "Urns Northwest", url: "https://www.urnsnw.com", topics: ["urns", "biodegradable urns"], affiliate: false, trackingId: null },
-  { name: "Amazon cremation urns", url: "https://www.amazon.com/cremation-urns/s?k=cremation+urns", topics: ["urns", "memorial items"], affiliate: false, trackingId: null },
+  { name: "Amazon cremation urns", url: "https://www.amazon.com/cremation-urns/s?k=cremation+urns&tag=funeralcost-20", topics: ["urns", "memorial items"], affiliate: true, trackingId: "funeralcost-20" },
   { name: "Etsy caskets and urns", url: "https://www.etsy.com/c/home-and-living/spirituality-and-religion/cemetery-and-funeral/caskets-and-urns", topics: ["handmade urns", "custom memorial items"], affiliate: false, trackingId: null },
   { name: "Parting.com", url: "https://www.parting.com", topics: ["compare funeral home prices in some areas"], affiliate: false, trackingId: null },
   { name: "Ever Loved", url: "https://everloved.com", topics: ["memorial website", "planning tools", "fundraising"], affiliate: false, trackingId: null },

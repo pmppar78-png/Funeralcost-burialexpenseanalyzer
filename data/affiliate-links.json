@@ -239,10 +239,10 @@
         "amazon.com"
       ],
       "destination": "https://www.amazon.com/cremation-urns/s?k=cremation+urns",
-      "trackingUrl": "",
-      "status": "program-available-not-joined",
+      "trackingUrl": "https://www.amazon.com/cremation-urns/s?k=cremation+urns&tag=funeralcost-20",
+      "status": "active",
       "network": "In-house",
-      "notes": "Operating Agreement disclosure line required; 3 sales in 180 days (standard terms, not re-fetched). Destination is the cremation-urn results page. trackingUrl stays empty."
+      "notes": "Associate ID funeralcost-20; provisionally approved Oct 29 2026 (3 qualified sales in 180 days). US tax completed, bank on file. Destination is the cremation-urn results page with tag=funeralcost-20. Deep-link hrefs were tagged in HTML on 2026-11-12; apply-affiliate-links.cjs only rewrites homepage links."
     },
     "Costco": {
       "hosts": [
