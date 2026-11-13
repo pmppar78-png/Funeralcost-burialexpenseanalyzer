@@ -105,6 +105,14 @@
   [headers.values]
     X-Robots-Tag = "noindex, follow"
 
+# Journey by Mediavine: keep /ads.txt pointed at their hosted partner list.
+# force = true so this 301 wins over the static ads.txt fallback in the publish dir.
+[[redirects]]
+  from = "/ads.txt"
+  to = "https://adstxt.journeymv.com/sites/43f3bdab-b8ed-4589-b014-150c06f37c31/ads.txt"
+  status = 301
+  force = true
+
 # ─── Block public access to build-time artifacts ─────────────────
 # The build command runs node generate-pages.js, and publish = "." includes
 # the generator in the deploy. Serve a 404 for the file itself.
