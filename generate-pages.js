@@ -403,9 +403,7 @@ function head(title, desc, filename, breadcrumbName, faqItems, parentBreadcrumb)
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6484141649562994"
-     crossorigin="anonymous"></script>
-  <meta name="google-adsense-account" content="ca-pub-6484141649562994">
+  <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/43f3bdab-b8ed-4589-b014-150c06f37c31.js"></script>
   <title>${title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="${esc(desc)}" />
@@ -3150,6 +3148,9 @@ require('./scripts/lib/hubs-f3').run(OUT);
 
 // Distinctive state-page headings (AdSense re-audit #2). After hubs-f3 so a rebuild cannot restore templated H2/H3.
 require('./scripts/lib/apply-heading-overrides').run(OUT);
+
+// Journey by Mediavine: strip AdSense and ensure the script wrapper is in <head>.
+require('./scripts/lib/apply-journey-ads').run(OUT);
 
 writeXmlSitemaps();
 

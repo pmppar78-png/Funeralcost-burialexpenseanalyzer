@@ -758,7 +758,7 @@ function affiliateExpansion() {
 <p>Lists such as the casket retailers page and the burial-insurance page are ordered by the question the page is answering: price transparency, what the contract actually pays, financial-strength ratings the carrier already publishes, and whether a family can leave with the General Price List. A partner with a tracking link is not moved above a company we cannot monetize. If that ever happens by mistake, the correction belongs in the paragraph, and you can write to us from the <a href="contact.html">contact page</a>.</p>
 <h2 id="update-cadence">How often this disclosure changes</h2>
 <p>This page is reviewed when a guide that contains commercial links is edited, and at least when the date under the heading changes. The review on ${REVIEW} checked that the disclosure still matches the way links are marked (<code>rel="sponsored"</code> only when a tracking link is actually in use) and that no guide promises a percent-off we cannot source. It did not add new partners. Editorial rules for the cost figures themselves are on the <a href="editorial-standards.html">editorial standards</a> page.</p>
-<p>Advertising is separate. Display ads, including Google AdSense, are sold by the ad network. We do not pick the advertiser on a given page view, and an ad is not an endorsement. The privacy policy explains the cookies those ads use.</p>
+<p>Advertising is separate. Display ads, served by Mediavine (Journey) and its partners, are sold by the ad network. We do not pick the advertiser on a given page view, and an ad is not an endorsement. The privacy policy explains the cookies those ads use.</p>
 `;
 }
 

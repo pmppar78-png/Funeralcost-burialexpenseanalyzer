@@ -15655,6 +15655,12 @@
       "from": "Changes to this policy",
       "to": "Changes to This Policy",
       "tag": "h2"
+    },
+    {
+      "id": "",
+      "from": "Third-Party Advertising: Google AdSense and Similar Networks",
+      "to": "Third-Party Advertising: Mediavine (Journey) and Its Partners",
+      "tag": "h2"
     }
   ],
   "probate-process-costs.html": [
