@@ -8,7 +8,7 @@
 
 export const LINK_MAP = [
   // Retail (commercial; affiliate programs may exist, none configured)
-  { name: "Titan Casket", url: "https://www.titancasket.com", topics: ["buy a casket online"], affiliate: false, trackingId: null },
+  { name: "Titan Casket", url: "https://titancasket.com/?rfsn=9394527.96e3a1", topics: ["buy a casket online"], affiliate: true, trackingId: "9394527.96e3a1" },
   { name: "Overnight Caskets", url: "https://www.overnightcaskets.com", topics: ["buy a casket online", "fast delivery"], affiliate: false, trackingId: null },
   { name: "Best Price Caskets", url: "https://www.bestpricecaskets.com", topics: ["buy a casket online"], affiliate: false, trackingId: null },
   { name: "Costco caskets", url: "https://www.costco.com/funeral-caskets.html", topics: ["buy a casket online", "warehouse club pricing"], affiliate: false, trackingId: null },
