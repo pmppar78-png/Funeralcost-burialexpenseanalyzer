@@ -419,23 +419,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -1075,6 +1102,7 @@ img {
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
 <style>.article-meta-change{font-size:.8rem;opacity:.75}</style>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 
 <body class="guide-body">
@@ -1160,7 +1188,7 @@ img {
         </table>
 <p class="table-note state-method-note"><strong>About these numbers:</strong> we built every Ohio figure here from our own model, not from prices Ohio cemeteries or funeral homes gave us, so use them for budgeting rather than as a quote or advice. The <a href="national-funeral-cost-index.html#state-estimates">estimating method</a> and its <a href="disclaimer.html">limits</a> are both published.</p>
       </div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/burial-costs-ohio-m.svg" /><img src="charts/burial-costs-ohio.svg" alt="Horizontal bar chart of Ohio burial charges, 2026 estimate. Funeral service (includes basic services and professional services) $7,100; Cemetery plot $3,400; Casket $2,130; Burial vault / liner $1,360; Opening &amp; closing grave $1,700; Headstone / marker $1,500; Embalming $710." width="680" height="274" loading="lazy" decoding="async" /></picture><figcaption>The bars show the ohio estimate column of the Ohio burial charges, 2026 estimate table; Funeral service (includes basic services and professional services) is the largest item at $7,100.</figcaption></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/burial-costs-ohio.svg" alt="Horizontal bar chart of Ohio burial charges, 2026 estimate. Funeral service (includes basic services and professional services) $7,100; Cemetery plot $3,400; Casket $2,130; Burial vault / liner $1,360; Opening &amp; closing grave $1,700; Headstone / marker $1,500; Embalming $710." width="680" height="274" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/burial-costs-ohio-m.svg" alt="" width="360" height="420" loading="lazy" decoding="async" aria-hidden="true" /><figcaption>The bars show the ohio estimate column of the Ohio burial charges, 2026 estimate table; Funeral service (includes basic services and professional services) is the largest item at $7,100.</figcaption></figure>
 
       <p>What an Ohio family pays for burial, cemetery fees included, depends on the service type and the cemetery. Adding up the rows in the table above, a traditional funeral and burial in Ohio comes to roughly <strong>$16,190 to $20,690</strong>, and the headstone accounts for most of that spread. The $7,100 funeral service row is a bundled package; the basic services fee inside it, the one charge a family cannot decline, had a national median of $2,495 in the NFDA 2023 General Price List Study. The casket estimate is $2,130, within a $710 to $5,680 range, and the FTC Funeral Rule lets you buy the casket from any seller without paying the funeral home a handling fee. Opening and closing the grave is estimated at $1,700, but each Ohio cemetery sets its own charge, anywhere from about $500 to $3,000.</p>
 

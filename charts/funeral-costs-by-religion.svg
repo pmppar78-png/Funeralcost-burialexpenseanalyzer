@@ -5,13 +5,13 @@
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
 <text x="16" y="28" font-size="16" font-weight="700">Funeral Costs by Religion (2026): What Each Tradition Costs</text>
 <line x1="230" y1="48" x2="230" y2="292" stroke="#bbbbbb"/>
-<text x="222" y="67" text-anchor="end">Catholic</text><rect x="377" y="53" width="167" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$7,000–$15,000</text>
-<text x="222" y="97" text-anchor="end">Protestant</text><rect x="335" y="83" width="188" height="20" rx="3" fill="#8a6d3b"/><text x="529" y="97">$5,000–$14,000</text>
-<text x="222" y="127" text-anchor="end">Jewish</text><rect x="335" y="113" width="146" height="20" rx="3" fill="#8a6d3b"/><text x="487" y="127">$5,000–$12,000</text>
-<text x="222" y="157" text-anchor="end">Muslim</text><rect x="293" y="143" width="104" height="20" rx="3" fill="#8a6d3b"/><text x="403" y="157">$3,000–$8,000</text>
-<text x="222" y="187" text-anchor="end">Hindu</text><rect x="293" y="173" width="146" height="20" rx="3" fill="#8a6d3b"/><text x="445" y="187">$3,000–$10,000</text>
-<text x="222" y="217" text-anchor="end">Buddhist</text><rect x="293" y="203" width="188" height="20" rx="3" fill="#8a6d3b"/><text x="487" y="217">$3,000–$12,000</text>
-<text x="222" y="247" text-anchor="end">LDS (Mormon)</text><rect x="356" y="233" width="167" height="20" rx="3" fill="#8a6d3b"/><text x="529" y="247">$6,000–$14,000</text>
-<text x="222" y="277" text-anchor="end">Sikh</text><rect x="293" y="263" width="84" height="20" rx="3" fill="#8a6d3b"/><text x="383" y="277">$3,000–$7,000</text>
+<text x="222" y="67" text-anchor="end">Catholic</text><rect x="230" y="57" width="304" height="12" rx="3" fill="#efe7db"/><rect x="372" y="53" width="162" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="67" text-anchor="end">$7,000–$15,000</text>
+<text x="222" y="97" text-anchor="end">Protestant</text><rect x="230" y="87" width="304" height="12" rx="3" fill="#efe7db"/><rect x="331" y="83" width="183" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="97" text-anchor="end">$5,000–$14,000</text>
+<text x="222" y="127" text-anchor="end">Jewish</text><rect x="230" y="117" width="304" height="12" rx="3" fill="#efe7db"/><rect x="331" y="113" width="142" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="127" text-anchor="end">$5,000–$12,000</text>
+<text x="222" y="157" text-anchor="end">Muslim</text><rect x="230" y="147" width="304" height="12" rx="3" fill="#efe7db"/><rect x="291" y="143" width="101" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="157" text-anchor="end">$3,000–$8,000</text>
+<text x="222" y="187" text-anchor="end">Hindu</text><rect x="230" y="177" width="304" height="12" rx="3" fill="#efe7db"/><rect x="291" y="173" width="142" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="187" text-anchor="end">$3,000–$10,000</text>
+<text x="222" y="217" text-anchor="end">Buddhist</text><rect x="230" y="207" width="304" height="12" rx="3" fill="#efe7db"/><rect x="291" y="203" width="182" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="217" text-anchor="end">$3,000–$12,000</text>
+<text x="222" y="247" text-anchor="end">LDS (Mormon)</text><rect x="230" y="237" width="304" height="12" rx="3" fill="#efe7db"/><rect x="352" y="233" width="162" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="247" text-anchor="end">$6,000–$14,000</text>
+<text x="222" y="277" text-anchor="end">Sikh</text><rect x="230" y="267" width="304" height="12" rx="3" fill="#efe7db"/><rect x="291" y="263" width="81" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="277" text-anchor="end">$3,000–$7,000</text>
 </g>
 </svg>

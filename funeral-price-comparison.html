@@ -442,23 +442,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -1036,6 +1063,7 @@ img {
   }
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 
 <body class="guide-body">
@@ -1178,7 +1206,7 @@ img {
 <tr><td data-label="GPL line">Metal burial casket (median on the GPL)</td><td data-label="2023 median">$2,500</td></tr>
 <tr><td data-label="GPL line">Alternative cremation container</td><td data-label="2023 median">$160</td></tr>
 </tbody></table></div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/funeral-price-comparison-m.svg" /><img src="charts/funeral-price-comparison.svg" alt="Horizontal bar chart of NFDA 2023 national medians to look for on a GPL with 12 bars, from Alternative cremation container at $160 to Funeral with viewing and burial, metal casket, no vault at $8,300." width="680" height="424" loading="lazy" decoding="async" /></picture><figcaption>The bars show the 2023 median column of the NFDA 2023 national medians to look for on a GPL table; Funeral with viewing and burial, metal casket, no vault is highest at $8,300 and Alternative cremation container lowest at $160.</figcaption></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/funeral-price-comparison.svg" alt="Horizontal bar chart of NFDA 2023 national medians to look for on a GPL with 12 bars, from Alternative cremation container at $160 to Funeral with viewing and burial, metal casket, no vault at $8,300." width="680" height="424" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/funeral-price-comparison-m.svg" alt="" width="360" height="702" loading="lazy" decoding="async" aria-hidden="true" /><figcaption>The bars show the 2023 median column of the NFDA 2023 national medians to look for on a GPL table; Funeral with viewing and burial, metal casket, no vault is highest at $8,300 and Alternative cremation container lowest at $160.</figcaption></figure>
 <p>Source: <a href="https://content.nfda.org/news/media-center/nfda-news-releases/id/8134/2023-nfda-general-price-list-study-shows-inflation-increasing-faster-than-the-cost-of-a-funeral" target="_blank" rel="noopener">NFDA, December 8, 2023</a>, and the 2024 NFDA Cremation and Burial Report's reprint of the 2023 GPL table. Half of the surveyed homes charged less than the median and half charged more. Cemetery plots, vaults, flowers, and obituaries were not in the $8,300 figure.</p>
 <h3>The Phone Script</h3>
 <ol>

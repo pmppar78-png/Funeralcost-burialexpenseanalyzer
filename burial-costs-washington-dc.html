@@ -419,23 +419,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -1044,6 +1071,7 @@ img {
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
 <style>.article-meta-change{font-size:.8rem;opacity:.75}</style>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 
 <body class="guide-body">
@@ -1127,7 +1155,7 @@ img {
             <tr><td data-label="Item">Embalming</td><td class="cost-value" data-label="Washington DC">$750</td><td data-label="Virginia Avg. (our estimate)">$820</td></tr>
           </tbody>
         </table>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/burial-costs-washington-dc-m.svg" /><img src="charts/burial-costs-washington-dc.svg" alt="Horizontal bar chart of Washington DC Burial Costs (2026). Funeral service (with casket) $8,200; Cemetery plot $4,000; Casket $2,460; Burial vault / liner $1,600; Opening &amp; closing grave $2,000; Embalming $820." width="680" height="244" loading="lazy" decoding="async" /></picture></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/burial-costs-washington-dc.svg" alt="Horizontal bar chart of Washington DC Burial Costs (2026). Funeral service (with casket) $8,200; Cemetery plot $4,000; Casket $2,460; Burial vault / liner $1,600; Opening &amp; closing grave $2,000; Embalming $820." width="680" height="244" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/burial-costs-washington-dc-m.svg" alt="" width="360" height="368" loading="lazy" decoding="async" aria-hidden="true" /></figure>
 <div class="callout callout-info"><p><strong>Where the DC numbers come from.</strong> The $8,023 funeral figure, casket included, is the South Atlantic median from the <a href="https://choicemutual.com/funeral-resources/funeral-cost/" rel="nofollow noopener" target="_blank">NFDA 2023 General Price List Study, as tabulated by Choice Mutual</a>; NFDA reports by region, not for the District alone. The $5,252 plot, $1,204 concrete liner, and $2,084 regular-depth opening are from the <a href="https://rockcreekcemetery.org/wp-content/uploads/2025/01/2025-PRICE-SHEET-FOR-ROCK-CREEK-CEMETERY-SERVICES.pdf" rel="nofollow noopener" target="_blank">St. Paul&rsquo;s Rock Creek Cemetery 2025 price list</a> and <a href="https://rockcreekcemetery.org/burial-options/" rel="nofollow noopener" target="_blank">Rock Creek burial options page</a> (sites there run $5,252 to $8,957, and <a href="https://congressionalcemetery.org/burial-services/burial-options/" rel="nofollow noopener" target="_blank">Congressional Cemetery</a> lists full plots at $8,000 to $14,000). Embalming ($750) is the median in the <a href="https://oag.dc.gov/consumer-protection/shopping-funeral-services/consumer-alert-funeral-home-prices-survey" rel="nofollow noopener" target="_blank">DC Attorney General funeral home price survey (August 2017)</a>. The $1,500&ndash;$3,500 headstone range and the whole Virginia column are our estimates, not survey data.</p></div>
       </div>
 

@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="390" viewBox="0 0 360 390" role="img" aria-labelledby="t d">
 <title id="t">Washington cremation costs, our 2026 estimates</title>
 <desc id="d">Range chart of Washington cremation costs, our 2026 estimates. Direct cremation $1,470 to $2,940; Cremation with service $5,440 to $8,840; Basic urn $25 to $3,000 or more; Memorial service $0 to $5,000; Cremation jewelry $20 to $2,000 or more; Scattering service $0 to $1,500.</desc>
-<rect width="360" height="370" fill="#ffffff"/>
+<rect width="360" height="390" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 <text x="16" y="26" font-size="16" font-weight="700">Washington cremation costs, our</text>
 <text x="16" y="48" font-size="16" font-weight="700">2026 estimates</text>
-<text x="16" y="76">Direct cremation</text><rect x="52" y="84" width="37" height="16" rx="3" fill="#8a6d3b"/><text x="95" y="97" font-weight="600">$1,470–$2,940</text>
-<text x="16" y="126">Cremation with service</text><rect x="150" y="134" width="84" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="147" font-weight="600">$5,440–$8,840</text>
-<text x="16" y="176">Basic urn</text><rect x="17" y="184" width="73" height="16" rx="3" fill="#8a6d3b"/><text x="96" y="197" font-weight="600">$25–$3,000+</text>
-<text x="16" y="226">Memorial service</text><rect x="16" y="234" width="123" height="16" rx="3" fill="#8a6d3b"/><text x="145" y="247" font-weight="600">$0–$5,000</text>
-<text x="16" y="276">Cremation jewelry</text><rect x="16" y="284" width="49" height="16" rx="3" fill="#8a6d3b"/><text x="71" y="297" font-weight="600">$20–$2,000+</text>
-<text x="16" y="326">Scattering service</text><rect x="16" y="334" width="37" height="16" rx="3" fill="#8a6d3b"/><text x="59" y="347" font-weight="600">$0–$1,500</text>
+<text x="16" y="76">Direct cremation</text><text x="344" y="76" text-anchor="end" font-weight="600">$1,470–$2,940</text><rect x="16" y="86" width="328" height="12" rx="3" fill="#efe7db"/><rect x="71" y="82" width="54" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="128">Cremation with service</text><text x="344" y="128" text-anchor="end" font-weight="600">$5,440–$8,840</text><rect x="16" y="138" width="328" height="12" rx="3" fill="#efe7db"/><rect x="218" y="134" width="126" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="180">Basic urn</text><text x="344" y="180" text-anchor="end" font-weight="600">$25–$3,000+</text><rect x="16" y="190" width="328" height="12" rx="3" fill="#efe7db"/><rect x="17" y="186" width="110" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="232">Memorial service</text><text x="344" y="232" text-anchor="end" font-weight="600">$0–$5,000</text><rect x="16" y="242" width="328" height="12" rx="3" fill="#efe7db"/><rect x="16" y="238" width="186" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="284">Cremation jewelry</text><text x="344" y="284" text-anchor="end" font-weight="600">$20–$2,000+</text><rect x="16" y="294" width="328" height="12" rx="3" fill="#efe7db"/><rect x="17" y="290" width="73" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="336">Scattering service</text><text x="344" y="336" text-anchor="end" font-weight="600">$0–$1,500</text><rect x="16" y="346" width="328" height="12" rx="3" fill="#efe7db"/><rect x="16" y="342" width="56" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="386" font-size="11" fill="#6b5a4a">$0</text><text x="344" y="386" font-size="11" fill="#6b5a4a" text-anchor="end">$8,840</text>
 </g>
 </svg>

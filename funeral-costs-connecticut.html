@@ -416,23 +416,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -1100,6 +1127,7 @@ img {
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
 <style>.article-meta-change{font-size:.8rem;opacity:.75}</style>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 
 <body class="guide-body">
@@ -1192,7 +1220,7 @@ img {
 <p class="table-note state-method-note"><strong>Methodology note:</strong> Our Connecticut figures are estimates built from published price data, not a survey of Connecticut funeral homes, and they should not be read as a quote or professional advice. Our <a href="national-funeral-cost-index.html#state-estimates">calculation method</a> is public, and the <a href="disclaimer.html">full disclaimer</a> sets out what the numbers can and cannot tell you.</p>
 <p class="table-note state-source-note"><strong>State sources:</strong> Department of Public Health; Connecticut DSS.</p>
       </div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/funeral-costs-connecticut-m.svg" /><img src="charts/funeral-costs-connecticut.svg" alt="Horizontal bar chart of Connecticut funeral prices we estimate for 2026. Traditional funeral with burial $10,200; Funeral with cremation $7,600; Direct cremation $2,400; Cemetery / burial plot $5,000; Embalming $1,020; Casket $3,060." width="680" height="244" loading="lazy" decoding="async" /></picture><figcaption>The bars show the connecticut estimate column of the Connecticut funeral prices we estimate for 2026 table; Traditional funeral with burial is the largest item at $10,200.</figcaption></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/funeral-costs-connecticut.svg" alt="Horizontal bar chart of Connecticut funeral prices we estimate for 2026. Traditional funeral with burial $10,200; Funeral with cremation $7,600; Direct cremation $2,400; Cemetery / burial plot $5,000; Embalming $1,020; Casket $3,060." width="680" height="244" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/funeral-costs-connecticut-m.svg" alt="" width="360" height="390" loading="lazy" decoding="async" aria-hidden="true" /><figcaption>The bars show the connecticut estimate column of the Connecticut funeral prices we estimate for 2026 table; Traditional funeral with burial is the largest item at $10,200.</figcaption></figure>
       <p>Our Connecticut estimate puts a typical casket at about $3,060, inside a $1,020 to $8,160 range, though premium hardwood and bronze models can pass $10,000. A Connecticut burial plot runs about $2,500 to $10,000 around a $5,000 average, and opening and closing the grave adds roughly $500 to $3,000, about $2,500 in our estimate.</p>
 
       <h2 id="cities">How Prices in New Haven Compare with the Rest of Connecticut</h2>

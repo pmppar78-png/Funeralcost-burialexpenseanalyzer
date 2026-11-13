@@ -416,23 +416,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -1032,6 +1059,7 @@ img {
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
 <style>.article-meta-change{font-size:.8rem;opacity:.75}</style>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 
 <body class="guide-body">
@@ -1118,7 +1146,7 @@ img {
 <p class="table-note state-method-note"><strong>How to read these figures:</strong> They start from the national medians in the NFDA 2023 General Price List Study, then adjust for Delaware regional costs and for inflation using the BLS funeral-expense price index. Use them to sketch a Delaware burial budget. They are not a survey of area providers and not a quote; ask for each provider's price list to get a firm figure. Read <a href="national-funeral-cost-index.html#state-estimates">how we build these estimates</a> and the <a href="disclaimer.html">disclaimer</a> for the full method and its limits.</p>
 <p class="table-note state-source-note"><strong>State sources:</strong> Delaware Cemetery Board.</p>
       </div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/burial-costs-delaware-m.svg" /><img src="charts/burial-costs-delaware.svg" alt="Horizontal bar chart of Burial Costs in Delaware (2026). Funeral service $8,600; Cemetery plot $4,200; Casket $2,580; Burial vault / liner $1,680; Opening &amp; closing grave $2,100; Headstone / marker $1,500; Embalming $860." width="680" height="274" loading="lazy" decoding="async" /></picture></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/burial-costs-delaware.svg" alt="Horizontal bar chart of Burial Costs in Delaware (2026). Funeral service $8,600; Cemetery plot $4,200; Casket $2,580; Burial vault / liner $1,680; Opening &amp; closing grave $2,100; Headstone / marker $1,500; Embalming $860." width="680" height="274" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/burial-costs-delaware-m.svg" alt="" width="360" height="420" loading="lazy" decoding="async" aria-hidden="true" /></figure>
 
       <p>Counting every cemetery fee as well as the funeral home's charges, our Delaware estimate is $19,660 to $24,160; the casket and the cemetery decide most of where in that range a family ends up.</p>
 

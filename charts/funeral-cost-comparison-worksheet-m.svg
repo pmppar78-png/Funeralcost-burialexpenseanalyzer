@@ -1,25 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="870" viewBox="0 0 360 870" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="910" viewBox="0 0 360 910" role="img" aria-labelledby="t d">
 <title id="t">Funeral Cost Comparison Worksheet (2026)</title>
 <desc id="d">Horizontal bar chart of Funeral Cost Comparison Worksheet (2026) with 16 bars, from Death certificates at $150 to Casket at $2,500.</desc>
-<rect width="360" height="870" fill="#ffffff"/>
+<rect width="360" height="910" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 <text x="16" y="26" font-size="16" font-weight="700">Funeral Cost Comparison Worksheet</text>
 <text x="16" y="48" font-size="16" font-weight="700">(2026)</text>
-<text x="16" y="76">Basic services fee</text><rect x="16" y="84" width="201" height="16" rx="3" fill="#8a6d3b"/><text x="223" y="97" font-weight="600">$2,300</text>
-<text x="16" y="126">Transfer of remains to funeral home</text><rect x="16" y="134" width="35" height="16" rx="3" fill="#8a6d3b"/><text x="57" y="147" font-weight="600">$400</text>
-<text x="16" y="176">Embalming</text><rect x="16" y="184" width="68" height="16" rx="3" fill="#8a6d3b"/><text x="90" y="197" font-weight="600">$775</text>
-<text x="16" y="226">Other body preparation</text><rect x="16" y="234" width="24" height="16" rx="3" fill="#8a6d3b"/><text x="46" y="247" font-weight="600">$275</text>
-<text x="16" y="276">Viewing / visitation</text><rect x="16" y="284" width="39" height="16" rx="3" fill="#8a6d3b"/><text x="61" y="297" font-weight="600">$450</text>
-<text x="16" y="326">Funeral ceremony</text><rect x="16" y="334" width="46" height="16" rx="3" fill="#8a6d3b"/><text x="68" y="347" font-weight="600">$525</text>
-<text x="16" y="376">Memorial service</text><rect x="16" y="384" width="46" height="16" rx="3" fill="#8a6d3b"/><text x="68" y="397" font-weight="600">$525</text>
-<text x="16" y="426">Graveside service</text><rect x="16" y="434" width="35" height="16" rx="3" fill="#8a6d3b"/><text x="57" y="447" font-weight="600">$400</text>
-<text x="16" y="476">Hearse / funeral coach</text><rect x="16" y="484" width="31" height="16" rx="3" fill="#8a6d3b"/><text x="53" y="497" font-weight="600">$350</text>
-<text x="16" y="526">Service vehicle / family car</text><rect x="16" y="534" width="15" height="16" rx="3" fill="#8a6d3b"/><text x="37" y="547" font-weight="600">$175</text>
-<text x="16" y="576">Casket</text><rect x="16" y="584" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="597" font-weight="600">$2,500</text>
-<text x="16" y="626">Outer burial container / vault</text><rect x="16" y="634" width="137" height="16" rx="3" fill="#8a6d3b"/><text x="159" y="647" font-weight="600">$1,572</text>
-<text x="16" y="676">Cemetery plot</text><rect x="16" y="684" width="192" height="16" rx="3" fill="#8a6d3b"/><text x="214" y="697" font-weight="600">$2,200</text>
-<text x="16" y="726">Opening &amp; closing grave</text><rect x="16" y="734" width="109" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="747" font-weight="600">$1,250</text>
-<text x="16" y="776">Headstone / grave marker</text><rect x="16" y="784" width="131" height="16" rx="3" fill="#8a6d3b"/><text x="153" y="797" font-weight="600">$1,500</text>
-<text x="16" y="826">Death certificates</text><rect x="16" y="834" width="13" height="16" rx="3" fill="#8a6d3b"/><text x="35" y="847" font-weight="600">$150</text>
+<text x="16" y="76">Basic services fee</text><text x="344" y="76" text-anchor="end" font-weight="600">$2,300</text><rect x="16" y="82" width="302" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="128">Transfer of remains to fune…</text><text x="344" y="128" text-anchor="end" font-weight="600">$400</text><rect x="16" y="134" width="52" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="180">Embalming</text><text x="344" y="180" text-anchor="end" font-weight="600">$775</text><rect x="16" y="186" width="102" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="232">Other body preparation</text><text x="344" y="232" text-anchor="end" font-weight="600">$275</text><rect x="16" y="238" width="36" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="284">Viewing / visitation</text><text x="344" y="284" text-anchor="end" font-weight="600">$450</text><rect x="16" y="290" width="59" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="336">Funeral ceremony</text><text x="344" y="336" text-anchor="end" font-weight="600">$525</text><rect x="16" y="342" width="69" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="388">Memorial service</text><text x="344" y="388" text-anchor="end" font-weight="600">$525</text><rect x="16" y="394" width="69" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="440">Graveside service</text><text x="344" y="440" text-anchor="end" font-weight="600">$400</text><rect x="16" y="446" width="52" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="492">Hearse / funeral coach</text><text x="344" y="492" text-anchor="end" font-weight="600">$350</text><rect x="16" y="498" width="46" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="544">Service vehicle / family car</text><text x="344" y="544" text-anchor="end" font-weight="600">$175</text><rect x="16" y="550" width="23" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="596">Casket</text><text x="344" y="596" text-anchor="end" font-weight="600">$2,500</text><rect x="16" y="602" width="328" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="648">Outer burial container / va…</text><text x="344" y="648" text-anchor="end" font-weight="600">$1,572</text><rect x="16" y="654" width="206" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="700">Cemetery plot</text><text x="344" y="700" text-anchor="end" font-weight="600">$2,200</text><rect x="16" y="706" width="289" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="752">Opening &amp; closing grave</text><text x="344" y="752" text-anchor="end" font-weight="600">$1,250</text><rect x="16" y="758" width="164" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="804">Headstone / grave marker</text><text x="344" y="804" text-anchor="end" font-weight="600">$1,500</text><rect x="16" y="810" width="197" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="856">Death certificates</text><text x="344" y="856" text-anchor="end" font-weight="600">$150</text><rect x="16" y="862" width="20" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="906" font-size="11" fill="#6b5a4a">$0</text><text x="344" y="906" font-size="11" fill="#6b5a4a" text-anchor="end">$2,500</text>
 </g>
 </svg>

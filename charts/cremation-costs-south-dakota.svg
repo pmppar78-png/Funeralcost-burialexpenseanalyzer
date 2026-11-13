@@ -5,11 +5,11 @@
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
 <text x="16" y="28" font-size="16" font-weight="700">Cremation Costs in South Dakota (2026)</text>
 <line x1="230" y1="48" x2="230" y2="232" stroke="#bbbbbb"/>
-<text x="222" y="67" text-anchor="end">Direct cremation</text><rect x="279" y="53" width="49" height="20" rx="3" fill="#8a6d3b"/><text x="334" y="67">$1,050–$2,100</text>
-<text x="222" y="97" text-anchor="end">Cremation with service</text><rect x="423" y="83" width="121" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="97">$4,160–$6,760</text>
-<text x="222" y="127" text-anchor="end">Basic urn</text><rect x="231" y="113" width="138" height="20" rx="3" fill="#8a6d3b"/><text x="375" y="127">$25–$3,000+</text>
-<text x="222" y="157" text-anchor="end">Memorial service</text><rect x="230" y="143" width="232" height="20" rx="3" fill="#8a6d3b"/><text x="468" y="157">$0–$5,000</text>
-<text x="222" y="187" text-anchor="end">Cremation jewelry</text><rect x="231" y="173" width="92" height="20" rx="3" fill="#8a6d3b"/><text x="329" y="187">$20–$2,000+</text>
-<text x="222" y="217" text-anchor="end">Scattering service</text><rect x="230" y="203" width="70" height="20" rx="3" fill="#8a6d3b"/><text x="306" y="217">$0–$1,500</text>
+<text x="222" y="67" text-anchor="end">Direct cremation</text><rect x="230" y="57" width="304" height="12" rx="3" fill="#efe7db"/><rect x="277" y="53" width="47" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="67" text-anchor="end">$1,050–$2,100</text>
+<text x="222" y="97" text-anchor="end">Cremation with service</text><rect x="230" y="87" width="304" height="12" rx="3" fill="#efe7db"/><rect x="417" y="83" width="117" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="97" text-anchor="end">$4,160–$6,760</text>
+<text x="222" y="127" text-anchor="end">Basic urn</text><rect x="230" y="117" width="304" height="12" rx="3" fill="#efe7db"/><rect x="231" y="113" width="134" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="127" text-anchor="end">$25–$3,000+</text>
+<text x="222" y="157" text-anchor="end">Memorial service</text><rect x="230" y="147" width="304" height="12" rx="3" fill="#efe7db"/><rect x="230" y="143" width="225" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="157" text-anchor="end">$0–$5,000</text>
+<text x="222" y="187" text-anchor="end">Cremation jewelry</text><rect x="230" y="177" width="304" height="12" rx="3" fill="#efe7db"/><rect x="231" y="173" width="89" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="187" text-anchor="end">$20–$2,000+</text>
+<text x="222" y="217" text-anchor="end">Scattering service</text><rect x="230" y="207" width="304" height="12" rx="3" fill="#efe7db"/><rect x="230" y="203" width="67" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="217" text-anchor="end">$0–$1,500</text>
 </g>
 </svg>

@@ -5,8 +5,8 @@
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
 <text x="16" y="28" font-size="16" font-weight="700">Probate Costs and Timelines: A Guide for Families</text>
 <line x1="230" y1="48" x2="230" y2="142" stroke="#bbbbbb"/>
-<text x="222" y="67" text-anchor="end">$300,000</text><rect x="230" y="53" width="123" height="20" rx="3" fill="#8a6d3b"/><text x="359" y="67">$9,000</text>
-<text x="222" y="97" text-anchor="end">$500,000</text><rect x="230" y="83" width="177" height="20" rx="3" fill="#8a6d3b"/><text x="413" y="97">$13,000</text>
-<text x="222" y="127" text-anchor="end">$1,000,000</text><rect x="230" y="113" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="127">$23,000</text>
+<text x="222" y="67" text-anchor="end">$300,000</text><rect x="230" y="53" width="119" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="67" text-anchor="end">$9,000</text>
+<text x="222" y="97" text-anchor="end">$500,000</text><rect x="230" y="83" width="172" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="97" text-anchor="end">$13,000</text>
+<text x="222" y="127" text-anchor="end">$1,000,000</text><rect x="230" y="113" width="304" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="127" text-anchor="end">$23,000</text>
 </g>
 </svg>

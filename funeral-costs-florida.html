@@ -416,23 +416,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -1099,6 +1126,7 @@ img {
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
 <style>.article-meta-change{font-size:.8rem;opacity:.75}</style>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 
 <body class="guide-body">
@@ -1190,7 +1218,7 @@ img {
 <p class="table-note state-method-note"><strong>Where these numbers come from:</strong> Florida funeral homes were not surveyed for this table. Every line is our estimate, good for setting a budget but not a quote, and not professional advice. <a href="national-funeral-cost-index.html#state-estimates">The method is laid out here</a>, and the <a href="disclaimer.html">disclaimer</a> lists what it cannot tell you.</p>
 <p class="table-note state-source-note"><strong>State sources:</strong> Division of Funeral, Cemetery, and Consumer Services; Fla. Stat. §§ 406.50, 406.53.</p>
       </div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/funeral-costs-florida-m.svg" /><img src="charts/funeral-costs-florida.svg" alt="Horizontal bar chart of Florida funeral items and our 2026 estimates. Traditional funeral with burial $7,800; Funeral with cremation $6,200; Direct cremation $1,800; Cemetery / burial plot $3,600; Embalming $780; Casket $2,340." width="680" height="244" loading="lazy" decoding="async" /></picture></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/funeral-costs-florida.svg" alt="Horizontal bar chart of Florida funeral items and our 2026 estimates. Traditional funeral with burial $7,800; Funeral with cremation $6,200; Direct cremation $1,800; Cemetery / burial plot $3,600; Embalming $780; Casket $2,340." width="680" height="244" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/funeral-costs-florida-m.svg" alt="" width="360" height="390" loading="lazy" decoding="async" aria-hidden="true" /></figure>
 
       <h2 id="consumer-rights">The Legal Protections That Apply to a Florida Funeral Purchase</h2>
       <div class="callout callout-info" data-state-fact="1">Federal law adds its own floor: under the FTC Funeral Rule, every Florida home owes you a written, itemized price list and phone quotes, and cannot bundle in goods you decline.</div>

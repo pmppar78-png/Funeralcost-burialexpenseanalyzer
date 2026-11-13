@@ -459,23 +459,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -1027,6 +1054,7 @@ img {
   {"@context":"https://schema.org","@type":"Organization","name":"Funeral Cost & Burial Expense Analyzer","url":"https://funeralcostanalyzer.com/","description":"Independent educational resource helping families understand funeral costs, compare options, and know their consumer rights.","sameAs":[]}
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 <body class="guide-body">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -1137,7 +1165,7 @@ img {
             <tr><td data-label="Religion"><strong>Sikh</strong></td><td data-label="Planning range">$3,000 &ndash; $7,000</td><td data-label="Burial or Cremation">Cremation required</td><td data-label="Embalming">Not typical</td><td data-label="Key Cost Factor">Cremation; community support</td></tr>
           </tbody>
         </table></div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/funeral-costs-by-religion-m.svg" /><img src="charts/funeral-costs-by-religion.svg" alt="Range chart of Funeral Costs by Religion (2026): What Each Tradition Costs. Catholic $7,000 to $15,000; Protestant $5,000 to $14,000; Jewish $5,000 to $12,000; Muslim $3,000 to $8,000; Hindu $3,000 to $10,000; Buddhist $3,000 to $12,000; LDS (Mormon) $6,000 to $14,000; Sikh $3,000 to $7,000." width="680" height="304" loading="lazy" decoding="async" /></picture><figcaption>Each bar spans the low-to-high range for one line of the Funeral Costs by Religion (2026): What Each Tradition Costs table; Catholic has the widest upper end at $15,000.</figcaption></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/funeral-costs-by-religion.svg" alt="Range chart of Funeral Costs by Religion (2026): What Each Tradition Costs. Catholic $7,000 to $15,000; Protestant $5,000 to $14,000; Jewish $5,000 to $12,000; Muslim $3,000 to $8,000; Hindu $3,000 to $10,000; Buddhist $3,000 to $12,000; LDS (Mormon) $6,000 to $14,000; Sikh $3,000 to $7,000." width="680" height="304" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/funeral-costs-by-religion-m.svg" alt="" width="360" height="494" loading="lazy" decoding="async" aria-hidden="true" /><figcaption>Each bar spans the low-to-high range for one line of the Funeral Costs by Religion (2026): What Each Tradition Costs table; Catholic has the widest upper end at $15,000.</figcaption></figure>
       <p id="faith-range-note">Catholic $7,000 to $15,000, Jewish $5,000 to $12,000, Muslim $3,000 to $8,000, Hindu $3,000 to $10,000, Buddhist $3,000 to $12,000, and LDS $6,000 to $14,000 are planning ranges, not official statistics. Each of those six figures was already printed on its own tradition page, and this overview uses the same figure so the two pages do not disagree. None of them is a median from the NFDA 2023 General Price List Study (latest available; NFDA's statistics page still cited these medians as of its September 29, 2025 update), which does not publish costs by faith, and none is taken from a diocese, synagogue, mosque, temple, or church price survey. The burial-leaning ranges (Catholic, Jewish, and LDS) are an editorial bracket around the NFDA median of $8,300 for a funeral with viewing and burial, a median that excludes the cemetery plot, vault, and monument, plus the plot, casket, vault, or marker rows named in that section. The Muslim range starts near the NFDA immediate-burial medians of $2,995 with a family-supplied container and $3,720 with a funeral-home container, reprinted in the 2024 NFDA Cremation and Burial Report, and leaves room for the Islamic cemetery plot named below. The Hindu and Buddhist ranges start near the NFDA direct-cremation medians of $2,645 and $2,750 and can extend through the $6,280 median for a funeral with viewing and cremation, plus the priest, memorial, or multi-day rows named for that tradition. Adding every row in a section will not reproduce the planning range, because a funeral-home service charge overlaps other rows and a family does not buy every row. The dollar figures inside each section are planning ranges too, not surveyed prices. Protestant funerals stay at $5,000 to $14,000 and Sikh funerals stay at $3,000 to $7,000 on this overview only, bracketed the same way around the burial median or the cremation medians, and reviewed 2026-10-24.</p>
 
 

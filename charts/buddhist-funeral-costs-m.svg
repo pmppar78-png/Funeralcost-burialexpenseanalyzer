@@ -1,16 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="442" viewBox="0 0 360 442" role="img" aria-labelledby="t d">
 <title id="t">Buddhist Funeral Cost Estimates (2026)</title>
 <desc id="d">Range chart of Buddhist Funeral Cost Estimates (2026). Cremation or burial service $1,500 to $6,000; Funeral home facility $1,000 to $3,000; Casket or container $500 to $3,000; Memorial altar setup $100 to $500; Flowers, incense, offerings $200 to $800; Memorial ceremonies (49 days) $500 to $2,000; Urn or columbarium niche $100 to $3,000.</desc>
-<rect width="360" height="420" fill="#ffffff"/>
+<rect width="360" height="442" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 <text x="16" y="26" font-size="16" font-weight="700">Buddhist Funeral Cost Estimates</text>
 <text x="16" y="48" font-size="16" font-weight="700">(2026)</text>
-<text x="16" y="76">Cremation or burial service</text><rect x="71" y="84" width="163" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$1,500–$6,000</text>
-<text x="16" y="126">Funeral home facility</text><rect x="52" y="134" width="73" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="147" font-weight="600">$1,000–$3,000</text>
-<text x="16" y="176">Casket or container</text><rect x="34" y="184" width="91" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="197" font-weight="600">$500–$3,000</text>
-<text x="16" y="226">Memorial altar setup</text><rect x="20" y="234" width="14" height="16" rx="3" fill="#8a6d3b"/><text x="40" y="247" font-weight="600">$100–$500</text>
-<text x="16" y="276">Flowers, incense, offerings</text><rect x="23" y="284" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="51" y="297" font-weight="600">$200–$800</text>
-<text x="16" y="326">Memorial ceremonies (49 days)</text><rect x="34" y="334" width="55" height="16" rx="3" fill="#8a6d3b"/><text x="95" y="347" font-weight="600">$500–$2,000</text>
-<text x="16" y="376">Urn or columbarium niche</text><rect x="20" y="384" width="105" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="397" font-weight="600">$100–$3,000</text>
+<text x="16" y="76">Cremation or burial service</text><text x="344" y="76" text-anchor="end" font-weight="600">$1,500–$6,000</text><rect x="16" y="86" width="328" height="12" rx="3" fill="#efe7db"/><rect x="98" y="82" width="246" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="128">Funeral home facility</text><text x="344" y="128" text-anchor="end" font-weight="600">$1,000–$3,000</text><rect x="16" y="138" width="328" height="12" rx="3" fill="#efe7db"/><rect x="71" y="134" width="109" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="180">Casket or container</text><text x="344" y="180" text-anchor="end" font-weight="600">$500–$3,000</text><rect x="16" y="190" width="328" height="12" rx="3" fill="#efe7db"/><rect x="43" y="186" width="137" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="232">Memorial altar setup</text><text x="344" y="232" text-anchor="end" font-weight="600">$100–$500</text><rect x="16" y="242" width="328" height="12" rx="3" fill="#efe7db"/><rect x="21" y="238" width="22" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="284">Flowers, incense, offerings</text><text x="344" y="284" text-anchor="end" font-weight="600">$200–$800</text><rect x="16" y="294" width="328" height="12" rx="3" fill="#efe7db"/><rect x="27" y="290" width="33" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="336">Memorial ceremonies (49 day…</text><text x="344" y="336" text-anchor="end" font-weight="600">$500–$2,000</text><rect x="16" y="346" width="328" height="12" rx="3" fill="#efe7db"/><rect x="43" y="342" width="82" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="388">Urn or columbarium niche</text><text x="344" y="388" text-anchor="end" font-weight="600">$100–$3,000</text><rect x="16" y="398" width="328" height="12" rx="3" fill="#efe7db"/><rect x="21" y="394" width="159" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="438" font-size="11" fill="#6b5a4a">$0</text><text x="344" y="438" font-size="11" fill="#6b5a4a" text-anchor="end">$6,000</text>
 </g>
 </svg>

@@ -5,8 +5,8 @@
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
 <text x="16" y="28" font-size="16" font-weight="700">Cremation vs Burial: What Each Typically Costs</text>
 <line x1="230" y1="48" x2="230" y2="142" stroke="#bbbbbb"/>
-<text x="222" y="67" text-anchor="end">Traditional Burial</text><rect x="413" y="53" width="131" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$7,000–$12,000+</text>
-<text x="222" y="97" text-anchor="end">Cremation with Service</text><rect x="361" y="83" width="105" height="20" rx="3" fill="#8a6d3b"/><text x="472" y="97">$5,000–$9,000+</text>
-<text x="222" y="127" text-anchor="end">Direct Burial</text><rect x="269" y="113" width="66" height="20" rx="3" fill="#8a6d3b"/><text x="341" y="127">$1,500–$4,000</text>
+<text x="222" y="67" text-anchor="end">Traditional Burial</text><rect x="230" y="57" width="304" height="12" rx="3" fill="#efe7db"/><rect x="407" y="53" width="127" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="67" text-anchor="end">$7,000–$12,000+</text>
+<text x="222" y="97" text-anchor="end">Cremation with Service</text><rect x="230" y="87" width="304" height="12" rx="3" fill="#efe7db"/><rect x="357" y="83" width="101" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="97" text-anchor="end">$5,000–$9,000+</text>
+<text x="222" y="127" text-anchor="end">Direct Burial</text><rect x="230" y="117" width="304" height="12" rx="3" fill="#efe7db"/><rect x="268" y="113" width="63" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="127" text-anchor="end">$1,500–$4,000</text>
 </g>
 </svg>

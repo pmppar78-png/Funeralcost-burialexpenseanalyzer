@@ -1,12 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="220" viewBox="0 0 360 220" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="234" viewBox="0 0 360 234" role="img" aria-labelledby="t d">
 <title id="t">Probate Costs and Timelines: A Guide for Families</title>
 <desc id="d">Horizontal bar chart of Probate Costs and Timelines: A Guide for Families. $300,000 $9,000; $500,000 $13,000; $1,000,000 $23,000.</desc>
-<rect width="360" height="220" fill="#ffffff"/>
+<rect width="360" height="234" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 <text x="16" y="26" font-size="16" font-weight="700">Probate Costs and Timelines: A</text>
 <text x="16" y="48" font-size="16" font-weight="700">Guide for Families</text>
-<text x="16" y="76">$300,000</text><rect x="16" y="84" width="85" height="16" rx="3" fill="#8a6d3b"/><text x="107" y="97" font-weight="600">$9,000</text>
-<text x="16" y="126">$500,000</text><rect x="16" y="134" width="123" height="16" rx="3" fill="#8a6d3b"/><text x="145" y="147" font-weight="600">$13,000</text>
-<text x="16" y="176">$1,000,000</text><rect x="16" y="184" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="197" font-weight="600">$23,000</text>
+<text x="16" y="76">$300,000</text><text x="344" y="76" text-anchor="end" font-weight="600">$9,000</text><rect x="16" y="82" width="128" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="128">$500,000</text><text x="344" y="128" text-anchor="end" font-weight="600">$13,000</text><rect x="16" y="134" width="185" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="180">$1,000,000</text><text x="344" y="180" text-anchor="end" font-weight="600">$23,000</text><rect x="16" y="186" width="328" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="230" font-size="11" fill="#6b5a4a">$0</text><text x="344" y="230" font-size="11" fill="#6b5a4a" text-anchor="end">$23,000</text>
 </g>
 </svg>

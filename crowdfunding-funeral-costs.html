@@ -419,23 +419,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -844,6 +871,7 @@ img {
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does GoFundMe charge for a funeral fundraiser?","acceptedAnswer":{"@type":"Answer","text":"For U.S. personal fundraisers, there is no platform fee; a transaction fee of 2.9% plus $0.30 is deducted from each donation (as of October 21, 2026). Donors can add an optional tip."}},{"@type":"Question","name":"Is money raised for a funeral taxable?","acceptedAnswer":{"@type":"Answer","text":"The IRS says crowdfunded money given as a gift, with nothing provided in return, is generally not taxable income to the recipient. Consult a tax professional for your situation."}},{"@type":"Question","name":"Can donors deduct a funeral GoFundMe donation?","acceptedAnswer":{"@type":"Answer","text":"Generally no. The IRS allows a deduction only for gifts to qualified organizations, and gifts to individuals, including a family raising money for a funeral, are not deductible (IRS Publication 526). GoFundMe's own help center says donations to personal fundraisers are treated as personal gifts, and that only fundraisers for a certified nonprofit produce a tax-deductible receipt. If deductibility matters to donors, set up a fundraiser for a charity tied to the person instead, and check that the charity is eligible on the IRS Tax Exempt Organization Search. A donor who gives $250 or more to a charity also needs a written acknowledgment from it to claim the deduction, and only donors who itemize get any tax benefit."}}]}
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 
 <body class="guide-body">
@@ -913,7 +941,7 @@ img {
 <tr><td data-label="Raised">$5,000</td><td data-label="Donations">50 × $100</td><td data-label="Fees">$145 + $15 = $160</td><td data-label="You receive">$4,840</td></tr>
 <tr><td data-label="Raised">$5,000</td><td data-label="Donations">200 × $25</td><td data-label="Fees">$145 + $60 = $205</td><td data-label="You receive">$4,795</td></tr>
 <tr><td data-label="Raised">$10,000</td><td data-label="Donations">100 × $100</td><td data-label="Fees">$290 + $30 = $320</td><td data-label="You receive">$9,680</td></tr></tbody></table></div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/crowdfunding-funeral-costs-m.svg" /><img src="charts/crowdfunding-funeral-costs.svg" alt="Horizontal bar chart of Crowdfunding for Funeral Costs: Platforms, Fees and Tips. $5,000 $4,840; $5,000 $4,795; $10,000 $9,680." width="680" height="154" loading="lazy" decoding="async" /></picture><figcaption>The bars show the you receive column of the Crowdfunding for Funeral Costs: Platforms, Fees and Tips table; $10,000 is the largest item at $9,680.</figcaption></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/crowdfunding-funeral-costs.svg" alt="Horizontal bar chart of Crowdfunding for Funeral Costs: Platforms, Fees and Tips. $5,000 $4,840; $5,000 $4,795; $10,000 $9,680." width="680" height="154" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/crowdfunding-funeral-costs-m.svg" alt="" width="360" height="234" loading="lazy" decoding="async" aria-hidden="true" /><figcaption>The bars show the you receive column of the Crowdfunding for Funeral Costs: Platforms, Fees and Tips table; $10,000 is the largest item at $9,680.</figcaption></figure>
 <p>Our calculations use GoFundMe's published U.S. rate. Other platforms price differently; compare their current fee pages before choosing.</p>
 <h2 id="timing">Timing: Funeral Homes Often Want Payment up Front</h2>
 <p>GoFundMe says transfers reach a bank account 2 to 5 business days after leaving the platform, and bank details must be verified first (<a href="https://www.gofundme.com/c/start" target="_blank" rel="noopener">GoFundMe</a>). Ask the funeral home early whether it will accept a deposit now and the balance when funds arrive, or whether it can be set up as the fundraiser's beneficiary so it is paid directly.</p>

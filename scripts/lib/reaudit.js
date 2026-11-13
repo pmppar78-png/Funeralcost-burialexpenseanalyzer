@@ -223,19 +223,43 @@ function cardData(html) {
   const close = html.indexOf('</div>', html.lastIndexOf('<span class="state-cost">'));
   return { pts, from: pts[0].from, end: close + 6, start: at };
 }
+function barSegment(lo, hi, xTrack, barMax, max, minW) {
+  if (lo === undefined) {
+    const w = Math.max(minW, Math.round((hi / max) * barMax));
+    return { x0: xTrack, w, track: false };
+  }
+  let x0 = xTrack + Math.round((lo / max) * barMax);
+  let x1 = xTrack + Math.round((hi / max) * barMax);
+  if (x1 - x0 < minW) {
+    const mid = Math.round((x0 + x1) / 2);
+    x0 = mid - Math.floor(minW / 2);
+    x1 = x0 + minW;
+    if (x0 < xTrack) { x0 = xTrack; x1 = xTrack + minW; }
+    if (x1 > xTrack + barMax) { x1 = xTrack + barMax; x0 = x1 - minW; }
+  }
+  return { x0, w: Math.max(minW, x1 - x0), track: true };
+}
+function moneyLabel(p, from) {
+  return p.lo !== undefined
+    ? '$' + p.lo.toLocaleString('en-US') + '\u2013$' + p.v.toLocaleString('en-US') + (p.plus ? '+' : '')
+    : (from ? 'from ' : '') + '$' + p.v.toLocaleString('en-US') + (p.plus ? '+' : '');
+}
 function svgChart(title, desc, pts, from) {
-  const W = 680, labelW = 230, rowH = 30, top = 48, valueW = 120;
+  const W = 680, labelW = 230, rowH = 30, top = 48, valueW = 130;
   const max = Math.max(...pts.map((p) => p.v));
   const H = top + pts.length * rowH + 16;
   const barMax = W - labelW - valueW - 16;
   const rows = pts.map((p, i) => {
     const y = top + i * rowH;
-    const x0 = p.lo !== undefined ? labelW + Math.round((p.lo / max) * barMax) : labelW;
-    const w = Math.max(2, labelW + Math.round((p.v / max) * barMax) - x0);
+    const seg = barSegment(p.lo, p.v, labelW, barMax, max, 16);
     const label = p.label.length > 31 ? p.label.slice(0, 30) + '\u2026' : p.label;
+    const track = seg.track
+      ? `<rect x="${labelW}" y="${y + 9}" width="${barMax}" height="12" rx="3" fill="#efe7db"/>`
+      : '';
     return `<text x="${labelW - 8}" y="${y + 19}" text-anchor="end">${esc(label)}</text>` +
-      `<rect x="${x0}" y="${y + 5}" width="${w}" height="${rowH - 10}" rx="3" fill="#8a6d3b"/>` +
-      `<text x="${x0 + w + 6}" y="${y + 19}">${p.lo !== undefined ? '$' + p.lo.toLocaleString('en-US') + '\u2013' : (from ? 'from ' : '')}$${p.v.toLocaleString('en-US')}${p.plus ? '+' : ''}</text>`;
+      track +
+      `<rect x="${seg.x0}" y="${y + 5}" width="${seg.w}" height="${rowH - 10}" rx="3" fill="#8a6d3b"/>` +
+      `<text x="${W - 12}" y="${y + 19}" text-anchor="end">${moneyLabel(p, from)}</text>`;
   }).join('\n');
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="t d">
 <title id="t">${esc(title)}</title>
@@ -252,23 +276,28 @@ ${rows}
 // Narrow layout for phones: label on its own line, bar and value beneath,
 // drawn at 360 wide so the text stays about 13px tall on a 375px screen.
 function svgChartMobile(title, desc, pts, from) {
-  const W = 360, left = 16, rowH = 50, valueW = 118;
+  const W = 360, left = 16, right = 16, rowH = 52;
   const words = title.split(' '), lines = [];
   for (const w of words) { const l = lines.length - 1; if (l >= 0 && (lines[l] + ' ' + w).length <= 34) lines[l] += ' ' + w; else lines.push(w); }
   const top = 16 + lines.length * 22;
   const max = Math.max(...pts.map((p) => p.v));
-  const H = top + pts.length * rowH + 10;
-  const barMax = W - left - valueW - 8;
+  const H = top + pts.length * rowH + 18;
+  const barMax = W - left - right;
   const rows = pts.map((p, i) => {
     const y = top + i * rowH;
-    const x0 = p.lo !== undefined ? left + Math.round((p.lo / max) * barMax) : left;
-    const w = Math.max(2, left + Math.round((p.v / max) * barMax) - x0);
-    const label = p.label.length > 40 ? p.label.slice(0, 39) + '\u2026' : p.label;
+    const seg = barSegment(p.lo, p.v, left, barMax, max, 16);
+    const label = p.label.length > 28 ? p.label.slice(0, 27) + '\u2026' : p.label;
+    const track = seg.track
+      ? `<rect x="${left}" y="${y + 26}" width="${barMax}" height="12" rx="3" fill="#efe7db"/>`
+      : '';
     return `<text x="${left}" y="${y + 16}">${esc(label)}</text>` +
-      `<rect x="${x0}" y="${y + 24}" width="${w}" height="16" rx="3" fill="#8a6d3b"/>` +
-      `<text x="${x0 + w + 6}" y="${y + 37}" font-weight="600">${p.lo !== undefined ? '$' + p.lo.toLocaleString('en-US') + '\u2013' : (from ? 'from ' : '')}$${p.v.toLocaleString('en-US')}${p.plus ? '+' : ''}</text>`;
+      `<text x="${W - right}" y="${y + 16}" text-anchor="end" font-weight="600">${moneyLabel(p, from)}</text>` +
+      track +
+      `<rect x="${seg.x0}" y="${y + 22}" width="${seg.w}" height="16" rx="3" fill="#8a6d3b"/>`;
   }).join('\n');
   const head = lines.map((l, i) => `<text x="${left}" y="${26 + i * 22}" font-size="16" font-weight="700">${esc(l)}</text>`).join('\n');
+  const axis = `<text x="${left}" y="${H - 4}" font-size="11" fill="#6b5a4a">$0</text>` +
+    `<text x="${W - right}" y="${H - 4}" font-size="11" fill="#6b5a4a" text-anchor="end">${'$' + max.toLocaleString('en-US')}</text>`;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="t d">
 <title id="t">${esc(title)}</title>
 <desc id="d">${esc(desc)}</desc>
@@ -276,6 +305,7 @@ function svgChartMobile(title, desc, pts, from) {
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 ${head}
 ${rows}
+${axis}
 </g>
 </svg>
 `;
@@ -315,6 +345,7 @@ function addChart(html, f, OUT) {
   const nameM = name.replace(/\.svg$/, '-m.svg');
   fs.writeFileSync(path.join(OUT, 'charts', nameM), svgChartMobile(title, alt, pts, from));
   const W = 680, H = 48 + pts.length * 30 + 16;
+  const Hm = (16 + Math.ceil(title.split(' ').reduce((lines, w) => { const l = lines.length - 1; if (l >= 0 && (lines[l] + ' ' + w).length <= 34) { lines[l] += ' ' + w; return lines; } lines.push(w); return lines; }, []).length * 22) + pts.length * 52 + 18);
   const cap = from
     ? `Starting prices from the ${pts.length} cards above, highest first; ${hi.label} is highest at ${usd(hi.v)} and ${lo.label} lowest at ${usd(lo.v)}.`
     : d.cards
@@ -327,7 +358,7 @@ function addChart(html, f, OUT) {
   // State pages carry the chart without a caption: the table above already
   // says what the numbers are, and the alt text lists every bar.
   const isState = /^(funeral|cremation|burial)-costs-/.test(f) && /\(2026\)|What Families Pay in 2026/.test(title + (html.match(/<h1>[^<]*/) || [''])[0]) && !/by-state|by-religion/.test(f);
-  const fig = `\n      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/${nameM}" /><img src="charts/${name}" alt="${esc(alt)}" width="${W}" height="${H}" loading="lazy" decoding="async" /></picture>${isState ? '' : `<figcaption>${esc(cap)}</figcaption>`}</figure>`;
+  const fig = `\n      <figure class="data-chart"><img class="chart-wide" src="charts/${name}" alt="${esc(alt)}" width="${W}" height="${H}" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/${nameM}" alt="" width="360" height="${Hm}" loading="lazy" decoding="async" aria-hidden="true" />${isState ? '' : `<figcaption>${esc(cap)}</figcaption>`}</figure>`;
   return html.slice(0, insertAt) + fig + html.slice(insertAt);
 }
 

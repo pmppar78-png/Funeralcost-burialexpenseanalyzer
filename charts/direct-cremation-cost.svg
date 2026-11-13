@@ -5,13 +5,13 @@
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
 <text x="16" y="28" font-size="16" font-weight="700">Direct Cremation Cost</text>
 <line x1="230" y1="48" x2="230" y2="292" stroke="#bbbbbb"/>
-<text x="222" y="67" text-anchor="end">Basic services fee</text><rect x="300" y="53" width="35" height="20" rx="3" fill="#8a6d3b"/><text x="341" y="67">$2,000–$3,000</text>
-<text x="222" y="97" text-anchor="end">Embalming</text><rect x="247" y="83" width="11" height="20" rx="3" fill="#8a6d3b"/><text x="264" y="97">$500–$800</text>
-<text x="222" y="127" text-anchor="end">Viewing / visitation</text><rect x="244" y="113" width="14" height="20" rx="3" fill="#8a6d3b"/><text x="264" y="127">$400–$800</text>
-<text x="222" y="157" text-anchor="end">Funeral ceremony</text><rect x="244" y="143" width="10" height="20" rx="3" fill="#8a6d3b"/><text x="260" y="157">$400–$700</text>
-<text x="222" y="187" text-anchor="end">Casket or rental casket</text><rect x="265" y="173" width="105" height="20" rx="3" fill="#8a6d3b"/><text x="376" y="187">$1,000–$4,000+</text>
-<text x="222" y="217" text-anchor="end">Cremation fee</text><rect x="239" y="203" width="8" height="20" rx="3" fill="#8a6d3b"/><text x="253" y="217">$250–$500</text>
-<text x="222" y="247" text-anchor="end">Transport</text><rect x="240" y="233" width="11" height="20" rx="3" fill="#8a6d3b"/><text x="257" y="247">$300–$600</text>
-<text x="222" y="277" text-anchor="end">Typical Total</text><rect x="404" y="263" width="140" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="277">$5,000–$9,000+</text>
+<text x="222" y="67" text-anchor="end">Basic services fee</text><rect x="230" y="57" width="304" height="12" rx="3" fill="#efe7db"/><rect x="298" y="53" width="33" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="67" text-anchor="end">$2,000–$3,000</text>
+<text x="222" y="97" text-anchor="end">Embalming</text><rect x="230" y="87" width="304" height="12" rx="3" fill="#efe7db"/><rect x="244" y="83" width="16" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="97" text-anchor="end">$500–$800</text>
+<text x="222" y="127" text-anchor="end">Viewing / visitation</text><rect x="230" y="117" width="304" height="12" rx="3" fill="#efe7db"/><rect x="243" y="113" width="16" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="127" text-anchor="end">$400–$800</text>
+<text x="222" y="157" text-anchor="end">Funeral ceremony</text><rect x="230" y="147" width="304" height="12" rx="3" fill="#efe7db"/><rect x="241" y="143" width="16" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="157" text-anchor="end">$400–$700</text>
+<text x="222" y="187" text-anchor="end">Casket or rental casket</text><rect x="230" y="177" width="304" height="12" rx="3" fill="#efe7db"/><rect x="264" y="173" width="101" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="187" text-anchor="end">$1,000–$4,000+</text>
+<text x="222" y="217" text-anchor="end">Cremation fee</text><rect x="230" y="207" width="304" height="12" rx="3" fill="#efe7db"/><rect x="235" y="203" width="16" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="217" text-anchor="end">$250–$500</text>
+<text x="222" y="247" text-anchor="end">Transport</text><rect x="230" y="237" width="304" height="12" rx="3" fill="#efe7db"/><rect x="237" y="233" width="16" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="247" text-anchor="end">$300–$600</text>
+<text x="222" y="277" text-anchor="end">Typical Total</text><rect x="230" y="267" width="304" height="12" rx="3" fill="#efe7db"/><rect x="399" y="263" width="135" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="277" text-anchor="end">$5,000–$9,000+</text>
 </g>
 </svg>

@@ -1,16 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="442" viewBox="0 0 360 442" role="img" aria-labelledby="t d">
 <title id="t">Washington DC Funeral Cost Averages (2026)</title>
 <desc id="d">Horizontal bar chart of Washington DC Funeral Cost Averages (2026). Traditional funeral $8,200; Funeral with cremation $6,400; Direct cremation $1,900; Cemetery plot $4,000; Embalming $820; Casket $2,460; Burial vault / liner $1,600.</desc>
-<rect width="360" height="420" fill="#ffffff"/>
+<rect width="360" height="442" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 <text x="16" y="26" font-size="16" font-weight="700">Washington DC Funeral Cost</text>
 <text x="16" y="48" font-size="16" font-weight="700">Averages (2026)</text>
-<text x="16" y="76">Traditional funeral</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$8,200</text>
-<text x="16" y="126">Funeral with cremation</text><rect x="16" y="134" width="170" height="16" rx="3" fill="#8a6d3b"/><text x="192" y="147" font-weight="600">$6,400</text>
-<text x="16" y="176">Direct cremation</text><rect x="16" y="184" width="51" height="16" rx="3" fill="#8a6d3b"/><text x="73" y="197" font-weight="600">$1,900</text>
-<text x="16" y="226">Cemetery plot</text><rect x="16" y="234" width="106" height="16" rx="3" fill="#8a6d3b"/><text x="128" y="247" font-weight="600">$4,000</text>
-<text x="16" y="276">Embalming</text><rect x="16" y="284" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="297" font-weight="600">$820</text>
-<text x="16" y="326">Casket</text><rect x="16" y="334" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="347" font-weight="600">$2,460</text>
-<text x="16" y="376">Burial vault / liner</text><rect x="16" y="384" width="43" height="16" rx="3" fill="#8a6d3b"/><text x="65" y="397" font-weight="600">$1,600</text>
+<text x="16" y="76">Traditional funeral</text><text x="344" y="76" text-anchor="end" font-weight="600">$8,200</text><rect x="16" y="82" width="328" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="128">Funeral with cremation</text><text x="344" y="128" text-anchor="end" font-weight="600">$6,400</text><rect x="16" y="134" width="256" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="180">Direct cremation</text><text x="344" y="180" text-anchor="end" font-weight="600">$1,900</text><rect x="16" y="186" width="76" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="232">Cemetery plot</text><text x="344" y="232" text-anchor="end" font-weight="600">$4,000</text><rect x="16" y="238" width="160" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="284">Embalming</text><text x="344" y="284" text-anchor="end" font-weight="600">$820</text><rect x="16" y="290" width="33" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="336">Casket</text><text x="344" y="336" text-anchor="end" font-weight="600">$2,460</text><rect x="16" y="342" width="98" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="388">Burial vault / liner</text><text x="344" y="388" text-anchor="end" font-weight="600">$1,600</text><rect x="16" y="394" width="64" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="438" font-size="11" fill="#6b5a4a">$0</text><text x="344" y="438" font-size="11" fill="#6b5a4a" text-anchor="end">$8,200</text>
 </g>
 </svg>

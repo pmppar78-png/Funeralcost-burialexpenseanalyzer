@@ -1,17 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="442" viewBox="0 0 360 442" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="464" viewBox="0 0 360 464" role="img" aria-labelledby="t d">
 <title id="t">Funeral Insurance Comparison: Final Expense vs. Burial Insurance vs. Pre-Need</title>
 <desc id="d">Range chart of Funeral Insurance Comparison: Final Expense vs. Burial Insurance vs. Pre-Need. Mutual of Omaha $2,000 to $40,000; AARP / New York Life $5,000 to $25,000; AIG Direct $5,000 to $50,000; Globe Life $5,000 to $50,000; Colonial Penn $400 to $25,000; Lincoln Heritage $5,000 to $50,000; Gerber Life $5,000 to $25,000.</desc>
-<rect width="360" height="442" fill="#ffffff"/>
+<rect width="360" height="464" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 <text x="16" y="26" font-size="16" font-weight="700">Funeral Insurance Comparison:</text>
 <text x="16" y="48" font-size="16" font-weight="700">Final Expense vs. Burial Insurance</text>
 <text x="16" y="70" font-size="16" font-weight="700">vs. Pre-Need</text>
-<text x="16" y="98">Mutual of Omaha</text><rect x="25" y="106" width="165" height="16" rx="3" fill="#8a6d3b"/><text x="196" y="119" font-weight="600">$2,000–$40,000</text>
-<text x="16" y="148">AARP / New York Life</text><rect x="38" y="156" width="87" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="169" font-weight="600">$5,000–$25,000</text>
-<text x="16" y="198">AIG Direct</text><rect x="38" y="206" width="196" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="219" font-weight="600">$5,000–$50,000</text>
-<text x="16" y="248">Globe Life</text><rect x="38" y="256" width="196" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="269" font-weight="600">$5,000–$50,000</text>
-<text x="16" y="298">Colonial Penn</text><rect x="18" y="306" width="107" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="319" font-weight="600">$400–$25,000</text>
-<text x="16" y="348">Lincoln Heritage</text><rect x="38" y="356" width="196" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="369" font-weight="600">$5,000–$50,000</text>
-<text x="16" y="398">Gerber Life</text><rect x="38" y="406" width="87" height="16" rx="3" fill="#8a6d3b"/><text x="131" y="419" font-weight="600">$5,000–$25,000</text>
+<text x="16" y="98">Mutual of Omaha</text><text x="344" y="98" text-anchor="end" font-weight="600">$2,000–$40,000</text><rect x="16" y="108" width="328" height="12" rx="3" fill="#efe7db"/><rect x="29" y="104" width="249" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="150">AARP / New York Life</text><text x="344" y="150" text-anchor="end" font-weight="600">$5,000–$25,000</text><rect x="16" y="160" width="328" height="12" rx="3" fill="#efe7db"/><rect x="49" y="156" width="131" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="202">AIG Direct</text><text x="344" y="202" text-anchor="end" font-weight="600">$5,000–$50,000</text><rect x="16" y="212" width="328" height="12" rx="3" fill="#efe7db"/><rect x="49" y="208" width="295" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="254">Globe Life</text><text x="344" y="254" text-anchor="end" font-weight="600">$5,000–$50,000</text><rect x="16" y="264" width="328" height="12" rx="3" fill="#efe7db"/><rect x="49" y="260" width="295" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="306">Colonial Penn</text><text x="344" y="306" text-anchor="end" font-weight="600">$400–$25,000</text><rect x="16" y="316" width="328" height="12" rx="3" fill="#efe7db"/><rect x="19" y="312" width="161" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="358">Lincoln Heritage</text><text x="344" y="358" text-anchor="end" font-weight="600">$5,000–$50,000</text><rect x="16" y="368" width="328" height="12" rx="3" fill="#efe7db"/><rect x="49" y="364" width="295" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="410">Gerber Life</text><text x="344" y="410" text-anchor="end" font-weight="600">$5,000–$25,000</text><rect x="16" y="420" width="328" height="12" rx="3" fill="#efe7db"/><rect x="49" y="416" width="131" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="460" font-size="11" fill="#6b5a4a">$0</text><text x="344" y="460" font-size="11" fill="#6b5a4a" text-anchor="end">$50,000</text>
 </g>
 </svg>

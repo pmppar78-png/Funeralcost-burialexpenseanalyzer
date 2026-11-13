@@ -459,23 +459,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -1230,6 +1257,7 @@ img {
   }
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 <body class="guide-body">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -1476,7 +1504,7 @@ img {
           </tbody>
         </table>
       </div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/casket-buying-guide-m.svg" /><img src="charts/casket-buying-guide.svg" alt="Range chart of Casket Buying Guide: Types, Prices, and How to Save. 20-Gauge Steel $1,200 to $3,500; 18-Gauge Steel $2,000 to $5,000; Copper / Bronze $3,000 to $10,000 or more; Pine / Poplar $800 to $2,000; Oak / Cherry $2,000 to $5,000; Mahogany / Walnut $3,500 to $10,000 or more; Biodegradable $50 to $3,000; Rental Casket $500 to $1,500." width="680" height="304" loading="lazy" decoding="async" /></picture><figcaption>Each bar spans the low-to-high range for one line of the Casket Buying Guide: Types, Prices, and How to Save table; Copper / Bronze has the widest upper end at $10,000 or more.</figcaption></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/casket-buying-guide.svg" alt="Range chart of Casket Buying Guide: Types, Prices, and How to Save. 20-Gauge Steel $1,200 to $3,500; 18-Gauge Steel $2,000 to $5,000; Copper / Bronze $3,000 to $10,000 or more; Pine / Poplar $800 to $2,000; Oak / Cherry $2,000 to $5,000; Mahogany / Walnut $3,500 to $10,000 or more; Biodegradable $50 to $3,000; Rental Casket $500 to $1,500." width="680" height="304" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/casket-buying-guide-m.svg" alt="" width="360" height="494" loading="lazy" decoding="async" aria-hidden="true" /><figcaption>Each bar spans the low-to-high range for one line of the Casket Buying Guide: Types, Prices, and How to Save table; Copper / Bronze has the widest upper end at $10,000 or more.</figcaption></figure>
       <p class="small muted">These price ranges are our estimates; the national median metal casket was $2,500 (NFDA 2023). Our <a href="methodology.html">methodology page</a> explains how we build the figures on this site.</p>
 
       <!-- ====== FTC Consumer Rights ====== -->

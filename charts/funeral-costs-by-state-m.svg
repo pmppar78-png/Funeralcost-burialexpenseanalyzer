@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="390" viewBox="0 0 360 390" role="img" aria-labelledby="t d">
 <title id="t">Funeral Costs by State: What Families Actually Pay in 2026</title>
 <desc id="d">Range chart of Funeral Costs by State: What Families Actually Pay in 2026. Northeast (NY, NJ, MA, CT, PA) $6,375 to $14,040; Southeast (FL, GA, NC, SC, VA) $5,025 to $10,660; Midwest (OH, IL, MI, IN, WI) $5,175 to $11,050; South (TX, LA, OK, AR, MS, AL) $4,425 to $9,360; West (CA, WA, OR, HI) $6,150 to $14,300; Mountain (AZ, NV, UT, CO, NM, ID, MT) $4,800 to $10,400.</desc>
-<rect width="360" height="370" fill="#ffffff"/>
+<rect width="360" height="390" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 <text x="16" y="26" font-size="16" font-weight="700">Funeral Costs by State: What</text>
 <text x="16" y="48" font-size="16" font-weight="700">Families Actually Pay in 2026</text>
-<text x="16" y="76">Northeast (NY, NJ, MA, CT, PA)</text><rect x="113" y="84" width="117" height="16" rx="3" fill="#8a6d3b"/><text x="236" y="97" font-weight="600">$6,375–$14,040</text>
-<text x="16" y="126">Southeast (FL, GA, NC, SC, VA)</text><rect x="93" y="134" width="86" height="16" rx="3" fill="#8a6d3b"/><text x="185" y="147" font-weight="600">$5,025–$10,660</text>
-<text x="16" y="176">Midwest (OH, IL, MI, IN, WI)</text><rect x="95" y="184" width="89" height="16" rx="3" fill="#8a6d3b"/><text x="190" y="197" font-weight="600">$5,175–$11,050</text>
-<text x="16" y="226">South (TX, LA, OK, AR, MS, AL)</text><rect x="83" y="234" width="76" height="16" rx="3" fill="#8a6d3b"/><text x="165" y="247" font-weight="600">$4,425–$9,360</text>
-<text x="16" y="276">West (CA, WA, OR, HI)</text><rect x="110" y="284" width="124" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="297" font-weight="600">$6,150–$14,300</text>
-<text x="16" y="326">Mountain (AZ, NV, UT, CO, NM, ID, MT)</text><rect x="89" y="334" width="86" height="16" rx="3" fill="#8a6d3b"/><text x="181" y="347" font-weight="600">$4,800–$10,400</text>
+<text x="16" y="76">Northeast (NY, NJ, MA, CT, …</text><text x="344" y="76" text-anchor="end" font-weight="600">$6,375–$14,040</text><rect x="16" y="86" width="328" height="12" rx="3" fill="#efe7db"/><rect x="162" y="82" width="176" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="128">Southeast (FL, GA, NC, SC, …</text><text x="344" y="128" text-anchor="end" font-weight="600">$5,025–$10,660</text><rect x="16" y="138" width="328" height="12" rx="3" fill="#efe7db"/><rect x="131" y="134" width="130" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="180">Midwest (OH, IL, MI, IN, WI)</text><text x="344" y="180" text-anchor="end" font-weight="600">$5,175–$11,050</text><rect x="16" y="190" width="328" height="12" rx="3" fill="#efe7db"/><rect x="135" y="186" width="134" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="232">South (TX, LA, OK, AR, MS, …</text><text x="344" y="232" text-anchor="end" font-weight="600">$4,425–$9,360</text><rect x="16" y="242" width="328" height="12" rx="3" fill="#efe7db"/><rect x="117" y="238" width="114" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="284">West (CA, WA, OR, HI)</text><text x="344" y="284" text-anchor="end" font-weight="600">$6,150–$14,300</text><rect x="16" y="294" width="328" height="12" rx="3" fill="#efe7db"/><rect x="157" y="290" width="187" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="336">Mountain (AZ, NV, UT, CO, N…</text><text x="344" y="336" text-anchor="end" font-weight="600">$4,800–$10,400</text><rect x="16" y="346" width="328" height="12" rx="3" fill="#efe7db"/><rect x="126" y="342" width="129" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="386" font-size="11" fill="#6b5a4a">$0</text><text x="344" y="386" font-size="11" fill="#6b5a4a" text-anchor="end">$14,300</text>
 </g>
 </svg>

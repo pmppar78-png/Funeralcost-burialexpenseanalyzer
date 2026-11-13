@@ -419,23 +419,50 @@ a:hover {
 }
 @media (max-width: 768px) {
   .site-header {
-    height: auto;
-    padding: var(--space-md) var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .brand-block,
+  .brand-text {
+    min-width: 0;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .brand-tagline {
+    display: none;
   }
   .mobile-nav-toggle {
     display: flex;
   }
   .site-nav {
     display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding-top: var(--space-sm);
+    padding: 0.5rem 0.75rem 0.75rem;
     border-top: 1px solid var(--warm-200);
-    margin-top: var(--space-sm);
+    margin-top: 0;
+    background: var(--bg-header);
+    z-index: 51;
+    box-shadow: 0 8px 16px rgba(74, 44, 23, 0.08);
   }
   .site-nav.nav-open {
     display: flex;
@@ -844,6 +871,7 @@ img {
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does probate cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on the state, the attorney's fee arrangement, and which assets must go through probate. In California, statutory attorney fees on a $500,000 estate come to $13,000, and the executor may claim the same amount, before court costs."}},{"@type":"Question","name":"Does a mortgage reduce California probate fees?","acceptedAnswer":{"@type":"Answer","text":"No. California's statutory fee base is the appraised value of estate property without subtracting mortgages or other debts (Cal. Prob. Code § 10810; Alameda County Superior Court). Take an estate whose only asset is a $750,000 house with a $500,000 mortgage: the fee base is $750,000, so the attorney's statutory fee is $18,000 (4,000 + 3,000 + 11,000), and the personal representative may claim another $18,000 under § 10800. If the fee were figured on the $250,000 of equity instead, each fee would be $8,000 (4,000 + 3,000 + 1,000). The gap matters most for a heavily mortgaged home; a house retitled into a funded living trust stays out of the probate estate, as described above. A personal representative can also negotiate a lower fee than the statutory amount."}},{"@type":"Question","name":"Can I avoid probate?","acceptedAnswer":{"@type":"Answer","text":"Assets with named beneficiaries, assets in a living trust, and jointly owned property with survivorship rights usually pass outside probate. Small estates may qualify for simplified procedures."}}]}
   </script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjZDVkZWQ3MS0yOGI4LTQ3MTItOTE2Mi0xYjY0Njc1Yzk3YmU=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+<style id="chart-src-swap">figure.data-chart img.chart-narrow{display:none;max-width:360px;width:100%;height:auto;margin:0 auto}figure.data-chart img.chart-wide{display:block;width:100%;max-width:680px;height:auto;margin:0 auto}@media (max-width:600px){figure.data-chart img.chart-wide{display:none}figure.data-chart img.chart-narrow{display:block}}</style>
 </head>
 
 <body class="guide-body">
@@ -923,7 +951,7 @@ img {
 <tr><td data-label="Estate value (fee base)">$300,000</td><td data-label="Attorney statutory fee">$9,000 (4,000 + 3,000 + 2,000)</td><td data-label="Executor statutory fee (same formula)">$9,000</td></tr>
 <tr><td data-label="Estate value (fee base)">$500,000</td><td data-label="Attorney statutory fee">$13,000 (4,000 + 3,000 + 6,000)</td><td data-label="Executor statutory fee (same formula)">$13,000</td></tr>
 <tr><td data-label="Estate value (fee base)">$1,000,000</td><td data-label="Attorney statutory fee">$23,000 (4,000 + 3,000 + 16,000)</td><td data-label="Executor statutory fee (same formula)">$23,000</td></tr></tbody></table></div>
-      <figure class="data-chart"><picture><source media="(max-width: 600px)" srcset="charts/probate-process-costs-m.svg" /><img src="charts/probate-process-costs.svg" alt="Horizontal bar chart of Probate Costs and Timelines: A Guide for Families. $300,000 $9,000; $500,000 $13,000; $1,000,000 $23,000." width="680" height="154" loading="lazy" decoding="async" /></picture><figcaption>The bars show the executor statutory fee (same formula) column of the Probate Costs and Timelines: A Guide for Families table; $1,000,000 is the largest item at $23,000.</figcaption></figure>
+      <figure class="data-chart"><img class="chart-wide" src="charts/probate-process-costs.svg" alt="Horizontal bar chart of Probate Costs and Timelines: A Guide for Families. $300,000 $9,000; $500,000 $13,000; $1,000,000 $23,000." width="680" height="154" loading="lazy" decoding="async" /><img class="chart-narrow" src="charts/probate-process-costs-m.svg" alt="" width="360" height="234" loading="lazy" decoding="async" aria-hidden="true" /><figcaption>The bars show the executor statutory fee (same formula) column of the Probate Costs and Timelines: A Guide for Families table; $1,000,000 is the largest item at $23,000.</figcaption></figure>
 <p>Because the base ignores debt, a $500,000 house with a $400,000 mortgage still produces a $13,000 attorney fee. Our arithmetic is from the statute; it excludes court costs and any "extraordinary" fees a court may approve.</p>
 <h2 id="small-estates">Small-Estate Shortcuts</h2>
 <p>Most states offer a simplified process for smaller estates. In California, for deaths on or after April 1, 2025, personal property up to $208,850 can generally be collected with a small-estate affidavit instead of full probate (<a href="https://courts.ca.gov/system/files/file/probate-code-890-adjusted-amounts.pdf" target="_blank" rel="noopener">Judicial Council of California</a>). Other states' limits and rules differ; your county probate court's self-help page is the best place to check.</p>

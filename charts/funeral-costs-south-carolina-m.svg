@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="370" viewBox="0 0 360 370" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="390" viewBox="0 0 360 390" role="img" aria-labelledby="t d">
 <title id="t">Estimated South Carolina funeral charges, 2026</title>
 <desc id="d">Horizontal bar chart of Estimated South Carolina funeral charges, 2026. Traditional funeral with burial $6,700; Funeral with cremation $5,400; Direct cremation $1,600; Cemetery / burial plot $3,000; Embalming $670; Casket $2,010.</desc>
-<rect width="360" height="370" fill="#ffffff"/>
+<rect width="360" height="390" fill="#ffffff"/>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#2b2b2b">
 <text x="16" y="26" font-size="16" font-weight="700">Estimated South Carolina funeral</text>
 <text x="16" y="48" font-size="16" font-weight="700">charges, 2026</text>
-<text x="16" y="76">Traditional funeral with burial</text><rect x="16" y="84" width="218" height="16" rx="3" fill="#8a6d3b"/><text x="240" y="97" font-weight="600">$6,700</text>
-<text x="16" y="126">Funeral with cremation</text><rect x="16" y="134" width="176" height="16" rx="3" fill="#8a6d3b"/><text x="198" y="147" font-weight="600">$5,400</text>
-<text x="16" y="176">Direct cremation</text><rect x="16" y="184" width="52" height="16" rx="3" fill="#8a6d3b"/><text x="74" y="197" font-weight="600">$1,600</text>
-<text x="16" y="226">Cemetery / burial plot</text><rect x="16" y="234" width="98" height="16" rx="3" fill="#8a6d3b"/><text x="120" y="247" font-weight="600">$3,000</text>
-<text x="16" y="276">Embalming</text><rect x="16" y="284" width="22" height="16" rx="3" fill="#8a6d3b"/><text x="44" y="297" font-weight="600">$670</text>
-<text x="16" y="326">Casket</text><rect x="16" y="334" width="65" height="16" rx="3" fill="#8a6d3b"/><text x="87" y="347" font-weight="600">$2,010</text>
+<text x="16" y="76">Traditional funeral with bu…</text><text x="344" y="76" text-anchor="end" font-weight="600">$6,700</text><rect x="16" y="82" width="328" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="128">Funeral with cremation</text><text x="344" y="128" text-anchor="end" font-weight="600">$5,400</text><rect x="16" y="134" width="264" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="180">Direct cremation</text><text x="344" y="180" text-anchor="end" font-weight="600">$1,600</text><rect x="16" y="186" width="78" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="232">Cemetery / burial plot</text><text x="344" y="232" text-anchor="end" font-weight="600">$3,000</text><rect x="16" y="238" width="147" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="284">Embalming</text><text x="344" y="284" text-anchor="end" font-weight="600">$670</text><rect x="16" y="290" width="33" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="336">Casket</text><text x="344" y="336" text-anchor="end" font-weight="600">$2,010</text><rect x="16" y="342" width="98" height="16" rx="3" fill="#8a6d3b"/>
+<text x="16" y="386" font-size="11" fill="#6b5a4a">$0</text><text x="344" y="386" font-size="11" fill="#6b5a4a" text-anchor="end">$6,700</text>
 </g>
 </svg>

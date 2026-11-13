@@ -5,8 +5,8 @@
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
 <text x="16" y="28" font-size="16" font-weight="700">Crowdfunding for Funeral Costs: Platforms, Fees and Tips</text>
 <line x1="230" y1="48" x2="230" y2="142" stroke="#bbbbbb"/>
-<text x="222" y="67" text-anchor="end">$5,000</text><rect x="230" y="53" width="157" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="67">$4,840</text>
-<text x="222" y="97" text-anchor="end">$5,000</text><rect x="230" y="83" width="156" height="20" rx="3" fill="#8a6d3b"/><text x="392" y="97">$4,795</text>
-<text x="222" y="127" text-anchor="end">$10,000</text><rect x="230" y="113" width="314" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="127">$9,680</text>
+<text x="222" y="67" text-anchor="end">$5,000</text><rect x="230" y="53" width="152" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="67" text-anchor="end">$4,840</text>
+<text x="222" y="97" text-anchor="end">$5,000</text><rect x="230" y="83" width="151" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="97" text-anchor="end">$4,795</text>
+<text x="222" y="127" text-anchor="end">$10,000</text><rect x="230" y="113" width="304" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="127" text-anchor="end">$9,680</text>
 </g>
 </svg>

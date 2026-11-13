@@ -5,12 +5,12 @@
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
 <text x="16" y="28" font-size="16" font-weight="700">Buddhist Funeral Cost Estimates (2026)</text>
 <line x1="230" y1="48" x2="230" y2="262" stroke="#bbbbbb"/>
-<text x="222" y="67" text-anchor="end">Cremation or burial service</text><rect x="309" y="53" width="235" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="67">$1,500–$6,000</text>
-<text x="222" y="97" text-anchor="end">Funeral home facility</text><rect x="282" y="83" width="105" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="97">$1,000–$3,000</text>
-<text x="222" y="127" text-anchor="end">Casket or container</text><rect x="256" y="113" width="131" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="127">$500–$3,000</text>
-<text x="222" y="157" text-anchor="end">Memorial altar setup</text><rect x="235" y="143" width="21" height="20" rx="3" fill="#8a6d3b"/><text x="262" y="157">$100–$500</text>
-<text x="222" y="187" text-anchor="end">Flowers, incense, offerings</text><rect x="240" y="173" width="32" height="20" rx="3" fill="#8a6d3b"/><text x="278" y="187">$200–$800</text>
-<text x="222" y="217" text-anchor="end">Memorial ceremonies (49 days)</text><rect x="256" y="203" width="79" height="20" rx="3" fill="#8a6d3b"/><text x="341" y="217">$500–$2,000</text>
-<text x="222" y="247" text-anchor="end">Urn or columbarium niche</text><rect x="235" y="233" width="152" height="20" rx="3" fill="#8a6d3b"/><text x="393" y="247">$100–$3,000</text>
+<text x="222" y="67" text-anchor="end">Cremation or burial service</text><rect x="230" y="57" width="304" height="12" rx="3" fill="#efe7db"/><rect x="306" y="53" width="228" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="67" text-anchor="end">$1,500–$6,000</text>
+<text x="222" y="97" text-anchor="end">Funeral home facility</text><rect x="230" y="87" width="304" height="12" rx="3" fill="#efe7db"/><rect x="281" y="83" width="101" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="97" text-anchor="end">$1,000–$3,000</text>
+<text x="222" y="127" text-anchor="end">Casket or container</text><rect x="230" y="117" width="304" height="12" rx="3" fill="#efe7db"/><rect x="255" y="113" width="127" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="127" text-anchor="end">$500–$3,000</text>
+<text x="222" y="157" text-anchor="end">Memorial altar setup</text><rect x="230" y="147" width="304" height="12" rx="3" fill="#efe7db"/><rect x="235" y="143" width="20" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="157" text-anchor="end">$100–$500</text>
+<text x="222" y="187" text-anchor="end">Flowers, incense, offerings</text><rect x="230" y="177" width="304" height="12" rx="3" fill="#efe7db"/><rect x="240" y="173" width="31" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="187" text-anchor="end">$200–$800</text>
+<text x="222" y="217" text-anchor="end">Memorial ceremonies (49 days)</text><rect x="230" y="207" width="304" height="12" rx="3" fill="#efe7db"/><rect x="255" y="203" width="76" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="217" text-anchor="end">$500–$2,000</text>
+<text x="222" y="247" text-anchor="end">Urn or columbarium niche</text><rect x="230" y="237" width="304" height="12" rx="3" fill="#efe7db"/><rect x="235" y="233" width="147" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="247" text-anchor="end">$100–$3,000</text>
 </g>
 </svg>

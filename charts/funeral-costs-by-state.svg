@@ -5,11 +5,11 @@
 <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#2b2b2b">
 <text x="16" y="28" font-size="16" font-weight="700">Funeral Costs by State: What Families Actually Pay in 2026</text>
 <line x1="230" y1="48" x2="230" y2="232" stroke="#bbbbbb"/>
-<text x="222" y="67" text-anchor="end">Northeast (NY, NJ, MA, CT, PA)</text><rect x="370" y="53" width="168" height="20" rx="3" fill="#8a6d3b"/><text x="544" y="67">$6,375–$14,040</text>
-<text x="222" y="97" text-anchor="end">Southeast (FL, GA, NC, SC, VA)</text><rect x="340" y="83" width="124" height="20" rx="3" fill="#8a6d3b"/><text x="470" y="97">$5,025–$10,660</text>
-<text x="222" y="127" text-anchor="end">Midwest (OH, IL, MI, IN, WI)</text><rect x="344" y="113" width="129" height="20" rx="3" fill="#8a6d3b"/><text x="479" y="127">$5,175–$11,050</text>
-<text x="222" y="157" text-anchor="end">South (TX, LA, OK, AR, MS, AL)</text><rect x="327" y="143" width="109" height="20" rx="3" fill="#8a6d3b"/><text x="442" y="157">$4,425–$9,360</text>
-<text x="222" y="187" text-anchor="end">West (CA, WA, OR, HI)</text><rect x="365" y="173" width="179" height="20" rx="3" fill="#8a6d3b"/><text x="550" y="187">$6,150–$14,300</text>
-<text x="222" y="217" text-anchor="end">Mountain (AZ, NV, UT, CO, NM, …</text><rect x="335" y="203" width="123" height="20" rx="3" fill="#8a6d3b"/><text x="464" y="217">$4,800–$10,400</text>
+<text x="222" y="67" text-anchor="end">Northeast (NY, NJ, MA, CT, PA)</text><rect x="230" y="57" width="304" height="12" rx="3" fill="#efe7db"/><rect x="366" y="53" width="162" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="67" text-anchor="end">$6,375–$14,040</text>
+<text x="222" y="97" text-anchor="end">Southeast (FL, GA, NC, SC, VA)</text><rect x="230" y="87" width="304" height="12" rx="3" fill="#efe7db"/><rect x="337" y="83" width="120" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="97" text-anchor="end">$5,025–$10,660</text>
+<text x="222" y="127" text-anchor="end">Midwest (OH, IL, MI, IN, WI)</text><rect x="230" y="117" width="304" height="12" rx="3" fill="#efe7db"/><rect x="340" y="113" width="125" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="127" text-anchor="end">$5,175–$11,050</text>
+<text x="222" y="157" text-anchor="end">South (TX, LA, OK, AR, MS, AL)</text><rect x="230" y="147" width="304" height="12" rx="3" fill="#efe7db"/><rect x="324" y="143" width="105" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="157" text-anchor="end">$4,425–$9,360</text>
+<text x="222" y="187" text-anchor="end">West (CA, WA, OR, HI)</text><rect x="230" y="177" width="304" height="12" rx="3" fill="#efe7db"/><rect x="361" y="173" width="173" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="187" text-anchor="end">$6,150–$14,300</text>
+<text x="222" y="217" text-anchor="end">Mountain (AZ, NV, UT, CO, NM, …</text><rect x="230" y="207" width="304" height="12" rx="3" fill="#efe7db"/><rect x="332" y="203" width="119" height="20" rx="3" fill="#8a6d3b"/><text x="668" y="217" text-anchor="end">$4,800–$10,400</text>
 </g>
 </svg>
