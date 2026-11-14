@@ -2843,12 +2843,23 @@ const consolidationRules = Object.entries(CONSOLIDATED).flatMap(([from, to]) => 
   `/${from.slice(0, -5)}    /${to}    301!`,
 ]);
 // Retired/mistyped URLs that Google reported as 404: send each to the
-// closest real page. The FAQ lives on the home page.
+// closest real page in a single hop (extensionless and trailing-slash
+// variants included). The FAQ lives on the home page; redirect to /
+// rather than /#faq so the Location header has no fragment (a hash
+// destination is a Search Console redirect error).
 const notFoundRules = [
-  '/faq.html    /#faq    301!',
+  '/faq.html    /    301!',
+  '/faq    /    301!',
+  '/faq/    /    301!',
   '/funeral-costs-west-vinyl.html    /funeral-costs-west-virginia.html    301!',
+  '/funeral-costs-west-vinyl    /funeral-costs-west-virginia.html    301!',
+  '/funeral-costs-west-vinyl/    /funeral-costs-west-virginia.html    301!',
   '/minneapolis-burial-costs.html    /burial-costs-minnesota.html    301!',
+  '/minneapolis-burial-costs    /burial-costs-minnesota.html    301!',
+  '/minneapolis-burial-costs/    /burial-costs-minnesota.html    301!',
   '/ohio.html    /funeral-costs-ohio.html    301!',
+  '/ohio    /funeral-costs-ohio.html    301!',
+  '/ohio/    /funeral-costs-ohio.html    301!',
 ];
 const redirectRules = notFoundRules.concat(consolidationRules).concat(allSitemapPages
   .filter(p => p !== 'index.html' && p.endsWith('.html'))

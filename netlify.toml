@@ -151,6 +151,187 @@
   status = 301
   force = true
 
+# www / Netlify-subdomain paths that also 301 on the canonical host
+# must be collapsed here, before the generic splats below, so they are
+# a single hop to the final page (avoids Search Console redirect errors).
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/faq.html"
+  to = "https://funeralcostanalyzer.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/faq"
+  to = "https://funeralcostanalyzer.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/faq/"
+  to = "https://funeralcostanalyzer.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/funeral-costs-west-vinyl.html"
+  to = "https://funeralcostanalyzer.com/funeral-costs-west-virginia.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/funeral-costs-west-vinyl"
+  to = "https://funeralcostanalyzer.com/funeral-costs-west-virginia.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/funeral-costs-west-vinyl/"
+  to = "https://funeralcostanalyzer.com/funeral-costs-west-virginia.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/minneapolis-burial-costs.html"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/minneapolis-burial-costs"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/minneapolis-burial-costs/"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/ohio.html"
+  to = "https://funeralcostanalyzer.com/funeral-costs-ohio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/ohio"
+  to = "https://funeralcostanalyzer.com/funeral-costs-ohio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/ohio/"
+  to = "https://funeralcostanalyzer.com/funeral-costs-ohio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/burial-costs-minneapolis.html"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/burial-costs-minneapolis"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.funeralcostanalyzer.com/burial-costs-minneapolis/"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/faq.html"
+  to = "https://funeralcostanalyzer.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/faq"
+  to = "https://funeralcostanalyzer.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/faq/"
+  to = "https://funeralcostanalyzer.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/funeral-costs-west-vinyl.html"
+  to = "https://funeralcostanalyzer.com/funeral-costs-west-virginia.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/funeral-costs-west-vinyl"
+  to = "https://funeralcostanalyzer.com/funeral-costs-west-virginia.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/funeral-costs-west-vinyl/"
+  to = "https://funeralcostanalyzer.com/funeral-costs-west-virginia.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/minneapolis-burial-costs.html"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/minneapolis-burial-costs"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/minneapolis-burial-costs/"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/ohio.html"
+  to = "https://funeralcostanalyzer.com/funeral-costs-ohio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/ohio"
+  to = "https://funeralcostanalyzer.com/funeral-costs-ohio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/ohio/"
+  to = "https://funeralcostanalyzer.com/funeral-costs-ohio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/burial-costs-minneapolis.html"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/burial-costs-minneapolis"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://funeralcostanalyzer.netlify.app/burial-costs-minneapolis/"
+  to = "https://funeralcostanalyzer.com/burial-costs-minnesota.html"
+  status = 301
+  force = true
 # www → non-www (HTTPS is forced by Netlify automatically)
 [[redirects]]
   from = "https://www.funeralcostanalyzer.com/*"
