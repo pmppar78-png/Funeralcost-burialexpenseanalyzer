@@ -36,6 +36,7 @@ function cremationRules(states) {
   }).join('\n            ');
   return `<h2 id="state-rules">Cremation Waiting Periods and Regulators by State</h2>
       <p>Price is only half of planning a cremation; the other half is timing. ${h48.length} states (${list(h48)}) make families wait 48 hours after death, ${h24.length} set a 24-hour minimum${h12.length ? `, and ${list(h12)} uses 12 hours` : ''}. The other ${none.length} set no fixed wait, but that rarely means same-day cremation: a coroner, medical examiner or local registrar still has to issue a permit, and the next of kin or authorized agent has to sign. Some of the timed states let a medical examiner or court waive the wait, so the citation in each row is the place to check.</p>
+      <p>Indiana families weighing that 48-hour cremation wait against a full service can also use the <a href="funeral-costs-indiana.html">Indiana funeral cost page</a>, which sets the $1,600 direct-cremation figure next to the $6,900 traditional-service estimate.</p>
       <p>The last column names the state office that licenses funeral homes and crematories. It is the right place to confirm a provider&rsquo;s license or to file a complaint about pricing.</p>
       <div class="cost-table-wrap">
         <table class="cost-table">

@@ -72,6 +72,9 @@ function neighborBlock(s, pageType, states) {
     else if (pageType === 'cremation') intro = `Direct cremation in Rhode Island is estimated at ${money(s.dc)}, with a cremation rate of about ${rate(s.cr)}%; the state's only two neighbors, Connecticut and Massachusetts, are listed below for comparison.`;
     else intro = `Families near the Rhode Island line can also price cemeteries in Connecticut or Massachusetts, the state's only two neighbors; the Rhode Island plot estimate is ${money(s.b)}.`;
   }
+  if (s.abbr === 'OH' && pageType === 'burial') {
+    intro = `Families arranging a burial in Ohio who also need Indiana's 2026 service and direct-cremation planning figures ($6,900 and $1,600) can use the <a href="funeral-costs-indiana.html">Indiana funeral cost guide</a>, along with that state's cemetery charges.`;
+  }
   const h3 = island ? `${label} Costs in the Pacific Coast States` : `${label} Costs in Bordering States`;
   return `<div class="related-guides"><h3>${h3}</h3>${intro ? `<p>${intro}</p>` : ''}<ul>${ns.map(n => `<li><a href="${prefix}-${n.slug}.html">${n.name}</a>: ${item(n)}</li>`).join('')}</ul></div>`;
 }
