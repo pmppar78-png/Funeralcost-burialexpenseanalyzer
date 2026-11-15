@@ -156,10 +156,6 @@ a:hover {
   left: var(--space-md);
   z-index: 100;
   padding: var(--space-sm) var(--space-lg);
-  min-height: 44px;
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
   background: var(--brown-800);
   color: #fff;
   font-size: 0.875rem;
@@ -259,13 +255,9 @@ a:hover {
   cursor: pointer;
   padding: var(--space-sm);
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 5px;
   order: 1;
   margin-left: auto;
-  min-width: 44px;
-  min-height: 44px;
 }
 .hamburger-line {
   display: block;
@@ -374,9 +366,6 @@ a:hover {
   border-radius: 50%;
   background: var(--gold-400);
 }
-.calculator-button {
-  margin-top: var(--space-sm);
-}
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -450,10 +439,6 @@ a:hover {
     width: 28px;
     height: 28px;
   }
-  .brand-accent svg {
-    width: 18px;
-    height: 18px;
-  }
   .brand-title {
     font-size: 0.82rem;
     line-height: 1.2;
@@ -466,8 +451,6 @@ a:hover {
   }
   .mobile-nav-toggle {
     display: flex;
-    flex-shrink: 0;
-    margin-left: auto;
   }
   .site-nav {
     display: none;
@@ -488,9 +471,6 @@ a:hover {
   }
   .site-nav.nav-open {
     display: flex;
-  }
-  .index-full-table thead th {
-    top: 52px;
   }
   .nav-link {
     width: 100%;
@@ -626,8 +606,7 @@ a:hover {
 }
 @media print {
   .site-header, .site-footer, .site-nav,
-  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary,
-  .calculator-button {
+  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary {
     display: none !important;
   }
   body {
@@ -1224,162 +1203,6 @@ img {
 @media (max-width: 600px) {
   body {
     padding-bottom: 96px;
-  }
-}
-figure.data-chart {
-  margin: var(--space-lg) 0;
-}
-figure.data-chart img {
-  display: block;
-  width: 100%;
-  max-width: 680px;
-  height: auto;
-  margin: 0 auto;
-}
-figure.data-chart img.chart-narrow {
-  display: none;
-  max-width: 360px;
-}
-@media (max-width: 600px) {
-  figure.data-chart img.chart-wide {
-    display: none;
-  }
-  figure.data-chart img.chart-narrow {
-    display: block;
-  }
-}
-@media (max-width: 480px) {
-  .site-header {
-    height: auto;
-    min-height: 48px;
-    padding: 0.3rem 0.7rem;
-    flex-wrap: nowrap;
-    gap: 0.35rem;
-  }
-  .brand-accent {
-    width: 28px;
-    height: 28px;
-  }
-  .brand-accent svg {
-    width: 18px;
-    height: 18px;
-  }
-  .brand-title {
-    font-size: 0.8rem;
-    line-height: 1.15;
-  }
-  .brand-tagline {
-    display: none;
-  }
-  .mobile-nav-toggle {
-    width: 44px;
-    height: 44px;
-    margin-left: auto;
-  }
-  .guide-table-wrapper,
-  .table-scroll {
-    overflow-x: visible;
-    border: 0;
-    padding: 0;
-  }
-  .guide-table-wrapper table,
-  .table-scroll table,
-  table.guide-table,
-  table.index-full-table,
-  table.index-regional-table,
-  table.index-inflation-table {
-    display: block;
-    width: 100%;
-    border: 0;
-  }
-  .guide-table-wrapper thead,
-  .table-scroll thead,
-  table.guide-table thead,
-  table.index-full-table thead,
-  table.index-regional-table thead,
-  table.index-inflation-table thead {
-    display: none;
-  }
-  .guide-table-wrapper tbody,
-  .table-scroll tbody,
-  table.guide-table tbody,
-  table.index-full-table tbody,
-  table.index-regional-table tbody,
-  table.index-inflation-table tbody,
-  .guide-table-wrapper tr,
-  .table-scroll tr,
-  table.guide-table tr,
-  table.index-full-table tr,
-  table.index-regional-table tr,
-  table.index-inflation-table tr {
-    display: block;
-    width: 100%;
-  }
-  .guide-table-wrapper tr,
-  .table-scroll tr,
-  table.guide-table tbody tr,
-  table.index-full-table tbody tr,
-  table.index-regional-table tbody tr,
-  table.index-inflation-table tbody tr {
-    margin: 0 0 0.75rem;
-    padding: 0.55rem 0.7rem;
-    border: 1px solid var(--border-card, #e4d9cc);
-    border-radius: 8px;
-    background: var(--bg-card, #fff);
-  }
-  .guide-table-wrapper td,
-  .table-scroll td,
-  table.guide-table td,
-  table.index-full-table td,
-  table.index-regional-table td,
-  table.index-inflation-table td {
-    display: block;
-    overflow-wrap: anywhere;
-    min-width: 0;
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    border: 0;
-    border-bottom: 1px solid var(--warm-150, #eee);
-    padding: 0.35rem 0;
-    text-align: left;
-    white-space: normal;
-  }
-  .guide-table-wrapper td:last-child,
-  .table-scroll td:last-child,
-  table.guide-table td:last-child,
-  table.index-full-table td:last-child,
-  table.index-regional-table td:last-child,
-  table.index-inflation-table td:last-child {
-    border-bottom: 0;
-  }
-  .guide-table-wrapper td::before,
-  .table-scroll td::before,
-  table.guide-table td::before,
-  table.index-full-table td::before,
-  table.index-regional-table td::before,
-  table.index-inflation-table td::before {
-    content: attr(data-label);
-    display: block;
-    font-weight: 600;
-    color: var(--brown-700, #4a2c17);
-    text-align: left;
-    text-transform: none;
-    letter-spacing: 0;
-    margin-bottom: 0.15rem;
-  }
-  .guide-table-wrapper td:not([data-label])::before,
-  .table-scroll td:not([data-label])::before,
-  table.guide-table td:not([data-label])::before,
-  table.index-full-table td:not([data-label])::before,
-  table.index-regional-table td:not([data-label])::before,
-  table.index-inflation-table td:not([data-label])::before {
-    content: none;
-  }
-  .guide-table-wrapper::after,
-  .table-scroll::after {
-    content: none;
-    display: none;
   }
 }
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>

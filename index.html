@@ -166,10 +166,6 @@ a:hover {
   left: var(--space-md);
   z-index: 100;
   padding: var(--space-sm) var(--space-lg);
-  min-height: 44px;
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
   background: var(--brown-800);
   color: #fff;
   font-size: 0.875rem;
@@ -269,13 +265,9 @@ a:hover {
   cursor: pointer;
   padding: var(--space-sm);
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 5px;
   order: 1;
   margin-left: auto;
-  min-width: 44px;
-  min-height: 44px;
 }
 .hamburger-line {
   display: block;
@@ -481,6 +473,41 @@ a:hover {
   color: var(--gold-600);
   flex-shrink: 0;
 }
+
+.popular-tools {
+  margin: 0.75rem 0 1.25rem;
+  padding: 0.85rem 1rem;
+  background: #f4f1ec;
+  border-radius: 6px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.popular-tools-heading {
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin: 0 0 0.55rem;
+  font-weight: 650;
+}
+.popular-tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.popular-tools-list li {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+.popular-tools-list a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding: 0.2rem 0;
+}
+
 .why-exists {
   margin-top: var(--space-xl);
   padding: var(--space-lg) var(--space-xl);
@@ -1032,10 +1059,6 @@ a:hover {
     width: 28px;
     height: 28px;
   }
-  .brand-accent svg {
-    width: 18px;
-    height: 18px;
-  }
   .brand-title {
     font-size: 0.82rem;
     line-height: 1.2;
@@ -1048,8 +1071,6 @@ a:hover {
   }
   .mobile-nav-toggle {
     display: flex;
-    flex-shrink: 0;
-    margin-left: auto;
   }
   .site-nav {
     display: none;
@@ -1948,144 +1969,6 @@ img {
     padding-bottom: 96px;
   }
 }
-@media (max-width: 480px) {
-  .site-header {
-    height: auto;
-    min-height: 48px;
-    padding: 0.3rem 0.7rem;
-    flex-wrap: nowrap;
-    gap: 0.35rem;
-  }
-  .brand-accent {
-    width: 28px;
-    height: 28px;
-  }
-  .brand-accent svg {
-    width: 18px;
-    height: 18px;
-  }
-  .brand-title {
-    font-size: 0.8rem;
-    line-height: 1.15;
-  }
-  .brand-tagline {
-    display: none;
-  }
-  .mobile-nav-toggle {
-    width: 44px;
-    height: 44px;
-    margin-left: auto;
-  }
-  .cost-table-wrap {
-    overflow-x: visible;
-    border: 0;
-    padding: 0;
-  }
-  .cost-table-wrap table,
-  table.cost-table {
-    display: block;
-    width: 100%;
-    border: 0;
-  }
-  .cost-table-wrap caption,
-  table.cost-table caption {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    caption-side: top;
-    box-sizing: border-box;
-    text-align: left;
-  }
-  .cost-table-wrap thead,
-  table.cost-table thead {
-    display: none;
-  }
-  .cost-table-wrap tbody,
-  table.cost-table tbody,
-  .cost-table-wrap tr,
-  table.cost-table tr {
-    display: block;
-    width: 100%;
-  }
-  .cost-table-wrap tr,
-  table.cost-table tbody tr {
-    margin: 0 0 0.75rem;
-    padding: 0.55rem 0.7rem;
-    border: 1px solid var(--border-card, #e4d9cc);
-    border-radius: 8px;
-    background: var(--bg-card, #fff);
-  }
-  .cost-table-wrap td,
-  table.cost-table td {
-    display: block;
-    overflow-wrap: anywhere;
-    min-width: 0;
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    border: 0;
-    border-bottom: 1px solid var(--warm-150, #eee);
-    padding: 0.35rem 0;
-    text-align: left;
-    white-space: normal;
-  }
-  .cost-table-wrap td:last-child,
-  table.cost-table td:last-child {
-    border-bottom: 0;
-  }
-  .cost-table-wrap td::before,
-  table.cost-table td::before {
-    content: attr(data-label);
-    display: block;
-    font-weight: 600;
-    color: var(--brown-700, #4a2c17);
-    text-align: left;
-    text-transform: none;
-    letter-spacing: 0;
-    margin-bottom: 0.15rem;
-  }
-  .cost-table-wrap td:not([data-label])::before,
-  table.cost-table td:not([data-label])::before {
-    content: none;
-  }
-  .cost-table-wrap::after {
-    content: none;
-    display: none;
-  }
-}
-.popular-tools {
-  margin: 0.75rem 0 1.25rem;
-  padding: 0.85rem 1rem;
-  background: #f4f1ec;
-  border-radius: 6px;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-.popular-tools-heading {
-  font-size: 1.05rem;
-  line-height: 1.3;
-  margin: 0 0 0.55rem;
-  font-weight: 650;
-}
-.popular-tools-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.65rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.popular-tools-list li {
-  margin: 0;
-  min-width: 0;
-  max-width: 100%;
-}
-.popular-tools-list a {
-  display: inline-block;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  padding: 0.2rem 0;
-}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
 <script type="application/ld+json">
   {
@@ -2120,7 +2003,7 @@ img {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How this estimator works: data sources and methodology Cost ranges are compiled from publicly available data including NFDA consumer surveys (2021–2023), state funeral board price surveys, Funeral Consumers Alliance reports, and published General Price Lists. Many tools, including a final expenses calculator, start with national medians and average costs before applying regional adjustments; some also fill fields with national figures that may not reflect local prices. Regional adjustments are based on cost-of-living indices and metropolitan vs. rural pricing differentials. All figures represent typical ranges and are for illustrative purposes only; your actual costs will depend on the specific provider, location, and choices you make. Inflation is also considered when projecting current and future estimates. We update this data periodically; see the methodology page for the change log. For current pricing in your area, always request a General Price List directly from providers. Decision checklist: what affects the total Type of service (traditional, memorial only, direct cremation, or direct burial) Location (funeral home, house of worship, community hall, graveside) Body preparation (embalming, dressing, or minimal care) Casket or urn: rental and simpler options can save significantly Burial plot, niche, or scattering location plus cemetery fees Transportation for the deceased and family Optional extras: flowers, music, livestreaming, programs Some funeral home fees do not include third-party charges or other expenses, which can still affect the total cost. The free AI guide can walk through this checklist with you step by step. Payment Ideas Families Explore Funeral costs add up quickly. Here are common paths families research, not advice on what to do. Families arranging services without life insurance may also benefit from a guide to funeral costs when uninsured in 2026. Life insurance Policies can sometimes be assigned directly to the funeral home, and proceeds may help cover immediate funeral expenses when payment is due quickly. Savings & POD accounts Payable-on-death bank accounts or earmarked savings. Payment plans Some funeral homes or third-party companies offer short-term plans. Benefits Veterans, union, or employer-sponsored assistance may be available. Government aid State or county assistance for hardship situations. Community support Faith communities, mutual aid, or family fundraising. Many funeral homes require payment before services are rendered. The free AI guide can suggest questions to ask about each option. Eligibility decisions should be made with licensed professionals. Frequently asked questions How much does a funeral cost on average?",
+      "name": "How this estimator works: data sources and methodology Cost ranges are compiled from publicly available data including NFDA consumer surveys (2021–2023), state funeral board price surveys, Funeral Consumers Alliance reports, and published General Price Lists. Many tools, including a final expenses calculator, start with national medians and average costs before applying regional adjustments; some also fill fields with national figures that may not reflect local prices. Regional adjustments are based on cost-of-living indices and metropolitan vs. rural pricing differentials. All figures represent typical ranges and are for illustrative purposes only; your actual costs will depend on the specific provider, location, and choices you make. Inflation is also considered when projecting current and future estimates. We update this data periodically; see the methodology page for the change log. For current pricing in your area, always request a General Price List directly from providers. Decision checklist: what affects the total Type of service (traditional, memorial only, direct cremation, or direct burial) Location (funeral home, house of worship, community hall, graveside) Body preparation (embalming, dressing, or minimal care) Casket or urn: rental and simpler options can save significantly Burial plot, niche, or scattering location plus cemetery fees Transportation for the deceased and family Optional extras: flowers, music, livestreaming, programs Some funeral home fees do not include third-party charges or other expenses, which can still affect the total cost. The free AI guide can walk through this checklist with you step by step. Payment ideas families explore Funeral costs add up quickly. Here are common paths families research, not advice on what to do. Families arranging services without life insurance may also benefit from a guide to funeral costs when uninsured in 2026. Life insurance Policies can sometimes be assigned directly to the funeral home, and proceeds may help cover immediate funeral expenses when payment is due quickly. Savings & POD accounts Payable-on-death bank accounts or earmarked savings. Payment plans Some funeral homes or third-party companies offer short-term plans. Benefits Veterans, union, or employer-sponsored assistance may be available. Government aid State or county assistance for hardship situations. Community support Faith communities, mutual aid, or family fundraising. Many funeral homes require payment before services are rendered. The free AI guide can suggest questions to ask about each option. Eligibility decisions should be made with licensed professionals. Frequently asked questions How much does a funeral cost on average?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "The median cost of a funeral with viewing and burial is approximately $8,300; cremation averages around $6,280 (NFDA data). Costs vary widely by state and provider. Direct cremation costs about $2,600 to $2,750 nationally (NFDA 2023 medians: $2,645 when the family supplies the container, $2,750 when the funeral home does), though prices still vary by provider and area. Prices vary a lot by state, and some states cost less, so it helps to check your state's costs. Request itemized price lists from several local funeral homes; they're required by law to provide them, and transportation services can add significantly to the total."
@@ -3322,7 +3205,7 @@ img {
       </section>
 
       <p class="source-note">Sources &amp; review: The national cost figures on this page draw on the NFDA 2023 General Price List Study, the NFDA 2024 Cremation &amp; Burial Report, the CANA (Cremation Association of North America) 2024 Annual Report, the BLS Consumer Price Index: Funeral Services (CUUR0000SEGD02), CDC NCHS mortality data, the FTC Funeral Rule (16 CFR Part 453), the Funeral Consumers Alliance, the VA burial allowance (38 CFR § 3.1600) and the SSA lump-sum death payment (section 202(i) of the Social Security Act). Paul Paradis, Founder &amp; Editor, reviewed this home page on October 22, 2026; the national figures were updated October 2, 2026. Corrections: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>.</p>
-      <div class="related-guides crawl-priority-links"><h3>You May Also Need</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a></li><li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a></li><li><a href="funeral-cost-comparison-worksheet.html">Funeral Cost Comparison Worksheet</a></li><li><a href="funeral-cost-index-pdf.html">Funeral Cost Index PDF</a></li><li><a href="funeral-cost-widget.html">Funeral Cost Widget</a></li><li><a href="ftc-funeral-rule-guide.html">FTC Funeral Rule Guide</a></li><li><a href="questions-to-ask-funeral-home.html">Questions to Ask Funeral Homes</a></li></ul></div>
+      <div class="related-guides crawl-priority-links"><h3>You May Also Need</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="burial-costs-by-state.html">Burial Costs by State</a></li><li><a href="national-funeral-cost-index.html">National Funeral Cost Index</a></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a></li><li><a href="funeral-price-comparison.html">How to Compare Funeral Prices</a></li><li><a href="funeral-cost-comparison-worksheet.html">Funeral Cost Comparison Worksheet</a></li><li><a href="funeral-cost-index-pdf.html">Funeral Cost Index PDF</a></li><li><a href="funeral-cost-widget.html">Funeral Cost Widget</a></li><li><a href="ftc-funeral-rule-guide.html">FTC Funeral Rule Guide</a></li><li><a href="questions-to-ask-funeral-home.html">Questions to Ask Funeral Homes</a></li></ul></div>
   </main>
 
   <footer class="site-footer" role="contentinfo">

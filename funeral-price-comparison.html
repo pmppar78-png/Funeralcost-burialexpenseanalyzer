@@ -153,10 +153,6 @@ a:hover {
   left: var(--space-md);
   z-index: 100;
   padding: var(--space-sm) var(--space-lg);
-  min-height: 44px;
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
   background: var(--brown-800);
   color: #fff;
   font-size: 0.875rem;
@@ -256,13 +252,9 @@ a:hover {
   cursor: pointer;
   padding: var(--space-sm);
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 5px;
   order: 1;
   margin-left: auto;
-  min-width: 44px;
-  min-height: 44px;
 }
 .hamburger-line {
   display: block;
@@ -348,8 +340,28 @@ a:hover {
 .card:hover {
   box-shadow: var(--shadow-md);
 }
-.calculator-button {
-  margin-top: var(--space-sm);
+.checklist {
+  list-style: none;
+  padding-left: 0;
+  margin: var(--space-md) 0 0;
+}
+.checklist li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  margin-top: 0.5rem;
+  line-height: 1.8;
+}
+.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.6rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--gold-400);
 }
 .btn-primary {
   display: inline-flex;
@@ -445,10 +457,6 @@ a:hover {
     width: 28px;
     height: 28px;
   }
-  .brand-accent svg {
-    width: 18px;
-    height: 18px;
-  }
   .brand-title {
     font-size: 0.82rem;
     line-height: 1.2;
@@ -461,8 +469,6 @@ a:hover {
   }
   .mobile-nav-toggle {
     display: flex;
-    flex-shrink: 0;
-    margin-left: auto;
   }
   .site-nav {
     display: none;
@@ -636,8 +642,7 @@ a:hover {
 }
 @media print {
   .site-header, .site-footer, .site-nav,
-  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary, .btn-secondary,
-  .calculator-button {
+  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary, .btn-secondary {
     display: none !important;
   }
   body {
@@ -658,6 +663,9 @@ a:hover {
   h1, h2, h3 {
     color: #000;
     page-break-after: avoid;
+  }
+  .checklist li::before {
+    background: #000;
   }
   a[href]::after {
     content: " (" attr(href) ")";
@@ -767,12 +775,6 @@ a:hover {
 .footer-links a:hover {
   color: var(--gold-600);
   text-decoration: underline;
-}
-.cost-table-wrap {
-  overflow-x: auto;
-  margin: var(--space-lg) 0;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-card);
 }
 .cost-table {
   width: 100%;
@@ -994,148 +996,6 @@ img {
 @media (max-width: 600px) {
   body {
     padding-bottom: 96px;
-  }
-}
-figure.data-chart {
-  margin: var(--space-lg) 0;
-}
-figure.data-chart picture {
-  display: block;
-}
-figure.data-chart img {
-  display: block;
-  width: 100%;
-  max-width: 680px;
-  height: auto;
-  margin: 0 auto;
-}
-figure.data-chart img.chart-narrow {
-  display: none;
-  max-width: 360px;
-}
-@media (max-width: 600px) {
-  figure.data-chart img.chart-wide {
-    display: none;
-  }
-  figure.data-chart img.chart-narrow {
-    display: block;
-  }
-}
-@media (max-width: 480px) {
-  .site-header {
-    height: auto;
-    min-height: 48px;
-    padding: 0.3rem 0.7rem;
-    flex-wrap: nowrap;
-    gap: 0.35rem;
-  }
-  .brand-accent {
-    width: 28px;
-    height: 28px;
-  }
-  .brand-accent svg {
-    width: 18px;
-    height: 18px;
-  }
-  .brand-title {
-    font-size: 0.8rem;
-    line-height: 1.15;
-  }
-  .brand-tagline {
-    display: none;
-  }
-  .mobile-nav-toggle {
-    width: 44px;
-    height: 44px;
-    margin-left: auto;
-  }
-  .cost-table-wrap,
-  .table-scroll {
-    overflow-x: visible;
-    border: 0;
-    padding: 0;
-  }
-  .cost-table-wrap table,
-  .table-scroll table,
-  table.cost-table {
-    display: block;
-    width: 100%;
-    border: 0;
-  }
-  .cost-table-wrap caption,
-  .table-scroll caption,
-  table.cost-table caption {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    caption-side: top;
-    box-sizing: border-box;
-    text-align: left;
-  }
-  .cost-table-wrap thead,
-  .table-scroll thead,
-  table.cost-table thead {
-    display: none;
-  }
-  .cost-table-wrap tbody,
-  .table-scroll tbody,
-  table.cost-table tbody,
-  .cost-table-wrap tr,
-  .table-scroll tr,
-  table.cost-table tr {
-    display: block;
-    width: 100%;
-  }
-  .cost-table-wrap tr,
-  .table-scroll tr,
-  table.cost-table tbody tr {
-    margin: 0 0 0.75rem;
-    padding: 0.55rem 0.7rem;
-    border: 1px solid var(--border-card, #e4d9cc);
-    border-radius: 8px;
-    background: var(--bg-card, #fff);
-  }
-  .cost-table-wrap td,
-  .table-scroll td,
-  table.cost-table td {
-    display: block;
-    overflow-wrap: anywhere;
-    min-width: 0;
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    border: 0;
-    border-bottom: 1px solid var(--warm-150, #eee);
-    padding: 0.35rem 0;
-    text-align: left;
-    white-space: normal;
-  }
-  .cost-table-wrap td:last-child,
-  .table-scroll td:last-child,
-  table.cost-table td:last-child {
-    border-bottom: 0;
-  }
-  .cost-table-wrap td::before,
-  .table-scroll td::before,
-  table.cost-table td::before {
-    content: attr(data-label);
-    display: block;
-    font-weight: 600;
-    color: var(--brown-700, #4a2c17);
-    text-align: left;
-    text-transform: none;
-    letter-spacing: 0;
-    margin-bottom: 0.15rem;
-  }
-  .cost-table-wrap td:not([data-label])::before,
-  .table-scroll td:not([data-label])::before,
-  table.cost-table td:not([data-label])::before {
-    content: none;
-  }
-  .cost-table-wrap::after,
-  .table-scroll::after {
-    content: none;
-    display: none;
   }
 }
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
