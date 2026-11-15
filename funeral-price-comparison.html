@@ -3,18 +3,18 @@
 <head>
   <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/43f3bdab-b8ed-4589-b014-150c06f37c31.js"></script>
   <meta charset="UTF-8" />
-  <title>How to Compare Funeral Prices (2026) — Step-by-Step Guide</title>
+  <title>Funeral Home Prices Comparison 2026: Compare GPLs Line by Line</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="How to request General Price Lists, compare funeral homes line by line, and spot package markups before you sign anything." />
-  <meta name="last-modified" content="2026-10-24" />
-  <meta property="og:title" content="How to Compare Funeral Prices (2026) — Step-by-Step Guide" />
-  <meta property="og:description" content="How to request General Price Lists, compare funeral homes line by line, and spot package markups before you sign anything." />
+  <meta name="description" content="Request each funeral home's General Price List under the FTC Funeral Rule, then compare prices line by line against the 2023 NFDA medians on this page." />
+  <meta name="last-modified" content="2026-11-15" />
+  <meta property="og:title" content="Funeral Home Prices Comparison 2026: Compare GPLs Line by Line" />
+  <meta property="og:description" content="Request each funeral home's General Price List under the FTC Funeral Rule, then compare prices line by line against the 2023 NFDA medians on this page." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://funeralcostanalyzer.com/funeral-price-comparison.html" />
   <meta property="og:site_name" content="Funeral Cost &amp; Burial Expense Analyzer" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="How to Compare Funeral Prices (2026) — Step-by-Step Guide" />
-  <meta name="twitter:description" content="How to request General Price Lists, compare funeral homes line by line, and spot package markups before you sign anything." />
+  <meta name="twitter:title" content="Funeral Home Prices Comparison 2026: Compare GPLs Line by Line" />
+  <meta name="twitter:description" content="Request each funeral home's General Price List under the FTC Funeral Rule, then compare prices line by line against the 2023 NFDA medians on this page." />
   <meta property="og:image" content="https://funeralcostanalyzer.com/og-default.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -153,6 +153,10 @@ a:hover {
   left: var(--space-md);
   z-index: 100;
   padding: var(--space-sm) var(--space-lg);
+  min-height: 44px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
   background: var(--brown-800);
   color: #fff;
   font-size: 0.875rem;
@@ -252,9 +256,13 @@ a:hover {
   cursor: pointer;
   padding: var(--space-sm);
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   order: 1;
   margin-left: auto;
+  min-width: 44px;
+  min-height: 44px;
 }
 .hamburger-line {
   display: block;
@@ -340,28 +348,8 @@ a:hover {
 .card:hover {
   box-shadow: var(--shadow-md);
 }
-.checklist {
-  list-style: none;
-  padding-left: 0;
-  margin: var(--space-md) 0 0;
-}
-.checklist li {
-  position: relative;
-  padding-left: 1.5rem;
-  font-size: 0.9rem;
-  color: var(--text-body);
-  margin-top: 0.5rem;
-  line-height: 1.8;
-}
-.checklist li::before {
-  content: "";
-  position: absolute;
-  left: 0.15rem;
-  top: 0.6rem;
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  background: var(--gold-400);
+.calculator-button {
+  margin-top: var(--space-sm);
 }
 .btn-primary {
   display: inline-flex;
@@ -457,6 +445,10 @@ a:hover {
     width: 28px;
     height: 28px;
   }
+  .brand-accent svg {
+    width: 18px;
+    height: 18px;
+  }
   .brand-title {
     font-size: 0.82rem;
     line-height: 1.2;
@@ -469,6 +461,8 @@ a:hover {
   }
   .mobile-nav-toggle {
     display: flex;
+    flex-shrink: 0;
+    margin-left: auto;
   }
   .site-nav {
     display: none;
@@ -642,7 +636,8 @@ a:hover {
 }
 @media print {
   .site-header, .site-footer, .site-nav,
-  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary, .btn-secondary {
+  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary, .btn-secondary,
+  .calculator-button {
     display: none !important;
   }
   body {
@@ -663,9 +658,6 @@ a:hover {
   h1, h2, h3 {
     color: #000;
     page-break-after: avoid;
-  }
-  .checklist li::before {
-    background: #000;
   }
   a[href]::after {
     content: " (" attr(href) ")";
@@ -775,6 +767,12 @@ a:hover {
 .footer-links a:hover {
   color: var(--gold-600);
   text-decoration: underline;
+}
+.cost-table-wrap {
+  overflow-x: auto;
+  margin: var(--space-lg) 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
 }
 .cost-table {
   width: 100%;
@@ -998,9 +996,151 @@ img {
     padding-bottom: 96px;
   }
 }
+figure.data-chart {
+  margin: var(--space-lg) 0;
+}
+figure.data-chart picture {
+  display: block;
+}
+figure.data-chart img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  margin: 0 auto;
+}
+figure.data-chart img.chart-narrow {
+  display: none;
+  max-width: 360px;
+}
+@media (max-width: 600px) {
+  figure.data-chart img.chart-wide {
+    display: none;
+  }
+  figure.data-chart img.chart-narrow {
+    display: block;
+  }
+}
+@media (max-width: 480px) {
+  .site-header {
+    height: auto;
+    min-height: 48px;
+    padding: 0.3rem 0.7rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-accent svg {
+    width: 18px;
+    height: 18px;
+  }
+  .brand-title {
+    font-size: 0.8rem;
+    line-height: 1.15;
+  }
+  .brand-tagline {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+  }
+  .cost-table-wrap,
+  .table-scroll {
+    overflow-x: visible;
+    border: 0;
+    padding: 0;
+  }
+  .cost-table-wrap table,
+  .table-scroll table,
+  table.cost-table {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+  .cost-table-wrap caption,
+  .table-scroll caption,
+  table.cost-table caption {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    caption-side: top;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  .cost-table-wrap thead,
+  .table-scroll thead,
+  table.cost-table thead {
+    display: none;
+  }
+  .cost-table-wrap tbody,
+  .table-scroll tbody,
+  table.cost-table tbody,
+  .cost-table-wrap tr,
+  .table-scroll tr,
+  table.cost-table tr {
+    display: block;
+    width: 100%;
+  }
+  .cost-table-wrap tr,
+  .table-scroll tr,
+  table.cost-table tbody tr {
+    margin: 0 0 0.75rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--border-card, #e4d9cc);
+    border-radius: 8px;
+    background: var(--bg-card, #fff);
+  }
+  .cost-table-wrap td,
+  .table-scroll td,
+  table.cost-table td {
+    display: block;
+    overflow-wrap: anywhere;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid var(--warm-150, #eee);
+    padding: 0.35rem 0;
+    text-align: left;
+    white-space: normal;
+  }
+  .cost-table-wrap td:last-child,
+  .table-scroll td:last-child,
+  table.cost-table td:last-child {
+    border-bottom: 0;
+  }
+  .cost-table-wrap td::before,
+  .table-scroll td::before,
+  table.cost-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    color: var(--brown-700, #4a2c17);
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 0.15rem;
+  }
+  .cost-table-wrap td:not([data-label])::before,
+  .table-scroll td:not([data-label])::before,
+  table.cost-table td:not([data-label])::before {
+    content: none;
+  }
+  .cost-table-wrap::after,
+  .table-scroll::after {
+    content: none;
+    display: none;
+  }
+}
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"How to Compare Funeral Prices Step by Step","description":"How to request General Price Lists, compare funeral homes line by line, and spot package markups before you sign anything.","datePublished":"2026-01-15","dateModified":"2026-10-24","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/funeral-price-comparison.html"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"How to Compare Funeral Prices Step by Step","description":"Request each funeral home's General Price List under the FTC Funeral Rule, then compare prices line by line against the 2023 NFDA medians on this page.","datePublished":"2026-01-15","dateModified":"2026-11-15","author":{"@type":"Person","name":"Paul Paradis","jobTitle":"Founder & Editor","url":"https://funeralcostanalyzer.com/about.html"},"publisher":{"@type":"Organization","name":"FuneralCostAnalyzer","url":"https://funeralcostanalyzer.com/","founder":{"@type":"Person","name":"Paul Paradis"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://funeralcostanalyzer.com/funeral-price-comparison.html"}}
   </script>
 <script type="text/javascript"> var vglnk = {key: 'a57949e7c628565442d6687070befad4'}; (function(d, t) {function go() {var s = d.createElement(t); s.type = 'text/javascript';s.async = true; s.src = '//cdn.viglink.com/api/vglnk.js'; var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);} function idle() {if ('requestIdleCallback' in window) {requestIdleCallback(go, {timeout: 3000});} else {setTimeout(go, 1500);}} if (d.readyState === 'complete') {idle();} else {window.addEventListener('load', idle);}}(document, 'script')); </script>
   <script type="application/ld+json">
@@ -1119,7 +1259,7 @@ img {
       <h1>How to Compare Funeral Prices Step by Step</h1>
       <div class="article-meta">
         <span class="article-meta-item"><span class="article-meta-label">By:</span> <span class="article-meta-value"><a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</span></span>
-        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="2026-10-24">October 24, 2026</time></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="2026-11-15">November 15, 2026</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Last reviewed:</span> <span class="article-meta-value"><time datetime="2026-10-24">October 24, 2026</time></span></span>
         <span class="article-meta-item"><span class="article-meta-label">Sources:</span> <span class="article-meta-value"><a href="https://nfda.org" target="_blank" rel="nofollow noopener">NFDA</a>, <a href="https://www.funerals.org" target="_blank" rel="nofollow noopener">FCA</a>, Government Sources</span></span>
         <span class="article-meta-item"><span class="article-meta-label">Editorial:</span> <span class="article-meta-value"><a href="editorial-standards.html">Our Standards</a></span></span>
@@ -1222,7 +1362,32 @@ img {
 <p class="source-note">Sources for this section, checked October 22, 2026: <a href="https://content.nfda.org/news/media-center/nfda-news-releases/id/8134/2023-nfda-general-price-list-study-shows-inflation-increasing-faster-than-the-cost-of-a-funeral" target="_blank" rel="noopener">NFDA 2023 GPL release</a>; <a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-453" target="_blank" rel="noopener">16 CFR Part 453</a>. Educational only. Confirm the forms, fees, and eligibility discussed on How to Compare Funeral Prices Step by Step with the agency or a licensed professional.</p>
 
 </div>
-<h2 id="faq">Frequently Asked Questions</h2>
+<h2>How to Compare Funeral Home Prices</h2>
+      <p>Print or copy this sheet when two funeral homes have handed you their General Price Lists. The NFDA column restates the 2023 national medians already shown above; the Home A and Home B columns are blank so you can enter each home's charge for the same line.</p>
+      <div class="cost-table-wrap">
+        <table class="cost-table">
+          <caption>Fill in two funeral homes' GPL charges next to the 2023 NFDA national median</caption>
+          <thead>
+            <tr><th>Item</th><th>NFDA median</th><th>Home A</th><th>Home B</th></tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="Item">Non-declinable basic services fee</td><td data-label="NFDA median">$2,495</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Removal or transfer of remains</td><td data-label="NFDA median">$395</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Embalming</td><td data-label="NFDA median">$845</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Other preparation of the body</td><td data-label="NFDA median">$295</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Use of facilities and staff for viewing</td><td data-label="NFDA median">$475</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Use of facilities and staff for a ceremony</td><td data-label="NFDA median">$550</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Funeral with viewing and burial, metal casket, no vault</td><td data-label="NFDA median">$8,300</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Funeral with viewing and cremation</td><td data-label="NFDA median">$6,280</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Direct cremation, container from the family</td><td data-label="NFDA median">$2,645</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Direct cremation, container from the funeral home</td><td data-label="NFDA median">$2,750</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Metal burial casket (median on the GPL)</td><td data-label="NFDA median">$2,500</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+            <tr><td data-label="Item">Alternative cremation container</td><td data-label="NFDA median">$160</td><td data-label="Home A">&nbsp;</td><td data-label="Home B">&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
       <details class="faq-item"><summary>What is covered in this Compare Funeral Prices guide?</summary><div class="faq-answer"><p>This guide provides comprehensive, educational information about compare funeral prices including costs, options, consumer rights, and practical steps. It also explains common decisions involving the handling of remains, from burial and cremation to alternatives like donation. All information is for educational purposes only.</p></div></details>
       <details class="faq-item"><summary>How current is this information?</summary><div class="faq-answer"><p>This guide was last reviewed in March 2026. We regularly update our content based on the latest data from industry sources, government agencies, and consumer research.</p></div></details>
       <details class="faq-item"><summary>Where can I get personalized advice?</summary><div class="faq-answer"><p>For specific decisions about your situation, always consult with licensed professionals, such as attorneys for legal matters, financial advisors for insurance questions, and licensed funeral directors for service planning.</p></div></details>
