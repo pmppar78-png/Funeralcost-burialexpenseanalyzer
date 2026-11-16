@@ -239,7 +239,9 @@ function balancedDiv(html, start) {
 function visibleFaq(html) {
   const body = html.slice(html.indexOf('<body'));
   const out = [];
-  const re = /<summary[^>]*>([\s\S]*?)<\/summary>\s*(<div class="faq-answer">)|<h3 class="faq-question">([\s\S]*?)<\/h3>\s*(<div class="faq-answer">)/g;
+  // A <summary> with no faq-answer after it (an earlier <details> block on the
+  // homepage) must not swallow the text up to the next FAQ question.
+  const re = /<summary[^>]*>((?:(?!<summary\b)[\s\S])*?)<\/summary>\s*(<div class="faq-answer">)|<h3 class="faq-question">([\s\S]*?)<\/h3>\s*(<div class="faq-answer">)/g;
   let m;
   while ((m = re.exec(body))) {
     const ds = m.index + m[0].lastIndexOf('<div');
