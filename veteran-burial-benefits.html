@@ -3,26 +3,26 @@
 <head>
   <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/43f3bdab-b8ed-4589-b014-150c06f37c31.js"></script>
   <meta charset="UTF-8" />
-  <title>VA Burial Benefits: $1,032 or $2,000 in 2026, and How to Apply</title>
+  <title>VA Burial Benefits 2026: Does the VA Pay for Cremation?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="For deaths on or after Oct. 1, 2026, VA may pay $1,032 for burial and $1,032 for a plot if the death was not service-connected, or up to $2,000 if it was. Who qualifies and how to apply."
+    content="VA burial benefits 2026: up to $2,000 for a service-connected death, or $1,032 plus $1,032 for a plot. Cremation counts, and a national cemetery niche is free."
   />
-  <meta name="last-modified" content="2026-11-13" />
+  <meta name="last-modified" content="2026-11-16" />
   <link rel="canonical" href="https://funeralcostanalyzer.com/veteran-burial-benefits.html" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="VA Burial Benefits: $1,032 or $2,000 in 2026, and How to Apply" />
-  <meta property="og:description" content="For deaths on or after Oct. 1, 2026, VA may pay $1,032 for burial and $1,032 for a plot if the death was not service-connected, or up to $2,000 if it was. Who qualifies and how to apply." />
+  <meta property="og:title" content="VA Burial Benefits 2026: Does the VA Pay for Cremation?" />
+  <meta property="og:description" content="VA burial benefits 2026: up to $2,000 for a service-connected death, or $1,032 plus $1,032 for a plot. Cremation counts, and a national cemetery niche is free." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://funeralcostanalyzer.com/veteran-burial-benefits.html" />
   <meta property="og:site_name" content="Funeral Cost &amp; Burial Expense Analyzer" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="VA Burial Benefits: $1,032 or $2,000 in 2026, and How to Apply" />
-  <meta name="twitter:description" content="For deaths on or after Oct. 1, 2026, VA may pay $1,032 for burial and $1,032 for a plot if the death was not service-connected, or up to $2,000 if it was. Who qualifies and how to apply." />
+  <meta name="twitter:title" content="VA Burial Benefits 2026: Does the VA Pay for Cremation?" />
+  <meta name="twitter:description" content="VA burial benefits 2026: up to $2,000 for a service-connected death, or $1,032 plus $1,032 for a plot. Cremation counts, and a national cemetery niche is free." />
 
   <meta property="og:image" content="https://funeralcostanalyzer.com/og-default.png" />
   <meta property="og:image:width" content="1200" />
@@ -162,6 +162,10 @@ a:hover {
   left: var(--space-md);
   z-index: 100;
   padding: var(--space-sm) var(--space-lg);
+  min-height: 44px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
   background: var(--brown-800);
   color: #fff;
   font-size: 0.875rem;
@@ -261,9 +265,13 @@ a:hover {
   cursor: pointer;
   padding: var(--space-sm);
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   order: 1;
   margin-left: auto;
+  min-width: 44px;
+  min-height: 44px;
 }
 .hamburger-line {
   display: block;
@@ -342,6 +350,9 @@ a:hover {
 }
 .card:hover {
   box-shadow: var(--shadow-md);
+}
+.calculator-button {
+  margin-top: var(--space-sm);
 }
 .btn-primary {
   display: inline-flex;
@@ -479,6 +490,10 @@ a:hover {
     width: 28px;
     height: 28px;
   }
+  .brand-accent svg {
+    width: 18px;
+    height: 18px;
+  }
   .brand-title {
     font-size: 0.82rem;
     line-height: 1.2;
@@ -491,6 +506,8 @@ a:hover {
   }
   .mobile-nav-toggle {
     display: flex;
+    flex-shrink: 0;
+    margin-left: auto;
   }
   .site-nav {
     display: none;
@@ -619,14 +636,6 @@ a:hover {
   margin-bottom: var(--space-sm);
   line-height: 1.8;
 }
-.guide-intro {
-  font-size: 1rem;
-  color: var(--warm-600);
-  line-height: 1.85;
-  padding-bottom: var(--space-lg);
-  border-bottom: 1px solid var(--warm-200);
-  margin-bottom: var(--space-xl);
-}
 .guide-disclaimer {
   margin-top: var(--space-2xl);
   padding: var(--space-md) var(--space-lg);
@@ -719,7 +728,8 @@ a:hover {
 }
 @media print {
   .site-header, .site-footer, .site-nav,
-  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary, .guide-internal-links {
+  .mobile-nav-toggle, .skip-link, .nav-dropdown, .btn-primary,
+  .calculator-button, .guide-internal-links {
     display: none !important;
   }
   body {
@@ -977,9 +987,119 @@ a:hover {
     page-break-after: avoid;
   }
 }
+.rating {
+  color: var(--gold-500, #c49a52);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
 @media (max-width: 600px) {
   body {
     padding-bottom: 96px;
+  }
+}
+@media (max-width: 480px) {
+  .site-header {
+    height: auto;
+    min-height: 48px;
+    padding: 0.3rem 0.7rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+  }
+  .brand-accent {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-accent svg {
+    width: 18px;
+    height: 18px;
+  }
+  .brand-title {
+    font-size: 0.8rem;
+    line-height: 1.15;
+  }
+  .brand-tagline {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+  }
+  .guide-table-wrapper {
+    overflow-x: visible;
+    border: 0;
+    padding: 0;
+  }
+  .guide-table-wrapper table,
+  table.guide-table {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+  .guide-table-wrapper caption,
+  table.guide-table caption {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    caption-side: top;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  .guide-table-wrapper thead,
+  table.guide-table thead {
+    display: none;
+  }
+  .guide-table-wrapper tbody,
+  table.guide-table tbody,
+  .guide-table-wrapper tr,
+  table.guide-table tr {
+    display: block;
+    width: 100%;
+  }
+  .guide-table-wrapper tr,
+  table.guide-table tbody tr {
+    margin: 0 0 0.75rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--border-card, #e4d9cc);
+    border-radius: 8px;
+    background: var(--bg-card, #fff);
+  }
+  .guide-table-wrapper td,
+  table.guide-table td {
+    display: block;
+    overflow-wrap: anywhere;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid var(--warm-150, #eee);
+    padding: 0.35rem 0;
+    text-align: left;
+    white-space: normal;
+  }
+  .guide-table-wrapper td:last-child,
+  table.guide-table td:last-child {
+    border-bottom: 0;
+  }
+  .guide-table-wrapper td::before,
+  table.guide-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    color: var(--brown-700, #4a2c17);
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 0.15rem;
+  }
+  .guide-table-wrapper td:not([data-label])::before,
+  table.guide-table td:not([data-label])::before {
+    content: none;
+  }
+  .guide-table-wrapper::after {
+    content: none;
+    display: none;
   }
 }
 </style><link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="style.css" /></noscript>
@@ -990,116 +1110,92 @@ a:hover {
     "@type": "WebSite",
     "name": "Funeral Cost & Burial Expense Analyzer",
     "url": "https://funeralcostanalyzer.com/",
-    "description":"For deaths on or after Oct. 1, 2026, VA may pay $1,032 for burial and $1,032 for a plot if the death was not service-connected, or up to $2,000 if it was. Who qualifies and how to apply."
+    "description":"VA burial benefits 2026: up to $2,000 for a service-connected death, or $1,032 plus $1,032 for a plot. Cremation counts, and a national cemetery niche is free."
   }
   </script>
 <script type="text/javascript"> var vglnk = {key: 'a57949e7c628565442d6687070befad4'}; (function(d, t) {function go() {var s = d.createElement(t); s.type = 'text/javascript';s.async = true; s.src = '//cdn.viglink.com/api/vglnk.js'; var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);} function idle() {if ('requestIdleCallback' in window) {requestIdleCallback(go, {timeout: 3000});} else {setTimeout(go, 1500);}} if (d.readyState === 'complete') {idle();} else {window.addEventListener('load', idle);}}(document, 'script')); </script>
 
   <!-- JSON-LD: FAQPage -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Who is eligible for VA burial benefits?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Veterans discharged under conditions other than dishonorable are generally eligible. This includes active-duty service members, retired reservists and National Guard members who completed qualifying service, and in some cases spouses and dependent children of eligible veterans."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much is the VA burial allowance for a service-connected death?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For service-connected deaths, the VA may pay up to $2,000 toward burial and funeral expenses for deaths on or after September 11, 2001 ($1,500 for earlier deaths), under 38 CFR § 3.1600. If the veteran is buried in a VA national cemetery, some or all of the costs for transporting the remains may also be reimbursed."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much is the VA burial allowance for a non-service-connected death?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For non-service-connected deaths, the VA may pay a burial allowance of up to $1,032 and a separate plot allowance of up to $1,032 if the veteran is not buried in a national cemetery (rates for deaths on or after October 1, 2026), under 38 CFR § 3.1600. These amounts are adjusted every October; verify current rates at va.gov."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is burial in a VA national cemetery really free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Eligible veterans receive burial in a national cemetery at no cost to the family. This includes the gravesite, opening and closing of the grave, a government headstone or marker, a burial flag, perpetual care of the gravesite, and a Presidential Memorial Certificate."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can a veteran's spouse be buried in a national cemetery?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. An eligible veteran's spouse, surviving spouse, and eligible dependent children may be buried in a national cemetery, even if the veteran is already buried elsewhere. The spouse's eligibility is derived from the veteran's service."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I request military funeral honors?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Families should inform the funeral director that they want military funeral honors. The funeral director typically contacts the appropriate military branch to arrange the ceremony, which includes at minimum a flag folding and presentation and the playing of Taps."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is a Presidential Memorial Certificate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A Presidential Memorial Certificate (PMC) is a gold-embossed certificate signed by the current President, issued to honor the memory of honorably discharged deceased veterans. Eligible family members can request multiple copies at no cost."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I apply for VA burial benefits?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can apply by completing VA Form 21P-530EZ (Application for Burial Benefits) and submitting it by mail, in person at a VA regional office, or online at VA.gov. You will need the veteran's discharge papers (DD-214), a death certificate, and receipts for funeral and burial costs."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I combine VA burial benefits with Social Security death benefits?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. VA burial benefits and the Social Security lump-sum death benefit of $255 are separate programs. Eligible families can receive both. State-level veterans assistance and other programs may also be combined with VA benefits."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What types of headstones and markers does the VA provide?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The VA provides upright marble or granite headstones, flat bronze markers, flat granite or marble markers, and bronze niche markers for columbaria. For veterans buried in private cemeteries, the VA can also provide a bronze medallion to attach to an existing privately purchased headstone."
-        }
-      }
-    ,{
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
       "@type": "Question",
       "name": "Does the VA pay for cremation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The VA pays the same burial benefits for cremation as for a casket burial, and also when remains are buried at sea or donated to a medical school. For a non-service-connected death on or after October 1, 2026, that can include up to $1,032 toward funeral and cremation costs and up to $1,032 as a plot or interment allowance if the ashes are interred. Eligible veterans can also have cremated remains inurned or buried in a VA national cemetery at no charge, with the same honors as a casket burial."
+        "text": "Not directly. The VA does not pay the crematory or funeral home, but it treats cremation like any other burial when it repays the family. For a death on or after October 1, 2026 that was not service-connected, the person who paid can claim up to $1,032 toward the cremation and funeral bill and up to $1,032 for a niche or plot if the ashes go into a private cemetery. For a service-connected death after September 11, 2001, the ceiling is $2,000. An eligible veteran’s urn can also be placed in a VA national cemetery at no charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is the VA burial allowance in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For deaths on or after October 1, 2026, the VA lists $1,032 for burial and $1,032 for a plot when the death was not service-connected. A service-connected death on or after September 11, 2001 has a $2,000 ceiling, or $1,500 before that date. Deaths from October 1, 2025 through September 30, 2026 use the earlier $1,002 rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is burial in a VA national cemetery free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For an eligible veteran, yes: the grave, opening and closing, the liner for a casket, perpetual care, the government headstone or marker, the flag and the memorial certificate cost nothing. Funeral-home charges such as embalming, cremation, the casket and transport are still the family’s to pay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a veteran's spouse be buried in a national cemetery for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if the spouse is eligible. Spouses, surviving spouses who remarried, and minor or certain dependent adult children can be buried with the veteran at no cost, with their name added to the veteran’s headstone. A divorced former spouse is not eligible unless that person also served."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the VA pay for a headstone in a private cemetery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The VA provides the headstone, flat marker or bronze medallion itself at no charge for an eligible veteran, but the private cemetery usually charges the family to set it. Spouses buried in a private cemetery do not get their own government headstone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do I have to file for VA burial benefits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no deadline when the death was service-connected, or when you are claiming only the plot, interment or transportation allowance. For a death that was not service-connected, the burial allowance must be claimed within two years after the burial, unless the veteran died under VA care."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the VA pay to move a veteran's body to a national cemetery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes. The VA may repay transport to a national cemetery when the death was service-connected, or when a non-service-connected death happened while the veteran was hospitalized by the VA, in a VA-contracted nursing home, or traveling to VA-authorized care. The receipt must be in the name of the person claiming."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a family get VA burial benefits and the Social Security death payment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. They are separate programs, so a spouse who qualifies for Social Security’s lump-sum payment, capped at $255, can receive it in addition to anything the VA pays."
       }
     }
-    ]
-  }
+  ]
+}
   </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "VA Burial and Cremation Benefits for Veterans (2026)",
-    "description": "A complete guide to veteran burial benefits including VA allowances, national cemetery burial, headstones, and military funeral honors.",
+    "headline": "VA Burial Benefits and Cremation Coverage for Veterans (2026)",
+    "description": "What the VA pays toward a veteran's burial or cremation in 2026, what a national cemetery provides free, and how to apply on VA Form 21P-530EZ.",
     "datePublished": "2026-01-15",
-    "dateModified":"2026-11-13",
+    "dateModified": "2026-11-16",
     "author": {
       "@type": "Person",
       "name": "Paul Paradis",
@@ -1228,21 +1324,15 @@ a:hover {
 
     <article class="guide-article">
 
-      <h1>VA Burial and Cremation Benefits for Veterans (2026)</h1>
+      <h1>VA Burial Benefits and Cremation Coverage for Veterans (2026)</h1>
       <p class="article-byline small muted">By <a href="author-paul-paradis.html">Paul Paradis</a>, Founder &amp; Editor</p>
 
       <div class="article-meta">
-        <span class="article-meta-item">
-          <span class="article-meta-label">Reviewed:</span>
-          <span class="article-meta-value">April 2026</span>
-        </span>
-        <span class="article-meta-item">
-          <span class="article-meta-label">Last updated:</span>
-          <span class="article-meta-value"><time datetime="2026-11-13">November 13, 2026</time></span>
-        </span>
+        <span class="article-meta-item"><span class="article-meta-label">Last updated:</span> <span class="article-meta-value"><time datetime="2026-11-16">November 16, 2026</time></span></span>
+        <span class="article-meta-item"><span class="article-meta-label">Last reviewed:</span> <span class="article-meta-value"><time datetime="2026-11-16">November 16, 2026</time></span></span>
         <span class="article-meta-item">
           <span class="article-meta-label">Sources:</span>
-          <span class="article-meta-value">NFDA, FCA, State Funeral Boards</span>
+          <span class="article-meta-value">VA.gov, VA National Cemetery Administration, eCFR, NFDA</span>
         </span>
         <span class="article-meta-item">
           <span class="article-meta-label">Editorial:</span>
@@ -1250,349 +1340,244 @@ a:hover {
         </span>
       </div>
 
-      <p>If a veteran&rsquo;s death was service-connected and occurred on or after September 11, 2001, the VA may pay a burial allowance of up to $2,000 ($1,500 if the death was earlier). If the death was not service-connected and occurred on or after October 1, 2026, the VA may pay a $1,032 burial allowance and $1,032 for a plot. Those figures are from the VA burial allowance page, last updated October 30, 2026.</p>
+      <p>For a veteran who dies on or after October 1, 2026 from something unrelated to service, the VA lists a burial allowance of up to $1,032 and a separate plot allowance of up to $1,032. When the death was service-connected, the ceiling is $2,000 if it happened on or after September 11, 2001, and $1,500 if it happened earlier (<a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA burial allowance page</a>, last updated October 30, 2026). On top of the cash, an eligible veteran can be laid to rest in a VA national cemetery with no charge for the grave, the opening and closing, the liner, the headstone, the flag or the memorial certificate (<a href="https://www.cem.va.gov/burial_benefits/" target="_blank" rel="noopener">National Cemetery Administration</a>).</p>
 
-      <section id="quick-answer" class="methodology-note">
-        <h2>VA Burial Benefits at a Glance</h2>
-        <p><strong>Short answer:</strong> those amounts — up to $2,000 for a service-connected death, or $1,032 plus $1,032 for a non-service-connected death on or after October 1, 2026 — are ceilings, not flat grants. The VA pays back costs you actually carried and that nobody else is reimbursing. The table below lists the current rates and the prior-year amounts.</p>
-        <div class="guide-table-wrapper">
-        <table class="guide-table" data-no-chart>
-          <thead><tr><th scope="col">Situation (date of death)</th><th scope="col">Maximum the VA lists</th></tr></thead>
-          <tbody>
-            <tr><td data-label="Situation (date of death)">Service-connected death, on or after September 11, 2001</td><td data-label="Maximum the VA lists">$2,000 burial allowance</td></tr>
-            <tr><td data-label="Situation (date of death)">Service-connected death, before September 11, 2001</td><td data-label="Maximum the VA lists">$1,500 burial allowance</td></tr>
-            <tr><td data-label="Situation (date of death)">Not service-connected, on or after October 1, 2026</td><td data-label="Maximum the VA lists">$1,032 burial allowance and $1,032 for a plot</td></tr>
-            <tr><td data-label="Situation (date of death)">Not service-connected, on or after October 1, 2025 (earlier rate)</td><td data-label="Maximum the VA lists">$1,002 burial allowance and $1,002 for a plot</td></tr>
-            <tr><td data-label="Situation (date of death)">Headstone or marker allowance, death on or after October 1, 2026</td><td data-label="Maximum the VA lists">$420</td></tr>
-            <tr><td data-label="Situation (date of death)">Headstone or marker allowance, death on or after October 1, 2025, but before October 1, 2026</td><td data-label="Maximum the VA lists">$441</td></tr>
-          </tbody>
-        </table>
-      </div>
-        <h3>Who Can Qualify</h3>
-        <p>VA.gov sets two tests. The person applying has to be paying the costs without reimbursement from another source and be a surviving spouse or legal-union partner, a child, a parent, the executor, another relative or friend, or a funeral home or cemetery representative. The veteran must not have had a dishonorable discharge, and one of these has to be true:</p>
-        <ul>
-          <li>The death resulted from a service-connected disability;</li>
-          <li>The veteran died while getting VA care, at a VA facility or one VA contracted;</li>
-          <li>The veteran died while traveling at VA expense to or from authorized care or an exam;</li>
-          <li>A compensation or pension claim was pending at death and would have been granted;</li>
-          <li>The veteran was receiving VA pension or compensation, or was eligible for it but took full military retirement or disability pay instead.</li>
-        </ul>
-        <p>The allowances are not paid when the person died on active duty, while serving in Congress, or while serving a federal prison sentence.</p>
-        <h3 id="va-cremation">Does the VA Pay for Cremation?</h3>
-        <p>Yes. VA.gov says it provides burial benefits &ldquo;for all legal burial types, including cremation and burial at sea,&rdquo; and also when a veteran&rsquo;s body is donated to a medical school. The same allowance limits apply, so a family choosing cremation can claim the burial allowance, and the plot or interment allowance if the cremated remains are interred. For what a private plot itself runs, see <a href="burial-plot-cost.html">burial plot costs</a>.</p>
-        <p>In a VA national cemetery, cremated remains are buried or inurned in the same manner and with the same honors as casketed remains: a gravesite or columbarium space when one is available, opening and closing, a government marker, a burial flag, and perpetual care, at no cost to the family. Families who inurn or bury the ashes in a private or state veterans cemetery, rather than a national cemetery, may still claim the separate plot or interment allowance.</p>
-        <p class="source-note">Sources: <a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA.gov, Veterans burial allowance and transportation benefits</a> (VA page last updated October 30, 2026; amounts checked November 13, 2026) and <a href="https://www.va.gov/burials-memorials/memorial-items/" target="_blank" rel="noopener">VA.gov, Memorial items</a> (VA page last updated November 6, 2026). Confirm current rates with the VA before you file.</p>
-      </section>
+      <div class="guide-disclaimer"><p><strong>Disclaimer:</strong> Information only, not professional advice. <a href="disclaimer.html">Full disclaimer</a>.</p></div>
 
       <nav class="toc" aria-label="Table of contents">
         <p class="toc-heading">In This Guide</p>
         <ul class="toc-list">
-          <li><a href="#burial-allowances">VA Burial Allowances</a></li>
-          <li><a href="#national-cemetery">National Cemetery Burial</a></li>
-          <li><a href="#headstones-markers">VA Headstones, Markers, and Medallions</a></li>
-          <li><a href="#memorial-certificate">Presidential Memorial Certificate</a></li>
-          <li><a href="#funeral-honors">Military Funeral Honors</a></li>
-          <li><a href="#eligibility">Eligibility Requirements</a></li>
-          <li><a href="#how-to-apply">How to Apply for VA Burial Benefits</a></li>
-          <li><a href="#state-cemeteries">State Veteran Cemeteries</a></li>
-          <li><a href="#combining-benefits">Combining VA Benefits With Other Assistance</a></li>
+          <li><a href="#how-much">How much the VA pays</a></li>
+          <li><a href="#va-cremation">Does the VA pay for cremation?</a></li>
+          <li><a href="#who-qualifies">Who qualifies for the allowance</a></li>
+          <li><a href="#national-cemetery">What a national cemetery provides</a></li>
+          <li><a href="#headstones-flags">Headstones, flags and certificates</a></li>
+          <li><a href="#funeral-honors">Military funeral honors</a></li>
+          <li><a href="#spouses-dependents">Spouses and dependent children</a></li>
+          <li><a href="#state-cemeteries">State and tribal veterans cemeteries</a></li>
+          <li><a href="#transportation">Transportation reimbursement</a></li>
+          <li><a href="#how-to-apply">How to apply and deadlines</a></li>
+          <li><a href="#pre-need">Pre-need eligibility</a></li>
+          <li><a href="#denials">Why claims get denied</a></li>
+          <li><a href="#worked-example">What a family actually pays</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
 
-      <p class="guide-intro">
-        The men and women who served our country deserve to be honored with dignity in death, just as they served with honor in life. The U.S. Department of Veterans Affairs (VA) provides a range of burial benefits designed to ease the financial burden on families and ensure that every eligible veteran receives a respectful farewell. Benefits are authorized primarily under <strong>38 U.S.C. §§ 2302–2308</strong> (monetary burial allowances), <strong>38 U.S.C. § 2402</strong> (National Cemetery Administration eligibility), and implementing regulations at <strong>38 CFR § 3.1600 et seq.</strong> This guide walks you through the benefits available, who qualifies, and how to apply, so you can focus on honoring the life and service of someone you love.
-      </p>
-
-      <p class="source-note" style="font-size: 0.9em; color: #666; border-left: 3px solid #8B6F47; padding: 0.75rem 1rem; margin: 1rem 0; background: #faf8f5;">
-        <strong>Sources:</strong> U.S. Department of Veterans Affairs (<a href="https://www.va.gov/burials-memorials/" target="_blank" rel="noopener noreferrer">va.gov</a>), 38 U.S.C. §§ 2302–2308, 38 U.S.C. § 2402, 38 CFR § 3.1600, 10 U.S.C. § 1491 (funeral honors), National Cemetery Administration, National Funeral Directors Association (NFDA), Funeral Consumers Alliance (FCA). Paul Paradis, Founder &amp; Editor, last checked the VA benefit amounts on 2026-10-22.
-      </p>
-
-      <div class="guide-disclaimer" style="background: #fffbea; border-left: 4px solid #d4a94a; padding: 1rem; margin: 1rem 0;">
-        <p><strong>Informational only</strong>: not legal or benefits advice. Contact the SSA, VA, or your state Medicaid office for your specific case.</p>
+      <h2 id="how-much">How Much Does the VA Pay for a Veteran&rsquo;s Burial in 2026?</h2>
+      <p>The answer depends on two things: whether the death was connected to military service, and the date of death. The non-service-connected rates move every October 1, so a death on September 30 and one on October 1 can be paid at different amounts. The figures below are the maximums the VA publishes. The VA pays back money that was actually spent and that nobody else is covering, so a family that spent less, or was reimbursed by an employer or another agency, gets less.</p>
+      <div class="guide-table-wrapper">
+        <table class="guide-table" data-no-chart>
+          <caption>VA burial and plot allowance ceilings by date of death</caption>
+          <thead><tr><th scope="col">Death and date</th><th scope="col">VA maximum</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Death and date">Service-connected, on or after Sept. 11, 2001</td><td data-label="VA maximum">$2,000 burial allowance</td></tr>
+            <tr><td data-label="Death and date">Service-connected, before Sept. 11, 2001</td><td data-label="VA maximum">$1,500 burial allowance</td></tr>
+            <tr><td data-label="Death and date">Not service-connected, on or after Oct. 1, 2026</td><td data-label="VA maximum">$1,032 burial + $1,032 plot</td></tr>
+            <tr><td data-label="Death and date">Not service-connected, Oct. 1, 2025 to Sept. 30, 2026</td><td data-label="VA maximum">$1,002 burial + $1,002 plot</td></tr>
+            <tr><td data-label="Death and date">Not service-connected, Oct. 1, 2024 to Sept. 30, 2025</td><td data-label="VA maximum">$978 burial + $978 plot</td></tr>
+          </tbody>
+        </table>
       </div>
+      <p class="source-note">Source: <a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA.gov, Veterans burial allowance and transportation benefits</a>, burial allowance amounts table (page last updated October 30, 2026; checked November 16, 2026).</p>
+      <p>Three smaller payments sit alongside those ceilings. The same VA page lists a headstone or marker allowance of $420 for deaths on or after October 1, 2026, and $441 for deaths from October 1, 2025 through September 30, 2026. It does not say on that page who receives it, so ask the VA before counting on it. Second, when a family buys its own burial vault for a casket burial in a national cemetery instead of using the government liner, the VA automatically pays the buyer an outer burial receptacle allowance, which is $387 for interments during calendar year 2026 (<a href="https://www.federalregister.gov/documents/2026/02/11/2026-02776/monetary-allowance-for-outer-burial-receptacles" target="_blank" rel="noopener">Federal Register notice, February 11, 2026</a>; <a href="https://www.ecfr.gov/current/title-38/section-38.629" target="_blank" rel="noopener">38 CFR 38.629</a>). Third, transportation costs can be paid back in the cases described under <a href="#transportation">transportation reimbursement</a>.</p>
 
-      <!-- VA Burial Allowances -->
-      <h2 id="burial-allowances">VA Burial Allowances</h2>
-
-      <p>
-        The VA offers monetary burial allowances to help offset funeral, burial, and transportation costs, as authorized under <strong>38 U.S.C. §§ 2302–2303</strong> and governed by <strong>38 CFR § 3.1600</strong>. The amount depends on whether the veteran's death was related to military service.
-      </p>
-
-      <h3>Service-Connected Death</h3>
-      <p>
-        If a veteran's death is the result of a service-connected disability, the VA may pay a burial allowance of <strong>up to $2,000</strong> for deaths on or after September 11, 2001 ($1,500 for earlier deaths) toward funeral and burial expenses, under <strong>38 CFR § 3.1600(a)</strong>. If the veteran is buried in a VA national cemetery, the VA may also reimburse some or all transportation costs for transporting the remains.
-      </p>
-
-      <h3>Non-Service-Connected Death</h3>
-      <p>
-        For deaths that are not related to military service, the VA may provide a <strong>burial allowance of up to $1,032</strong> (for deaths on or after October 1, 2026, per the VA rate schedule; it was $1,002 for deaths from October 1, 2025) and a <strong>separate plot allowance of up to $1,032</strong> if the veteran is not buried in a national cemetery, under <strong>38 CFR § 3.1600(b)–(f)</strong>. These figures are adjusted each October by the VA to keep pace with rising costs. Veterans who were receiving VA pension or disability compensation at the time of death, or who died in a VA facility, typically qualify for these allowances.
-      </p>
-
-      <h3>How Amounts Are Determined</h3>
-      <p>
-        VA burial allowance amounts are set by Congress and adjusted periodically (see <strong>38 U.S.C. § 2303</strong>). The specific amount a family receives depends on the circumstances of death, the veteran's benefits status, and where the burial takes place. Families should check <a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener noreferrer">VA.gov</a> for the most current rates, as they may change from year to year.
-      </p>
-
-      <!-- National Cemetery Burial -->
-      <h3 id="spouse-automatic-payment">Surviving Spouses May Not Need to File</h3>
-      <p>According to the VA, an eligible surviving spouse who is listed as the spouse on the veteran's VA profile does not need to file a claim for this part of the benefit: when the VA is notified of the death, it automatically pays a set amount to help with the plot, interment, or transportation of the remains. Other family members, the estate's executor, or a funeral home generally apply with <strong>VA Form 21P-530EZ</strong>, online or by mail.</p>
-      <h3 id="filing-deadlines">Filing Deadlines</h3>
+      <h2 id="va-cremation">Does the VA Pay for Cremation?</h2>
+      <p><strong>Not directly, but cremation gets the same benefits as a casket burial.</strong> The National Cemetery Administration puts it plainly: &ldquo;The VA does not pay for cremation directly,&rdquo; and whatever the family buys from a funeral home is at the family&rsquo;s expense (<a href="https://www.cem.va.gov/faq.asp" target="_blank" rel="noopener">NCA frequently asked questions</a>). What the VA does pay is the burial allowance, and it covers &ldquo;all legal burial types, including cremation and burial at sea,&rdquo; plus donation of the body to a medical school (<a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA.gov</a>). In practice, the $1,032 or $2,000 reimbursement can go toward the cremation bill.</p>
+      <p>The plot allowance is not limited to a grave either. Federal rules define a plot as the final resting place of the remains, &ldquo;whether it is a grave, mausoleum vault, columbarium niche, or other similar place&rdquo; (<a href="https://www.ecfr.gov/current/title-38/section-3.1707" target="_blank" rel="noopener">38 CFR 3.1707(d)</a>). So a family that buys a niche for the urn in a private cemetery can claim it the same way a casket family claims a grave.</p>
+      <h3>How cremated remains are handled at a national cemetery</h3>
       <ul>
-        <li><strong>Service-connected death:</strong> no time limit for the burial or transportation allowance.</li>
-        <li><strong>Non-service-connected death:</strong> file within 2 years after the burial, except that there is no limit if the veteran died under VA care, or if you are claiming only the plot/interment or transportation allowance.</li>
+        <li><strong>Same honors.</strong> Cremated remains are buried or inurned &ldquo;in the same manner and with the same honors as casketed remains&rdquo; (<a href="https://www.cem.va.gov/burial_benefits/" target="_blank" rel="noopener">NCA</a>).</li>
+        <li><strong>Marker for the niche.</strong> Bronze niche markers exist for columbaria, and an in-ground urn grave gets a headstone or flat marker like any other grave.</li>
+        <li><strong>Flag with the urn.</strong> The burial flag can accompany the urn rather than drape a casket (<a href="https://www.va.gov/burials-memorials/memorial-items/burial-flags/" target="_blank" rel="noopener">VA burial flags</a>).</li>
+        <li><strong>Ashes scattered?</strong> The VA still furnishes a memorial headstone or marker when the cremated remains were scattered (<a href="https://www.va.gov/burials-memorials/memorial-items/headstones-markers-medallions/" target="_blank" rel="noopener">VA headstones and markers</a>).</li>
       </ul>
-      <p class="source-note">This is general information, not legal or financial advice; confirm eligibility with the VA.</p>
+      <p><strong>One choice cannot be undone.</strong> For ashes that will never be interred anywhere, the VA offers a commemorative urn or a wall plaque on VA Form 40-1330UP. If the family accepts either one, the law bars the VA from later burying that veteran in a national cemetery or providing a headstone, marker or medallion, and NCA says there is no way to restore those benefits (<a href="https://www.cem.va.gov/burial_benefits/" target="_blank" rel="noopener">NCA, urns and plaques</a>). If there is any chance the family will want a niche someday, hold off on that form.</p>
+      <p>For what the funeral-home side of a cremation runs, see our <a href="direct-cremation-cost.html">direct cremation cost guide</a> and <a href="cremation-costs-by-state.html">cremation costs by state</a>.</p>
 
-      <h2 id="national-cemetery">National Cemetery Burial</h2>
-
-      <p>
-        Burial in a VA national cemetery is available at <strong>no cost</strong> to eligible veterans and their families. There are more than 150 national cemeteries across the United States, each maintained with the care and reverence that our veterans deserve. Cremated remains are buried or inurned there in the same manner and with the same honors as casketed remains.
-      </p>
-
-      <h3>What Is Included at No Cost</h3>
+      <h2 id="who-qualifies">Who Qualifies for the VA Burial Allowance?</h2>
+      <p>There are two sets of rules, one for the person filing and one for the veteran. The person filing must have paid the costs without being repaid by anyone else, and must be one of these: the surviving spouse, a surviving legal-union partner, a child, a parent, the executor or administrator of the estate, another relative or friend, or someone from a funeral home, cemetery or other organization.</p>
+      <p>The veteran must not have a dishonorable discharge, and at least one of these must be true at the time of death:</p>
       <ul>
-        <li>A gravesite in any national cemetery with available space</li>
+        <li>The death resulted from a service-connected disability.</li>
+        <li>The veteran was getting VA care, at a VA facility or one under VA contract.</li>
+        <li>The veteran was traveling, with authorization and at VA expense, to or from an exam or care.</li>
+        <li>An original or reopened claim for compensation or pension was pending and would have been granted.</li>
+        <li>The veteran was receiving VA pension or compensation.</li>
+        <li>The veteran was eligible for compensation or pension but was taking full military retirement or disability pay instead.</li>
+      </ul>
+      <p>No allowance is paid when the person died on active duty, while serving in Congress, or while serving a federal prison sentence. (<a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA.gov eligibility rules</a>.)</p>
+      <p>Burial in a national cemetery has its own, broader test. A veteran who did not receive a dishonorable discharge is generally eligible even with no VA pension, no service-connected rating and no claim on file (<a href="https://www.va.gov/burials-memorials/eligibility/" target="_blank" rel="noopener">VA national cemetery eligibility</a>). That is why many families who get no cash allowance still get a free grave.</p>
+
+      <h2 id="national-cemetery">What a VA National Cemetery Provides at No Cost</h2>
+      <p>NCA lists these items as free to the family for an eligible veteran (<a href="https://www.cem.va.gov/burial_benefits/" target="_blank" rel="noopener">NCA burial and memorial benefits</a>):</p>
+      <ul>
+        <li>A gravesite in any VA national cemetery that has space</li>
         <li>Opening and closing of the grave</li>
-        <li>A government-furnished headstone or marker</li>
-        <li>A burial flag to drape the casket</li>
-        <li>Perpetual care of the gravesite</li>
-        <li>A Presidential Memorial Certificate</li>
+        <li>Perpetual care</li>
+        <li>A government headstone, marker or medallion</li>
+        <li>A burial flag</li>
+        <li>Presidential Memorial Certificates</li>
+        <li>A government-furnished graveliner for casket burials, the national cemetery&rsquo;s version of a vault (<a href="https://www.ecfr.gov/current/title-38/section-38.629" target="_blank" rel="noopener">38 CFR 38.629</a>)</li>
       </ul>
+      <p>NCA says it runs 158 VA-managed cemeteries, and the VA&rsquo;s map also lists 125 VA grant-funded state, territory and tribal cemeteries (<a href="https://www.cem.va.gov/" target="_blank" rel="noopener">cem.va.gov</a>). Not every state has a national cemetery. Arlington National Cemetery is run by the Army, not the VA, and sets its own eligibility (<a href="https://www.cem.va.gov/faq.asp" target="_blank" rel="noopener">NCA FAQ</a>).</p>
+      <p>What the family still pays for is everything from the funeral home: transfer of the body, embalming or cremation, the casket or urn, a viewing or service, and transport to the cemetery. A private cemetery plot often runs into the thousands on its own, and our <a href="burial-plot-cost.html">burial plot cost guide</a> shows what that line can look like.</p>
 
-      <h3>Eligibility for National Cemetery Burial</h3>
-      <p>
-        Eligibility is governed by the National Cemetery Administration under <strong>38 U.S.C. § 2402</strong>. Veterans who were discharged under conditions other than dishonorable are eligible, as are active-duty service members who die during service. Reservists and National Guard members who completed qualifying federal service also qualify. Spouses and dependent children of eligible veterans may be buried in a national cemetery as well, even if the veteran has already been laid to rest elsewhere.
-      </p>
+      <h2 id="headstones-flags">Headstones, Markers, Flags and the Presidential Memorial Certificate</h2>
+      <h3>Headstones, markers and medallions</h3>
+      <p>The VA provides a government headstone or marker for the unmarked grave of an eligible veteran in any cemetery in the world, whatever the date of death. If the grave already has a private headstone, the VA can still provide one when the veteran died on or after November 1, 1990 (<a href="https://www.cem.va.gov/burial_benefits/" target="_blank" rel="noopener">NCA</a>). Choices are upright granite or marble, flat granite, marble or bronze, and bronze niche markers. Apply on VA Form 40-1330. Veterans who enlisted after September 7, 1980, or served as officers after October 16, 1981, generally need 24 months of continuous active duty unless they died on active duty (<a href="https://www.va.gov/burials-memorials/memorial-items/headstones-markers-medallions/" target="_blank" rel="noopener">VA headstone eligibility</a>).</p>
+      <p>Instead of a second stone, a family with a private headstone can ask for a bronze medallion reading &ldquo;VETERAN&rdquo; on VA Form 40-1330M. It is one or the other, not both. In a private cemetery, the stone is free but the cemetery&rsquo;s setting fee is usually the family&rsquo;s cost; our <a href="headstone-monument-costs.html">headstone and monument cost guide</a> covers that fee.</p>
+      <h3>Burial flag</h3>
+      <p>A U.S. flag to drape the casket or go with the urn is free. Fill out VA Form 27-2008 and take it to the funeral director, a VA regional office or a post office; call the post office first, since not all of them stock flags. Only one flag is issued, and the VA cannot replace one that is lost or stolen (<a href="https://www.va.gov/burials-memorials/memorial-items/burial-flags/" target="_blank" rel="noopener">VA burial flags</a>, last updated November 6, 2026).</p>
+      <h3>Presidential Memorial Certificate</h3>
+      <p>The certificate is an engraved paper document signed by the sitting president. At a national cemetery burial, the VA presents one to the next of kin automatically. If the veteran was eligible for a national cemetery but is buried elsewhere, family or close friends can request copies on VA Form 40-0247, and the VA accepts more than one request (<a href="https://www.va.gov/burials-memorials/memorial-items/presidential-memorial-certificates/" target="_blank" rel="noopener">VA Presidential Memorial Certificates</a>).</p>
 
-      <!-- Headstones, Markers, and Medallions -->
-      <h2 id="headstones-markers">VA Headstones, Markers, and Medallions</h2>
-
-      <p>
-        The VA provides headstones, markers, and medallions at no cost to honor the memory of eligible veterans. These may be placed in national cemeteries, state veterans cemeteries, or private cemeteries.
-      </p>
-
-      <h3>Types Available</h3>
-      <ul>
-        <li><strong>Upright headstones</strong>: available in marble or granite</li>
-        <li><strong>Flat markers</strong>: available in bronze, granite, or marble</li>
-        <li><strong>Bronze niche markers</strong>: designed for placement in columbaria</li>
-        <li><strong>Bronze medallions</strong>: designed to be attached to an existing privately purchased headstone, to signify veteran status</li>
-      </ul>
-
-      <p>
-        Families can choose the inscription, including the veteran's name, branch of service, dates of birth and death, and an optional emblem of belief. To request a headstone or marker, submit <strong>VA Form 40-1330</strong> along with a copy of the veteran's discharge papers (DD-214).
-      </p>
-
-      <!-- Presidential Memorial Certificate -->
-      <h2 id="memorial-certificate">Presidential Memorial Certificate</h2>
-
-      <p>
-        A Presidential Memorial Certificate (PMC) is a gold-embossed certificate bearing the signature of the current President. It is issued to honor the memory of veterans who were discharged under honorable conditions. This certificate is a meaningful keepsake that recognizes the veteran's service to our nation.
-      </p>
-
-      <p>
-        Eligible family members and loved ones can request the certificate by contacting the VA. Multiple copies can be provided at no charge, so that each family member may have one. Requests can be made through a VA regional office, online at VA.gov, or by calling the VA at <strong>1-800-827-1000</strong>.
-      </p>
-
-      <!-- Military Funeral Honors -->
       <h2 id="funeral-honors">Military Funeral Honors</h2>
+      <p>On request, every eligible veteran is owed a military funeral honors ceremony. By law the detail is at least two members of the armed forces, one of them from the veteran&rsquo;s branch, and at minimum they fold and present the flag and play Taps, by a bugler if one is available or on a ceremonial bugle. The funeral director usually makes the request, and the VA suggests contacting the service branch 48 to 72 hours before the service (<a href="https://www.cem.va.gov/military_funeral_honors.asp" target="_blank" rel="noopener">NCA military funeral honors</a>). Veterans service organizations may add a rifle detail, pallbearers or an escort.</p>
+      <p>The service branches have provided these ceremonies since January 1, 2000, and Public Law 106-65 requires one for every eligible veteran whose family asks. At a VA national cemetery, the cemetery staff can help set it up. If the funeral home cannot reach the right branch, Military OneSource (800-342-9647) can help (<a href="https://www.cem.va.gov/military_funeral_honors.asp" target="_blank" rel="noopener">NCA</a>).</p>
 
-      <p>
-        Every eligible veteran is entitled to military funeral honors under <strong>10 U.S.C. § 1491</strong> (funeral honors detail). The ceremony is a final tribute that acknowledges the veteran's faithful service and sacrifice.
-      </p>
+      <h2 id="spouses-dependents">Spouses and Dependent Children</h2>
+      <p>A veteran&rsquo;s spouse or surviving spouse can be buried in a VA national cemetery, even after remarrying following the veteran&rsquo;s death. So can a minor child, and in some cases an unmarried adult child who depended on the veteran (<a href="https://www.va.gov/burials-memorials/eligibility/" target="_blank" rel="noopener">VA eligibility</a>). The spouse or child is buried with the veteran, the grave gets perpetual care, and their name and dates go on the veteran&rsquo;s headstone at no cost. They can be buried first if they die before the veteran (<a href="https://www.cem.va.gov/burial_benefits/" target="_blank" rel="noopener">NCA</a>).</p>
+      <p>Two limits trip families up. A former spouse whose marriage to the veteran ended in divorce or annulment is not eligible unless that person is a veteran too. And a spouse buried in a <em>private</em> cemetery does not get a government headstone, though the spouse may be added as an inscription on the veteran&rsquo;s (<a href="https://www.va.gov/burials-memorials/memorial-items/headstones-markers-medallions/" target="_blank" rel="noopener">VA headstones</a>).</p>
+      <p>On the money side, a surviving spouse listed on the veteran&rsquo;s VA profile does not have to file at all. When the VA learns of the death, it automatically pays eligible spouses a set amount for the plot, interment or transportation (<a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA.gov</a>). Anyone else, including a spouse who was not on the profile, files VA Form 21P-530EZ.</p>
 
-      <h3>What the Ceremony Includes</h3>
+      <h2 id="state-cemeteries">State and Tribal Veterans Cemeteries</h2>
+      <p>States, territories and tribes run their own veterans cemeteries, many built with VA grants. The VA says their eligibility is similar to national cemeteries but may include residency rules and interment fees for spouses, and some charge a fee to set the government headstone (<a href="https://www.cem.va.gov/docs/wcag/outreach/Infosheet-Burial-Benefits-at-VA-Grant-Funded-Cemeteries.pdf" target="_blank" rel="noopener">NCA fact sheet on grant-funded cemeteries</a>). Iowa is one example: it does not require Iowa residency, buries eligible veterans for free, and lists a $300 interment fee for an eligible spouse or dependent child (<a href="https://dva.iowa.gov/veterans-cemetery/about/eligibility-burial" target="_blank" rel="noopener">Iowa Department of Veterans Affairs</a>). Other states require residency, so call the cemetery.</p>
+      <p>A free state plot also changes the plot allowance. When a state or tribal cemetery buries the veteran without charging for the plot, the VA pays the plot or interment allowance to the state or tribe, not to the family (<a href="https://www.ecfr.gov/current/title-38/section-3.1707" target="_blank" rel="noopener">38 CFR 3.1707(b)</a>). The family can still claim the burial allowance for funeral costs. Find state cemeteries on the <a href="https://www.cem.va.gov/grants/veterans_cemeteries.asp" target="_blank" rel="noopener">NCA cemetery map</a>.</p>
+
+      <h2 id="transportation">Transportation Reimbursement</h2>
+      <p>The VA may pay some or all of that cost in these situations (<a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA.gov</a>):</p>
       <ul>
-        <li><strong>Flag folding and presentation</strong>: The American flag is folded with precision and presented to the next of kin with the words, "On behalf of the President of the United States, the United States [branch of service], and a grateful nation, please accept this flag as a symbol of our appreciation for your loved one's honorable and faithful service."</li>
-        <li><strong>Playing of Taps</strong>: Performed by a bugler or played via a high-quality recording</li>
-        <li><strong>Honor guard</strong>: At minimum, two uniformed service members. Full military honors for higher-ranking personnel may include a larger detail, a rifle salute, and a horse-drawn caisson.</li>
+        <li>The death was service-connected and the veteran is buried in a VA national cemetery.</li>
+        <li>The death was not service-connected, but the veteran was hospitalized by the VA or in a VA-contracted nursing home at death, or died traveling to VA-authorized care.</li>
+        <li>The remains were unclaimed and the deceased qualifies; the person or organization that handled the burial can be repaid for moving the remains to a national cemetery.</li>
       </ul>
+      <p>The VA reimburses costs you paid yourself, so the receipt has to be in your name, and the application should include an itemized receipt for the transport. There is no filing deadline for transportation claims.</p>
 
-      <h3>How to Arrange Military Funeral Honors</h3>
-      <p>
-        Families should let their funeral director know that they would like military funeral honors. The funeral director will then coordinate with the appropriate military branch. You can also contact the branch of service directly or reach out to local veterans service organizations, such as the VFW or American Legion, who often provide volunteer honor guards.
-      </p>
-
-      <!-- Eligibility Requirements -->
-      <h2 id="eligibility">Eligibility Requirements</h2>
-
-      <p>
-        Understanding who qualifies for VA burial benefits is important so that families can access every benefit to which they are entitled. Eligibility generally includes:
-      </p>
-
-      <ul>
-        <li><strong>Active-duty service members</strong> who die during active service</li>
-        <li><strong>Veterans</strong> who were discharged under conditions other than dishonorable (including honorable, general, and under honorable conditions discharges)</li>
-        <li><strong>Reservists and National Guard members</strong> who were entitled to retired pay, or who died while hospitalized or undergoing treatment at VA expense for a condition related to their service</li>
-        <li><strong>Spouses and surviving spouses</strong> of eligible veterans, including those who remarried after age 55 (for burial in a national cemetery)</li>
-        <li><strong>Minor children</strong> and, in certain circumstances, unmarried adult children who were dependent on the veteran</li>
-      </ul>
-
-      <p>
-        If you are unsure about eligibility, the VA can help. Call <strong>1-800-827-1000</strong> or visit your nearest VA regional office for a determination.
-      </p>
-
-      <!-- How to Apply -->
-      <h2 id="how-to-apply">How to Apply for VA Burial Benefits</h2>
-
-      <p>
-        You can apply online or by mail. A surviving spouse who is already listed on the veteran's VA profile often does not have to file a claim at all: when the VA is notified of the death, it automatically pays a set amount toward the plot, interment, or transportation of the remains. Other claimants use VA Form 21P-530EZ. Details on that automatic payment are under <a href="#spouse-automatic-payment">Surviving Spouses May Not Need to File</a>.
-      </p>
-
-      <h3>Step-By-Step Process</h3>
+      <h2 id="how-to-apply">How to Apply: VA Form 21P-530EZ and Deadlines</h2>
       <ol>
-        <li><strong>Obtain the veteran's DD-214</strong> (Certificate of Release or Discharge from Active Duty) or another separation document covering all service periods. If you do not have a copy, you can request one from the National Personnel Records Center.</li>
-        <li><strong>Complete VA Form 21P-530EZ</strong> (Application for Burial Benefits), unless you are a surviving spouse who will be paid automatically. The form is available on VA.gov, at any VA regional office, or by calling the VA.</li>
-        <li><strong>Gather supporting documents.</strong> VA.gov asks for the veteran's death certificate including the cause of death, and an itemized receipt for transportation costs if you are claiming reimbursement for moving the remains. A DD-214 is recommended. For a service-connected claim, medical records can help the VA process the file.</li>
-        <li><strong>Submit the application</strong> online through VA.gov or by mail to the Department of Veterans Affairs Pension Intake Center, PO Box 5365, Janesville, WI 53547-5365. You can also apply in person at a VA regional office.</li>
+        <li><strong>Find the discharge papers.</strong> The DD214 or other separation documents covering every period of service. If they are missing, request them from the National Archives before you file.</li>
+        <li><strong>Get the death certificate</strong> with the cause of death listed. For a service-connected claim, medical records help but are optional.</li>
+        <li><strong>Keep every receipt.</strong> Funeral-home and cemetery bills, plus an itemized transport receipt if you are claiming that.</li>
+        <li><strong>File <a href="https://www.va.gov/find-forms/about-form-21p-530ez/" target="_blank" rel="noopener">VA Form 21P-530EZ</a></strong> online at VA.gov, or mail it to Department of Veterans Affairs, Pension Intake Center, PO Box 5365, Janesville, WI 53547-5365.</li>
       </ol>
+      <p>Questions go to the VA benefits line at 800-827-1000 (TTY: 711), Monday through Friday, 8:00 a.m. to 9:00 p.m. ET.</p>
+      <h3 id="filing-deadlines">Filing Deadlines</h3>
+      <div class="guide-table-wrapper">
+        <table class="guide-table" data-no-chart>
+          <caption>When a burial benefits claim must be filed</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Deadline</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Claim">Service-connected death, burial or transport allowance</td><td data-label="Deadline">None</td></tr>
+            <tr><td data-label="Claim">Not service-connected, burial allowance</td><td data-label="Deadline">2 years after burial</td></tr>
+            <tr><td data-label="Claim">Not service-connected, died under VA care</td><td data-label="Deadline">None</td></tr>
+            <tr><td data-label="Claim">Plot, interment or transportation allowance only</td><td data-label="Deadline">None</td></tr>
+            <tr><td data-label="Claim">Discharge upgraded after death</td><td data-label="Deadline">2 years after the change</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="source-note">Source: <a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA.gov, time limits for filing</a> (checked November 16, 2026).</p>
 
-      <h3>Filing Time Limits</h3>
-      <p>VA.gov sets these filing rules. If the death was service-connected, there is no time limit for claiming the burial or transportation allowance. If the death was not service-connected, you must file the burial-allowance claim within two years after the burial, with two exceptions: there is no time limit if the veteran died while under VA care, and there is no time limit when you are claiming only the plot or interment allowance or a transportation reimbursement. If the VA later changes a dishonorable discharge to another status, you must file a burial-allowance claim within two years after that change.</p>
-      <p class="source-note">Source: <a href="https://www.va.gov/burials-memorials/veterans-burial-allowance/" target="_blank" rel="noopener">VA.gov, Veterans burial allowance and transportation benefits</a> (VA page last updated October 30, 2026; application steps and time limits checked November 12, 2026).</p>
+      <h2 id="pre-need">Plan Ahead: Pre-Need Eligibility Determination</h2>
+      <p>A living veteran, spouse or dependent can ask the VA to confirm burial eligibility now, so the family is not hunting for a DD214 the week of the funeral. Apply online or on <a href="https://www.va.gov/find-forms/about-form-40-10007/" target="_blank" rel="noopener">VA Form 40-10007</a> and name a preferred national cemetery. The decision letter does not reserve a specific cemetery or gravesite, and the VA may recheck eligibility at the time of death if laws have changed (<a href="https://www.va.gov/burials-memorials/schedule-a-burial/" target="_blank" rel="noopener">VA, schedule a burial</a>). Pre-need through the VA covers national cemeteries only. Arlington and state, territory or tribal cemeteries run their own programs (<a href="https://www.va.gov/burials-memorials/pre-need-eligibility/" target="_blank" rel="noopener">VA pre-need eligibility</a>).</p>
+      <p>If the person has already died, skip pre-need. The funeral director or family calls the National Cemetery Scheduling Office at 800-535-1117 (TTY: 711) to check eligibility and book the burial.</p>
 
-      <h3>Processing Timeline</h3>
-      <p>
-        The VA typically processes burial benefit claims within several weeks to a few months, depending on the complexity of the case and the completeness of the documentation provided. Submitting all required documents with your initial application helps avoid delays.
-      </p>
+      <h2 id="denials">Why VA Burial Claims Get Denied</h2>
+      <p>The VA does not publish a list of denial reasons. These are the points in its own rules where claims most plainly fail:</p>
+      <ul>
+        <li><strong>Missed the two-year window.</strong> For a death that was not service-connected, the burial allowance claim is due within two years of the burial, unless one of the exceptions above applies.</li>
+        <li><strong>No qualifying circumstance.</strong> A veteran who was not receiving VA pension or compensation, had no pending claim, did not die in VA care and had no service-connected cause of death does not meet the allowance test, even with an honorable discharge.</li>
+        <li><strong>Someone else already paid.</strong> Costs reimbursed by an employer or another agency are not repaid twice.</li>
+        <li><strong>Discharge status.</strong> A dishonorable discharge bars the allowance. Other-than-honorable and bad-conduct discharges go to a VA regional office for a character-of-discharge decision.</li>
+        <li><strong>Wrong program.</strong> Deaths on active duty, in Congress or in federal prison are excluded from the allowance.</li>
+        <li><strong>Missing paperwork.</strong> No death certificate with a cause of death, no receipt in the claimant&rsquo;s name, or no service records the VA can find.</li>
+        <li><strong>Commemorative urn already issued.</strong> Accepting the urn or plaque ends national cemetery burial and government markers for that veteran.</li>
+      </ul>
+      <p>If a claim is turned down, a VA-accredited representative from a veterans service organization can help at no charge with asking for a review.</p>
 
-      <!-- State Veteran Cemeteries -->
-      <h2 id="state-cemeteries">State Veteran Cemeteries</h2>
+      <h2 id="worked-example">Worked Example: What a Family Actually Pays</h2>
+      <p>These examples start from the National Funeral Directors Association&rsquo;s 2023 national medians: $6,280 for a funeral with viewing and cremation, and $8,300 for a funeral with viewing and burial, rising to $9,995 with a vault. Those medians leave out cemetery charges (<a href="https://content.nfda.org/Portals/0/12-8-2023--2023%20GPL%20Survey.pdf" target="_blank" rel="noopener">NFDA 2023 General Price List Study</a>). The VA figures are the ceilings for a death on or after October 1, 2026.</p>
+      <div class="guide-table-wrapper">
+        <table class="guide-table" data-no-chart>
+          <caption>Estimated family share after VA benefits</caption>
+          <thead><tr><th scope="col">Situation</th><th scope="col">Funeral-home bill</th><th scope="col">VA pays up to</th><th scope="col">Family share</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Situation">Cremation with viewing, ashes inurned in a national cemetery, death not service-connected</td><td data-label="Funeral-home bill">$6,280</td><td data-label="VA pays up to">$1,032</td><td data-label="Family share">$5,248</td></tr>
+            <tr><td data-label="Situation">Same cremation, service-connected death after Sept. 11, 2001</td><td data-label="Funeral-home bill">$6,280</td><td data-label="VA pays up to">$2,000</td><td data-label="Family share">$4,280</td></tr>
+            <tr><td data-label="Situation">Casket funeral, national cemetery with government liner, not service-connected</td><td data-label="Funeral-home bill">$8,300</td><td data-label="VA pays up to">$1,032</td><td data-label="Family share">$7,268</td></tr>
+            <tr><td data-label="Situation">Casket funeral with vault, private cemetery, not service-connected</td><td data-label="Funeral-home bill">$9,995</td><td data-label="VA pays up to">$2,064</td><td data-label="Family share">$7,931 plus the plot and opening fees</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Take the first row. A widow whose husband was drawing a VA pension chooses a viewing and cremation at the $6,280 median and has his urn placed at the nearest national cemetery. The niche or grave, the opening and closing, the marker, the flag and the certificate cost her nothing. The VA repays up to $1,032 of the funeral bill. No plot allowance applies, because the national cemetery space was free, and the plot rule covers veterans not buried in a national cemetery (<a href="https://www.ecfr.gov/current/title-38/section-3.1707" target="_blank" rel="noopener">38 CFR 3.1707(a)</a>). If she was living with him, Social Security&rsquo;s lump-sum death payment, which is capped at $255 (<a href="https://www.ssa.gov/history/lumpsum.html" target="_blank" rel="noopener">SSA history note</a>), brings her share to about $4,993.</p>
+      <p>The last row shows why a private cemetery costs more even with both allowances. The $2,064 is the $1,032 burial allowance plus the $1,032 plot allowance, but the plot, the opening and closing, and the stone setting are billed by the cemetery on top of the funeral home&rsquo;s total. For your own state&rsquo;s figures, use the <a href="/#calculator">funeral cost calculator</a> or see <a href="burial-costs-by-state.html">burial costs by state</a>.</p>
 
-      <p>
-        In addition to the national cemeteries operated by the VA, many states operate their own veteran cemeteries. These state veteran cemeteries often have benefits similar to national cemeteries, including free burial for eligible veterans.
-      </p>
-
-      <p>
-        State veteran cemeteries may be a good option if there is no national cemetery nearby, or if the family prefers a location closer to home. Some state cemeteries extend eligibility to a broader range of family members or offer additional services. Contact your state's department of veterans affairs to learn about specific benefits and availability in your area.
-      </p>
-
-      <p>
-        You can find a state veteran cemetery near you through the <a href="https://www.va.gov/find-locations/" target="_blank" rel="noopener noreferrer">VA facility locator</a> or by contacting your state's veterans affairs office.
-      </p>
-
-      <!-- Combining Benefits -->
-      <h2 id="combining-benefits">Combining VA Benefits with Other Assistance</h2>
-
-      <p>
-        VA burial benefits can be received alongside other forms of financial assistance. Families are encouraged to explore every resource available so that the financial burden of saying goodbye does not add to the weight of grief.
-      </p>
-
-      <h3>Social Security Lump-Sum Death Payment</h3>
-      <p>
-        The Social Security Administration offers a one-time <a href="social-security-death-benefit.html">lump-sum death benefit of $255</a> to eligible surviving spouses or children. This payment is separate from VA benefits and can be claimed in addition to any VA burial allowance.
-      </p>
-
-      <h3>State and Local Programs</h3>
-      <p>
-        Many states offer their own veteran burial benefits, including additional allowances, free cemetery plots, or assistance with funeral costs through state veterans affairs offices. Some counties and municipalities also provide indigent burial assistance or emergency funeral funds. Checking with your local county social services office can uncover programs you might not know about.
-      </p>
-
-      <h3>Other Assistance</h3>
-      <p>
-        Families may also qualify for <a href="funeral-payment-assistance.html">funeral payment assistance</a> through nonprofit organizations, veterans service organizations like the VFW and American Legion, employer-sponsored benefits, or life insurance policies. Combining multiple sources of support can significantly reduce out-of-pocket costs.
-      </p>
+      <h2 id="combining-benefits">Other Help That Stacks With VA Benefits</h2>
+      <p>VA money does not reduce other help. The Social Security payment above is separate (see our <a href="social-security-death-benefit.html">Social Security death benefit guide</a>). Some states and counties add their own veterans burial aid, and some veterans groups help families directly. Our <a href="funeral-payment-assistance.html">funeral payment assistance guide</a> lists the programs worth checking.</p>
 
       <!-- FAQ Section -->
       <section class="guide-faq">
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
 
         <div class="faq-list">
           <details class="faq-item">
-            <summary class="faq-question">Who is eligible for VA burial benefits?</summary>
+            <summary class="faq-question">Does the VA pay for cremation?</summary>
             <div class="faq-answer">
-              <p>
-                Veterans discharged under conditions other than dishonorable are generally eligible. This includes active-duty service members, retired reservists and National Guard members who completed qualifying service, and in some cases spouses and dependent children of eligible veterans.
-              </p>
+              <p>Not directly. The VA does not pay the crematory or funeral home, but it treats cremation like any other burial when it repays the family. For a death on or after October 1, 2026 that was not service-connected, the person who paid can claim up to $1,032 toward the cremation and funeral bill and up to $1,032 for a niche or plot if the ashes go into a private cemetery. For a service-connected death after September 11, 2001, the ceiling is $2,000. An eligible veteran&rsquo;s urn can also be placed in a VA national cemetery at no charge.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">How much is the VA burial allowance for a service-connected death?</summary>
+            <summary class="faq-question">How much is the VA burial allowance in 2026?</summary>
             <div class="faq-answer">
-              <p>
-                For service-connected deaths, the VA may pay up to $2,000 toward burial and funeral expenses for deaths on or after September 11, 2001 ($1,500 for earlier deaths), under 38 CFR § 3.1600. If the veteran is buried in a VA national cemetery, some or all of the costs for transporting the remains may also be reimbursed.
-              </p>
+              <p>For deaths on or after October 1, 2026, the VA lists $1,032 for burial and $1,032 for a plot when the death was not service-connected. A service-connected death on or after September 11, 2001 has a $2,000 ceiling, or $1,500 before that date. Deaths from October 1, 2025 through September 30, 2026 use the earlier $1,002 rate.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">How much is the VA burial allowance for a non-service-connected death?</summary>
+            <summary class="faq-question">Is burial in a VA national cemetery free?</summary>
             <div class="faq-answer">
-              <p>
-                For non-service-connected deaths, the VA may pay a burial allowance of up to $1,032 and a separate plot allowance of up to $1,032 if the veteran is not buried in a national cemetery (rates for deaths on or after October 1, 2026), under 38 CFR § 3.1600. These amounts are adjusted every October; verify current rates at va.gov.
-              </p>
+              <p>For an eligible veteran, yes: the grave, opening and closing, the liner for a casket, perpetual care, the government headstone or marker, the flag and the memorial certificate cost nothing. Funeral-home charges such as embalming, cremation, the casket and transport are still the family&rsquo;s to pay.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">Is burial in a VA national cemetery really free?</summary>
+            <summary class="faq-question">Can a veteran's spouse be buried in a national cemetery for free?</summary>
             <div class="faq-answer">
-              <p>
-                Yes. Eligible veterans receive burial in a national cemetery at no cost to the family. This includes the gravesite, opening and closing of the grave, a government headstone or marker, a burial flag, perpetual care of the gravesite, and a Presidential Memorial Certificate.
-              </p>
+              <p>Yes, if the spouse is eligible. Spouses, surviving spouses who remarried, and minor or certain dependent adult children can be buried with the veteran at no cost, with their name added to the veteran&rsquo;s headstone. A divorced former spouse is not eligible unless that person also served.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">Can a veteran's spouse be buried in a national cemetery?</summary>
+            <summary class="faq-question">Does the VA pay for a headstone in a private cemetery?</summary>
             <div class="faq-answer">
-              <p>
-                Yes. An eligible veteran's spouse, surviving spouse, and eligible dependent children may be buried in a national cemetery, even if the veteran is already buried elsewhere. The spouse's eligibility is derived from the veteran's service.
-              </p>
+              <p>The VA provides the headstone, flat marker or bronze medallion itself at no charge for an eligible veteran, but the private cemetery usually charges the family to set it. Spouses buried in a private cemetery do not get their own government headstone.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">How do I request military funeral honors?</summary>
+            <summary class="faq-question">How long do I have to file for VA burial benefits?</summary>
             <div class="faq-answer">
-              <p>
-                Families should inform the funeral director that they want military funeral honors. The funeral director typically contacts the appropriate military branch to arrange the ceremony, which includes at minimum a flag folding and presentation and the playing of Taps.
-              </p>
+              <p>There is no deadline when the death was service-connected, or when you are claiming only the plot, interment or transportation allowance. For a death that was not service-connected, the burial allowance must be claimed within two years after the burial, unless the veteran died under VA care.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">What is a Presidential Memorial Certificate?</summary>
+            <summary class="faq-question">Will the VA pay to move a veteran's body to a national cemetery?</summary>
             <div class="faq-answer">
-              <p>
-                A Presidential Memorial Certificate (PMC) is a gold-embossed certificate signed by the current President, issued to honor the memory of honorably discharged deceased veterans. Eligible family members can request multiple copies at no cost.
-              </p>
+              <p>Sometimes. The VA may repay transport to a national cemetery when the death was service-connected, or when a non-service-connected death happened while the veteran was hospitalized by the VA, in a VA-contracted nursing home, or traveling to VA-authorized care. The receipt must be in the name of the person claiming.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">How do I apply for VA burial benefits?</summary>
+            <summary class="faq-question">Can a family get VA burial benefits and the Social Security death payment?</summary>
             <div class="faq-answer">
-              <p>
-                You can apply by completing VA Form 21P-530EZ (Application for Burial Benefits) and submitting it by mail, in person at a VA regional office, or online at VA.gov. You will need the veteran's discharge papers (DD-214), a death certificate, and receipts for funeral and burial costs.
-              </p>
+              <p>Yes. They are separate programs, so a spouse who qualifies for Social Security&rsquo;s lump-sum payment, capped at $255, can receive it in addition to anything the VA pays.</p>
             </div>
           </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">Can I combine VA burial benefits with Social Security death benefits?</summary>
-            <div class="faq-answer">
-              <p>
-                Yes. VA burial benefits and the Social Security lump-sum death benefit of $255 are separate programs. Eligible families can receive both. State-level veterans assistance and other programs may also be combined with VA benefits.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">What types of headstones and markers does the VA provide?</summary>
-            <div class="faq-answer">
-              <p>
-                The VA provides upright marble or granite headstones, flat bronze markers, flat granite or marble markers, and bronze niche markers for columbaria. For veterans buried in private cemeteries, the VA can also provide a bronze medallion to attach to an existing privately purchased headstone.
-              </p>
-            </div>
-          </details>
-
-      <details class="faq-item"><summary>Does the VA pay for cremation?</summary>
-      <p>Yes. The VA pays the same burial benefits for cremation as for a casket burial, and also when remains are buried at sea or donated to a medical school. For a non-service-connected death on or after October 1, 2026, that can include up to $1,032 toward funeral and cremation costs and up to $1,032 as a plot or interment allowance if the ashes are interred. Eligible veterans can also have cremated remains inurned or buried in a VA national cemetery at no charge, with the same honors as a casket burial. The details are under <a href="#va-cremation">Does the VA Pay for Cremation?</a>, and current rates should be confirmed on VA.gov.</p></details>
-
         </div>
       </section>
+
 
       <!-- Internal Links -->
       <div class="guide-internal-links">
