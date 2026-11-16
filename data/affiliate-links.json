@@ -242,7 +242,7 @@
       "trackingUrl": "https://www.amazon.com/cremation-urns/s?k=cremation+urns&tag=funeralcost-20",
       "status": "active",
       "network": "In-house",
-      "notes": "Associate ID funeralcost-20; provisionally approved Oct 29 2026 (3 qualified sales in 180 days). US tax completed, bank on file. Destination is the cremation-urn results page with tag=funeralcost-20. Deep-link hrefs were tagged in HTML on 2026-11-12; apply-affiliate-links.cjs only rewrites homepage links."
+      "notes": "Casket pages (best-online-casket-retailers, casket-buying-guide) use https://www.amazon.com/s?k=caskets&tag=funeralcost-20 since 2026-11-16; urn pages keep the urn search. Associate ID funeralcost-20; provisionally approved Oct 29 2026 (3 qualified sales in 180 days). US tax completed, bank on file. Destination is the cremation-urn results page with tag=funeralcost-20. Deep-link hrefs were tagged in HTML on 2026-11-12; apply-affiliate-links.cjs only rewrites homepage links."
     },
     "Costco": {
       "hosts": [
