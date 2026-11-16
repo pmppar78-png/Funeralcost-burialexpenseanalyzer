@@ -19,6 +19,8 @@ const ALLOW_REPEAT = new Set([
   'These figures are our estimates, not a survey of local providers.',
   'Methodology note: These figures are our estimates, not a survey of local providers, and they are not a quote or professional advice.',
   'See how we calculate them or read the full disclaimer.',
+  // Amazon Associates requires this exact wording wherever its links appear (2026-11-16).
+  'As an Amazon Associate I earn from qualifying purchases.',
 ]);
 
 const ROOT = path.join(__dirname, '..');
