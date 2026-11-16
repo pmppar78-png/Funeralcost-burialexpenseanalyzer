@@ -687,7 +687,37 @@
       "trackingUrl": "https://www.pulvisurns.com/?ref=mgqlofwa&utm_campaign=goaffpro&utm_medium=social&utm_source=affiliate",
       "status": "active",
       "network": "GoAffPro",
-      "notes": "Referral link verified HTTP 200 on 2026-11-12. Buyer code PAULPARADIS takes 6% off; publisher commission up to 6% per the official program page (another section on that page says 8% \u2014 use 6% until confirmed in the dashboard). Homepage tracking URL only; do not invent deep links."
+      "notes": "Referral link verified HTTP 200 on 2026-11-12. Buyer code PAULPARADIS takes 6% off; publisher commission up to 6% per the official program page (another section on that page says 8% — use 6% until confirmed in the dashboard). Homepage tracking URL only; do not invent deep links."
+    },
+    "Cremation Club": {
+      "hosts": [
+        "cremationclub.com"
+      ],
+      "destination": "https://www.cremationclub.com/",
+      "trackingUrl": "https://cremationclub.sjv.io/QY1P4Y",
+      "status": "active",
+      "network": "Impact",
+      "notes": "Approved Nov 16, 2026 (Impact account 6619253); $40 per membership per Paul. Vanity link 302s through Impact (cremationclub.sjv.io/c/6619253/2888002/33744). Placed Nov 16 on direct-cremation-cost, cremation-costs-by-state, cremation-vs-burial-cost, and NC/MI/CA cremation pages. Only cite plan facts verified on cremationclub.com; its site shows annual plan prices that differ from the $13.99/month figure in the brief, so no membership price is printed."
+    },
+    "Rocket Lawyer": {
+      "hosts": [
+        "rocketlawyer.com"
+      ],
+      "destination": "https://www.rocketlawyer.com/",
+      "trackingUrl": "https://rocketlawyer.onepath.io/7XgenO",
+      "status": "active",
+      "network": "Impact",
+      "notes": "Approved Nov 16, 2026; 30% per Paul. Link ends in capital O (verified 302 to rocketlawyer.onepath.io/c/6619253/4082760/59223). Placed on estate-planning-costs, probate-process-costs, what-to-do-when-someone-dies."
+    },
+    "FlowerShopping.com": {
+      "hosts": [
+        "flowershopping.com"
+      ],
+      "destination": "https://www.flowershopping.com/",
+      "trackingUrl": "https://flowershoppingcom.onepath.io/gRdPq0",
+      "status": "active",
+      "network": "Impact",
+      "notes": "Approved Nov 16, 2026; 1-2% per Paul. Verified 302 to flowershoppingcom.onepath.io/c/6619253/4032737/57674. Placed on funeral-flowers-guide."
     }
   }
 }
