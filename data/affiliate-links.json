@@ -718,6 +718,16 @@
       "status": "active",
       "network": "Impact",
       "notes": "Approved Nov 16, 2026; 1-2% per Paul. Verified 302 to flowershoppingcom.onepath.io/c/6619253/4032737/57674. Placed on funeral-flowers-guide."
+    },
+    "Parting Stone": {
+      "hosts": [
+        "partingstone.com"
+      ],
+      "destination": "https://partingstone.com/",
+      "trackingUrl": "https://partingstone.sjv.io/xJdrod",
+      "status": "active",
+      "network": "Impact",
+      "notes": "Approved Nov 17, 2026 (Impact program 43660, account 6619253). 5% default commission (tiers up to 17%), 30-day window, US/Canada. Brand rules: say solidified remains, never memorial stones. Official adult service price $2,495 and current completion estimate 10-12 weeks confirmed on partingstone.com/products/human-solidified-remains on 2026-11-17 (the older 8-10 week figure is not used). Distinct from Parting (parting.com), which remains no-program. Placed on direct-cremation-cost, urn-buying-guide, cremation-vs-burial-cost, and best-cremation-urns."
     }
   }
 }
