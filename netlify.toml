@@ -156,19 +156,19 @@
 # a single hop to the final page (avoids Search Console redirect errors).
 [[redirects]]
   from = "https://www.funeralcostanalyzer.com/faq.html"
-  to = "https://funeralcostanalyzer.com/"
+  to = "https://funeralcostanalyzer.com/#faq"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.funeralcostanalyzer.com/faq"
-  to = "https://funeralcostanalyzer.com/"
+  to = "https://funeralcostanalyzer.com/#faq"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.funeralcostanalyzer.com/faq/"
-  to = "https://funeralcostanalyzer.com/"
+  to = "https://funeralcostanalyzer.com/#faq"
   status = 301
   force = true
 
@@ -245,19 +245,19 @@
   force = true
 [[redirects]]
   from = "https://funeralcostanalyzer.netlify.app/faq.html"
-  to = "https://funeralcostanalyzer.com/"
+  to = "https://funeralcostanalyzer.com/#faq"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://funeralcostanalyzer.netlify.app/faq"
-  to = "https://funeralcostanalyzer.com/"
+  to = "https://funeralcostanalyzer.com/#faq"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://funeralcostanalyzer.netlify.app/faq/"
-  to = "https://funeralcostanalyzer.com/"
+  to = "https://funeralcostanalyzer.com/#faq"
   status = 301
   force = true
 
