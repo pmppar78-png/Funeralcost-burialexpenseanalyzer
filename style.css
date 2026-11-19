@@ -5224,7 +5224,11 @@ figure.data-chart img.chart-narrow {
 }
 @media (max-width: 768px) {
   .site-search {
-    padding: 8px 16px;
+    padding: 2px 16px;
+  }
+  .site-search-input {
+    min-height: 44px;
+    padding: 6px 12px;
   }
 }
 @media print {

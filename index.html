@@ -3193,16 +3193,22 @@ img {
 
     <div class="resource-suggestions"><h3>Resources That May Help</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance</a><span class="resource-desc">Independent consumer advocacy for funeral rights</span></li><li><a href="https://www.parting.com" target="_blank" rel="noopener noreferrer">Parting.com</a><span class="resource-desc">Compare funeral home prices in your area</span></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a><span class="resource-desc">Compare final expense and burial insurance options</span></li><li><a href="funeral-payment-assistance.html">Payment Assistance Guide</a><span class="resource-desc">Government programs and financial help for funeral costs</span></li></ul></div>
 
-    <div class="email-capture">
-  <h3>Get Our Free Funeral Cost Guide</h3>
-  <p>Sign up for occasional email updates on funeral costs, consumer rights and planning ahead.</p>
-  <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <p class="hidden honeypot-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
-    <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
-    <button type="submit">Get Free Guide</button>
+    <div class="email-capture checklist-signup">
+  <h3>Get the Free Printable Funeral Planning Checklist</h3>
+  <p>Download it now: <a href="/funeral-planning-checklist-printable.html">free printable funeral planning checklist</a>. Leave your email if you want a short note when we revise it or publish a new planning guide.</p>
+  <form name="checklist" method="POST" action="/funeral-planning-checklist-printable.html" data-netlify="true" netlify-honeypot="company-website">
+    <input type="hidden" name="form-name" value="checklist" />
+    <input type="hidden" name="page" value="index" />
+    <p class="hidden" style="display:none"><label>Leave this field empty: <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+    <label for="checklist-email-index" class="sr-only">Email address</label>
+    <input id="checklist-email-index" type="email" name="email" placeholder="Your email address" autocomplete="email" required />
+    <p class="checklist-consent"><label><input type="checkbox" name="consent" value="yes" required /> Yes, you may email me if the checklist is updated or a new planning guide is published (at most once a month). Unsubscribe anytime.</label></p>
+    <button type="submit">Send Me the Checklist</button>
   </form>
-  <p class="email-privacy">No spam. Unsubscribe anytime. We respect your privacy.</p>
+  <div class="checklist-signup-status" role="status" aria-live="polite"></div>
+  <p class="email-privacy">Unsubscribe anytime by emailing <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>. We never sell or share your address. Details are in our <a href="privacy-policy.html">privacy policy</a>.</p>
 </div>
+<script src="/checklist-signup.js" defer></script>
 
       <section class="lead-gen-section" id="price-help">
         <h2>How to Get Real Funeral Prices for Your Area</h2>
