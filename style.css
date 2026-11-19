@@ -5258,7 +5258,8 @@ figure.data-chart img.chart-narrow {
 .checklist-signup button {
   min-height: 44px;
 }
-.checklist-signup-status:empty {
+.checklist-signup-status:empty,
+.checklist-signup form[hidden] {
   display: none;
 }
 @media (max-width: 480px) {
