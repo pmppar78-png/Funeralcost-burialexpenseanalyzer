@@ -112,7 +112,27 @@ function defill(html, file) {
 // pass and missing "The"; the rules-and-help section already names the
 // licensing board properly, so every copy is removed.
 const REG_RE = /\s*\b[A-Z][a-z]+(?: [A-Z][a-z]+)? regulator is the (?:Dept\.|[^.<"])*\.(?=\s|<|"|$)/g;
-const ABBR_END = /(?:\b(?:e\.g|i\.e|vs|v|r|avg|alt|Comp|Regs|approx|etc|Dept|St|No|Ga|Tex|Ala|Fla|Cal|Ind|Code|Stat|Ann|U\.S)\.|\.\w+\.)$/;
+// Tokens that end a period without ending the sentence. Keep in sync with
+// the period-comma typo repair and the capitalize-after-period pass in
+// fixSentences (Co., Inc., D.C., St., vs., and similar).
+const ABBREV_TOKENS = new Set([
+  'e.g', 'i.e', 'vs', 'v', 'r', 'avg', 'alt', 'comp', 'regs', 'approx', 'etc',
+  'dept', 'st', 'no', 'ga', 'tex', 'ala', 'fla', 'cal', 'ind', 'code', 'stat',
+  'ann', 'u.s', 'd.c', 'dc', 'co', 'inc', 'ltd', 'jr', 'sr', 'mr', 'mrs', 'ms',
+  'dr', 'prof', 'rev', 'mt', 'ft', 'corp', 'bros', 'ave', 'blvd', 'rd', 'p.o',
+  'jan', 'feb', 'mar', 'apr', 'jun', 'jul', 'aug', 'sep', 'sept', 'oct', 'nov', 'dec',
+]);
+function isAbbrToken(tok) {
+  const t = String(tok).replace(/["'`”')\]]+$/, '');
+  if (!t) return false;
+  if (ABBREV_TOKENS.has(t.toLowerCase())) return true;
+  // Dotted initials: D.C, U.S, P.O, N.Y
+  return /^(?:[A-Za-z]\.)+[A-Za-z]$/.test(t);
+}
+function endsWithAbbreviation(before) {
+  const m = String(before).match(/([A-Za-z.]+)\.$/);
+  return !!(m && isAbbrToken(m[1]));
+}
 function fixSentences(html) {
   html = html.replace(/:\.(?=\s*<)/g, ':')
     // Pipe-joined link lists whose first link was stripped upstream.
@@ -132,15 +152,16 @@ function fixSentences(html) {
     b = b.replace(/moderate-than-average costs relative to the \$8,300 US median/g, 'moderate costs, a little below the $8,300 US median');
     b = b.replace(/<a href="https:\/\/www\.nfda\.org\/news\/statistics"[^>]*>NFDA's statistics page<\/a>/g, m => m);
     b = b.replace(/(Metal casket: about \$2,500 national median )\(NFDA 2023\)/g, '$1(<a href="https://content.nfda.org/Portals/0/12-8-2023--2023%20GPL%20Survey.pdf" target="_blank" rel="noopener">NFDA 2023 General Price List Study</a>)');
-    // ". , as well as" and "text.Next" glue
-    b = b.replace(/\.,\s+/g, ', ');
+    // ". , as well as" typo glue, but keep the period on abbreviations
+    // ("D.C., frozen", "Co., at", "U.S., conventional").
+    b = b.replace(/([A-Za-z.]+)\.,\s+/g, (m, tok) => isAbbrToken(tok) ? m : tok + ', ');
     b = b.replace(/([a-z0-9)])\.([A-Z][a-z])/g, (m, a, c, off, str) => (/[\w-]+\.$/.test(str.slice(Math.max(0, off - 30), off + 2)) && /\.(?:com|org|gov|net)/.test(str.slice(off, off + 6)) ? m : `${a}. ${c}`));
     // Lowercase after a sentence end: short trailing fragments are merged back
     // ("families face. after a death." -> "families face after a death."),
     // otherwise the first letter is capitalized.
     b = b.replace(/([.!?])(\s+)((?:<(?:a|strong|em|span)\b[^>]*>)*)([a-z])([^<.!?]*)/g, (m, p, sp, tags, ch, rest, off, str) => {
-      const before = str.slice(Math.max(0, off - 14), off + 1);
-      if (ABBR_END.test(before)) return m;
+      const before = str.slice(Math.max(0, off - 24), off + 1);
+      if (endsWithAbbreviation(before)) return m;
       if (/https?:\/\/\S*$|www\.\S*$/.test(str.slice(Math.max(0, off - 60), off + 1))) return m;
       const end = str[off + m.length];
       const words = (ch + rest).trim().split(/\s+/).length;
@@ -418,4 +439,4 @@ function run(root) {
   }
   console.log(`  Post-fix (articles, FAQ JSON-LD sync, number consistency): ${changed} page(s)`);
 }
-module.exports = { preClean, run, visibleFaq, text };
+module.exports = { preClean, run, visibleFaq, text, fixSentences, isAbbrToken, endsWithAbbreviation };
