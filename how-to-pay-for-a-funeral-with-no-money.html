@@ -1539,16 +1539,22 @@ a:hover {
       <!-- ====== Resources ====== -->
       <div class="resource-suggestions"><h3>Resources That May Help</h3><ul class="resource-list"><li><a href="https://www.ssa.gov/benefits/survivors/ifyou.html" target="_blank" rel="noopener noreferrer">Social Security Administration: Survivor Benefits</a><span class="resource-desc">Apply for the $255 lump-sum death payment and learn about ongoing survivor benefits</span></li><li><a href="https://www.va.gov/burials-memorials/" target="_blank" rel="noopener noreferrer">U.S. Department of Veterans Affairs: Burials and Memorials</a><span class="resource-desc">Learn about veteran burial benefits, national cemeteries, and memorial items</span></li><li><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-453" target="_blank" rel="noopener noreferrer">FTC Funeral Rule</a><span class="resource-desc">Read the full text of the federal rule protecting your rights as a funeral consumer</span></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a><span class="resource-desc">Understand every line item on a funeral bill so you know where your money goes</span></li></ul></div>
 
-      <div class="email-capture">
-  <h3>Get Our Free Funeral Cost Guide</h3>
-  <p>Sign up for occasional email updates on financial help for funerals and new assistance programs.</p>
-  <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <p class="hidden" style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
-    <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
-    <button type="submit">Get Free Guide</button>
+      <div class="email-capture checklist-signup">
+  <h3>Get the Free Printable Funeral Planning Checklist</h3>
+  <p>Download it now: <a href="/funeral-planning-checklist-printable.html">free printable funeral planning checklist</a>. Leave your email if you want a short note when we revise it or publish a new planning guide.</p>
+  <form name="checklist" method="POST" action="/funeral-planning-checklist-printable.html" data-netlify="true" netlify-honeypot="company-website">
+    <input type="hidden" name="form-name" value="checklist" />
+    <input type="hidden" name="page" value="how-to-pay-for-a-funeral-with-no-money" />
+    <p class="hidden" style="display:none"><label>Leave this field empty: <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+    <label for="checklist-email-how-to-pay-for-a-funeral-with-no-money" class="sr-only">Email address</label>
+    <input id="checklist-email-how-to-pay-for-a-funeral-with-no-money" type="email" name="email" placeholder="Your email address" autocomplete="email" required />
+    <p class="checklist-consent"><label><input type="checkbox" name="consent" value="yes" required /> Yes, you may email me if the checklist is updated or a new planning guide is published (at most once a month). Unsubscribe anytime.</label></p>
+    <button type="submit">Send Me the Checklist</button>
   </form>
-  <p class="email-privacy">No spam. Unsubscribe anytime. We respect your privacy.</p>
+  <div class="checklist-signup-status" role="status" aria-live="polite"></div>
+  <p class="email-privacy">Unsubscribe anytime by emailing <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>. We never sell or share your address. Details are in our <a href="privacy-policy.html">privacy policy</a>.</p>
 </div>
+<script src="/checklist-signup.js" defer></script>
 
       <!-- ====== Disclaimer ====== -->
 
