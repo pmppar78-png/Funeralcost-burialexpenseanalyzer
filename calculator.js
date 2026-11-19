@@ -179,6 +179,7 @@
           if (estNote) estNote.textContent =
             "Estimated range for " + costData[region].name.toLowerCase() + " region. Actual costs depend on the specific provider and your choices. Always request an itemized General Price List.";
           document.getElementById("estLineItems").innerHTML = lineItemsHtml;
+          resultDiv.classList.remove("estimator-result--hidden");
           resultDiv.style.display = "block";
           resultDiv.scrollIntoView({ behavior: "smooth", block: "start" });
         });
