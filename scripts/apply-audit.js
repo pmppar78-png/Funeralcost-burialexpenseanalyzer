@@ -277,6 +277,8 @@ function applyMeta(html, row) {
   next = setNamedMeta(next, 'property', 'og:description', desc);
   next = setNamedMeta(next, 'name', 'twitter:title', title);
   next = setNamedMeta(next, 'name', 'twitter:description', desc);
+  // Replacement function, not `\1` + title: a title starting with 2026 would
+  // turn `\1` + "2026..." into octal `\120` ("P") and corrupt the JSON-LD.
   let headlineDone = false;
   next = next.replace(/("headline"\s*:\s*")((?:\\.|[^"\\])*)(")/, (full) => {
     if (headlineDone) return full;
