@@ -5237,6 +5237,18 @@ figure.data-chart img.chart-narrow {
   }
 }
 
+/* Search / AI upgrade (unpushed patch): honest hero line; no layout shift */
+.hero-ai-line {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--warm-800);
+  max-width: 40rem;
+}
+.site-search-option--ai {
+  font-weight: 600;
+}
+
 /* Checklist sign-up (Netlify Forms) — in-content, outside ad containers */
 .checklist-signup .checklist-consent {
   width: 100%;
