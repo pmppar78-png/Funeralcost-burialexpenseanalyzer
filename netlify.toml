@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "set -e; node scripts/write-og-image.js && node generate-pages.js && node scripts/inline-critical-css.js && node scripts/check-desc-totals.js && node scripts/check-figures.js"
+  command = "set -e; node scripts/write-og-image.js && node generate-pages.js && node scripts/build-search-index.js && node scripts/inline-critical-css.js && node scripts/check-desc-totals.js && node scripts/check-figures.js"
 
 [build.processing.html]
   pretty_urls = false
@@ -703,3 +703,10 @@
   to = "/404.html"
   status = 404
   force = true
+
+[[headers]]
+  for = "/search-index.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    X-Robots-Tag = "noindex"

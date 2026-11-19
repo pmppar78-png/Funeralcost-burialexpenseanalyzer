@@ -1184,6 +1184,16 @@ img {
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
   </header>
+  <div class="site-search" role="search">
+    <form class="site-search-form" action="/sitemap-index.html" method="get" autocomplete="off">
+      <label for="site-search-input" class="sr-only">Search this site</label>
+      <div class="site-search-field">
+        <input id="site-search-input" class="site-search-input" type="search" name="q" placeholder="Search guides, states and costs" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="site-search-list" enterkeyhint="go" />
+        <ul id="site-search-list" class="site-search-list" role="listbox" aria-label="Matching pages" hidden></ul>
+      </div>
+    </form>
+  </div>
+  <script src="/site-search.js" defer></script>
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
       <nav class="guide-breadcrumb" aria-label="Breadcrumb">
