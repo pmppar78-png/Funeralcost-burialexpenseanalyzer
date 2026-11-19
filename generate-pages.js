@@ -1209,16 +1209,16 @@ ${header()}
       </ol>
       <p>For a complete walkthrough, see our <a href="what-to-do-when-someone-dies.html">what to do when someone dies</a> guide or <a href="planning-checklist.html">printable funeral planning checklist</a>.</p>
 
+      ${ctaBanner()}
+
+      <div class="callout callout-info"><strong>Compare All 50 States</strong> See how ${s.name} funeral costs compare to the national average and all other states in our <a href="national-funeral-cost-index.html">2026 National Funeral Cost Index</a>.</div>
+
       <h2 id="faq">Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
       ${neighborLinks(s, 'funeral')}
-      ${ctaBanner()}
-
-      <div class="callout callout-info"><strong>Compare All 50 States</strong> See how ${s.name} funeral costs compare to the national average and all other states in our <a href="national-funeral-cost-index.html">2026 National Funeral Cost Index</a>.</div>
-
       ${shortDisclaimer('state')}
     </article>
   </main>
@@ -1409,6 +1409,8 @@ ${header()}
 
       ${resources('general')}
 
+      ${ctaBanner()}
+
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
@@ -1416,7 +1418,6 @@ ${header()}
 
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
-      ${ctaBanner()}
     </article>
   </main>
 ${footer()}`;
@@ -1560,6 +1561,8 @@ ${header()}
 
       ${resources('cremation')}
 
+      ${ctaBanner()}
+
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
@@ -1570,7 +1573,6 @@ ${header()}
       ${neighborLinks(s, 'cremation')}
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
-      ${ctaBanner()}
     </article>
   </main>
 ${footer()}`;
@@ -1712,6 +1714,8 @@ ${header()}
 
       ${resources('burial')}
 
+      ${ctaBanner()}
+
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
@@ -1722,7 +1726,6 @@ ${header()}
       ${neighborLinks(s, 'burial')}
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
-      ${ctaBanner()}
     </article>
   </main>
 ${footer()}`;
@@ -1817,6 +1820,8 @@ ${header()}
       ${resources(['military-funeral-honors.html','infant-child-funeral-costs.html','funeral-costs-uninsured.html','funeral-planning-for-parents.html','body-donation-guide.html','medicaid-funeral-assistance.html','funeral-overcharging-protection.html','consumer-rights-funeral-pricing.html'].includes(p.fn) ? 'sensitive' : 'general')}
       ${authorityBoostLinks(p.fn)}
 
+      ${ctaBanner()}
+
       <h2 id="faq">Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
@@ -1825,7 +1830,6 @@ ${header()}
 
       <div class="related-guides"><h3>Find Costs in Your State</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="burial-costs-by-state.html">Burial Costs by State</a></li><li><a href="funeral-costs-california.html">California Funeral Costs</a></li><li><a href="funeral-costs-texas.html">Texas Funeral Costs</a></li><li><a href="funeral-costs-florida.html">Florida Funeral Costs</a></li><li><a href="funeral-costs-new-york.html">New York Funeral Costs</a></li><li><a href="funeral-costs-pennsylvania.html">Pennsylvania Funeral Costs</a></li><li><a href="funeral-costs-illinois.html">Illinois Funeral Costs</a></li><li><a href="funeral-costs-ohio.html">Ohio Funeral Costs</a></li><li><a href="funeral-costs-georgia.html">Georgia Funeral Costs</a></li><li><a href="funeral-costs-north-carolina.html">North Carolina Funeral Costs</a></li><li><a href="funeral-costs-michigan.html">Michigan Funeral Costs</a></li></ul></div>
 
-      ${ctaBanner()}
 
       ${shortDisclaimer('general')}
     </article>
@@ -1899,13 +1903,14 @@ ${header()}
       <p>Cremation costs are driven by the same factors that affect all funeral pricing: cost of living, local competition, state regulations, and the specific services chosen. Direct cremation — where the body is cremated without a viewing or ceremony — is always the most affordable option. Adding a memorial service, urn upgrade, or scattering service will increase the total cost.</p>
       <p>Regardless of which state you are in, the <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a> protects your right to choose only the services you want and to receive itemized pricing from any provider. You are never required to purchase a casket for cremation — a simple alternative container is sufficient.</p>
 
+      ${ctaBanner()}
+
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
       ${authorityBoostLinks(fn)}
-      ${ctaBanner()}
 
       ${shortDisclaimer('general')}
     </article>
@@ -1972,13 +1977,14 @@ ${header()}
       <p>Burial costs include more line items than most families expect. Beyond the funeral home's service fee, you will likely encounter charges for the cemetery plot, a burial vault or grave liner, opening and closing the grave, a headstone or marker, and perpetual care fees. These cemetery charges alone can add $3,000 to $8,000 to the funeral home bill.</p>
       <p>The most effective way to manage burial costs is to get itemized pricing from both the funeral home and the cemetery before committing. Under the <a href="ftc-funeral-rule-guide.html">FTC Funeral Rule</a>, funeral homes must provide a General Price List on request. Cemeteries are not covered by the FTC rule but most will provide their price sheet upon request. Comparing prices between 2-3 providers can save families significant money.</p>
 
+      ${ctaBanner()}
+
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
       ${authorityBoostLinks(fn)}
-      ${ctaBanner()}
 
       ${shortDisclaimer('general')}
     </article>
@@ -2106,6 +2112,8 @@ ${header()}
 
       ${resources('cremation')}
 
+      ${ctaBanner()}
+
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
@@ -2113,7 +2121,6 @@ ${header()}
 
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
-      ${ctaBanner()}
 
       ${shortDisclaimer('general')}
     </article>
@@ -2250,6 +2257,8 @@ ${header()}
 
       ${resources('burial')}
 
+      ${ctaBanner()}
+
       <h2>Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
@@ -2257,7 +2266,6 @@ ${header()}
 
       ${relatedGuides(fn)}
       ${crawlPriorityLinks(fn)}
-      ${ctaBanner()}
 
       ${shortDisclaimer('general')}
     </article>
@@ -2377,6 +2385,8 @@ ${header()}
 
       ${resources('general')}
 
+      ${ctaBanner()}
+
       <h2 id="faq">Frequently Asked Questions</h2>
       ${p.faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
@@ -2385,7 +2395,6 @@ ${header()}
 
       <div class="related-guides"><h3>Related Insurance &amp; Financial Guides</h3><ul><li><a href="best-burial-insurance.html">Best Burial Insurance Companies</a></li><li><a href="funeral-insurance-guide.html">Funeral Insurance Guide</a></li><li><a href="funeral-insurance-comparison.html">Funeral Insurance Comparison</a></li><li><a href="best-burial-insurance.html">Final Expense Insurance Guide</a></li><li><a href="best-burial-insurance.html">Using Life Insurance for Funeral Costs</a></li><li><a href="prepaid-funeral-plans-comparison.html">Prepaid Funeral Plans Compared</a></li><li><a href="funeral-financing-options.html">Funeral Payment Plans</a></li><li><a href="funeral-payment-assistance.html">Payment Assistance Programs</a></li></ul></div>
 
-      ${ctaBanner()}
 
       ${shortDisclaimer('general')}
     </article>
@@ -2539,6 +2548,8 @@ ${header()}
 
       ${resources('sensitive')}
 
+      ${ctaBanner()}
+
       <h2 id="faq">Frequently Asked Questions</h2>
       ${faq.map(q => `<details class="faq-item"><summary>${q.q}</summary><div class="faq-answer"><p>${q.a}</p></div></details>`).join('\n      ')}
 
@@ -2546,7 +2557,6 @@ ${header()}
 
       ${relatedGuides(p.fn)}
       ${crawlPriorityLinks(p.fn)}
-      ${ctaBanner()}
 
       ${shortDisclaimer('general')}
     </article>
@@ -2904,11 +2914,10 @@ const redirectRules = notFoundRules.concat(consolidationRules).concat(allSitemap
 // Netlify-subdomain copies of every rule, sent straight to the final apex
 // URL. _redirects is read before netlify.toml, so without these the path
 // rule fires first on funeralcostanalyzer.netlify.app (relative Location)
-// and the toml host rule adds a second hop. www is not listed in
-// _redirects: Netlify's automatic www -> primary-domain redirect runs
-// before any site rule. collapse-legacy-www.js tries to one-hop www
-// (and keep http://www to two hops) for the same sources, with onError
-// bypass if the platform redirect still wins.
+// and the toml host rule adds a second hop. www is not listed: Netlify's
+// automatic www -> primary-domain redirect runs before any site rule, so
+// a site-level www map cannot one-hop those requests. Leave the www hop
+// count as is; do not add an edge function that never sees www traffic.
 const netlifyHostRules = redirectRules.map(r => {
   const [from, to, code] = r.trim().split(/\s+/);
   return `https://funeralcostanalyzer.netlify.app${from}    ${absoluteDest(to)}    ${code}`;
@@ -2921,35 +2930,6 @@ const redirectsContent =
   redirectRules.join('\n') + '\n';
 fs.writeFileSync(path.join(OUT, '_redirects'), redirectsContent);
 console.log(`  Redirects: _redirects (${redirectRules.length} rules)`);
-
-const legacyMap = {};
-for (const r of redirectRules) {
-  const [from, to] = r.trim().split(/\s+/);
-  legacyMap[from] = absoluteDest(to);
-}
-const edgeDir = path.join(OUT, 'netlify', 'edge-functions');
-fs.mkdirSync(edgeDir, { recursive: true });
-const edgeSrc = `// Auto-generated by generate-pages.js — do not edit by hand.
-// One-hop www + legacy/city/extensionless paths to the apex canonical.
-// onError bypass keeps the platform www -> apex redirect if this fails.
-const MAP = ${JSON.stringify(legacyMap, null, 2)};
-export default async (request, context) => {
-  const url = new URL(request.url);
-  if (url.hostname.toLowerCase() !== "www.funeralcostanalyzer.com") return context.next();
-  let path = url.pathname;
-  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
-  const dest = MAP[path] || MAP[path + ".html"] || MAP[url.pathname];
-  if (dest) {
-    const loc = new URL(dest);
-    loc.search = url.search;
-    return Response.redirect(loc.toString(), 301);
-  }
-  return context.next();
-};
-export const config = { path: "/*", onError: "bypass" };
-`;
-fs.writeFileSync(path.join(edgeDir, 'collapse-legacy-www.js'), edgeSrc);
-console.log(`  Edge function: collapse-legacy-www.js (${Object.keys(legacyMap).length} paths)`);
 
 // ── Generate HTML Sitemap Page ─────────────────────────────────
 // Provides 1-click crawl path from homepage to EVERY page on the site
