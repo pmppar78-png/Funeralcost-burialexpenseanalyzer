@@ -1743,7 +1743,7 @@ function genTopical(p) {
     {q:`What are my consumer rights when arranging a funeral?`,a:`The FTC Funeral Rule protects all consumers. Funeral homes must provide itemized pricing, allow you to choose only the services you want, accept caskets purchased elsewhere, and refrain from misrepresenting legal requirements. You have the right to a General Price List from any funeral home upon request.`}
   ];
 
-  const content = `${head(p.t, p.d, p.fn, p.st, faq)}
+  const content = `${head(p.t, p.d, p.fn, p.tradition, faq, {name: "Funeral Costs by Religion", url: "funeral-costs-by-religion.html"})}
 ${header()}
   <main id="main-content" class="guide-main" role="main">
     <article class="guide-article">
