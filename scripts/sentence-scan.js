@@ -31,7 +31,10 @@ const SKIP_CLASS = [
   'starter-questions',
   'chat-form',
   'chat-window',
-  'topic-nav'
+  'topic-nav',
+  // Email sign-up forms repeat the same required consent wording on purpose.
+  'email-capture',
+  'checklist-signup'
 ];
 
 function stripClassBlocks(html, cls) {
