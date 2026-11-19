@@ -2699,7 +2699,10 @@ const existingPages = [
   'prepaid-funeral-plans-comparison.html', 'cremation-vs-burial-calculator.html',
   'funeral-costs-by-religion.html', 'state-funeral-regulations.html',
   'what-to-do-when-someone-dies.html', 'how-to-pay-for-a-funeral-with-no-money.html',
-  'funeral-costs-rising-2026.html', 'burial-plot-cost.html'
+  'funeral-costs-rising-2026.html', 'burial-plot-cost.html',
+  'funeral-costs-near-me.html', 'gpl-request-letter.html', 'funeral-planning-kit.html',
+  'funeral-cost-comparisons.html', 'parting-vs-funeral-cost-analyzer.html', 'funeralocity-vs-funeral-cost-analyzer.html',
+  'everplans-vs-funeral-cost-analyzer.html', 'lincoln-heritage-vs-funeral-cost-analyzer.html', 'us-funerals-vs-funeral-cost-analyzer.html'
 ];
 
 // Priority tiers: differentiate money pages from support pages
@@ -2806,7 +2809,7 @@ allSitemapPages.forEach((p, idx) => {
   const metroMatch = p.match(/^(funeral|cremation|burial)-costs-([a-z0-9-]+)\.html$/);
   if (metroMatch && metros.some(m => m.slug === metroMatch[2])) { guideUrls.push(entry); return; }
   // State pages
-  if (p.startsWith('funeral-costs-') && !p.includes('-by-') && !p.includes('uninsured') && !p.includes('rising')) { funeralStateUrls.push(entry); return; }
+  if (p.startsWith('funeral-costs-') && !p.includes('-by-') && !p.includes('uninsured') && !p.includes('rising') && !p.includes('near-me')) { funeralStateUrls.push(entry); return; }
   if (p.startsWith('cremation-costs-') && !p.includes('-by-')) { cremationStateUrls.push(entry); return; }
   if (p.startsWith('burial-costs-') && !p.includes('-by-')) { burialStateUrls.push(entry); return; }
   // Core hub pages
