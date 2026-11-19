@@ -1857,16 +1857,22 @@ img {
 
 
 
-      <div class="email-capture">
-  <h3>Get Our Free Funeral Cost Guide</h3>
-  <p>Sign up for occasional email updates on state funeral prices and changes to state rules.</p>
-  <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <p class="hidden" style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
-    <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
-    <button type="submit">Get Free Guide</button>
+      <div class="email-capture checklist-signup">
+  <h3>Get the Free Printable Funeral Planning Checklist</h3>
+  <p>Download it now: <a href="/funeral-planning-checklist-printable.html">free printable funeral planning checklist</a>. Leave your email if you want a short note when we revise it or publish a new planning guide.</p>
+  <form name="checklist" method="POST" action="/funeral-planning-checklist-printable.html" data-netlify="true" netlify-honeypot="company-website">
+    <input type="hidden" name="form-name" value="checklist" />
+    <input type="hidden" name="page" value="funeral-costs-by-state" />
+    <p class="hidden" style="display:none"><label>Leave this field empty: <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+    <label for="checklist-email-funeral-costs-by-state" class="sr-only">Email address</label>
+    <input id="checklist-email-funeral-costs-by-state" type="email" name="email" placeholder="Your email address" autocomplete="email" required />
+    <p class="checklist-consent"><label><input type="checkbox" name="consent" value="yes" required /> Yes, you may email me if the checklist is updated or a new planning guide is published (at most once a month). Unsubscribe anytime.</label></p>
+    <button type="submit">Send Me the Checklist</button>
   </form>
-  <p class="email-privacy">No spam. Unsubscribe anytime. We respect your privacy.</p>
+  <div class="checklist-signup-status" role="status" aria-live="polite"></div>
+  <p class="email-privacy">Unsubscribe anytime by emailing <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>. We never sell or share your address. Details are in our <a href="privacy-policy.html">privacy policy</a>.</p>
 </div>
+<script src="/checklist-signup.js" defer></script>
 
       <p class="source-note">Sources &amp; review: State figures on this page draw on the NFDA 2023 General Price List Study, the NFDA 2024 Cremation &amp; Burial Report, the CANA (Cremation Association of North America) 2024 Annual Report, the BLS Consumer Price Index: Funeral Services (CUUR0000SEGD02), CDC NCHS mortality data, the FTC Funeral Rule (16 CFR Part 453), the Funeral Consumers Alliance, the VA burial allowance (38 CFR § 3.1600) and the SSA lump-sum death payment (section 202(i) of the Social Security Act). Paul Paradis, Founder &amp; Editor, reviewed this state table on October 22, 2026; the national figures were updated October 2, 2026. Corrections: <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>.</p>
 

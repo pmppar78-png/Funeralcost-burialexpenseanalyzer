@@ -1741,16 +1741,22 @@ img {
 
       <div class="resource-suggestions"><h3>Resources That May Help</h3><ul class="resource-list"><li><a href="https://www.funerals.org" target="_blank" rel="noopener noreferrer">Funeral Consumers Alliance</a><span class="resource-desc">Independent consumer advocacy for funeral rights and fair pricing</span></li><li><a href="https://www.cremationassociation.org" target="_blank" rel="noopener noreferrer">CANA (Cremation Association of North America)</a><span class="resource-desc">Find reputable cremation providers who adhere to professional standards</span></li><li><a href="funeral-insurance-comparison.html">Funeral Insurance Comparison</a><span class="resource-desc">Compare burial insurance and final expense insurance as alternatives to prepaid plans</span></li><li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a><span class="resource-desc">Understand every line item in funeral costs to evaluate prepaid plan pricing</span></li></ul></div>
 
-      <div class="email-capture">
-  <h3>Get Our Free Funeral Cost Guide</h3>
-  <p>Sign up for occasional email updates on prepaid funeral plans and the rules that protect your money.</p>
-  <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <p class="hidden" style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
-    <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
-    <button type="submit">Get Free Guide</button>
+      <div class="email-capture checklist-signup">
+  <h3>Get the Free Printable Funeral Planning Checklist</h3>
+  <p>Download it now: <a href="/funeral-planning-checklist-printable.html">free printable funeral planning checklist</a>. Leave your email if you want a short note when we revise it or publish a new planning guide.</p>
+  <form name="checklist" method="POST" action="/funeral-planning-checklist-printable.html" data-netlify="true" netlify-honeypot="company-website">
+    <input type="hidden" name="form-name" value="checklist" />
+    <input type="hidden" name="page" value="prepaid-funeral-plans-comparison" />
+    <p class="hidden" style="display:none"><label>Leave this field empty: <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+    <label for="checklist-email-prepaid-funeral-plans-comparison" class="sr-only">Email address</label>
+    <input id="checklist-email-prepaid-funeral-plans-comparison" type="email" name="email" placeholder="Your email address" autocomplete="email" required />
+    <p class="checklist-consent"><label><input type="checkbox" name="consent" value="yes" required /> Yes, you may email me if the checklist is updated or a new planning guide is published (at most once a month). Unsubscribe anytime.</label></p>
+    <button type="submit">Send Me the Checklist</button>
   </form>
-  <p class="email-privacy">No spam. Unsubscribe anytime. We respect your privacy.</p>
+  <div class="checklist-signup-status" role="status" aria-live="polite"></div>
+  <p class="email-privacy">Unsubscribe anytime by emailing <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>. We never sell or share your address. Details are in our <a href="privacy-policy.html">privacy policy</a>.</p>
 </div>
+<script src="/checklist-signup.js" defer></script>
 
       <p class="source-note">Sources &amp; review: State preneed statutes (e.g, NY General Business Law Article 37); FTC Funeral Rule (16 CFR Part 453); IRS Revenue Ruling 92-17 (preneed funeral trust earnings treatment); National Association of Insurance Commissioners (NAIC) consumer alerts; Funeral Consumers Alliance preneed guidance; NFDA 2023 General Price List Study. National figures updated 2026-10-02; reviewed 2026-10-22 by Paul Paradis, Founder &amp; Editor (Boston, MA). Not licensed insurance, tax, or legal advice.</p>
       <div class="guide-disclaimer"></div>
