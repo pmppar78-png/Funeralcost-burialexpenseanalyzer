@@ -7,6 +7,13 @@
       if (!window.fetch || !window.URLSearchParams) return;
       e.preventDefault();
       var status = form.parentNode.querySelector('.checklist-signup-status');
+      if (!status) {
+        status = document.createElement('div');
+        status.className = 'checklist-signup-status';
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-live', 'polite');
+        form.parentNode.insertBefore(status, form.nextSibling);
+      }
       var btn = form.querySelector('button[type="submit"]');
       if (btn) btn.disabled = true;
       fetch('/', {
