@@ -1282,6 +1282,23 @@ a:hover {
       <p>For those supporting a grieving person, your presence matters more than your words. Showing up, listening without trying to fix things, and offering specific help ("I am bringing dinner Tuesday -- is 6pm okay?") is far more valuable than saying "Let me know if you need anything." Grief is a long process, and the people who continue to check in weeks and months later are the ones grievers remember most.</p>
 
       <!-- ====== FAQ Section ====== -->
+      <section class="email-capture checklist-signup no-print" id="checklist-signup" aria-labelledby="checklist-signup-title">
+        <h3 id="checklist-signup-title">Free Funeral Planning Checklist</h3>
+        <p>The steps above are also on a one-page printable checklist. Enter your email to open it now, and we will tell you when it is revised.</p>
+        <form name="checklist" method="POST" action="/funeral-planning-checklist-printable.html" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="checklist" />
+          <input type="hidden" name="page" value="what-to-do-when-someone-dies" />
+          <p class="hidden" style="display:none"><label>Leave this field empty: <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <label for="checklist-email-what-to-do-when-someone-dies" class="sr-only">Email address</label>
+          <input id="checklist-email-what-to-do-when-someone-dies" type="email" name="email" placeholder="Your email address" autocomplete="email" required />
+          <button type="submit">Send Me the Checklist</button>
+          <p class="checklist-consent"><label><input type="checkbox" name="consent" value="yes" required /> Yes, email me when the checklist is updated or a new planning guide is published, no more than once a month.</label></p>
+        </form>
+        <p class="checklist-signup-status" role="status" aria-live="polite"></p>
+        <p class="email-privacy">Unsubscribe anytime by emailing <a href="mailto:contact@funeralcostanalyzer.com">contact@funeralcostanalyzer.com</a>. We never sell or share your address. Details are in our <a href="privacy-policy.html">privacy policy</a>.</p>
+      </section>
+      <script src="/checklist-signup.js" defer></script>
+
       <section class="guide-faq">
         <h2>Frequently Asked Questions</h2>
 

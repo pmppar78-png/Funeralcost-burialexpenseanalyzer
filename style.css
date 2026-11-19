@@ -5232,3 +5232,42 @@ figure.data-chart img.chart-narrow {
     display: none;
   }
 }
+
+/* Checklist sign-up (Netlify Forms) — in-content, outside ad containers */
+.checklist-signup .checklist-consent {
+  width: 100%;
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  text-align: left;
+  max-width: 450px;
+}
+.checklist-signup .checklist-consent label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.checklist-signup .checklist-consent input {
+  margin-top: 0.2rem;
+  flex: none;
+}
+.checklist-signup input[type="email"] {
+  min-height: 44px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.checklist-signup button {
+  min-height: 44px;
+}
+.checklist-signup-status:empty {
+  display: none;
+}
+@media (max-width: 480px) {
+  .email-capture.checklist-signup {
+    padding: 1.25rem;
+  }
+  .checklist-signup input[type="email"],
+  .checklist-signup button {
+    width: 100%;
+    min-width: 0;
+  }
+}
