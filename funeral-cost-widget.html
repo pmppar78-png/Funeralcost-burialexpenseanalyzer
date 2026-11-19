@@ -923,6 +923,12 @@ a:hover {
   text-decoration: none;
 }
 .fcw-widget__attribution-link:hover { text-decoration: underline; }
+
+.fcw-row--stacked { display: block; padding: 8px 0; }
+.fcw-row__main { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.fcw-row__source { font-size: 10px; color: var(--warm-600); margin-top: 2px; line-height: 1.35; }
+.fcw-footnote { font-size: 10px; color: var(--warm-600); line-height: 1.4; padding: 0 16px 12px; background: #ffffff; }
+.fcw-footnote--compact { padding: 0 14px 10px; }
 .embed-code-wrap { position: relative; }
 .embed-code-textarea {
   width: 100%;
@@ -1044,7 +1050,7 @@ a:hover {
       "name": "Can I Modify the Widget Design or Data?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You may adjust the max-width to fit your layout, but please do not alter the cost data, remove the attribution link, or change the source URL. The data is maintained by Funeral Cost & Burial Expense Analyzer and is based on NFDA survey data and publicly available consumer research. Altering the figures could mislead your readers."
+        "text": "You may adjust the max-width to fit your layout, but please do not alter the cost data, remove the attribution link, or change the source URL. The data is maintained by Funeral Cost & Burial Expense Analyzer and is taken from the 2026 National Funeral Cost Index and the NFDA 2025 cremation-rate projection, with each figure labeled. Altering the figures or removing the source labels could mislead your readers."
       }
     },
     {
@@ -1052,7 +1058,7 @@ a:hover {
       "name": "How Often Is the Widget Data Updated?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The data in the embed code reflects our 2026 National Funeral Cost Index. We update our cost data annually when new NFDA and industry survey results are published. If you embed the widget, we recommend bookmarking this page and checking back periodically for updated embed code with the latest figures."
+        "text": "The widget figures match our 2026 National Funeral Cost Index (the simple average of our 50 state estimates) and, for the cremation rate, the NFDA 2025 Cremation & Burial Report projection of 63.4% for 2025. The embed code loads those figures from a hosted file on funeralcostanalyzer.com, so later index updates can reach existing embeds. The same numbers are also printed in the snippet as a fallback. We revise the index when the underlying sources or our state estimates change."
       }
     },
     {
@@ -1151,36 +1157,52 @@ a:hover {
       <!-- SECTION 1: LIVE WIDGET PREVIEW                               -->
       <!-- ============================================================ -->
       <h2 id="live-preview">Live Widget Preview</h2>
-      <p>Below is a live rendering of the full widget exactly as it will appear when embedded on another website. The widget is entirely self-contained; all styling is inline so it works on any page without conflicting with existing CSS.</p>
+      <p>Below is a live rendering of the full widget exactly as it will appear when embedded on another website. Cost figures match the 2026 National Funeral Cost Index (the simple average of our 50 state estimates). The national cremation rate is the NFDA 2025 projection of 63.4% for 2025, which this site uses throughout. Each number is labeled with its source and year. The embed loads the same figures from a hosted file so later updates can propagate.</p>
 
       <div class="widget-preview-wrap">
         <!-- LIVE FULL WIDGET -->
-        <div class="fcw-widget fcw-widget--full">
+                <div class="fcw-widget fcw-widget--full" data-fcw="full">
           <div class="fcw-widget__header">
             <div class="fcw-widget__title">2026 U.S. Funeral Cost Summary</div>
           </div>
           <div class="fcw-widget__body">
-            <div class="fcw-row fcw-row--bordered">
-              <span class="fcw-row__label">Traditional Funeral</span>
-              <span class="fcw-row__value">$8,300</span>
+            <div class="fcw-row fcw-row--stacked fcw-row--bordered">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label">Traditional Funeral</span>
+                <span class="fcw-row__value" data-fcw-id="traditional">$7,736</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="traditional">2026 index, average of 50 state estimates</div>
             </div>
-            <div class="fcw-row fcw-row--bordered">
-              <span class="fcw-row__label">Funeral with Cremation</span>
-              <span class="fcw-row__value">$6,280</span>
+            <div class="fcw-row fcw-row--stacked fcw-row--bordered">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label">Funeral with Cremation</span>
+                <span class="fcw-row__value" data-fcw-id="cremation_service">$6,072</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="cremation_service">2026 index, average of 50 state estimates</div>
             </div>
-            <div class="fcw-row fcw-row--bordered">
-              <span class="fcw-row__label">Direct Cremation</span>
-              <span class="fcw-row__value">$1,812</span>
+            <div class="fcw-row fcw-row--stacked fcw-row--bordered">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label">Direct Cremation</span>
+                <span class="fcw-row__value" data-fcw-id="direct_cremation">$1,834</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="direct_cremation">2026 index, average of 50 state estimates</div>
             </div>
-            <div class="fcw-row fcw-row--bordered">
-              <span class="fcw-row__label">Average Burial Plot</span>
-              <span class="fcw-row__value">$3,636</span>
+            <div class="fcw-row fcw-row--stacked fcw-row--bordered">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label">Average Burial Plot</span>
+                <span class="fcw-row__value" data-fcw-id="burial_plot">$3,656</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="burial_plot">2026 index, average of 50 state estimates</div>
             </div>
-            <div class="fcw-row">
-              <span class="fcw-row__label">National Cremation Rate</span>
-              <span class="fcw-row__value">57%</span>
+            <div class="fcw-row fcw-row--stacked">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label">National Cremation Rate</span>
+                <span class="fcw-row__value" data-fcw-id="cremation_rate">63.4%</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="cremation_rate">NFDA 2025 Cremation &amp; Burial Report, projected for 2025</div>
             </div>
           </div>
+          <p class="fcw-footnote" data-fcw-footnote="full">Costs: 2026 index, average of 50 state estimates. Official NFDA 2023 medians are $8,300 (viewing and burial) and $6,280 (viewing and cremation). Rate: NFDA 2025 projection for 2025.</p>
           <div class="fcw-widget__cta-wrap">
             <a href="https://funeralcostanalyzer.com/national-funeral-cost-index.html" target="_blank" rel="noopener" class="fcw-widget__cta">View Full State-by-State Data</a>
           </div>
@@ -1190,32 +1212,45 @@ a:hover {
         </div>
       </div>
 
-      <p>And here is the compact version, which shows only the four key cost figures in a smaller footprint:</p>
+      <p>And here is the compact version, which shows the four 2026 index cost averages in a smaller footprint:</p>
 
       <div class="widget-preview-wrap">
         <!-- LIVE COMPACT WIDGET -->
-        <div class="fcw-widget fcw-widget--compact">
+                <div class="fcw-widget fcw-widget--compact" data-fcw="compact">
           <div class="fcw-widget__header fcw-widget__header--compact">
             <div class="fcw-widget__title fcw-widget__title--compact">2026 U.S. Funeral Costs</div>
           </div>
           <div class="fcw-widget__body fcw-widget__body--compact">
-            <div class="fcw-row fcw-row--compact fcw-row--bordered">
-              <span class="fcw-row__label fcw-row__label--compact">Traditional Funeral</span>
-              <span class="fcw-row__value fcw-row__value--compact">$8,300</span>
+            <div class="fcw-row fcw-row--stacked fcw-row--compact fcw-row--bordered">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label fcw-row__label--compact">Traditional Funeral</span>
+                <span class="fcw-row__value fcw-row__value--compact" data-fcw-id="traditional">$7,736</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="traditional">2026 index, average of 50 state estimates</div>
             </div>
-            <div class="fcw-row fcw-row--compact fcw-row--bordered">
-              <span class="fcw-row__label fcw-row__label--compact">Cremation</span>
-              <span class="fcw-row__value fcw-row__value--compact">$6,280</span>
+            <div class="fcw-row fcw-row--stacked fcw-row--compact fcw-row--bordered">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label fcw-row__label--compact">Cremation</span>
+                <span class="fcw-row__value fcw-row__value--compact" data-fcw-id="cremation_service">$6,072</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="cremation_service">2026 index, average of 50 state estimates</div>
             </div>
-            <div class="fcw-row fcw-row--compact fcw-row--bordered">
-              <span class="fcw-row__label fcw-row__label--compact">Direct Cremation</span>
-              <span class="fcw-row__value fcw-row__value--compact">$1,812</span>
+            <div class="fcw-row fcw-row--stacked fcw-row--compact fcw-row--bordered">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label fcw-row__label--compact">Direct Cremation</span>
+                <span class="fcw-row__value fcw-row__value--compact" data-fcw-id="direct_cremation">$1,834</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="direct_cremation">2026 index, average of 50 state estimates</div>
             </div>
-            <div class="fcw-row fcw-row--compact">
-              <span class="fcw-row__label fcw-row__label--compact">Burial Plot</span>
-              <span class="fcw-row__value fcw-row__value--compact">$3,636</span>
+            <div class="fcw-row fcw-row--stacked fcw-row--compact">
+              <div class="fcw-row__main">
+                <span class="fcw-row__label fcw-row__label--compact">Burial Plot</span>
+                <span class="fcw-row__value fcw-row__value--compact" data-fcw-id="burial_plot">$3,656</span>
+              </div>
+              <div class="fcw-row__source" data-fcw-source="burial_plot">2026 index, average of 50 state estimates</div>
             </div>
           </div>
+          <p class="fcw-footnote fcw-footnote--compact" data-fcw-footnote="compact">2026 index, average of 50 state estimates. Official NFDA 2023 medians: $8,300 and $6,280.</p>
           <div class="fcw-widget__footer fcw-widget__footer--compact">
             <span class="fcw-widget__attribution fcw-widget__attribution--compact">Data: <a href="https://funeralcostanalyzer.com/national-funeral-cost-index.html" target="_blank" rel="noopener" class="fcw-widget__attribution-link">Funeral Cost Analyzer</a></span>
           </div>
@@ -1226,36 +1261,52 @@ a:hover {
       <!-- SECTION 2: FULL WIDGET EMBED CODE                            -->
       <!-- ============================================================ -->
       <h2 id="full-embed-code">Full Widget: Embed Code</h2>
-      <p>Copy the code below and paste it into your website's HTML wherever you want the widget to appear. No external scripts or stylesheets are required; everything is self-contained.</p>
+      <p>Copy the code below and paste it into your website's HTML wherever you want the widget to appear. The snippet is self-contained and includes a short script that loads the current figures from funeralcostanalyzer.com, so later index updates reach existing embeds. If that request cannot run, the numbers already printed in the snippet are used. Keep the attribution link and do not change the figures.</p>
 
       <div class="embed-code-wrap">
         <textarea id="full-widget-code" readonly class="embed-code-textarea embed-code-textarea--tall">&lt;!-- Funeral Cost Widget by funeralcostanalyzer.com --&gt;
-&lt;div style="max-width:300px;width:100%;font-family:'Inter','Helvetica Neue',Arial,sans-serif;border:1px solid #e4d9cc;border-radius:10px;overflow:hidden;background:#faf7f3;box-shadow:0 1px 3px rgba(92,58,30,0.10);color:#432818;line-height:1.5;"&gt;
+&lt;div data-fcw="full" style="max-width:300px;width:100%;font-family:'Inter','Helvetica Neue',Arial,sans-serif;border:1px solid #e4d9cc;border-radius:10px;overflow:hidden;background:#faf7f3;box-shadow:0 1px 3px rgba(92,58,30,0.10);color:#432818;line-height:1.5;"&gt;
   &lt;div style="background:#5c3a1e;color:#fbf6ed;padding:14px 16px;text-align:center;"&gt;
     &lt;div style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;letter-spacing:0.01em;"&gt;2026 U.S. Funeral Cost Summary&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div style="padding:16px;background:#ffffff;"&gt;
-    &lt;div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e4d9cc;"&gt;
-      &lt;span style="font-size:13px;color:#7a6652;"&gt;Traditional Funeral&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;$8,300&lt;/span&gt;
+  &lt;div style="padding:16px 16px 0;background:#ffffff;"&gt;
+    &lt;div style="padding:8px 0;border-bottom:1px solid #e4d9cc;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:13px;color:#7a6652;"&gt;Traditional Funeral&lt;/span&gt;
+        &lt;span data-fcw-id="traditional" style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;$7,736&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="traditional" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;2026 index, average of 50 state estimates&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e4d9cc;"&gt;
-      &lt;span style="font-size:13px;color:#7a6652;"&gt;Funeral with Cremation&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;$6,280&lt;/span&gt;
+    &lt;div style="padding:8px 0;border-bottom:1px solid #e4d9cc;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:13px;color:#7a6652;"&gt;Funeral with Cremation&lt;/span&gt;
+        &lt;span data-fcw-id="cremation_service" style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;$6,072&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="cremation_service" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;2026 index, average of 50 state estimates&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e4d9cc;"&gt;
-      &lt;span style="font-size:13px;color:#7a6652;"&gt;Direct Cremation&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;$1,812&lt;/span&gt;
+    &lt;div style="padding:8px 0;border-bottom:1px solid #e4d9cc;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:13px;color:#7a6652;"&gt;Direct Cremation&lt;/span&gt;
+        &lt;span data-fcw-id="direct_cremation" style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;$1,834&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="direct_cremation" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;2026 index, average of 50 state estimates&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e4d9cc;"&gt;
-      &lt;span style="font-size:13px;color:#7a6652;"&gt;Average Burial Plot&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;$3,636&lt;/span&gt;
+    &lt;div style="padding:8px 0;border-bottom:1px solid #e4d9cc;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:13px;color:#7a6652;"&gt;Average Burial Plot&lt;/span&gt;
+        &lt;span data-fcw-id="burial_plot" style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;$3,656&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="burial_plot" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;2026 index, average of 50 state estimates&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;"&gt;
-      &lt;span style="font-size:13px;color:#7a6652;"&gt;National Cremation Rate&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;57%&lt;/span&gt;
+    &lt;div style="padding:8px 0;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:13px;color:#7a6652;"&gt;National Cremation Rate&lt;/span&gt;
+        &lt;span data-fcw-id="cremation_rate" style="font-family:'Merriweather',Georgia,serif;font-size:15px;font-weight:700;color:#432818;"&gt;63.4%&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="cremation_rate" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;NFDA 2025 Cremation &amp; Burial Report, projected for 2025&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+  &lt;p data-fcw-footnote="full" style="font-size:10px;color:#7a6652;line-height:1.4;margin:0;padding:8px 16px 12px;background:#ffffff;"&gt;Costs: 2026 index, average of 50 state estimates. Official NFDA 2023 medians are $8,300 (viewing and burial) and $6,280 (viewing and cremation). Rate: NFDA 2025 projection for 2025.&lt;/p&gt;
   &lt;div style="padding:0 16px 12px;background:#ffffff;"&gt;
     &lt;a href="https://funeralcostanalyzer.com/national-funeral-cost-index.html" target="_blank" rel="noopener" style="display:block;text-align:center;background:#a67c3d;color:#ffffff;padding:9px 12px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;"&gt;View Full State-by-State Data&lt;/a&gt;
   &lt;/div&gt;
@@ -1263,6 +1314,29 @@ a:hover {
     &lt;span style="font-size:11px;color:#7a6652;"&gt;Data: &lt;a href="https://funeralcostanalyzer.com/national-funeral-cost-index.html" target="_blank" rel="noopener" style="color:#a67c3d;text-decoration:none;"&gt;Funeral Cost &amp;amp; Burial Expense Analyzer&lt;/a&gt;&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+&lt;script&gt;
+(function(){
+  var url="https://funeralcostanalyzer.com/funeral-cost-widget-data.json";
+  fetch(url,{mode:"cors",credentials:"omit"}).then(function(r){if(!r.ok)throw new Error("bad status");return r.json()}).then(function(d){
+    var roots=document.querySelectorAll("[data-fcw]");
+    if(!roots.length) return;
+    (d.rows||[]).forEach(function(row){
+      roots.forEach(function(root){
+        var el=root.querySelector('[data-fcw-id="'+row.id+'"]');
+        if(el&amp;&amp;row.display) el.textContent=row.display;
+        var src=root.querySelector('[data-fcw-source="'+row.id+'"]');
+        if(src&amp;&amp;row.source) src.textContent=row.source;
+      });
+    });
+    roots.forEach(function(root){
+      var kind=root.getAttribute("data-fcw");
+      var foot=root.querySelector("[data-fcw-footnote]");
+      var text=(kind==="compact"?d.footnote_compact:d.footnote_full)||d.footnote_full;
+      if(foot&amp;&amp;text) foot.textContent=text;
+    });
+  }).catch(function(){/* keep the figures already printed in the markup */});
+})();
+&lt;/script&gt;
 &lt;!-- End Funeral Cost Widget --&gt;</textarea>
         <button id="copy-full-btn" onclick="copyWidget('full-widget-code','copy-full-btn')" class="embed-copy-btn">Copy to Clipboard</button>
       </div>
@@ -1271,36 +1345,72 @@ a:hover {
       <!-- SECTION 3: COMPACT WIDGET EMBED CODE                         -->
       <!-- ============================================================ -->
       <h2 id="compact-embed-code">Compact Widget: Embed Code</h2>
-      <p>Need a smaller footprint? This compact version displays only the four key national average costs. It works well in sidebars, narrow columns, and mobile-first layouts.</p>
+      <p>Need a smaller footprint? This compact version displays the four 2026 index cost averages (traditional funeral, cremation with a service, direct cremation, and burial plot), each labeled with its source. It works well in sidebars, narrow columns, and mobile-first layouts.</p>
 
       <div class="embed-code-wrap">
         <textarea id="compact-widget-code" readonly class="embed-code-textarea">&lt;!-- Funeral Cost Widget (Compact) by funeralcostanalyzer.com --&gt;
-&lt;div style="max-width:260px;width:100%;font-family:'Inter','Helvetica Neue',Arial,sans-serif;border:1px solid #e4d9cc;border-radius:8px;overflow:hidden;background:#faf7f3;box-shadow:0 1px 3px rgba(92,58,30,0.10);color:#432818;line-height:1.5;"&gt;
+&lt;div data-fcw="compact" style="max-width:260px;width:100%;font-family:'Inter','Helvetica Neue',Arial,sans-serif;border:1px solid #e4d9cc;border-radius:8px;overflow:hidden;background:#faf7f3;box-shadow:0 1px 3px rgba(92,58,30,0.10);color:#432818;line-height:1.5;"&gt;
   &lt;div style="background:#5c3a1e;color:#fbf6ed;padding:10px 14px;text-align:center;"&gt;
     &lt;div style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;"&gt;2026 U.S. Funeral Costs&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div style="padding:12px 14px;background:#ffffff;"&gt;
-    &lt;div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #e4d9cc;"&gt;
-      &lt;span style="font-size:12px;color:#7a6652;"&gt;Traditional Funeral&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:#432818;"&gt;$8,300&lt;/span&gt;
+  &lt;div style="padding:12px 14px 0;background:#ffffff;"&gt;
+    &lt;div style="padding:6px 0;border-bottom:1px solid #e4d9cc;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:12px;color:#7a6652;"&gt;Traditional Funeral&lt;/span&gt;
+        &lt;span data-fcw-id="traditional" style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:#432818;"&gt;$7,736&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="traditional" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;2026 index, average of 50 state estimates&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #e4d9cc;"&gt;
-      &lt;span style="font-size:12px;color:#7a6652;"&gt;Cremation&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:#432818;"&gt;$6,280&lt;/span&gt;
+    &lt;div style="padding:6px 0;border-bottom:1px solid #e4d9cc;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:12px;color:#7a6652;"&gt;Cremation&lt;/span&gt;
+        &lt;span data-fcw-id="cremation_service" style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:#432818;"&gt;$6,072&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="cremation_service" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;2026 index, average of 50 state estimates&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #e4d9cc;"&gt;
-      &lt;span style="font-size:12px;color:#7a6652;"&gt;Direct Cremation&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:#432818;"&gt;$1,812&lt;/span&gt;
+    &lt;div style="padding:6px 0;border-bottom:1px solid #e4d9cc;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:12px;color:#7a6652;"&gt;Direct Cremation&lt;/span&gt;
+        &lt;span data-fcw-id="direct_cremation" style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:#432818;"&gt;$1,834&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="direct_cremation" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;2026 index, average of 50 state estimates&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style="display:flex;justify-content:space-between;padding:6px 0;"&gt;
-      &lt;span style="font-size:12px;color:#7a6652;"&gt;Burial Plot&lt;/span&gt;
-      &lt;span style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:#432818;"&gt;$3,636&lt;/span&gt;
+    &lt;div style="padding:6px 0;"&gt;
+      &lt;div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"&gt;
+        &lt;span style="font-size:12px;color:#7a6652;"&gt;Burial Plot&lt;/span&gt;
+        &lt;span data-fcw-id="burial_plot" style="font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:#432818;"&gt;$3,656&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div data-fcw-source="burial_plot" style="font-size:10px;color:#7a6652;margin-top:2px;line-height:1.35;"&gt;2026 index, average of 50 state estimates&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+  &lt;p data-fcw-footnote="compact" style="font-size:10px;color:#7a6652;line-height:1.4;margin:0;padding:6px 14px 10px;background:#ffffff;"&gt;2026 index, average of 50 state estimates. Official NFDA 2023 medians: $8,300 and $6,280.&lt;/p&gt;
   &lt;div style="background:#fbf6ed;padding:8px 14px;text-align:center;border-top:1px solid #e4d9cc;"&gt;
     &lt;span style="font-size:10px;color:#7a6652;"&gt;Data: &lt;a href="https://funeralcostanalyzer.com/national-funeral-cost-index.html" target="_blank" rel="noopener" style="color:#a67c3d;text-decoration:none;"&gt;Funeral Cost Analyzer&lt;/a&gt;&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+&lt;script&gt;
+(function(){
+  var url="https://funeralcostanalyzer.com/funeral-cost-widget-data.json";
+  fetch(url,{mode:"cors",credentials:"omit"}).then(function(r){if(!r.ok)throw new Error("bad status");return r.json()}).then(function(d){
+    var roots=document.querySelectorAll("[data-fcw]");
+    if(!roots.length) return;
+    (d.rows||[]).forEach(function(row){
+      roots.forEach(function(root){
+        var el=root.querySelector('[data-fcw-id="'+row.id+'"]');
+        if(el&amp;&amp;row.display) el.textContent=row.display;
+        var src=root.querySelector('[data-fcw-source="'+row.id+'"]');
+        if(src&amp;&amp;row.source) src.textContent=row.source;
+      });
+    });
+    roots.forEach(function(root){
+      var kind=root.getAttribute("data-fcw");
+      var foot=root.querySelector("[data-fcw-footnote]");
+      var text=(kind==="compact"?d.footnote_compact:d.footnote_full)||d.footnote_full;
+      if(foot&amp;&amp;text) foot.textContent=text;
+    });
+  }).catch(function(){/* keep the figures already printed in the markup */});
+})();
+&lt;/script&gt;
 &lt;!-- End Funeral Cost Widget (Compact) --&gt;</textarea>
         <button id="copy-compact-btn" onclick="copyWidget('compact-widget-code','copy-compact-btn')" class="embed-copy-btn">Copy to Clipboard</button>
       </div>
@@ -1314,7 +1424,7 @@ a:hover {
       <ul>
         <li><strong>Free to use with attribution</strong>: Both widgets are completely free. The only requirement is that the attribution link at the bottom of the widget remains intact and links back to our site.</li>
         <li><strong>Do not modify the attribution link</strong>: The link to <a href="national-funeral-cost-index.html">Funeral Cost &amp; Burial Expense Analyzer</a> must remain visible and functional. This ensures readers can access the full data source.</li>
-        <li><strong>Do not alter the cost data</strong>: The figures in the widget reflect verified national averages. Please do not change the numbers, as this could mislead readers.</li>
+        <li><strong>Do not alter the cost data</strong>: The figures match the current National Funeral Cost Index and the site's NFDA 2025 cremation-rate citation, and each is labeled with its source. Please do not change the numbers or strip the source labels, as this could mislead readers.</li>
         <li><strong>Blogs and news sites</strong>: The widget is ideal for articles about personal finance, end-of-life planning, consumer rights, and cost-of-living analysis.</li>
         <li><strong>Financial planning sites</strong>: Financial advisors and planners may embed the widget on educational pages or client-facing resources.</li>
         <li><strong>Educational resources</strong>: Schools, libraries, nonprofits, and consumer advocacy organizations are welcome to use the widget.</li>
@@ -1340,12 +1450,12 @@ a:hover {
 
       <div class="callout callout-info">
         <h3 class="callout-heading">Can I Modify the Widget Design or Data?</h3>
-        <p class="callout-para">You may adjust the <code>max-width</code> to fit your layout, but please do not alter the cost data, remove the attribution link, or change the source URL. The data is maintained by Funeral Cost &amp; Burial Expense Analyzer and is based on NFDA survey data and publicly available consumer research. Altering the figures could mislead your readers.</p>
+        <p class="callout-para">You may adjust the <code>max-width</code> to fit your layout, but please do not alter the cost data, remove the attribution link, or change the source URL. The data is maintained by Funeral Cost &amp; Burial Expense Analyzer and is taken from the 2026 National Funeral Cost Index and the NFDA 2025 cremation-rate projection, with each figure labeled. Altering the figures or removing the source labels could mislead your readers.</p>
       </div>
 
       <div class="callout callout-info">
         <h3 class="callout-heading">How Often Is the Widget Data Updated?</h3>
-        <p class="callout-para">The data in the embed code reflects our 2026 National Funeral Cost Index. We update our cost data annually when new NFDA and industry survey results are published. If you embed the widget, we recommend bookmarking this page and checking back periodically for updated embed code with the latest figures.</p>
+        <p class="callout-para">The widget figures match our 2026 National Funeral Cost Index (the simple average of our 50 state estimates) and, for the cremation rate, the NFDA 2025 Cremation &amp; Burial Report projection of 63.4% for 2025. The embed code loads those figures from a hosted file on funeralcostanalyzer.com, so later index updates can reach existing embeds. The same numbers are also printed in the snippet as a fallback. We revise the index when the underlying sources or our state estimates change.</p>
       </div>
 
       <div class="callout callout-info">
@@ -1372,7 +1482,7 @@ a:hover {
 
       <div class="related-guides crawl-priority-links"><h3>You May Also Need</h3><ul><li><a href="funeral-costs-by-state.html">Funeral Costs by State</a></li><li><a href="cremation-costs-by-state.html">Cremation Costs by State</a></li><li><a href="burial-costs-by-state.html">Burial Costs by State</a></li><li><a href="national-funeral-cost-index.html">National Funeral Cost Index</a></li><li><a href="ftc-funeral-rule-guide.html">Consumer Rights in Funeral Pricing</a></li><li><a href="questions-to-ask-funeral-home.html">Questions to Ask Funeral Homes</a></li><li><a href="what-funeral-homes-dont-tell-you.html">What Funeral Homes Don't Tell You</a></li><li><a href="funeral-payment-assistance.html">Funeral Payment Assistance</a></li><li><a href="how-to-pay-for-a-funeral-with-no-money.html">How to Pay for a Funeral With No Money</a></li><li><a href="funeral-costs-uninsured.html">Funeral Costs When Uninsured</a></li><li><a href="social-security-death-benefit.html">Social Security Death Benefit</a></li><li><a href="veteran-burial-benefits.html">Veteran Burial Benefits</a></li></ul></div>
     </article>
-    <p class="source-note"><strong>Data sources &amp; last reviewed:</strong> Widget data compiled and reviewed by Paul Paradis, Founder &amp; Editor, on 2026-10-22. National averages are derived from the NFDA 2023 General Price List Study (traditional funeral with viewing and burial; cremation with service) and the U.S. Bureau of Labor Statistics Consumer Price Index series for funeral services (CUUR0000SEGD02). Any site embedding this widget must retain the attribution link back to funeralcostanalyzer.com. Informational only.</p>
+    <p class="source-note"><strong>Data sources &amp; last reviewed:</strong> Widget data compiled and reviewed by Paul Paradis, Founder &amp; Editor, on 2026-11-19. Cost figures are the simple averages of the 50 state estimates in the 2026 National Funeral Cost Index (traditional funeral $7,736, funeral with cremation $6,072, direct cremation $1,834, burial plot $3,656). Official NFDA 2023 medians, cited for context, are $8,300 for a funeral with viewing and burial and $6,280 for a funeral with viewing and cremation. The national cremation rate is the 63.4% figure projected for 2025 in NFDA's 2025 Cremation &amp; Burial Report. Price-trend context on the index comes from the U.S. Bureau of Labor Statistics Consumer Price Index series for funeral services (CUUR0000SEGD02). Any site embedding this widget must retain the attribution link back to funeralcostanalyzer.com. Informational only.</p>
   </main>
 
   <footer class="site-footer" role="contentinfo">
@@ -1409,7 +1519,30 @@ a:hover {
       </div>
     </div>
   </footer>
-  <script>
+  
+<script>
+(function(){
+  var url="/funeral-cost-widget-data.json";
+  fetch(url,{credentials:"omit"}).then(function(r){if(!r.ok)throw new Error("bad status");return r.json()}).then(function(d){
+    var roots=document.querySelectorAll("[data-fcw]");
+    (d.rows||[]).forEach(function(row){
+      roots.forEach(function(root){
+        var el=root.querySelector('[data-fcw-id="'+row.id+'"]');
+        if(el&&row.display) el.textContent=row.display;
+        var src=root.querySelector('[data-fcw-source="'+row.id+'"]');
+        if(src&&row.source) src.textContent=row.source;
+      });
+    });
+    roots.forEach(function(root){
+      var kind=root.getAttribute("data-fcw");
+      var foot=root.querySelector("[data-fcw-footnote]");
+      var text=(kind==="compact"?d.footnote_compact:d.footnote_full)||d.footnote_full;
+      if(foot&&text) foot.textContent=text;
+    });
+  }).catch(function(){/* keep fallbacks already in the markup */});
+})();
+</script>
+<script>
 function copyWidget(id,btnId){var t=document.getElementById(id);var b=document.getElementById(btnId);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(function(){b.textContent="Copied!";b.style.background="#6d4a2a";setTimeout(function(){b.textContent="Copy to Clipboard";b.style.background=""},2200)}).catch(function(){fallbackCopy(t,b)})}else{fallbackCopy(t,b)}}function fallbackCopy(t,b){t.select();t.setSelectionRange(0,99999);try{document.execCommand("copy");b.textContent="Copied!";b.style.background="#6d4a2a";setTimeout(function(){b.textContent="Copy to Clipboard";b.style.background=""},2200)}catch(e){b.textContent="Select & copy manually";setTimeout(function(){b.textContent="Copy to Clipboard"},3000)}}
   </script>
   <script>

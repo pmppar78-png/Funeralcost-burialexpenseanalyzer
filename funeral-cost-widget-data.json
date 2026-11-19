@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "updated": "2026-11-19",
+  "source_page": "https://funeralcostanalyzer.com/national-funeral-cost-index.html",
+  "methodology": "Cost figures are the simple (unweighted) averages of the 50 state estimates in the 2026 National Funeral Cost Index. They are not the official NFDA 2023 national medians ($8,300 for a funeral with viewing and burial; $6,280 for a funeral with viewing and cremation). The national cremation rate is the NFDA 2025 Cremation & Burial Report projection for 2025, which this site uses throughout.",
+  "rows": [
+    {
+      "id": "traditional",
+      "label": "Traditional Funeral",
+      "compactLabel": "Traditional Funeral",
+      "display": "$7,736",
+      "source": "2026 index, average of 50 state estimates"
+    },
+    {
+      "id": "cremation_service",
+      "label": "Funeral with Cremation",
+      "compactLabel": "Cremation",
+      "display": "$6,072",
+      "source": "2026 index, average of 50 state estimates"
+    },
+    {
+      "id": "direct_cremation",
+      "label": "Direct Cremation",
+      "compactLabel": "Direct Cremation",
+      "display": "$1,834",
+      "source": "2026 index, average of 50 state estimates"
+    },
+    {
+      "id": "burial_plot",
+      "label": "Average Burial Plot",
+      "compactLabel": "Burial Plot",
+      "display": "$3,656",
+      "source": "2026 index, average of 50 state estimates"
+    },
+    {
+      "id": "cremation_rate",
+      "label": "National Cremation Rate",
+      "compactLabel": "Cremation Rate",
+      "display": "63.4%",
+      "source": "NFDA 2025 Cremation & Burial Report, projected for 2025"
+    }
+  ],
+  "footnote_full": "Costs: 2026 index, average of 50 state estimates. Official NFDA 2023 medians are $8,300 (viewing and burial) and $6,280 (viewing and cremation). Rate: NFDA 2025 projection for 2025.",
+  "footnote_compact": "2026 index, average of 50 state estimates. Official NFDA 2023 medians: $8,300 and $6,280."
+}

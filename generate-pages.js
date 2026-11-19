@@ -2702,7 +2702,7 @@ const existingPages = [
   'funeral-costs-rising-2026.html', 'burial-plot-cost.html',
   'funeral-costs-near-me.html', 'gpl-request-letter.html', 'funeral-planning-kit.html',
   'funeral-cost-comparisons.html', 'parting-vs-funeral-cost-analyzer.html', 'funeralocity-vs-funeral-cost-analyzer.html',
-  'everplans-vs-funeral-cost-analyzer.html', 'lincoln-heritage-vs-funeral-cost-analyzer.html', 'us-funerals-vs-funeral-cost-analyzer.html', 'funeral-home-prices-new-york-city.html', 'funeral-home-prices-los-angeles.html', 'funeral-home-prices-chicago.html', 'funeral-home-prices-houston.html', 'funeral-home-prices-phoenix.html', 'funeral-home-prices-austin.html', 'funeral-home-prices-san-diego.html', 'funeral-home-prices-dallas.html', 'end-of-life-planner.html'
+  'everplans-vs-funeral-cost-analyzer.html', 'lincoln-heritage-vs-funeral-cost-analyzer.html', 'us-funerals-vs-funeral-cost-analyzer.html', 'honestfarewell-vs-funeral-cost-analyzer.html', 'honest-funeral-co-vs-funeral-cost-analyzer.html', 'funeral-home-prices-new-york-city.html', 'funeral-home-prices-los-angeles.html', 'funeral-home-prices-chicago.html', 'funeral-home-prices-houston.html', 'funeral-home-prices-phoenix.html', 'funeral-home-prices-austin.html', 'funeral-home-prices-san-diego.html', 'funeral-home-prices-dallas.html', 'end-of-life-planner.html'
 ];
 
 // Priority tiers: differentiate money pages from support pages
