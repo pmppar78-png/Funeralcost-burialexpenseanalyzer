@@ -2675,7 +2675,7 @@ const existingPages = [
   'index.html', 'chat.html', 'contact.html',
   'national-funeral-cost-index.html',
   'funeral-costs-by-state.html', 'cremation-vs-burial-cost.html', 'direct-cremation-cost.html',
-  'funeral-cost-breakdown.html', 'funeral-payment-assistance.html', 'questions-to-ask-funeral-home.html',
+  'funeral-cost-breakdown.html', 'nfda-vs-funeral-cost-analyzer.html', 'funeral-payment-assistance.html', 'questions-to-ask-funeral-home.html',
   'what-funeral-homes-dont-tell-you.html', 'social-security-death-benefit.html', 'veteran-burial-benefits.html',
   'cheap-funeral-options.html', 'green-burial-options.html', 'prepaid-funeral-plans.html',
   'ftc-funeral-rule-guide.html', 'funeral-insurance-guide.html', 'home-funeral-guide.html',
@@ -2780,6 +2780,14 @@ for (const m of metros) {
 // The 9 pages once listed here were rewritten (Content bot batch 4, 2026-10-21)
 // and are indexable again.
 const NOINDEXED = new Set([]);
+// Hand-written pages not in existingPages or the generators (for example
+// nfda-vs-funeral-cost-analyzer.html) must still appear in the sitemap.
+const listed = new Set(existingPages.concat(allPages));
+for (const f of fs.readdirSync(OUT).filter(f => f.endsWith('.html'))) {
+  if (f === '404.html' || f === 'sitemap-index.html' || f in CONSOLIDATED || NOINDEXED.has(f)) continue;
+  if (!listed.has(f)) existingPages.push(f);
+}
+
 const allSitemapPages = existingPages.concat(allPages).concat(['sitemap-index.html'])
   .filter(p => !(p in CONSOLIDATED) && !NOINDEXED.has(p));
 allSitemapPages.forEach((p, idx) => {
@@ -2849,41 +2857,61 @@ ${sitemapSegments.filter(s => s.entries.length > 0).map(s => `  <sitemap><loc>${
 // skipped (the homepage is served at "/" and /index.html already 301s to
 // "/" via netlify.toml); these rules are appended to the redirect engine
 // and do not conflict with the disjoint vanity aliases in netlify.toml.
+const CANONICAL_ORIGIN = 'https://funeralcostanalyzer.com';
+function absoluteDest(to) {
+  if (/^https?:\/\//i.test(to)) return to;
+  return `${CANONICAL_ORIGIN}${to}`;
+}
+function rule(from, to) {
+  return `${from}    ${absoluteDest(to)}    301!`;
+}
 const consolidationRules = Object.entries(CONSOLIDATED).flatMap(([from, to]) => [
-  `/${from}    /${to}    301!`,
-  `/${from.slice(0, -5)}    /${to}    301!`,
+  rule(`/${from}`, `/${to}`),
+  rule(`/${from.slice(0, -5)}`, `/${to}`),
 ]);
 // Retired/mistyped URLs that Google reported as 404: send each to the
 // closest real page in a single hop (extensionless and trailing-slash
 // variants included). The FAQ lives on the home page section #faq, so the
 // three faq URLs land on /#faq (2026-11-19 blitz; Google drops the fragment
 // and indexes /, while a bookmarked FAQ link opens on the FAQ section).
+// Retired metro sitemap XML files 404 in Search Console; remaining metro
+// pages (Memphis, Indianapolis, Washington DC) already live in
+// sitemap-guides.xml, and retired city URLs 301 to state pages in the
+// state sitemaps, so the sitemap index is the right one-hop destination.
 const notFoundRules = [
-  '/faq.html    /#faq    301!',
-  '/faq    /#faq    301!',
-  '/faq/    /#faq    301!',
-  '/funeral-costs-west-vinyl.html    /funeral-costs-west-virginia.html    301!',
-  '/funeral-costs-west-vinyl    /funeral-costs-west-virginia.html    301!',
-  '/funeral-costs-west-vinyl/    /funeral-costs-west-virginia.html    301!',
-  '/minneapolis-burial-costs.html    /burial-costs-minnesota.html    301!',
-  '/minneapolis-burial-costs    /burial-costs-minnesota.html    301!',
-  '/minneapolis-burial-costs/    /burial-costs-minnesota.html    301!',
-  '/ohio.html    /funeral-costs-ohio.html    301!',
-  '/ohio    /funeral-costs-ohio.html    301!',
-  '/ohio/    /funeral-costs-ohio.html    301!',
+  rule('/faq.html', '/#faq'),
+  rule('/faq', '/#faq'),
+  rule('/faq/', '/#faq'),
+  rule('/funeral-costs-west-vinyl.html', '/funeral-costs-west-virginia.html'),
+  rule('/funeral-costs-west-vinyl', '/funeral-costs-west-virginia.html'),
+  rule('/funeral-costs-west-vinyl/', '/funeral-costs-west-virginia.html'),
+  rule('/minneapolis-burial-costs.html', '/burial-costs-minnesota.html'),
+  rule('/minneapolis-burial-costs', '/burial-costs-minnesota.html'),
+  rule('/minneapolis-burial-costs/', '/burial-costs-minnesota.html'),
+  rule('/ohio.html', '/funeral-costs-ohio.html'),
+  rule('/ohio', '/funeral-costs-ohio.html'),
+  rule('/ohio/', '/funeral-costs-ohio.html'),
+  rule('/sitemap-metro-funeral.xml', '/sitemap.xml'),
+  rule('/sitemap-metro-funeral.xml/', '/sitemap.xml'),
+  rule('/sitemap-metro-cremation.xml', '/sitemap.xml'),
+  rule('/sitemap-metro-cremation.xml/', '/sitemap.xml'),
+  rule('/sitemap-metro-burial.xml', '/sitemap.xml'),
+  rule('/sitemap-metro-burial.xml/', '/sitemap.xml'),
 ];
 const redirectRules = notFoundRules.concat(consolidationRules).concat(allSitemapPages
   .filter(p => p !== 'index.html' && p.endsWith('.html'))
-  .map(p => `/${p.slice(0, -5)}    /${p}    301!`));
+  .map(p => rule(`/${p.slice(0, -5)}`, `/${p}`)));
 // Netlify-subdomain copies of every rule, sent straight to the final apex
 // URL. _redirects is read before netlify.toml, so without these the path
 // rule fires first on funeralcostanalyzer.netlify.app (relative Location)
-// and the toml host rule adds a second hop. www is not listed: Netlify's
-// automatic www -> primary-domain redirect runs before any site rule.
-const CANONICAL_ORIGIN = 'https://funeralcostanalyzer.com';
+// and the toml host rule adds a second hop. www is not listed in
+// _redirects: Netlify's automatic www -> primary-domain redirect runs
+// before any site rule. collapse-legacy-www.js tries to one-hop www
+// (and keep http://www to two hops) for the same sources, with onError
+// bypass if the platform redirect still wins.
 const netlifyHostRules = redirectRules.map(r => {
   const [from, to, code] = r.trim().split(/\s+/);
-  return `https://funeralcostanalyzer.netlify.app${from}    ${CANONICAL_ORIGIN}${to}    ${code}`;
+  return `https://funeralcostanalyzer.netlify.app${from}    ${absoluteDest(to)}    ${code}`;
 });
 const redirectsContent =
   '# Auto-generated by generate-pages.js — do not edit by hand.\n' +
@@ -2892,7 +2920,36 @@ const redirectsContent =
   netlifyHostRules.join('\n') + '\n' +
   redirectRules.join('\n') + '\n';
 fs.writeFileSync(path.join(OUT, '_redirects'), redirectsContent);
-console.log(`  Redirects: _redirects (${redirectRules.length} extensionless → .html)`);
+console.log(`  Redirects: _redirects (${redirectRules.length} rules)`);
+
+const legacyMap = {};
+for (const r of redirectRules) {
+  const [from, to] = r.trim().split(/\s+/);
+  legacyMap[from] = absoluteDest(to);
+}
+const edgeDir = path.join(OUT, 'netlify', 'edge-functions');
+fs.mkdirSync(edgeDir, { recursive: true });
+const edgeSrc = `// Auto-generated by generate-pages.js — do not edit by hand.
+// One-hop www + legacy/city/extensionless paths to the apex canonical.
+// onError bypass keeps the platform www -> apex redirect if this fails.
+const MAP = ${JSON.stringify(legacyMap, null, 2)};
+export default async (request, context) => {
+  const url = new URL(request.url);
+  if (url.hostname.toLowerCase() !== "www.funeralcostanalyzer.com") return context.next();
+  let path = url.pathname;
+  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
+  const dest = MAP[path] || MAP[path + ".html"] || MAP[url.pathname];
+  if (dest) {
+    const loc = new URL(dest);
+    loc.search = url.search;
+    return Response.redirect(loc.toString(), 301);
+  }
+  return context.next();
+};
+export const config = { path: "/*", onError: "bypass" };
+`;
+fs.writeFileSync(path.join(edgeDir, 'collapse-legacy-www.js'), edgeSrc);
+console.log(`  Edge function: collapse-legacy-www.js (${Object.keys(legacyMap).length} paths)`);
 
 // ── Generate HTML Sitemap Page ─────────────────────────────────
 // Provides 1-click crawl path from homepage to EVERY page on the site
@@ -2924,6 +2981,7 @@ ${header()}
         <li><a href="cremation-vs-burial-cost.html">Cremation vs. Burial Cost Comparison</a></li>
         <li><a href="direct-cremation-cost.html">Direct Cremation Cost Guide</a></li>
         <li><a href="funeral-cost-breakdown.html">Funeral Cost Breakdown</a></li>
+        <li><a href="nfda-vs-funeral-cost-analyzer.html">NFDA Funeral Cost Data vs Funeral Cost Analyzer</a></li>
         <li><a href="cheap-funeral-options.html">Affordable Funeral Options</a></li>
         <li><a href="how-to-pay-for-a-funeral-with-no-money.html">How to Pay for a Funeral With No Money</a></li>
         <li><a href="chat.html">Free AI Guide to Funeral Costs</a></li>

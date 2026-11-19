@@ -8,6 +8,12 @@
 [functions]
   directory = "netlify/functions"
 
+# Runs before site redirects. If the platform still 301s www -> apex first,
+# this is a no-op (the function never sees www). onError = bypass.
+[[edge_functions]]
+  function = "collapse-legacy-www"
+  path = "/*"
+
 # ─── Security & Performance Headers ───────────────────────────────
 
 [[headers]]
