@@ -3796,6 +3796,104 @@ a:hover {
   font-style: italic;
 }
 
+
+/* Journalist / researcher cite box (index page, near top) */
+.journalist-cite-box {
+  background: var(--warm-50);
+  border: 1px solid var(--border-card);
+  border-left: 4px solid var(--brown-500);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin: var(--space-lg) 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+.journalist-cite-box h2 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  color: var(--brown-700);
+  margin: 0 0 var(--space-xs);
+  overflow-wrap: break-word;
+}
+.journalist-cite-reviewed {
+  font-size: 0.8125rem;
+  color: var(--warm-600);
+  margin: 0 0 var(--space-md);
+}
+.journalist-cite-figures {
+  list-style: none;
+  margin: 0 0 var(--space-md);
+  padding: 0;
+}
+.journalist-cite-figures li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin: 0;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--warm-200);
+  overflow-wrap: break-word;
+}
+.journalist-cite-figures li:last-child {
+  border-bottom: 0;
+}
+.journalist-cite-label {
+  flex: 1 1 12rem;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+.journalist-cite-value {
+  flex: 0 1 auto;
+  font-weight: 700;
+  color: var(--brown-700);
+  overflow-wrap: break-word;
+  text-align: right;
+}
+.journalist-cite-box p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin: 0 0 var(--space-sm);
+  overflow-wrap: break-word;
+}
+.journalist-cite-box p:last-child {
+  margin-bottom: 0;
+}
+.journalist-cite-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  align-items: center;
+}
+.journalist-cite-credit {
+  font-size: 0.8125rem;
+}
+
+.index-feature-box-csv {
+  margin: var(--space-sm) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+  .journalist-cite-figures li {
+    display: block;
+  }
+  .journalist-cite-value {
+    display: block;
+    text-align: left;
+    margin-top: 0.15rem;
+  }
+}
+
 /* Download Cards Grid */
 .index-download-grid {
   display: grid;
