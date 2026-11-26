@@ -55,7 +55,7 @@ function burialSummary(st) {
   const md = median(tot.map(x => x.t)), mp = median(st.map(s => s.b));
   const lo = tot.reduce((a, b) => (b.t < a.t ? b : a)), hi = tot.reduce((a, b) => (b.t > a.t ? b : a));
   return `<div class="methodology-note" id="quick-answer">
-        <p><strong>What a burial costs:</strong> a full burial (funeral service, plot, vault, opening and closing, and a basic marker) has a middle estimated total of ${usd(md)} across the 50 states in our table. It is lowest in ${lo.name} (about ${usd(lo.t)}) and highest in ${hi.name} (about ${usd(hi.t)}). The plot alone has a middle estimate of ${usd(mp)}. NFDA&rsquo;s 2023 national median of $8,300 for a funeral with viewing and burial does not include any cemetery charges, which is why the totals here are higher.</p>
+        <p><strong>What a burial costs:</strong> a full burial (funeral service, plot, vault, opening and closing, and a basic marker) has a middle estimated total of ${usd(md)} across the 50 states in our table. It is lowest in ${lo.name} (about ${usd(lo.t)}) and highest in ${hi.name} (about ${usd(hi.t)}). The plot alone has a middle estimate of ${usd(mp)}, and our explainer on <a href="burial-plot-cost.html">how much a burial plot costs</a> covers the cemetery fees that are billed along with it. NFDA&rsquo;s 2023 national median of $8,300 for a funeral with viewing and burial does not include any cemetery charges, which is why the totals here are higher.</p>
       </div>`;
 }
 
